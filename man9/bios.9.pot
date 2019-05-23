@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/bios.9:27
+#, no-wrap
+msgid "August 9, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/bios.9:28
+#, no-wrap
+msgid "BIOS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bios.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:35
+msgid ""
+"E<.Nm bios_sigsearch>, E<.Nm bios32_SDlookup>, E<.Nm bios32>, E<.Nm "
+"bios_oem_strings>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/bios.9:35
+#, no-wrap
+msgid "interact with PC BIOS"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bios.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bios.9:37
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bios.9:38
+#, no-wrap
+msgid "vm/vm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bios.9:39
+#, no-wrap
+msgid "vm/pmap.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bios.9:40
+#, no-wrap
+msgid "machine/pc/bios.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:54
+msgid ""
+"E<.Ft uint32_t> E<.Fn bios_sigsearch \"uint32_t start\" \"u_char *sig\" "
+"\"int siglen\" \"int paralen\" \"int sigofs\"> E<.Ft int> E<.Fn "
+"bios32_SDlookup \"struct bios32_SDentry *ent\"> E<.Ft int> E<.Fn bios32 "
+"\"struct bios_regs *br\" \"u_int offset\" \"u_short segment\"> E<.Fn "
+"BIOS_PADDRTOVADDR \"addr\"> E<.Fn BIOS_VADDRTOPADDR \"addr\"> E<.Vt extern "
+"struct bios32_SDentry PCIbios>; E<.Vt extern struct SMBIOS_table "
+"SMBIOStable>; E<.Vt extern struct DMI_table DMItable>; E<.Ft int> E<.Fn "
+"bios_oem_strings \"struct bios_oem *oem\" \"u_char *buffer\" \"size_t "
+"maxlen\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:68
+#, no-wrap
+msgid ""
+"struct bios_oem_signature {\n"
+"        char * anchor;          /* search anchor string in BIOS memory */\n"
+"        size_t offset;          /* offset from anchor (may be negative) */\n"
+"        size_t totlen;          /* total length of BIOS string to copy */\n"
+"};\n"
+"struct bios_oem_range {\n"
+"        u_int from;             /* shouldn't be below 0xe0000 */\n"
+"        u_int to;               /* shouldn't be above 0xfffff */\n"
+"};\n"
+"struct bios_oem {\n"
+"        struct bios_oem_range range;\n"
+"        struct bios_oem_signature signature[];\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bios.9:69
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:72
+msgid ""
+"These functions provide a general-purpose interface for dealing with the "
+"BIOS functions and data encountered on x86 PC-architecture systems."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:73
+#, no-wrap
+msgid "Fn bios_sigsearch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:94
+msgid ""
+"Searches the BIOS address space for a service signature, usually an "
+"uppercase ASCII sequence surrounded by underscores.  The search begins at "
+"E<.Fa start>, or at the beginning of the BIOS if E<.Fa start> is zero.  "
+"E<.Fa siglen> bytes of the BIOS image and E<.Fa sig> are compared at E<.Fa "
+"sigofs> bytes offset from the current location.  If no match is found, the "
+"current location is incremented by E<.Fa paralen> bytes and the search "
+"repeated.  If the signature is found, its effective physical address is "
+"returned.  If no signature is found, zero is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:94
+#, no-wrap
+msgid "Fn bios_oem_strings"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:134
+msgid ""
+"Searches a given BIOS memory range for one or more strings, and composes a "
+"printable concatenation of those found.  The routine expects a structure "
+"describing the BIOS address E<.Fa range> (within E<.Li 0xe0000> - E<.Li "
+"0xfffff>), and a { E<.Dv NULL , Li 0 , 0> } -terminated array of E<.Vt "
+"bios_oem_signature> structures which define the E<.Va anchor> string, an "
+"E<.Va offset> from the beginning of the match (which may be negative), and "
+"E<.Va totlen> number of bytes to be collected from BIOS memory starting at "
+"that offset.  Unmatched anchors are ignored, whereas matches are copied from "
+"BIOS memory starting at their corresponding E<.Vt offset> with unprintable "
+"characters being replaced with space, and consecutive spaces being "
+"suppressed.  This composed string is stored in E<.Fa buffer> up to the given "
+"E<.Fa maxlen> bytes (including trailing E<.Ql \\e0>, and any trailing space "
+"suppressed).  If an error is encountered, i.e.\\& trying to read out of said "
+"BIOS range, other invalid input, or E<.Fa buffer> overflow, a negative "
+"integer is returned, otherwise the length of the composed string is "
+"returned.  In particular, a return value of 0 means that none of the given "
+"anchor strings were found in the specified BIOS memory range."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:134
+#, no-wrap
+msgid "Fn BIOS_VADDRTOPADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:138
+msgid ""
+"Returns the effective physical address which corresponds to the kernel "
+"virtual address E<.Fa addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:138
+#, no-wrap
+msgid "Fn BIOS_PADDRTOVADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:142
+msgid ""
+"Returns the kernel virtual address which corresponds to the effective "
+"physical address E<.Fa addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:142
+#, no-wrap
+msgid "SMBIOStable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:147
+msgid ""
+"If not NULL, points to a E<.Ft struct SMBIOS_table> structure containing "
+"information read from the System Management BIOS table during system "
+"startup."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:147
+#, no-wrap
+msgid "DMItable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:152
+msgid ""
+"If not NULL, points to a E<.Ft struct DMI_table> structure containing "
+"information read from the Desktop Management Interface parameter table "
+"during system startup."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bios.9:153
+#, no-wrap
+msgid "BIOS32"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:158
+msgid ""
+"At system startup, the BIOS is scanned for the BIOS32 Service Directory "
+"(part of the PCI specification), and the existence of the directory is "
+"recorded.  This can then be used to locate other services."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:159
+#, no-wrap
+msgid "Fn bios32_SDlookup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:166
+msgid ""
+"Attempts to locate the BIOS32 service matching the 4-byte identifier passed "
+"in the E<.Fa ident> field of the E<.Fa ent> argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:166
+#, no-wrap
+msgid "Fn bios32"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:175
+msgid ""
+"Calls a bios32 function.  This presumes that the function is capable of "
+"working within the kernel segment (normally the case).  The virtual address "
+"of the entrypoint is supplied in E<.Fa entry> and the register arguments to "
+"the function are supplied in E<.Fa args>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bios.9:175
+#, no-wrap
+msgid "PCIbios"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bios.9:180
+msgid ""
+"If not NULL, points to a E<.Ft struct bios32_SDentry> structure describing "
+"the PCI BIOS entrypoint which was found during system startup."
+msgstr ""

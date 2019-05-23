@@ -1,0 +1,700 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:11
+#, no-wrap
+msgid "QTOOL"
+msgstr ""
+
+#. type: TH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:11
+#, no-wrap
+msgid "$Date: 2013-11-22 20:51:18 $"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:12
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:15
+msgid "qtool - manipulate sendmail queues"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:15
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:19
+msgid "B<qtool.pl> [options] target_directory source [source ...]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:23
+msgid "B<qtool.pl [-Q][-d|-b]> [options] source [source ...]"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:23
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:33
+msgid ""
+"B<Qtool> moves the queue files used by sendmail between queues. It uses the "
+"same locking mechanism as sendmail so can be safely used while sendmail is "
+"running.  However, it should not be used when queue groups have been "
+"configured to move queue files into directories to which they do not belong "
+"according to the queue group selections made in the sendmail.cf file.  "
+"Unless you are absolutely sure you do not interfere with the queue group "
+"selection mechanism, do not move queue files around."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:39
+msgid ""
+"With no options, B<qtool> will move any queue files as specified by "
+"I<source> into I<target_directory>. I<Source> can be either an individual "
+"queue control file, a queue file id, or a queue directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:42
+msgid ""
+"If the -d option is specified, qtool will delete the messages specified by "
+"source instead of moving them."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:45
+msgid ""
+"If the -b option is specified, the selected messages will be bounced by "
+"running sendmail with the -OTimeout.queuereturn=now option."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/sendmail/contrib/qtool.8:45
+#, no-wrap
+msgid "Options"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:46
+#, no-wrap
+msgid "B<-b>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:50
+msgid ""
+"Bounce all of the messages specified by source. The messages will be bounced "
+"immediately. No attempt will be made to deliver the messages."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:50
+#, no-wrap
+msgid "B<-C> configfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:54
+msgid "Specify the sendmail config file.  Defaults to /etc/mail/sendmail.cf."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:54
+#, no-wrap
+msgid "B<-d>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:57
+msgid "Delete all of the messages specified by source."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:57
+#, no-wrap
+msgid "B<-e> I<perl_expression>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:62
+msgid ""
+"Evaluate I<perl_expression> for each queue file as specified by "
+"I<source>. If I<perl_expression> evaluates to true, then that queue file is "
+"moved. See below for more detail on I<perl_expression>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:62
+#, no-wrap
+msgid "B<-Q>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:66
+msgid ""
+"Operate on quarantined items (queue control file begins with hf instead of "
+"qf)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:66
+#, no-wrap
+msgid "B<-s> I<seconds>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:70
+msgid ""
+"Move only the queue files specified by I<source> that have a modification "
+"time older than I<seconds>."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/sendmail/contrib/qtool.8:70
+#, no-wrap
+msgid "Perl Expressions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:77
+msgid ""
+"You can use any valid perl expression. Inside the expression you have access "
+"to a hash that contains many of the fields in the control file as well as "
+"some other data about that queued message. The hash is called I<%msg>. If a "
+"field has multiple values (e.g. 'Recipient'), it will be returned as an "
+"array, otherwise it will be returned as a scalar. Through I<%msg>, you can "
+"access the following variables:"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:77
+#, no-wrap
+msgid "B<auth>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:80
+msgid "AUTH= parameter."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:80
+#, no-wrap
+msgid "B<body_type>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:83
+msgid "Body type (B<8BITMIME>, B<7BIT>, or undefined)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:83
+#, no-wrap
+msgid "B<body_last_mod_time>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:86
+msgid "The last time the body was modified since the epoch in seconds."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:86
+#, no-wrap
+msgid "B<body_size>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:89
+msgid "The size of the body file in bytes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:89
+#, no-wrap
+msgid "B<content-length>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:92
+msgid "Content-Length: header value (Solaris sendmail only)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:92
+#, no-wrap
+msgid "B<controlling_user>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:95
+msgid "The controlling user."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:95
+#, no-wrap
+msgid "B<control_last_mod_time>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:98
+msgid "The last time the control file was modified since the epoch in seconds."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:98
+#, no-wrap
+msgid "B<control_size>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:101
+msgid "The size of the control file in bytes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:101
+#, no-wrap
+msgid "B<creation_time>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:104
+msgid "The time when the control file was created."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:104
+#, no-wrap
+msgid "B<data_file_name>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:107
+msgid "The data file name (deprecated)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:107
+#, no-wrap
+msgid "B<deliver_by>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:110
+msgid "Deliver by flag and deadline for DELIVERBY ESMTP extension."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:110
+#, no-wrap
+msgid "B<envid>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:113
+msgid "Original envelope id form ESMTP."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:113
+#, no-wrap
+msgid "B<error_recipient>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:116
+msgid "The error recipient (deprecated)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:116
+#, no-wrap
+msgid "B<final_recipient>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:119
+msgid "Final recipient (for DSNs)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:119
+#, no-wrap
+msgid "B<flags>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:122
+msgid "Array of characters that can be the following values:"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:124
+#, no-wrap
+msgid "w"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:127
+msgid "warning message has been sent"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:127
+#, no-wrap
+msgid "r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:130
+msgid "This is an error response or DSN"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:130
+#, no-wrap
+msgid "8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:133
+msgid "has 8 bit data in body"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:133
+#, no-wrap
+msgid "b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:136
+msgid "delete Bcc: headers"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:136
+#, no-wrap
+msgid "d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:139
+msgid "envelope has DSN RET= parameter"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:139
+#, no-wrap
+msgid "n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:142
+msgid "don't return body"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:144
+#, no-wrap
+msgid "B<headers>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:150
+msgid ""
+"This is a Perl hash where the keys are rfc822 field names and the values are "
+"rfc822 field values. If a field has only one value it will be returned as a "
+"string. If a field has more than one value (e.g. 'Received') it will be "
+"returned as a list of strings."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:150
+#, no-wrap
+msgid "B<inode_number>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:153
+msgid "The inode number for the data (body) file."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:153
+#, no-wrap
+msgid "B<next_delivery_time>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:156
+msgid "Earliest time of next delivery attempt."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:156
+#, no-wrap
+msgid "B<num_delivery_attempts>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:159
+msgid "Number of delivery attempts that have been made."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:159
+#, no-wrap
+msgid "B<macro>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:162
+msgid "Defined macro."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:162
+#, no-wrap
+msgid "B<message>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:165
+msgid "Envelope status message."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:165
+#, no-wrap
+msgid "B<original_recipient>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:168
+msgid "Original recipient (ORCPT= parameter)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:168
+#, no-wrap
+msgid "B<priority>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:171
+msgid "Adjusted priority of message."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:171
+#, no-wrap
+msgid "B<quarantine_reason>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:174
+msgid "Quarantine reason for quarantined (held) envelopes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:174
+#, no-wrap
+msgid "B<recipient>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:177
+msgid "Array of character flags followed by colon and recipient name. Flags:"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:179
+#, no-wrap
+msgid "N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:182
+msgid "Has NOTIFY= parameter."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:182
+#, no-wrap
+msgid "S"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:185
+msgid "Success DSN requested."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:185
+#, no-wrap
+msgid "F"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:188
+msgid "Failure DSN requested."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:188
+#, no-wrap
+msgid "D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:191
+msgid "Delay DSN requested."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:191
+#, no-wrap
+msgid "P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:194
+msgid "Primary address (not the result of alias/forward expansion)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:196
+#, no-wrap
+msgid "B<sender>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:199
+msgid "Sender"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:199
+#, no-wrap
+msgid "B<version>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:202
+msgid "Version of control file."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:202
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:203
+#, no-wrap
+msgid "B<qtool.pl q2 q1>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:206
+msgid "Moves all of the queue files in queue q1 to queue q2."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:206
+#, no-wrap
+msgid "B<qtool.pl q2 q1/d6CLQh100847>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:209 /usr/src/contrib/sendmail/contrib/qtool.8:212
+msgid "Moves the message with id d6CLQh100847 in queue q1 to queue q2."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:209
+#, no-wrap
+msgid "B<qtool.pl q2 q1/qfd6CLQh100847>"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/sendmail/contrib/qtool.8:212
+#, no-wrap
+msgid "B<qtool.pl -e '$msg{num_delivery_attempts} == 3' /q2 /q1>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:216
+msgid ""
+"Moves all of the queue files that have had three attempted deliveries from "
+"queue q1 to queue q2."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:216
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:222
+msgid ""
+"In sendmail 8.12, it is possible for a message's queue and data files (df)  "
+"to be stored in different queues.  In this situation, you must give qtool "
+"the pathname of the queue file, not of the data file (df).  To be safe, "
+"never feed qtool the pathname of a data file (df)."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:222
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:224
+msgid "sendmail(8)"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/sendmail/contrib/qtool.8:224
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/sendmail/contrib/qtool.8:228
+msgid "The B<qtool> command appeared in sendmail 8.10."
+msgstr ""

@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/stab.5:31
+#, no-wrap
+msgid "June 10, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/stab.5:32
+#, no-wrap
+msgid "STAB 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/stab.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:36
+msgid "E<.Nm stab>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/stab.5:36
+#, no-wrap
+msgid "symbol table types"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/stab.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/stab.5:38 /usr/src/share/man/man5/stab.5:41
+#, no-wrap
+msgid "stab.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/stab.5:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:41
+msgid "The file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:71
+msgid ""
+"defines some of the symbol table E<.Fa n_type> field values for a.out "
+"files.  These are the types for permanent symbols (i.e., not local labels, "
+"etc.\\&)  used by the old debugger E<.Em sdb> and the Berkeley Pascal "
+"compiler E<.Xr pc 1>.  Symbol table entries can be produced by the E<.Pa "
+".stabs> assembler directive.  This allows one to specify a double-quote "
+"delimited name, a symbol type, one char and one short of information about "
+"the symbol, and an unsigned long (usually an address).  To avoid having to "
+"produce an explicit label for the address field, the E<.Pa .stabd> directive "
+"can be used to implicitly address the current location.  If no name is "
+"needed, symbol table entries can be generated using the E<.Pa .stabn> "
+"directive.  The loader promises to preserve the order of symbol table "
+"entries produced by E<.Pa .stab> directives.  As described in E<.Xr a.out "
+"5>, an element of the symbol table consists of the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:75
+#, no-wrap
+msgid ""
+"/*\n"
+"* Format of a symbol table entry.\n"
+"*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:86
+#, no-wrap
+msgid ""
+"struct nlist {\n"
+"\tunion {\n"
+"\t\tconst char *n_name;\t/* for use when in-core */\n"
+"\t\tlong\tn_strx;\t\t/* index into file string table */\n"
+"\t} n_un;\n"
+"\tunsigned char\tn_type;\t\t/* type flag */\n"
+"\tchar\t\tn_other;\t/* unused */\n"
+"\tshort\t\tn_desc;\t\t/* see struct desc, below */\n"
+"\tunsigned\tn_value;\t/* address or offset or line */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:93
+msgid ""
+"The low bits of the E<.Fa n_type> field are used to place a symbol into at "
+"most one segment, according to the following masks, defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/stab.5:93
+#, no-wrap
+msgid "a.out.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:96
+msgid ""
+"A symbol can be in none of these segments by having none of these segment "
+"bits set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:100
+#, no-wrap
+msgid ""
+"/*\n"
+"* Simple values for n_type.\n"
+"*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:106
+#, no-wrap
+msgid ""
+"#define\tN_UNDF\t0x0\t/* undefined */\n"
+"#define\tN_ABS\t0x2\t/* absolute */\n"
+"#define\tN_TEXT\t0x4\t/* text */\n"
+"#define\tN_DATA\t0x6\t/* data */\n"
+"#define\tN_BSS\t0x8\t/* bss */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:108
+#, no-wrap
+msgid "#define\tN_EXT\t01\t/* external bit, or'ed in */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:121
+msgid ""
+"The E<.Fa n_value> field of a symbol is relocated by the linker, E<.Xr ld 1> "
+"as an address within the appropriate segment.  E<.Fa N_value> fields of "
+"symbols not in any segment are unchanged by the linker.  In addition, the "
+"linker will discard certain symbols, according to rules of its own, unless "
+"the E<.Fa n_type> field has one of the following bits set:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:126
+#, no-wrap
+msgid ""
+"/*\n"
+"* Other permanent symbol table entries have some of the N_STAB bits set.\n"
+"* These are given in E<lt>stab.hE<gt>\n"
+"*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:128
+#, no-wrap
+msgid "#define\tN_STAB\t0xe0\t/* if any of these bits set, don't discard */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:136
+msgid ""
+"This allows up to 112 (7 \\(** 16) symbol types, split between the various "
+"segments.  Some of these have already been claimed.  The old symbolic "
+"debugger, E<.Em sdb>, uses the following n_type values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:156
+#, no-wrap
+msgid ""
+"#define\tN_GSYM\t0x20\t/* global symbol: name,,0,type,0 */\n"
+"#define\tN_FNAME\t0x22\t/* procedure name (f77 kludge): name,,0 */\n"
+"#define\tN_FUN\t0x24\t/* procedure: name,,0,linenumber,address */\n"
+"#define\tN_STSYM\t0x26\t/* static symbol: name,,0,type,address */\n"
+"#define\tN_LCSYM\t0x28\t/* .lcomm symbol: name,,0,type,address */\n"
+"#define\tN_RSYM\t0x40\t/* register sym: name,,0,type,register */\n"
+"#define\tN_SLINE\t0x44\t/* src line: 0,,0,linenumber,address */\n"
+"#define\tN_SSYM\t0x60\t/* structure elt: name,,0,type,struct_offset */\n"
+"#define\tN_SO\t0x64\t/* source file name: name,,0,0,address */\n"
+"#define\tN_LSYM\t0x80\t/* local sym: name,,0,type,offset */\n"
+"#define\tN_SOL\t0x84\t/* #included file name: name,,0,0,address */\n"
+"#define\tN_PSYM\t0xa0\t/* parameter: name,,0,type,offset */\n"
+"#define\tN_ENTRY\t0xa4\t/* alternate entry: name,linenumber,address */\n"
+"#define\tN_LBRAC\t0xc0\t/* left bracket: 0,,0,nesting level,address */\n"
+"#define\tN_RBRAC\t0xe0\t/* right bracket: 0,,0,nesting level,address */\n"
+"#define\tN_BCOMM\t0xe2\t/* begin common: name,, */\n"
+"#define\tN_ECOMM\t0xe4\t/* end common: name,, */\n"
+"#define\tN_ECOML\t0xe8\t/* end common (local name): ,,address */\n"
+"#define\tN_LENG\t0xfe\t/* second stab entry with length information */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:181
+msgid ""
+"where the comments give E<.Em sdb> conventional use for E<.Pa .stab> E<.Fa "
+"s> and the E<.Fa n_name>, E<.Fa n_other>, E<.Fa n_desc>, and E<.Fa n_value> "
+"fields of the given E<.Fa n_type>.  E<.Em Sdb> uses the E<.Fa n_desc> field "
+"to hold a type specifier in the form used by the Portable C Compiler, E<.Xr "
+"cc 1>; see the header file E<.Pa pcc.h> for details on the format of these "
+"type values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:187
+msgid ""
+"The Berkeley Pascal compiler, E<.Xr pc 1>, uses the following E<.Fa n_type> "
+"value:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:189
+#, no-wrap
+msgid "#define\tN_PC\t0x30\t/* global pascal symbol: name,,0,subtype,line */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:193
+msgid ""
+"and uses the following subtypes to do type checking across separately "
+"compiled files:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:206
+#, no-wrap
+msgid ""
+"1\tsource file name\n"
+"2\tincluded file name\n"
+"3\tglobal label\n"
+"4\tglobal constant\n"
+"5\tglobal type\n"
+"6\tglobal variable\n"
+"7\tglobal function\n"
+"8\tglobal procedure\n"
+"9\texternal function\n"
+"10\texternal procedure\n"
+"11\tlibrary variable\n"
+"12\tlibrary routine\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/stab.5:207
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:211
+msgid "E<.Xr as 1>, E<.Xr ld 1>, E<.Xr a.out 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/stab.5:211
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:216
+msgid "The E<.Nm> file appeared in E<.Bx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/stab.5:216
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/stab.5:217
+msgid "More basic types are needed."
+msgstr ""

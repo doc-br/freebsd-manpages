@@ -1,0 +1,720 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/geom.4:37
+#, no-wrap
+msgid "April 9, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/geom.4:38
+#, no-wrap
+msgid "GEOM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:42
+msgid "E<.Nm GEOM>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/geom.4:42
+#, no-wrap
+msgid "modular disk I/O request transformation framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:73
+msgid ""
+"E<.Cd options GEOM_BDE> E<.Cd options GEOM_CACHE> E<.Cd options GEOM_CONCAT> "
+"E<.Cd options GEOM_ELI> E<.Cd options GEOM_GATE> E<.Cd options GEOM_JOURNAL> "
+"E<.Cd options GEOM_LABEL> E<.Cd options GEOM_LINUX_LVM> E<.Cd options "
+"GEOM_MAP> E<.Cd options GEOM_MIRROR> E<.Cd options GEOM_MOUNTVER> E<.Cd "
+"options GEOM_MULTIPATH> E<.Cd options GEOM_NOP> E<.Cd options GEOM_PART_APM> "
+"E<.Cd options GEOM_PART_BSD> E<.Cd options GEOM_PART_BSD64> E<.Cd options "
+"GEOM_PART_EBR> E<.Cd options GEOM_PART_EBR_COMPAT> E<.Cd options "
+"GEOM_PART_GPT> E<.Cd options GEOM_PART_LDM> E<.Cd options GEOM_PART_MBR> "
+"E<.Cd options GEOM_PART_VTOC8> E<.Cd options GEOM_RAID> E<.Cd options "
+"GEOM_RAID3> E<.Cd options GEOM_SHSEC> E<.Cd options GEOM_STRIPE> E<.Cd "
+"options GEOM_UZIP> E<.Cd options GEOM_VIRSTOR> E<.Cd options GEOM_ZERO>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:73
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:80
+msgid ""
+"The E<.Nm> framework provides an infrastructure in which E<.Dq classes> can "
+"perform transformations on disk I/O requests on their path from the upper "
+"kernel to the device drivers and back."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:87
+msgid ""
+"Transformations in a E<.Nm> context range from the simple geometric "
+"displacement performed in typical disk partitioning modules over RAID "
+"algorithms and device multipath resolution to full blown cryptographic "
+"protection of the stored data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:93
+msgid ""
+"Compared to traditional E<.Dq \"volume management\">, E<.Nm> differs from "
+"most and in some cases all previous implementations in the following ways:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:103
+msgid ""
+"E<.Nm> is extensible.  It is trivially simple to write a new class of "
+"transformation and it will not be given stepchild treatment.  If someone for "
+"some reason wanted to mount IBM MVS diskpacks, a class recognizing and "
+"configuring their VTOC information would be a trivial matter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:110
+msgid ""
+"E<.Nm> is topologically agnostic.  Most volume management implementations "
+"have very strict notions of how classes can fit together, very often one "
+"fixed hierarchy is provided, for instance, subdisk - plex - volume."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:114
+msgid ""
+"Being extensible means that new transformations are treated no differently "
+"than existing transformations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:124
+msgid ""
+"Fixed hierarchies are bad because they make it impossible to express the "
+"intent efficiently.  In the fixed hierarchy above, it is not possible to "
+"mirror two physical disks and then partition the mirror into subdisks, "
+"instead one is forced to make subdisks on the physical volumes and to mirror "
+"these two and two, resulting in a much more complex configuration.  E<.Nm> "
+"on the other hand does not care in which order things are done, the only "
+"restriction is that cycles in the graph will not be allowed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:124
+#, no-wrap
+msgid "TERMINOLOGY AND TOPOLOGY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:128
+msgid ""
+"E<.Nm> is quite object oriented and consequently the terminology borrows a "
+"lot of context and semantics from the OO vocabulary:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:137
+msgid ""
+"A E<.Dq class>, represented by the data structure E<.Vt g_class> implements "
+"one particular kind of transformation.  Typical examples are MBR disk "
+"partition, BSD disklabel, and RAID5 classes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:146
+msgid ""
+"An instance of a class is called a E<.Dq geom> and represented by the data "
+"structure E<.Vt g_geom>.  In a typical i386 E<.Fx> system, there will be one "
+"geom of class MBR for each disk."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:163
+msgid ""
+"A E<.Dq provider>, represented by the data structure E<.Vt g_provider>, is "
+"the front gate at which a geom offers service.  A provider is E<.Do> a "
+"disk-like thing which appears in E<.Pa /dev> E<.Dc - a logical> disk in "
+"other words.  All providers have three main properties: E<.Dq name>, E<.Dq "
+"sectorsize> and E<.Dq size>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:168
+msgid ""
+"A E<.Dq consumer> is the backdoor through which a geom connects to another "
+"geom provider and through which I/O requests are sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:170
+msgid "The topological relationship between these entities are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:173
+msgid "A class has zero or more geom instances."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:175
+msgid "A geom has exactly one class it is derived from."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:177
+msgid "A geom has zero or more consumers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:179
+msgid "A geom has zero or more providers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:181
+msgid "A consumer can be attached to zero or one providers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:183
+msgid "A provider can have zero or more consumers attached."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:189
+msgid ""
+"All geoms have a rank-number assigned, which is used to detect and prevent "
+"loops in the acyclic directed graph.  This rank number is assigned as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:192
+msgid "A geom with no attached consumers has rank=1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:196
+msgid ""
+"A geom with attached consumers has a rank one higher than the highest rank "
+"of the geoms of the providers its consumers are attached to."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:197
+#, no-wrap
+msgid "SPECIAL TOPOLOGICAL MANEUVERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:202
+msgid ""
+"In addition to the straightforward attach, which attaches a consumer to a "
+"provider, and detach, which breaks the bond, a number of special topological "
+"maneuvers exists to facilitate configuration and to improve the overall "
+"flexibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:203
+#, no-wrap
+msgid "Em TASTING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:210
+msgid ""
+"is a process that happens whenever a new class or new provider is created, "
+"and it provides the class a chance to automatically configure an instance on "
+"providers which it recognizes as its own.  A typical example is the MBR "
+"disk-partition class which will look for the MBR table in the first sector "
+"and, if found and validated, will instantiate a geom to multiplex according "
+"to the contents of the MBR."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:213
+msgid ""
+"A new class will be offered to all existing providers in turn and a new "
+"provider will be offered to all classes in turn."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:218
+msgid ""
+"Exactly what a class does to recognize if it should accept the offered "
+"provider is not defined by E<.Nm>, but the sensible set of options are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:221
+msgid "Examine specific data structures on the disk."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:227
+msgid ""
+"Examine properties like E<.Dq sectorsize> or E<.Dq mediasize> for the "
+"provider."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:229
+msgid "Examine the rank number of the provider's geom."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:231
+msgid "Examine the method name of the provider's geom."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:232
+#, no-wrap
+msgid "Em ORPHANIZATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:235
+msgid ""
+"is the process by which a provider is removed while it potentially is still "
+"being used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:243
+msgid ""
+"When a geom orphans a provider, all future I/O requests will E<.Dq bounce> "
+"on the provider with an error code set by the geom.  Any consumers attached "
+"to the provider will receive notification about the orphanization when the "
+"event loop gets around to it, and they can take appropriate action at that "
+"time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:250
+msgid ""
+"A geom which came into being as a result of a normal taste operation should "
+"self-destruct unless it has a way to keep functioning whilst lacking the "
+"orphaned provider.  Geoms like disk slicers should therefore self-destruct "
+"whereas RAID5 or mirror geoms will be able to continue as long as they do "
+"not lose quorum."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:255
+msgid ""
+"When a provider is orphaned, this does not necessarily result in any "
+"immediate change in the topology: any attached consumers are still attached, "
+"any opened paths are still open, any outstanding I/O requests are still "
+"outstanding."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:257
+msgid "The typical scenario is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:261
+msgid "A device driver detects a disk has departed and orphans the provider for it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:268
+msgid ""
+"The geoms on top of the disk receive the orphanization event and orphan all "
+"their providers in turn.  Providers which are not attached to will typically "
+"self-destruct right away.  This process continues in a quasi-recursive "
+"fashion until all relevant pieces of the tree have heard the bad news."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:271
+msgid "Eventually the buck stops when it reaches geom_dev at the top of the stack."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:281
+msgid ""
+"Geom_dev will call E<.Xr destroy_dev 9> to stop any more requests from "
+"coming in.  It will sleep until any and all outstanding I/O requests have "
+"been returned.  It will explicitly close (i.e.: zero the access counts), a "
+"change which will propagate all the way down through the mesh.  It will then "
+"detach and destroy its geom."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:284
+msgid ""
+"The geom whose provider is now detached will destroy the provider, detach "
+"and destroy its consumer and destroy its geom."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:287
+msgid ""
+"This process percolates all the way down through the mesh, until the cleanup "
+"is complete."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:291
+msgid ""
+"While this approach seems byzantine, it does provide the maximum flexibility "
+"and robustness in handling disappearing devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:295
+msgid ""
+"The one absolutely crucial detail to be aware of is that if the device "
+"driver does not return all I/O requests, the tree will not unravel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:295
+#, no-wrap
+msgid "Em SPOILING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:300
+msgid ""
+"is a special case of orphanization used to protect against stale metadata.  "
+"It is probably easiest to understand spoiling by going through an example."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:321
+msgid ""
+"Imagine a disk, E<.Pa da0>, on top of which an MBR geom provides E<.Pa "
+"da0s1> and E<.Pa da0s2>, and on top of E<.Pa da0s1> a BSD geom provides "
+"E<.Pa da0s1a> through E<.Pa da0s1e>, and that both the MBR and BSD geoms "
+"have autoconfigured based on data structures on the disk media.  Now imagine "
+"the case where E<.Pa da0> is opened for writing and those data structures "
+"are modified or overwritten: now the geoms would be operating on stale "
+"metadata unless some notification system can inform them otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:332
+msgid ""
+"To avoid this situation, when the open of E<.Pa da0> for write happens, all "
+"attached consumers are told about this and geoms like MBR and BSD will "
+"self-destruct as a result.  When E<.Pa da0> is closed, it will be offered "
+"for tasting again and, if the data structures for MBR and BSD are still "
+"there, new geoms will instantiate themselves anew."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:334
+msgid "Now for the fine print:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:345
+msgid ""
+"If any of the paths through the MBR or BSD module were open, they would have "
+"opened downwards with an exclusive bit thus rendering it impossible to open "
+"E<.Pa da0> for writing in that case.  Conversely, the requested exclusive "
+"bit would render it impossible to open a path through the MBR geom while "
+"E<.Pa da0> is open for writing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:348
+msgid ""
+"From this it also follows that changing the size of open geoms can only be "
+"done with their cooperation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:352
+msgid ""
+"Finally: the spoiling only happens when the write count goes from zero to "
+"non-zero and the retasting happens only when the write count goes from "
+"non-zero to zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:352
+#, no-wrap
+msgid "Em CONFIGURE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:360
+msgid ""
+"is the process where the administrator issues instructions for a particular "
+"class to instantiate itself.  There are multiple ways to express intent in "
+"this case - a particular provider may be specified with a level of override "
+"forcing, for instance, a BSD disklabel module to attach to a provider which "
+"was not found palatable during the TASTE operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:363
+msgid ""
+"Finally, I/O is the reason we even do this: it concerns itself with sending "
+"I/O requests through the graph."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:363
+#, no-wrap
+msgid "Em \"I/O REQUESTS\" ,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:383
+msgid ""
+"represented by E<.Vt \"struct bio\">, originate at a consumer, are scheduled "
+"on its attached provider and, when processed, are returned to the consumer.  "
+"It is important to realize that the E<.Vt \"struct bio\"> which enters "
+"through the provider of a particular geom does not E<.Do> come out on the "
+"other side E<.Dc>.  Even simple transformations like MBR and BSD will clone "
+"the E<.Vt \"struct bio\">, modify the clone, and schedule the clone on their "
+"own consumer.  Note that cloning the E<.Vt \"struct bio\"> does not involve "
+"cloning the actual data area specified in the I/O request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:388
+msgid ""
+"In total, four different I/O requests exist in E<.Nm>: read, write, delete, "
+"and E<.Dq \"get attribute\".>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:390
+msgid "Read and write are self explanatory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:398
+msgid ""
+"Delete indicates that a certain range of data is no longer used and that it "
+"can be erased or freed as the underlying technology supports.  Technologies "
+"like flash adaptation layers can arrange to erase the relevant blocks before "
+"they will become reassigned and cryptographic devices may want to fill "
+"random bits into the range to reduce the amount of data available for "
+"attack."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:408
+msgid ""
+"It is important to recognize that a delete indication is not a request and "
+"consequently there is no guarantee that the data actually will be erased or "
+"made unavailable unless guaranteed by specific geoms in the graph.  If E<.Dq "
+"\"secure delete\"> semantics are required, a geom should be pushed which "
+"converts delete indications into (a sequence of) write requests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:416
+msgid ""
+"E<.Dq \"Get attribute\"> supports inspection and manipulation of out-of-band "
+"attributes on a particular provider or path.  Attributes are named by E<.Tn "
+"ASCII> strings and they will be discussed in a separate section below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:419
+msgid "(Stay tuned while the author rests his brain and fingers: more to come.)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:419
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:428
+msgid ""
+"Several flags are provided for tracing E<.Nm> operations and unlocking "
+"protection mechanisms via the E<.Va kern.geom.debugflags> sysctl.  All of "
+"these flags are off by default, and great care should be taken in turning "
+"them on."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:429
+#, no-wrap
+msgid "0x01 Pq Dv G_T_TOPOLOGY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:431
+msgid "Provide tracing of topology change events."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:431
+#, no-wrap
+msgid "0x02 Pq Dv G_T_BIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:433
+msgid "Provide tracing of buffer I/O requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:433
+#, no-wrap
+msgid "0x04 Pq Dv G_T_ACCESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:435
+msgid "Provide tracing of access check controls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:435
+#, no-wrap
+msgid "0x08 (unused)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:436
+#, no-wrap
+msgid "0x10 (allow foot shooting)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:441
+msgid ""
+"Allow writing to Rank 1 providers.  This would, for example, allow the "
+"super-user to overwrite the MBR on the root disk or write random sectors "
+"elsewhere to a mounted disk.  The implications are obvious."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:441
+#, no-wrap
+msgid "0x40 Pq Dv G_F_DISKIOCTL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:443
+msgid "This is unused at this time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom.4:443
+#, no-wrap
+msgid "0x80 Pq Dv G_F_CTLDUMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:445
+msgid "Dump contents of gctl requests."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:446
+#, no-wrap
+msgid "OBSOLETE OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:456
+msgid ""
+"The following options have been deprecated and will be removed in E<.Fx 12>: "
+"E<.Cd GEOM_BSD>, E<.Cd GEOM_FOX>, E<.Cd GEOM_MBR>, E<.Cd GEOM_SUNLABEL>, and "
+"E<.Cd GEOM_VOL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:464
+msgid ""
+"Use E<.Cd GEOM_PART_BSD>, E<.Cd GEOM_MULTIPATH>, E<.Cd GEOM_PART_MBR>, E<.Cd "
+"GEOM_PART_VTOC8>, E<.Cd GEOM_LABEL> options, respectively, instead."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:464
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:477
+msgid ""
+"E<.Xr libgeom 3>, E<.Xr DECLARE_GEOM_CLASS 9>, E<.Xr disk 9>, E<.Xr g_access "
+"9>, E<.Xr g_attach 9>, E<.Xr g_bio 9>, E<.Xr g_consumer 9>, E<.Xr g_data 9>, "
+"E<.Xr g_event 9>, E<.Xr g_geom 9>, E<.Xr g_provider 9>, E<.Xr "
+"g_provider_by_name 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:477
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:487
+msgid ""
+"This software was developed for the E<.Fx> Project by E<.An Poul-Henning "
+"Kamp> and NAI Labs, the Security Research Division of Network Associates, "
+"Inc.\\& under DARPA/SPAWAR contract N66001-01-C-8035 E<.Pq Dq CBOSS>, as "
+"part of the DARPA CHATS research program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:496
+msgid ""
+"The first precursor for E<.Nm> was a gruesome hack to Minix 1.2 and was "
+"never distributed.  An earlier attempt to implement a less general scheme in "
+"E<.Fx> never succeeded."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom.4:496
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom.4:497
+msgid "E<.An Poul-Henning Kamp Aq Mt phk@FreeBSD.org>"
+msgstr ""

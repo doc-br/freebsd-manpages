@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:30-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/lib/libc/posix1e/mac.conf.5:32
+#, no-wrap
+msgid "July 25, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/lib/libc/posix1e/mac.conf.5:33
+#, no-wrap
+msgid "MAC.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libc/posix1e/mac.conf.5:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:37
+msgid "E<.Nm mac.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/lib/libc/posix1e/mac.conf.5:37
+#, no-wrap
+msgid "format of the MAC library configuration file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libc/posix1e/mac.conf.5:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:47
+msgid ""
+"The E<.Nm> file configures the default label elements to be used by "
+"policy-agnostic applications that operate on MAC labels.  A file contains a "
+"series of default label sets specified by object class, in addition to blank "
+"lines and comments preceded by a E<.Ql #> symbol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:56
+msgid ""
+"Currently, the implementation supports two syntax styles for label element "
+"declaration.  The old (deprecated) syntax consists of a single line with two "
+"fields separated by white space: the object class name, and a list of label "
+"elements as used by the E<.Xr mac_prepare 3> library calls prior to an "
+"application invocation of a function from E<.Xr mac_get 3>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:60
+msgid ""
+"The newer more preferred syntax consists of three fields separated by white "
+"space: the label group, object class name and a list of label elements."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:66
+msgid ""
+"Label element names may optionally begin with a E<.Ql \\&?> symbol to "
+"indicate that a failure to retrieve the label element for an object should "
+"be silently ignored, and improves usability if the set of MAC policies may "
+"change over time."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libc/posix1e/mac.conf.5:66
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libc/posix1e/mac.conf.5:68
+#, no-wrap
+msgid "Pa /etc/mac.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:70
+msgid "MAC library configuration file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libc/posix1e/mac.conf.5:71
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:79
+msgid ""
+"The following example configures user applications to operate with four MAC "
+"policies: E<.Xr mac_biba 4>, E<.Xr mac_mls 4>, SEBSD, and E<.Xr "
+"mac_partition 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:82
+#, no-wrap
+msgid ""
+"#\n"
+"# Default label set to be used by simple MAC applications\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:87
+#, no-wrap
+msgid ""
+"default_labels file ?biba,?lomac,?mls,?sebsd\n"
+"default_labels ifnet ?biba,?lomac,?mls,?sebsd\n"
+"default_labels process ?biba,?lomac,?mls,?partition,?sebsd\n"
+"default_labels socket ?biba,?lomac,?mls\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:90
+#, no-wrap
+msgid ""
+"#\n"
+"# Deprecated (old) syntax\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:94
+#, no-wrap
+msgid ""
+"default_file_labels ?biba,?mls,?sebsd\n"
+"default_ifnet_labels ?biba,?mls,?sebsd\n"
+"default_process_labels ?biba,?mls,partition,?sebsd\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:101
+msgid ""
+"In this example, userland applications will attempt to retrieve Biba, MLS, "
+"and SEBSD labels for all object classes; for processes, they will "
+"additionally attempt to retrieve a Partition identifier.  In all cases "
+"except the Partition identifier, failure to retrieve a label due to the "
+"respective policy not being present will be ignored."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libc/posix1e/mac.conf.5:101
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:107
+msgid ""
+"E<.Xr mac 3>, E<.Xr mac_get 3>, E<.Xr mac_prepare 3>, E<.Xr mac 4>, E<.Xr "
+"mac 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libc/posix1e/mac.conf.5:107
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libc/posix1e/mac.conf.5:112
+msgid ""
+"Support for Mandatory Access Control was introduced in E<.Fx 5.0> as part of "
+"the E<.Tn TrustedBSD> Project."
+msgstr ""

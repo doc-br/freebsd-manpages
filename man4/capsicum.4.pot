@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/capsicum.4:29
+#, no-wrap
+msgid "May 18, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/capsicum.4:30
+#, no-wrap
+msgid "CAPSICUM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/capsicum.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:34
+msgid "E<.Nm Capsicum>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/capsicum.4:34
+#, no-wrap
+msgid "lightweight OS capability and sandbox framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/capsicum.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:38
+msgid "E<.Cd \"options CAPABILITY_MODE\"> E<.Cd \"options CAPABILITIES\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/capsicum.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:47
+msgid ""
+"E<.Nm> is a lightweight OS capability and sandbox framework implementing a "
+"hybrid capability system model.  E<.Nm> can be used for application and "
+"library compartmentalisation, the decomposition of larger bodies of software "
+"into isolated (sandboxed)  components in order to implement security "
+"policies and limit the impact of software vulnerabilities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:50
+msgid "E<.Nm> provides two core kernel primitives:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/capsicum.4:51
+#, no-wrap
+msgid "capability mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:59
+msgid ""
+"A process mode, entered by invoking E<.Xr cap_enter 2>, in which access to "
+"global OS namespaces (such as the file system and PID namespaces) is "
+"restricted; only explicitly delegated rights, referenced by memory mappings "
+"or file descriptors, may be used.  Once set, the flag is inherited by future "
+"children processes, and may not be cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/capsicum.4:59
+#, no-wrap
+msgid "capabilities"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:74
+msgid ""
+"Limit operations that can be called on file descriptors.  For example, a "
+"file descriptor returned by E<.Xr open 2> may be refined using E<.Xr "
+"cap_rights_limit 2> so that only E<.Xr read 2> and E<.Xr write 2> can be "
+"called, but not E<.Xr fchmod 2>.  The complete list of the capability rights "
+"can be found in the E<.Xr rights 4> manual page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:80
+msgid ""
+"In some cases, E<.Nm> requires use of alternatives to traditional POSIX APIs "
+"in order to name objects using capabilities rather than global namespaces:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/capsicum.4:81
+#, no-wrap
+msgid "process descriptors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:86
+msgid ""
+"File descriptors representing processes, allowing parent processes to manage "
+"child processes without requiring access to the PID namespace; described in "
+"greater detail in E<.Xr procdesc 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/capsicum.4:86
+#, no-wrap
+msgid "anonymous shared memory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:90
+msgid ""
+"An extension to the POSIX shared memory API to support anonymous swap "
+"objects associated with file descriptors; described in greater detail in "
+"E<.Xr shm_open 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:96
+msgid ""
+"In some cases, E<.Nm> limits the valid values of some parameters to "
+"traditional APIs in order to restrict access to global namespaces:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/capsicum.4:97
+#, no-wrap
+msgid "process IDs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:100
+msgid ""
+"Processes can only act upon their own process ID with syscalls such as E<.Xr "
+"cpuset_setaffinity 2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/capsicum.4:101
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:119
+msgid ""
+"E<.Xr cap_enter 2>, E<.Xr cap_fcntls_limit 2>, E<.Xr cap_getmode 2>, E<.Xr "
+"cap_ioctls_limit 2>, E<.Xr cap_rights_limit 2>, E<.Xr fchmod 2>, E<.Xr open "
+"2>, E<.Xr pdfork 2>, E<.Xr pdgetpid 2>, E<.Xr pdkill 2>, E<.Xr pdwait4 2>, "
+"E<.Xr read 2>, E<.Xr shm_open 2>, E<.Xr write 2>, E<.Xr cap_rights_get 3>, "
+"E<.Xr libcasper 3>, E<.Xr procdesc 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/capsicum.4:119
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:124
+msgid ""
+"E<.Nm> first appeared in E<.Fx 9.0>, and was developed at the University of "
+"Cambridge."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/capsicum.4:124
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/capsicum.4:136
+msgid ""
+"E<.Nm> was developed by E<.An -nosplit> E<.An Robert Watson Aq Mt "
+"rwatson@FreeBSD.org> and E<.An Jonathan Anderson Aq Mt jonathan@FreeBSD.org> "
+"at the University of Cambridge, and E<.An Ben Laurie Aq Mt benl@FreeBSD.org> "
+"and E<.An Kris Kennaway Aq Mt kris@FreeBSD.org> at Google, Inc., and E<.An "
+"Pawel Jakub Dawidek Aq Mt pawel@dawidek.net>."
+msgstr ""

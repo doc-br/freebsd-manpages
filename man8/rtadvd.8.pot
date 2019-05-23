@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:32
+#, no-wrap
+msgid "February 25, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:33
+#, no-wrap
+msgid "RTADVD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:37
+msgid "E<.Nm rtadvd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:37
+#, no-wrap
+msgid "router advertisement daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:46
+msgid ""
+"E<.Nm> E<.Op Fl dDfRs> E<.Op Fl c Ar configfile> E<.Op Fl C Ar ctlsock> "
+"E<.Op Fl M Ar ifname> E<.Op Fl p Ar pidfile> E<.Op Ar interface ...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:55
+msgid ""
+"E<.Nm> sends router advertisement packets to the specified E<.Ar "
+"interfaces>.  If no interfaces are specified, E<.Nm> will still run, but "
+"will not advertise any routes until interfaces are added using E<.Xr "
+"rtadvctl 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:59
+msgid ""
+"The program will daemonize itself on invocation.  It will then send router "
+"advertisement packets periodically, as well as in response to router "
+"solicitation messages sent by end hosts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:63
+msgid ""
+"Router advertisements can be configured on a per-interface basis, as "
+"described in E<.Xr rtadvd.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:72
+msgid ""
+"If there is no configuration file entry for an interface, or if the "
+"configuration file does not exist altogether, E<.Nm> sets all the parameters "
+"to their default values.  In particular, E<.Nm> reads all the interface "
+"routes from the routing table and advertises them as on-link prefixes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:80
+msgid ""
+"E<.Nm> also watches the routing table.  If an interface direct route is "
+"added on an advertising interface and no static prefixes are specified by "
+"the configuration file, E<.Nm> adds the corresponding prefix to its "
+"advertising list."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:98
+msgid ""
+"Similarly, when an interface direct route is deleted, E<.Nm> will start "
+"advertising the prefixes with zero valid and preferred lifetimes to help the "
+"receiving hosts switch to a new prefix when renumbering.  Note, however, "
+"that the zero valid lifetime cannot invalidate the autoconfigured addresses "
+"at a receiving host immediately.  According to the specification, the host "
+"will retain the address for a certain period, which will typically be two "
+"hours.  The zero lifetimes rather intend to make the address deprecated, "
+"indicating that a new non-deprecated address should be used as the source "
+"address of a new connection.  This behavior will last for two hours.  Then "
+"E<.Nm> will completely remove the prefix from the advertising list, and "
+"succeeding advertisements will not contain the prefix information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:103
+msgid ""
+"Moreover, if the status of an advertising interface changes, E<.Nm> will "
+"start or stop sending router advertisements according to the latest status."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:110
+msgid ""
+"The E<.Fl s> option may be used to disable this behavior; E<.Nm> will not "
+"watch the routing table and the whole functionality described above will be "
+"suppressed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:119
+msgid ""
+"Basically, hosts MUST NOT send Router Advertisement messages at any time "
+"(RFC 4861, Section 6.2.3).  However, it would sometimes be useful to allow "
+"hosts to advertise some parameters such as prefix information and link MTU.  "
+"Thus, E<.Nm> can be invoked if router lifetime is explicitly set zero on "
+"every advertising interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:121
+msgid "The command line options are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:123
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:130
+msgid ""
+"Specify an alternate location, E<.Ar configfile>, for the configuration "
+"file.  By default, E<.Pa /etc/rtadvd.conf> is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:130
+#, no-wrap
+msgid "Fl C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:135
+msgid ""
+"Specify an alternate location for the control socket used by E<.Xr rtadvctl "
+"8>.  The default is E<.Pa /var/run/rtadvd.sock>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:135
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:137
+msgid "Print debugging information."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:137
+#, no-wrap
+msgid "Fl D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:139
+msgid "Even more debugging information is printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:139
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:142
+msgid ""
+"Foreground mode (useful when debugging).  Log messages will be dumped to "
+"stderr when this option is specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:142
+#, no-wrap
+msgid "Fl M"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:151
+msgid ""
+"Specify an interface to join the all-routers site-local multicast group.  By "
+"default, E<.Nm> tries to join the first advertising interface appearing on "
+"the command line.  This option has meaning only with the E<.Fl R> option, "
+"which enables routing renumbering protocol support."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:151
+#, no-wrap
+msgid "Fl p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:155
+msgid ""
+"Specify an alternative file in which to store the process ID.  The default "
+"is E<.Pa /var/run/rtadvd.pid>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:155
+#, no-wrap
+msgid "Fl R"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:161
+msgid ""
+"Accept router renumbering requests.  If you enable it, certain IPsec setup "
+"is suggested for security reasons.  This option is currently disabled, and "
+"is ignored by E<.Nm> with a warning message."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:161
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:164
+msgid ""
+"Do not add or delete prefixes dynamically.  Only statically configured "
+"prefixes, if any, will be advertised."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:177
+msgid ""
+"Use E<.Dv SIGHUP> to reload the configuration file E<.Pa /etc/rtadvd.conf>.  "
+"If an invalid parameter is found in the configuration file upon the reload, "
+"the entry will be ignored and the old configuration will be used.  When "
+"parameters in an existing entry are updated, E<.Nm> will send Router "
+"Advertisement messages with the old configuration but zero router lifetime "
+"to the interface first, and then start to send a new message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:188
+msgid ""
+"Use E<.Dv SIGTERM> to kill E<.Nm> gracefully.  In this case, E<.Nm> will "
+"transmit router advertisement with router lifetime 0 to all the interfaces "
+"E<.Pq in accordance with RFC 4861 6.2.5>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:188
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:190
+#, no-wrap
+msgid "Pa /etc/rtadvd.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:192
+msgid "The default configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:192
+#, no-wrap
+msgid "Pa /var/run/rtadvd.pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:194
+msgid "The default process ID file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:195
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:197
+msgid "E<.Ex -std>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:197
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:229
+msgid ""
+"E<.Xr rtadvd.conf 5>, E<.Xr rtadvctl 8>, E<.Xr rtsol 8> E<.Rs> E<.%A Thomas "
+"Narten> E<.%A Erik Nordmark> E<.%A W. A. Simpson> E<.%A Hesham Soliman> "
+"E<.%T Neighbor Discovery for IP version 6 (IPv6)> E<.%R RFC 4861> E<.Re> "
+"E<.Rs> E<.%A Thomas Narten> E<.%A Erik Nordmark> E<.%A W. A. Simpson> E<.%T "
+"Neighbor Discovery for IP version 6 (IPv6)> E<.%R RFC 2461 (obsoleted by RFC "
+"4861)> E<.Re> E<.Rs> E<.%A Richard Draves> E<.%T Default Router Preferences "
+"and More-Specific Routes> E<.%R draft-ietf-ipngwg-router-selection-xx.txt> "
+"E<.Re> E<.Rs> E<.%A J. Jeong> E<.%A S. Park> E<.%A L. Beloeil> E<.%A "
+"S. Madanapalli> E<.%T IPv6 Router Advertisement Options for DNS "
+"Configuration> E<.%R RFC 6106> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:229
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:233
+msgid ""
+"The E<.Nm> command first appeared in the WIDE Hydrangea IPv6 protocol stack "
+"kit."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:233
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rtadvd/rtadvd.8:242
+msgid ""
+"There used to be some text that recommended users not to let E<.Nm> "
+"advertise Router Advertisement messages on an upstream link to avoid "
+"undesirable E<.Xr icmp6 4> redirect messages.  However, based on the later "
+"discussion in the IETF ipng working group, all routers should rather "
+"advertise the messages regardless of the network topology, in order to "
+"ensure reachability."
+msgstr ""

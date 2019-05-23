@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ptnet.4:27
+#, no-wrap
+msgid "December 11, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ptnet.4:28
+#, no-wrap
+msgid "PTNET 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ptnet.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:32
+msgid "E<.Nm ptnet>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ptnet.4:32
+#, no-wrap
+msgid "Ethernet driver for passed-through netmap ports"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ptnet.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:38
+msgid ""
+"This network driver is included in E<.Xr netmap 4>, and it can be compiled "
+"into the kernel by adding the following line in your kernel configuration "
+"file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:40
+#, no-wrap
+msgid "E<.Cd \"device netmap\">\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ptnet.4:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:57
+msgid ""
+"The E<.Nm> device driver provides direct access to host netmap ports, from "
+"within a Virtual Machine (VM).  Applications running inside the VM can "
+"access the TX/RX rings and buffers of a netmap port that the hypervisor has "
+"passed-through to the VM.  Hypervisor support for E<.Nm> is currently "
+"available for QEMU/KVM.  Any E<.Xr netmap 4> port can be passed-through, "
+"including physical NICs, E<.Xr vale 4> ports, netmap pipes, etc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:87
+msgid ""
+"The main use-case for netmap passthrough is Network Function Virtualization "
+"(NFV), where middlebox applications running within VMs may want to process "
+"very high packet rates (e.g., 1-10 millions packets per second or more).  "
+"Note, however, that those applications must use the device in netmap mode in "
+"order to achieve such rates.  In addition to the general advantages of "
+"netmap, the improved performance of E<.Nm> when compared to hypervisor "
+"device emulation or paravirtualization (e.g., E<.Xr vtnet 4>, E<.Xr vmx 4>)  "
+"comes from the hypervisor being completely bypassed in the data-path.  For "
+"example, when using E<.Xr vtnet 4> the VM has to convert each E<.Xr mbuf 9> "
+"to a VirtIO-specific packet representation and publish that to a VirtIO "
+"queue; on the hypervisor side, the packet is extracted from the VirtIO queue "
+"and converted to a hypervisor-specific packet representation.  The overhead "
+"of format conversions (and packet copies, in same cases) is not incured by "
+"E<.Nm> in netmap mode, because mbufs are not used at all, and the packet "
+"format is the one defined by netmap (e.g., E<.Ar struct netmap_slot>)  along "
+"the whole data-path.  No format conversions or copies happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:108
+msgid ""
+"It is also possible to use a E<.Nm> device like a regular network interface, "
+"which interacts with the E<.Fx> network stack (i.e., not in netmap mode).  "
+"However, in that case it is necessary to pay the cost of data copies between "
+"mbufs and netmap buffers, which generally results in lower TCP/UDP "
+"performance than E<.Xr vtnet 4> or other paravirtualized network devices.  "
+"If the passed-through netmap port supports the VirtIO network header, E<.Nm> "
+"is able to use it, and support TCP/UDP checksum offload (for both transmit "
+"and receive), TCP segmentation offload (TSO) and TCP large receive offload "
+"(LRO).  Currently, E<.Xr vale 4> ports support the header.  Note that the "
+"VirtIO network header is generally not used in NFV use-cases, because "
+"middleboxes are not endpoints of TCP/UDP connections."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ptnet.4:108
+#, no-wrap
+msgid "TUNABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:113
+msgid ""
+"Tunables can be set at the E<.Xr loader 8> prompt before booting the kernel "
+"or stored in E<.Xr loader.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ptnet.4:114
+#, no-wrap
+msgid "Va dev.netmap.ptnet_vnet_hdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:126
+msgid ""
+"This tunable enables (1) or disables (0) the VirtIO network header.  If "
+"enabled, E<.Nm> uses the same header used by E<.Xr vtnet 4> to exchange "
+"offload metadata with the hypervisor.  If disabled, no header is prepended "
+"to transmitted and received packets.  The metadata is necessary to support "
+"TCP/UDP checksum offloads, TSO, and LRO.  The default value is 1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ptnet.4:127
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:134
+msgid ""
+"E<.Xr netintro 4>, E<.Xr netmap 4>, E<.Xr vale 4>, E<.Xr virtio 4>, E<.Xr "
+"vmx 4>, E<.Xr ifconfig 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ptnet.4:134
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ptnet.4:140
+msgid ""
+"The E<.Nm> driver was written by E<.An Vincenzo Maffione Aq Mt "
+"vmaffione@FreeBSD.org>.  It first appeared in E<.Fx 12.0>."
+msgstr ""

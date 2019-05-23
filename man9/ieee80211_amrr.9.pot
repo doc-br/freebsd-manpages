@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_amrr.9:28
+#, no-wrap
+msgid "August 4, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_amrr.9:29
+#, no-wrap
+msgid "IEEE8021_AMRR 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_amrr.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:33
+msgid "E<.Nm ieee80211_amrr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_amrr.9:33
+#, no-wrap
+msgid "802.11 network driver transmit rate control support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_amrr.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_amrr.9:35
+#, no-wrap
+msgid "net80211/ieee80211_amrr.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:78
+msgid ""
+"E<.Ft void> E<.Fo ieee80211_amrr_init> E<.Fa \"struct ieee80211_amrr *\"> "
+"E<.Fa \"struct ieee80211vap *\"> E<.Fa \"int amin\"> E<.Fa \"int amax\"> "
+"E<.Fa \"int interval\"> E<.Fc> E<.Ft void> E<.Fn ieee80211_amrr_cleanup "
+"\"struct ieee80211_amrr *\"> E<.Ft void> E<.Fn ieee80211_amrr_setinterval "
+"\"struct ieee80211_amrr *\" \"int interval\"> E<.Ft void> E<.Fo "
+"ieee80211_amrr_node_init> E<.Fa \"struct ieee80211_amrr *\"> E<.Fa \"struct "
+"ieee80211_amrr_node *\"> E<.Fa \"struct ieee80211_node *\"> E<.Fc> E<.Ft "
+"int> E<.Fo ieee80211_amrr_choose> E<.Fa \"struct ieee80211_node *\"> E<.Fa "
+"\"struct ieee80211_amrr_node *\"> E<.Fc> E<.Ft void> E<.Fo "
+"ieee80211_amrr_tx_complete> E<.Fa \"struct ieee80211_amrr_node *\"> E<.Fa "
+"\"int ok\"> E<.Fa \"int retries\"> E<.Fc> E<.Ft void> E<.Fo "
+"ieee80211_amrr_tx_update> E<.Fa \"struct ieee80211_amrr_node *\"> E<.Fa "
+"\"int txnct\"> E<.Fa \"int success\"> E<.Fa \"int retrycnt\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_amrr.9:78
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:98
+msgid ""
+"E<.Nm> is an implementation of the AMRR transmit rate control algorithm for "
+"drivers that use the E<.Nm net80211> software layer.  A rate control "
+"algorithm is responsible for choosing the transmit rate for each frame.  To "
+"maximize throughput algorithms try to use the highest rate that is "
+"appropriate for the operating conditions.  The rate will vary as conditions "
+"change; the distance between two stations may change, transient noise may be "
+"present that affects signal quality, etc.  E<.Nm> uses very simple "
+"information from a driver to do it's job: whether a frame was successfully "
+"delivered and how many transmit attempts were made.  While this enables its "
+"use with virtually any wireless device it limits it's effectiveness--do not "
+"expect it to function well in difficult environments and/or respond quickly "
+"to changing conditions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:107
+msgid ""
+"E<.Nm> requires per-vap state and per-node state for each station it is to "
+"select rates for.  The API's are designed for drivers to pre-allocate state "
+"in the driver-private extension areas of each vap and node.  For example the "
+"E<.Xr ral 4> driver defines a vap as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:112
+#, no-wrap
+msgid ""
+"struct rt2560_vap {\n"
+"        struct ieee80211vap     ral_vap;\n"
+"        struct ieee80211_beacon_offsets ral_bo;\n"
+"        struct ieee80211_amrr   amrr;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:116
+#, no-wrap
+msgid ""
+"        int      (*ral_newstate)(struct ieee80211vap *,\n"
+"                      enum ieee80211_state, int);\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:125
+msgid ""
+"The E<.Vt amrr> structure member holds the per-vap state for E<.Nm> and "
+"E<.Xr ral 4> initializes it in the vap create method with:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:130
+#, no-wrap
+msgid ""
+"ieee80211_amrr_init(&rvp-E<gt>amrr, vap,\n"
+"    IEEE80211_AMRR_MIN_SUCCESS_THRESHOLD,\n"
+"    IEEE80211_AMRR_MAX_SUCCESS_THRESHOLD,\n"
+"    500 /* ms */);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:133
+msgid "The node is defined as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:138
+#, no-wrap
+msgid ""
+"struct rt2560_node {\n"
+"        struct ieee80211_node   ni;\n"
+"        struct ieee80211_amrr_node amrr;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:143
+msgid "with initialization done in the driver's E<.Vt iv_newassoc> method:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:148
+#, no-wrap
+msgid ""
+"static void\n"
+"rt2560_newassoc(struct ieee80211_node *ni, int isnew)\n"
+"{\n"
+"        struct ieee80211vap *vap = ni-E<gt>ni_vap;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:152
+#, no-wrap
+msgid ""
+"        ieee80211_amrr_node_init(&RT2560_VAP(vap)-E<gt>amrr,\n"
+"            &RT2560_NODE(ni)-E<gt>amrr, ni);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:159
+msgid ""
+"Once E<.Nm> state is setup, transmit rates are requested by calling E<.Fn "
+"ieee80211_amrr_choose> in the transmit path; e.g.:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:171
+#, no-wrap
+msgid ""
+"tp = &vap-E<gt>iv_txparms[ieee80211_chan2mode(ni-E<gt>ni_chan)];\n"
+"if (IEEE80211_IS_MULTICAST(wh-E<gt>i_addr1)) {\n"
+"\trate = tp-E<gt>mcastrate;\n"
+"} else if (m0-E<gt>m_flags & M_EAPOL) {\n"
+"\trate = tp-E<gt>mgmtrate;\n"
+"} else if (tp-E<gt>ucastrate != IEEE80211_FIXED_RATE_NONE) {\n"
+"\trate = tp-E<gt>ucastrate;\n"
+"} else {\n"
+"\t(void) ieee80211_amrr_choose(ni, &RT2560_NODE(ni)-E<gt>amrr);\n"
+"\trate = ni-E<gt>ni_txrate;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:184
+msgid ""
+"Note a rate is chosen only for unicast data frames when a fixed transmit "
+"rate is not configured; the other cases are handled with the E<.Nm net80211> "
+"transmit parameters.  Note also that E<.Fn ieee80211_amrr_choose> writes the "
+"chosen rate in E<.Vt ni_txrate>; this eliminates copying the value as it is "
+"exported to user applications so they can display the current transmit rate "
+"in status."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:192
+msgid ""
+"The remaining work a driver must do is feed status back to E<.Nm> when a "
+"frame transmit completes using E<.Fn ieee80211_amrr_tx_complete>.  Drivers "
+"that poll a device to retrieve statistics can use E<.Fn "
+"ieee80211_amrr_tx_update> (instead or in addition)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_amrr.9:192
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_amrr.9:194
+msgid "E<.Xr ieee80211 9>, E<.Xr ieee80211_output 9>"
+msgstr ""

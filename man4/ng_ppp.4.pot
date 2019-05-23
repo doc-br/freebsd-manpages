@@ -1,0 +1,718 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_ppp.4:38
+#, no-wrap
+msgid "November 13, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_ppp.4:39
+#, no-wrap
+msgid "NG_PPP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:43
+msgid "E<.Nm ng_ppp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_ppp.4:43
+#, no-wrap
+msgid "PPP protocol netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ppp.4:45
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ppp.4:46
+#, no-wrap
+msgid "netgraph/ng_ppp.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:61
+msgid ""
+"The E<.Nm ppp> node type performs multiplexing for the PPP protocol.  It "
+"handles only packets that contain data, and forwards protocol negotiation "
+"and control packets to a separate controlling entity (e.g., a user-land "
+"daemon).  This approach combines the fast dispatch of kernel implementations "
+"with the configuration flexibility of a user-land implementations.  The PPP "
+"node type directly supports multi-link PPP, Van Jacobson compression, PPP "
+"compression, PPP encryption, and the IP, IPX, and AppleTalk protocols.  A "
+"single PPP node corresponds to one PPP multi-link bundle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:76
+msgid ""
+"There is a separate hook for each PPP link in the bundle, plus several hooks "
+"corresponding to the directly supported protocols.  For compression and "
+"encryption, separate attached nodes are required to do the actual work.  The "
+"node type used will of course depend on the algorithm negotiated.  There is "
+"also a E<.Dv bypass> hook which is used to handle any protocol not directly "
+"supported by the node.  This includes all of the control protocols: LCP, "
+"IPCP, CCP, etc.  Typically this node is connected to a user-land daemon via "
+"a E<.Xr ng_socket 4> type node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:76
+#, no-wrap
+msgid "ENABLING FUNCTIONALITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:88
+msgid ""
+"In general, the PPP node enables a specific link or functionality when (a) a "
+"E<.Dv NGM_PPP_SET_CONFIG> message has been received which enables it, and "
+"(b) the corresponding hook(s) are connected.  This allows the controlling "
+"entity to use either method (a) or (b)  (or both) to control the node's "
+"behavior.  When a link is connected but disabled, traffic can still flow on "
+"the link via the E<.Dv bypass> hook (see below)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:88
+#, no-wrap
+msgid "LINK HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:99
+msgid ""
+"During normal operation, the individual PPP links are connected to hooks "
+"E<.Dv link0>, E<.Dv link1>, etc.  Up to E<.Dv NG_PPP_MAX_LINKS> links are "
+"supported.  These device-independent hooks transmit and receive full PPP "
+"frames, which include the PPP protocol, address, control, and information "
+"fields, but no checksum or other link-specific fields."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:112
+msgid ""
+"On outgoing frames, when protocol compression has been enabled and the "
+"protocol number is suitable for compression, the protocol field will be "
+"compressed (i.e., sent as one byte instead of two).  Either compressed or "
+"uncompressed protocol fields are accepted on incoming frames.  Similarly, if "
+"address and control field compression has been enabled for the link, the "
+"address and control fields will be omitted (except for LCP frames as "
+"required by the standards).  Incoming frames have the address and control "
+"fields stripped automatically if present."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:120
+msgid ""
+"Since all negotiation is handled outside the PPP node, the links should not "
+"be connected and enabled until the corresponding link has reached the "
+"network phase (i.e., LCP negotiation and authentication have completed "
+"successfully) and the PPP node has been informed of the link parameters via "
+"the E<.Dv NGM_PPP_LINK_CONFIG> message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:130
+msgid ""
+"When a link is connected but disabled, all received frames are forwarded "
+"directly out the E<.Dv bypass> hook, and conversely, frames may be "
+"transmitted via the E<.Dv bypass> hook as well.  This mode is appropriate "
+"for the link authentication phase.  As soon as the link is enabled, the PPP "
+"node will begin processing frames received on the link."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:130
+#, no-wrap
+msgid "COMPRESSION AND ENCRYPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:180
+msgid ""
+"Compression is supported via two hooks, E<.Dv compress> and E<.Dv "
+"decompress>.  Compression and decompression can be enabled by toggling the "
+"E<.Vt enableCompression> and E<.Vt enableDecompression> fields of the node "
+"configuration structure.  (See below.)  If E<.Vt enableCompression> is set "
+"to E<.Dv NG_PPP_COMPRESS_SIMPLE>, then all outgoing frames are sent to the "
+"E<.Dv compress> hook and all packets received on this hook are expected to "
+"be compressed, so the COMPD tag is put on them unconditionally.  If E<.Vt "
+"enableCompression> is set to E<.Dv NG_PPP_COMPRESS_FULL>, then packets "
+"received on the E<.Dv compress> hook are resent as is.  The compressor node "
+"should put the tag, if the packet was compressed.  If E<.Vt "
+"enableDecompression> is set to E<.Dv NG_PPP_DECOMPRESS_SIMPLE>, then the "
+"node will sent to the E<.Dv decompress> hook only those frames, that are "
+"marked with the COMPD tag.  If E<.Vt enableDecompression> is set to E<.Dv "
+"NG_PPP_DECOMPRESS_FULL>, then the node will sent all incoming packets to the "
+"E<.Dv decompress> hook.  Compression and decompression can be completely "
+"disabled by setting the E<.Vt enableCompression> and E<.Vt "
+"enableDecompression> fields to the E<.Dv NG_PPP_COMPRESS_NONE> and E<.Dv "
+"NG_PPP_DECOMPRESS_NONE>, respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:188
+msgid ""
+"Encryption works exactly analogously via the E<.Dv encrypt> and E<.Dv "
+"decrypt> nodes.  Data is always compressed before being encrypted, and "
+"decrypted before being decompressed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:192
+msgid ""
+"Only bundle-level compression and encryption is directly supported; "
+"link-level compression and encryption can be handled transparently by "
+"downstream nodes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:192
+#, no-wrap
+msgid "VAN JACOBSON COMPRESSION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:209
+msgid ""
+"When all of the E<.Dv vjc_ip>, E<.Dv vjc_vjcomp>, E<.Dv vjc_vjuncomp>, and "
+"E<.Dv vjc_vjip> hooks are connected, and the corresponding configuration "
+"flag is enabled, Van Jacobson compression and/or decompression will become "
+"active.  Normally these hooks connect to the corresponding hooks of a single "
+"E<.Xr ng_vjc 4> node.  The PPP node is compatible with the E<.Dq pass "
+"through> modes of the E<.Xr ng_vjc 4> node type."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:209
+#, no-wrap
+msgid "BYPASS HOOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:226
+msgid ""
+"When a frame is received on a link with an unsupported protocol, or a "
+"protocol which is disabled or for which the corresponding hook is "
+"unconnected, the PPP node forwards the frame out the E<.Dv bypass> hook, "
+"prepended with a four byte prefix.  This first two bytes of the prefix "
+"indicate the link number on which the frame was received (in network "
+"order).  For such frames received over the bundle (i.e., encapsulated in the "
+"multi-link protocol), the special link number E<.Dv NG_PPP_BUNDLE_LINKNUM> "
+"is used.  After the two byte link number is the two byte PPP protocol number "
+"(also in network order).  The PPP protocol number is two bytes long even if "
+"the original frame was protocol compressed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:237
+msgid ""
+"Conversely, any data written to the E<.Dv bypass> hook is assumed to be in "
+"this same format.  The four byte header is stripped off, the PPP protocol "
+"number is prepended (possibly compressed), and the frame is delivered over "
+"the desired link.  If the link number is E<.Dv NG_PPP_BUNDLE_LINKNUM> the "
+"frame will be delivered over the multi-link bundle; or, if multi-link is "
+"disabled, over the (single) PPP link."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:243
+msgid ""
+"Typically when the controlling entity receives an unexpected packet on the "
+"E<.Dv bypass> hook it responds either by dropping the frame (if it is not "
+"ready for the protocol) or with an LCP protocol reject (if it does not "
+"recognize or expect the protocol)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:243
+#, no-wrap
+msgid "MULTILINK OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:250
+msgid ""
+"To enable multi-link PPP, the corresponding configuration flag must be set "
+"and at least one link connected.  The PPP node will not allow more than one "
+"link to be connected if multi-link is not enabled, nor will it allow certain "
+"multi-link settings to be changed while multi-link operation is active "
+"(e.g., short sequence number header format)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:257
+msgid ""
+"Since packets are sent as fragments across multiple individual links, it is "
+"important that when a link goes down the PPP node is notified immediately, "
+"either by disconnecting the corresponding hook or disabling the link via the "
+"E<.Dv NGM_PPP_SET_CONFIG> control message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:265
+msgid ""
+"Each link has configuration parameters for latency (specified in "
+"milliseconds) and bandwidth (specified in tens of bytes per second).  The "
+"PPP node can be configured for E<.Em round-robin> or E<.Em optimized> packet "
+"delivery."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:276
+msgid ""
+"When configured for round-robin delivery, the latency and bandwidth values "
+"are ignored and the PPP node simply sends each frame as a single fragment, "
+"alternating frames across all the links in the bundle.  This scheme has the "
+"advantage that even if one link fails silently, some packets will still get "
+"through.  It has the disadvantage of sub-optimal overall bundle latency, "
+"which is important for interactive response time, and sub-optimal overall "
+"bundle bandwidth when links with different bandwidths exist in the same "
+"bundle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:286
+msgid ""
+"When configured for optimal delivery, the PPP node distributes the packet "
+"across the links in a way that minimizes the time it takes for the completed "
+"packet to be received by the far end.  This involves taking into account "
+"each link's latency, bandwidth, and current queue length.  Therefore these "
+"numbers should be configured as accurately as possible.  The algorithm does "
+"require some computation, so may not be appropriate for very slow machines "
+"and/or very fast links."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:291
+msgid ""
+"As a special case, if all links have identical latency and bandwidth, then "
+"the above algorithm is disabled (because it is unnecessary)  and the PPP "
+"node simply fragments frames into equal sized portions across all of the "
+"links."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:291
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:293
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:294
+#, no-wrap
+msgid "Va linkE<lt>NE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:297
+msgid "Individual PPP link number E<.Dv E<lt>NE<gt>>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:297
+#, no-wrap
+msgid "Va compress"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:299
+msgid "Connection to compression engine"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:299
+#, no-wrap
+msgid "Va decompress"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:301
+msgid "Connection to decompression engine"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:301
+#, no-wrap
+msgid "Va encrypt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:303
+msgid "Connection to encryption engine"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:303
+#, no-wrap
+msgid "Va decrypt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:305
+msgid "Connection to decryption engine"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:305
+#, no-wrap
+msgid "Va vjc_ip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:310
+msgid "Connection to E<.Xr ng_vjc 4> E<.Dv ip> hook"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:310
+#, no-wrap
+msgid "Va vjc_vjcomp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:315
+msgid "Connection to E<.Xr ng_vjc 4> E<.Dv vjcomp> hook"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:315
+#, no-wrap
+msgid "Va vjc_vjuncomp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:320
+msgid "Connection to E<.Xr ng_vjc 4> E<.Dv vjuncomp> hook"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:320
+#, no-wrap
+msgid "Va vjc_vjip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:325
+msgid "Connection to E<.Xr ng_vjc 4> E<.Dv vjip> hook"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:325
+#, no-wrap
+msgid "Va inet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:327
+msgid "IP packet data"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:327
+#, no-wrap
+msgid "Va ipv6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:329
+msgid "IPv6 packet data"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:329
+#, no-wrap
+msgid "Va atalk"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:331
+msgid "AppleTalk packet data"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:331
+#, no-wrap
+msgid "Va ipx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:333
+msgid "IPX packet data"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:333
+#, no-wrap
+msgid "Va bypass"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:336
+msgid ""
+"Bypass hook; frames have a four byte header consisting of a link number and "
+"a PPP protocol number."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:337
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:339
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:340
+#, no-wrap
+msgid "Dv NGM_PPP_SET_CONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:353
+msgid ""
+"This command configures all aspects of the node.  This includes enabling "
+"multi-link PPP, encryption, compression, Van Jacobson compression, and IP, "
+"IPv6, AppleTalk, and IPX packet delivery.  It includes per-link "
+"configuration, including enabling the link, setting latency and bandwidth "
+"parameters, and enabling protocol field compression.  Note that no link or "
+"functionality is active until the corresponding hook is also connected.  "
+"This command takes a E<.Dv \"struct ng_ppp_node_conf\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:363
+#, no-wrap
+msgid ""
+"/* Per-link config structure */\n"
+"struct ng_ppp_link_conf {\n"
+"  u_char    enableLink;     /* enable this link */\n"
+"  u_char    enableProtoComp;/* enable protocol field compression */\n"
+"  u_char    enableACFComp;  /* enable addr/ctrl field compression */\n"
+"  uint16_t  mru;            /* peer MRU */\n"
+"  uint32_t  latency;        /* link latency (in milliseconds) */\n"
+"  uint32_t  bandwidth;      /* link bandwidth (in bytes/sec/10) */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:382
+#, no-wrap
+msgid ""
+"/* Bundle config structure */\n"
+"struct ng_ppp_bund_conf {\n"
+"  uint16_t  mrru;                   /* multilink peer MRRU */\n"
+"  u_char    enableMultilink;        /* enable multilink */\n"
+"  u_char    recvShortSeq;           /* recv multilink short seq # */\n"
+"  u_char    xmitShortSeq;           /* xmit multilink short seq # */\n"
+"  u_char    enableRoundRobin;       /* xmit whole packets */\n"
+"  u_char    enableIP;               /* enable IP data flow */\n"
+"  u_char    enableIPv6;             /* enable IPv6 data flow */\n"
+"  u_char    enableAtalk;            /* enable AppleTalk data flow */\n"
+"  u_char    enableIPX;              /* enable IPX data flow */\n"
+"  u_char    enableCompression;      /* enable PPP compression */\n"
+"  u_char    enableDecompression;    /* enable PPP decompression */\n"
+"  u_char    enableEncryption;       /* enable PPP encryption */\n"
+"  u_char    enableDecryption;       /* enable PPP decryption */\n"
+"  u_char    enableVJCompression;    /* enable VJ compression */\n"
+"  u_char    enableVJDecompression;  /* enable VJ decompression */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:387
+#, no-wrap
+msgid ""
+"struct ng_ppp_node_conf {\n"
+"  struct ng_ppp_bund_conf   bund;\n"
+"  struct ng_ppp_link_conf   links[NG_PPP_MAX_LINKS];\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:388
+#, no-wrap
+msgid "Dv NGM_PPP_GET_CONFIG Pq Ic getconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:391
+msgid "Returns the current configuration as a E<.Dv \"struct ng_ppp_node_conf\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:391
+#, no-wrap
+msgid "Dv NGM_PPP_GET_LINK_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:398
+msgid ""
+"This command takes a two byte link number as an argument and returns a E<.Dv "
+"\"struct ng_ppp_link_stat\"> containing statistics for the corresponding "
+"link.  Here E<.Dv NG_PPP_BUNDLE_LINKNUM> is a valid link number "
+"corresponding to the multi-link bundle."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:398
+#, no-wrap
+msgid "Dv NGM_PPP_GET_LINK_STATS64 Pq Ic getstats64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:402
+msgid ""
+"Same as NGM_PPP_GET_LINK_STATS but returns E<.Dv \"struct "
+"ng_ppp_link_stat64\"> containing 64bit counters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:402
+#, no-wrap
+msgid "Dv NGM_PPP_CLR_LINK_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:405
+msgid ""
+"This command takes a two byte link number as an argument and clears the "
+"statistics for that link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:405
+#, no-wrap
+msgid "Dv NGM_PPP_GETCLR_LINK_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:409
+msgid ""
+"Same as E<.Dv NGM_PPP_GET_LINK_STATS>, but also atomically clears the "
+"statistics as well."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ppp.4:409
+#, no-wrap
+msgid "Dv NGM_PPP_GETCLR_LINK_STATS64 Pq Ic getclrstats64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:413
+msgid ""
+"Same as NGM_PPP_GETCLR_LINK_STATS but returns E<.Dv \"struct "
+"ng_ppp_link_stat64\"> containing 64bit counters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:428
+msgid ""
+"This node type also accepts the control messages accepted by the E<.Xr "
+"ng_vjc 4> node type.  When received, these messages are simply forwarded to "
+"the adjacent E<.Xr ng_vjc 4> node, if any.  This is particularly useful when "
+"the individual PPP links are able to generate E<.Dv NGM_VJC_RECV_ERROR> "
+"messages (see E<.Xr ng_vjc 4> for a description)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:428
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:432
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:432
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:454
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_async 4>, E<.Xr ng_iface 4>, E<.Xr ng_mppc 4>, "
+"E<.Xr ng_pppoe 4>, E<.Xr ng_vjc 4>, E<.Xr ngctl 8> E<.Rs> E<.%A W. Simpson> "
+"E<.%T \"The Point-to-Point Protocol (PPP)\"> E<.%O RFC 1661> E<.Re> E<.Rs> "
+"E<.%A K. Sklower> E<.%A B. Lloyd> E<.%A G. McGregor> E<.%A D. Carr> E<.%A "
+"T. Coradetti> E<.%T \"The PPP Multilink Protocol (MP)\"> E<.%O RFC 1990> "
+"E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:454
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:459
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ppp.4:459
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ppp.4:460
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""

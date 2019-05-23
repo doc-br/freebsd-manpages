@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/ctld/ctld.8:30
+#, no-wrap
+msgid "March 23, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/ctld/ctld.8:31
+#, no-wrap
+msgid "CTLD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:35
+msgid "E<.Nm ctld>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/ctld/ctld.8:35
+#, no-wrap
+msgid "CAM Target Layer / iSCSI target daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:41
+msgid "E<.Nm> E<.Op Fl d> E<.Op Fl f Ar config-file> E<.Op Fl u>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:47
+msgid ""
+"The E<.Nm> daemon is responsible for managing the CAM Target Layer "
+"configuration, accepting incoming iSCSI connections, performing "
+"authentication and passing connections to the kernel part of the native "
+"iSCSI target."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:64
+msgid ""
+"Upon startup, the E<.Nm> daemon parses the configuration file.  If it "
+"encounters any errors, E<.Nm> exits.  It then compares the configuration "
+"with the kernel list of LUNs managed by previously running E<.Nm> instances, "
+"removes LUNs no longer existing in the configuration file, and creates new "
+"LUNs as necessary.  After that it listens for the incoming iSCSI "
+"connections, performs authentication, and, if successful, passes the "
+"connections to the kernel part of CTL iSCSI target, E<.Xr cfiscsi 4>, which "
+"handles it from that point."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:70
+msgid ""
+"When it receives a SIGHUP signal, the E<.Nm> reloads its configuration and "
+"applies the changes to the kernel.  Changes are applied in a way that avoids "
+"unnecessary disruptions; for example removing one LUN does not affect other "
+"LUNs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:76
+msgid ""
+"When exiting gracefully, the E<.Nm> daemon removes LUNs it managed and "
+"forcibly disconnects all the clients.  Otherwise - for example, when killed "
+"with SIGKILL - LUNs stay configured and clients remain connected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:80
+msgid ""
+"To perform administrative actions that apply to already connected sessions, "
+"such as forcing termination, use E<.Xr ctladm 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:82
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ctld/ctld.8:83
+#, no-wrap
+msgid "Fl f Ar config-file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:87
+msgid ""
+"Specifies the name of the configuration file.  The default is E<.Pa "
+"/etc/ctl.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ctld/ctld.8:87
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:93
+msgid ""
+"Debug mode.  The daemon sends verbose debug output to standard error, and "
+"does not put itself in the background.  The daemon will also not fork and "
+"will exit after processing one connection.  This option is only intended for "
+"debugging the target."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ctld/ctld.8:93
+#, no-wrap
+msgid "Fl u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:95
+msgid "Use UCL configuration file format instead of the traditional non-UCL format."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:96
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ctld/ctld.8:98
+#, no-wrap
+msgid "Pa /etc/ctl.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:103
+msgid ""
+"The configuration file for E<.Nm>.  The file format and configuration "
+"options are described in E<.Xr ctl.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ctld/ctld.8:103
+#, no-wrap
+msgid "Pa /var/run/ctld.pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:107
+msgid "The default location of the E<.Nm> PID file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:108
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:112
+msgid "The E<.Nm> utility exits 0 on success, and E<gt>0 if an error occurs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:112
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:118
+msgid ""
+"E<.Xr cfiscsi 4>, E<.Xr ctl 4>, E<.Xr ctl.conf 5>, E<.Xr ctladm 8>, E<.Xr "
+"ctlstat 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:118
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:123
+msgid "The E<.Nm> command appeared in E<.Fx 10.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ctld/ctld.8:123
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ctld/ctld.8:128
+msgid ""
+"The E<.Nm> was developed by E<.An Edward Tomasz Napierala Aq Mt "
+"trasz@FreeBSD.org> under sponsorship from the FreeBSD Foundation."
+msgstr ""

@@ -1,0 +1,329 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ifmib.4:30
+#, no-wrap
+msgid "October 28, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ifmib.4:31
+#, no-wrap
+msgid "IFMIB 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ifmib.4:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:35
+msgid "E<.Nm ifmib>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ifmib.4:35
+#, no-wrap
+msgid "Management Information Base for network interfaces"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ifmib.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:37
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:38
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:39
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:40
+#, no-wrap
+msgid "sys/time.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:41 /usr/src/share/man/man4/ifmib.4:146
+#, no-wrap
+msgid "net/if.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:42
+#, no-wrap
+msgid "net/if_mib.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ifmib.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:69
+msgid ""
+"The E<.Nm> facility is an application of the E<.Xr sysctl 3> interface to "
+"provide management information about network interfaces to client "
+"applications such as E<.Xr netstat 1>, E<.Xr slstat 8>, and E<.Tn SNMP> "
+"management agents.  This information is structured as a table, where each "
+"row in the table represents a logical network interface (either a hardware "
+"device or a software pseudo-device like E<.Xr lo 4>).  There are two columns "
+"in the table, each containing a single structure: one column contains "
+"generic information relevant to all interfaces, and the other contains "
+"information specific to the particular class of interface.  (Generally the "
+"latter will implement the E<.Tn SNMP> E<.Tn MIB> defined for that particular "
+"interface class, if one exists and can be implemented in the kernel.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:81
+msgid ""
+"The E<.Nm> facility is accessed via the E<.Dq Li net.link.generic> branch of "
+"the E<.Xr sysctl 3> MIB.  The manifest constants for each level in the E<.Xr "
+"sysctl 3> E<.Ar name> are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:81
+#, no-wrap
+msgid "net/if_mib.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:99
+msgid ""
+"The index of the last row in the table is given by E<.Dq Li "
+"net.link.generic.system.ifcount> (or, using the manifest constants, E<.Dv "
+"CTL_NET>, E<.Dv PF_LINK>, E<.Dv NETLINK_GENERIC>, E<.Dv IFMIB_SYSTEM>, E<.Dv "
+"IFMIB_IFCOUNT>).  A management application searching for a particular "
+"interface should start with row 1 and continue through the table row-by-row "
+"until the desired interface is found, or the interface count is reached.  "
+"Note that the table may be sparse, i.e., a given row may not exist, "
+"indicated by an E<.Va errno> of E<.Er ENOENT>.  Such an error should be "
+"ignored, and the next row should be checked."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:102
+msgid ""
+"The generic interface information, common to all interfaces, can be accessed "
+"via the following procedure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:108
+#, no-wrap
+msgid ""
+"int\n"
+"get_ifmib_general(int row, struct ifmibdata *ifmd)\n"
+"{\n"
+"\tint name[6];\n"
+"\tsize_t len;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:115
+#, no-wrap
+msgid ""
+"\tname[0] = CTL_NET;\n"
+"\tname[1] = PF_LINK;\n"
+"\tname[2] = NETLINK_GENERIC;\n"
+"\tname[3] = IFMIB_IFDATA;\n"
+"\tname[4] = row;\n"
+"\tname[5] = IFDATA_GENERAL;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:117
+#, no-wrap
+msgid "\tlen = sizeof(*ifmd);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:120
+#, no-wrap
+msgid ""
+"\treturn sysctl(name, 6, ifmd, &len, (void *)0, 0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:125
+msgid "The fields in E<.Li struct ifmibdata> are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ifmib.4:126
+#, no-wrap
+msgid "Li ifmd_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:129
+msgid "E<.Pq Li \"char []\"> the name of the interface, including the unit number"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ifmib.4:129
+#, no-wrap
+msgid "Li ifmd_pcount"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:132
+msgid "E<.Pq Li int> the number of promiscuous listeners"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ifmib.4:132
+#, no-wrap
+msgid "Li ifmd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:135
+msgid "E<.Pq Li int> the interface's flags (defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:135
+#, no-wrap
+msgid "net/if.h )"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ifmib.4:136
+#, no-wrap
+msgid "Li ifmd_snd_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:139
+msgid "E<.Pq Li int> the current instantaneous length of the send queue"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ifmib.4:139
+#, no-wrap
+msgid "Li ifmd_snd_drops"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:143
+msgid ""
+"E<.Pq Li int> the number of packets dropped at this interface because the "
+"send queue was full"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ifmib.4:143
+#, no-wrap
+msgid "Li ifmd_data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:146
+msgid "E<.Pq Li struct if_data> more information from a structure defined in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:149
+msgid "(see E<.Xr if_data 9>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:164
+msgid ""
+"Class-specific information can be retrieved by examining the E<.Dv "
+"IFDATA_LINKSPECIFIC> column instead.  Note that the form and length of the "
+"structure will depend on the class of interface.  For E<.Dv IFT_ETHER>, "
+"E<.Dv IFT_ISO88023>, and E<.Dv IFT_STARLAN> interfaces, the structure is "
+"called E<.Dq Li struct ifmib_iso_8802_3> (defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ifmib.4:164
+#, no-wrap
+msgid "net/if_mib.h ) ,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:168
+msgid ""
+"and implements a superset of the E<.Tn \"RFC 1650\"> MIB for Ethernet-like "
+"networks."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ifmib.4:168
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#.  .Xr ethermib 4 ,
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:179
+msgid ""
+"E<.Xr sysctl 3>, E<.Xr intro 4>, E<.Xr ifnet 9> E<.Rs> E<.%T \"Definitions "
+"of Managed Objects for the Ethernet-like Interface Types Using SMIv2\"> "
+"E<.%A F. Kastenholz> E<.%D August 1994> E<.%O RFC 1650> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ifmib.4:179
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:184
+msgid "The E<.Nm> interface first appeared in E<.Fx 2.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ifmib.4:184
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ifmib.4:190
+msgid ""
+"Many Ethernet-like interfaces do not yet support the Ethernet MIB; the "
+"interfaces known to support it include E<.Xr ed 4> and E<.Xr de 4>.  "
+"Regardless, all interfaces automatically support the generic MIB."
+msgstr ""

@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vfs_getopt.9:29
+#, no-wrap
+msgid "July 31, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vfs_getopt.9:30
+#, no-wrap
+msgid "VFS_GETOPT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vfs_getopt.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:42
+msgid ""
+"E<.Nm vfs_getopt>, E<.Nm vfs_getopts>, E<.Nm vfs_flagopt>, E<.Nm "
+"vfs_scanopt>, E<.Nm vfs_copyopt>, E<.Nm vfs_filteropt>, E<.Nm vfs_setopt>, "
+"E<.Nm vfs_setopt_part>, E<.Nm vfs_setopts>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vfs_getopt.9:42
+#, no-wrap
+msgid "manipulate mount options and their values"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vfs_getopt.9:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vfs_getopt.9:44
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vfs_getopt.9:45
+#, no-wrap
+msgid "sys/mount.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:80
+msgid ""
+"E<.Ft int> E<.Fo vfs_getopt> E<.Fa \"struct vfsoptlist *opts\" \"const char "
+"*name\" \"void **buf\" \"int *len\"> E<.Fc> E<.Ft \"char *\"> E<.Fn "
+"vfs_getops \"struct vfsoptlist *opts\" \"const char *name\" \"int *error\"> "
+"E<.Ft int> E<.Fo vfs_flagopt> E<.Fa \"struct vfsoptlist *opts\" \"const char "
+"*name\" \"uint64_t *flags\" \"uint64_t flag\"> E<.Fc> E<.Ft int> E<.Fo "
+"vfs_scanopt> E<.Fa \"struct vfsoptlist *opts\" \"const char *name\" \"const "
+"char *fmt\" ...> E<.Fc> E<.Ft int> E<.Fo vfs_copyopt> E<.Fa \"struct "
+"vfsoptlist *opts\" \"const char *name\" \"void *dest\" \"int len\"> E<.Fc> "
+"E<.Ft int> E<.Fo vfs_filteropt> E<.Fa \"struct vfsoptlist *opts\" \"const "
+"char **legal\"> E<.Fc> E<.Ft int> E<.Fo vfs_setopt> E<.Fa \"struct "
+"vfsoptlist *opts\" \"const char *name\" \"void *value\" \"int len\"> E<.Fc> "
+"E<.Ft int> E<.Fo vfs_setopt_part> E<.Fa \"struct vfsoptlist *opts\" \"const "
+"char *name\" \"void *value\" \"int len\"> E<.Fc> E<.Ft int> E<.Fo "
+"vfs_setopts> E<.Fa \"struct vfsoptlist *opts\" \"const char *name\" \"const "
+"char *value\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vfs_getopt.9:80
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:94
+msgid ""
+"The E<.Fn vfs_getopt> function sets E<.Fa buf> to point to the value of the "
+"named mount option, and sets E<.Fa len> to the length of the value if it is "
+"not E<.Dv NULL>.  The E<.Fa buf> argument will point to the actual value, "
+"and does not need to be freed or released (and probably should not be "
+"modified)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:101
+msgid ""
+"The E<.Fn vfs_getopts> function returns the value of the specified option if "
+"it is a string (i.e., E<.Dv NUL> terminated)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:120
+msgid ""
+"The E<.Fn vfs_flagopt> function determines if an option exists.  If the "
+"option does exist, and E<.Fa flags> is not E<.Dv NULL>, E<.Fa flag> is added "
+"to those already set in E<.Fa flags>.  If the option does not exist, and "
+"E<.Fa flags> is not E<.Dv NULL>, E<.Fa flag> is removed from those already "
+"set in E<.Fa flags>.  An example of typical usage is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:123
+#, no-wrap
+msgid ""
+"if (vfs_flagopt(mp-E<gt>mnt_optnew, \"wormlike\", NULL, 0))\n"
+"\tvfs_flagopt(mp-E<gt>mnt_optnew, \"appendok\", &(mp-E<gt>flags), "
+"F_APPENDOK);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:134
+msgid ""
+"The E<.Fn vfs_scanopt> function performs a E<.Xr vsscanf 3> with the "
+"option's value, using the given format, into the specified variable "
+"arguments.  The value must be a string (i.e., E<.Dv NUL> terminated)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:145
+msgid ""
+"The E<.Fn vfs_copyopt> function creates a copy of the option's value.  The "
+"E<.Fa len> argument must match the length of the option's value exactly "
+"(i.e., a larger buffer will still cause E<.Fn vfs_copyout> to fail with "
+"E<.Er EINVAL>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:152
+msgid ""
+"The E<.Fn vfs_filteropt> function ensures that no unknown options were "
+"specified.  A option is valid if its name matches one of the names in the "
+"list of legal names.  An option may be prefixed with 'no', and still be "
+"considered valid."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:167
+msgid ""
+"The E<.Fn vfs_setopt> and E<.Fn vfs_setopt_part> functions copy new data "
+"into the option's value.  In E<.Fn vfs_setopt>, the E<.Fa len> argument must "
+"match the length of the option's value exactly (i.e., a larger buffer will "
+"still cause E<.Fn vfs_copyout> to fail with E<.Er EINVAL>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:174
+msgid ""
+"The E<.Fn vfs_setopts> function copies a new string into the option's "
+"value.  The string, including E<.Dv NUL> byte, must be no longer than the "
+"option's length."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vfs_getopt.9:174
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:180
+msgid ""
+"The E<.Fn vfs_getopt> function returns 0 if the option was found; otherwise, "
+"E<.Er ENOENT> is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:200
+msgid ""
+"The E<.Fn vfs_getops> function returns the specified option if it is found, "
+"and is E<.Dv NUL> terminated.  If the option was found, but is not E<.Dv "
+"NUL> terminated, E<.Fa error> is set to E<.Er EINVAL> and E<.Dv NULL> is "
+"returned.  If the option was not found, E<.Fa error> is set to 0, and E<.Dv "
+"NULL> is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:204
+msgid ""
+"The E<.Fn vfs_flagopt> function returns 1 if the option was found, and 0 if "
+"it was not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:216
+msgid ""
+"The E<.Fn vfs_scanopt> function returns 0 if the option was not found, or "
+"was not E<.Dv NUL> terminated; otherwise, the return value of E<.Xr vsscanf "
+"3> is returned.  If E<.Xr vsscanf 3> returns 0, it will be returned "
+"unchanged; therefore, a return value of 0 does not always mean the option "
+"does not exist, or is not a valid string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:226
+msgid ""
+"The E<.Fn vfs_copyopt> and E<.Fn vfs_setopt> functions return 0 if the copy "
+"was successful, E<.Er EINVAL> if the option was found but the lengths did "
+"not match, and E<.Er ENOENT> if the option was not found."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:232
+msgid ""
+"The E<.Fn vfs_filteropt> function returns 0 if all of the options are legal; "
+"otherwise, E<.Er EINVAL> is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:240
+msgid ""
+"The E<.Fn vfs_setopts> function returns 0 if the copy was successful, E<.Er "
+"EINVAL> if the option was found but the string was too long, and E<.Er "
+"ENOENT> if the option was not found."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vfs_getopt.9:240
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vfs_getopt.9:245
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Chad David Aq Mt "
+"davidc@FreeBSD.org> and E<.An Ruslan Ermilov Aq Mt ru@FreeBSD.org>."
+msgstr ""

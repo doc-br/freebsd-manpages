@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/pfil.9:32
+#, no-wrap
+msgid "January 28, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/pfil.9:33
+#, no-wrap
+msgid "PFIL 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pfil.9:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:41
+msgid ""
+"E<.Nm pfil>, E<.Nm pfil_head_register>, E<.Nm pfil_head_unregister>, E<.Nm "
+"pfil_link>, E<.Nm pfil_run_hooks>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/pfil.9:41
+#, no-wrap
+msgid "packet filter interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pfil.9:42
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pfil.9:43
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pfil.9:44
+#, no-wrap
+msgid "sys/mbuf.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pfil.9:45
+#, no-wrap
+msgid "net/pfil.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:58
+msgid ""
+"E<.Ft pfil_head_t> E<.Fn pfil_head_register \"struct pfil_head_args *args\"> "
+"E<.Ft void> E<.Fn pfil_head_unregister \"struct pfil_head_t *head\"> E<.Ft "
+"pfil_hook_t> E<.Fn pfil_add_hook \"struct pfil_hook_args *\"> E<.Ft void> "
+"E<.Fn pfil_remove_hook \"pfil_hook_t\"> E<.Ft int> E<.Fn pfil_link \"struct "
+"pfil_link_args *args\"> E<.Ft int> E<.Fn pfil_run_hooks \"phil_head_t *\" "
+"\"pfil_packet_t\" \"struct ifnet *\" \"int\" \"struct inpcb *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pfil.9:58
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:66
+msgid ""
+"The E<.Nm> framework allows for a specified function or a list of functions "
+"to be invoked for every incoming or outgoing packet for a particular network "
+"I/O stream.  These hooks may be used to implement a firewall or perform "
+"packet transformations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:78
+msgid ""
+"Packet filtering points, for historical reasons named E<.Em heads>, are "
+"registered with E<.Fn pfil_head_register>.  The function is supplied with "
+"special versioned E<.Vt struct pfil_head_args> structure that specifies type "
+"and features of the head as well as human readable name.  If the filtering "
+"point to be ever destroyed, the subsystem that created it must unregister it "
+"with call to E<.Fn pfil_head_unregister>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:93
+msgid ""
+"Packet filtering systems may register arbitrary number of filters, for "
+"historical reasons named E<.Em hooks>.  To register a new hook E<.Fn "
+"pfil_add_hook> with special versioned E<.Vt struct pfil_hook_args> structure "
+"is called.  The structure specifies type and features of the hook, pointer "
+"to the actual filtering function and user readable name of the filtering "
+"module and ruleset name.  Later hooks can be removed with E<.Fn "
+"pfil_remove_hook> functions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:116
+msgid ""
+"To connect existing E<.Em hook> to an existing E<.Em head> function E<.Fn "
+"pfil_link> shall be used.  The function is supplied with versioned E<.Vt "
+"struct pfil_link_args> structure that specifies either literal names of hook "
+"and head or pointers to them.  Typically E<.Fn pfil_link> is called by "
+"filtering modules to autoregister their default ruleset and default "
+"filtering points.  It also serves on the kernel side of E<.Xr ioctl 2> when "
+"user changes E<.Nm> configuration with help of E<.Xr pfilctl 8> utility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:135
+msgid ""
+"For every packet traveling through a E<.Em head> the latter shall invoke "
+"E<.Fn pfil_run_hooks>.  The function can accept either E<.Vt struct mbuf *> "
+"pointer or a E<.Vt void *> pointer and length.  In case if a hooked "
+"filtering module cannot understand E<.Vt void *> pointer E<.Nm> will provide "
+"it with a fake one.  All calls to E<.Fn pfil_run_hooks> are performed in "
+"network E<.Xr epoch 9>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pfil.9:135
+#, no-wrap
+msgid "HEADS (filtering points)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:137
+msgid "By default kernel creates the following heads:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pfil.9:138
+#, no-wrap
+msgid "inet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:140
+msgid "IPv4 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pfil.9:140
+#, no-wrap
+msgid "inet6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:142
+msgid "IPv6 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pfil.9:142
+#, no-wrap
+msgid "ethernet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:144
+msgid "Link-layer packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:148
+msgid ""
+"Default rulesets are automatically linked to these heads to preserve "
+"historical behavavior."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pfil.9:148
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:153
+msgid "E<.Xr ipfilter 4>, E<.Xr ipfw 4>, E<.Xr pf 4>, E<.Xr pfilctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pfil.9:153
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pfil.9:164
+msgid ""
+"The E<.Nm> interface first appeared in E<.Nx 1.3>.  The E<.Nm> interface was "
+"imported into E<.Fx 5.2>.  In E<.Fx 13.0> the interface was significantly "
+"rewritten."
+msgstr ""

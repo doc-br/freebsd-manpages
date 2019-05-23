@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/cd.9:27
+#, no-wrap
+msgid "March 25, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/cd.9:28
+#, no-wrap
+msgid "CD 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:32
+msgid "E<.Nm cd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/cd.9:32
+#, no-wrap
+msgid "CDROM driver for the CAM SCSI subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:47
+msgid ""
+"The E<.Nm> device driver provides a read-only interface for CDROM drives "
+"E<.Tn ( SCSI> type 5)  and WORM drives E<.Tn ( SCSI> type 4)  that support "
+"CDROM type commands.  Some drives do not behave as the driver expects.  See "
+"the E<.Sx QUIRKS> section for information on possible flags."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:47
+#, no-wrap
+msgid "QUIRKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:55
+msgid ""
+"Each E<.Tn CD-ROM> device can have different interpretations of the E<.Tn "
+"SCSI> spec.  This can lead to drives requiring special handling in the "
+"driver.  The following is a list of quirks that the driver recognize."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/cd.9:56
+#, no-wrap
+msgid "Dv CD_Q_NO_TOUCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:62
+msgid ""
+"This flag tells the driver not to probe the drive at attach time to see if "
+"there is a disk in the drive and find out what size it is.  This flag is "
+"currently unimplemented in the CAM E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/cd.9:62
+#, no-wrap
+msgid "Dv CD_Q_BCD_TRACKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:68
+msgid ""
+"This flag is for broken drives that return the track numbers in packed BCD "
+"instead of straight decimal.  If the drive seems to skip tracks (tracks "
+"10-15 are skipped)  then you have a drive that is in need of this flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/cd.9:68
+#, no-wrap
+msgid "Dv CD_Q_NO_CHANGER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:72
+msgid ""
+"This flag tells the driver that the device in question is not a changer.  "
+"This is only necessary for a CDROM device with multiple luns that are not a "
+"part of a changer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/cd.9:72
+#, no-wrap
+msgid "Dv CD_Q_CHANGER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:79
+msgid ""
+"This flag tells the driver that the given device is a multi-lun changer.  In "
+"general, the driver will figure this out automatically when it sees a LUN "
+"greater than 0.  Setting this flag only has the effect of telling the driver "
+"to run the initial read capacity command for LUN 0 of the changer through "
+"the changer scheduling code."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/cd.9:79
+#, no-wrap
+msgid "Dv CD_Q_10_BYTE_ONLY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:101
+msgid ""
+"This flag tells the driver that the given device only accepts 10 byte MODE "
+"SENSE/MODE SELECT commands.  In general these types of quirks should not be "
+"added to the E<.Xr cd 4> driver.  The reason is that the driver does several "
+"things to attempt to determine whether the drive in question needs 10 byte "
+"commands.  First, it issues a CAM Path Inquiry command to determine whether "
+"the protocol that the drive speaks typically only allows 10 byte commands.  "
+"(ATAPI and USB are two prominent examples of protocols where you generally "
+"only want to send 10 byte commands.)  Then, if it gets an ILLEGAL REQUEST "
+"error back from a 6 byte MODE SENSE or MODE SELECT command, it attempts to "
+"send the 10 byte version of the command instead.  The only reason you would "
+"need a quirk is if your drive uses a protocol (e.g., E<.Tn SCSI>)  that "
+"typically does not have a problem with 6 byte commands."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:102
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/cd.9:104
+#, no-wrap
+msgid "Pa /sys/cam/scsi/scsi_cd.c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:106
+msgid "is the driver source file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:107
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:110
+msgid "E<.Xr cd 4>, E<.Xr scsi 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:110
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:115
+msgid "The E<.Nm> manual page first appeared in E<.Fx 2.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/cd.9:115
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/cd.9:123
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An John-Mark Gurney Aq Mt "
+"jmg@FreeBSD.org>.  It was updated for CAM and E<.Fx 3.0> by E<.An Kenneth "
+"Merry Aq Mt ken@FreeBSD.org>."
+msgstr ""

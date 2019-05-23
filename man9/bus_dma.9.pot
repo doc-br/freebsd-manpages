@@ -1,0 +1,1774 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/bus_dma.9:56
+#, no-wrap
+msgid "August 11, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/bus_dma.9:57
+#, no-wrap
+msgid "BUS_DMA 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:59
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:75
+msgid ""
+"E<.Nm bus_dma>, E<.Nm bus_dma_tag_create>, E<.Nm bus_dma_tag_destroy>, E<.Nm "
+"bus_dmamap_create>, E<.Nm bus_dmamap_destroy>, E<.Nm bus_dmamap_load>, E<.Nm "
+"bus_dmamap_load_bio>, E<.Nm bus_dmamap_load_ccb>, E<.Nm "
+"bus_dmamap_load_mbuf>, E<.Nm bus_dmamap_load_mbuf_sg>, E<.Nm "
+"bus_dmamap_load_uio>, E<.Nm bus_dmamap_unload>, E<.Nm bus_dmamap_sync>, "
+"E<.Nm bus_dmamem_alloc>, E<.Nm bus_dmamem_free>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/bus_dma.9:75
+#, no-wrap
+msgid "Bus and Machine Independent DMA Mapping Interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:76
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_dma.9:77
+#, no-wrap
+msgid "machine/bus.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:124
+msgid ""
+"E<.Ft int> E<.Fn bus_dma_tag_create \"bus_dma_tag_t parent\" \"bus_size_t "
+"alignment\" \"bus_addr_t boundary\" \"bus_addr_t lowaddr\" \"bus_addr_t "
+"highaddr\" \"bus_dma_filter_t *filtfunc\" \"void *filtfuncarg\" \"bus_size_t "
+"maxsize\" \"int nsegments\" \"bus_size_t maxsegsz\" \"int flags\" "
+"\"bus_dma_lock_t *lockfunc\" \"void *lockfuncarg\" \"bus_dma_tag_t *dmat\"> "
+"E<.Ft int> E<.Fn bus_dma_tag_destroy \"bus_dma_tag_t dmat\"> E<.Ft int> "
+"E<.Fn bus_dmamap_create \"bus_dma_tag_t dmat\" \"int flags\" \"bus_dmamap_t "
+"*mapp\"> E<.Ft int> E<.Fn bus_dmamap_destroy \"bus_dma_tag_t dmat\" "
+"\"bus_dmamap_t map\"> E<.Ft int> E<.Fn bus_dmamap_load \"bus_dma_tag_t "
+"dmat\" \"bus_dmamap_t map\" \"void *buf\" \"bus_size_t buflen\" "
+"\"bus_dmamap_callback_t *callback\" \"void *callback_arg\" \"int flags\"> "
+"E<.Ft int> E<.Fn bus_dmamap_load_bio \"bus_dma_tag_t dmat\" \"bus_dmamap_t "
+"map\" \"struct bio *bio\" \"bus_dmamap_callback_t *callback\" \"void "
+"*callback_arg\" \"int flags\"> E<.Ft int> E<.Fn bus_dmamap_load_ccb "
+"\"bus_dma_tag_t dmat\" \"bus_dmamap_t map\" \"union ccb *ccb\" "
+"\"bus_dmamap_callback_t *callback\" \"void *callback_arg\" \"int flags\"> "
+"E<.Ft int> E<.Fn bus_dmamap_load_mbuf \"bus_dma_tag_t dmat\" \"bus_dmamap_t "
+"map\" \"struct mbuf *mbuf\" \"bus_dmamap_callback2_t *callback\" \"void "
+"*callback_arg\" \"int flags\"> E<.Ft int> E<.Fn bus_dmamap_load_mbuf_sg "
+"\"bus_dma_tag_t dmat\" \"bus_dmamap_t map\" \"struct mbuf *mbuf\" "
+"\"bus_dma_segment_t *segs\" \"int *nsegs\" \"int flags\"> E<.Ft int> E<.Fn "
+"bus_dmamap_load_uio \"bus_dma_tag_t dmat\" \"bus_dmamap_t map\" \"struct uio "
+"*uio\" \"bus_dmamap_callback2_t *callback\" \"void *callback_arg\" \"int "
+"flags\"> E<.Ft void> E<.Fn bus_dmamap_unload \"bus_dma_tag_t dmat\" "
+"\"bus_dmamap_t map\"> E<.Ft void> E<.Fn bus_dmamap_sync \"bus_dma_tag_t "
+"dmat\" \"bus_dmamap_t map\" \"op\"> E<.Ft int> E<.Fn bus_dmamem_alloc "
+"\"bus_dma_tag_t dmat\" \"void **vaddr\" \"int flags\" \"bus_dmamap_t "
+"*mapp\"> E<.Ft void> E<.Fn bus_dmamem_free \"bus_dma_tag_t dmat\" \"void "
+"*vaddr\" \"bus_dmamap_t map\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:124
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:129
+msgid ""
+"Direct Memory Access (DMA) is a method of transferring data without "
+"involving the CPU, thus providing higher performance.  A DMA transaction can "
+"be achieved between device to memory, device to device, or memory to memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:138
+msgid ""
+"The E<.Nm> API is a bus, device, and machine-independent (MI) interface to "
+"DMA mechanisms.  It provides the client with flexibility and simplicity by "
+"abstracting machine dependent issues like setting up DMA mappings, handling "
+"cache issues, bus specific features and limitations."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:138
+#, no-wrap
+msgid "OVERVIEW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:149
+msgid ""
+"A tag structure E<.Vt ( bus_dma_tag_t>)  is used to describe the properties "
+"of a group of related DMA transactions.  One way to view this is that a tag "
+"describes the limitations of a DMA engine.  For example, if a DMA engine in "
+"a device is limited to 32-bit addresses, that limitation is specified by a "
+"parameter when creating the tag for that device.  Similarly, a tag can be "
+"marked as requiring buffers whose addresses are aligned to a specific "
+"boundary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:166
+msgid ""
+"Some devices may require multiple tags to describe DMA transactions with "
+"differing properties.  For example, a device might require 16-byte alignment "
+"of its descriptor ring while permitting arbitrary alignment of I/O buffers.  "
+"In this case, the driver must create one tag for the descriptor ring and a "
+"separate tag for I/O buffers.  If a device has restrictions that are common "
+"to all DMA transactions in addition to restrictions that differ between "
+"unrelated groups of transactions, the driver can first create a E<.Dq "
+"parent> tag that decribes the common restrictions.  The per-group tags can "
+"then inherit these restrictions from this E<.Dq parent> tag rather than "
+"having to list them explicitly when creating the per-group tags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:174
+msgid ""
+"A mapping structure E<.Vt ( bus_dmamap_t>)  represents a mapping of a memory "
+"region for DMA.  On systems with I/O MMUs, the mapping structure tracks any "
+"I/O MMU entries used by a request.  For DMA requests that require bounce "
+"pages, the mapping tracks the bounce pages used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:188
+msgid ""
+"To prepare for one or more DMA transactions, a mapping must be bound to a "
+"memory region by calling one of the E<.Fn bus_dmamap_load> functions.  These "
+"functions configure the mapping which can include programming entries in an "
+"I/O MMU and/or allocating bounce pages.  An output of these functions "
+"(either directly or indirectly by invoking a callback routine)  is the list "
+"of scatter/gather address ranges a consumer can pass to a DMA engine to "
+"access the memory region.  When a mapping is no longer needed, the mapping "
+"must be unloaded via E<.Fn bus_dmamap_unload>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:198
+msgid ""
+"Before and after each DMA transaction, E<.Fn bus_dmamap_sync> must be used "
+"to ensure that the correct data is used by the DMA engine and the CPU.  If a "
+"mapping uses bounce pages, the sync operations copy data between the bounce "
+"pages and the memory region bound to the mapping.  Sync operations also "
+"handle architecture-specific details such as CPU cache flushing and CPU "
+"memory operation ordering."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:198
+#, no-wrap
+msgid "STATIC VS DYNAMIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:208
+msgid ""
+"E<.Nm> handles two types of DMA transactions: static and dynamic.  Static "
+"transactions are used with a long-lived memory region that is reused for "
+"many transactions such as a descriptor ring.  Dynamic transactions are used "
+"for transfers to or from transient buffers such as I/O buffers holding a "
+"network packet or disk block.  Each transaction type uses a different subset "
+"of the E<.Nm> API."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/bus_dma.9:208
+#, no-wrap
+msgid "Static Transactions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:216
+msgid ""
+"Static transactions use memory regions allocated by E<.Nm>.  Each static "
+"memory region is allocated by calling E<.Fn bus_dmamem_alloc>.  This "
+"function requires a valid tag describing the properties of the DMA "
+"transactions to this region such as alignment or address restrictions.  "
+"Multiple regions can share a single tag if they share the same restrictions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:223
+msgid ""
+"E<.Fn bus_dmamem_alloc> allocates a memory region along with a mapping "
+"object.  The associated tag, memory region, and mapping object must then be "
+"passed to E<.Fn bus_dmamap_load> to bind the mapping to the allocated region "
+"and obtain the scatter/gather list."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:234
+msgid ""
+"It is expected that E<.Fn bus_dmamem_alloc> will attempt to allocate memory "
+"requiring less expensive sync operations (for example, implementations "
+"should not allocate regions requiring bounce pages), but sync operations "
+"should still be used.  For example, a driver should use E<.Fn "
+"bus_dmamap_sync> in an interrupt handler before reading descriptor ring "
+"entries written by the device prior to the interrupt."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:240
+msgid ""
+"When a consumer is finished with a memory region, it should unload the "
+"mapping via E<.Fn bus_dmamap_unload> and then release the memory region and "
+"mapping object via E<.Fn bus_dmamem_free>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/bus_dma.9:240
+#, no-wrap
+msgid "Dynamic Transactions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:248
+msgid ""
+"Dynamic transactions map memory regions provided by other parts of the "
+"system.  A tag must be created via E<.Fn bus_dma_tag_create> to describe the "
+"DMA transactions to and from these memory regions, and a pool of mapping "
+"objects must be allocated via E<.Fn bus_dmamap_create> to track the mappings "
+"of any in-flight transactions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:270
+msgid ""
+"When a consumer wishes to schedule a transaction for a memory region, the "
+"consumer must first obtain an unused mapping object from its pool of mapping "
+"objects.  The memory region must be bound to the mapping object via one of "
+"the E<.Fn bus_dmamap_load> functions.  Before scheduling the transaction, "
+"the consumer should sync the memory region via E<.Fn bus_dmamap_sync> with "
+"one or more of the E<.Dq PRE> flags.  After the transaction has completed, "
+"the consumer should sync the memory region via E<.Fn bus_dmamap_sync> with "
+"one or more of the E<.Dq POST> flags.  The mapping can then be unloaded via "
+"E<.Fn bus_dmamap_unload>, and the mapping object can be returned to the pool "
+"of unused mapping objects."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:276
+msgid ""
+"When a consumer is no longer scheduling DMA transactions, the mapping "
+"objects should be freed via E<.Fn bus_dmamap_destroy>, and the tag should be "
+"freed via E<.Fn bus_dma_tag_destroy>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:276
+#, no-wrap
+msgid "STRUCTURES AND TYPES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:278
+#, no-wrap
+msgid "Vt bus_dma_tag_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:285
+msgid ""
+"A machine-dependent (MD) opaque type that describes the characteristics of a "
+"group of DMA transactions.  DMA tags are organized into a hierarchy, with "
+"each child tag inheriting the restrictions of its parent.  This allows all "
+"devices along the path of DMA transactions to contribute to the constraints "
+"of those transactions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:285
+#, no-wrap
+msgid "Vt bus_dma_filter_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:287
+msgid "Client specified address filter having the format:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:288
+#, no-wrap
+msgid "Ft int"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:290
+msgid "E<.Fn \"client_filter\" \"void *filtarg\" \"bus_addr_t testaddr\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:309
+msgid ""
+"Address filters can be specified during tag creation to allow for devices "
+"whose DMA address restrictions cannot be specified by a single window.  The "
+"E<.Fa filtarg> argument is specified by the client during tag creation to be "
+"passed to all invocations of the callback.  The E<.Fa testaddr> argument "
+"contains a potential starting address of a DMA mapping.  The filter function "
+"operates on the set of addresses from E<.Fa testaddr> to E<.Ql "
+"trunc_page(testaddr) + PAGE_SIZE - 1>, inclusive.  The filter function "
+"should return zero if any mapping in this range can be accommodated by the "
+"device and non-zero otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:309
+#, no-wrap
+msgid "Vt bus_dma_segment_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:313
+msgid ""
+"A machine-dependent type that describes individual DMA segments.  It "
+"contains the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:316
+#, no-wrap
+msgid ""
+"\tbus_addr_t\tds_addr;\n"
+"\tbus_size_t\tds_len;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:327
+msgid ""
+"The E<.Fa ds_addr> field contains the device visible address of the DMA "
+"segment, and E<.Fa ds_len> contains the length of the DMA segment.  Although "
+"the DMA segments returned by a mapping call will adhere to all restrictions "
+"necessary for a successful DMA operation, some conversion (e.g.\\& a "
+"conversion from host byte order to the device's byte order) is almost always "
+"required when presenting segment information to the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:327
+#, no-wrap
+msgid "Vt bus_dmamap_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:338
+msgid ""
+"A machine-dependent opaque type describing an individual mapping.  One map "
+"is used for each memory allocation that will be loaded.  Maps can be reused "
+"once they have been unloaded.  Multiple maps can be associated with one DMA "
+"tag.  While the value of the map may evaluate to E<.Dv NULL> on some "
+"platforms under certain conditions, it should never be assumed that it will "
+"be E<.Dv NULL> in all cases."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:338
+#, no-wrap
+msgid "Vt bus_dmamap_callback_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:348
+msgid ""
+"Client specified callback for receiving mapping information resulting from "
+"the load of a E<.Vt bus_dmamap_t> via E<.Fn bus_dmamap_load>, E<.Fn "
+"bus_dmamap_load_bio> or E<.Fn bus_dmamap_load_ccb>.  Callbacks are of the "
+"format:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:349 /usr/src/share/man/man9/bus_dma.9:381 /usr/src/share/man/man9/bus_dma.9:439
+#, no-wrap
+msgid "Ft void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:352
+msgid ""
+"E<.Fn \"client_callback\" \"void *callback_arg\" \"bus_dma_segment_t *segs\" "
+"\"int nseg\" \"int error\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:370
+msgid ""
+"The E<.Fa callback_arg> is the callback argument passed to dmamap load "
+"functions.  The E<.Fa segs> and E<.Fa nseg> arguments describe an array of "
+"E<.Vt bus_dma_segment_t> structures that represent the mapping.  This array "
+"is only valid within the scope of the callback function.  The success or "
+"failure of the mapping is indicated by the E<.Fa error> argument.  More "
+"information on the use of callbacks can be found in the description of the "
+"individual dmamap load functions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:370
+#, no-wrap
+msgid "Vt bus_dmamap_callback2_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:378
+msgid ""
+"Client specified callback for receiving mapping information resulting from "
+"the load of a E<.Vt bus_dmamap_t> via E<.Fn bus_dmamap_load_uio> or E<.Fn "
+"bus_dmamap_load_mbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:380
+msgid "Callback2s are of the format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:384
+msgid ""
+"E<.Fn \"client_callback2\" \"void *callback_arg\" \"bus_dma_segment_t "
+"*segs\" \"int nseg\" \"bus_size_t mapsize\" \"int error\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:390
+msgid ""
+"Callback2's behavior is the same as E<.Vt bus_dmamap_callback_t> with the "
+"addition that the length of the data mapped is provided via E<.Fa mapsize>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:390
+#, no-wrap
+msgid "Vt bus_dmasync_op_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:404
+msgid ""
+"Memory synchronization operation specifier.  Bus DMA requires explicit "
+"synchronization of memory with its device visible mapping in order to "
+"guarantee memory coherency.  The E<.Vt bus_dmasync_op_t> allows the type of "
+"DMA operation that will be or has been performed to be communicated to the "
+"system so that the correct coherency measures are taken.  The operations are "
+"represented as bitfield flags that can be combined together, though it only "
+"makes sense to combine PRE flags or POST flags, not both.  See the E<.Fn "
+"bus_dmamap_sync> description below for more details on how to use these "
+"operations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:412
+msgid ""
+"All operations specified below are performed from the host memory point of "
+"view, where a read implies data coming from the device to the host memory, "
+"and a write implies data going from the host memory to the device.  "
+"Alternatively, the operations can be thought of in terms of driver "
+"operations, where reading a network packet or storage sector corresponds to "
+"a read operation in E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:413
+#, no-wrap
+msgid "Dv BUS_DMASYNC_PREREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:416
+msgid ""
+"Perform any synchronization required prior to an update of host memory by "
+"the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:416
+#, no-wrap
+msgid "Dv BUS_DMASYNC_PREWRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:419
+msgid ""
+"Perform any synchronization required after an update of host memory by the "
+"CPU and prior to device access to host memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:419
+#, no-wrap
+msgid "Dv BUS_DMASYNC_POSTREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:422
+msgid ""
+"Perform any synchronization required after an update of host memory by the "
+"device and prior to CPU access to host memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:422
+#, no-wrap
+msgid "Dv BUS_DMASYNC_POSTWRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:424
+msgid "Perform any synchronization required after device access to host memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:425
+#, no-wrap
+msgid "Vt bus_dma_lock_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:438
+msgid ""
+"Client specified lock/mutex manipulation method.  This will be called from "
+"within busdma whenever a client lock needs to be manipulated.  In its "
+"current form, the function will be called immediately before the callback "
+"for a DMA load operation that has been deferred with E<.Dv BUS_DMA_LOCK> and "
+"immediately after with E<.Dv BUS_DMA_UNLOCK>.  If the load operation does "
+"not need to be deferred, then it will not be called since the function "
+"loading the map should be holding the appropriate locks.  This method is of "
+"the format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:441
+msgid "E<.Fn \"lockfunc\" \"void *lockfunc_arg\" \"bus_dma_lock_op_t op\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:450
+msgid ""
+"The E<.Fa lockfuncarg> argument is specified by the client during tag "
+"creation to be passed to all invocations of the callback.  The E<.Fa op> "
+"argument specifies the lock operation to perform."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:466
+msgid ""
+"Two E<.Vt lockfunc> implementations are provided for convenience.  E<.Fn "
+"busdma_lock_mutex> performs standard mutex operations on the sleep mutex "
+"provided via E<.Fa lockfuncarg>.  E<.Fn dflt_lock> will generate a system "
+"panic if it is called.  It is substituted into the tag when E<.Fa lockfunc> "
+"is passed as E<.Dv NULL> to E<.Fn bus_dma_tag_create> and is useful for tags "
+"that should not be used with deferred load operations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:466
+#, no-wrap
+msgid "Vt bus_dma_lock_op_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:469
+msgid "Operations to be performed by the client-specified E<.Fn lockfunc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:470
+#, no-wrap
+msgid "Dv BUS_DMA_LOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:472
+msgid "Acquires and/or locks the client locking primitive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:472
+#, no-wrap
+msgid "Dv BUS_DMA_UNLOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:474
+msgid "Releases and/or unlocks the client locking primitive."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:476
+#, no-wrap
+msgid "FUNCTIONS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:478
+#, no-wrap
+msgid ""
+"Fn bus_dma_tag_create parent alignment boundary lowaddr highaddr *filtfunc "
+"*filtfuncarg maxsize nsegments maxsegsz flags lockfunc lockfuncarg *dmat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:483
+msgid "Allocates a DMA tag, and initializes it according to the arguments provided:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:484
+#, no-wrap
+msgid "Fa parent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:488
+msgid ""
+"A parent tag from which to inherit restrictions.  The restrictions passed in "
+"other arguments can only further tighten the restrictions inherited from the "
+"parent tag."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:493
+msgid ""
+"All tags created by a device driver must inherit from the tag returned by "
+"E<.Fn bus_get_dma_tag> to honor restrictions between the parent bridge, CPU "
+"memory, and the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:493
+#, no-wrap
+msgid "Fa alignment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:502
+msgid ""
+"Alignment constraint, in bytes, of any mappings created using this tag.  The "
+"alignment must be a power of 2.  Hardware that can DMA starting at any "
+"address would specify E<.Em 1> for byte alignment.  Hardware requiring DMA "
+"transfers to start on a multiple of 4K would specify E<.Em 4096>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:502
+#, no-wrap
+msgid "Fa boundary"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:511
+msgid ""
+"Boundary constraint, in bytes, of the target DMA memory region.  The "
+"boundary indicates the set of addresses, all multiples of the boundary "
+"argument, that cannot be crossed by a single E<.Vt bus_dma_segment_t>.  The "
+"boundary must be a power of 2 and must be no smaller than the maximum "
+"segment size.  E<.Ql 0> indicates that there are no boundary restrictions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:511
+#, no-wrap
+msgid "Fa lowaddr , highaddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:543
+msgid ""
+"Bounds of the window of bus address space that E<.Em cannot> be directly "
+"accessed by the device.  The window contains all addresses greater than "
+"E<.Fa lowaddr> and less than or equal to E<.Fa highaddr>.  For example, a "
+"device incapable of DMA above 4GB, would specify a E<.Fa highaddr> of E<.Dv "
+"BUS_SPACE_MAXADDR> and a E<.Fa lowaddr> of E<.Dv BUS_SPACE_MAXADDR_32BIT>.  "
+"Similarly a device that can only perform DMA to addresses below 16MB would "
+"specify a E<.Fa highaddr> of E<.Dv BUS_SPACE_MAXADDR> and a E<.Fa lowaddr> "
+"of E<.Dv BUS_SPACE_MAXADDR_24BIT>.  Some implementations require that some "
+"region of device visible address space, overlapping available host memory, "
+"be outside the window.  This area of E<.Ql safe memory> is used to bounce "
+"requests that would otherwise conflict with the exclusion window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:543
+#, no-wrap
+msgid "Fa filtfunc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:559
+msgid ""
+"Optional filter function (may be E<.Dv NULL>)  to be called for any attempt "
+"to map memory into the window described by E<.Fa lowaddr> and E<.Fa "
+"highaddr>.  A filter function is only required when the single window "
+"described by E<.Fa lowaddr> and E<.Fa highaddr> cannot adequately describe "
+"the constraints of the device.  The filter function will be called for every "
+"machine page that overlaps the exclusion window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:559
+#, no-wrap
+msgid "Fa filtfuncarg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:563
+msgid ""
+"Argument passed to all calls to the filter function for this tag.  May be "
+"E<.Dv NULL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:563
+#, no-wrap
+msgid "Fa maxsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:566
+msgid ""
+"Maximum size, in bytes, of the sum of all segment lengths in a given DMA "
+"mapping associated with this tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:566
+#, no-wrap
+msgid "Fa nsegments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:572
+msgid ""
+"Number of discontinuities (scatter/gather segments) allowed in a DMA mapped "
+"region.  If there is no restriction, E<.Dv BUS_SPACE_UNRESTRICTED> may be "
+"specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:572
+#, no-wrap
+msgid "Fa maxsegsz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:576
+msgid ""
+"Maximum size, in bytes, of a segment in any DMA mapped region associated "
+"with E<.Fa dmat>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:576 /usr/src/share/man/man9/bus_dma.9:642 /usr/src/share/man/man9/bus_dma.9:715 /usr/src/share/man/man9/bus_dma.9:969
+#, no-wrap
+msgid "Fa flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:578 /usr/src/share/man/man9/bus_dma.9:644 /usr/src/share/man/man9/bus_dma.9:717
+msgid "Are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:579
+#, no-wrap
+msgid "Dv BUS_DMA_ALLOCNOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:591
+msgid ""
+"Pre-allocate enough resources to handle at least one map load operation on "
+"this tag.  If sufficient resources are not available, E<.Er ENOMEM> is "
+"returned.  This should not be used for tags that only describe buffers that "
+"will be allocated with E<.Fn bus_dmamem_alloc>.  Also, due to resource "
+"sharing with other tags, this flag does not guarantee that resources will be "
+"allocated or reserved exclusively for this tag.  It should be treated only "
+"as a minor optimization."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:591 /usr/src/share/man/man9/bus_dma.9:645 /usr/src/share/man/man9/bus_dma.9:979
+#, no-wrap
+msgid "Dv BUS_DMA_COHERENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:600
+msgid ""
+"Indicate that the DMA engine and CPU are cache-coherent.  Cached memory may "
+"be used to back allocations created by E<.Fn bus_dmamem_alloc>.  For E<.Fn "
+"bus_dma_tag_create>, the E<.Dv BUS_DMA_COHERENT> flag is currently "
+"implemented on arm64."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:601
+#, no-wrap
+msgid "Fa lockfunc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:611
+msgid ""
+"Optional lock manipulation function (may be E<.Dv NULL>)  to be called when "
+"busdma needs to manipulate a lock on behalf of the client.  If E<.Dv NULL> "
+"is specified, E<.Fn dflt_lock> is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:611
+#, no-wrap
+msgid "Fa lockfuncarg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:614
+msgid "Optional argument to be passed to the function specified by E<.Fa lockfunc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:614 /usr/src/share/man/man9/bus_dma.9:640 /usr/src/share/man/man9/bus_dma.9:674 /usr/src/share/man/man9/bus_dma.9:696 /usr/src/share/man/man9/bus_dma.9:896 /usr/src/share/man/man9/bus_dma.9:913 /usr/src/share/man/man9/bus_dma.9:964 /usr/src/share/man/man9/bus_dma.9:1044
+#, no-wrap
+msgid "Fa dmat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:617
+msgid "Pointer to a bus_dma_tag_t where the resulting DMA tag will be stored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:623
+msgid ""
+"Returns E<.Er ENOMEM> if sufficient memory is not available for tag creation "
+"or allocating mapping resources."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:623
+#, no-wrap
+msgid "Fn bus_dma_tag_destroy dmat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:628
+msgid ""
+"Deallocate the DMA tag E<.Fa dmat> that was created by E<.Fn "
+"bus_dma_tag_create>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:636
+msgid ""
+"Returns E<.Er EBUSY> if any DMA maps remain associated with E<.Fa dmat> or "
+"E<.Ql 0> on success."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:636
+#, no-wrap
+msgid "Fn bus_dmamap_create dmat flags *mapp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:639
+msgid "Allocates and initializes a DMA map.  Arguments are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:642 /usr/src/share/man/man9/bus_dma.9:1046
+msgid "DMA tag."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:659
+msgid ""
+"Attempt to map the memory loaded with this map such that cache sync "
+"operations are as cheap as possible.  This flag is typically set on maps "
+"when the memory loaded with these will be accessed by both a CPU and a DMA "
+"engine, frequently such as control data and as opposed to streamable data "
+"such as receive and transmit buffers.  Use of this flag does not remove the "
+"requirement of using E<.Fn bus_dmamap_sync>, but it may reduce the cost of "
+"performing these operations.  For E<.Fn bus_dmamap_create>, the E<.Dv "
+"BUS_DMA_COHERENT> flag is currently implemented on sparc64."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:660 /usr/src/share/man/man9/bus_dma.9:1002
+#, no-wrap
+msgid "Fa mapp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:664 /usr/src/share/man/man9/bus_dma.9:1006
+msgid "Pointer to a E<.Vt bus_dmamap_t> where the resulting DMA map will be stored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:670
+msgid ""
+"Returns E<.Er ENOMEM> if sufficient memory is not available for creating the "
+"map or allocating mapping resources."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:670
+#, no-wrap
+msgid "Fn bus_dmamap_destroy dmat map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:673
+msgid ""
+"Frees all resources associated with a given DMA map.  Arguments are as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:677 /usr/src/share/man/man9/bus_dma.9:699 /usr/src/share/man/man9/bus_dma.9:899 /usr/src/share/man/man9/bus_dma.9:916
+msgid "DMA tag used to allocate E<.Fa map>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:677 /usr/src/share/man/man9/bus_dma.9:699 /usr/src/share/man/man9/bus_dma.9:899 /usr/src/share/man/man9/bus_dma.9:916 /usr/src/share/man/man9/bus_dma.9:1048
+#, no-wrap
+msgid "Fa map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:679
+msgid "The DMA map to destroy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:685
+msgid "Returns E<.Er EBUSY> if a mapping is still active for E<.Fa map>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:685
+#, no-wrap
+msgid "Fn bus_dmamap_load dmat map buf buflen *callback callback_arg flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:695
+msgid ""
+"Creates a mapping in device visible address space of E<.Fa buflen> bytes of "
+"E<.Fa buf>, associated with the DMA map E<.Fa map>.  This call will always "
+"return immediately and will not block for any reason.  Arguments are as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:701
+msgid "A DMA map without a currently active mapping."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:701
+#, no-wrap
+msgid "Fa buf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:704
+msgid ""
+"A kernel virtual address pointer to a contiguous (in KVA) buffer, to be "
+"mapped into device visible address space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:704
+#, no-wrap
+msgid "Fa buflen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:706
+msgid "The size of the buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:706
+#, no-wrap
+msgid "Fa callback Fa callback_arg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:715
+msgid ""
+"The callback function, and its argument.  This function is called once "
+"sufficient mapping resources are available for the DMA operation.  If "
+"resources are temporarily unavailable, this function will be deferred until "
+"later, but the load operation will still return immediately to the caller.  "
+"Thus, callers should not assume that the callback will be called before the "
+"load returns, and code should be structured appropriately to handle this.  "
+"See below for specific flags and error codes that control this behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:718 /usr/src/share/man/man9/bus_dma.9:974
+#, no-wrap
+msgid "Dv BUS_DMA_NOWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:721
+msgid ""
+"The load should not be deferred in case of insufficient mapping resources, "
+"and instead should return immediately with an appropriate error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:721 /usr/src/share/man/man9/bus_dma.9:991
+#, no-wrap
+msgid "Dv BUS_DMA_NOCACHE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:728
+msgid ""
+"The generated transactions to and from the virtual page are non-cacheable.  "
+"For E<.Fn bus_dmamap_load>, the E<.Dv BUS_DMA_NOCACHE> flag is currently "
+"implemented on sparc64."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:732
+msgid "Return values to the caller are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:733 /usr/src/share/man/man9/bus_dma.9:773
+#, no-wrap
+msgid "0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:736
+msgid ""
+"The callback has been called and completed.  The status of the mapping has "
+"been delivered to the callback."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:736
+#, no-wrap
+msgid "Er EINPROGRESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:740
+msgid ""
+"The mapping has been deferred for lack of resources.  The callback will be "
+"called as soon as resources are available.  Callbacks are serviced in FIFO "
+"order."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:747
+msgid ""
+"Note that subsequent load operations for the same tag that do not require "
+"extra resources will still succeed.  This may result in out-of-order "
+"processing of requests.  If the caller requires the order of requests to be "
+"preserved, then the caller is required to stall subsequent requests until a "
+"pending request's callback is invoked."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:747
+#, no-wrap
+msgid "Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:752
+msgid ""
+"The load request has failed due to insufficient resources, and the caller "
+"specifically used the E<.Dv BUS_DMA_NOWAIT> flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:752
+#, no-wrap
+msgid "Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:767
+msgid ""
+"The load request was invalid.  The callback has been called and has been "
+"provided the same error.  This error value may indicate that E<.Fa dmat>, "
+"E<.Fa map>, E<.Fa buf>, or E<.Fa callback> were invalid, or E<.Fa buflen> "
+"was larger than the E<.Fa maxsize> argument used to create the dma tag E<.Fa "
+"dmat>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:772
+msgid ""
+"When the callback is called, it is presented with an error value indicating "
+"the disposition of the mapping.  Error may be one of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:780
+msgid ""
+"The mapping was successful and the E<.Fa dm_segs> callback argument contains "
+"an array of E<.Vt bus_dma_segment_t> elements describing the mapping.  This "
+"array is only valid during the scope of the callback function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:780
+#, no-wrap
+msgid "Er EFBIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:783
+msgid ""
+"A mapping could not be achieved within the segment constraints provided in "
+"the tag even though the requested allocation size was less than maxsize."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:784
+#, no-wrap
+msgid "Fn bus_dmamap_load_bio dmat map bio callback callback_arg flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:792
+msgid ""
+"This is a variation of E<.Fn bus_dmamap_load> which maps buffers pointed to "
+"by E<.Fa bio> for DMA transfers.  E<.Fa bio> may point to either a mapped or "
+"unmapped buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:792
+#, no-wrap
+msgid "Fn bus_dmamap_load_ccb dmat map ccb callback callback_arg flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:801
+msgid ""
+"This is a variation of E<.Fn bus_dmamap_load> which maps data pointed to by "
+"E<.Fa ccb> for DMA transfers.  The data for E<.Fa ccb> may be any of the "
+"following types:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:802
+#, no-wrap
+msgid "CAM_DATA_VADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:804
+msgid "The data is a single KVA buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:804
+#, no-wrap
+msgid "CAM_DATA_PADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:806
+msgid "The data is a single bus address range."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:806
+#, no-wrap
+msgid "CAM_DATA_SG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:808
+msgid "The data is a scatter/gather list of KVA buffers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:808
+#, no-wrap
+msgid "CAM_DATA_SG_PADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:810
+msgid "The data is a scatter/gather list of bus address ranges."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:810
+#, no-wrap
+msgid "CAM_DATA_BIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:814
+msgid "The data is contained in a E<.Vt struct bio> attached to the CCB."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:818
+msgid "E<.Fn bus_dmamap_load_ccb> supports the following CCB XPT function codes:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:822
+msgid "XPT_ATA_IO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:824
+msgid "XPT_CONT_TARGET_IO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:826
+msgid "XPT_SCSI_IO"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:827
+#, no-wrap
+msgid "Fn bus_dmamap_load_mbuf dmat map mbuf callback2 callback_arg flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:840
+msgid ""
+"This is a variation of E<.Fn bus_dmamap_load> which maps mbuf chains for DMA "
+"transfers.  A E<.Vt bus_size_t> argument is also passed to the callback "
+"routine, which contains the mbuf chain's packet header length.  The E<.Dv "
+"BUS_DMA_NOWAIT> flag is implied, thus no callback deferral will happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:842
+msgid "Mbuf chains are assumed to be in kernel virtual address space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:848
+msgid ""
+"Beside the error values listed for E<.Fn bus_dmamap_load>, E<.Er EINVAL> "
+"will be returned if the size of the mbuf chain exceeds the maximum limit of "
+"the DMA tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:848
+#, no-wrap
+msgid "Fn bus_dmamap_load_mbuf_sg dmat map mbuf segs nsegs flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:861
+msgid ""
+"This is just like E<.Fn bus_dmamap_load_mbuf> except that it returns "
+"immediately without calling a callback function.  It is provided for "
+"efficiency.  The scatter/gather segment array E<.Va segs> is provided by the "
+"caller and filled in directly by the function.  The E<.Va nsegs> argument is "
+"returned with the number of segments filled in.  Returns the same errors as "
+"E<.Fn bus_dmamap_load_mbuf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:861
+#, no-wrap
+msgid "Fn bus_dmamap_load_uio dmat map uio callback2 callback_arg flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:878
+msgid ""
+"This is a variation of E<.Fn bus_dmamap_load> which maps buffers pointed to "
+"by E<.Fa uio> for DMA transfers.  A E<.Vt bus_size_t> argument is also "
+"passed to the callback routine, which contains the size of E<.Fa uio>, i.e.  "
+"E<.Fa uio-E<gt>uio_resid>.  The E<.Dv BUS_DMA_NOWAIT> flag is implied, thus "
+"no callback deferral will happen.  Returns the same errors as E<.Fn "
+"bus_dmamap_load>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:892
+msgid ""
+"If E<.Fa uio-E<gt>uio_segflg> is E<.Dv UIO_USERSPACE>, then it is assumed "
+"that the buffer, E<.Fa uio> is in E<.Fa \"uio-E<gt>uio_td-E<gt>td_proc\" Ns "
+"'s> address space.  User space memory must be in-core and wired prior to "
+"attempting a map load operation.  Pages may be locked using E<.Xr vslock 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:892
+#, no-wrap
+msgid "Fn bus_dmamap_unload dmat map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:895
+msgid "Unloads a DMA map.  Arguments are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:901
+msgid "The DMA map that is to be unloaded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:908
+msgid ""
+"E<.Fn bus_dmamap_unload> will not perform any implicit synchronization of "
+"DMA buffers.  This must be done explicitly by a call to E<.Fn "
+"bus_dmamap_sync> prior to unloading the map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:908
+#, no-wrap
+msgid "Fn bus_dmamap_sync dmat map op"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:912
+msgid ""
+"Performs synchronization of a device visible mapping with the CPU visible "
+"memory referenced by that mapping.  Arguments are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:918
+msgid "The DMA mapping to be synchronized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:918
+#, no-wrap
+msgid "Fa op"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:924
+msgid ""
+"Type of synchronization operation to perform.  See the definition of E<.Vt "
+"bus_dmasync_op_t> for a description of the acceptable values for E<.Fa op>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:951
+msgid ""
+"The E<.Fn bus_dmamap_sync> function is the method used to ensure that CPU's "
+"and device's direct memory access (DMA) to shared memory is coherent.  For "
+"example, the CPU might be used to set up the contents of a buffer that is to "
+"be made available to a device.  To ensure that the data are visible via the "
+"device's mapping of that memory, the buffer must be loaded and a DMA sync "
+"operation of E<.Dv BUS_DMASYNC_PREWRITE> must be performed after the CPU has "
+"updated the buffer and before the device access is initiated.  If the CPU "
+"modifies this buffer again later, another E<.Dv BUS_DMASYNC_PREWRITE> sync "
+"operation must be performed before an additional device access.  Conversely, "
+"suppose a device updates memory that is to be read by a CPU.  In this case, "
+"the buffer must be loaded, and a DMA sync operation of E<.Dv "
+"BUS_DMASYNC_PREREAD> must be performed before the device access is "
+"initiated.  The CPU will only be able to see the results of this memory "
+"update once the DMA operation has completed and a E<.Dv "
+"BUS_DMASYNC_POSTREAD> sync operation has been performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:954
+msgid ""
+"If read and write operations are not preceded and followed by the "
+"appropriate synchronization operations, behavior is undefined."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:954
+#, no-wrap
+msgid "Fn bus_dmamem_alloc dmat **vaddr flags *mapp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:963
+msgid ""
+"Allocates memory that is mapped into KVA at the address returned in E<.Fa "
+"vaddr> and that is permanently loaded into the newly created E<.Vt "
+"bus_dmamap_t> returned via E<.Fa mapp>.  Arguments are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:966
+msgid "DMA tag describing the constraints of the DMA mapping."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:966 /usr/src/share/man/man9/bus_dma.9:1046
+#, no-wrap
+msgid "Fa vaddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:969
+msgid ""
+"Pointer to a pointer that will hold the returned KVA mapping of the "
+"allocated region."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:971
+msgid "Flags are defined as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:972
+#, no-wrap
+msgid "Dv BUS_DMA_WAITOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:974
+msgid "The routine can safely wait (sleep) for resources."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:979
+msgid ""
+"The routine is not allowed to wait for resources.  If resources are not "
+"available, E<.Dv ENOMEM> is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:989
+msgid ""
+"Attempt to map this memory in a coherent fashion.  See E<.Fn "
+"bus_dmamap_create> above for a description of this flag.  For E<.Fn "
+"bus_dmamem_alloc>, the E<.Dv BUS_DMA_COHERENT> flag is currently implemented "
+"on arm, arm64 and sparc64."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:989
+#, no-wrap
+msgid "Dv BUS_DMA_ZERO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:991
+msgid "Causes the allocated memory to be set to all zeros."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1001
+msgid ""
+"The allocated memory will not be cached in the processor caches.  All memory "
+"accesses appear on the bus and are executed without reordering.  For E<.Fn "
+"bus_dmamem_alloc>, the E<.Dv BUS_DMA_NOCACHE> flag is currently implemented "
+"on amd64 and i386 where it results in the Strong Uncacheable PAT to be set "
+"for the allocated virtual address range."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1014
+msgid ""
+"The size of memory to be allocated is E<.Fa maxsize> as specified in the "
+"call to E<.Fn bus_dma_tag_create> for E<.Fa dmat>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1018
+msgid ""
+"The current implementation of E<.Fn bus_dmamem_alloc> will allocate all "
+"requests as a single segment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1025
+msgid ""
+"An initial load operation is required to obtain the bus address of the "
+"allocated memory, and an unload operation is required before freeing the "
+"memory, as described below in E<.Fn bus_dmamem_free>.  Maps are "
+"automatically handled by this function and should not be explicitly "
+"allocated or destroyed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1032
+msgid ""
+"Although an explicit load is not required for each access to the memory "
+"referenced by the returned map, the synchronization requirements as "
+"described in the E<.Fn bus_dmamap_sync> section still apply and should be "
+"used to achieve portability on architectures without coherent buses."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1037
+msgid ""
+"Returns E<.Er ENOMEM> if sufficient memory is not available for completing "
+"the operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_dma.9:1037
+#, no-wrap
+msgid "Fn bus_dmamem_free dmat *vaddr map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1043
+msgid ""
+"Frees memory previously allocated by E<.Fn bus_dmamem_alloc>.  Any mappings "
+"will be invalidated.  Arguments are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1048
+msgid "Kernel virtual address of the memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1050
+msgid "DMA map to be invalidated."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:1052
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1064
+msgid ""
+"Behavior is undefined if invalid arguments are passed to any of the above "
+"functions.  If sufficient resources cannot be allocated for a given "
+"transaction, E<.Er ENOMEM> is returned.  All routines that are not of type "
+"E<.Vt void> will return 0 on success or an error code on failure as "
+"discussed above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1068
+msgid "All E<.Vt void> routines will succeed if provided with valid arguments."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:1068
+#, no-wrap
+msgid "LOCKING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1076
+msgid ""
+"Two locking protocols are used by E<.Nm>.  The first is a private global "
+"lock that is used to synchronize access to the bounce buffer pool on the "
+"architectures that make use of them.  This lock is strictly a leaf lock that "
+"is only used internally to E<.Nm> and is not exposed to clients of the API."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1096
+msgid ""
+"The second protocol involves protecting various resources stored in the "
+"tag.  Since almost all E<.Nm> operations are done through requests from the "
+"driver that created the tag, the most efficient way to protect the tag "
+"resources is through the lock that the driver uses.  In cases where E<.Nm> "
+"acts on its own without being called by the driver, the lock primitive "
+"specified in the tag is acquired and released automatically.  An example of "
+"this is when the E<.Fn bus_dmamap_load> callback function is called from a "
+"deferred context instead of the driver context.  This means that certain "
+"E<.Nm> functions must always be called with the same lock held that is "
+"specified in the tag.  These functions include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1100
+msgid "E<.Fn bus_dmamap_load>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1102
+msgid "E<.Fn bus_dmamap_load_bio>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1104
+msgid "E<.Fn bus_dmamap_load_ccb>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1106
+msgid "E<.Fn bus_dmamap_load_mbuf>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1108
+msgid "E<.Fn bus_dmamap_load_mbuf_sg>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1110
+msgid "E<.Fn bus_dmamap_load_uio>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1112
+msgid "E<.Fn bus_dmamap_unload>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1114
+msgid "E<.Fn bus_dmamap_sync>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1122
+msgid ""
+"There is one exception to this rule.  It is common practice to call some of "
+"these functions during driver start-up without any locks held.  So long as "
+"there is a guarantee of no possible concurrent use of the tag by different "
+"threads during this operation, it is safe to not hold a lock for these "
+"functions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1130
+msgid ""
+"Certain E<.Nm> operations should not be called with the driver lock held, "
+"either because they are already protected by an internal lock, or because "
+"they might sleep due to memory or resource allocation.  The following "
+"functions must not be called with any non-sleepable locks held:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1134
+msgid "E<.Fn bus_dma_tag_create>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1136
+msgid "E<.Fn bus_dmamap_create>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1138
+msgid "E<.Fn bus_dmamem_alloc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1142
+msgid ""
+"All other functions do not have a locking protocol and can thus be called "
+"with or without any system or driver locks held."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:1142
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1148
+msgid ""
+"E<.Xr devclass 9>, E<.Xr device 9>, E<.Xr driver 9>, E<.Xr rman 9>, E<.Xr "
+"vslock 9>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1156
+msgid ""
+"E<.Rs> E<.%A \"Jason R. Thorpe\"> E<.%T \"A Machine-Independent DMA "
+"Framework for NetBSD\"> E<.%J \"Proceedings of the Summer 1998 USENIX "
+"Technical Conference\"> E<.%Q \"USENIX Association\"> E<.%D \"June 1998\"> "
+"E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:1156
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1161
+msgid "The E<.Nm> interface first appeared in E<.Nx 1.3>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1173
+msgid ""
+"The E<.Nm> API was adopted from E<.Nx> for use in the CAM SCSI subsystem.  "
+"The alterations to the original API were aimed to remove the need for a "
+"E<.Vt bus_dma_segment_t> array stored in each E<.Vt bus_dmamap_t> while "
+"allowing callers to queue up on scarce resources."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_dma.9:1173
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1190
+msgid ""
+"The E<.Nm> interface was designed and implemented by E<.An Jason R. Thorpe> "
+"of the Numerical Aerospace Simulation Facility, NASA Ames Research Center.  "
+"Additional input on the E<.Nm> design was provided by E<.An -nosplit> E<.An "
+"Chris Demetriou>, E<.An Charles Hannum>, E<.An Ross Harvey>, E<.An Matthew "
+"Jacob>, E<.An Jonathan Stone>, and E<.An Matt Thomas>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1206
+msgid ""
+"The E<.Nm> interface in E<.Fx> benefits from the contributions of E<.An "
+"Justin T. Gibbs>, E<.An Peter Wemm>, E<.An Doug Rabson>, E<.An Matthew "
+"N. Dodd>, E<.An Sam Leffler>, E<.An Maxime Henrion>, E<.An Jake Burkholder>, "
+"E<.An Takahashi Yoshihiro>, E<.An Scott Long> and many others."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_dma.9:1210
+msgid ""
+"This manual page was written by E<.An Hiten M. Pandya> and E<.An Justin "
+"T. Gibbs>."
+msgstr ""

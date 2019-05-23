@@ -1,0 +1,665 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ipsec.4:32
+#, no-wrap
+msgid "February 6, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ipsec.4:33
+#, no-wrap
+msgid "IPSEC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:37
+msgid "E<.Nm ipsec>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ipsec.4:37
+#, no-wrap
+msgid "Internet Protocol Security protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:42
+msgid ""
+"E<.Cd \"options IPSEC\"> E<.Cd \"options IPSEC_SUPPORT\"> E<.Cd \"device "
+"crypto\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ipsec.4:43
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ipsec.4:44
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ipsec.4:45
+#, no-wrap
+msgid "netipsec/ipsec.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ipsec.4:46
+#, no-wrap
+msgid "netipsec/ipsec6.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:78
+msgid ""
+"E<.Nm> is a security protocol implemented within the Internet Protocol layer "
+"of the networking stack.  E<.Nm> is defined for both IPv4 and IPv6 E<.Xr ( "
+"inet 4> and E<.Xr inet6 4>).  E<.Nm> is a set of protocols, E<.Tn ESP> (for "
+"Encapsulating Security Payload)  E<.Tn AH> (for Authentication Header), and "
+"E<.Tn IPComp> (for IP Payload Compression Protocol)  that provide security "
+"services for IP datagrams.  AH both authenticates and guarantees the "
+"integrity of an IP packet by attaching a cryptographic checksum computed "
+"using one-way hash functions.  ESP, in addition, prevents unauthorized "
+"parties from reading the payload of an IP packet by also encrypting it.  "
+"IPComp tries to increase communication performance by compressing IP "
+"payload, thus reducing the amount of data sent.  This will help nodes on "
+"slow links but with enough computing power.  E<.Nm> operates in one of two "
+"modes: transport mode or tunnel mode.  Transport mode is used to protect "
+"peer-to-peer communication between end nodes.  Tunnel mode encapsulates IP "
+"packets within other IP packets and is designed for security gateways such "
+"as VPN endpoints."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:82
+msgid "System configuration requires the E<.Xr crypto 4> subsystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:88
+msgid ""
+"The packets can be passed to a virtual E<.Xr enc 4> interface, to perform "
+"packet filtering before outbound encryption and after decapsulation inbound."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:92
+msgid ""
+"To properly filter on the inner packets of an E<.Nm> tunnel with firewalls, "
+"you can change the values of the following sysctls"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:93
+#, no-wrap
+msgid "Sy \"Name\tDefault\tEnable\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:94
+#, no-wrap
+msgid "net.inet.ipsec.filtertunnel\t0\t1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:95
+#, no-wrap
+msgid "net.inet6.ipsec6.filtertunnel\t0\t1"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ipsec.4:98
+#, no-wrap
+msgid "Kernel interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:107
+msgid ""
+"E<.Nm> is controlled by a key management and policy engine, that reside in "
+"the operating system kernel.  Key management is the process of associating "
+"keys with security associations, also know as SAs.  Policy management "
+"dictates when new security associations created or destroyed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:114
+msgid ""
+"The key management engine can be accessed from userland by using E<.Dv "
+"PF_KEY> sockets.  The E<.Dv PF_KEY> socket API is defined in RFC2367."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:132
+msgid ""
+"The policy engine is controlled by an extension to the E<.Dv PF_KEY> API, "
+"E<.Xr setsockopt 2> operations, and E<.Xr sysctl 3> interface.  The kernel "
+"implements an extended version of the E<.Dv PF_KEY> interface and allows the "
+"programmer to define IPsec policies which are similar to the per-packet "
+"filters.  The E<.Xr setsockopt 2> interface is used to define per-socket "
+"behavior, and E<.Xr sysctl 3> interface is used to define host-wide default "
+"behavior."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:140
+msgid ""
+"The kernel code does not implement a dynamic encryption key exchange "
+"protocol such as IKE (Internet Key Exchange).  Key exchange protocols are "
+"beyond what is necessary in the kernel and should be implemented as daemon "
+"processes which call the E<.Nm APIs.>"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ipsec.4:140
+#, no-wrap
+msgid "Policy management"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:154
+msgid ""
+"IPsec policies can be managed in one of two ways, either by configuring "
+"per-socket policies using the E<.Xr setsockopt 2> system calls, or by "
+"configuring kernel level packet filter-based policies using the E<.Dv "
+"PF_KEY> interface, via the E<.Xr setkey 8> you can define IPsec policies "
+"against packets using rules similar to packet filtering rules.  Refer to "
+"E<.Xr setkey 8> on how to use it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:164
+msgid ""
+"Depending on the socket's address family, IPPROTO_IP or IPPROTO_IPV6 "
+"transport level and IP_IPSEC_POLICY or IPV6_IPSEC_POLICY socket options may "
+"be used to configure per-socket security policies.  A properly-formed IPsec "
+"policy specification structure can be created using E<.Xr ipsec_set_policy "
+"3> function and used as socket option value for the E<.Xr setsockopt 2> "
+"call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:188
+msgid ""
+"When setting policies using the E<.Xr setkey 8> command, the E<.Dq Li "
+"default> option instructs the system to use its default policy, as explained "
+"below, for processing packets.  The following sysctl variables are available "
+"for configuring the system's IPsec behavior.  The variables can have one of "
+"two values.  A E<.Li 1> means E<.Dq Li use>, which means that if there is a "
+"security association then use it but if there is not then the packets are "
+"not processed by IPsec.  The value E<.Li 2> is synonymous with E<.Dq Li "
+"require>, which requires that a security association must exist for the "
+"packets to move, and not be dropped.  These terms are defined in E<.Xr "
+"ipsec_set_policy 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:189 /usr/src/share/man/man4/ipsec.4:214 /usr/src/share/man/man4/ipsec.4:236
+#, no-wrap
+msgid "Sy \"Name\tType\tChangeable\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:190
+#, no-wrap
+msgid "net.inet.ipsec.esp_trans_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:191
+#, no-wrap
+msgid "net.inet.ipsec.esp_net_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:192
+#, no-wrap
+msgid "net.inet.ipsec.ah_trans_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:193
+#, no-wrap
+msgid "net.inet.ipsec.ah_net_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:194
+#, no-wrap
+msgid "net.inet6.ipsec6.esp_trans_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:195
+#, no-wrap
+msgid "net.inet6.ipsec6.esp_net_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:196
+#, no-wrap
+msgid "net.inet6.ipsec6.ah_trans_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:197
+#, no-wrap
+msgid "net.inet6.ipsec6.ah_net_deflev\tinteger\tyes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:213
+msgid ""
+"If the kernel does not find a matching, system wide, policy then the default "
+"value is applied.  The system wide default policy is specified by the "
+"following E<.Xr sysctl 8> variables.  E<.Li 0> means E<.Dq Li discard> which "
+"asks the kernel to drop the packet.  E<.Li 1> means E<.Dq Li none>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:215
+#, no-wrap
+msgid "net.inet.ipsec.def_policy\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:216
+#, no-wrap
+msgid "net.inet6.ipsec6.def_policy\tinteger\tyes"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ipsec.4:219
+#, no-wrap
+msgid "Miscellaneous sysctl variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:225
+msgid ""
+"When the E<.Nm> protocols are configured for use, all protocols are included "
+"in the system.  To selectively enable/disable protocols, use E<.Xr sysctl "
+"8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:226
+#, no-wrap
+msgid "Sy \"Name\tDefault\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:227
+#, no-wrap
+msgid "net.inet.esp.esp_enable\tOn"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:228
+#, no-wrap
+msgid "net.inet.ah.ah_enable\tOn"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:229
+#, no-wrap
+msgid "net.inet.ipcomp.ipcomp_enable\tOn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:235
+msgid ""
+"In addition the following variables are accessible via E<.Xr sysctl 8>, for "
+"tweaking the kernel's IPsec behavior:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:237
+#, no-wrap
+msgid "net.inet.ipsec.ah_cleartos\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:238
+#, no-wrap
+msgid "net.inet.ipsec.ah_offsetmask\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:239
+#, no-wrap
+msgid "net.inet.ipsec.dfbit\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:240
+#, no-wrap
+msgid "net.inet.ipsec.ecn\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:241
+#, no-wrap
+msgid "net.inet.ipsec.debug\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:242
+#, no-wrap
+msgid "net.inet.ipsec.natt_cksum_policy\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:243
+#, no-wrap
+msgid "net.inet.ipsec.check_policy_history\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:244
+#, no-wrap
+msgid "net.inet6.ipsec6.ecn\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:245
+#, no-wrap
+msgid "net.inet6.ipsec6.debug\tinteger\tyes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:249
+msgid "The variables are interpreted as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:250
+#, no-wrap
+msgid "Li ipsec.ah_cleartos"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:258
+msgid ""
+"If set to non-zero, the kernel clears the type-of-service field in the IPv4 "
+"header during AH authentication data computation.  This variable is used to "
+"get current systems to inter-operate with devices that implement RFC1826 "
+"AH.  It should be set to non-zero (clear the type-of-service field)  for "
+"RFC2402 conformance."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:258
+#, no-wrap
+msgid "Li ipsec.ah_offsetmask"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:268
+msgid ""
+"During AH authentication data computation, the kernel will include a 16bit "
+"fragment offset field (including flag bits)  in the IPv4 header, after "
+"computing logical AND with the variable.  The variable is used for "
+"inter-operating with devices that implement RFC1826 AH.  It should be set to "
+"zero (clear the fragment offset field during computation)  for RFC2402 "
+"conformance."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:268
+#, no-wrap
+msgid "Li ipsec.dfbit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:275
+msgid ""
+"This variable configures the kernel behavior on IPv4 IPsec tunnel "
+"encapsulation.  If set to 0, the DF bit on the outer IPv4 header will be "
+"cleared while 1 means that the outer DF bit is set regardless from the inner "
+"DF bit and 2 indicates that the DF bit is copied from the inner header to "
+"the outer one.  The variable is supplied to conform to RFC2401 chapter 6.1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:275
+#, no-wrap
+msgid "Li ipsec.ecn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:283
+msgid ""
+"If set to non-zero, IPv4 IPsec tunnel encapsulation/decapsulation behavior "
+"will be friendly to ECN (explicit congestion notification), as documented in "
+"E<.Li draft-ietf-ipsec-ecn-02.txt>.  E<.Xr gif 4> talks more about the "
+"behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:283
+#, no-wrap
+msgid "Li ipsec.debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:286
+msgid "If set to non-zero, debug messages will be generated via E<.Xr syslog 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:286
+#, no-wrap
+msgid "Li ipsec.natt_cksum_policy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:296
+msgid ""
+"Controls how the kernel handles TCP and UDP checksums when ESP in UDP "
+"encapsulation is used for IPsec transport mode.  If set to a non-zero value, "
+"the kernel fully recomputes checksums for inbound TCP segments and UDP "
+"datagrams after they are decapsulated and decrypted.  If set to 0 and "
+"original addresses were configured for corresponding SA by the IKE daemon, "
+"the kernel incrementally recomputes checksums for inbound TCP segments and "
+"UDP datagrams.  If addresses were not configured, the checksums are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ipsec.4:296
+#, no-wrap
+msgid "Li ipsec.check_policy_history"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:303
+msgid ""
+"Enables strict policy checking for inbound packets.  By default, inbound "
+"security policies check that packets handled by IPsec have been decrypted "
+"and authenticated.  If this variable is set to a non-zero value, each packet "
+"handled by IPsec is checked against the history of IPsec security "
+"associations.  The IPsec security protocol, mode, and SA addresses must "
+"match."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:309
+msgid ""
+"Variables under the E<.Li net.inet6.ipsec6> tree have similar meanings to "
+"those described above."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:309
+#, no-wrap
+msgid "PROTOCOLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:332
+msgid ""
+"The E<.Nm> protocol acts as a plug-in to the E<.Xr inet 4> and E<.Xr inet6 "
+"4> protocols and therefore supports most of the protocols defined upon those "
+"IP-layer protocols.  The E<.Xr icmp 4> and E<.Xr icmp6 4> protocols may "
+"behave differently with E<.Nm> because E<.Nm> can prevent E<.Xr icmp 4> or "
+"E<.Xr icmp6 4> routines from looking into the IP payload."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:332
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. .Xr racoon 8
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:357
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr socket 2>, E<.Xr ipsec_set_policy 3>, E<.Xr crypto 4>, "
+"E<.Xr enc 4>, E<.Xr if_ipsec 4>, E<.Xr icmp6 4>, E<.Xr intro 4>, E<.Xr ip6 "
+"4>, E<.Xr setkey 8>, E<.Xr sysctl 8> E<.Rs> E<.%A \"S. Kent\"> E<.%A "
+"\"R. Atkinson\"> E<.%T \"IP Authentication Header\"> E<.%O \"RFC 2404\"> "
+"E<.Re> E<.Rs> E<.%A \"S. Kent\"> E<.%A \"R. Atkinson\"> E<.%T \"IP "
+"Encapsulating Security Payload (ESP)\"> E<.%O \"RFC 2406\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:357
+#, no-wrap
+msgid "STANDARDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:366
+msgid ""
+"E<.Rs> E<.%A Daniel L. McDonald> E<.%A Craig Metz> E<.%A Bao G. Phan> E<.%T "
+"\"PF_KEY Key Management API, Version 2\"> E<.%R RFC> E<.%N 2367> E<.Re>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:374
+msgid ""
+"E<.Rs> E<.%A \"D. L. McDonald\"> E<.%T \"A Simple IP Security API Extension "
+"to BSD Sockets\"> E<.%R internet draft> E<.%N "
+"\"draft-mcdonald-simple-ipsec-api-03.txt\"> E<.%O work in progress material> "
+"E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:374
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:378
+msgid ""
+"The original E<.Nm> implementation appeared in the WIDE/KAME IPv6/IPsec "
+"stack."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:398
+msgid ""
+"For E<.Fx 5.0> a fully locked IPsec implementation called fast_ipsec was "
+"brought in.  The protocols drew heavily on the E<.Ox> implementation of the "
+"E<.Tn IPsec> protocols.  The policy management code was derived from the "
+"E<.Tn KAME> implementation found in their E<.Tn IPsec> protocols.  The "
+"fast_ipsec implementation lacked E<.Xr ip6 4> support but made use of the "
+"E<.Xr crypto 4> subsystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:408
+msgid ""
+"For E<.Fx 7.0> E<.Xr ip6 4> support was added to fast_ipsec.  After this the "
+"old KAME IPsec implementation was dropped and fast_ipsec became what now is "
+"the only E<.Nm> implementation in E<.Fx>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ipsec.4:408
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:411
+msgid ""
+"There is no single standard for the policy engine API, so the policy engine "
+"API described herein is just for this implementation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:428
+msgid ""
+"AH and tunnel mode encapsulation may not work as you might expect.  If you "
+"configure inbound E<.Dq require> policy with an AH tunnel or any IPsec "
+"encapsulating policy with AH (like E<.Dq Li esp/tunnel/A-B/use "
+"ah/transport/A-B/require>), tunnelled packets will be rejected.  This is "
+"because the policy check is enforced on the inner packet on reception, and "
+"AH authenticates encapsulating (outer)  packet, not the encapsulated (inner)  "
+"packet (so for the receiving kernel there is no sign of authenticity).  The "
+"issue will be solved when we revamp our policy engine to keep all the packet "
+"decapsulation history."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:439
+msgid ""
+"When a large database of security associations or policies is present in the "
+"kernel the E<.Dv SADB_DUMP> and E<.Dv SADB_SPDDUMP> operations on E<.Dv "
+"PF_KEY> sockets may fail due to lack of space.  Increasing the socket buffer "
+"size may alleviate this problem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:445
+msgid ""
+"The E<.Tn IPcomp> protocol may occasionally error because of E<.Xr zlib 3> "
+"problems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ipsec.4:446
+msgid "This documentation needs more review."
+msgstr ""

@@ -1,0 +1,891 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_hci.4:28
+#, no-wrap
+msgid "June 25, 2002"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_hci.4:29
+#, no-wrap
+msgid "NG_HCI 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:33
+msgid "E<.Nm ng_hci>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_hci.4:33
+#, no-wrap
+msgid "Netgraph node type that is also a Bluetooth Host Controller Interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:35
+msgid "(HCI) layer"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_hci.4:36
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_hci.4:37
+#, no-wrap
+msgid "netgraph/bluetooth/include/ng_hci.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:44
+msgid ""
+"The E<.Nm hci> node type is a Netgraph node type that implements Bluetooth "
+"Host Controller Interface (HCI) layer as per chapter H1 of the Bluetooth "
+"Specification Book v1.1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:44
+#, no-wrap
+msgid "INTRODUCTION TO BLUETOOTH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:59
+msgid ""
+"Bluetooth is a short-range radio link intended to replace the cable(s)  "
+"connecting portable and/or fixed electronic devices.  Bluetooth operates in "
+"the unlicensed ISM band at 2.4 GHz.  The Bluetooth protocol uses a "
+"combination of circuit and packet switching.  Bluetooth can support an "
+"asynchronous data channel, up to three simultaneous synchronous voice "
+"channels, or a channel which simultaneously supports asynchronous data and "
+"synchronous voice.  Each voice channel supports a 64 kb/s synchronous "
+"(voice) channel in each direction.  The asynchronous channel can support "
+"maximal 723.2 kb/s asymmetric (and still up to 57.6 kb/s in the return "
+"direction), or 433.9 kb/s symmetric."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:75
+msgid ""
+"The Bluetooth system provides a point-to-point connection (only two "
+"Bluetooth units involved), or a point-to-multipoint connection.  In the "
+"point-to-multipoint connection, the channel is shared among several "
+"Bluetooth units.  Two or more units sharing the same channel form a E<.Dq "
+"piconet>.  One Bluetooth unit acts as the master of the piconet, whereas the "
+"other unit(s) acts as slave(s).  Up to seven slaves can be active in the "
+"piconet.  In addition, many more slaves can remain locked to the master in a "
+"so-called parked state.  These parked slaves cannot be active on the "
+"channel, but remain synchronized to the master.  Both for active and parked "
+"slaves, the channel access is controlled by the master."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:84
+msgid ""
+"Multiple piconets with overlapping coverage areas form a E<.Dq scatternet>.  "
+"Each piconet can only have a single master.  However, slaves can participate "
+"in different piconets on a time-division multiplex basis.  In addition, a "
+"master in one piconet can be a slave in another piconet.  The piconets shall "
+"not be frequency-synchronized.  Each piconet has its own hopping channel."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:84
+#, no-wrap
+msgid "Time Slots"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:91
+msgid ""
+"The channel is divided into time slots, each 625 usec in length.  The time "
+"slots are numbered according to the Bluetooth clock of the piconet master.  "
+"The slot numbering ranges from 0 to 2^27 -1 and is cyclic with a cycle "
+"length of 2^27.  In the time slots, master and slave can transmit packets."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:91
+#, no-wrap
+msgid "SCO Link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:102
+msgid ""
+"The SCO link is a symmetric, point-to-point link between the master and a "
+"specific slave.  The SCO link reserves slots and can therefore be considered "
+"as a circuit-switched connection between the master and the slave.  The SCO "
+"link typically supports time-bounded information like voice.  The master can "
+"support up to three SCO links to the same slave or to different slaves.  A "
+"slave can support up to three SCO links from the same master, or two SCO "
+"links if the links originate from different masters.  SCO packets are never "
+"retransmitted."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:102
+#, no-wrap
+msgid "ACL Link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:112
+msgid ""
+"In the slots not reserved for SCO links, the master can exchange packets "
+"with any slave on a per-slot basis.  The ACL link provides a packet-switched "
+"connection between the master and all active slaves participating in the "
+"piconet.  Both asynchronous and isochronous services are supported.  Between "
+"a master and a slave only a single ACL link can exist.  For most ACL "
+"packets, packet retransmission is applied to assure data integrity."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:112
+#, no-wrap
+msgid "HOST CONTROLLER INTERFACE (HCI)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:117
+msgid ""
+"The HCI provides a command interface to the baseband controller and link "
+"manager, and access to hardware status and control registers.  This "
+"interface provides a uniform method of accessing the Bluetooth baseband "
+"capabilities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:123
+msgid ""
+"The HCI layer on the Host exchanges data and commands with the HCI firmware "
+"on the Bluetooth hardware.  The Host Controller Transport Layer (i.e., "
+"physical bus) driver provides both HCI layers with the ability to exchange "
+"information with each other."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:132
+msgid ""
+"The Host will receive asynchronous notifications of HCI events independent "
+"of which Host Controller Transport Layer is used.  HCI events are used for "
+"notifying the Host when something occurs.  When the Host discovers that an "
+"event has occurred it will then parse the received event packet to determine "
+"which event occurred.  The next sections specify the HCI packet formats."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:132
+#, no-wrap
+msgid "HCI Command Packet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:140
+#, no-wrap
+msgid ""
+"#define NG_HCI_CMD_PKT 0x01\n"
+"typedef struct {\n"
+"        uint8_t  type;   /* MUST be 0x1 */\n"
+"        uint16_t opcode; /* OpCode */\n"
+"        uint8_t  length; /* parameter(s) length in bytes */\n"
+"} __attribute__ ((packed)) ng_hci_cmd_pkt_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:155
+msgid ""
+"The HCI command packet is used to send commands to the Host Controller from "
+"the Host.  When the Host Controller completes most of the commands, a "
+"Command Complete event is sent to the Host.  Some commands do not receive a "
+"Command Complete event when they have been completed.  Instead, when the "
+"Host Controller receives one of these commands the Host Controller sends a "
+"Command Status event back to the Host when it has begun to execute the "
+"command.  Later on, when the actions associated with the command have "
+"finished, an event that is associated with the sent command will be sent by "
+"the Host Controller to the Host."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:155
+#, no-wrap
+msgid "HCI Event Packet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:163
+#, no-wrap
+msgid ""
+"#define NG_HCI_EVENT_PKT 0x04\n"
+"typedef struct {\n"
+"        uint8_t type;   /* MUST be 0x4 */\n"
+"        uint8_t event;  /* event */\n"
+"        uint8_t length; /* parameter(s) length in bytes */\n"
+"} __attribute__ ((packed)) ng_hci_event_pkt_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:167
+msgid ""
+"The HCI event packet is used by the Host Controller to notify the Host when "
+"events occur."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:167
+#, no-wrap
+msgid "HCI ACL Data Packet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:175
+#, no-wrap
+msgid ""
+"#define NG_HCI_ACL_DATA_PKT 0x02\n"
+"typedef struct {\n"
+"        uint8_t  type;       /* MUST be 0x2 */\n"
+"        uint16_t con_handle; /* connection handle + PB + BC flags */\n"
+"        uint16_t length;     /* payload length in bytes */\n"
+"} __attribute__ ((packed)) ng_hci_acldata_pkt_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:179
+msgid ""
+"HCI ACL data packets are used to exchange ACL data between the Host and Host "
+"Controller."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_hci.4:179
+#, no-wrap
+msgid "HCI SCO Data Packet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:187
+#, no-wrap
+msgid ""
+"#define NG_HCI_SCO_DATA_PKT 0x03\n"
+"typedef struct {\n"
+"        uint8_t  type;       /* MUST be 0x3 */\n"
+"        uint16_t con_handle; /* connection handle + reserved bits */\n"
+"        uint8_t  length;     /* payload length in bytes */\n"
+"} __attribute__ ((packed)) ng_hci_scodata_pkt_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:191
+msgid ""
+"HCI SCO data packets are used to exchange SCO data between the Host and Host "
+"Controller."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:191
+#, no-wrap
+msgid "HCI INITIALIZATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:194
+msgid ""
+"On initialization, HCI control application must issue the following HCI "
+"commands (in any order)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:195
+#, no-wrap
+msgid "Dv Read_BD_ADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:197
+msgid "To obtain BD_ADDR of the Bluetooth unit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:197
+#, no-wrap
+msgid "Dv Read_Local_Supported_Features"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:199
+msgid "To obtain the list of features supported by Bluetooth unit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:199
+#, no-wrap
+msgid "Dv Read_Buffer_Size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:206
+msgid ""
+"To determine the maximum size of HCI ACL and SCO HCI data packets (excluding "
+"header) that can be sent from the Host to the Host Controller.  There are "
+"also two additional return parameters that specify the total number of HCI "
+"ACL and SCO data packets that the Host Controller can have waiting for "
+"transmission in its buffers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:216
+msgid ""
+"As soon as HCI initialization has been successfully performed, HCI control "
+"application must turn on E<.Dq inited> bit for the node.  Once HCI node has "
+"been initialized all upstream hooks will receive a E<.Dv NGM_HCI_NODE_UP> "
+"Netgraph message defined as follows."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:224
+#, no-wrap
+msgid ""
+"#define NGM_HCI_NODE_UP 112 /* HCI -E<gt> Upper */\n"
+"typedef struct {\n"
+"        uint16_t  pkt_size; /* max. ACL/SCO packet size (w/o hdr) */\n"
+"        uint16_t  num_pkts; /* ACL/SCO packet queue size */\n"
+"        uint16_t  reserved; /* place holder */\n"
+"        bdaddr_t  bdaddr;   /* bdaddr */\n"
+"} ng_hci_node_up_ep;\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:225
+#, no-wrap
+msgid "HCI FLOW CONTROL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:244
+msgid ""
+"HCI layer performs flow control on baseband connection basis (i.e., ACL and "
+"SCO link).  Each baseband connection has E<.Dq \"connection handle\"> and "
+"queue of outgoing data packets.  Upper layers protocols are allowed to send "
+"up to E<.Dv ( num_pkts> \\- E<.Dv pending>)  packets at one time.  HCI layer "
+"will send E<.Dv NGM_HCI_SYNC_CON_QUEUE> Netgraph messages to inform upper "
+"layers about current queue state for each connection handle.  The E<.Dv "
+"NGM_HCI_SYNC_CON_QUEUE> Netgraph message is defined as follows."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:250
+#, no-wrap
+msgid ""
+"#define NGM_HCI_SYNC_CON_QUEUE 113 /* HCI -E<gt> Upper */\n"
+"typedef struct {\n"
+"        uint16_t con_handle; /* connection handle */\n"
+"        uint16_t completed;  /* number of completed packets */\n"
+"} ng_hci_sync_con_queue_ep;\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:251
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:253
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:254
+#, no-wrap
+msgid "Va drv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:259
+msgid ""
+"Bluetooth Host Controller Transport Layer hook.  Single HCI packet contained "
+"in single E<.Vt mbuf> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:259
+#, no-wrap
+msgid "Va acl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:264
+msgid ""
+"Upper layer protocol/node is connected to the hook.  Single HCI ACL data "
+"packet contained in single E<.Vt mbuf> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:264
+#, no-wrap
+msgid "Va sco"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:269
+msgid ""
+"Upper layer protocol/node is connected to the hook.  Single HCI SCO data "
+"packet contained in single E<.Vt mbuf> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:269
+#, no-wrap
+msgid "Va raw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:277
+msgid ""
+"Raw hook.  Every HCI frame (including HCI command frame) that goes in or out "
+"will be delivered to the hook.  Usually the Bluetooth raw HCI socket layer "
+"is connected to the hook.  Single HCI frame contained in single E<.Vt mbuf> "
+"structure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:278
+#, no-wrap
+msgid "BLUETOOTH UPPER LAYER PROTOCOLS INTERFACE (LP CONTROL MESSAGES)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:280
+#, no-wrap
+msgid "Dv NGM_HCI_LP_CON_REQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:285
+msgid ""
+"Requests the lower protocol to create a connection.  If a physical link to "
+"the remote device does not exist, this message must be sent to the lower "
+"protocol (baseband) to establish the physical connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:285
+#, no-wrap
+msgid "Dv NGM_HCI_LP_DISCON_REQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:287
+msgid "Requests the lower protocol (baseband) to terminate a connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:287
+#, no-wrap
+msgid "Dv NGM_HCI_LP_CON_CFM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:293
+msgid ""
+"Confirms success or failure of the E<.Dv NGM_HCI_LP_CON_REQ> request to "
+"establish a lower layer (baseband) connection.  This includes passing the "
+"authentication challenge if authentication is required to establish the "
+"physical link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:293
+#, no-wrap
+msgid "Dv NGM_HCI_LP_CON_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:296
+msgid ""
+"Indicates the lower protocol (baseband) has successfully established "
+"incoming connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:296
+#, no-wrap
+msgid "Dv NGM_HCI_LP_CON_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:298
+msgid ""
+"A response accepting or rejecting the previous connection indication "
+"request."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:298
+#, no-wrap
+msgid "Dv NGM_HCI_LP_DISCON_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:303
+msgid ""
+"Indicates the lower protocol (baseband) has terminated connection.  This "
+"could be a response to E<.Dv NGM_HCI_LP_DISCON_REQ> or a timeout event."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:303
+#, no-wrap
+msgid "Dv NGM_HCI_LP_QOS_REQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:306
+msgid ""
+"Requests the lower protocol (baseband) to accommodate a particular QoS "
+"parameter set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:306
+#, no-wrap
+msgid "Dv NGM_HCI_LP_QOS_CFM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:308
+msgid "Confirms success or failure of the request for a given quality of service."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:308
+#, no-wrap
+msgid "Dv NGM_HCI_LP_QOS_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:311
+msgid ""
+"Indicates the lower protocol (baseband) has detected a violation of the QoS "
+"agreement."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:312
+#, no-wrap
+msgid "NETGRAPH CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:314
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:315
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_STATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:317
+msgid "Returns current state for the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:317
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_INIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:321
+msgid "Turn on E<.Dq inited> bit for the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:321
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_DEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:323
+msgid "Returns an integer containing the current debug level for the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:323
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_SET_DEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:326
+msgid ""
+"This command takes an integer argument and sets current debug level for the "
+"node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:326
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_BUFFER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:328
+msgid "Returns current state of data buffers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:328
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_BDADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:330
+msgid "Returns BD_ADDR as cached in the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:330
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_FEATURES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:332
+msgid "Returns the list of features supported by hardware (as cached by the node)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:332
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_NEIGHBOR_CACHE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:334
+msgid "Returns content of the neighbor cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:334
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_FLUSH_NEIGHBOR_CACHE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:336
+msgid "Remove all neighbor cache entries."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:336
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_CON_LIST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:338
+msgid "Returns list of active baseband connections (i.e., ACL and SCO links)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:338
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_GET_STAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:340
+msgid "Returns various statistic counters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:340
+#, no-wrap
+msgid "Dv NGM_HCI_NODE_RESET_STAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:342
+msgid "Resets all statistic counters to zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:342
+#, no-wrap
+msgid "NGM_HCI_NODE_SET_LINK_POLICY_SETTINGS_MASK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:350
+msgid ""
+"Sets current link policy settings mask.  After the new ACL connection is "
+"created the HCI node will try set link policy for the ACL connection.  By "
+"default, every supported Link Manager (LM) mode will be enabled.  User can "
+"override this by setting link policy settings mask which specifies LM modes "
+"to be enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:350
+#, no-wrap
+msgid "NGM_HCI_NODE_GET_LINK_POLICY_SETTINGS_MASK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:352
+msgid "Returns current link policy settings mask."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:352
+#, no-wrap
+msgid "NGM_HCI_NODE_SET_PACKET_MASK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:358
+msgid ""
+"Sets current packet mask.  When new baseband (ACL or SCO) connection is "
+"created the HCI node will specify every packet type supported by the "
+"device.  User can override this by setting packet mask which specifies "
+"packet types to be used for new baseband connections."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:358
+#, no-wrap
+msgid "NGM_HCI_NODE_GET_PACKET_MASK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:360
+msgid "Returns current packet mask."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:360
+#, no-wrap
+msgid "NGM_HCI_NODE_SET_ROLE_SWITCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:366
+msgid ""
+"Sets the value of the role switch.  Role switch is enabled when this value "
+"is not zero.  This is the default state.  Note that actual role switch at "
+"Bluetooth link level will only be performed if hardware supports role switch "
+"and it was enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_hci.4:366
+#, no-wrap
+msgid "NGM_HCI_NODE_GET_ROLE_SWITCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:368
+msgid "Returns the value of the role switch for the node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:369
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:374
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:374
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:378
+msgid "E<.Xr netgraph 4>, E<.Xr hccontrol 8>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:378
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:383
+msgid "The E<.Nm hci> node type was implemented in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:383
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:385
+msgid "E<.An Maksim Yevmenkin Aq Mt m_evmenkin@yahoo.com>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_hci.4:385
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_hci.4:387
+msgid "Most likely.  Please report if found."
+msgstr ""

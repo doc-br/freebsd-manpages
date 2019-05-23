@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_sched.4:27
+#, no-wrap
+msgid "April 18, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_sched.4:28
+#, no-wrap
+msgid "DTRACE_SCHED 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:32
+msgid "E<.Nm dtrace_sched>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_sched.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing CPU scheduling events"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:47
+msgid ""
+"E<.Fn sched:::change-pri \"struct thread *\" \"struct proc *\" \"uint8_t\"> "
+"E<.Fn sched:::dequeue \"struct thread *\" \"struct proc *\" \"void *\"> "
+"E<.Fn sched:::enqueue \"struct thread *\" \"struct proc *\" \"void *\" "
+"\"int\"> E<.Fn sched:::lend-pri \"struct thread *\" \"struct proc *\" "
+"\"uint8_t\" \"struct thread *\"> E<.Fn sched:::load-change \"int\" \"int\"> "
+"E<.Fn sched:::off-cpu \"struct thread *\" \"struct proc *\"> E<.Fn "
+"sched:::on-cpu> E<.Fn sched:::preempt> E<.Fn sched:::remain-cpu> E<.Fn "
+"sched:::surrender \"struct thread *\" \"struct proc *\"> E<.Fn "
+"sched:::sleep> E<.Fn sched:::tick \"struct thread *\" \"struct proc *\"> "
+"E<.Fn sched:::wakeup \"struct thread *\" \"struct proc *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:52
+msgid ""
+"The DTrace E<.Nm sched> provider allows the tracing of events related to CPU "
+"scheduling in the 4BSD and ULE schedulers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:69
+msgid ""
+"The E<.Fn sched:::change-pri> probe fires when a thread's active scheduling "
+"priority is about to be updated.  The first two arguments are the thread "
+"whose priority is about to be changed, and the corresponding process.  The "
+"third argument is the new absolute priority for the thread, while the "
+"current value is given by E<.Dv args[0]-E<gt>td_priority>.  The E<.Fn "
+"sched:::lend-pri> probe fires when the currently-running thread elevates the "
+"priority of another thread via priority lending.  The first two arguments "
+"are the thread whose priority is about to be changed, and the corresponding "
+"process.  The third argument is the new absolute priority for the thread.  "
+"The fourth argument is the currently-running thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:95
+msgid ""
+"The E<.Fn sched:::dequeue> probe fires immediately before a runnable thread "
+"is removed from a scheduler run queue.  This may occur when the thread is "
+"about to begin execution on a CPU, or because the thread is being migrated "
+"to a different run queue.  The latter event may occur in several "
+"circumstances: the scheduler may be attempting to rebalance load between "
+"multiple CPUs, the thread's scheduling priority may have changed, or the "
+"thread's CPU affinity settings may have changed.  The first two arguments to "
+"E<.Fn sched:::dequeue> are the thread and corresponding process.  The third "
+"argument is currently always E<.Dv NULL>.  The E<.Fn sched:::enqueue> probe "
+"fires when a runnable thread is about to be added to a scheduler run queue.  "
+"Its first two arguments are the thread and corresponding process.  The third "
+"argument is currently always E<.Dv NULL>.  The fourth argument is a boolean "
+"value that is non-zero if the thread is enqueued at the beginning of its run "
+"queue slot, and zero if the thread is instead enqueued at the end."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:102
+msgid ""
+"The E<.Fn sched:::load-change> probe fires after the load of a thread queue "
+"is adjusted.  The first argument is the cpuid for the CPU associated with "
+"the thread queue, and the second argument is the adjusted load of the thread "
+"queue, i.e., the number of elements in the queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:117
+msgid ""
+"The E<.Fn sched:::off-cpu> probe is triggered by the scheduler suspending "
+"execution of the currently-running thread, and the E<.Fn sched:::on-cpu> "
+"probe fires when the current thread has been selected to run on a CPU and is "
+"about to begin or resume execution.  The arguments to E<.Fn sched:::off-cpu> "
+"are the thread and corresponding process selected to run following the "
+"currently-running thread.  If these two threads are the same, the E<.Fn "
+"sched:::remain-cpu> probe will fire instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:125
+msgid ""
+"The E<.Fn sched:::surrender> probe fires when the scheduler is called upon "
+"to make a scheduling decision by a thread running on a different CPU, via an "
+"interprocessor interrupt.  The arguments to this probe are the interrupted "
+"thread and its corresponding process.  This probe currently always fires in "
+"the context of the interrupted thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:135
+msgid ""
+"The E<.Fn sched:::preempt> probe will fire immediately before the "
+"currently-running thread is preempted.  When this occurs, the scheduler will "
+"select a new thread to run, and one of the E<.Fn sched:::off-cpu> or E<.Fn "
+"sched:::remain-cpu> probes will subsequently fire, depending on whether or "
+"not the scheduler selects the preempted thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:145
+msgid ""
+"The E<.Fn sched:::sleep> probe fires immediately before the "
+"currently-running thread is about to suspend execution and begin waiting for "
+"a condition to be met.  The E<.Fn sched:::wakeup> probe fires when a thread "
+"is set up to resume execution after having gone to sleep.  Its arguments are "
+"the thread being awoken, and the corresponding process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:150
+msgid ""
+"The E<.Fn sched:::tick> fires before each scheduler clock tick.  Its "
+"arguments are the currently-running thread and its corresponding process."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:150
+#, no-wrap
+msgid "ARGUMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:172
+msgid ""
+"The E<.Nm sched> provider probes use the kernel types E<.Vt \"struct proc\"> "
+"and E<.Vt \"struct thread\"> to represent processes and threads, "
+"respectively.  These structures have many fields and are defined in E<.Pa "
+"sys/proc.h>.  In a probe body, the currently-running thread can always be "
+"obtained with the E<.Va curthread> global variable, which has type E<.Vt "
+"\"struct thread *\">.  For example, when a running thread is about to sleep, "
+"the E<.Fn sched:::sleep> probe fires in the context of that thread, which "
+"can be accessed using E<.Va curthread>.  The E<.Va curcpu> global variable "
+"contains the cpuid of the CPU on which the currently-running thread is "
+"executing."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:172
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:174
+msgid "The following script gives a breakdown of CPU utilization by process name:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:179
+#, no-wrap
+msgid ""
+"sched:::on-cpu\n"
+"{\n"
+"        self-E<gt>ts = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:186
+#, no-wrap
+msgid ""
+"sched:::off-cpu\n"
+"/self-E<gt>ts != 0/\n"
+"{\n"
+"        @[execname] = sum((timestamp - self-E<gt>ts) / 1000);\n"
+"        self-E<gt>ts = 0;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:191
+msgid ""
+"Here, DTrace stores a timestamp each time a thread is scheduled to run, and "
+"computes the time elapsed in microseconds when it is descheduled.  The "
+"results are summed by process name."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:191
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:206
+msgid ""
+"This provider is not compatible with the E<.Nm sched> provider found in "
+"Solaris.  In particular, the probe argument types are native E<.Fx> types, "
+"and the E<.Fn sched:::cpucaps-sleep>, E<.Fn sched:::cpucaps-wakeup>, E<.Fn "
+"sched:::schedctl-nopreempt>, E<.Fn sched:::schedctl-preempt>, and E<.Fn "
+"sched:::schedctl-yield> probes are not available in E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:213
+msgid ""
+"The E<.Fn sched:::lend-pri> and E<.Fn sched:::load-change> probes are "
+"specific to E<.Fx>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:213
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:219
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr sched_4bsd 4>, E<.Xr sched_ule 4>, E<.Xr SDT 9>, "
+"E<.Xr sleepqueue 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:219
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:225
+msgid "The E<.Nm sched> provider first appeared in E<.Fx> 8.4 and 9.1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sched.4:225
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sched.4:227
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""

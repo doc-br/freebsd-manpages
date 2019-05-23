@@ -1,0 +1,520 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/fdc.4:30
+#, no-wrap
+msgid "April 7, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/fdc.4:31
+#, no-wrap
+msgid "FDC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/fdc.4:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:35
+msgid "E<.Nm fdc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/fdc.4:35
+#, no-wrap
+msgid "PC architecture floppy disk controller driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/fdc.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:38
+msgid "E<.Cd device fdc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:52
+msgid ""
+"In E<.Pa /boot/device.hints>: E<.Cd hint.fdc.0.at=\"isa\"> E<.Cd "
+"hint.fdc.0.port=\"0x3F0\"> E<.Cd hint.fdc.0.irq=\"6\"> E<.Cd "
+"hint.fdc.0.drq=\"2\"> E<.Cd hint.fdc.0.flags=\"0x0\"> E<.Cd "
+"hint.fd.0.at=\"fdc0\"> E<.Cd hint.fd.0.drive=\"0\"> E<.Cd "
+"hint.fd.0.flags=\"0x0\"> E<.Cd hint.fd.1.at=\"fdc0\"> E<.Cd "
+"hint.fd.1.drive=\"1\"> E<.Cd hint.fd.1.flags=\"0x0\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/fdc.4:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/fdc.4:53
+#, no-wrap
+msgid "Device Usage"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:58
+msgid ""
+"This driver provides access to floppy disk drives.  Floppy disks using "
+"either FM (single-density) or MFM (double or high-density) recording can be "
+"handled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:77
+msgid ""
+"Floppy disk controllers can connect up to four drives each.  The E<.Nm> "
+"driver can currently handle up to two drives per controller (or four drives "
+"on ACPI).  Upon driver initialization, an attempt is made to find out the "
+"type of the floppy controller in use.  The known controller types are either "
+"the original NE765 or i8272 chips, or alternatively E<.Em enhanced> "
+"controllers that are compatible with the NE72065 or i82077 chips.  These "
+"enhanced controllers (among other enhancements) implement a FIFO for floppy "
+"data transfers that will automatically be enabled once an enhanced chip has "
+"been detected.  This FIFO activation can be disabled using the "
+"per-controller flags value of E<.Ar 0x1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:89
+msgid ""
+"By default, this driver creates a single device node E<.Pa /dev/fd Ns Ar N> "
+"for each attached drive with number E<.Ar N>.  For historical reasons, "
+"device nodes that use a trailing UFS-style partition letter (ranging from "
+"E<.Sq a> through E<.Sq h>)  can also be accessed, which will be implemented "
+"as symbolic links to the main device node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:108
+msgid ""
+"Accessing the main device node will attempt to autodetect the density of the "
+"available medium for multi-density devices.  Thus it is possible to use "
+"either a 720 KB medium or a 1440 KB medium in a high-density 3.5 inch "
+"standard floppy drive.  Normally, this autodetection will only happen once "
+"at the first call to E<.Xr open 2> for the device after inserting the "
+"medium.  This assumes the drive offers proper changeline support so media "
+"changes can be detected by the driver.  To indicate a drive that does not "
+"have the changeline support, this can be overridden using the per-drive "
+"device flags value of E<.Ar 0x10> (causing each call to E<.Xr open 2> to "
+"perform the autodetection)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:131
+msgid ""
+"When trying to use a floppy device with special-density media, other device "
+"nodes can be created, of the form E<.Pa /dev/fd Ns Ar N . Ns Ar MMMM>, where "
+"E<.Ar N> is the drive number, and E<.Ar MMMM> is a number between one and "
+"four digits describing the device density.  Up to 15 additional subdevices "
+"per drive can be created that way.  The administrator is free to decide on a "
+"policy how to assign these numbers.  The two common policies are to either "
+"implement subdevices numbered 1 through 15, or to use a number that "
+"describes the medium density in kilobytes.  Initially, each of those devices "
+"will be configured to the maximal density that is possible for the drive "
+"type (like 1200 KB for 5.25 inch HD drives or 1440 KB for 3.5 inch HD "
+"drives).  The desired density to be used on that subdevice needs to be "
+"configured using E<.Xr fdcontrol 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:135
+msgid ""
+"Drive types are configured using the lower four bits of the per-drive device "
+"flags.  The following values can be specified:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:136
+#, no-wrap
+msgid "Ar 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:139
+msgid "5.25 inch double-density device with 40 cylinders (360 KB native capacity)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:139
+#, no-wrap
+msgid "Ar 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:142
+msgid "5.25 inch high-density device with 80 cylinders (1200 KB native capacity)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:142
+#, no-wrap
+msgid "Ar 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:145
+msgid "3.5 inch double-density device with 80 cylinders (720 KB native capacity)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:145
+#, no-wrap
+msgid "Ar 4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:148
+msgid "3.5 inch high-density device with 80 cylinders (1440 KB native capacity)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:148
+#, no-wrap
+msgid "Ar 5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:151
+msgid ""
+"3.5 inch extra-density device with 80 cylinders (2880 KB native capacity, "
+"usage currently restricted to at most 1440 KB media)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:151
+#, no-wrap
+msgid "Ar 6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:153
+msgid "Same as type 5, available for compatibility with some BIOSes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:161
+msgid ""
+"On IA32 architectures, the drive type can be specified as 0 for the drives.  "
+"In that case, the CMOS configuration memory will be consulted to obtain the "
+"value for that drive.  The ACPI probe automatically determines these values "
+"via the _FDE and _FDI methods, but this can be overridden by specifying a "
+"drive type hint."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:176
+msgid ""
+"Normally, each configured drive will be probed at initialization time, using "
+"a short seek sequence.  This is intended to find out about drives that have "
+"been configured but are actually missing or otherwise not responding.  (The "
+"ACPI probe method does not perform this seek.)  In some environments (like "
+"laptops with detachable drives), it might be desirable to bypass this drive "
+"probe, and pretend a drive to be there so the driver autoconfiguration will "
+"work even if the drive is currently not present.  For that purpose, a "
+"per-drive device flags value of E<.Ar 0x20> needs to be specified."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/fdc.4:176
+#, no-wrap
+msgid "Programming Interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:183
+msgid ""
+"In addition to the normal read and write functionality, the E<.Nm> driver "
+"offers a number of configurable options using E<.Xr ioctl 2>.  In order to "
+"access any of this functionality, programmers need to include the header "
+"file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/fdc.4:183
+#, no-wrap
+msgid "sys/fdcio.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:197
+msgid ""
+"into their programs.  The call to E<.Xr open 2> can be performed in two "
+"possible ways.  When opening the device without the E<.Dv O_NONBLOCK> flag "
+"set, the device is opened in a normal way, which would cause the main device "
+"nodes to perform automatic media density selection, and which will yield a "
+"file descriptor that is fully available for any I/O operation or any of the "
+"following E<.Xr ioctl 2> commands."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:218
+msgid ""
+"When opening the device with E<.Dv O_NONBLOCK> set, automatic media density "
+"selection will be bypassed, and the device remains in a half-opened state.  "
+"No actual I/O operations are possible, but many of the E<.Xr ioctl 2> "
+"commands described below can be performed.  This mode is intended for access "
+"to the device without the requirement to have an accessible media present, "
+"like for status inquiries to the drive, or in order to format a medium.  "
+"E<.Dv O_NONBLOCK> needs to be cleared before I/O operations are possible on "
+"the descriptor, which requires a prior specification of the density using "
+"the E<.Dv FD_STYPE> command (see below).  Operations that are not allowed on "
+"the half-opened descriptor will cause an error value of E<.Er EAGAIN>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:222
+msgid "The following E<.Xr ioctl 2> commands are currently available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:223
+#, no-wrap
+msgid "Dv FD_FORM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:229
+msgid ""
+"Used to format a floppy disk medium.  Third argument is a pointer to a E<.Vt "
+"\"struct fd_formb\"> specifying which track to format, and which parameters "
+"to fill into the ID fields of the floppy disk medium."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:229
+#, no-wrap
+msgid "Dv FD_GTYPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:233
+msgid ""
+"Returns the current density definition record for the selected device.  "
+"Third argument is a pointer to E<.Vt \"struct fd_type\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:233
+#, no-wrap
+msgid "Dv FD_STYPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:249
+msgid ""
+"Adjusts the density definition of the selected device.  Third argument is a "
+"pointer to E<.Vt \"struct fd_type\">.  For the fixed-density subdevices (1 "
+"through 15 per drive), this operation is restricted to a process with "
+"superuser privileges.  For the auto-selecting subdevice 0, the operation is "
+"temporarily allowed to any process, but this setting will be lost again upon "
+"the next autoselection.  This can be used when formatting a new medium "
+"(which will require to open the device using E<.Dv O_NONBLOCK>, and thus to "
+"later adjust the density using E<.Dv FD_STYPE>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:249
+#, no-wrap
+msgid "Dv FD_GOPTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:254
+msgid ""
+"Obtain the current drive options.  Third argument is a pointer to E<.Vt "
+"int>, containing a bitwise union of the following possible flag values:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:255
+#, no-wrap
+msgid "Dv FDOPT_NORETRY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:257
+msgid "Do not automatically retry operations upon failure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:257
+#, no-wrap
+msgid "Dv FDOPT_NOERRLOG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:261
+msgid "Do not cause E<.Dq \"hard error\"> kernel logs for failed I/O operations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:261
+#, no-wrap
+msgid "Dv FDOPT_NOERROR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:273
+msgid ""
+"Do not indicate I/O errors when returning from E<.Xr read 2> or E<.Xr write "
+"2> system calls.  The caller is assumed to use E<.Dv FD_GSTAT> calls in "
+"order to inquire about the success of each operation.  This is intended to "
+"allow even erroneous data from bad blocks to be retrieved using normal I/O "
+"operations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:273
+#, no-wrap
+msgid "Dv FDOPT_AUTOSEL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:277
+msgid ""
+"Device performs automatic density selection.  Unlike the above flags, this "
+"one is read-only."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:278
+#, no-wrap
+msgid "Dv FD_SOPTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:284
+msgid ""
+"Set device options, see above for their meaning.  Third argument is a "
+"pointer to E<.Vt int>.  Drive options will always be cleared when closing "
+"the descriptor."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:284
+#, no-wrap
+msgid "Dv FD_CLRERR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:292
+msgid ""
+"Clear the internal low-level error counter.  Normally, controller-level I/O "
+"errors are only logged up to E<.Dv FDC_ERRMAX> errors (currently defined to "
+"100).  This command resets the counter.  Requires superuser privileges."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:292
+#, no-wrap
+msgid "Dv FD_READID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:300
+msgid ""
+"Read one sector ID field from the floppy disk medium.  Third argument is a "
+"pointer to E<.Vt \"struct fdc_readid\">, where the read data will be "
+"returned.  Can be used to analyze a floppy disk medium."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:300
+#, no-wrap
+msgid "Dv FD_GSTAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:309
+msgid ""
+"Return the recent floppy disk controller status, if available.  Third "
+"argument is a pointer to E<.Vt \"struct fdc_status\">, where the status "
+"registers (ST0, ST1, ST2, C, H, R, and N) are being returned.  E<.Er EINVAL> "
+"will be caused if no recent status is available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:309
+#, no-wrap
+msgid "Dv FD_GDTYPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:315
+msgid ""
+"Returns the floppy disk drive type.  Third argument is a pointer to E<.Vt "
+"\"enum fd_drivetype\">.  This type is the same as being used in the "
+"per-drive configuration flags, or in the CMOS configuration data or ACPI "
+"namespace on IA32 systems."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/fdc.4:316
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/fdc.4:318
+#, no-wrap
+msgid "Pa /dev/fd*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:320
+msgid "floppy disk device nodes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/fdc.4:321
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:330
+msgid ""
+"E<.Xr fdformat 1>, E<.Xr fdread 1>, E<.Xr fdwrite 1>, E<.Xr ioctl 2>, E<.Xr "
+"open 2>, E<.Xr read 2>, E<.Xr write 2>, E<.Xr fdcontrol 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/fdc.4:330
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/fdc.4:335
+msgid ""
+"E<.An -nosplit> This man page was initially written by E<.An Wilko Bulte>, "
+"and later vastly rewritten by E<.An J\\(:org Wunsch>."
+msgstr ""

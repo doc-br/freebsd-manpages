@@ -1,0 +1,2126 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/libxo/libxo/xo_format.5:10
+#, no-wrap
+msgid "December 4, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/libxo/libxo/xo_format.5:11
+#, no-wrap
+msgid "LIBXO 3"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:13
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:15
+msgid "E<.Nm xo_format>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/libxo/libxo/xo_format.5:15
+#, no-wrap
+msgid "content of format descriptors for xo_emit"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:16
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:51
+msgid ""
+"E<.Nm libxo> uses format strings to control the rendering of data into "
+"various output styles, including E<.Em text>, E<.Em XML>, E<.Em JSON>, and "
+"E<.Em HTML>.  Each format string contains a set of zero or more E<.Dq "
+"\"field descriptions\">, which describe independent data fields.  Each field "
+"description contains a set of E<.Dq modifiers>, a E<.Dq \"content string\">, "
+"and zero, one, or two E<.Dq \"format descriptors\">.  The modifiers tell "
+"E<.Nm libxo> what the field is and how to treat it, while the format "
+"descriptors are formatting instructions using E<.Xr printf 3 Ns -style> "
+"format strings, telling E<.Nm libxo> how to format the field.  The field "
+"description is placed inside a set of braces, with a colon E<.Ql ( \\&:>)  "
+"after the modifiers and a slash E<.Ql ( \\&/>)  before each format "
+"descriptors.  Text may be intermixed with field descriptions within the "
+"format string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:53
+msgid "The field description is given as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:56
+#, no-wrap
+msgid ""
+"    \\(aq{\\(aq [ role | modifier ]* [\\(aq,\\(aq long\\-names ]* "
+"\\(aq:\\(aq [ content ]\n"
+"            [ \\(aq/\\(aq field\\-format [ \\(aq/\\(aq encoding\\-format ]] "
+"\\(aq}\\(aq\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:63
+msgid ""
+"The role describes the function of the field, while the modifiers enable "
+"optional behaviors.  The contents, field\\-format, and encoding\\-format are "
+"used in varying ways, based on the role.  These are described in the "
+"following sections."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:67
+msgid ""
+"Braces can be escaped by using double braces, similar to \"%%\" in E<.Xr "
+"printf 3>.  The format string \"{{braces}}\" would emit \"{braces}\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:76
+msgid ""
+"In the following example, three field descriptors appear.  The first is a "
+"padding field containing three spaces of padding, the second is a label "
+"(\"In stock\"), and the third is a value field (\"in\\-stock\").  The "
+"in\\-stock field has a \"%u\" format that will parse the next argument "
+"passed to the E<.Xr xo_emit 3>, function as an unsigned integer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:78
+#, no-wrap
+msgid "    xo_emit(\"{P:   }{Lwc:In stock}{:in\\-stock/%u}\\en\", 65);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:83
+msgid ""
+"This single line of code can generate text (\"In stock: 65\\en\"), XML "
+"(\"E<lt>in\\-stockE<gt>65E<lt>/in\\-stockE<gt>\"), JSON "
+"(\\(aq\"in\\-stock\": 65\\(aq), or HTML (too lengthy to be listed here)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:89
+msgid ""
+"While roles and modifiers typically use single character for brevity, there "
+"are alternative names for each which allow more verbose formatting strings.  "
+"These names must be preceded by a comma, and may follow any "
+"single\\-character values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:91
+#, no-wrap
+msgid "    xo_emit(\"{L,white,colon:In stock}{,key:in\\-stock/%u}\\en\", 65);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:92
+#, no-wrap
+msgid "Field Roles"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:96
+msgid ""
+"Field roles are optional, and indicate the role and formatting of the "
+"content.  The roles are listed below; only one role is permitted:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:97
+#, no-wrap
+msgid "Sy M \"Name        \" Description"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:98
+#, no-wrap
+msgid "C \"color       \" \"Field is a color or effect\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:99
+#, no-wrap
+msgid "D \"decoration  \" \"Field is non\\-text (e.g. colon, comma)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:100
+#, no-wrap
+msgid "E \"error       \" \"Field is an error message\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:101
+#, no-wrap
+msgid "L \"label       \" \"Field is text that prefixes a value\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:102
+#, no-wrap
+msgid "N \"note        \" \"Field is text that follows a value\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:103
+#, no-wrap
+msgid "P \"padding     \" \"Field is spaces needed for vertical alignment\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:104
+#, no-wrap
+msgid "T \"title       \" \"Field is a title value for headings\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:105
+#, no-wrap
+msgid "U \"units       \" \"Field is the units for the previous value field\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:106
+#, no-wrap
+msgid "V \"value       \" \"Field is the name of field (the default)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:107
+#, no-wrap
+msgid "W \"warning     \" \"Field is a warning message\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:108
+#, no-wrap
+msgid "\\&[ start\\-anchor \"Begin a section of anchored variable\\-width text\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:109
+#, no-wrap
+msgid "\\&] \"stop\\-anchor \" \"End a section of anchored variable\\-width text\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:115
+#, no-wrap
+msgid ""
+"   EXAMPLE:\n"
+"       xo_emit(\"{L:Free}{D::}{P:   }{:free/%u} {U:Blocks}\\en\",\n"
+"               free_blocks);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:118
+msgid "When a role is not provided, the \"value\" role is used as the default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:121
+msgid ""
+"Roles and modifiers can also use more verbose names, when preceded by a "
+"comma:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:126
+#, no-wrap
+msgid ""
+"   EXAMPLE:\n"
+"        xo_emit(\"{,label:Free}{,decoration::}{,padding:   }\"\n"
+"               \"{,value:free/%u} {,units:Blocks}\\en\",\n"
+"               free_blocks);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:127
+#, no-wrap
+msgid "The Color Role ({C:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:130
+msgid ""
+"Colors and effects control how text values are displayed; they are used for "
+"display styles (TEXT and HTML)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:132
+#, no-wrap
+msgid "    xo_emit(\"{C:bold}{:value}{C:no\\-bold}\\en\", value);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:136
+msgid ""
+"Colors and effects remain in effect until modified by other \"C\"\\-role "
+"fields."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:138
+#, no-wrap
+msgid "    xo_emit(\"{C:bold}{C:inverse}both{C:no\\-bold}only inverse\\en\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:141
+msgid "If the content is empty, the \"reset\" action is performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:143
+#, no-wrap
+msgid "    xo_emit(\"{C:both,underline}{:value}{C:}\\en\", value);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:147
+msgid ""
+"The content should be a comma\\-separated list of zero or more colors or "
+"display effects."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:149
+#, no-wrap
+msgid ""
+"    xo_emit(\"{C:bold,underline,inverse}All "
+"three{C:no\\-bold,no\\-inverse}\\en\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:154
+msgid ""
+"The color content can be either static, when placed directly within the "
+"field descriptor, or a printf\\-style format descriptor can be used, if "
+"preceded by a slash (\"/\"):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:157
+#, no-wrap
+msgid ""
+"   xo_emit(\"{C:/%s%s}{:value}{C:}\", need_bold ? \"bold\" : \"\",\n"
+"           need_underline ? \"underline\" : \"\", value);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:161
+msgid ""
+"Color names are prefixed with either \"fg\\-\" or \"bg\\-\" to change the "
+"foreground and background colors, respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:164
+#, no-wrap
+msgid ""
+"    xo_emit(\"{C:/fg\\-%s,bg\\-%s}{Lwc:Cost}{:cost/%u}{C:reset}\\en\",\n"
+"            fg_color, bg_color, cost);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:167
+msgid "The following table lists the supported effects:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:168
+#, no-wrap
+msgid "Sy \"Name         \" Description"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:169
+#, no-wrap
+msgid "\"bg\\-xxxxx     \" \"Change background color\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:170
+#, no-wrap
+msgid "\"bold         \" \"Start bold text effect\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:171
+#, no-wrap
+msgid "\"fg\\-xxxxx     \" \"Change foreground color\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:172
+#, no-wrap
+msgid "\"inverse      \" \"Start inverse (aka reverse) text effect\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:173
+#, no-wrap
+msgid "\"no\\-bold      \" \"Stop bold text effect\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:174
+#, no-wrap
+msgid "\"no\\-inverse   \" \"Stop inverse (aka reverse) text effect\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:175
+#, no-wrap
+msgid "\"no\\-underline \" \"Stop underline text effect\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:176
+#, no-wrap
+msgid "\"normal       \" \"Reset effects (only)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:177
+#, no-wrap
+msgid "\"reset        \" \"Reset colors and effects (restore defaults)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:178
+#, no-wrap
+msgid "\"underline    \" \"Start underline text effect\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:182
+msgid "The following color names are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:183
+#, no-wrap
+msgid "Sy Name"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:184
+#, no-wrap
+msgid "black"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:185
+#, no-wrap
+msgid "blue"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:186
+#, no-wrap
+msgid "cyan"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:187
+#, no-wrap
+msgid "default"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:188
+#, no-wrap
+msgid "green"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:189
+#, no-wrap
+msgid "magenta"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:190
+#, no-wrap
+msgid "red"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:191
+#, no-wrap
+msgid "white"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:192
+#, no-wrap
+msgid "yellow"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:194
+#, no-wrap
+msgid "The Decoration Role ({D:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:200
+msgid ""
+"Decorations are typically punctuation marks such as colons, semi\\-colons, "
+"and commas used to decorate the text and make it simpler for human readers.  "
+"By marking these distinctly, HTML usage scenarios can use CSS to direct "
+"their display parameters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:202
+#, no-wrap
+msgid "    xo_emit(\"{D:((}{:name}{D:))}\\en\", name);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:203
+#, no-wrap
+msgid "The Gettext Role ({G:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:220
+msgid ""
+"E<.Nm libxo> supports internationalization (i18n) through its use of E<.Xr "
+"gettext 3>.  Use the \"{G:}\" role to request that the remaining part of the "
+"format string, following the \"{G:}\" field, be handled using E<.Fn "
+"gettext>.  Since E<.Fn gettext> uses the string as the key into the message "
+"catalog, E<.Nm libxo> uses a simplified version of the format string that "
+"removes unimportant field formatting and modifiers, stopping minor "
+"formatting changes from impacting the expensive translation process.  A "
+"developer change such as changing \"/%06d\" to \"/%08d\" should not force "
+"hand inspection of all .po files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:224
+msgid ""
+"The simplified version can be generated for a single message using the "
+"\"xopo \\-s E<lt>textE<gt>\" command, or an entire .pot can be translated "
+"using the \"xopo \\-f E<lt>inputE<gt> \\-o E<lt>outputE<gt>\" command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:226
+#, no-wrap
+msgid "   xo_emit(\"{G:}Invalid token\\en\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:237
+msgid ""
+"The {G:} role allows a domain name to be set.  E<.Fn gettext> calls will "
+"continue to use that domain name until the current format string processing "
+"is complete, enabling a library function to emit strings using it\\(aqs own "
+"catalog.  The domain name can be either static as the content of the field, "
+"or a format can be used to get the domain name from the arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:239
+#, no-wrap
+msgid "   xo_emit(\"{G:libc}Service unavailable in restricted mode\\en\");\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:240
+#, no-wrap
+msgid "The Label Role ({L:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:242
+msgid "Labels are text that appears before a value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:244
+#, no-wrap
+msgid "    xo_emit(\"{Lwc:Cost}{:cost/%u}\\en\", cost);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:245
+#, no-wrap
+msgid "The Note Role ({N:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:247
+msgid "Notes are text that appears after a value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:249
+#, no-wrap
+msgid "    xo_emit(\"{:cost/%u} {N:per year}\\en\", cost);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:250
+#, no-wrap
+msgid "The Padding Role ({P:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:255
+msgid ""
+"Padding represents whitespace used before and between fields.  The padding "
+"content can be either static, when placed directly within the field "
+"descriptor, or a printf\\-style format descriptor can be used, if preceded "
+"by a slash (\"/\"):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:258
+#, no-wrap
+msgid ""
+"    xo_emit(\"{P:        }{Lwc:Cost}{:cost/%u}\\en\", cost);\n"
+"    xo_emit(\"{P:/30s}{Lwc:Cost}{:cost/%u}\\en\", \"\", cost);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:259
+#, no-wrap
+msgid "The Title Role ({T:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:265
+msgid ""
+"Titles are heading or column headers that are meant to be displayed to the "
+"user.  The title can be either static, when placed directly within the field "
+"descriptor, or a printf\\-style format descriptor can be used, if preceded "
+"by a slash (\"/\"):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:268
+#, no-wrap
+msgid ""
+"    xo_emit(\"{T:Interface Statistics}\\en\");\n"
+"    xo_emit(\"{T:/%20.20s}{T:/%6.6s}\\en\", \"Item Name\", \"Cost\");\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:269
+#, no-wrap
+msgid "The Units Role ({U:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:274
+msgid ""
+"Units are the dimension by which values are measured, such as degrees, "
+"miles, bytes, and decibels.  The units field carries this information for "
+"the previous value field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:276
+#, no-wrap
+msgid "    xo_emit(\"{Lwc:Distance}{:distance/%u}{Uw:miles}\\en\", miles);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:280
+msgid ""
+"Note that the sense of the \\(aqw\\(aq modifier is reversed for units; a "
+"blank is added before the contents, rather than after it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:286
+msgid ""
+"When the E<.Dv XOF_UNITS> flag is set, units are rendered in XML as the "
+"E<.Dq units> attribute:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:288
+#, no-wrap
+msgid "    E<lt>distance units=\"miles\"E<gt>50E<lt>/distanceE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:291
+msgid "Units can also be rendered in HTML as the \"data\\-units\" attribute:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:294
+#, no-wrap
+msgid ""
+"    E<lt>div class=\"data\" data\\-tag=\"distance\" data\\-units=\"miles\"\n"
+"         data\\-xpath=\"/top/data/distance\"E<gt>50E<lt>/divE<gt>\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:295
+#, no-wrap
+msgid "The Value Role ({V:} and {:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:311
+msgid ""
+"The value role is used to represent the a data value that is interesting for "
+"the non\\-display output styles (XML and JSON).  Value is the default role; "
+"if no other role designation is given, the field is a value.  The field name "
+"must appear within the field descriptor, followed by one or two format "
+"descriptors.  The first format descriptor is used for display styles (TEXT "
+"and HTML), while the second one is used for encoding styles (XML and JSON).  "
+"If no second format is given, the encoding format defaults to the first "
+"format, with any minimum width removed.  If no first format is given, both "
+"format descriptors default to \"%s\"."
+msgstr ""
+
+#. {:poem}\" in {:year/%4d}\en,
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:316
+#, no-wrap
+msgid ""
+"    xo_emit(\"{:length/%02u}x{:width/%02u}x{:height/%02u}\\en\",\n"
+"            length, width, height);\n"
+"    xo_emit(\"{:author} wrote \n"
+"            author, poem, year);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:317
+#, no-wrap
+msgid "The Anchor Roles ({[:} and {]:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:327
+msgid ""
+"The anchor roles allow a set of strings by be padded as a group, but still "
+"be visible to E<.Xr xo_emit 3> as distinct fields.  Either the start or stop "
+"anchor can give a field width and it can be either directly in the "
+"descriptor or passed as an argument.  Any fields between the start and stop "
+"anchor are padded to meet the minimum width given."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:329
+msgid "To give a width directly, encode it as the content of the anchor tag:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:331
+#, no-wrap
+msgid "    xo_emit(\"({[:10}{:min/%d}/{:max/%d}{]:})\\en\", min, max);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:337
+msgid ""
+"To pass a width as an argument, use \"%d\" as the format, which must appear "
+"after the \"/\".  Note that only \"%d\" is supported for widths.  Using any "
+"other value could ruin your day."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:339
+#, no-wrap
+msgid "    xo_emit(\"({[:/%d}{:min/%d}/{:max/%d}{]:})\\en\", width, min, max);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:350
+msgid ""
+"If the width is negative, padding will be added on the right, suitable for "
+"left justification.  Otherwise the padding will be added to the left of the "
+"fields between the start and stop anchors, suitable for right "
+"justification.  If the width is zero, nothing happens.  If the number of "
+"columns of output between the start and stop anchors is less than the "
+"absolute value of the given width, nothing happens."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:355
+msgid ""
+"Widths over 8k are considered probable errors and not supported.  If E<.Dv "
+"XOF_WARN> is set, a warning will be generated."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:355
+#, no-wrap
+msgid "Field Modifiers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:358
+msgid ""
+"Field modifiers are flags which modify the way content emitted for "
+"particular output styles:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:359
+#, no-wrap
+msgid "Sy M \"Name          \" Description"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:360
+#, no-wrap
+msgid "a \"argument      \" \"The content appears as a \"const char *\" argument\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:361
+#, no-wrap
+msgid "c \"colon         \" \"A colon (\":\") is appended after the label\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:362
+#, no-wrap
+msgid "d \"display       \" \"Only emit field for display styles (text/HTML)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:363
+#, no-wrap
+msgid "e \"encoding      \" \"Only emit for encoding styles (XML/JSON)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:364
+#, no-wrap
+msgid "h \"humanize (hn) \" \"Format large numbers in human\\-readable style\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:365
+#, no-wrap
+msgid "\" \" \"hn\\-space     \" \"Humanize: Place space between numeric and unit\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:366
+#, no-wrap
+msgid ""
+"\" \" \"hn\\-decimal   \" \"Humanize: Add a decimal digit, if number E<lt> "
+"10\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:367
+#, no-wrap
+msgid "\" \" \"hn\\-1000      \" \"Humanize: Use 1000 as divisor instead of 1024\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:368
+#, no-wrap
+msgid "k \"key           \" \"Field is a key, suitable for XPath predicates\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:369
+#, no-wrap
+msgid "l \"leaf\\-list    \" \"Field is a leaf\\-list, a list of leaf values\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:370
+#, no-wrap
+msgid "n \"no\\-quotes    \" \"Do not quote the field when using JSON style\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:371
+#, no-wrap
+msgid "q \"quotes        \" \"Quote the field when using JSON style\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:372
+#, no-wrap
+msgid "t \"trim          \" \"Trim leading and trailing whitespace\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:373
+#, no-wrap
+msgid "w \"white space   \" \"A blank (\" \") is appended after the label\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:382
+msgid ""
+"For example, the modifier string \"Lwc\" means the field has a label role "
+"(text that describes the next field) and should be followed by a colon "
+"(\\(aqc\\(aq) and a space (\\(aqw\\(aq).  The modifier string \"Vkq\" means "
+"the field has a value role, that it is a key for the current instance, and "
+"that the value should be quoted when encoded for JSON."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:391
+msgid ""
+"Roles and modifiers can also use more verbose names, when preceded by a "
+"comma.  For example, the modifier string \"Lwc\" (or \"L,white,colon\")  "
+"means the field has a label role (text that describes the next field)  and "
+"should be followed by a colon (\\(aqc\\(aq) and a space (\\(aqw\\(aq).  The "
+"modifier string \"Vkq\" (or \":key,quote\") means the field has a value role "
+"(the default role), that it is a key for the current instance, and that the "
+"value should be quoted when encoded for JSON."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:391
+#, no-wrap
+msgid "The Argument Modifier ({a:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:395
+msgid ""
+"The argument modifier indicates that the content of the field descriptor "
+"will be placed as a UTF\\-8 string (const char *) argument within the "
+"xo_emit parameters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:404
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      xo_emit(\"{La:} {a:}\\en\", \"Label text\", \"label\", \"value\");\n"
+"    TEXT:\n"
+"      Label text value\n"
+"    JSON:\n"
+"      \"label\": \"value\"\n"
+"    XML:\n"
+"      E<lt>labelE<gt>valueE<lt>/labelE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:412
+msgid ""
+"The argument modifier allows field names for value fields to be passed on "
+"the stack, avoiding the need to build a field descriptor using E<.Xr "
+"snprintf 1>.  For many field roles, the argument modifier is not needed, "
+"since those roles have specific mechanisms for arguments, such as "
+"\"{C:fg\\-%s}\"."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:412
+#, no-wrap
+msgid "The Colon Modifier ({c:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:414
+msgid "The colon modifier appends a single colon to the data value:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:419
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      xo_emit(\"{Lc:Name}{:name}\\en\", \"phil\");\n"
+"    TEXT:\n"
+"      Name:phil\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:425
+msgid ""
+"The colon modifier is only used for the TEXT and HTML output styles.  It is "
+"commonly combined with the space modifier (\\(aq{w:}\\(aq).  It is purely a "
+"convenience feature."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:425
+#, no-wrap
+msgid "The Display Modifier ({d:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:428
+msgid ""
+"The display modifier indicated the field should only be generated for the "
+"display output styles, TEXT and HTML."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:435
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      xo_emit(\"{Lcw:Name}{d:name} {:id/%d}\\en\", \"phil\", 1);\n"
+"    TEXT:\n"
+"      Name: phil 1\n"
+"    XML:\n"
+"      E<lt>idE<gt>1E<lt>/idE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:439
+msgid ""
+"The display modifier is the opposite of the encoding modifier, and they are "
+"often used to give to distinct views of the underlying data."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:439
+#, no-wrap
+msgid "The Encoding Modifier ({e:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:442
+msgid ""
+"The encoding modifier indicated the field should only be generated for the "
+"encoding output styles, such as JSON and XML."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:449
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      xo_emit(\"{Lcw:Name}{:name} {e:id/%d}\\en\", \"phil\", 1);\n"
+"    TEXT:\n"
+"      Name: phil\n"
+"    XML:\n"
+"      E<lt>nameE<gt>philE<lt>/nameE<gt>E<lt>idE<gt>1E<lt>/idE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:453
+msgid ""
+"The encoding modifier is the opposite of the display modifier, and they are "
+"often used to give to distinct views of the underlying data."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:453
+#, no-wrap
+msgid "The Humanize Modifier ({h:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:458
+msgid ""
+"The humanize modifier is used to render large numbers as in a "
+"human\\-readable format.  While numbers like \"44470272\" are completely "
+"readable to computers and savants, humans will generally find \"44M\" more "
+"meaningful."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:460
+msgid "\"hn\" can be used as an alias for \"humanize\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:463
+msgid ""
+"The humanize modifier only affects display styles (TEXT and HMTL).  The "
+"\"no\\-humanize\" option will block the function of the humanize modifier."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:473
+msgid ""
+"There are a number of modifiers that affect details of humanization.  These "
+"are only available in as full names, not single characters.  The "
+"\"hn\\-space\" modifier places a space between the number and any multiplier "
+"symbol, such as \"M\" or \"K\" (ex: \"44 K\").  The \"hn\\-decimal\" "
+"modifier will add a decimal point and a single tenths digit when the number "
+"is less than 10 (ex: \"4.4K\").  The \"hn\\-1000\" modifier will use 1000 as "
+"divisor instead of 1024, following the JEDEC\\-standard instead of the more "
+"natural binary powers\\-of\\-two tradition."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:481
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"        xo_emit(\"{h:input/%u}, {h,hn\\-space:output/%u}, \"\n"
+"           \"{h,hn\\-decimal:errors/%u}, {h,hn\\-1000:capacity/%u}, \"\n"
+"           \"{h,hn\\-decimal:remaining/%u}\\en\",\n"
+"            input, output, errors, capacity, remaining);\n"
+"    TEXT:\n"
+"        21, 57 K, 96M, 44M, 1.2G\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:485
+msgid ""
+"In the HTML style, the original numeric value is rendered in the "
+"\"data\\-number\" attribute on the E<lt>divE<gt> element:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:488
+#, no-wrap
+msgid ""
+"    E<lt>div class=\"data\" data\\-tag=\"errors\"\n"
+"         data\\-number=\"100663296\"E<gt>96ME<lt>/divE<gt>\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:489
+#, no-wrap
+msgid "The Gettext Modifier ({g:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:498
+msgid ""
+"The gettext modifier is used to translate individual fields using the "
+"gettext domain (typically set using the \"{G:}\" role) and current language "
+"settings.  Once libxo renders the field value, it is passed to E<.Xr gettext "
+"3>, where it is used as a key to find the native language translation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:503
+msgid ""
+"In the following example, the strings \"State\" and \"full\" are passed to "
+"E<.Fn gettext> to find locale\\-based translated strings."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:505
+#, no-wrap
+msgid "    xo_emit(\"{Lgwc:State}{g:state}\\en\", \"full\");\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:506
+#, no-wrap
+msgid "The Key Modifier ({k:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:509
+msgid ""
+"The key modifier is used to indicate that a particular field helps uniquely "
+"identify an instance of list data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:519
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"        xo_open_list(\"user\");\n"
+"        for (i = 0; i E<lt> num_users; i++) {\n"
+"\t    xo_open_instance(\"user\");\n"
+"            xo_emit(\"User {k:name} has {:count} tickets\\en\",\n"
+"               user[i].u_name, user[i].u_tickets);\n"
+"            xo_close_instance(\"user\");\n"
+"        }\n"
+"        xo_close_list(\"user\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:525
+msgid ""
+"Currently the key modifier is only used when generating XPath values for the "
+"HTML output style when E<.Dv XOF_XPATH> is set, but other uses are likely in "
+"the near future."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:525
+#, no-wrap
+msgid "The Leaf\\-List Modifier ({l:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:529
+msgid ""
+"The leaf\\-list modifier is used to distinguish lists where each instance "
+"consists of only a single value.  In XML, these are rendered as single "
+"elements, where JSON renders them as arrays."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:541
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"        xo_open_list(\"user\");\n"
+"        for (i = 0; i E<lt> num_users; i++) {\n"
+"            xo_emit(\"Member {l:name}\\en\", user[i].u_name);\n"
+"        }\n"
+"        xo_close_list(\"user\");\n"
+"    XML:\n"
+"        E<lt>userE<gt>philE<lt>/userE<gt>\n"
+"        E<lt>userE<gt>pallaviE<lt>/userE<gt>\n"
+"    JSON:\n"
+"        \"user\": [ \"phil\", \"pallavi\" ]\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:542
+#, no-wrap
+msgid "The No\\-Quotes Modifier ({n:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:550
+msgid ""
+"The no\\-quotes modifier (and its twin, the \\(aqquotes\\(aq modifier) "
+"affect the quoting of values in the JSON output style.  JSON uses quotes for "
+"string values, but no quotes for numeric, boolean, and null data.  E<.Xr "
+"xo_emit 3> applies a simple heuristic to determine whether quotes are "
+"needed, but often this needs to be controlled by the caller."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:556
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      const char *bool = is_true ? \"true\" : \"false\";\n"
+"      xo_emit(\"{n:fancy/%s}\", bool);\n"
+"    JSON:\n"
+"      \"fancy\": true\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:557
+#, no-wrap
+msgid "The Plural Modifier ({p:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:563
+msgid ""
+"The plural modifier selects the appropriate plural form of an expression "
+"based on the most recent number emitted and the current language settings.  "
+"The contents of the field should be the singular and plural English values, "
+"separated by a comma:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:565
+#, no-wrap
+msgid "    xo_emit(\"{:bytes} {Ngp:byte,bytes}\\en\", bytes);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:569
+msgid ""
+"The plural modifier is meant to work with the gettext modifier ({g:})  but "
+"can work independently."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:574
+msgid ""
+"When used without the gettext modifier or when the message does not appear "
+"in the message catalog, the first token is chosen when the last numeric "
+"value is equal to 1; otherwise the second value is used, mimicking the "
+"simple pluralization rules of English."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:580
+msgid ""
+"When used with the gettext modifier, the E<.Xr ngettext 3> function is "
+"called to handle the heavy lifting, using the message catalog to convert the "
+"singular and plural forms into the native language."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:580
+#, no-wrap
+msgid "The Quotes Modifier ({q:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:588
+msgid ""
+"The quotes modifier (and its twin, the \\(aqno-quotes\\(aq modifier) affect "
+"the quoting of values in the JSON output style.  JSON uses quotes for string "
+"values, but no quotes for numeric, boolean, and null data.  E<.Xr xo_emit 3> "
+"applies a simple heuristic to determine whether quotes are needed, but often "
+"this needs to be controlled by the caller."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:593
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      xo_emit(\"{q:time/%d}\", 2014);\n"
+"    JSON:\n"
+"      \"year\": \"2014\"\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:594
+#, no-wrap
+msgid "The White Space Modifier ({w:})"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:596
+msgid "The white space modifier appends a single space to the data value:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:601
+#, no-wrap
+msgid ""
+"    EXAMPLE:\n"
+"      xo_emit(\"{Lw:Name}{:name}\\en\", \"phil\");\n"
+"    TEXT:\n"
+"      Name phil\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:607
+msgid ""
+"The white space modifier is only used for the TEXT and HTML output styles.  "
+"It is commonly combined with the colon modifier (\\(aq{c:}\\(aq).  It is "
+"purely a convenience feature."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:610
+msgid ""
+"Note that the sense of the \\(aqw\\(aq modifier is reversed for the units "
+"role ({Uw:}); a blank is added before the contents, rather than after it."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:610
+#, no-wrap
+msgid "Field Formatting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:615
+msgid ""
+"The field format is similar to the format string for E<.Xr printf 3>.  Its "
+"use varies based on the role of the field, but generally is used to format "
+"the field\\(aqs contents."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:618
+msgid ""
+"If the format string is not provided for a value field, it defaults to "
+"\"%s\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:627
+msgid ""
+"Note a field definition can contain zero or more printf\\-style E<.Dq "
+"directives>, which are sequences that start with a \\(aq%\\(aq and end with "
+"one of following characters: \"diouxXDOUeEfFgGaAcCsSp\".  Each directive is "
+"matched by one of more arguments to the E<.Xr xo_emit 3> function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:629
+msgid "The format string has the form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:631
+#, no-wrap
+msgid "  \\(aq%\\(aq format\\-modifier * format\\-character\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:634
+msgid "The format\\-modifier can be:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:638
+msgid ""
+"a \\(aq#\\(aq character, indicating the output value should be prefixed with "
+"\"0x\", typically to indicate a base 16 (hex) value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:641
+msgid ""
+"a minus sign (\\(aq\\-\\(aq), indicating the output value should be padded "
+"on the right instead of the left."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:644
+msgid ""
+"a leading zero (\\(aq0\\(aq) indicating the output value should be padded on "
+"the left with zeroes instead of spaces (\\(aq \\(aq)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:649
+msgid ""
+"one or more digits (\\(aq0\\(aq \\- \\(aq9\\(aq) indicating the minimum "
+"width of the argument.  If the width in columns of the output value is less "
+"than the minimum width, the value will be padded to reach the minimum."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:658
+msgid ""
+"a period followed by one or more digits indicating the maximum number of "
+"bytes which will be examined for a string argument, or the maximum width for "
+"a non\\-string argument.  When handling ASCII strings this functions as the "
+"field width but for multi\\-byte characters, a single character may be "
+"composed of multiple bytes.  E<.Xr xo_emit 3> will never dereference memory "
+"beyond the given number of bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:662
+msgid ""
+"a second period followed by one or more digits indicating the maximum width "
+"for a string argument.  This modifier cannot be given for non\\-string "
+"arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:664
+msgid "one or more \\(aqh\\(aq characters, indicating shorter input data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:666
+msgid "one or more \\(aql\\(aq characters, indicating longer input data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:668
+msgid "a \\(aqz\\(aq character, indicating a \\(aqsize_t\\(aq argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:670
+msgid "a \\(aqt\\(aq character, indicating a \\(aqptrdiff_t\\(aq argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:673
+msgid ""
+"a \\(aq \\(aq character, indicating a space should be emitted before "
+"positive numbers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:675
+msgid "a \\(aq+\\(aq character, indicating sign should emitted before any number."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:679
+msgid ""
+"Note that \\(aqq\\(aq, \\(aqD\\(aq, \\(aqO\\(aq, and \\(aqU\\(aq are "
+"considered deprecated and will be removed eventually."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:681
+msgid "The format character is described in the following table:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:682
+#, no-wrap
+msgid "Sy C \"Argument Type  \" Format"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:683
+#, no-wrap
+msgid "d \"int            \" \"base 10 (decimal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:684
+#, no-wrap
+msgid "i \"int            \" \"base 10 (decimal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:685
+#, no-wrap
+msgid "o \"int            \" \"base 8 (octal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:686
+#, no-wrap
+msgid "u \"unsigned       \" \"base 10 (decimal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:687
+#, no-wrap
+msgid "x \"unsigned       \" \"base 16 (hex)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:688
+#, no-wrap
+msgid "X \"unsigned long  \" \"base 16 (hex)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:689
+#, no-wrap
+msgid "D \"long           \" \"base 10 (decimal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:690
+#, no-wrap
+msgid "O \"unsigned long  \" \"base 8 (octal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:691
+#, no-wrap
+msgid "U \"unsigned long  \" \"base 10 (decimal)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:692
+#, no-wrap
+msgid "e \"double         \" [\\-]d.ddde+\\-dd"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:693
+#, no-wrap
+msgid "E \"double         \" [\\-]d.dddE+\\-dd"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:694
+#, no-wrap
+msgid "f \"double         \" [\\-]ddd.ddd"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:695
+#, no-wrap
+msgid "F \"double         \" [\\-]ddd.ddd"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:696
+#, no-wrap
+msgid "g \"double         \" \"as \\(aqe\\(aq or \\(aqf\\(aq\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:697
+#, no-wrap
+msgid "G \"double         \" \"as \\(aqE\\(aq or \\(aqF\\(aq\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:698
+#, no-wrap
+msgid "a \"double         \" [\\-]0xh.hhhp[+\\-]d"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:699
+#, no-wrap
+msgid "A \"double         \" [\\-]0Xh.hhhp[+\\-]d"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:700
+#, no-wrap
+msgid "c \"unsigned char  \" \"a character\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:701
+#, no-wrap
+msgid "C \"wint_t         \" \"a character\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:702
+#, no-wrap
+msgid "s \"char *         \" \"a UTF\\-8 string\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:703
+#, no-wrap
+msgid "S \"wchar_t *      \" \"a unicode/WCS string\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:704
+#, no-wrap
+msgid "p \"void *         \" \\(aq%#lx\\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:709
+msgid ""
+"The \\(aqh\\(aq and \\(aql\\(aq modifiers affect the size and treatment of "
+"the argument:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:710
+#, no-wrap
+msgid "Sy Mod \"d, i        \" \"o, u, x, X\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:711
+#, no-wrap
+msgid "\"hh \" \"signed char \" \"unsigned char\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:712
+#, no-wrap
+msgid "\"h  \" \"short       \" \"unsigned short\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:713
+#, no-wrap
+msgid "\"l  \" \"long        \" \"unsigned long\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:714
+#, no-wrap
+msgid "\"ll \" \"long long   \" \"unsigned long long\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:715
+#, no-wrap
+msgid "\"j  \" \"intmax_t    \" uintmax_t"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:716
+#, no-wrap
+msgid "\"t  \" \"ptrdiff_t   \" ptrdiff_t"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:717
+#, no-wrap
+msgid "\"z  \" \"size_t      \" size_t"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libxo/libxo/xo_format.5:718
+#, no-wrap
+msgid "\"q  \" \"quad_t      \" u_quad_t"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:720
+#, no-wrap
+msgid "UTF\\-8 and Locale Strings"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:727
+msgid ""
+"All strings for E<.Nm libxo> must be UTF\\-8.  E<.Nm libxo> will handle "
+"turning them into locale\\-based strings for display to the user."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:750
+msgid ""
+"For strings, the \\(aqh\\(aq and \\(aql\\(aq modifiers affect the "
+"interpretation of the bytes pointed to argument.  The default \\(aq%s\\(aq "
+"string is a \\(aqchar *\\(aq pointer to a string encoded as UTF\\-8.  Since "
+"UTF\\-8 is compatible with E<.Em ASCII> data, a normal 7\\-bit E<.Em ASCII> "
+"string can be used.  \"%ls\" expects a \"wchar_t *\" pointer to a "
+"wide\\-character string, encoded as 32\\-bit Unicode values.  \"%hs\" "
+"expects a \"char *\" pointer to a multi\\-byte string encoded with the "
+"current locale, as given by the E<.Ev LC_CTYPE>, E<.Ev LANG>, or E<.Ev "
+"LC_ALL> environment variables.  The first of this list of variables is used "
+"and if none of the variables are set, the locale defaults to E<.Em UTF\\-8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:755
+msgid ""
+"E<.Nm libxo> will convert these arguments as needed to either UTF\\-8 (for "
+"XML, JSON, and HTML styles) or locale\\-based strings for display in text "
+"style."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:758
+#, no-wrap
+msgid ""
+"   xo_emit(\"All strings are utf\\-8 content {:tag/%ls}\",\n"
+"           L\"except for wide strings\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:761
+msgid "\"%S\" is equivalent to \"%ls\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:766
+msgid ""
+"For example, a function is passed a locale\\-base name, a hat size, and a "
+"time value.  The hat size is formatted in a UTF\\-8 (ASCII)  string, and the "
+"time value is formatted into a wchar_t string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:771
+#, no-wrap
+msgid ""
+"    void print_order (const char *name, int size,\n"
+"                      struct tm *timep) {\n"
+"        char buf[32];\n"
+"        const char *size_val = \"unknown\";\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:776
+#, no-wrap
+msgid ""
+"\tif (size E<gt> 0)\n"
+"            snprintf(buf, sizeof(buf), \"%d\", size);\n"
+"            size_val = buf;\n"
+"        }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:779
+#, no-wrap
+msgid ""
+"        wchar_t when[32];\n"
+"        wcsftime(when, sizeof(when), L\"%d%b%y\", timep);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:785
+#, no-wrap
+msgid ""
+"        xo_emit(\"The hat for {:name/%hs} is {:size/%s}.\\en\",\n"
+"                name, size_val);\n"
+"        xo_emit(\"It was ordered on {:order\\-time/%ls}.\\en\",\n"
+"                when);\n"
+"    }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:794
+msgid ""
+"It is important to note that E<.Xr xo_emit 3> will perform the conversion "
+"required to make appropriate output.  Text style output uses the current "
+"locale (as described above), while XML, JSON, and HTML use UTF\\-8."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:804
+msgid ""
+"UTF\\-8 and locale\\-encoded strings can use multiple bytes to encode one "
+"column of data.  The traditional \"precision\" (aka \"max\\-width\") value "
+"for \"%s\" printf formatting becomes overloaded since it specifies both the "
+"number of bytes that can be safely referenced and the maximum number of "
+"columns to emit.  E<.Xr xo_emit 3> uses the precision as the former, and "
+"adds a third value for specifying the maximum number of columns."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:808
+msgid ""
+"In this example, the name field is printed with a minimum of 3 columns and a "
+"maximum of 6.  Up to ten bytes are in used in filling those columns."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:810
+#, no-wrap
+msgid "    xo_emit(\"{:name/%3.10.6s}\", name);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:811
+#, no-wrap
+msgid "Characters Outside of Field Definitions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:816
+msgid ""
+"Characters in the format string that are not part of a field definition are "
+"copied to the output for the TEXT style, and are ignored for the JSON and "
+"XML styles.  For HTML, these characters are placed in a E<lt>divE<gt> with "
+"class \"text\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:829
+#, no-wrap
+msgid ""
+"  EXAMPLE:\n"
+"      xo_emit(\"The hat is {:size/%s}.\\en\", size_val);\n"
+"  TEXT:\n"
+"      The hat is extra small.\n"
+"  XML:\n"
+"      E<lt>sizeE<gt>extra smallE<lt>/sizeE<gt>\n"
+"  JSON:\n"
+"      \"size\": \"extra small\"\n"
+"  HTML:\n"
+"      E<lt>div class=\"text\"E<gt>The hat is E<lt>/divE<gt>\n"
+"      E<lt>div class=\"data\" data\\-tag=\"size\"E<gt>extra "
+"smallE<lt>/divE<gt>\n"
+"      E<lt>div class=\"text\"E<gt>.E<lt>/divE<gt>\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:830
+#, no-wrap
+msgid "\\(aq%n\\(aq is Not Supported"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:835
+msgid ""
+"E<.Nm libxo> does not support the \\(aq%n\\(aq directive.  It is a bad idea "
+"and we just do not do it."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:835
+#, no-wrap
+msgid "The Encoding Format (eformat)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:841
+msgid ""
+"The \"eformat\" string is the format string used when encoding the field for "
+"JSON and XML.  If not provided, it defaults to the primary format with any "
+"minimum width removed.  If the primary is not given, both default to \"%s\"."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:841
+#, no-wrap
+msgid "EXAMPLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:843
+msgid "In this example, the value for the number of items in stock is emitted:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:846
+#, no-wrap
+msgid ""
+"        xo_emit(\"{P:   }{Lwc:In stock}{:in\\-stock/%u}\\en\",\n"
+"                instock);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:849
+msgid "This call will generate the following output:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:864
+#, no-wrap
+msgid ""
+"  TEXT:\n"
+"       In stock: 144\n"
+"  XML:\n"
+"      E<lt>in\\-stockE<gt>144E<lt>/in\\-stockE<gt>\n"
+"  JSON:\n"
+"      \"in\\-stock\": 144,\n"
+"  HTML:\n"
+"      E<lt>div class=\"line\"E<gt>\n"
+"        E<lt>div class=\"padding\"E<gt>   E<lt>/divE<gt>\n"
+"        E<lt>div class=\"label\"E<gt>In stockE<lt>/divE<gt>\n"
+"        E<lt>div class=\"decoration\"E<gt>:E<lt>/divE<gt>\n"
+"        E<lt>div class=\"padding\"E<gt> E<lt>/divE<gt>\n"
+"        E<lt>div class=\"data\" "
+"data\\-tag=\"in\\-stock\"E<gt>144E<lt>/divE<gt>\n"
+"      E<lt>/divE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:872
+msgid ""
+"Clearly HTML wins the verbosity award, and this output does not include "
+"E<.Dv XOF_XPATH> or E<.Dv XOF_INFO> data, which would expand the penultimate "
+"line to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:877
+#, no-wrap
+msgid ""
+"       E<lt>div class=\"data\" data\\-tag=\"in\\-stock\"\n"
+"          data\\-xpath=\"/top/data/item/in\\-stock\"\n"
+"          data\\-type=\"number\"\n"
+"          data\\-help=\"Number of items in stock\"E<gt>144E<lt>/divE<gt>\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:878
+#, no-wrap
+msgid "WHAT MAKES A GOOD FIELD NAME?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:880
+msgid "To make useful, consistent field names, follow these guidelines:"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:880
+#, no-wrap
+msgid "Use lower case, even for TLAs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:886
+msgid ""
+"Lower case is more civilized.  Even TLAs should be lower case to avoid "
+"scenarios where the differences between \"XPath\" and \"Xpath\" drive your "
+"users crazy.  Using \"xpath\" is simpler and better."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:886
+#, no-wrap
+msgid "Use hyphens, not underscores"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:891
+msgid ""
+"Use of hyphens is traditional in XML, and the E<.Dv XOF_UNDERSCORES> flag "
+"can be used to generate underscores in JSON, if desired.  But the raw field "
+"name should use hyphens."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:891
+#, no-wrap
+msgid "Use full words"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:897
+msgid ""
+"Do not abbreviate especially when the abbreviation is not obvious or not "
+"widely used.  Use \"data\\-size\", not \"dsz\" or \"dsize\".  Use "
+"\"interface\" instead of \"ifname\", \"if\\-name\", \"iface\", \"if\", or "
+"\"intf\"."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:897
+#, no-wrap
+msgid "Use E<lt>verbE<gt>\\-E<lt>unitsE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:906
+msgid ""
+"Using the form E<lt>verbE<gt>\\-E<lt>unitsE<gt> or "
+"E<lt>verbE<gt>\\-E<lt>classifierE<gt>\\-E<lt>unitsE<gt> helps in making "
+"consistent, useful names, avoiding the situation where one app uses "
+"\"sent\\-packet\" and another \"packets\\-sent\" and another "
+"\"packets\\-we\\-have\\-sent\".  The E<lt>unitsE<gt> can be dropped when it "
+"is obvious, as can obvious words in the classification.  Use "
+"\"receive\\-after\\-window\\-packets\" instead of "
+"\"received\\-packets\\-of\\-data\\-after\\-window\"."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:906
+#, no-wrap
+msgid "Reuse existing field names"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:908
+msgid "Nothing is worse than writing expressions like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:913
+#, no-wrap
+msgid ""
+"    if ($src1/process[pid == $pid]/name ==\n"
+"        $src2/proc\\-table/proc/p[process\\-id == $pid]/proc\\-name) {\n"
+"        ...\n"
+"    }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:921
+msgid ""
+"Find someone else who is expressing similar data and follow their fields and "
+"hierarchy.  Remember the quote is not E<.Dq \"Consistency is the hobgoblin "
+"of little minds\"> but E<.Dq \"A foolish consistency is the hobgoblin of "
+"little minds\">."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:921
+#, no-wrap
+msgid "Think about your users"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:927
+msgid ""
+"Have empathy for your users, choosing clear and useful fields that contain "
+"clear and useful data.  You may need to augment the display content with "
+"E<.Xr xo_attr 3> calls or \"{e:}\" fields to make the data useful."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:927
+#, no-wrap
+msgid "Do not use an arbitrary number postfix"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:935
+msgid ""
+"What does \"errors2\" mean? No one will know.  \"errors\\-after\\-restart\" "
+"would be a better choice.  Think of your users, and think of the future.  If "
+"you make \"errors2\", the next guy will happily make \"errors3\" and before "
+"you know it, someone will be asking what is the difference between errors37 "
+"and errors63."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libxo/libxo/xo_format.5:935
+#, no-wrap
+msgid "Be consistent, uniform, unsurprising, and predictable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:944
+msgid ""
+"Think of your field vocabulary as an API.  You want it useful, expressive, "
+"meaningful, direct, and obvious.  You want the client application\\(aqs "
+"programmer to move between without the need to understand a variety of "
+"opinions on how fields are named.  They should see the system as a single "
+"cohesive whole, not a sack of cats."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:948
+msgid ""
+"Field names constitute the means by which client programmers interact with "
+"our system.  By choosing wise names now, you are making their lives better."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:964
+msgid ""
+"After using E<.Xr xolint 1> to find errors in your field descriptors, use "
+"E<.Dq \"xolint \\-V\"> to spell check your field names and to detect "
+"different names for the same data.  E<.Dq dropped\\-short> and E<.Dq "
+"dropped\\-too\\-short> are both reasonable names, but using them both will "
+"lead users to ask the difference between the two fields.  If there is no "
+"difference, use only one of the field names.  If there is a difference, "
+"change the names to make that difference more obvious."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:964
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:968
+msgid "E<.Xr libxo 3>, E<.Xr xolint 1>, E<.Xr xo_emit 3>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:968
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:973
+msgid "The E<.Nm libxo> library first appeared in E<.Fx 11.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libxo/libxo/xo_format.5:973
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libxo/libxo/xo_format.5:977
+msgid "E<.Nm libxo> was written by E<.An Phil Shafer Aq Mt phil@freebsd.org>."
+msgstr ""

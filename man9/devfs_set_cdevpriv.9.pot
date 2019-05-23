@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:27
+#, no-wrap
+msgid "December 2, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:28
+#, no-wrap
+msgid "DEVFS_CDEVPRIV 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:34
+msgid ""
+"E<.Nm devfs_set_cdevpriv>, E<.Nm devfs_get_cdevpriv>, E<.Nm "
+"devfs_clear_cdevpriv>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:34
+#, no-wrap
+msgid "manage per-open filedescriptor data for devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:36
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:37
+#, no-wrap
+msgid "sys/conf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:40
+#, no-wrap
+msgid "typedef\tvoid d_priv_dtor_t(void *data);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:47
+msgid ""
+"E<.Ft int> E<.Fn devfs_get_cdevpriv \"void **datap\"> E<.Ft int> E<.Fn "
+"devfs_set_cdevpriv \"void *priv\" \"d_priv_dtor_t *dtr\"> E<.Ft void> E<.Fn "
+"devfs_clear_cdevpriv \"void\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:62
+msgid ""
+"The E<.Fn devfs_xxx_cdevpriv> family of functions allows the E<.Fa cdev> "
+"driver methods to associate some driver-specific data with each user process "
+"E<.Xr open 2> of the device special file.  Currently, functioning of these "
+"functions is restricted to the context of the E<.Fa cdevsw> switch method "
+"calls performed as E<.Xr devfs 5> operations in response to system calls "
+"that use filedescriptors."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:86
+msgid ""
+"The E<.Fn devfs_set_cdevpriv> function associates a data pointed by E<.Va "
+"priv> with current calling context (filedescriptor).  The data may be "
+"retrieved later, possibly from another call performed on this "
+"filedescriptor, by the E<.Fn devfs_get_cdevpriv> function.  The E<.Fn "
+"devfs_clear_cdevpriv> disassociates previously attached data from context.  "
+"Immediately after E<.Fn devfs_clear_cdevpriv> finished operating, the E<.Va "
+"dtr> callback is called, with private data supplied E<.Va data> argument.  "
+"The E<.Fn devfs_clear_cdevpriv> function will be also be called if the open "
+"callback function returns an error code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:90
+msgid ""
+"On the last filedescriptor close, system automatically arranges E<.Fn "
+"devfs_clear_cdevpriv> call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:92
+msgid "If successful, the functions return 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:96
+msgid ""
+"The function E<.Fn devfs_set_cdevpriv> returns the following values on "
+"error:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:97 /usr/src/share/man/man9/devfs_set_cdevpriv.9:110
+#, no-wrap
+msgid "Bq Er ENOENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:99 /usr/src/share/man/man9/devfs_set_cdevpriv.9:110
+msgid "The current call is not associated with some filedescriptor."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:99
+#, no-wrap
+msgid "Bq Er EBUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:102
+msgid "The private driver data is already associated with current filedescriptor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:107
+msgid ""
+"The function E<.Fn devfs_get_cdevpriv> returns the following values on "
+"error:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:108
+#, no-wrap
+msgid "Bq Er EBADF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:115
+msgid ""
+"The private driver data was not associated with current filedescriptor, or "
+"E<.Fn devfs_clear_cdevpriv> was called."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:116
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:120
+msgid "E<.Xr close 2>, E<.Xr open 2>, E<.Xr devfs 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:120
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devfs_set_cdevpriv.9:124
+msgid "The E<.Fn devfs_cdevpriv> family of functions first appeared in E<.Fx 7.1>."
+msgstr ""

@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/acct.5:31
+#, no-wrap
+msgid "February 13, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/acct.5:32
+#, no-wrap
+msgid "ACCT 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/acct.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:36
+msgid "E<.Nm acct>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/acct.5:36
+#, no-wrap
+msgid "execution accounting file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/acct.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/acct.5:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/acct.5:39 /usr/src/share/man/man5/acct.5:123
+#, no-wrap
+msgid "sys/acct.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/acct.5:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:50
+msgid ""
+"The kernel maintains the following E<.Fa acct> information structure for all "
+"processes.  If a process terminates, and accounting is enabled, the kernel "
+"calls the E<.Xr acct 2> function call to prepare and append the record to "
+"the accounting file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:52
+#, no-wrap
+msgid "#define AC_COMM_LEN 16\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:58
+#, no-wrap
+msgid ""
+"/*\n"
+" * Accounting structure version 3 (current).\n"
+" * The first byte is always zero.\n"
+" * Time units are microseconds.\n"
+" */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:63
+#, no-wrap
+msgid ""
+"struct acctv3 {\n"
+"\tuint8_t  ac_zero;\t\t/* zero identifies new version */\n"
+"\tuint8_t  ac_version;\t\t/* record version number */\n"
+"\tuint16_t ac_len;\t\t/* record length */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:74
+#, no-wrap
+msgid ""
+"\tchar\t  ac_comm[AC_COMM_LEN];\t/* command name */\n"
+"\tfloat\t  ac_utime;\t\t/* user time */\n"
+"\tfloat\t  ac_stime;\t\t/* system time */\n"
+"\tfloat\t  ac_etime;\t\t/* elapsed time */\n"
+"\ttime_t\t  ac_btime;\t\t/* starting time */\n"
+"\tuid_t\t  ac_uid;\t\t/* user id */\n"
+"\tgid_t\t  ac_gid;\t\t/* group id */\n"
+"\tfloat\t  ac_mem;\t\t/* average memory usage */\n"
+"\tfloat\t  ac_io;\t\t/* count of IO blocks */\n"
+"\t__dev_t   ac_tty;\t\t/* controlling tty */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:78
+#, no-wrap
+msgid ""
+"\tuint16_t ac_len2;\t\t/* record length */\n"
+"\tunion {\n"
+"\t\tuint32_t  ac_align;\t/* force v1 compatible alignment */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:86
+#, no-wrap
+msgid ""
+"#define\tAFORK\t0x01\t\t\t/* forked but not exec'ed */\n"
+"/* ASU is no longer supported */\n"
+"#define\tASU\t0x02\t\t\t/* used super-user permissions */\n"
+"#define\tACOMPAT\t0x04\t\t\t/* used compatibility mode */\n"
+"#define\tACORE\t0x08\t\t\t/* dumped core */\n"
+"#define\tAXSIG\t0x10\t\t\t/* killed by a signal */\n"
+"#define ANVER\t0x20\t\t\t/* new record version */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:89
+#, no-wrap
+msgid ""
+"\t\tuint8_t  ac_flag;\t/* accounting flags */\n"
+"\t} ac_trailer;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:92
+#, no-wrap
+msgid ""
+"#define ac_flagx ac_trailer.ac_flag\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:110
+msgid ""
+"If a terminated process was created by an E<.Xr execve 2>, the name of the "
+"executed file (at most ten characters of it)  is saved in the field E<.Fa "
+"ac_comm> and its status is saved by setting one of more of the following "
+"flags in E<.Fa ac_flag>: E<.Dv AFORK>, E<.Dv ACOMPAT>, E<.Dv ACORE> and "
+"E<.Dv ASIG>.  E<.Dv ASU> is no longer supported.  E<.Dv ANVER> is always set "
+"in the above structure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/acct.5:110
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:115
+msgid "E<.Xr lastcomm 1>, E<.Xr acct 2>, E<.Xr execve 2>, E<.Xr sa 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/acct.5:115
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:123
+msgid ""
+"A E<.Nm> file format appeared in E<.At v7>.  The current record format was "
+"introduced on May 2007.  It is backwards compatible with the previous "
+"format, which is still documented in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/acct.5:127
+msgid "and supported by E<.Xr lastcomm 1> and E<.Xr sa 8>."
+msgstr ""

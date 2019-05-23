@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/getenv.9:30
+#, no-wrap
+msgid "June 1, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/getenv.9:31
+#, no-wrap
+msgid "GETENV 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/getenv.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:45
+msgid ""
+"E<.Nm freeenv>, E<.Nm kern_getenv>, E<.Nm getenv_int>, E<.Nm getenv_long>, "
+"E<.Nm getenv_string>, E<.Nm getenv_quad>, E<.Nm getenv_uint>, E<.Nm "
+"getenv_ulong>, E<.Nm kern_setenv>, E<.Nm testenv>, E<.Nm kern_unsetenv>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/getenv.9:45
+#, no-wrap
+msgid "kernel environment variable functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/getenv.9:46
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/getenv.9:47
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/getenv.9:48
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:71
+msgid ""
+"E<.Ft void> E<.Fn freeenv \"char *env\"> E<.Ft char *> E<.Fn kern_getenv "
+"\"const char *name\"> E<.Ft int> E<.Fn getenv_int \"const char *name\" \"int "
+"*data\"> E<.Ft int> E<.Fn getenv_long \"const char *name\" \"long *data\"> "
+"E<.Ft int> E<.Fn getenv_string \"const char *name\" \"char *data\" \"int "
+"size\"> E<.Ft int> E<.Fn getenv_quad \"const char *name\" \"quad_t *data\"> "
+"E<.Ft int> E<.Fn getenv_uint \"const char *name\" \"unsigned int *data\"> "
+"E<.Ft int> E<.Fn getenv_ulong \"const char *name\" \"unsigned long *data\"> "
+"E<.Ft int> E<.Fn kern_setenv \"const char *name\" \"const char *value\"> "
+"E<.Ft int> E<.Fn testenv \"const char *name\"> E<.Ft int> E<.Fn "
+"kern_unsetenv \"const char *name\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/getenv.9:71
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:74
+msgid ""
+"These functions set, unset, fetch, and parse variables from the kernel's "
+"environment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:90
+msgid ""
+"The E<.Fn kern_getenv> function obtains the current value of the kernel "
+"environment variable E<.Fa name> and returns a pointer to the string value.  "
+"The caller should not modify the string pointed to by the return value.  The "
+"E<.Fn kern_getenv> function may allocate temporary storage, so the E<.Fn "
+"freeenv> function must be called to release any allocated resources when the "
+"value returned by E<.Fn kern_getenv> is no longer needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:108
+msgid ""
+"The E<.Fn freeenv> function is used to release the resources allocated by a "
+"previous call to E<.Fn kern_getenv>.  The E<.Fa env> argument passed to "
+"E<.Fn freeenv> is the pointer returned by the earlier call to E<.Fn "
+"kern_getenv>.  Like E<.Xr free 3>, the E<.Fa env> argument can be E<.Va "
+"NULL>, in which case no action occurs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:121
+msgid ""
+"The E<.Fn kern_setenv> function inserts or resets the kernel environment "
+"variable E<.Fa name> to E<.Fa value>.  If the variable E<.Fa name> already "
+"exists, its value is replaced.  This function can fail if an internal limit "
+"on the number of environment variables is exceeded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:126
+msgid ""
+"The E<.Fn kern_unsetenv> function deletes the kernel environment variable "
+"E<.Fa name>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:133
+msgid ""
+"The E<.Fn testenv> function is used to determine if a kernel environment "
+"variable exists.  It returns a non-zero value if the variable E<.Fa name> "
+"exists and zero if it does not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:173
+msgid ""
+"The E<.Fn getenv_int>, E<.Fn getenv_long>, E<.Fn getenv_quad>, E<.Fn "
+"getenv_uint>, and E<.Fn getenv_ulong> functions look for a kernel "
+"environment variable E<.Fa name> and parse it as a signed integer, long "
+"integer, signed 64-bit integer, unsigned integer, or an unsigned long "
+"integer, respectively.  These functions fail and return zero if E<.Fa name> "
+"does not exist or if any invalid characters are present in its value.  On "
+"success, these function store the parsed value in the integer variable "
+"pointed to by E<.Fa data>.  If the parsed value overflows the integer type, "
+"a truncated value is stored in E<.Fa data> and zero is returned.  If the "
+"value begins with a prefix of E<.Dq 0x> it is interpreted as hexadecimal.  "
+"If it begins with a prefix of E<.Dq 0> it is interpreted as octal.  "
+"Otherwise, the value is interpreted as decimal.  The value may contain a "
+"single character suffix specifying a unit for the value.  The interpreted "
+"value is multiplied by the unit's magnitude before being returned.  The "
+"following unit suffixes are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/getenv.9:174
+#, no-wrap
+msgid "Sy Unit Ta Sy Magnitude"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/getenv.9:175
+#, no-wrap
+msgid "k Ta 2^10"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/getenv.9:176
+#, no-wrap
+msgid "m Ta 2^20"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/getenv.9:177
+#, no-wrap
+msgid "g Ta 2^30"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/getenv.9:178
+#, no-wrap
+msgid "t Ta 2^40"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:197
+msgid ""
+"The E<.Fn getenv_string> function stores a copy of the kernel environment "
+"variable E<.Fa name> in the buffer described by E<.Fa data> and E<.Fa size.> "
+"If the variable does not exist, zero is returned.  If the variable exists, "
+"up to E<.Fa size - 1> characters of its value are copied to the buffer "
+"pointed to by E<.Fa data> followed by a null character and a non-zero value "
+"is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/getenv.9:197
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:203
+msgid ""
+"The E<.Fn kern_getenv> function returns a pointer to an environment "
+"variable's value on success or E<.Dv NULL> if the variable does not exist."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:209
+msgid ""
+"The E<.Fn kern_setenv> and E<.Fn kern_unsetenv> functions return zero on "
+"success and -1 on failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/getenv.9:222
+msgid ""
+"The E<.Fn testenv> function returns zero if the specified environment "
+"variable does not exist and a non-zero value if it does exist.  The E<.Fn "
+"getenv_int>, E<.Fn getenv_long>, E<.Fn getenv_string>, E<.Fn getenv_quad>, "
+"E<.Fn getenv_uint>, and E<.Fn getenv_ulong> functions return a non-zero "
+"value on success and zero on failure."
+msgstr ""

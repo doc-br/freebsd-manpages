@@ -1,0 +1,383 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/cpuctl.4:27
+#, no-wrap
+msgid "June 20, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/cpuctl.4:28
+#, no-wrap
+msgid "CPUCTL 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:32
+msgid "E<.Nm cpuctl>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/cpuctl.4:32
+#, no-wrap
+msgid "cpuctl pseudo device"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:37
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:39
+#, no-wrap
+msgid "E<.Cd \"device cpuctl\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:44
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:46
+#, no-wrap
+msgid "cpuctl_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:54
+msgid ""
+"The special device E<.Pa /dev/cpuctl> presents interface to the system CPU.  "
+"It provides functionality to retrieve CPUID information, read/write machine "
+"specific registers (MSR) and perform CPU firmware updates."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:60
+msgid ""
+"For each CPU present in the system, the special device E<.Pa /dev/cpuctl%d> "
+"with the appropriate index will be created.  For multicore CPUs such a "
+"special device will be created for each core."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:63
+msgid "Currently, only i386 and amd64 processors are supported."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:63
+#, no-wrap
+msgid "IOCTL INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:68
+msgid ""
+"All of the supported operations are invoked using the E<.Xr ioctl 2> system "
+"call.  Currently, the following ioctls are defined:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:69
+#, no-wrap
+msgid "Dv CPUCTL_RDMSR Fa cpuctl_msr_args_t *args"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:70
+#, no-wrap
+msgid "Dv CPUCTL_WRMSR Fa cpuctl_msr_args_t *args"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:75
+msgid ""
+"Read/write CPU machine specific register.  The E<.Vt cpuctl_msr_args_t> "
+"structure is defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/cpuctl.4:75 /usr/src/share/man/man4/cpuctl.4:146
+#, no-wrap
+msgid "sys/cpuctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:77 /usr/src/share/man/man4/cpuctl.4:148
+msgid "as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:82
+#, no-wrap
+msgid ""
+"typedef struct {\n"
+"\tint\t\tmsr;\t/* MSR to read */\n"
+"\tuint64_t\tdata;\n"
+"} cpuctl_msr_args_t;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:83
+#, no-wrap
+msgid "Dv CPUCTL_MSRSBIT Fa cpuctl_msr_args_t *args"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:84
+#, no-wrap
+msgid "Dv CPUCTL_MSRCBIT Fa cpuctl_msr_args_t *args"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:88
+msgid "Set/clear MSR bits according to the mask given in the E<.Va data> field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:88
+#, no-wrap
+msgid "Dv CPUCTL_CPUID Fa cpuctl_cpuid_args_t *args"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:91 /usr/src/share/man/man4/cpuctl.4:105
+msgid ""
+"Retrieve CPUID information.  Arguments are supplied in the following "
+"structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:96
+#, no-wrap
+msgid ""
+"typedef struct {\n"
+"\tint\t\tlevel;\t\t/* CPUID level */\n"
+"\tuint32_t\tdata[4];\n"
+"} cpuctl_cpuid_args_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:102
+msgid ""
+"It is equivalent to the E<.Dv CPUCTL_CPUID_COUNT> request with E<.Va "
+"level_type> set to 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:102
+#, no-wrap
+msgid "Dv CPUCTL_CPUID_COUNT Fa cpuctl_cpuid_count_args_t *args"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:111
+#, no-wrap
+msgid ""
+"typedef struct {\n"
+"\tint\t\tlevel;\t\t/* CPUID level */\n"
+"\tint\t\tlevel_type;\t/* CPUID level type */\n"
+"\tuint32_t\tdata[4];\n"
+"} cpuctl_cpuid_count_args_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:124
+msgid ""
+"The E<.Va level> field indicates the CPUID level to retrieve, it is loaded "
+"into the E<.Va %eax> register before the CPUID instruction is executed, The "
+"E<.Va level_type> field indicates the CPUID level type to retrieve, it is "
+"loaded into the E<.Va %ecx> register."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:143
+msgid ""
+"The E<.Va data> field is used to store the received CPUID data.  That is, "
+"E<.Va data[0]> contains the value of E<.Va %eax> register after the CPUID "
+"instruction is executed, E<.Va data[1]> is for E<.Va %ebx>, E<.Va data[2]> "
+"for E<.Va %ecx>, and E<.Va data[3]> for E<.Va %edx>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:143
+#, no-wrap
+msgid "Dv CPUCTL_UPDATE cpuctl_update_args_t *args"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:146
+msgid "Update CPU firmware (microcode).  The structure is defined in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:153
+#, no-wrap
+msgid ""
+"typedef struct {\n"
+"\tvoid\t*data;\n"
+"\tsize_t\tsize;\n"
+"} cpuctl_update_args_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:159
+msgid ""
+"The E<.Va data> field should point to the firmware image of size E<.Va "
+"size>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:163
+msgid "For additional information refer to E<.Pa cpuctl.h>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:163
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:165
+#, no-wrap
+msgid "Pa /dev/cpuctl"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:167
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:169
+#, no-wrap
+msgid "Bq Er ENXIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:172
+msgid ""
+"The operation requested is not supported by the device (e.g., unsupported "
+"architecture or the CPU is disabled)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:172
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:174
+msgid "Incorrect request was supplied, or microcode image is not correct."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:174
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:176
+msgid "No physical memory was available to complete the request."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpuctl.4:176
+#, no-wrap
+msgid "Bq Er EFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:178
+msgid "The firmware image address points outside the process address space."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:179
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:182
+msgid "E<.Xr hwpmc 4>, E<.Xr cpucontrol 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:182
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:187
+msgid "The E<.Nm> driver first appeared in E<.Fx 7.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:187
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:192
+msgid ""
+"The E<.Nm> module and this manual page were written by E<.An Stanislav Sedov "
+"Aq Mt stas@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpuctl.4:192
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpuctl.4:193
+msgid "Yes, probably, report if any."
+msgstr ""

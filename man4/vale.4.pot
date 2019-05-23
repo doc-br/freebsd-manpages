@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/vale.4:31
+#, no-wrap
+msgid "January 9, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/vale.4:32
+#, no-wrap
+msgid "VALE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:36
+msgid "E<.Nm vale>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/vale.4:36
+#, no-wrap
+msgid "a very fast Virtual Local Ethernet using the netmap API"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:39
+msgid "E<.Cd device netmap>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:47
+msgid ""
+"E<.Nm> is a feature of the E<.Xr netmap 4> module that implements multiple "
+"Virtual switches that can be used to interconnect netmap clients, including "
+"traffic sources and sinks, packet forwarders, userspace firewalls, and so "
+"on."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:53
+msgid ""
+"E<.Nm> is implemented completely in software, and is extremely fast.  On a "
+"modern machine it can move almost 20 Million packets per second (Mpps) per "
+"core with small frames, and about 70 Gbit/s with 1500 byte frames."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:53
+#, no-wrap
+msgid "OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:59
+msgid ""
+"E<.Nm> dynamically creates switches and ports as clients connect to it using "
+"the E<.Xr netmap 4> API."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:74
+msgid ""
+"E<.Nm> ports are named E<.Pa valeSSS:PPP> where E<.Pa vale> is the prefix "
+"indicating a VALE switch rather than a standard interface, E<.Pa SSS> "
+"indicates a specific switch (the colon is a separator), and E<.Pa PPP> "
+"indicates a port within the switch.  Both SSS and PPP have the form "
+"[0-9a-zA-Z_]+ , the string cannot exceed IFNAMSIZ characters, and PPP cannot "
+"be the name of any existing OS network interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:78
+msgid "See E<.Xr netmap 4> for details on the API."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/vale.4:78
+#, no-wrap
+msgid "LIMITS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:84
+msgid ""
+"E<.Nm> currently supports up to 4 switches, 16 ports per switch, with 1024 "
+"buffers per port.  These hard limits will be changed to sysctl variables in "
+"future releases."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:84
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:87
+msgid "E<.Nm> uses the following sysctl variables to control operation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/vale.4:88
+#, no-wrap
+msgid "dev.netmap.bridge_batch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:93
+msgid ""
+"The maximum number of packets processed internally in each iteration.  "
+"Defaults to 1024, use lower values to trade latency with throughput."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/vale.4:93
+#, no-wrap
+msgid "dev.netmap.verbose"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:95
+msgid "Set to non-zero values to enable in-kernel diagnostics."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:96
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:99
+msgid ""
+"Create one switch, with a traffic generator connected to one port, and a "
+"netmap-enabled tcpdump instance on another port:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:102
+#, no-wrap
+msgid ""
+"tcpdump -ni valea:1 &\n"
+"pkt-gen  -i valea:0 -f tx &\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:106
+msgid "Create two switches, each connected to two qemu machines on different ports."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:111
+#, no-wrap
+msgid ""
+"qemu -net nic -net netmap,ifname=vale1:a ... &\n"
+"qemu -net nic -net netmap,ifname=vale1:b ... &\n"
+"qemu -net nic -net netmap,ifname=vale2:c ... &\n"
+"qemu -net nic -net netmap,ifname=vale2:d ... &\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:112
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:114
+msgid "E<.Xr netmap 4>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:117
+msgid ""
+"Luigi Rizzo, Giuseppe Lettieri: VALE, a switched ethernet for virtual "
+"machines, June 2012, http://info.iet.unipi.it/~luigi/vale/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vale.4:117
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:126
+msgid ""
+"E<.An -nosplit> The E<.Nm> switch was designed and implemented in 2012 by "
+"E<.An Luigi Rizzo> and E<.An Giuseppe Lettieri> at the Universita` di Pisa."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vale.4:129
+msgid ""
+"E<.Nm> was funded by the European Commission within FP7 Projects CHANGE "
+"(257422) and OPENLAB (287581)."
+msgstr ""

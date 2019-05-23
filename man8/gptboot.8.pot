@@ -1,0 +1,358 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/i386/gptboot/gptboot.8:27
+#, no-wrap
+msgid "April 30, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/i386/gptboot/gptboot.8:28
+#, no-wrap
+msgid "GPTBOOT 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:32
+msgid "E<.Nm gptboot>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/i386/gptboot/gptboot.8:32
+#, no-wrap
+msgid "GPT bootcode for UFS on BIOS-based computers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:42
+msgid ""
+"E<.Nm> is used on BIOS-based computers to boot from a UFS partition on a "
+"GPT-partitioned disk.  E<.Nm> is installed in a E<.Cm freebsd-boot> "
+"partition with E<.Xr gpart 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:56
+msgid ""
+"When it starts, E<.Nm> first reads the GPT and determines which drive and "
+"partition to boot from, as described under E<.Sx BOOTING>, below.  If it "
+"does not find an eligible partition, or if the user hits a key within three "
+"seconds, E<.Nm> switches from auto-boot to interactive mode.  Interactive "
+"mode allows manual selection of the disk, partition, filename, and boot "
+"option flags, as described in E<.Xr boot 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:56
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:60
+msgid ""
+"The GPT standard allows a variable number of partitions, but E<.Nm> only "
+"boots from tables with 128 partitions or less."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:60
+#, no-wrap
+msgid "PARTITION ATTRIBUTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:63
+msgid "E<.Nm> checks and manages several attributes of GPT UFS partitions."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptboot/gptboot.8:64 /usr/src/stand/i386/gptboot/gptboot.8:158
+#, no-wrap
+msgid "Cm bootme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:71
+msgid ""
+"Attempt to boot from this partition.  If more than one partition has the "
+"E<.Cm bootme> attribute set, E<.Nm> will attempt to boot each one until "
+"successful."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptboot/gptboot.8:71
+#, no-wrap
+msgid "Cm bootonce"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:83
+msgid ""
+"Attempt to boot from this partition only one time.  Setting this attribute "
+"with E<.Xr gpart 8> automatically also sets the E<.Cm bootme> attribute.  "
+"Multiple partitions may have the E<.Cm bootonce> and E<.Cm bootme> "
+"attributes set."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptboot/gptboot.8:83
+#, no-wrap
+msgid "Cm bootfailed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:95
+msgid ""
+"The E<.Cm bootfailed> attribute marks partitions that had the E<.Cm "
+"bootonce> attribute set, but failed to boot.  This attribute is managed by "
+"the system.  See E<.Sx \"BOOTING\"> and E<.Sx \"POST-BOOT ACTIONS\"> below "
+"for details."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:96
+#, no-wrap
+msgid "USAGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:101
+msgid ""
+"For normal usage, the user does not have to set or manage any of the "
+"partition attributes.  E<.Nm> will boot from the first UFS partition found."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:132
+msgid ""
+"The E<.Cm bootonce> attribute can be used for testing an upgraded operating "
+"system on an already-working computer.  The existing system partition is "
+"left untouched, and the new version of the operating system to be tested is "
+"installed on another partition.  The E<.Cm bootonce> attribute is set on "
+"that new test partition.  The next boot is attempted from the test "
+"partition.  Success or failure will be shown in the system log files.  After "
+"a successful boot of the test partition, a user script can check the logs "
+"and change the E<.Cm bootme> attributes so the test partition becomes the "
+"new system partition.  Because the E<.Cm bootonce> attribute is cleared "
+"after an attempted boot, a failed boot will not leave the system attempting "
+"to boot from a partition that will never succeed.  Instead, the system will "
+"boot from the older, known-working operating system that has not been "
+"modified.  If the E<.Cm bootme> attribute is set on any partitions, booting "
+"will be attempted from them first.  If no partitions with E<.Cm bootme> "
+"attributes are found, booting will be attempted from the first UFS partition "
+"found."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:132
+#, no-wrap
+msgid "BOOTING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:150
+msgid ""
+"E<.Nm> first reads the partition table.  All E<.Cm freebsd-ufs> partitions "
+"with only the E<.Cm bootonce> attribute set, indicating a failed boot, are "
+"set to E<.Cm bootfailed>.  E<.Nm> then scans through all of the E<.Cm "
+"freebsd-ufs> partitions.  Boot behavior depends on the combination of E<.Cm "
+"bootme> and E<.Cm bootonce> attributes set on those partitions."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptboot/gptboot.8:151
+#, no-wrap
+msgid "Cm bootonce + Cm bootme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:158
+msgid ""
+"Highest priority: booting is attempted from each of the E<.Cm freebsd-ufs> "
+"partitions with both of these attributes.  On each partition, the E<.Cm "
+"bootme> attribute is removed and the boot attempted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:164
+msgid ""
+"Middle priority: booting is attempted from each of the E<.Cm freebsd-ufs> "
+"partitions with the E<.Cm bootme> attribute."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:174
+msgid ""
+"If neither E<.Cm bootonce> nor E<.Cm bootme> attributes are found on any "
+"partitions, booting is attempted from the first E<.Cm freebsd-ufs> partition "
+"on the disk."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:174
+#, no-wrap
+msgid "POST-BOOT ACTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:197
+msgid ""
+"The startup script E<.Pa /etc/rc.d/gptboot> checks the attributes of E<.Cm "
+"freebsd-ufs> partitions on all GPT disks.  Partitions with the E<.Cm "
+"bootfailed> attribute generate a E<.Dq boot from X failed> system log "
+"message.  Partitions with only the E<.Cm bootonce> attribute, indicating a "
+"partition that successfully booted, generate a E<.Dq boot from X succeeded> "
+"system log message.  The E<.Cm bootfailed> attributes are cleared from all "
+"the partitions.  The E<.Cm bootonce> attribute is cleared from the partition "
+"that successfully booted.  There is normally only one of these."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:197
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptboot/gptboot.8:199
+#, no-wrap
+msgid "Pa /boot/gptboot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:201
+msgid "bootcode binary"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptboot/gptboot.8:201
+#, no-wrap
+msgid "Pa /boot.config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:204
+msgid "parameters for the boot blocks E<.Pq optional>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:205
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:218
+msgid ""
+"E<.Nm> is installed in a E<.Cm freebsd-boot> partition, usually the first "
+"partition on the disk.  A E<.Dq protective MBR> E<.Po> see E<.Xr gpart 8> "
+"E<.Pc> is typically installed in combination with E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:224
+msgid "Install E<.Nm> on the E<.Pa ada0> drive:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:226
+#, no-wrap
+msgid "gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:230
+msgid "E<.Nm> can also be installed without the PMBR:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:232
+#, no-wrap
+msgid "gpart bootcode -p /boot/gptboot -i 1 ada0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:237
+msgid "Set the E<.Cm bootme> attribute for partition 2:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:239
+#, no-wrap
+msgid "gpart set -a bootme -i 2 ada0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:246
+msgid ""
+"Set the E<.Cm bootonce> attribute for partition 2, automatically also "
+"setting the E<.Cm bootme> attribute:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:248
+#, no-wrap
+msgid "gpart set -a bootonce -i 2 ada0\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:249
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:254
+msgid "E<.Xr boot.config 5>, E<.Xr rc.conf 5>, E<.Xr boot 8>, E<.Xr gpart 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:254
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:257
+msgid "E<.Nm> appeared in FreeBSD 7.1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptboot/gptboot.8:257
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptboot/gptboot.8:259
+msgid "This manual page written by E<.An Warren Block Aq wblock@FreeBSD.org>."
+msgstr ""

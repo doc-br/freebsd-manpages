@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:27
+#, no-wrap
+msgid "February 9, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:28
+#, no-wrap
+msgid "FIFOLOG 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:32
+msgid "E<.Nm fifolog_create , fifolog_writer , fifolog_reader>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:32
+#, no-wrap
+msgid "initialize, write, seek and extract data from a fifolog"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:54
+msgid ""
+"E<.Nm fifolog_create> E<.Op Fl l Ar record-size> E<.Op Fl r Ar record-count> "
+"E<.Op Fl s Ar size> E<.Ar file> E<.Nm fifolog_reader> E<.Op Fl t> E<.Op Fl b "
+"Ar tstart> E<.Op Fl B Ar Tstart> E<.Op Fl e Ar tend> E<.Op Fl E Ar Tend> "
+"E<.Op Fl o Ar ofile> E<.Op Fl R Ar regexp> E<.Op Fl T Ar timefmt> E<.Ar "
+"file> E<.Nm fifolog_writer> E<.Op Fl w Ar write-rate> E<.Op Fl s Ar "
+"sync-rate> E<.Op Fl z Ar compression> E<.Ar file>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:58
+msgid ""
+"Fifologs provide a compact round-robin circular storage for recording text "
+"and binary information to permanent storage in a bounded and predictable "
+"fashion, time and space wise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:61
+msgid ""
+"A fifolog can be stored either directly on a disk partition or in a regular "
+"file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:66
+msgid ""
+"The input data stream is encoded, compressed and marked up with timestamps "
+"before it is written to storage, such that it is possible to seek out a "
+"particular time interval in the stored data, without having to decompress "
+"the entire logfile."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:73
+msgid ""
+"The E<.Nm fifolog_create> utility is used to initialize the first sector of "
+"a disk device or file system file to make it a fifolog and should be called "
+"only once."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:83
+msgid ""
+"Running E<.Nm fifolog_create> on an existing fifolog will reset it so that "
+"E<.Nm fifolog_reader> and E<.Nm fifolog_writer> will not see the previous "
+"contents.  (The previous contents are not physically erased, and with a bit "
+"of hand-work all but the first record can be easily recovered.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:96
+msgid ""
+"If the E<.Ar file> does not already exist, E<.Nm fifolog_create> will "
+"attempt to create and E<.Xr ftruncate 2> it to the specified size, "
+"defaulting to 86400 records of 512 bytes if the E<.Fl r , l> or E<.Fl s> "
+"options do not specify otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:102
+msgid ""
+"The E<.Nm fifolog_writer> utility will read standard input and write it to "
+"the end of the fifolog according to the parameters given."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:106
+msgid ""
+"Writes happen whenever the output buffer is filled with compressed data or "
+"when either of two timers expire, forcing a partially filled buffer to be "
+"written."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:114
+msgid ""
+"The first and faster timer, E<.Fl w Ar write-rate>, forces available data to "
+"be written but does not flush and reset the compression dictionary.  This "
+"timer is intended to minimize the amount of logdata lost in RAM in case of a "
+"crash and by default it fires 10 seconds after the previous write."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:122
+msgid ""
+"The second and slower timer, E<.Fl s Ar sync-rate>, forces a full flush and "
+"reset of the compression engine and causes the next record written to be a "
+"synchronization point with an uncompressed timestamp, making it possible to "
+"start reading the logfile from that record.  By default this timer fires a "
+"minute after the previous sync."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:128
+msgid ""
+"The E<.Fl z Ar compression> option controls the E<.Xr zlib 3> compression "
+"level; legal values are zero to nine which is the default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:136
+msgid ""
+"The E<.Nm fifolog_reader> utility will retrieve records from the fifolog "
+"according to the specified parameters and write them either to standard "
+"output or the file specified with E<.Fl o>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:153
+msgid ""
+"It is possible to specify a start and end time to limit the amount of data "
+"E<.Nm fifolog_reader> will report.  The lower-case variants E<.Fl b> and "
+"E<.Fl e> take a E<.Vt time_t> value, whereas the upper-case variants E<.Fl "
+"B> and E<.Fl E> take human-readable specifications such as E<.Dq Li \"1 hour "
+"ago\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:165
+msgid ""
+"The E<.Fl t> option forces timestamps to be formatted as E<.Dq Li "
+"\"YYYYMMDDhhmmss\"> instead of as E<.Vt time_t>, and E<.Fl T> allows the "
+"specification of an E<.Xr strftime 3> formatting string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:171
+msgid ""
+"Finally, records can be filtered such that only records matching the E<.Pq "
+"Dv REG_BASIC> regular expression specified with E<.Fl R> are output."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:171
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:178
+msgid ""
+"The data stored in the fifolog consists of three layers, an outer layer that "
+"allows searches to synchronization points based on timestamps without having "
+"to decompress and decode the actual contents, a compression layer "
+"implemented with E<.Xr zlib 3>, and an inner serialization and timestamping "
+"layer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:182
+msgid "The exact encoding is described in the E<.Pa fifolog.h> file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:188
+msgid ""
+"Fifolog is particularly well suited for use on Flash based media, where it "
+"results in much lower write-wear, than a file system with regular log files "
+"rotated with E<.Xr newsyslog 8> etc."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:188
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:190
+msgid "Create a fifolog with 1024*1024 records of 512 bytes:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:191
+#, no-wrap
+msgid "fifolog_create -r 10m /tmp/fifolog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:194
+msgid "Write a single record to this file:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:195
+#, no-wrap
+msgid "date | fifolog_writer /tmp/fifolog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:198
+msgid "Read it back with human readable timestamps:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:199
+#, no-wrap
+msgid "fifolog_reader -t /tmp/fifolog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:207
+msgid ""
+"One particular useful use of E<.Nm fifolog_writer> is with E<.Xr syslogd 8> "
+"using a line such as this in E<.Xr syslog.conf 5>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:208
+#, no-wrap
+msgid "*.* |fifolog_writer /var/log/syslog_fifolog"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:209
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:216
+msgid ""
+"The fifolog tools have been liberated from an open source E<.Tn SCADA> "
+"applications called E<.Dq measured>, which monitors and controls remote "
+"radio navigation transmitters for the Danish Air Traffic Control system."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:216
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fifolog/fifolog_create/fifolog.1:218
+msgid "The fifolog tools were written by E<.An Poul-Henning Kamp>."
+msgstr ""

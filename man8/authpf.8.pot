@@ -1,0 +1,760 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/pf/authpf/authpf.8:18
+#, no-wrap
+msgid "January 29 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/pf/authpf/authpf.8:19
+#, no-wrap
+msgid "AUTHPF 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:21
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:24
+msgid "E<.Nm authpf>, E<.Nm authpf-noip>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/pf/authpf/authpf.8:24
+#, no-wrap
+msgid "authenticating gateway user shell"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:25
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:28
+msgid "E<.Nm authpf> E<.Nm authpf-noip>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:28
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:51
+msgid ""
+"E<.Nm> is a user shell for authenticating gateways.  It is used to change "
+"E<.Xr pf 4> rules when a user authenticates and starts a session with E<.Xr "
+"sshd 8> and to undo these changes when the user's session exits.  Typical "
+"use would be for a gateway that authenticates users before allowing them "
+"Internet use, or a gateway that allows different users into different "
+"places.  Combined with properly set up filter rules and secure switches, "
+"E<.Nm> can be used to ensure users are held accountable for their network "
+"traffic.  It is meant to be used with users who can connect via E<.Xr ssh 1> "
+"only, and requires the E<.Xr pf 4> subsystem and an E<.Xr fdescfs 5> file "
+"system mounted at E<.Pa /dev/fd> to be enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:68
+msgid ""
+"E<.Nm authpf-noip> is a user shell which allows multiple connections to take "
+"place from the same IP address.  It is useful primarily in cases where "
+"connections are tunneled via the gateway system, and can be directly "
+"associated with the user name.  It cannot ensure accountability when "
+"classifying connections by IP address; in this case the client's IP address "
+"is not provided to the packet filter via the E<.Ar client_ip> macro or the "
+"E<.Ar authpf_users> table.  Additionally, states associated with the client "
+"IP address are not purged when the session is ended."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:77
+msgid ""
+"To use either E<.Nm> or E<.Nm authpf-noip>, the user's shell needs to be set "
+"to E<.Pa /usr/sbin/authpf> or E<.Pa /usr/sbin/authpf-noip>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:97
+msgid ""
+"E<.Nm> uses the E<.Xr pf.conf 5> syntax to change filter and translation "
+"rules for an individual user or client IP address as long as a user "
+"maintains an active E<.Xr ssh 1> session, and logs the successful start and "
+"end of a session to E<.Xr syslogd 8>.  E<.Nm> retrieves the client's "
+"connecting IP address via the E<.Ev SSH_CLIENT> environment variable and, "
+"after performing additional access checks, reads a template file to "
+"determine what filter and translation rules (if any) to add, and maintains "
+"the list of IP addresses of connected users in the E<.Ar authpf_users> "
+"table.  On session exit the same rules and table entries that were added at "
+"startup are removed, and all states associated with the client's IP address "
+"are purged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:116
+msgid ""
+"Each E<.Nm> process stores its rules in a separate ruleset inside a E<.Xr pf "
+"4> E<.Pa anchor> shared by all E<.Nm> processes.  By default, the E<.Pa "
+"anchor> name \"authpf\" is used, and the ruleset names equal the username "
+"and PID of the E<.Nm> processes as \"username(pid)\".  The following rules "
+"need to be added to the main ruleset E<.Pa /etc/pf.conf> in order to cause "
+"evaluation of any E<.Nm> rules:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:121
+#, no-wrap
+msgid ""
+"nat-anchor \"authpf/*\"\n"
+"rdr-anchor \"authpf/*\"\n"
+"binat-anchor \"authpf/*\"\n"
+"anchor \"authpf/*\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:127
+msgid ""
+"The \"/*\" at the end of the anchor name is required for E<.Xr pf 4> to "
+"process the rulesets attached to the anchor by E<.Nm authpf>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:127
+#, no-wrap
+msgid "FILTER AND TRANSLATION RULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:141
+msgid ""
+"Filter and translation rules for E<.Nm> use the same format described in "
+"E<.Xr pf.conf 5>.  The only difference is that these rules may (and probably "
+"should) use the macro E<.Em user_ip>, which is assigned the connecting IP "
+"address whenever E<.Nm> is run.  Additionally, the macro E<.Em user_id> is "
+"assigned the user name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:149
+msgid ""
+"Filter and translation rules are stored in a file called E<.Pa "
+"authpf.rules>.  This file will first be searched for in E<.Pa "
+"/etc/authpf/users/$USER/> and then in E<.Pa /etc/authpf/>.  Only one of "
+"these files will be used if both are present."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:156
+msgid ""
+"Per-user rules from the E<.Pa /etc/authpf/users/$USER/> directory are "
+"intended to be used when non-default rules are needed on an individual user "
+"basis.  It is important to ensure that a user can not write or change these "
+"configuration files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:162
+msgid ""
+"The E<.Pa authpf.rules> file must exist in one of the above locations for "
+"E<.Nm> to run."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:162
+#, no-wrap
+msgid "CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:172
+msgid ""
+"Options are controlled by the E<.Pa /etc/authpf/authpf.conf> file.  If the "
+"file is empty, defaults are used for all configuration options.  The file "
+"consists of pairs of the form E<.Li name=value>, one per line.  Currently, "
+"the allowed values are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:173
+#, no-wrap
+msgid "anchor=name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:177
+msgid "Use the specified E<.Pa anchor> name instead of \"authpf\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:177
+#, no-wrap
+msgid "table=name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:181
+msgid "Use the specified E<.Pa table> name instead of \"authpf_users\"."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:182
+#, no-wrap
+msgid "USER MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:189
+msgid ""
+"On successful invocation, E<.Nm> displays a message telling the user he or "
+"she has been authenticated.  It will additionally display the contents of "
+"the file E<.Pa /etc/authpf/authpf.message> if the file exists and is "
+"readable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:204
+msgid ""
+"There exist two methods for providing additional granularity to the control "
+"offered by E<.Nm> - it is possible to set the gateway to explicitly allow "
+"users who have authenticated to E<.Xr ssh 1> and deny access to only a few "
+"troublesome individuals.  This is done by creating a file with the banned "
+"user's login name as the filename in E<.Pa /etc/authpf/banned/>.  The "
+"contents of this file will be displayed to a banned user, thus providing a "
+"method for informing the user that they have been banned, and where they can "
+"go and how to get there if they want to have their service restored.  This "
+"is the default behaviour."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:219
+msgid ""
+"It is also possible to configure E<.Nm> to only allow specific users "
+"access.  This is done by listing their login names, one per line, in E<.Pa "
+"/etc/authpf/authpf.allow>.  A group of users can also be indicated by "
+"prepending \"%\" to the group name, and all members of a login class can be "
+"indicated by prepending \"@\" to the login class name.  If \"*\" is found on "
+"a line, then all usernames match.  If E<.Nm> is unable to verify the user's "
+"permission to use the gateway, it will print a brief message and die.  It "
+"should be noted that a ban takes precedence over an allow."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:228
+msgid ""
+"On failure, messages will be logged to E<.Xr syslogd 8> for the system "
+"administrator.  The user does not see these, but will be told the system is "
+"unavailable due to technical difficulties.  The contents of the file E<.Pa "
+"/etc/authpf/authpf.problem> will also be displayed if the file exists and is "
+"readable."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:228
+#, no-wrap
+msgid "CONFIGURATION ISSUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:257
+msgid ""
+"E<.Nm> maintains the changed filter rules as long as the user maintains an "
+"active session.  It is important to remember however, that the existence of "
+"this session means the user is authenticated.  Because of this, it is "
+"important to configure E<.Xr sshd 8> to ensure the security of the session, "
+"and to ensure that the network through which users connect is secure.  E<.Xr "
+"sshd 8> should be configured to use the E<.Ar ClientAliveInterval> and E<.Ar "
+"ClientAliveCountMax> parameters to ensure that a ssh session is terminated "
+"quickly if it becomes unresponsive, or if arp or address spoofing is used to "
+"hijack the session.  Note that TCP keepalives are not sufficient for this, "
+"since they are not secure.  Also note that the various SSH tunnelling "
+"mechanisms, such as E<.Ar AllowTcpForwarding> and E<.Ar PermitTunnel>, "
+"should be disabled for E<.Nm> users to prevent them from circumventing "
+"restrictions imposed by the packet filter ruleset."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:265
+msgid ""
+"E<.Nm> will remove state table entries that were created during a user's "
+"session.  This ensures that there will be no unauthenticated traffic allowed "
+"to pass after the controlling E<.Xr ssh 1> session has been closed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:285
+msgid ""
+"E<.Nm> is designed for gateway machines which typically do not have regular "
+"(non-administrative) users using the machine.  An administrator must "
+"remember that E<.Nm> can be used to modify the filter rules through the "
+"environment in which it is run, and as such could be used to modify the "
+"filter rules (based on the contents of the configuration files) by regular "
+"users.  In the case where a machine has regular users using it, as well as "
+"users with E<.Nm> as their shell, the regular users should be prevented from "
+"running E<.Nm> by using the E<.Pa /etc/authpf/authpf.allow> or E<.Pa "
+"/etc/authpf/banned/> facilities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:301
+msgid ""
+"E<.Nm> modifies the packet filter and address translation rules, and because "
+"of this it needs to be configured carefully.  E<.Nm> will not run and will "
+"exit silently if the E<.Pa /etc/authpf/authpf.conf> file does not exist.  "
+"After considering the effect E<.Nm> may have on the main packet filter "
+"rules, the system administrator may enable E<.Nm> by creating an appropriate "
+"E<.Pa /etc/authpf/authpf.conf> file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:301
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:319
+msgid ""
+"E<.Sy Control Files> \\- To illustrate the user-specific access control "
+"mechanisms, let us consider a typical user named bob.  Normally, as long as "
+"bob can authenticate himself, the E<.Nm> program will load the appropriate "
+"rules.  Enter the E<.Pa /etc/authpf/banned/> directory.  If bob has somehow "
+"fallen from grace in the eyes of the powers-that-be, they can prohibit him "
+"from using the gateway by creating the file E<.Pa /etc/authpf/banned/bob> "
+"containing a message about why he has been banned from using the network.  "
+"Once bob has done suitable penance, his access may be restored by moving or "
+"removing the file E<.Pa /etc/authpf/banned/bob>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:338
+msgid ""
+"Now consider a workgroup containing alice, bob, carol and dave.  They have a "
+"wireless network which they would like to protect from unauthorized use.  To "
+"accomplish this, they create the file E<.Pa /etc/authpf/authpf.allow> which "
+"lists their login ids, group prepended with \"%\", or login class prepended "
+"with \"@\", one per line.  At this point, even if eve could authenticate to "
+"E<.Xr sshd 8>, she would not be allowed to use the gateway.  Adding and "
+"removing users from the work group is a simple matter of maintaining a list "
+"of allowed userids.  If bob once again manages to annoy the powers-that-be, "
+"they can ban him from using the gateway by creating the familiar E<.Pa "
+"/etc/authpf/banned/bob> file.  Though bob is listed in the allow file, he is "
+"prevented from using this gateway due to the existence of a ban file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:351
+msgid ""
+"E<.Sy Distributed Authentication> \\- It is often desirable to interface "
+"with a distributed password system rather than forcing the sysadmins to keep "
+"a large number of local password files in sync.  The E<.Xr login.conf 5> "
+"mechanism in E<.Ox> can be used to fork the right shell.  To make that "
+"happen, E<.Xr login.conf 5> should have entries that look something like "
+"this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:353
+#, no-wrap
+msgid "shell-default:shell=/bin/csh\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:357
+#, no-wrap
+msgid ""
+"default:\\e\n"
+"\t...\n"
+"\t:shell=/usr/sbin/authpf\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:362
+#, no-wrap
+msgid ""
+"daemon:\\e\n"
+"\t...\n"
+"\t:shell=/bin/csh:\\e\n"
+"\t:tc=default:\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:367
+#, no-wrap
+msgid ""
+"staff:\\e\n"
+"\t...\n"
+"\t:shell=/bin/csh:\\e\n"
+"\t:tc=default:\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:373
+msgid ""
+"Using a default password file, all users will get E<.Nm> as their shell "
+"except for root who will get E<.Pa /bin/csh>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:380
+msgid ""
+"E<.Sy SSH Configuration> \\- As stated earlier, E<.Xr sshd 8> must be "
+"properly configured to detect and defeat network attacks.  To that end, the "
+"following options should be added to E<.Xr sshd_config 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:384
+#, no-wrap
+msgid ""
+"Protocol 2\n"
+"ClientAliveInterval 15\n"
+"ClientAliveCountMax 3\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:388
+msgid ""
+"This ensures that unresponsive or spoofed sessions are terminated within a "
+"minute, since a hijacker should not be able to spoof ssh keepalive messages."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:396
+msgid ""
+"E<.Sy Banners> \\- Once authenticated, the user is shown the contents of "
+"E<.Pa /etc/authpf/authpf.message>.  This message may be a screen-full of the "
+"appropriate use policy, the contents of E<.Pa /etc/motd> or something as "
+"simple as the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:399
+#, no-wrap
+msgid ""
+"This means you will be held accountable by the powers that be\n"
+"for traffic originating from your machine, so please play nice.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:404
+msgid ""
+"To tell the user where to go when the system is broken, E<.Pa "
+"/etc/authpf/authpf.problem> could contain something like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:408
+#, no-wrap
+msgid ""
+"Sorry, there appears to be some system problem. To report this\n"
+"problem so we can fix it, please phone 1-900-314-1597 or send\n"
+"an email to remove@bulkmailerz.net.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:423
+msgid ""
+"E<.Sy Packet Filter Rules> \\- In areas where this gateway is used to "
+"protect a wireless network (a hub with several hundred ports), the default "
+"rule set as well as the per-user rules should probably allow very few things "
+"beyond encrypted protocols like E<.Xr ssh 1>, E<.Xr ssl 8>, or E<.Xr ipsec "
+"4>.  On a securely switched network, with plug-in jacks for visitors who are "
+"given authentication accounts, you might want to allow out everything.  In "
+"this context, a secure switch is one that tries to prevent address table "
+"overflow attacks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:426
+msgid "Example E<.Pa /etc/pf.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:440
+#, no-wrap
+msgid ""
+"# by default we allow internal clients to talk to us using\n"
+"# ssh and use us as a dns server.\n"
+"internal_if=\"fxp1\"\n"
+"gateway_addr=\"10.0.1.1\"\n"
+"nat-anchor \"authpf/*\"\n"
+"rdr-anchor \"authpf/*\"\n"
+"binat-anchor \"authpf/*\"\n"
+"block in on $internal_if from any to any\n"
+"pass in quick on $internal_if proto tcp from any to $gateway_addr \\e\n"
+"      port = ssh\n"
+"pass in quick on $internal_if proto udp from any to $gateway_addr \\e\n"
+"      port = domain\n"
+"anchor \"authpf/*\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:447
+msgid ""
+"E<.Sy For a switched, wired net> \\- This example E<.Pa "
+"/etc/authpf/authpf.rules> makes no real restrictions; it turns the IP "
+"address on and off, logging TCP connections."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:450
+#, no-wrap
+msgid ""
+"external_if = \"xl0\"\n"
+"internal_if = \"fxp0\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:453
+#, no-wrap
+msgid ""
+"pass in log quick on $internal_if proto tcp from $user_ip to any\n"
+"pass in quick on $internal_if from $user_ip to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:460
+msgid ""
+"E<.Sy For a wireless or shared net> \\- This example E<.Pa "
+"/etc/authpf/authpf.rules> could be used for an insecure network (such as a "
+"public wireless network) where we might need to be a bit more restrictive."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:463
+#, no-wrap
+msgid ""
+"internal_if=\"fxp1\"\n"
+"ipsec_gw=\"10.2.3.4\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:467
+#, no-wrap
+msgid ""
+"# rdr ftp for proxying by ftp-proxy(8)\n"
+"rdr on $internal_if proto tcp from $user_ip to any port 21 \\e\n"
+"      -E<gt> 127.0.0.1 port 8021\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:476
+#, no-wrap
+msgid ""
+"# allow out ftp, ssh, www and https only, and allow user to negotiate\n"
+"# ipsec with the ipsec server.\n"
+"pass in log quick on $internal_if proto tcp from $user_ip to any \\e\n"
+"      port { 21, 22, 80, 443 }\n"
+"pass in quick on $internal_if proto tcp from $user_ip to any \\e\n"
+"      port { 21, 22, 80, 443 }\n"
+"pass in quick proto udp from $user_ip to $ipsec_gw port = isakmp\n"
+"pass in quick proto esp from $user_ip to $ipsec_gw\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:482
+msgid ""
+"E<.Sy Dealing with NAT> \\- The following E<.Pa /etc/authpf/authpf.rules> "
+"shows how to deal with NAT, using tags:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:490
+#, no-wrap
+msgid ""
+"ext_if = \"fxp1\"\n"
+"ext_addr = 129.128.11.10\n"
+"int_if = \"fxp0\"\n"
+"# nat and tag connections...\n"
+"nat on $ext_if from $user_ip to any tag $user_ip -E<gt> $ext_addr\n"
+"pass in quick on $int_if from $user_ip to any\n"
+"pass out log quick on $ext_if tagged $user_ip\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:497
+msgid ""
+"With the above rules added by E<.Nm>, outbound connections corresponding to "
+"each users NAT'ed connections will be logged as in the example below, where "
+"the user may be identified from the ruleset name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:502
+#, no-wrap
+msgid ""
+"# tcpdump -n -e -ttt -i pflog0\n"
+"Oct 31 19:42:30.296553 rule 0.bbeck(20267).1/0(match): pass out on fxp1: "
+"\\e\n"
+"129.128.11.10.60539 E<gt> 198.137.240.92.22: S 2131494121:2131494121(0) win "
+"\\e\n"
+"16384 E<lt>mss 1460,nop,nop,sackOKE<gt> (DF)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:512
+msgid ""
+"E<.Sy Using the authpf_users table> \\- Simple E<.Nm> settings can be "
+"implemented without an anchor by just using the \"authpf_users\" E<.Pa "
+"table>.  For example, the following E<.Xr pf.conf 5> lines will give SMTP "
+"and IMAP access to logged in users:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:516
+#, no-wrap
+msgid ""
+"table E<lt>authpf_usersE<gt> persist\n"
+"pass in on $ext_if proto tcp from E<lt>authpf_usersE<gt> \\e\n"
+"        to port { smtp imap }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:525
+msgid ""
+"It is also possible to use the \"authpf_users\" E<.Pa table> in combination "
+"with anchors.  For example, E<.Xr pf 4> processing can be sped up by looking "
+"up the anchor only for packets coming from logged in users:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:529
+#, no-wrap
+msgid ""
+"table E<lt>authpf_usersE<gt> persist\n"
+"anchor \"authpf/*\" from E<lt>authpf_usersE<gt>\n"
+"rdr-anchor \"authpf/*\" from E<lt>authpf_usersE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:548
+msgid ""
+"E<.Sy Tunneled users> \\- normally E<.Nm> allows only one session per client "
+"IP address.  However in some cases, such as when connections are tunneled "
+"via E<.Xr ssh 1> or E<.Xr ipsec 4>, the connections can be authorized based "
+"on the userid of the user instead of the client IP address.  In this case it "
+"is appropriate to use E<.Nm authpf-noip> to allow multiple users behind a "
+"NAT gateway to connect.  In the E<.Pa /etc/authpf/authpf.rules> example "
+"below, the remote user could tunnel a remote desktop session to their "
+"workstation:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:551
+#, no-wrap
+msgid ""
+"internal_if=\"bge0\"\n"
+"workstation_ip=\"10.2.3.4\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:554
+#, no-wrap
+msgid ""
+"pass out on $internal_if from (self) to $workstation_ip port 3389 \\e\n"
+"       user $user_id\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:555
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:557
+#, no-wrap
+msgid "Pa /etc/authpf/authpf.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:558
+#, no-wrap
+msgid "Pa /etc/authpf/authpf.allow"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:559
+#, no-wrap
+msgid "Pa /etc/authpf/authpf.rules"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:560
+#, no-wrap
+msgid "Pa /etc/authpf/authpf.message"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/authpf/authpf.8:561
+#, no-wrap
+msgid "Pa /etc/authpf/authpf.problem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:563
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:569
+msgid ""
+"E<.Xr pf 4>, E<.Xr fdescfs 5>, E<.Xr pf.conf 5>, E<.Xr securelevel 7>, E<.Xr "
+"ftp-proxy 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:569
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:574
+msgid "The E<.Nm> program first appeared in E<.Ox 3.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/authpf/authpf.8:574
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:582
+msgid ""
+"Configuration issues are tricky.  The authenticating E<.Xr ssh 1> connection "
+"may be secured, but if the network is not secured the user may expose "
+"insecure protocols to attackers on the same network, or enable other "
+"attackers on the network to pretend to be the user by spoofing their IP "
+"address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/authpf/authpf.8:584
+msgid "E<.Nm> is not designed to prevent users from denying service to other users."
+msgstr ""

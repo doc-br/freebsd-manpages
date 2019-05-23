@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man7/sprog.7:28
+#, no-wrap
+msgid "June 3, 2001"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man7/sprog.7:29
+#, no-wrap
+msgid "SPROG 7"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/sprog.7:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:33
+msgid "E<.Nm sprog>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man7/sprog.7:33
+#, no-wrap
+msgid "secure programming practices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/sprog.7:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:37
+msgid ""
+"Security issues have crept into many systems over the years.  This document "
+"is a guide for programming practices that prevent these problems."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man7/sprog.7:37
+#, no-wrap
+msgid "Overview"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:47
+msgid ""
+"Writing secure applications takes a very scrutinous and pessimistic "
+"outlook.  Applications should be run with the principle of E<.Dq Li least "
+"privilege> so that no process is ever running with more than the bare "
+"minimum access it needs to accomplish its function.  Previously tested code "
+"should be reused whenever possible.  Generally, anything beyond the control "
+"of a program should never be trusted.  This includes all forms of user "
+"input, system resources, interprocess communication, and the timing of "
+"events."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man7/sprog.7:47
+#, no-wrap
+msgid "Buffer Overflows"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:53
+msgid ""
+"One of the most common types of security problems is the buffer overflow.  "
+"In short, if a program is not careful with the data it receives, it may be "
+"possible for this data to be written across memory, overwriting the return "
+"address for a function call, and the program will be forced to run code that "
+"does unfriendly things."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:68
+msgid ""
+"A good number of functions in the standard C library make it difficult or "
+"even impossible to prevent buffer overflows when used.  These include E<.Xr "
+"fscanf 3>, E<.Xr gets 3>, E<.Xr getwd 3>, E<.Xr realpath 3>, E<.Xr scanf 3>, "
+"E<.Xr sprintf 3>, E<.Xr strcat 3>, E<.Xr strcpy 3>, E<.Xr vscanf 3>, and "
+"E<.Xr vsprintf 3>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:82
+msgid ""
+"Many other functions that deal with strings can also open up a potential "
+"buffer overflow when not used carefully.  For example, E<.Xr strncat 3> does "
+"not go out of its way to provide E<.Tn NUL> character termination.  Of "
+"course, the proper length must always be specified.  Usage of E<.Xr strlcat "
+"3> and E<.Xr strlcpy 3> ensure that strings are null terminated and of the "
+"specified length."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:89
+msgid ""
+"Functions that receive a string format must also be used carefully.  It is "
+"possible for a string to contain additional format specifiers, which open up "
+"another possibility for a buffer overflow.  Never pass a string with "
+"untrusted data without using E<.Ql %s>.  Always use the proper secure idiom:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man7/sprog.7:90
+#, no-wrap
+msgid "function(\"%s\", string);"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:95
+msgid ""
+"There are mechanisms that provide a backstop for these problems at the "
+"library and compiler levels, however, there is no substitute for simply "
+"writing good code."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man7/sprog.7:95
+#, no-wrap
+msgid "Set-user-ID Issues"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:108
+msgid ""
+"In many cases, it may be necessary for a program to operate with an "
+"increased set of permissions.  Reasons for this include binding to protected "
+"sockets, reading and writing certain files and directories, and access to "
+"various resources.  Using a setuid program is frequently the solution.  "
+"However, it is important that programs give up these privileges as soon as "
+"possible.  For example, if a program is binding to a protected socket, it "
+"should give up its privileges as soon as it has finished binding to that "
+"socket.  This is accomplished with the E<.Xr setuid 2> family of system "
+"calls."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man7/sprog.7:108
+#, no-wrap
+msgid "Limited Environments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:120
+msgid ""
+"The traditional method of restricting a process is with the E<.Xr chroot 2> "
+"system call.  This system call changes the root directory from which all "
+"other paths are referenced for a process and any child processes.  Of "
+"course, the process must have access to this path to begin with.  The new "
+"environment does not actually take effect until E<.Xr chdir 2> is called to "
+"place the process into the new environment.  Unfortunately, a process can "
+"break out of this environment if root access is obtained."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:128
+msgid ""
+"Often, E<.Xr jail 2> can be used to create a more complete and enclosed "
+"environment than E<.Xr chroot 2> can provide.  A jail limits all processes "
+"inside that environment, including processes with superuser privileges."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:136
+msgid ""
+"Fine grained privileges, as described by E<.Tn POSIX Ns .1e> extensions, are "
+"currently a work in progress, and the focus of the E<.Tn TrustedBSD> "
+"Project.  More information can be found at E<.Pa "
+"http://www.TrustedBSD.org/>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man7/sprog.7:136
+#, no-wrap
+msgid "Trust"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:147
+msgid ""
+"Programs should not make assumptions about the environment in which they are "
+"running.  This includes user input, signals, environment variables, system "
+"resources, interprocess communications, and shared memory, amongst other "
+"things that are beyond the control of the program.  They should not assume "
+"that all forms of invalid data can be detected either.  Instead, they should "
+"use positive filtering, and only allow a specific subset of inputs that are "
+"known to be safe.  This is the same logic that an administrator should apply "
+"to a firewall, that is, deny by default and specify what is to be accepted."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man7/sprog.7:147
+#, no-wrap
+msgid "Race Conditions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:169
+msgid ""
+"A race condition is anomalous behavior caused by the relative timing of "
+"events.  Programs should not assume that a particular event will occur "
+"before another.  The most common causes of race conditions are signals, "
+"access checks, and file reads.  Signals are asynchronous by nature, so "
+"special care must be taken while dealing with them.  Attempting to check "
+"access with sequential non-atomic operations is a very bad idea, as files "
+"can be moved and changed at any given time.  Instead of using a sequence of "
+"E<.Xr access 2> and E<.Xr open 2>, use E<.Xr seteuid 2> and then call E<.Xr "
+"open 2> directly.  Set E<.Xr umask 2> properly beforehand."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/sprog.7:169
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:174
+msgid "E<.Xr jail 2>, E<.Xr setuid 2>, E<.Xr strlcat 3>, E<.Xr strlcpy 3>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/sprog.7:174
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/sprog.7:180
+msgid ""
+"E<.An -nosplit> E<.An Eric Melville Aq Mt eric@FreeBSD.org> originally wrote "
+"this document based on a chapter of the E<.%B \"FreeBSD Developer's "
+"Handbook\"> written by E<.An Murray Stokely Aq Mt murray@FreeBSD.org>."
+msgstr ""

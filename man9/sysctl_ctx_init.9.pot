@@ -1,0 +1,337 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:30
+#, no-wrap
+msgid "July 31, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:31
+#, no-wrap
+msgid "SYSCTL_CTX_INIT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:39
+msgid ""
+"E<.Nm sysctl_ctx_init>, E<.Nm sysctl_ctx_free>, E<.Nm sysctl_ctx_entry_add>, "
+"E<.Nm sysctl_ctx_entry_find>, E<.Nm sysctl_ctx_entry_del>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:39
+#, no-wrap
+msgid "sysctl context for managing dynamically created sysctl OIDs"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:41
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:42
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:66
+msgid ""
+"E<.Ft int> E<.Fo sysctl_ctx_init> E<.Fa \"struct sysctl_ctx_list *clist\"> "
+"E<.Fc> E<.Ft int> E<.Fo sysctl_ctx_free> E<.Fa \"struct sysctl_ctx_list "
+"*clist\"> E<.Fc> E<.Ft struct sysctl_ctx_entry *> E<.Fo "
+"sysctl_ctx_entry_add> E<.Fa \"struct sysctl_ctx_list *clist\"> E<.Fa "
+"\"struct sysctl_oid *oidp\"> E<.Fc> E<.Ft struct sysctl_ctx_entry *> E<.Fo "
+"sysctl_ctx_entry_find> E<.Fa \"struct sysctl_ctx_list *clist\"> E<.Fa "
+"\"struct sysctl_oid *oidp\"> E<.Fc> E<.Ft int> E<.Fo sysctl_ctx_entry_del> "
+"E<.Fa \"struct sysctl_ctx_list *clist\"> E<.Fa \"struct sysctl_oid *oidp\"> "
+"E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:75
+msgid ""
+"These functions provide an interface for managing dynamically created OIDs.  "
+"The sysctl context is responsible for keeping track of created OIDs, as well "
+"as their proper removal when needed.  It adds a simple transactional aspect "
+"to OID removal operations; i.e., if a removal operation fails part way, it "
+"is possible to roll back the sysctl tree to its previous state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:91
+msgid ""
+"The E<.Fn sysctl_ctx_init> function initializes a sysctl context.  The E<.Fa "
+"clist> argument must point to an already allocated variable.  A context "
+"E<.Em must> be initialized before use.  Once it is initialized, a pointer to "
+"the context can be passed as an argument to all the E<.Fa SYSCTL_ADD_*> "
+"macros (see E<.Xr sysctl_add_oid 9>), and it will be updated with entries "
+"pointing to newly created OIDS."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:98
+msgid ""
+"Internally, the context is represented as a E<.Xr queue 3> TAILQ linked "
+"list.  The list consists of E<.Li struct sysctl_ctx_entry> entries:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:103
+#, no-wrap
+msgid ""
+"struct sysctl_ctx_entry {\n"
+"\tstruct sysctl_oid *entry;\n"
+"\tTAILQ_ENTRY(sysctl_ctx_entry) link;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:105
+#, no-wrap
+msgid "TAILQ_HEAD(sysctl_ctx_list, sysctl_ctx_entry);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:109
+msgid ""
+"Each context entry points to one dynamic OID that it manages.  Newly created "
+"OIDs are always inserted in the front of the list."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:119
+msgid ""
+"The E<.Fn sysctl_ctx_free> function removes the context and associated OIDs "
+"it manages.  If the function completes successfully, all managed OIDs have "
+"been unregistered (removed from the tree)  and freed, together with all "
+"their allocated memory, and the entries of the context have been freed as "
+"well."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:131
+msgid ""
+"The removal operation is performed in two steps.  First, for each context "
+"entry, the function E<.Xr sysctl_remove_oid 9> is executed, with parameter "
+"E<.Fa del> set to 0, which inhibits the freeing of resources.  If there are "
+"no errors during this step, E<.Fn sysctl_ctx_free> proceeds to the next "
+"step.  If the first step fails, all unregistered OIDs associated with the "
+"context are registered again."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:145
+msgid ""
+"E<.Em Note>: in most cases, the programmer specifies E<.Dv OID_AUTO> as the "
+"OID number when creating an OID.  However, during registration of the OID in "
+"the tree, this number is changed to the first available number greater than "
+"or equal to E<.Dv CTL_AUTO_START>.  If the first step of context deletion "
+"fails, re-registration of the OID does not change the already assigned OID "
+"number (which is different from OID_AUTO).  This ensures that re-registered "
+"entries maintain their original positions in the tree."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:154
+msgid ""
+"The second step actually performs the deletion of the dynamic OIDs.  E<.Xr "
+"sysctl_remove_oid 9> iterates through the context list, starting from "
+"beginning (i.e., the newest entries).  E<.Em Important>: this time, the "
+"function not only deletes the OIDs from the tree, but also frees their "
+"memory (provided that oid_refcnt == 0), as well as the memory of all context "
+"entries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:158
+msgid ""
+"The E<.Fn sysctl_ctx_entry_add> function allows the addition of an existing "
+"dynamic OID to a context."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:170
+msgid ""
+"The E<.Fn sysctl_ctx_entry_del> function removes an entry from the context.  "
+"E<.Em Important>: in this case, only the corresponding E<.Li struct "
+"sysctl_ctx_entry> is freed, but the E<.Fa oidp> pointer remains intact.  "
+"Thereafter, the programmer is responsible for managing the resources "
+"allocated to this OID."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:181
+msgid ""
+"The E<.Fn sysctl_ctx_entry_find> function searches for a given E<.Fa oidp> "
+"within a context list, either returning a pointer to the E<.Fa struct "
+"sysctl_ctx_entry> found, or E<.Dv NULL>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:181
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:185
+msgid ""
+"The following is an example of how to create a new top-level category and "
+"how to hook up another subtree to an existing static node.  This example "
+"uses contexts to keep track of the OIDs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:193
+#, no-wrap
+msgid ""
+"#include E<lt>sys/sysctl.hE<gt>\n"
+" ...\n"
+"static struct sysctl_ctx_list clist;\n"
+"static struct sysctl_oid *oidp;\n"
+"static int a_int;\n"
+"static const char *string = \"dynamic sysctl\";\n"
+" ...\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:213
+#, no-wrap
+msgid ""
+"sysctl_ctx_init(&clist);\n"
+"oidp = SYSCTL_ADD_ROOT_NODE(&clist,\n"
+"\tOID_AUTO, \"newtree\", CTLFLAG_RW, 0, \"new top level tree\");\n"
+"oidp = SYSCTL_ADD_INT(&clist, SYSCTL_CHILDREN(oidp),\n"
+"\tOID_AUTO, \"newint\", CTLFLAG_RW, &a_int, 0, \"new int leaf\");\n"
+" ...\n"
+"oidp = SYSCTL_ADD_NODE(&clist, SYSCTL_STATIC_CHILDREN(_debug),\n"
+"\tOID_AUTO, \"newtree\", CTLFLAG_RW, 0, \"new tree under debug\");\n"
+"oidp = SYSCTL_ADD_STRING(&clist, SYSCTL_CHILDREN(oidp),\n"
+"\tOID_AUTO, \"newstring\", CTLFLAG_RD, string, 0, \"new string leaf\");\n"
+" ...\n"
+"/* Now we can free up the OIDs */\n"
+"if (sysctl_ctx_free(&clist)) {\n"
+"\tprintf(\"can't free this context - other OIDs depend on it\");\n"
+"\treturn (ENOTEMPTY);\n"
+"} else {\n"
+"\tprintf(\"Success!\\en\");\n"
+"\treturn (0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:216
+msgid "This example creates the following subtrees:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:219
+#, no-wrap
+msgid ""
+"debug.newtree.newstring\n"
+"newtree.newint\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:226
+msgid ""
+"Note that both trees are removed, and their resources freed, through one "
+"E<.Fn sysctl_ctx_free> call, which starts by freeing the newest entries "
+"(leaves)  and then proceeds to free the older entries (in this case the "
+"nodes)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:226
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:232
+msgid ""
+"E<.Xr queue 3>, E<.Xr sysctl 8>, E<.Xr sysctl 9>, E<.Xr sysctl_add_oid 9>, "
+"E<.Xr sysctl_remove_oid 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:232
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:235
+msgid "These functions first appeared in E<.Fx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:235
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:237
+msgid "E<.An Andrzej Bialecki Aq Mt abial@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:237
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:244
+msgid ""
+"The current removal algorithm is somewhat heavy.  In the worst case, all "
+"OIDs need to be unregistered, registered again, and then unregistered and "
+"deleted.  However, the algorithm does guarantee transactional properties for "
+"removal operations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_ctx_init.9:247
+msgid ""
+"All operations on contexts involve linked list traversal.  For this reason, "
+"creation and removal of entries is relatively costly."
+msgstr ""

@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/bus_adjust_resource.9:30
+#, no-wrap
+msgid "April 23, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/bus_adjust_resource.9:31
+#, no-wrap
+msgid "BUS_ADJUST_RESOURCE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:35
+msgid "E<.Nm bus_adjust_resource>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/bus_adjust_resource.9:35
+#, no-wrap
+msgid "adjust resource allocated from a parent bus"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_adjust_resource.9:37
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_adjust_resource.9:38
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_adjust_resource.9:40
+#, no-wrap
+msgid "machine/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_adjust_resource.9:41
+#, no-wrap
+msgid "sys/rman.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_adjust_resource.9:42
+#, no-wrap
+msgid "machine/resource.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:48
+msgid ""
+"E<.Ft int> E<.Fo bus_adjust_resource> E<.Fa \"device_t dev\" \"int type\" "
+"\"struct resource *r\"> E<.Fa \"rman_res_t start\" \"rman_res_t end\"> "
+"E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:64
+msgid ""
+"This function is used to ask the parent bus to adjust the resource range "
+"assigned to an allocated resource.  The resource E<.Fa r> should have been "
+"allocated by a previous call to E<.Xr bus_alloc_resource 9>.  The new "
+"resource range must overlap the existing range of E<.Fa r>.  The E<.Fa type> "
+"argument should match the E<.Fa type> argument passed to E<.Xr "
+"bus_alloc_resource 9> when the resource was initially allocated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:69
+msgid ""
+"Note that none of the constraints of the original allocation request such as "
+"alignment or boundary restrictions are checked by E<.Fn "
+"bus_adjust_resource>.  It is the caller's responsibility to enforce any such "
+"requirements."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:69
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:73
+msgid ""
+"The E<.Fn bus_adjust_resource> method returns zero on success or an error "
+"code on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:73
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:75
+msgid "Grow an existing memory resource by 4096 bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:78
+#, no-wrap
+msgid ""
+"\tstruct resource *res;\n"
+"\tint error;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:81
+#, no-wrap
+msgid ""
+"\terror = bus_adjust_resource(dev, SYS_RES_MEMORY, res,\n"
+"\t    rman_get_start(res), rman_get_end(res) + 0x1000);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:82
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:85
+msgid "E<.Fn bus_adjust_resource> will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_adjust_resource.9:86 /usr/src/share/man/man9/bus_adjust_resource.9:90 /usr/src/share/man/man9/bus_adjust_resource.9:94
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:90
+msgid "The E<.Fa dev> device does not have a parent device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:94
+msgid "The E<.Fa r> resource is a shared resource."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:97
+msgid ""
+"The new address range does not overlap with the existing address range of "
+"E<.Fa r>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bus_adjust_resource.9:97
+#, no-wrap
+msgid "Bq Er EBUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:99
+msgid "The new address range conflicts with another allocated resource."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_adjust_resource.9:100
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_adjust_resource.9:104
+msgid ""
+"E<.Xr bus_alloc_resource 9>, E<.Xr bus_release_resource 9>, E<.Xr device 9>, "
+"E<.Xr driver 9>"
+msgstr ""

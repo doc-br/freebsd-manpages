@@ -1,0 +1,622 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/dumpon/dumpon.8:31
+#, no-wrap
+msgid "May 6, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/dumpon/dumpon.8:32
+#, no-wrap
+msgid "DUMPON 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:36
+msgid "E<.Nm dumpon>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/dumpon/dumpon.8:36
+#, no-wrap
+msgid "specify a device for crash dumps"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:63
+msgid ""
+"E<.Nm> E<.Op Fl i Ar index> E<.Op Fl r> E<.Op Fl v> E<.Op Fl k Ar pubkey> "
+"E<.Op Fl Z> E<.Op Fl z> E<.Ar device> E<.Nm> E<.Op Fl i Ar index> E<.Op Fl "
+"r> E<.Op Fl v> E<.Op Fl k Ar pubkey> E<.Op Fl Z> E<.Op Fl z> E<.Op Fl g Ar "
+"gateway> E<.Fl s Ar server> E<.Fl c Ar client> E<.Ar iface> E<.Nm> E<.Op Fl "
+"v> E<.Cm off> E<.Nm> E<.Op Fl v> E<.Fl l>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:63
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:68
+msgid ""
+"The E<.Nm> utility is used to configure where the kernel can save a crash "
+"dump in the case of a panic."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:79
+msgid ""
+"System administrators should typically configure E<.Nm> in a persistent "
+"fashion using the E<.Xr rc.conf 5> variables E<.Va dumpdev> and E<.Va "
+"dumpon_flags>.  For more information on this usage, see E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:90
+msgid ""
+"Starting in E<.Fx 13.0>, E<.Nm> can configure a series of fallback dump "
+"devices.  For example, an administrator may prefer E<.Xr netdump 4> by "
+"default, but if the E<.Xr netdump 4> service cannot be reached or some other "
+"failure occurs, they might choose a local disk dump as a second choice "
+"option."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/sbin/dumpon/dumpon.8:90
+#, no-wrap
+msgid "General options"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:92
+#, no-wrap
+msgid "Fl i Ar index"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:95
+msgid ""
+"Insert the specified dump configuration into the prioritized fallback dump "
+"device list at the specified index, starting at zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:100
+msgid ""
+"If E<.Fl i> is not specified, the configured dump device is appended to the "
+"prioritized list."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:100
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:111
+msgid ""
+"Remove the specified dump device configuration or configurations from the "
+"fallback dump device list rather than inserting or appending it.  In "
+"contrast, E<.Do> E<.Nm> off E<.Dc> removes all configured devices.  "
+"Conflicts with E<.Fl i>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:111
+#, no-wrap
+msgid "Fl k Ar pubkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:113
+msgid "Configure encrypted kernel dumps."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:124
+msgid ""
+"A random, one-time symmetric key is automatically generated for bulk kernel "
+"dump encryption every time E<.Nm> is used.  The provided E<.Ar pubkey> is "
+"used to encrypt a copy of the symmetric key.  The encrypted dump contents "
+"consist of a standard dump header, the pubkey-encrypted symmetric key "
+"contents, and the symmetric key encrypted core dump contents."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:128
+msgid ""
+"As a result, only someone with the corresponding private key can decrypt the "
+"symmetric key.  The symmetric key is necessary to decrypt the kernel core.  "
+"The goal of the mechanism is to provide confidentiality."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:132
+msgid ""
+"The E<.Va pubkey> file should be a PEM-formatted RSA key of at least 1024 "
+"bits."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:132
+#, no-wrap
+msgid "Fl l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:135
+msgid ""
+"List the currently configured dump device(s), or /dev/null if no devices are "
+"configured."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:135
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:137
+msgid "Enable verbose mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:137
+#, no-wrap
+msgid "Fl Z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:139
+msgid "Enable compression (Zstandard)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:139
+#, no-wrap
+msgid "Fl z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:145
+msgid ""
+"Enable compression (gzip).  Only one compression method may be enabled at a "
+"time, so E<.Fl z> is incompatible with E<.Fl Z>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:147
+msgid "Zstandard provides superior compression ratio and performance."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/sbin/dumpon/dumpon.8:148
+#, no-wrap
+msgid "Netdump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:168
+msgid ""
+"E<.Nm> may also configure the kernel to dump to a remote E<.Xr netdumpd 8> "
+"server.  (The E<.Xr netdumpd 8> server is available in ports.)  E<.Xr "
+"netdump 4> eliminates the need to reserve space for crash dumps.  It is "
+"especially useful in diskless environments.  When E<.Nm> is used to "
+"configure netdump, the E<.Ar device> (or E<.Ar iface>)  parameter should "
+"specify a network interface (e.g., E<.Va igb1>).  The specified NIC must be "
+"up (online) to configure netdump."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:171
+msgid "E<.Xr netdump 4> specific options include:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:172
+#, no-wrap
+msgid "Fl c Ar client"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:176
+msgid "The local IP address of the E<.Xr netdump 4> client."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:176
+#, no-wrap
+msgid "Fl g Ar gateway"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:193
+msgid ""
+"The first-hop router between E<.Ar client> and E<.Ar server>.  If the E<.Fl "
+"g> option is not specified and the system has a default route, the default "
+"router is used as the E<.Xr netdump 4> gateway.  If the E<.Fl g> option is "
+"not specified and the system does not have a default route, E<.Ar server> is "
+"assumed to be on the same link as E<.Ar client>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/dumpon/dumpon.8:193
+#, no-wrap
+msgid "Fl s Ar server"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:197
+msgid "The IP address of the E<.Xr netdumpd 8> server."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:203
+msgid ""
+"All of these options can be specified in the E<.Xr rc.conf 5> variable E<.Va "
+"dumpon_flags>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/sbin/dumpon/dumpon.8:203
+#, no-wrap
+msgid "Minidumps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:210
+msgid ""
+"The default type of kernel crash dump is the mini crash dump.  Mini crash "
+"dumps hold only memory pages in use by the kernel.  Alternatively, full "
+"memory dumps can be enabled by setting the E<.Va debug.minidump> E<.Xr "
+"sysctl 8> variable to 0."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/sbin/dumpon/dumpon.8:210
+#, no-wrap
+msgid "Full dumps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:224
+msgid ""
+"For systems using full memory dumps, the size of the specified dump device "
+"must be at least the size of physical memory.  Even though an additional 64 "
+"kB header is added to the dump, the BIOS for a platform typically holds back "
+"some memory, so it is not usually necessary to size the dump device larger "
+"than the actual amount of RAM available in the machine.  Also, when using "
+"full memory dumps, the E<.Nm> utility will refuse to enable a dump device "
+"which is smaller than the total amount of physical memory as reported by the "
+"E<.Va hw.physmem> E<.Xr sysctl 8> variable."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:224
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:227
+msgid ""
+"Because the file system layer is already dead by the time a crash dump is "
+"taken, it is not possible to send crash dumps directly to a file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:234
+msgid ""
+"The E<.Xr loader 8> variable E<.Va dumpdev> may be used to enable early "
+"kernel core dumps for system panics which occur before userspace starts."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:234
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:238
+msgid ""
+"In order to generate an RSA private key, a user can use the E<.Xr genrsa 1> "
+"tool:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:239
+#, no-wrap
+msgid "# openssl genrsa -out private.pem 4096"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:244
+msgid ""
+"A public key can be extracted from the private key using the E<.Xr rsa 1> "
+"tool:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:245
+#, no-wrap
+msgid "# openssl rsa -in private.pem -out public.pem -pubout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:254
+msgid ""
+"Once the RSA keys are created in a safe place, the public key may be moved "
+"to the untrusted netdump client machine.  Now E<.Pa public.pem> can be used "
+"by E<.Nm> to configure encrypted kernel crash dumps:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:255
+#, no-wrap
+msgid "# dumpon -k public.pem /dev/ada0s1b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:262
+msgid ""
+"It is recommended to test if the kernel saves encrypted crash dumps using "
+"the current configuration.  The easiest way to do that is to cause a kernel "
+"panic using the E<.Xr ddb 4> debugger:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:263
+#, no-wrap
+msgid "# sysctl debug.kdb.panic=1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:267
+msgid ""
+"In the debugger the following commands should be typed to write a core dump "
+"and reboot:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:268
+#, no-wrap
+msgid "dbE<gt> call doadump(0)"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:269
+#, no-wrap
+msgid "dbE<gt> reset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:278
+msgid ""
+"After reboot E<.Xr savecore 8> should be able to save the core dump in the "
+"E<.Va Dq dumpdir> directory, which is E<.Pa /var/crash> by default:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:279
+#, no-wrap
+msgid "# savecore /dev/ada0s1b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:295
+msgid ""
+"Three files should be created in the core directory: E<.Pa info.#>, E<.Pa "
+"key.#> and E<.Pa vmcore_encrypted.#> (where E<.Dq #> is the number of the "
+"last core dump saved by E<.Xr savecore 8>).  The E<.Pa vmcore_encrypted.#> "
+"can be decrypted using the E<.Xr decryptcore 8> utility:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:296
+#, no-wrap
+msgid "# decryptcore -p private.pem -k key.# -e vmcore_encrypted.# -c vmcore.#"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:299 /usr/src/sbin/dumpon/dumpon.8:310
+msgid "or shorter:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:300
+#, no-wrap
+msgid "# decryptcore -p private.pem -n #"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:306
+msgid "The E<.Pa vmcore.#> can be now examined using E<.Xr kgdb 1>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:307
+#, no-wrap
+msgid "# kgdb /boot/kernel/kernel vmcore.#"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/dumpon/dumpon.8:311
+#, no-wrap
+msgid "# kgdb -n #"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:320
+msgid ""
+"The core was decrypted properly if E<.Xr kgdb 1> does not print any errors.  "
+"Note that the live kernel might be at a different path which can be examined "
+"by looking at the E<.Va kern.bootfile> E<.Xr sysctl 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:320
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:336
+msgid ""
+"E<.Xr gzip 1>, E<.Xr kgdb 1>, E<.Xr zstd 1>, E<.Xr ddb 4>, E<.Xr netdump 4>, "
+"E<.Xr fstab 5>, E<.Xr rc.conf 5>, E<.Xr config 8>, E<.Xr decryptcore 8>, "
+"E<.Xr init 8>, E<.Xr loader 8>, E<.Xr rc 8>, E<.Xr savecore 8>, E<.Xr swapon "
+"8>, E<.Xr panic 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:336
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:341
+msgid "The E<.Nm> utility appeared in E<.Fx 2.0.5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:344
+msgid ""
+"Support for encrypted kernel core dumps and netdump was added in E<.Fx "
+"12.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:344
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:352
+msgid ""
+"The E<.Nm> manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>, E<.An Conrad Meyer Aq Mt cem@FreeBSD.org>, E<.An Konrad "
+"Witaszczyk Aq Mt def@FreeBSD.org>, and countless others."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:352
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:357
+msgid ""
+"To configure encrypted kernel core dumps, the running kernel must have been "
+"compiled with the E<.Dv EKCD> option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:361
+msgid ""
+"Netdump does not automatically update the configured E<.Ar gateway> if "
+"routing topology changes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:373
+msgid ""
+"The size of a compressed dump or a minidump is not a fixed function of RAM "
+"size.  Therefore, when at least one of these options is enabled, the E<.Nm> "
+"utility cannot verify that the E<.Ar device> has sufficient space for a "
+"dump.  E<.Nm> is also unable to verify that a configured E<.Xr netdumpd 8> "
+"server has sufficient space for a dump."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:383
+msgid ""
+"E<.Fl Z> requires a kernel compiled with the E<.Dv ZSTDIO> kernel option.  "
+"Similarly, E<.Fl z> requires the E<.Dv GZIO> option."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:383
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:387
+msgid ""
+"It is currently not possible to configure both compression and encryption.  "
+"The encrypted dump format assumes that the kernel dump size is a multiple of "
+"the cipher block size, which may not be true when the dump is compressed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:389
+msgid "Netdump only supports IPv4 at this time."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/dumpon/dumpon.8:389
+#, no-wrap
+msgid "SECURITY CONSIDERATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:394
+msgid ""
+"The current encrypted kernel core dump scheme does not provide integrity nor "
+"authentication.  That is, the recipient of an encrypted kernel core dump "
+"cannot know if they received an intact core dump, nor can they verify the "
+"provenance of the dump."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:407
+msgid ""
+"RSA keys smaller than 1024 bits are practical to factor and therefore weak.  "
+"Even 1024 bit keys may not be large enough to ensure privacy for many years, "
+"so NIST recommends a minimum of 2048 bit RSA keys.  As a seatbelt, E<.Nm> "
+"prevents users from configuring encrypted kernel dumps with extremely weak "
+"RSA keys.  If you do not care for cryptographic privacy guarantees, just use "
+"E<.Nm> without specifying a E<.Fl k Ar pubkey> option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/dumpon/dumpon.8:409
+msgid "This process is sandboxed using E<.Xr capsicum 4>."
+msgstr ""

@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:28
+#, no-wrap
+msgid "August 6, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:29
+#, no-wrap
+msgid "PMAP_QUICK_ENTER_PAGE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:34
+msgid "E<.Nm pmap_quick_enter_page>, E<.Nm pmap_quick_remove_page>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:34
+#, no-wrap
+msgid "manage fast, single-page kernel address space mappings"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:36
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:37
+#, no-wrap
+msgid "vm/vm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:38
+#, no-wrap
+msgid "vm/pmap.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:43
+msgid ""
+"E<.Ft vm_offset_t> E<.Fn pmap_quick_enter_page \"vm_page_t m\"> E<.Ft void> "
+"E<.Fn pmap_quick_remove_page \"vm_offset_t kva\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:53
+msgid ""
+"The E<.Fn pmap_quick_enter_page> function accepts a single page E<.Fa m>, "
+"and enters this page into a preallocated address in kernel virtual address "
+"(KVA) space.  This function is intended for temporary mappings that will "
+"only be used for a very short period, for example a copy operation on the "
+"page contents."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:63
+msgid ""
+"The E<.Fn pmap_quick_remove_page> function removes a mapping previously "
+"created by E<.Fn pmap_quick_enter_page> at E<.Fa kva>, making the KVA frame "
+"used by E<.Fn pmap_quick_enter_page> available for reuse."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:77
+msgid ""
+"On many architectures, E<.Fn pmap_quick_enter_page> uses a per-CPU "
+"pageframe.  In those cases, it must disable preemption on the local CPU.  "
+"The corresponding call to E<.Fn pmap_quick_remove_page> then re-enables "
+"preemption.  It is therefore not safe for machine-independent code to sleep "
+"or perform locking operations while holding these mappings.  Current "
+"implementations only guarantee the availability of a single page for the "
+"calling thread, so calls to E<.Fn pmap_quick_enter_page> must not be nested."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:87
+msgid ""
+"E<.Fn pmap_quick_enter_page> and E<.Fn pmap_quick_remove_page> do not sleep, "
+"and E<.Fn pmap_quick_enter_page> always returns a valid address.  It is safe "
+"to use these functions under all types of locks except spin mutexes.  It is "
+"also safe to use them in all thread contexts except primary interrupt "
+"context."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:93
+msgid ""
+"The page E<.Em must> not be swapped or otherwise reused while the mapping is "
+"active.  It must be either wired or held, or it must belong to an unmanaged "
+"region such as I/O device memory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:93
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:99
+msgid ""
+"The E<.Fn pmap_quick_enter_page> function returns the kernel virtual address "
+"that is mapped to the page E<.Fa m>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:99
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:101
+msgid "E<.Xr pmap 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:101
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_quick_enter_page.9:103
+msgid ""
+"This manual page was written by E<.An Jason A Harmening Aq Mt "
+"jah@FreeBSD.org>."
+msgstr ""

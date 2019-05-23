@@ -1,0 +1,383 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_ksocket.4:37
+#, no-wrap
+msgid "January 9, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_ksocket.4:38
+#, no-wrap
+msgid "NG_KSOCKET 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:42
+msgid "E<.Nm ng_ksocket>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_ksocket.4:42
+#, no-wrap
+msgid "kernel socket netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ksocket.4:44
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ksocket.4:45
+#, no-wrap
+msgid "netgraph/ng_ksocket.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:66
+msgid ""
+"A E<.Nm ksocket> node is both a netgraph node and a E<.Bx> socket.  The "
+"E<.Nm> node type allows one to open a socket inside the kernel and have it "
+"appear as a Netgraph node.  The E<.Nm> node type is the reverse of the "
+"socket node type (see E<.Xr ng_socket 4>): whereas the socket node type "
+"enables the user-level manipulation (via a socket) of what is normally a "
+"kernel-level entity (the associated Netgraph node), the E<.Nm> node type "
+"enables the kernel-level manipulation (via a Netgraph node) of what is "
+"normally a user-level entity (the associated socket)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:76
+msgid ""
+"A E<.Nm> node allows at most one hook connection.  Connecting to the node is "
+"equivalent to opening the associated socket.  The name given to the hook "
+"determines what kind of socket the node will open (see below).  When the "
+"hook is disconnected and/or the node is shutdown, the associated socket is "
+"closed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:76
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:93
+msgid ""
+"This node type supports a single hook connection at a time.  The name of the "
+"hook must be of the form E<.Em "
+"E<lt>familyE<gt>/E<lt>typeE<gt>/E<lt>protoE<gt>>, where the E<.Em family>, "
+"E<.Em type>, and E<.Em proto> are the decimal equivalent of the same "
+"arguments to E<.Xr socket 2>.  Alternately, aliases for the commonly used "
+"values are accepted as well.  For example E<.Dv inet/dgram/udp> is a more "
+"readable but equivalent version of E<.Dv 2/2/17>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:111
+msgid ""
+"Data received into socket is sent out via hook.  Data received on hook is "
+"sent out from socket, if the latter is connected (an E<.Dv "
+"NGM_KSOCKET_CONNECT> was sent to node before).  If socket is not connected, "
+"destination E<.Vt \"struct sockaddr\"> must be supplied in an mbuf tag with "
+"cookie E<.Dv NGM_KSOCKET_COOKIE> and type E<.Dv NG_KSOCKET_TAG_SOCKADDR> "
+"attached to data.  Otherwise E<.Nm> will return E<.Er ENOTCONN> to sender."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:111
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:113
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:114
+#, no-wrap
+msgid "Dv NGM_KSOCKET_BIND Pq Ic bind"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:121
+msgid ""
+"This functions exactly like the E<.Xr bind 2> system call.  The E<.Vt "
+"\"struct sockaddr\"> socket address parameter should be supplied as an "
+"argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:121
+#, no-wrap
+msgid "Dv NGM_KSOCKET_LISTEN Pq Ic listen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:128
+msgid ""
+"This functions exactly like the E<.Xr listen 2> system call.  The backlog "
+"parameter (a single 32 bit E<.Dv int>)  should be supplied as an argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:128
+#, no-wrap
+msgid "Dv NGM_KSOCKET_CONNECT Pq Ic connect"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:135
+msgid ""
+"This functions exactly like the E<.Xr connect 2> system call.  The E<.Vt "
+"\"struct sockaddr\"> destination address parameter should be supplied as an "
+"argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:135
+#, no-wrap
+msgid "Dv NGM_KSOCKET_ACCEPT Pq Ic accept"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:147
+msgid ""
+"Equivalent to the E<.Xr accept 2> system call on a non-blocking socket.  If "
+"there is a pending connection on the queue, a new socket and a corresponding "
+"cloned node are created.  Returned are the cloned node's ID and a peer name "
+"(as E<.Vt \"struct sockaddr\">).  If there are no pending connections, this "
+"control message returns nothing, and a connected node will receive the above "
+"message asynchronously, when a connection is established."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:151
+msgid ""
+"A cloned node supports a single hook with an arbitrary name.  If not "
+"connected, a node disappears when its parent node is destroyed.  Once "
+"connected, it becomes an independent node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:151
+#, no-wrap
+msgid "Dv NGM_KSOCKET_GETNAME Pq Ic getname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:158
+msgid ""
+"Equivalent to the E<.Xr getsockname 2> system call.  The name is returned as "
+"a E<.Vt \"struct sockaddr\"> in the arguments field of the reply."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:158
+#, no-wrap
+msgid "Dv NGM_KSOCKET_GETPEERNAME Pq Ic getpeername"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:165
+msgid ""
+"Equivalent to the E<.Xr getpeername 2> system call.  The name is returned as "
+"a E<.Vt \"struct sockaddr\"> in the arguments field of the reply."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:165
+#, no-wrap
+msgid "Dv NGM_KSOCKET_SETOPT Pq Ic setopt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:170
+msgid ""
+"Equivalent to the E<.Xr setsockopt 2> system call, except that the option "
+"name, level, and value are passed in a E<.Vt \"struct ng_ksocket_sockopt\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:170
+#, no-wrap
+msgid "Dv NGM_KSOCKET_GETOPT Pq Ic getopt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:179
+msgid ""
+"Equivalent to the E<.Xr getsockopt 2> system call, except that the option is "
+"passed in a E<.Vt \"struct ng_ksocket_sockopt\">.  When sending this "
+"command, the E<.Dv value> field should be empty; upon return, it will "
+"contain the retrieved value."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:180
+#, no-wrap
+msgid "ASCII FORM CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:200
+msgid ""
+"For control messages that pass a E<.Vt \"struct sockaddr\"> in the argument "
+"field, the normal E<.Tn ASCII> equivalent of the C structure is an "
+"acceptable form.  For the E<.Dv PF_INET> and E<.Dv PF_LOCAL> address "
+"families, a more convenient form is also used, which is the protocol family "
+"name, followed by a slash, followed by the actual address.  For E<.Dv "
+"PF_INET>, the address is an IP address followed by an optional colon and "
+"port number.  For E<.Dv PF_LOCAL>, the address is the pathname as a doubly "
+"quoted string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:202
+msgid "Examples:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:203
+#, no-wrap
+msgid "Dv PF_LOCAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:205
+msgid "local/\"/tmp/foo.socket\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:205
+#, no-wrap
+msgid "Dv PF_INET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:207
+msgid "inet/192.168.1.1:1234"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:207
+#, no-wrap
+msgid "Other"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:209
+msgid "E<.Dv \"\\&{ family=16 len=16 data=[0x70 0x00 0x01 0x23] \\&}\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:218
+msgid ""
+"For control messages that pass a E<.Vt \"struct ng_ksocket_sockopt\">, the "
+"normal E<.Tn ASCII> form for that structure is used.  In the future, more "
+"convenient encoding of the more common socket options may be supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:220
+msgid "Setting socket options example:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ksocket.4:221
+#, no-wrap
+msgid "Set FIB 2 for a socket (SOL_SOCKET, SO_SETFIB):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:223
+msgid "E<.Dv \"setopt \\&{ level=0xffff name=0x1014 data=[ 2 ] \\&}\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:224
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:229
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when the hook is disconnected.  Shutdown of the node closes the "
+"associated socket."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:229
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:236
+msgid ""
+"E<.Xr socket 2>, E<.Xr netgraph 4>, E<.Xr ng_socket 4>, E<.Xr ngctl 8>, "
+"E<.Xr mbuf_tags 9>, E<.Xr socket 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:236
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:241
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ksocket.4:241
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ksocket.4:242
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""

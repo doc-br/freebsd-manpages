@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_sctp.4:26
+#, no-wrap
+msgid "August 22, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_sctp.4:27
+#, no-wrap
+msgid "DTRACE_SCTP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:31
+msgid "E<.Nm dtrace_sctp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_sctp.4:31
+#, no-wrap
+msgid "a DTrace provider for tracing events related to the"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:34
+msgid "E<.Xr sctp 4> protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:53
+msgid ""
+"E<.Fn sctp:cwnd::init uint32_t uint32_t uintptr_t int int> E<.Fn "
+"sctp:cwnd::ack uint32_t uint32_t uintptr_t int int> E<.Fn sctp:cwnd::rttvar "
+"uint64_t uint64_t uint64_t uint64_t uint64_t> E<.Fn sctp:cwnd::rttstep "
+"uint64_t uint64_t uint64_t uint64_t uint64_t> E<.Fn sctp:cwnd::fr uint32_t "
+"uint32_t uintptr_t int int> E<.Fn sctp:cwnd::to uint32_t uint32_t uintptr_t "
+"int int> E<.Fn sctp:cwnd::bl uint32_t uint32_t uintptr_t int int> E<.Fn "
+"sctp:cwnd::ecn uint32_t uint32_t uintptr_t int int> E<.Fn sctp:cwnd::pd "
+"uint32_t uint32_t uintptr_t int int> E<.Fn sctp:rwnd:assoc:val uint32_t "
+"uint32_t int int> E<.Fn sctp:flightsize:net:val uint32_t uint32_t uintptr_t "
+"int int> E<.Fn sctp:flightsize:assoc:val uint32_t uint32_t int int> E<.Fn "
+"sctp:::receive \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" \"sctpsinfo_t "
+"*\" \"sctpinfo_t *\"> E<.Fn sctp:::send \"pktinfo_t *\" \"csinfo_t *\" "
+"\"ipinfo_t *\" \"sctpsinfo_t *\" \"sctpinfo_t *\"> E<.Fn sctp:::state-change "
+"\"void *\" \"csinfo_t *\" \"void *\" \"sctpsinfo_t *\" \"void *\" "
+"\"sctplsinfo_t *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:53
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:66
+msgid ""
+"The DTrace E<.Nm sctp> provider allows users to trace events in the E<.Xr "
+"sctp 4> protocol implementation.  This provider is similar to the E<.Xr "
+"dtrace_ip 4> and E<.Xr dtrace_udp 4> providers, but additionally contains "
+"probes corresponding to protocol events at a level higher than packet "
+"reception and transmission."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:78
+msgid ""
+"The E<.Fn sctp:cwnd::> probes track changes in the congestion window on a "
+"netp.  The E<.Fn sctp:rwnd::> probes track changes in the receiver window "
+"for an assoc.  The E<.Fn sctp:flightsize:net:val> probe tracks changes in "
+"the flight size on a net or assoc and the E<.Fn sctp:flightsize:assoc:val> "
+"probe provides the total flight version."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:91
+msgid ""
+"The arguments of all E<.Nm sctp> probes except for E<.Fn sctp:cwnd::rtt*> "
+"and E<.Fn sctp::assoc:val> are the Vtag for this end, the port number of the "
+"local side, the pointer to E<.Dv struct sctp_nets *changing>, the old value "
+"of the cwnd, and the new value of the cwnd."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:95
+msgid ""
+"The arguments of E<.Fn sctp:::val> are similar to the above except the "
+"fourth argument is the up/down amount."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:107
+msgid ""
+"The E<.Fn sctp:cwnd::rtt*> probe arguments are a bitmap of E<.Dv Vtag "
+"E<lt>E<lt> 32 | localport E<lt>E<lt> 16 | remoteport>, a bitmap of E<.Dv obw "
+"| nbw>, a bitmap of E<.Dv bwrtt | newrtt>, E<.Dv flight>, and a bitmap of "
+"E<.Dv (cwnd E<lt>E<lt> 32) | point E<lt>E<lt> 16 | retval(0/1)>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:114
+msgid ""
+"The E<.Fn sctp:cwnd::init> probe fires when a remotely-initiated active SCTP "
+"open succeeds.  At this point the new connection is in the ESTABLISHED "
+"state, and the probe arguments expose the headers associated with the final "
+"ACK of the four-way handshake."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:128
+msgid ""
+"The E<.Fn sctp:::send> and E<.Fn sctp:::receive> probes fire when the host "
+"sends or receives an SCTP packet, respectively.  As with the E<.Xr "
+"dtrace_udp 4> provider, E<.Nm sctp> probes fire only for packets sent by or "
+"to the local host; forwarded packets are handled in the IP layer and are "
+"only visible to the E<.Xr dtrace_ip 4> provider."
+msgstr ""
+
+#.  .Sh ARGUMENTS
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:138
+msgid ""
+"The E<.Fn sctp:::state-change> probe fires upon local SCTP association state "
+"transitions.  Its first, third and fifth arguments are currently always "
+"E<.Dv NULL>.  Its last argument describes the from-state in the transition, "
+"and the to-state can be obtained from E<.Dv args[3]-E<gt>sctps_state>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:138
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_sctp.4:140
+#, no-wrap
+msgid "Pa /usr/lib/dtrace/sctp.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:144
+msgid "DTrace type and translator definitions for the E<.Nm sctp> provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:145
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:147
+msgid "A script that logs SCTP packets in real time:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:150
+#, no-wrap
+msgid ""
+"#pragma D option quiet\n"
+"#pragma D option switchrate=10hz\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:156
+#, no-wrap
+msgid ""
+"dtrace:::BEGIN\n"
+"{\n"
+"        printf(\" %3s %15s:%-5s      %15s:%-5s\\n\", \"CPU\",\n"
+"            \"LADDR\", \"LPORT\", \"RADDR\", \"RPORT\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:163
+#, no-wrap
+msgid ""
+"sctp:::send\n"
+"{\n"
+"        printf(\" %3d %16s:%-5d -E<gt> %16s:%-5d\\n\", cpu,\n"
+"            args[2]-E<gt>ip_saddr, args[4]-E<gt>sctp_sport,\n"
+"            args[2]-E<gt>ip_daddr, args[4]-E<gt>sctp_dport);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:170
+#, no-wrap
+msgid ""
+"sctp:::receive\n"
+"{\n"
+"        printf(\" %3d %16s:%-5d E<lt>- %16s:%-5d\\n\", cpu,\n"
+"            args[2]-E<gt>ip_daddr, args[4]-E<gt>sctp_dport,\n"
+"            args[2]-E<gt>ip_saddr, args[4]-E<gt>sctp_sport);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:172
+msgid "A script that logs SCTP association state changes as they occur:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:175
+#, no-wrap
+msgid ""
+"#pragma D option quiet\n"
+"#pragma D option switchrate=10\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:177
+#, no-wrap
+msgid "int last[int];\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:183
+#, no-wrap
+msgid ""
+"dtrace:::BEGIN\n"
+"{\n"
+"        printf(\" %3s %12s  %-25s    %-25s\\n\",\n"
+"            \"CPU\", \"DELTA(us)\", \"OLD\", \"NEW\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:193
+#, no-wrap
+msgid ""
+"sctp:::state-change\n"
+"/ last[args[1]-E<gt>cs_cid] /\n"
+"{\n"
+"        this-E<gt>elapsed = (timestamp - last[args[1]-E<gt>cs_cid]) / "
+"1000;\n"
+"        printf(\" %3d %12d  %-25s -E<gt> %-25s\\n\", cpu, "
+"this-E<gt>elapsed,\n"
+"            sctp_state_string[args[5]-E<gt>sctps_state],\n"
+"            sctp_state_string[args[3]-E<gt>sctps_state]);\n"
+"        last[args[1]-E<gt>cs_cid] = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:202
+#, no-wrap
+msgid ""
+"sctp:::state-change\n"
+"/ last[args[1]-E<gt>cs_cid] == 0 /\n"
+"{\n"
+"        printf(\" %3d %12s  %-25s -E<gt> %-25s\\n\", cpu, \"-\",\n"
+"            sctp_state_string[args[5]-E<gt>sctps_state],\n"
+"            sctp_state_string[args[3]-E<gt>sctps_state]);\n"
+"        last[args[1]-E<gt>cs_cid] = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:203
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:213
+msgid ""
+"The E<.Fn sctp:::send>, E<.Fn sctp:::receive>, and E<.Fn "
+"sctp:::state-change> probes are compatible with the E<.Nm sctp> provider in "
+"Solaris.  All other probes are only available in FreeBSD."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:213
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#.  .Sh HISTORY
+#.  The
+#.  .Nm sctp
+#.  provider first appeared in
+#.  .Fx
+#.  UNKNOWN.
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:226
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr dtrace_ip 4>, E<.Xr dtrace_udp 4>, E<.Xr "
+"dtrace_udplite 4>, E<.Xr sctp 4>, E<.Xr SDT 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_sctp.4:226
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_sctp.4:228
+msgid "This manual page was written by E<.An Devin Teske Aq Mt dteske@FreeBSD.org>."
+msgstr ""

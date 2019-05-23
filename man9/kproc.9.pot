@@ -1,0 +1,386 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/kproc.9:28
+#, no-wrap
+msgid "October 19, 2007"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/kproc.9:29
+#, no-wrap
+msgid "KPROC 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:39
+msgid ""
+"E<.Nm kproc_start>, E<.Nm kproc_shutdown>, E<.Nm kproc_create>, E<.Nm "
+"kproc_exit>, E<.Nm kproc_resume>, E<.Nm kproc_suspend>, E<.Nm "
+"kproc_suspend_check>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/kproc.9:39
+#, no-wrap
+msgid "kernel processes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/kproc.9:41
+#, no-wrap
+msgid "sys/kthread.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:66
+msgid ""
+"E<.Ft void> E<.Fn kproc_start \"const void *udata\"> E<.Ft void> E<.Fn "
+"kproc_shutdown \"void *arg\" \"int howto\"> E<.Ft int> E<.Fo kproc_create> "
+"E<.Fa \"void (*func)(void *)\" \"void *arg\" \"struct proc **newpp\"> E<.Fa "
+"\"int flags\" \"int pages\"> E<.Fa \"const char *fmt\" ...> E<.Fc> E<.Ft "
+"void> E<.Fn kproc_exit \"int ecode\"> E<.Ft int> E<.Fn kproc_resume \"struct "
+"proc *p\"> E<.Ft int> E<.Fn kproc_suspend \"struct proc *p\" \"int timo\"> "
+"E<.Ft void> E<.Fn kproc_suspend_check \"struct proc *p\"> E<.Ft int> E<.Fo "
+"kproc_kthread_add> E<.Fa \"void (*func)(void *)\" \"void *arg\"> E<.Fa "
+"\"struct proc **procptr\" \"struct thread **tdptr\"> E<.Fa \"int flags\" "
+"\"int pages\" \"char * procname\" \"const char *fmt\" \"...\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:88
+msgid ""
+"In E<.Fx 8.0>, the E<.Fn kthread* 9> family of functions was renamed to be "
+"the E<.Fn kproc* 9> family of functions, as they were misnamed and actually "
+"produced kernel processes.  A new family of E<.Em different> E<.Fn kthread_* "
+"9> functions was added to produce E<.Em real> kernel E<.Em threads>.  See "
+"the E<.Xr kthread 9> man page for more information on those calls.  Also "
+"note that the E<.Fn kproc_kthread_add 9> function appears in both pages as "
+"its functionality is split."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:105
+msgid ""
+"The function E<.Fn kproc_start> is used to start E<.Dq internal> daemons "
+"such as E<.Nm bufdaemon , pagedaemon , vmdaemon>, and the E<.Nm syncer> and "
+"is intended to be called from E<.Xr SYSINIT 9>.  The E<.Fa udata> argument "
+"is actually a pointer to a E<.Vt \"struct kproc_desc\"> which describes the "
+"kernel process that should be created:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:111
+#, no-wrap
+msgid ""
+"struct kproc_desc {\n"
+"\tchar\t\t*arg0;\n"
+"\tvoid\t\t(*func)(void);\n"
+"\tstruct proc\t**global_procpp;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:116
+msgid "The structure members are used by E<.Fn kproc_start> as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kproc.9:117
+#, no-wrap
+msgid "Va arg0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:123
+msgid ""
+"String to be used for the name of the process.  This string will be copied "
+"into the E<.Va p_comm> member of the new process' E<.Vt \"struct proc\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kproc.9:123
+#, no-wrap
+msgid "Va func"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:125
+msgid "The main function for this kernel process to run."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kproc.9:125
+#, no-wrap
+msgid "Va global_procpp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:133
+msgid ""
+"A pointer to a E<.Vt \"struct proc\"> pointer that should be updated to "
+"point to the newly created process' process structure.  If this variable is "
+"E<.Dv NULL>, then it is ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:173
+msgid ""
+"The E<.Fn kproc_create> function is used to create a kernel process.  The "
+"new process shares its address space with process 0, the E<.Nm swapper> "
+"process, and runs in kernel mode only.  The E<.Fa func> argument specifies "
+"the function that the process should execute.  The E<.Fa arg> argument is an "
+"arbitrary pointer that is passed in as the only argument to E<.Fa func> when "
+"it is called by the new process.  The E<.Fa newpp> pointer points to a E<.Vt "
+"\"struct proc\"> pointer that is to be updated to point to the newly created "
+"process.  If this argument is E<.Dv NULL>, then it is ignored.  The E<.Fa "
+"flags> argument specifies a set of flags as described in E<.Xr rfork 2>.  "
+"The E<.Fa pages> argument specifies the size of the new kernel process's "
+"stack in pages.  If 0 is used, the default kernel stack size is allocated.  "
+"The rest of the arguments form a E<.Xr printf 9> argument list that is used "
+"to build the name of the new process and is stored in the E<.Va p_comm> "
+"member of the new process's E<.Vt \"struct proc\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:187
+msgid ""
+"The E<.Fn kproc_exit> function is used to terminate kernel processes.  It "
+"should be called by the main function of the kernel process rather than "
+"letting the main function return to its caller.  The E<.Fa ecode> argument "
+"specifies the exit status of the process.  While exiting, the function E<.Xr "
+"exit1 9> will initiate a call to E<.Xr wakeup 9> on the process handle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:219
+msgid ""
+"The E<.Fn kproc_resume>, E<.Fn kproc_suspend>, and E<.Fn "
+"kproc_suspend_check> functions are used to suspend and resume a kernel "
+"process.  During the main loop of its execution, a kernel process that "
+"wishes to allow itself to be suspended should call E<.Fn "
+"kproc_suspend_check> passing in E<.Va curproc> as the only argument.  This "
+"function checks to see if the kernel process has been asked to suspend.  If "
+"it has, it will E<.Xr tsleep 9> until it is told to resume.  Once it has "
+"been told to resume it will return allowing execution of the kernel process "
+"to continue.  The other two functions are used to notify a kernel process of "
+"a suspend or resume request.  The E<.Fa p> argument points to the E<.Vt "
+"\"struct proc\"> of the kernel process to suspend or resume.  For E<.Fn "
+"kproc_suspend>, the E<.Fa timo> argument specifies a timeout to wait for the "
+"kernel process to acknowledge the suspend request and suspend itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:227
+msgid ""
+"The E<.Fn kproc_shutdown> function is meant to be registered as a shutdown "
+"event for kernel processes that need to be suspended voluntarily during "
+"system shutdown so as not to interfere with system shutdown activities.  The "
+"actual suspension of the kernel process is done with E<.Fn kproc_suspend>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:279
+msgid ""
+"The E<.Fn kproc_kthread_add> function is much like the E<.Fn kproc_create> "
+"function above except that if the kproc already exists, then only a new "
+"thread (see E<.Xr kthread 9>)  is created on the existing process.  The "
+"E<.Fa func> argument specifies the function that the process should "
+"execute.  The E<.Fa arg> argument is an arbitrary pointer that is passed in "
+"as the only argument to E<.Fa func> when it is called by the new process.  "
+"The E<.Fa procptr> pointer points to a E<.Vt \"struct proc\"> pointer that "
+"is the location to be updated with the new proc pointer if a new process is "
+"created, or if not E<.Dv NULL>, must contain the process pointer for the "
+"already existing process.  If this argument points to E<.Dv NULL>, then a "
+"new process is created and the field updated.  If not NULL, the E<.Fa tdptr> "
+"pointer points to a E<.Vt \"struct thread\"> pointer that is the location to "
+"be updated with the new thread pointer.  The E<.Fa flags> argument specifies "
+"a set of flags as described in E<.Xr rfork 2>.  The E<.Fa pages> argument "
+"specifies the size of the new kernel thread's stack in pages.  If 0 is used, "
+"the default kernel stack size is allocated.  The procname argument is the "
+"name the new process should be given if it needs to be created.  It is E<.Em "
+"NOT> a printf style format specifier but a simple string.  The rest of the "
+"arguments form a E<.Xr printf 9> argument list that is used to build the "
+"name of the new thread and is stored in the E<.Va td_name> member of the new "
+"thread's E<.Vt \"struct thread\">."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:279
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:286
+msgid ""
+"The E<.Fn kproc_create>, E<.Fn kproc_resume>, and E<.Fn kproc_suspend> "
+"functions return zero on success and non-zero on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:286
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:297
+msgid ""
+"This example demonstrates the use of a E<.Vt \"struct kproc_desc\"> and the "
+"functions E<.Fn kproc_start>, E<.Fn kproc_shutdown>, and E<.Fn "
+"kproc_suspend_check> to run the E<.Nm bufdaemon> process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:299
+#, no-wrap
+msgid "static struct proc *bufdaemonproc;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:307
+#, no-wrap
+msgid ""
+"static struct kproc_desc buf_kp = {\n"
+"\t\"bufdaemon\",\n"
+"\tbuf_daemon,\n"
+"\t&bufdaemonproc\n"
+"};\n"
+"SYSINIT(bufdaemon, SI_SUB_KTHREAD_BUF, SI_ORDER_FIRST, kproc_start,\n"
+"    &buf_kp)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:323
+#, no-wrap
+msgid ""
+"static void\n"
+"buf_daemon()\n"
+"{\n"
+"\t...\n"
+"\t/*\n"
+"\t * This process needs to be suspended prior to shutdown sync.\n"
+"\t */\n"
+"\tEVENTHANDLER_REGISTER(shutdown_pre_sync, kproc_shutdown,\n"
+"\t    bufdaemonproc, SHUTDOWN_PRI_LAST);\n"
+"\t...\n"
+"\tfor (;;) {\n"
+"\t\tkproc_suspend_check(bufdaemonproc);\n"
+"\t\t...\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:324
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:330
+msgid "The E<.Fn kproc_resume> and E<.Fn kproc_suspend> functions will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kproc.9:331 /usr/src/share/man/man9/kproc.9:348
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:335
+msgid "The E<.Fa p> argument does not reference a kernel process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:340
+msgid "The E<.Fn kproc_create> function will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kproc.9:341
+#, no-wrap
+msgid "Bq Er EAGAIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:348
+msgid ""
+"The system-imposed limit on the total number of processes under execution "
+"would be exceeded.  The limit is given by the E<.Xr sysctl 3> MIB variable "
+"E<.Dv KERN_MAXPROC>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:354
+msgid "The E<.Dv RFCFDG> flag was specified in the E<.Fa flags> parameter."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:355
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:361
+msgid ""
+"E<.Xr rfork 2>, E<.Xr exit1 9>, E<.Xr kthread 9>, E<.Xr SYSINIT 9>, E<.Xr "
+"wakeup 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kproc.9:361
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kproc.9:395
+msgid ""
+"The E<.Fn kproc_start> function first appeared in E<.Fx 2.2>.  The E<.Fn "
+"kproc_shutdown>, E<.Fn kproc_create>, E<.Fn kproc_exit>, E<.Fn "
+"kproc_resume>, E<.Fn kproc_suspend>, and E<.Fn kproc_suspend_check> "
+"functions were introduced in E<.Fx 4.0>.  Prior to E<.Fx 5.0>, the E<.Fn "
+"kproc_shutdown>, E<.Fn kproc_resume>, E<.Fn kproc_suspend>, and E<.Fn "
+"kproc_suspend_check> functions were named E<.Fn shutdown_kproc>, E<.Fn "
+"resume_kproc>, E<.Fn shutdown_kproc>, and E<.Fn kproc_suspend_loop>, "
+"respectively.  Originally they had the names E<.Fn kthread_*> but were "
+"changed to E<.Fn kproc_*> when real kthreads became available."
+msgstr ""

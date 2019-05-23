@@ -1,0 +1,1612 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/bpf.4:52
+#, no-wrap
+msgid "October 21, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/bpf.4:53
+#, no-wrap
+msgid "BPF 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:55
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:57
+msgid "E<.Nm bpf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/bpf.4:57
+#, no-wrap
+msgid "Berkeley Packet Filter"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:58
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:60
+msgid "E<.Cd device bpf>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:60
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:66
+msgid ""
+"The Berkeley Packet Filter provides a raw interface to data link layers in a "
+"protocol independent fashion.  All packets on the network, even those "
+"destined for other hosts, are accessible through this mechanism."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:75
+msgid ""
+"The packet filter appears as a character special device, E<.Pa /dev/bpf>.  "
+"After opening the device, the file descriptor must be bound to a specific "
+"network interface with the E<.Dv BIOCSETIF> ioctl.  A given interface can be "
+"shared by multiple listeners, and the filter underlying each descriptor will "
+"see an identical packet stream."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:81
+msgid ""
+"A separate device file is required for each minor device.  If a file is in "
+"use, the open will fail and E<.Va errno> will be set to E<.Er EBUSY>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:88
+msgid ""
+"Associated with each open instance of a E<.Nm> file is a user-settable "
+"packet filter.  Whenever a packet is received by an interface, all file "
+"descriptors listening on that interface apply their filter.  Each descriptor "
+"that accepts the packet receives its own copy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:97
+msgid ""
+"The packet filter will support any link level protocol that has fixed length "
+"headers.  Currently, only Ethernet, E<.Tn SLIP>, and E<.Tn PPP> drivers have "
+"been modified to interact with E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:101
+msgid ""
+"Since packet data is in network byte order, applications should use the "
+"E<.Xr byteorder 3> macros to extract multi-byte values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:109
+msgid ""
+"A packet can be sent out on the network by writing to a E<.Nm> file "
+"descriptor.  The writes are unbuffered, meaning only one packet can be "
+"processed per write.  Currently, only writes to Ethernets and E<.Tn SLIP> "
+"links are supported."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:109
+#, no-wrap
+msgid "BUFFER MODES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:118
+msgid ""
+"E<.Nm> devices deliver packet data to the application via memory buffers "
+"provided by the application.  The buffer mode is set using the E<.Dv "
+"BIOCSETBUFMODE> ioctl, and read using the E<.Dv BIOCGETBUFMODE> ioctl."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/bpf.4:118
+#, no-wrap
+msgid "Buffered read mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:138
+msgid ""
+"By default, E<.Nm> devices operate in the E<.Dv BPF_BUFMODE_BUFFER> mode, in "
+"which packet data is copied explicitly from kernel to user memory using the "
+"E<.Xr read 2> system call.  The user process will declare a fixed buffer "
+"size that will be used both for sizing internal buffers and for all E<.Xr "
+"read 2> operations on the file.  This size is queried using the E<.Dv "
+"BIOCGBLEN> ioctl, and is set using the E<.Dv BIOCSBLEN> ioctl.  Note that an "
+"individual packet larger than the buffer size is necessarily truncated."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/bpf.4:138
+#, no-wrap
+msgid "Zero-copy buffer mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:151
+msgid ""
+"E<.Nm> devices may also operate in the E<.Dv BPF_BUFMODE_ZEROCOPY> mode, in "
+"which packet data is written directly into two user memory buffers by the "
+"kernel, avoiding both system call and copying overhead.  Buffers are of "
+"fixed (and equal) size, page-aligned, and an even multiple of the page "
+"size.  The maximum zero-copy buffer size is returned by the E<.Dv "
+"BIOCGETZMAX> ioctl.  Note that an individual packet larger than the buffer "
+"size is necessarily truncated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:157
+msgid ""
+"The user process registers two memory buffers using the E<.Dv BIOCSETZBUF> "
+"ioctl, which accepts a E<.Vt struct bpf_zbuf> pointer as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:163
+#, no-wrap
+msgid ""
+"struct bpf_zbuf {\n"
+"\tvoid *bz_bufa;\n"
+"\tvoid *bz_bufb;\n"
+"\tsize_t bz_buflen;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:172
+msgid ""
+"E<.Vt bz_bufa> is a pointer to the userspace address of the first buffer "
+"that will be filled, and E<.Vt bz_bufb> is a pointer to the second buffer.  "
+"E<.Nm> will then cycle between the two buffers as they fill and are "
+"acknowledged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:175
+msgid ""
+"Each buffer begins with a fixed-length header to hold synchronization and "
+"data length information for the buffer:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:182
+#, no-wrap
+msgid ""
+"struct bpf_zbuf_header {\n"
+"\tvolatile u_int  bzh_kernel_gen;\t/* Kernel generation number. */\n"
+"\tvolatile u_int  bzh_kernel_len;\t/* Length of data in the buffer. */\n"
+"\tvolatile u_int  bzh_user_gen;\t/* User generation number. */\n"
+"\t/* ...padding for future use... */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:189
+msgid ""
+"The header structure of each buffer, including all padding, should be zeroed "
+"before it is configured using E<.Dv BIOCSETZBUF>.  Remaining space in the "
+"buffer will be used by the kernel to store packet data, laid out in the same "
+"format as with buffered read mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:198
+msgid ""
+"The kernel and the user process follow a simple acknowledgement protocol via "
+"the buffer header to synchronize access to the buffer: when the header "
+"generation numbers, E<.Vt bzh_kernel_gen> and E<.Vt bzh_user_gen>, hold the "
+"same value, the kernel owns the buffer, and when they differ, userspace owns "
+"the buffer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:202
+msgid ""
+"While the kernel owns the buffer, the contents are unstable and may change "
+"asynchronously; while the user process owns the buffer, its contents are "
+"stable and will not be changed until the buffer has been acknowledged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:212
+msgid ""
+"Initializing the buffer headers to all 0's before registering the buffer has "
+"the effect of assigning initial ownership of both buffers to the kernel.  "
+"The kernel signals that a buffer has been assigned to userspace by modifying "
+"E<.Vt bzh_kernel_gen>, and userspace acknowledges the buffer and returns it "
+"to the kernel by setting the value of E<.Vt bzh_user_gen> to the value of "
+"E<.Vt bzh_kernel_gen>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:216
+msgid ""
+"In order to avoid caching and memory re-ordering effects, the user process "
+"must use atomic operations and memory barriers when checking for and "
+"acknowledging buffers:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:218
+#, no-wrap
+msgid "#include E<lt>machine/atomic.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:225
+#, no-wrap
+msgid ""
+"/*\n"
+" * Return ownership of a buffer to the kernel for reuse.\n"
+" */\n"
+"static void\n"
+"buffer_acknowledge(struct bpf_zbuf_header *bzh)\n"
+"{\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:228
+#, no-wrap
+msgid ""
+"\tatomic_store_rel_int(&bzh-E<gt>bzh_user_gen, bzh-E<gt>bzh_kernel_gen);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:236
+#, no-wrap
+msgid ""
+"/*\n"
+" * Check whether a buffer has been assigned to userspace by the kernel.\n"
+" * Return true if userspace owns the buffer, and false otherwise.\n"
+" */\n"
+"static int\n"
+"buffer_check(struct bpf_zbuf_header *bzh)\n"
+"{\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:240
+#, no-wrap
+msgid ""
+"\treturn (bzh-E<gt>bzh_user_gen !=\n"
+"\t    atomic_load_acq_int(&bzh-E<gt>bzh_kernel_gen));\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:250
+msgid ""
+"The user process may force the assignment of the next buffer, if any data is "
+"pending, to userspace using the E<.Dv BIOCROTZBUF> ioctl.  This allows the "
+"user process to retrieve data in a partially filled buffer before the buffer "
+"is full, such as following a timeout; the process must recheck for buffer "
+"ownership using the header generation numbers, as the buffer will not be "
+"assigned to userspace if no data was present."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:259
+msgid ""
+"As in the buffered read mode, E<.Xr kqueue 2>, E<.Xr poll 2>, and E<.Xr "
+"select 2> may be used to sleep awaiting the availability of a completed "
+"buffer.  They will return a readable file descriptor when ownership of the "
+"next buffer is assigned to user space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:268
+msgid ""
+"In the current implementation, the kernel may assign zero, one, or both "
+"buffers to the user process; however, an earlier implementation maintained "
+"the invariant that at most one buffer could be assigned to the user process "
+"at a time.  In order to both ensure progress and high performance, user "
+"processes should acknowledge a completely processed buffer as quickly as "
+"possible, returning it for reuse, and not block waiting on a second buffer "
+"while holding another buffer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:268
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:272
+msgid "The E<.Xr ioctl 2> command codes below are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/bpf.4:272 /usr/src/share/man/man4/bpf.4:326 /usr/src/share/man/man4/bpf.4:467 /usr/src/share/man/man4/bpf.4:783
+#, no-wrap
+msgid "net/bpf.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:275
+msgid "All commands require these includes:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:280
+#, no-wrap
+msgid ""
+"\t#include E<lt>sys/types.hE<gt>\n"
+"\t#include E<lt>sys/time.hE<gt>\n"
+"\t#include E<lt>sys/ioctl.hE<gt>\n"
+"\t#include E<lt>net/bpf.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:287
+msgid "Additionally, E<.Dv BIOCGETIF> and E<.Dv BIOCSETIF> require"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/bpf.4:287
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:289
+msgid "and"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/bpf.4:289
+#, no-wrap
+msgid "net/if.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:299
+msgid ""
+"In addition to E<.Dv FIONREAD> the following commands may be applied to any "
+"open E<.Nm> file.  The (third) argument to E<.Xr ioctl 2> should be a "
+"pointer to the type indicated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:300
+#, no-wrap
+msgid "Dv BIOCGBLEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:305
+msgid ""
+"E<.Pq Li u_int> Returns the required buffer length for reads on E<.Nm> "
+"files."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:305
+#, no-wrap
+msgid "Dv BIOCSBLEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:318
+msgid ""
+"E<.Pq Li u_int> Sets the buffer length for reads on E<.Nm> files.  The "
+"buffer must be set before the file is attached to an interface with E<.Dv "
+"BIOCSETIF>.  If the requested buffer size cannot be accommodated, the "
+"closest allowable size will be set and returned in the argument.  A read "
+"call will result in E<.Er EIO> if it is passed a buffer that is not this "
+"size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:318
+#, no-wrap
+msgid "Dv BIOCGDLT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:326
+msgid ""
+"E<.Pq Li u_int> Returns the type of the data link layer underlying the "
+"attached interface.  E<.Er EINVAL> is returned if no interface has been "
+"specified.  The device types, prefixed with E<.Dq Li DLT_>, are defined in"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:327
+#, no-wrap
+msgid "Dv BIOCPROMISC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:334
+msgid ""
+"Forces the interface into promiscuous mode.  All packets, not just those "
+"destined for the local host, are processed.  Since more than one file can be "
+"listening on a given interface, a listener that opened its interface "
+"non-promiscuously may receive packets promiscuously.  This problem can be "
+"remedied with an appropriate filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:334
+#, no-wrap
+msgid "Dv BIOCFLUSH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:337
+msgid ""
+"Flushes the buffer of incoming packets, and resets the statistics that are "
+"returned by BIOCGSTATS."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:337
+#, no-wrap
+msgid "Dv BIOCGETIF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:345
+msgid ""
+"E<.Pq Li \"struct ifreq\"> Returns the name of the hardware interface that "
+"the file is listening on.  The name is returned in the ifr_name field of the "
+"E<.Li ifreq> structure.  All other fields are undefined."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:345
+#, no-wrap
+msgid "Dv BIOCSETIF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:357
+msgid ""
+"E<.Pq Li \"struct ifreq\"> Sets the hardware interface associate with the "
+"file.  This command must be performed before any packets can be read.  The "
+"device is indicated by name using the E<.Li ifr_name> field of the E<.Li "
+"ifreq> structure.  Additionally, performs the actions of E<.Dv BIOCFLUSH>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:357
+#, no-wrap
+msgid "Dv BIOCSRTIMEOUT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:358
+#, no-wrap
+msgid "Dv BIOCGRTIMEOUT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:367
+msgid ""
+"E<.Pq Li \"struct timeval\"> Set or get the read timeout parameter.  The "
+"argument specifies the length of time to wait before timing out on a read "
+"request.  This parameter is initialized to zero by E<.Xr open 2>, indicating "
+"no timeout."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:367
+#, no-wrap
+msgid "Dv BIOCGSTATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:370
+msgid ""
+"E<.Pq Li \"struct bpf_stat\"> Returns the following structure of packet "
+"statistics:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:375
+#, no-wrap
+msgid ""
+"struct bpf_stat {\n"
+"\tu_int bs_recv;    /* number of packets received */\n"
+"\tu_int bs_drop;    /* number of packets dropped */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:378
+msgid "The fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:379
+#, no-wrap
+msgid "Li bs_recv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:383
+msgid ""
+"the number of packets received by the descriptor since opened or reset "
+"(including any buffered since the last read call); and"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:383
+#, no-wrap
+msgid "Li bs_drop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:387
+msgid ""
+"the number of packets which were accepted by the filter but dropped by the "
+"kernel because of buffer overflows (i.e., the application's reads are not "
+"keeping up with the packet traffic)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:388
+#, no-wrap
+msgid "Dv BIOCIMMEDIATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:401
+msgid ""
+"E<.Pq Li u_int> Enable or disable E<.Dq immediate mode>, based on the truth "
+"value of the argument.  When immediate mode is enabled, reads return "
+"immediately upon packet reception.  Otherwise, a read will block until "
+"either the kernel buffer becomes full or a timeout occurs.  This is useful "
+"for programs like E<.Xr rarpd 8> which must respond to messages in real "
+"time.  The default for a new file is off."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:401
+#, no-wrap
+msgid "Dv BIOCSETF"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:402
+#, no-wrap
+msgid "Dv BIOCSETFNR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:408
+msgid ""
+"E<.Pq Li \"struct bpf_program\"> Sets the read filter program used by the "
+"kernel to discard uninteresting packets.  An array of instructions and its "
+"length is passed in using the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:413
+#, no-wrap
+msgid ""
+"struct bpf_program {\n"
+"\tint bf_len;\n"
+"\tstruct bpf_insn *bf_insns;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:436
+msgid ""
+"The filter program is pointed to by the E<.Li bf_insns> field while its "
+"length in units of E<.Sq Li struct bpf_insn> is given by the E<.Li bf_len> "
+"field.  See section E<.Sx \"FILTER MACHINE\"> for an explanation of the "
+"filter language.  The only difference between E<.Dv BIOCSETF> and E<.Dv "
+"BIOCSETFNR> is E<.Dv BIOCSETF> performs the actions of E<.Dv BIOCFLUSH> "
+"while E<.Dv BIOCSETFNR> does not."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:436
+#, no-wrap
+msgid "Dv BIOCSETWF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:446
+msgid ""
+"E<.Pq Li \"struct bpf_program\"> Sets the write filter program used by the "
+"kernel to control what type of packets can be written to the interface.  See "
+"the E<.Dv BIOCSETF> command for more information on the E<.Nm> filter "
+"program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:446
+#, no-wrap
+msgid "Dv BIOCVERSION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:455
+msgid ""
+"E<.Pq Li \"struct bpf_version\"> Returns the major and minor version numbers "
+"of the filter language currently recognized by the kernel.  Before "
+"installing a filter, applications must check that the current version is "
+"compatible with the running kernel.  Version numbers are compatible if the "
+"major numbers match and the application minor is less than or equal to the "
+"kernel minor.  The kernel version number is returned in the following "
+"structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:460
+#, no-wrap
+msgid ""
+"struct bpf_version {\n"
+"        u_short bv_major;\n"
+"        u_short bv_minor;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:467
+msgid ""
+"The current version numbers are given by E<.Dv BPF_MAJOR_VERSION> and E<.Dv "
+"BPF_MINOR_VERSION> from"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:472
+msgid ""
+"An incompatible filter may result in undefined behavior (most likely, an "
+"error returned by E<.Fn ioctl> or haphazard packet matching)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:472
+#, no-wrap
+msgid "Dv BIOCSHDRCMPLT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:473
+#, no-wrap
+msgid "Dv BIOCGHDRCMPLT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:483
+msgid ""
+"E<.Pq Li u_int> Set or get the status of the E<.Dq header complete> flag.  "
+"Set to zero if the link level source address should be filled in "
+"automatically by the interface output routine.  Set to one if the link level "
+"source address will be written, as provided, to the wire.  This flag is "
+"initialized to zero by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:483
+#, no-wrap
+msgid "Dv BIOCSSEESENT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:484
+#, no-wrap
+msgid "Dv BIOCGSEESENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:497
+msgid ""
+"E<.Pq Li u_int> These commands are obsolete but left for compatibility.  Use "
+"E<.Dv BIOCSDIRECTION> and E<.Dv BIOCGDIRECTION> instead.  Set or get the "
+"flag determining whether locally generated packets on the interface should "
+"be returned by BPF.  Set to zero to see only incoming packets on the "
+"interface.  Set to one to see packets originating locally and remotely on "
+"the interface.  This flag is initialized to one by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:497
+#, no-wrap
+msgid "Dv BIOCSDIRECTION"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:498
+#, no-wrap
+msgid "Dv BIOCGDIRECTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:514
+msgid ""
+"E<.Pq Li u_int> Set or get the setting determining whether incoming, "
+"outgoing, or all packets on the interface should be returned by BPF.  Set to "
+"E<.Dv BPF_D_IN> to see only incoming packets on the interface.  Set to E<.Dv "
+"BPF_D_INOUT> to see packets originating locally and remotely on the "
+"interface.  Set to E<.Dv BPF_D_OUT> to see only outgoing packets on the "
+"interface.  This setting is initialized to E<.Dv BPF_D_INOUT> by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:514
+#, no-wrap
+msgid "Dv BIOCSTSTAMP"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:515
+#, no-wrap
+msgid "Dv BIOCGTSTAMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:572
+msgid ""
+"E<.Pq Li u_int> Set or get format and resolution of the time stamps returned "
+"by BPF.  Set to E<.Dv BPF_T_MICROTIME>, E<.Dv BPF_T_MICROTIME_FAST>, E<.Dv "
+"BPF_T_MICROTIME_MONOTONIC>, or E<.Dv BPF_T_MICROTIME_MONOTONIC_FAST> to get "
+"time stamps in 64-bit E<.Vt struct timeval> format.  Set to E<.Dv "
+"BPF_T_NANOTIME>, E<.Dv BPF_T_NANOTIME_FAST>, E<.Dv "
+"BPF_T_NANOTIME_MONOTONIC>, or E<.Dv BPF_T_NANOTIME_MONOTONIC_FAST> to get "
+"time stamps in 64-bit E<.Vt struct timespec> format.  Set to E<.Dv "
+"BPF_T_BINTIME>, E<.Dv BPF_T_BINTIME_FAST>, E<.Dv BPF_T_NANOTIME_MONOTONIC>, "
+"or E<.Dv BPF_T_BINTIME_MONOTONIC_FAST> to get time stamps in 64-bit E<.Vt "
+"struct bintime> format.  Set to E<.Dv BPF_T_NONE> to ignore time stamp.  All "
+"64-bit time stamp formats are wrapped in E<.Vt struct bpf_ts>.  The E<.Dv "
+"BPF_T_MICROTIME_FAST>, E<.Dv BPF_T_NANOTIME_FAST>, E<.Dv "
+"BPF_T_BINTIME_FAST>, E<.Dv BPF_T_MICROTIME_MONOTONIC_FAST>, E<.Dv "
+"BPF_T_NANOTIME_MONOTONIC_FAST>, and E<.Dv BPF_T_BINTIME_MONOTONIC_FAST> are "
+"analogs of corresponding formats without _FAST suffix but do not perform a "
+"full time counter query, so their accuracy is one timer tick.  The E<.Dv "
+"BPF_T_MICROTIME_MONOTONIC>, E<.Dv BPF_T_NANOTIME_MONOTONIC>, E<.Dv "
+"BPF_T_BINTIME_MONOTONIC>, E<.Dv BPF_T_MICROTIME_MONOTONIC_FAST>, E<.Dv "
+"BPF_T_NANOTIME_MONOTONIC_FAST>, and E<.Dv BPF_T_BINTIME_MONOTONIC_FAST> "
+"store the time elapsed since kernel boot.  This setting is initialized to "
+"E<.Dv BPF_T_MICROTIME> by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:572
+#, no-wrap
+msgid "Dv BIOCFEEDBACK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:582
+msgid ""
+"E<.Pq Li u_int> Set packet feedback mode.  This allows injected packets to "
+"be fed back as input to the interface when output via the interface is "
+"successful.  When E<.Dv BPF_D_INOUT> direction is set, injected outgoing "
+"packet is not returned by BPF to avoid duplication.  This flag is "
+"initialized to zero by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:582
+#, no-wrap
+msgid "Dv BIOCLOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:589
+msgid ""
+"Set the locked flag on the E<.Nm> descriptor.  This prevents the execution "
+"of ioctl commands which could change the underlying operating parameters of "
+"the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:589
+#, no-wrap
+msgid "Dv BIOCGETBUFMODE"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:590
+#, no-wrap
+msgid "Dv BIOCSETBUFMODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:599
+msgid ""
+"E<.Pq Li u_int> Get or set the current E<.Nm> buffering mode; possible "
+"values are E<.Dv BPF_BUFMODE_BUFFER>, buffered read mode, and E<.Dv "
+"BPF_BUFMODE_ZBUF>, zero-copy buffer mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:599
+#, no-wrap
+msgid "Dv BIOCSETZBUF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:613
+msgid ""
+"E<.Pq Li struct bpf_zbuf> Set the current zero-copy buffer locations; buffer "
+"locations may be set only once zero-copy buffer mode has been selected, and "
+"prior to attaching to an interface.  Buffers must be of identical size, "
+"page-aligned, and an integer multiple of pages in size.  The three fields "
+"E<.Vt bz_bufa>, E<.Vt bz_bufb>, and E<.Vt bz_buflen> must be filled out.  If "
+"buffers have already been set for this device, the ioctl will fail."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:613
+#, no-wrap
+msgid "Dv BIOCGETZMAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:622
+msgid ""
+"E<.Pq Li size_t> Get the largest individual zero-copy buffer size allowed.  "
+"As two buffers are used in zero-copy buffer mode, the limit (in practice) is "
+"twice the returned size.  As zero-copy buffers consume kernel address space, "
+"conservative selection of buffer size is suggested, especially when there "
+"are multiple E<.Nm> descriptors in use on 32-bit systems."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:622
+#, no-wrap
+msgid "Dv BIOCROTZBUF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:633
+msgid ""
+"Force ownership of the next buffer to be assigned to userspace, if any data "
+"present in the buffer.  If no data is present, the buffer will remain owned "
+"by the kernel.  This allows consumers of zero-copy buffering to implement "
+"timeouts and retrieve partially filled buffers.  In order to handle the case "
+"where no data is present in the buffer and therefore ownership is not "
+"assigned, the user process must check E<.Vt bzh_kernel_gen> against E<.Vt "
+"bzh_user_gen>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:634
+#, no-wrap
+msgid "BPF HEADER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:638
+msgid ""
+"One of the following structures is prepended to each packet returned by "
+"E<.Xr read 2> or via a zero-copy buffer:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:646
+#, no-wrap
+msgid ""
+"struct bpf_xhdr {\n"
+"\tstruct bpf_ts\tbh_tstamp;     /* time stamp */\n"
+"\tuint32_t\tbh_caplen;     /* length of captured portion */\n"
+"\tuint32_t\tbh_datalen;    /* original length of packet */\n"
+"\tu_short\t\tbh_hdrlen;     /* length of bpf header (this struct\n"
+"\t\t\t\t\t  plus alignment padding) */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:654
+#, no-wrap
+msgid ""
+"struct bpf_hdr {\n"
+"\tstruct timeval\tbh_tstamp;     /* time stamp */\n"
+"\tuint32_t\tbh_caplen;     /* length of captured portion */\n"
+"\tuint32_t\tbh_datalen;    /* original length of packet */\n"
+"\tu_short\t\tbh_hdrlen;     /* length of bpf header (this struct\n"
+"\t\t\t\t\t  plus alignment padding) */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:657
+msgid "The fields, whose values are stored in host order, and are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:659
+#, no-wrap
+msgid "Li bh_tstamp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:661
+msgid "The time at which the packet was processed by the packet filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:661
+#, no-wrap
+msgid "Li bh_caplen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:665
+msgid ""
+"The length of the captured portion of the packet.  This is the minimum of "
+"the truncation amount specified by the filter and the length of the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:665
+#, no-wrap
+msgid "Li bh_datalen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:668
+msgid ""
+"The length of the packet off the wire.  This value is independent of the "
+"truncation amount specified by the filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:668
+#, no-wrap
+msgid "Li bh_hdrlen"
+msgstr ""
+
+#.  XXX - not really a function call
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:676
+msgid ""
+"The length of the E<.Nm> header, which may not be equal to E<.Fn sizeof "
+"\"struct bpf_xhdr\"> or E<.Fn sizeof \"struct bpf_hdr\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:712
+msgid ""
+"The E<.Li bh_hdrlen> field exists to account for padding between the header "
+"and the link level protocol.  The purpose here is to guarantee proper "
+"alignment of the packet data structures, which is required on alignment "
+"sensitive architectures and improves performance on many other "
+"architectures.  The packet filter ensures that the E<.Vt bpf_xhdr>, E<.Vt "
+"bpf_hdr> and the network layer header will be word aligned.  Currently, "
+"E<.Vt bpf_hdr> is used when the time stamp is set to E<.Dv BPF_T_MICROTIME>, "
+"E<.Dv BPF_T_MICROTIME_FAST>, E<.Dv BPF_T_MICROTIME_MONOTONIC>, E<.Dv "
+"BPF_T_MICROTIME_MONOTONIC_FAST>, or E<.Dv BPF_T_NONE> for backward "
+"compatibility reasons.  Otherwise, E<.Vt bpf_xhdr> is used.  However, E<.Vt "
+"bpf_hdr> may be deprecated in the near future.  Suitable precautions must be "
+"taken when accessing the link layer protocol fields on alignment restricted "
+"machines.  (This is not a problem on an Ethernet, since the type field is a "
+"short falling on an even offset, and the addresses are probably accessed in "
+"a bytewise fashion)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:720
+msgid ""
+"Additionally, individual packets are padded so that each starts on a word "
+"boundary.  This requires that an application has some knowledge of how to "
+"get from packet to packet.  The macro E<.Dv BPF_WORDALIGN> is defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/bpf.4:720
+#, no-wrap
+msgid "net/bpf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:726
+msgid ""
+"to facilitate this process.  It rounds up its argument to the nearest word "
+"aligned value (where a word is E<.Dv BPF_ALIGNMENT> bytes wide)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:731
+msgid ""
+"For example, if E<.Sq Li p> points to the start of a packet, this expression "
+"will advance it to the next packet:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/bpf.4:731
+#, no-wrap
+msgid "p = (char *)p + BPF_WORDALIGN(p-E<gt>bh_hdrlen + p-E<gt>bh_caplen)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:741
+msgid ""
+"For the alignment mechanisms to work properly, the buffer passed to E<.Xr "
+"read 2> must itself be word aligned.  The E<.Xr malloc 3> function will "
+"always return an aligned buffer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:741
+#, no-wrap
+msgid "FILTER MACHINE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:749
+msgid ""
+"A filter program is an array of instructions, with all branches forwardly "
+"directed, terminated by a E<.Em return> instruction.  Each instruction "
+"performs some action on the pseudo-machine state, which consists of an "
+"accumulator, index register, scratch memory store, and implicit program "
+"counter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:751
+msgid "The following structure defines the instruction format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:758
+#, no-wrap
+msgid ""
+"struct bpf_insn {\n"
+"\tu_short\tcode;\n"
+"\tu_char \tjt;\n"
+"\tu_char \tjf;\n"
+"\tu_long k;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:783
+msgid ""
+"The E<.Li k> field is used in different ways by different instructions, and "
+"the E<.Li jt> and E<.Li jf> fields are used as offsets by the branch "
+"instructions.  The opcodes are encoded in a semi-hierarchical fashion.  "
+"There are eight classes of instructions: E<.Dv BPF_LD>, E<.Dv BPF_LDX>, "
+"E<.Dv BPF_ST>, E<.Dv BPF_STX>, E<.Dv BPF_ALU>, E<.Dv BPF_JMP>, E<.Dv "
+"BPF_RET>, and E<.Dv BPF_MISC>.  Various other mode and operator bits are "
+"or'd into the class to give the actual instructions.  The classes and modes "
+"are defined in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:808
+msgid ""
+"Below are the semantics for each defined E<.Nm> instruction.  We use the "
+"convention that A is the accumulator, X is the index register, P[] packet "
+"data, and M[] scratch memory store.  P[i:n] gives the data at byte offset "
+"E<.Dq i> in the packet, interpreted as a word (n=4), unsigned halfword "
+"(n=2), or unsigned byte (n=1).  M[i] gives the i'th word in the scratch "
+"memory store, which is only addressed in word units.  The memory store is "
+"indexed from 0 to E<.Dv BPF_MEMWORDS> - 1.  E<.Li k>, E<.Li jt>, and E<.Li "
+"jf> are the corresponding fields in the instruction definition.  E<.Dq len> "
+"refers to the length of the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:809
+#, no-wrap
+msgid "Dv BPF_LD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:836
+msgid ""
+"These instructions copy a value into the accumulator.  The type of the "
+"source operand is specified by an E<.Dq addressing mode> and can be a "
+"constant E<.Pq Dv BPF_IMM>, packet data at a fixed offset E<.Pq Dv BPF_ABS>, "
+"packet data at a variable offset E<.Pq Dv BPF_IND>, the packet length E<.Pq "
+"Dv BPF_LEN>, or a word in the scratch memory store E<.Pq Dv BPF_MEM>.  For "
+"E<.Dv BPF_IND> and E<.Dv BPF_ABS>, the data size must be specified as a word "
+"E<.Pq Dv BPF_W>, halfword E<.Pq Dv BPF_H>, or byte E<.Pq Dv BPF_B>.  The "
+"semantics of all the recognized E<.Dv BPF_LD> instructions follow."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:846
+#, no-wrap
+msgid ""
+"BPF_LD+BPF_W+BPF_ABS\tA E<lt>- P[k:4]\n"
+"BPF_LD+BPF_H+BPF_ABS\tA E<lt>- P[k:2]\n"
+"BPF_LD+BPF_B+BPF_ABS\tA E<lt>- P[k:1]\n"
+"BPF_LD+BPF_W+BPF_IND\tA E<lt>- P[X+k:4]\n"
+"BPF_LD+BPF_H+BPF_IND\tA E<lt>- P[X+k:2]\n"
+"BPF_LD+BPF_B+BPF_IND\tA E<lt>- P[X+k:1]\n"
+"BPF_LD+BPF_W+BPF_LEN\tA E<lt>- len\n"
+"BPF_LD+BPF_IMM\t\tA E<lt>- k\n"
+"BPF_LD+BPF_MEM\t\tA E<lt>- M[k]\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:847
+#, no-wrap
+msgid "Dv BPF_LDX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:854
+msgid ""
+"These instructions load a value into the index register.  Note that the "
+"addressing modes are more restrictive than those of the accumulator loads, "
+"but they include E<.Dv BPF_MSH>, a hack for efficiently loading the IP "
+"header length."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:859
+#, no-wrap
+msgid ""
+"BPF_LDX+BPF_W+BPF_IMM\tX E<lt>- k\n"
+"BPF_LDX+BPF_W+BPF_MEM\tX E<lt>- M[k]\n"
+"BPF_LDX+BPF_W+BPF_LEN\tX E<lt>- len\n"
+"BPF_LDX+BPF_B+BPF_MSH\tX E<lt>- 4*(P[k:1]&0xf)\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:860
+#, no-wrap
+msgid "Dv BPF_ST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:864
+msgid ""
+"This instruction stores the accumulator into the scratch memory.  We do not "
+"need an addressing mode since there is only one possibility for the "
+"destination."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:866
+#, no-wrap
+msgid "BPF_ST\t\t\tM[k] E<lt>- A\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:867
+#, no-wrap
+msgid "Dv BPF_STX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:869
+msgid "This instruction stores the index register in the scratch memory store."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:871
+#, no-wrap
+msgid "BPF_STX\t\t\tM[k] E<lt>- X\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:872
+#, no-wrap
+msgid "Dv BPF_ALU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:879
+msgid ""
+"The alu instructions perform operations between the accumulator and index "
+"register or constant, and store the result back in the accumulator.  For "
+"binary operations, a source mode is required E<.Dv ( BPF_K> or E<.Dv "
+"BPF_X>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:901
+#, no-wrap
+msgid ""
+"BPF_ALU+BPF_ADD+BPF_K\tA E<lt>- A + k\n"
+"BPF_ALU+BPF_SUB+BPF_K\tA E<lt>- A - k\n"
+"BPF_ALU+BPF_MUL+BPF_K\tA E<lt>- A * k\n"
+"BPF_ALU+BPF_DIV+BPF_K\tA E<lt>- A / k\n"
+"BPF_ALU+BPF_MOD+BPF_K\tA E<lt>- A % k\n"
+"BPF_ALU+BPF_AND+BPF_K\tA E<lt>- A & k\n"
+"BPF_ALU+BPF_OR+BPF_K\tA E<lt>- A | k\n"
+"BPF_ALU+BPF_XOR+BPF_K\tA E<lt>- A ^ k\n"
+"BPF_ALU+BPF_LSH+BPF_K\tA E<lt>- A E<lt>E<lt> k\n"
+"BPF_ALU+BPF_RSH+BPF_K\tA E<lt>- A E<gt>E<gt> k\n"
+"BPF_ALU+BPF_ADD+BPF_X\tA E<lt>- A + X\n"
+"BPF_ALU+BPF_SUB+BPF_X\tA E<lt>- A - X\n"
+"BPF_ALU+BPF_MUL+BPF_X\tA E<lt>- A * X\n"
+"BPF_ALU+BPF_DIV+BPF_X\tA E<lt>- A / X\n"
+"BPF_ALU+BPF_MOD+BPF_X\tA E<lt>- A % X\n"
+"BPF_ALU+BPF_AND+BPF_X\tA E<lt>- A & X\n"
+"BPF_ALU+BPF_OR+BPF_X\tA E<lt>- A | X\n"
+"BPF_ALU+BPF_XOR+BPF_X\tA E<lt>- A ^ X\n"
+"BPF_ALU+BPF_LSH+BPF_X\tA E<lt>- A E<lt>E<lt> X\n"
+"BPF_ALU+BPF_RSH+BPF_X\tA E<lt>- A E<gt>E<gt> X\n"
+"BPF_ALU+BPF_NEG\t\tA E<lt>- -A\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:902
+#, no-wrap
+msgid "Dv BPF_JMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:918
+msgid ""
+"The jump instructions alter flow of control.  Conditional jumps compare the "
+"accumulator against a constant E<.Pq Dv BPF_K> or the index register E<.Pq "
+"Dv BPF_X>.  If the result is true (or non-zero), the true branch is taken, "
+"otherwise the false branch is taken.  Jump offsets are encoded in 8 bits so "
+"the longest jump is 256 instructions.  However, the jump always E<.Pq Dv "
+"BPF_JA> opcode uses the 32 bit E<.Li k> field as the offset, allowing "
+"arbitrarily distant destinations.  All conditionals use unsigned comparison "
+"conventions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:928
+#, no-wrap
+msgid ""
+"BPF_JMP+BPF_JA\t\tpc += k\n"
+"BPF_JMP+BPF_JGT+BPF_K\tpc += (A E<gt> k) ? jt : jf\n"
+"BPF_JMP+BPF_JGE+BPF_K\tpc += (A E<gt>= k) ? jt : jf\n"
+"BPF_JMP+BPF_JEQ+BPF_K\tpc += (A == k) ? jt : jf\n"
+"BPF_JMP+BPF_JSET+BPF_K\tpc += (A & k) ? jt : jf\n"
+"BPF_JMP+BPF_JGT+BPF_X\tpc += (A E<gt> X) ? jt : jf\n"
+"BPF_JMP+BPF_JGE+BPF_X\tpc += (A E<gt>= X) ? jt : jf\n"
+"BPF_JMP+BPF_JEQ+BPF_X\tpc += (A == X) ? jt : jf\n"
+"BPF_JMP+BPF_JSET+BPF_X\tpc += (A & X) ? jt : jf\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:929
+#, no-wrap
+msgid "Dv BPF_RET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:937
+msgid ""
+"The return instructions terminate the filter program and specify the amount "
+"of packet to accept (i.e., they return the truncation amount).  A return "
+"value of zero indicates that the packet should be ignored.  The return value "
+"is either a constant E<.Pq Dv BPF_K> or the accumulator E<.Pq Dv BPF_A>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:940
+#, no-wrap
+msgid ""
+"BPF_RET+BPF_A\t\taccept A bytes\n"
+"BPF_RET+BPF_K\t\taccept k bytes\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:941
+#, no-wrap
+msgid "Dv BPF_MISC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:947
+msgid ""
+"The miscellaneous category was created for anything that does not fit into "
+"the above classes, and for any new instructions that might need to be "
+"added.  Currently, these are the register transfer instructions that copy "
+"the index register to the accumulator or vice versa."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:950
+#, no-wrap
+msgid ""
+"BPF_MISC+BPF_TAX\tX E<lt>- A\n"
+"BPF_MISC+BPF_TXA\tA E<lt>- X\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:960
+msgid ""
+"The E<.Nm> interface provides the following macros to facilitate array "
+"initializers: E<.Fn BPF_STMT opcode operand> and E<.Fn BPF_JUMP opcode "
+"operand true_offset false_offset>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:960
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:966
+msgid ""
+"A set of E<.Xr sysctl 8> variables controls the behaviour of the E<.Nm> "
+"subsystem"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:967
+#, no-wrap
+msgid "Va net.bpf.optimize_writers: No 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:976
+msgid ""
+"Various programs use BPF to send (but not receive) raw packets (cdpd, lldpd, "
+"dhcpd, dhcp relays, etc. are good examples of such programs).  They do not "
+"need incoming packets to be send to them.  Turning this option on makes new "
+"BPF users to be attached to write-only interface list until program "
+"explicitly specifies read filter via E<.Fn pcap_set_filter>.  This removes "
+"any performance degradation for high-speed interfaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:976
+#, no-wrap
+msgid "Va net.bpf.stats:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:978
+msgid "Binary interface for retrieving general statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:978
+#, no-wrap
+msgid "Va net.bpf.zerocopy_enable: No 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:981
+msgid "Permits zero-copy to be used with net BPF readers.  Use with caution."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:981
+#, no-wrap
+msgid "Va net.bpf.maxinsns: No 512"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:987
+msgid ""
+"Maximum number of instructions that BPF program can contain.  Use E<.Xr "
+"tcpdump 1> E<.Fl d> option to determine approximate number of instruction "
+"for any filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:987
+#, no-wrap
+msgid "Va net.bpf.maxbufsize: No 524288"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:989
+msgid "Maximum buffer size to allocate for packets buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bpf.4:989
+#, no-wrap
+msgid "Va net.bpf.bufsize: No 4096"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:991
+msgid "Default buffer size to allocate for packets buffer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:992
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:995
+msgid ""
+"The following filter is taken from the Reverse ARP Daemon.  It accepts only "
+"Reverse ARP requests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1005
+#, no-wrap
+msgid ""
+"struct bpf_insn insns[] = {\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_ABS, 12),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, ETHERTYPE_REVARP, 0, 3),\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_ABS, 20),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, REVARP_REQUEST, 0, 1),\n"
+"\tBPF_STMT(BPF_RET+BPF_K, sizeof(struct ether_arp) +\n"
+"\t\t sizeof(struct ether_header)),\n"
+"\tBPF_STMT(BPF_RET+BPF_K, 0),\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1009
+msgid ""
+"This filter accepts only IP packets between host 128.3.112.15 and "
+"128.3.112.35."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1023
+#, no-wrap
+msgid ""
+"struct bpf_insn insns[] = {\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_ABS, 12),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, ETHERTYPE_IP, 0, 8),\n"
+"\tBPF_STMT(BPF_LD+BPF_W+BPF_ABS, 26),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, 0x8003700f, 0, 2),\n"
+"\tBPF_STMT(BPF_LD+BPF_W+BPF_ABS, 30),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, 0x80037023, 3, 4),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, 0x80037023, 0, 3),\n"
+"\tBPF_STMT(BPF_LD+BPF_W+BPF_ABS, 30),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, 0x8003700f, 0, 1),\n"
+"\tBPF_STMT(BPF_RET+BPF_K, (u_int)-1),\n"
+"\tBPF_STMT(BPF_RET+BPF_K, 0),\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1032
+msgid ""
+"Finally, this filter returns only TCP finger packets.  We must parse the IP "
+"header to reach the TCP header.  The E<.Dv BPF_JSET> instruction checks that "
+"the IP fragment offset is 0 so we are sure that we have a TCP header."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1048
+#, no-wrap
+msgid ""
+"struct bpf_insn insns[] = {\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_ABS, 12),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, ETHERTYPE_IP, 0, 10),\n"
+"\tBPF_STMT(BPF_LD+BPF_B+BPF_ABS, 23),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, IPPROTO_TCP, 0, 8),\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_ABS, 20),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JSET+BPF_K, 0x1fff, 6, 0),\n"
+"\tBPF_STMT(BPF_LDX+BPF_B+BPF_MSH, 14),\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_IND, 14),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, 79, 2, 0),\n"
+"\tBPF_STMT(BPF_LD+BPF_H+BPF_IND, 16),\n"
+"\tBPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, 79, 0, 1),\n"
+"\tBPF_STMT(BPF_RET+BPF_K, (u_int)-1),\n"
+"\tBPF_STMT(BPF_RET+BPF_K, 0),\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:1049
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1063
+msgid ""
+"E<.Xr tcpdump 1>, E<.Xr ioctl 2>, E<.Xr kqueue 2>, E<.Xr poll 2>, E<.Xr "
+"select 2>, E<.Xr byteorder 3>, E<.Xr ng_bpf 4>, E<.Xr bpf 9> E<.Rs> E<.%A "
+"McCanne, S.> E<.%A Jacobson V.> E<.%T \"An efficient, extensible, and "
+"portable network monitor\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:1063
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1080
+msgid ""
+"The Enet packet filter was created in 1980 by Mike Accetta and Rick Rashid "
+"at Carnegie-Mellon University.  Jeffrey Mogul, at Stanford, ported the code "
+"to E<.Bx> and continued its development from 1983 on.  Since then, it has "
+"evolved into the Ultrix Packet Filter at E<.Tn DEC>, a E<.Tn STREAMS> E<.Tn "
+"NIT> module under E<.Tn SunOS 4.1>, and E<.Tn BPF>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:1080
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1087
+msgid ""
+"E<.An -nosplit> E<.An Steven McCanne>, of Lawrence Berkeley Laboratory, "
+"implemented BPF in Summer 1990.  Much of the design is due to E<.An Van "
+"Jacobson>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1091
+msgid ""
+"Support for zero-copy buffers was added by E<.An Robert N. M. Watson> under "
+"contract to Seccuris Inc."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bpf.4:1091
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1095
+msgid ""
+"The read buffer must be of a fixed size (returned by the E<.Dv BIOCGBLEN> "
+"ioctl)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1103
+msgid ""
+"A file that does not request promiscuous mode may receive promiscuously "
+"received packets as a side effect of another file requesting this mode on "
+"the same hardware interface.  This could be fixed in the kernel with "
+"additional processing overhead.  However, we favor the model where all files "
+"must assume that the interface is promiscuous, and if so desired, must "
+"utilize a filter to reject foreign packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1105
+msgid ""
+"Data link protocols with variable length headers are not currently "
+"supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bpf.4:1115
+msgid ""
+"The E<.Dv SEESENT>, E<.Dv DIRECTION>, and E<.Dv FEEDBACK> settings have been "
+"observed to work incorrectly on some interface types, including those with "
+"hardware loopback rather than software loopback, and point-to-point "
+"interfaces.  They appear to function correctly on a broad range of "
+"Ethernet-style interfaces."
+msgstr ""

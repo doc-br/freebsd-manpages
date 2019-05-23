@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_input.9:29
+#, no-wrap
+msgid "August 4, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_input.9:30
+#, no-wrap
+msgid "IEEE80211_INPUT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_input.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:34
+msgid "E<.Nm ieee80211_input>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_input.9:34
+#, no-wrap
+msgid "software 802.11 stack input functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_input.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_input.9:36
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:51
+msgid ""
+"E<.Ft void> E<.Fo ieee80211_input> E<.Fa \"struct ieee80211_node *\"> E<.Fa "
+"\"struct mbuf *\"> E<.Fa \"int rssi\"> E<.Fa \"int noise\"> E<.Fc> E<.Ft "
+"void> E<.Fo ieee80211_input_all> E<.Fa \"struct ieee80211com *\"> E<.Fa "
+"\"struct mbuf *\"> E<.Fa \"int rssi\"> E<.Fa \"int noise\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_input.9:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:64
+msgid ""
+"The E<.Nm net80211> layer that supports 802.11 device drivers requires that "
+"receive processing be single-threaded.  Typically this is done using a "
+"dedicated driver E<.Xr taskqueue 9> thread.  E<.Fn ieee80211_input> and "
+"E<.Fn ieee80211_input_all> process received 802.11 frames and are designed "
+"for use in that context; e.g. no driver locks may be held."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:76
+msgid ""
+"The frame passed up in the E<.Vt mbuf> must have the 802.11 protocol header "
+"at the front; all device-specific information and/or PLCP must be removed.  "
+"Any CRC must be stripped from the end of the frame.  The 802.11 protocol "
+"header should be 32-bit aligned for optimal performance but receive "
+"processing does not require it.  If the frame holds a payload and that is "
+"not aligned to a 32-bit boundary then the payload will be re-aligned so that "
+"it is suitable for processing by protocols such as E<.Xr ip 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:84
+msgid ""
+"If a device (such as E<.Xr ath 4>)  inserts padding after the 802.11 header "
+"to align the payload to a 32-bit boundary the E<.Dv IEEE80211_C_DATAPAD> "
+"capability must be set.  Otherwise header and payload are assumed contiguous "
+"in the mbuf chain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:99
+msgid ""
+"If a received frame must pass through the A-MPDU receive reorder buffer then "
+"the mbuf must be marked with the E<.Dv M_AMPDU> flag.  Note that for the "
+"moment this is required of all frames received from a station and TID where "
+"a Block ACK stream is active, not just A-MPDU aggregates.  It is sufficient "
+"to check for E<.Dv IEEE80211_NODE_HT> in the E<.Vt ni_flags> of the "
+"station's node table entry, any frames that do not require reorder "
+"processing will be dispatched with only minimal overhead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:115
+msgid ""
+"The E<.Vt rssi> parameter is the Receive Signal Strength Indication of the "
+"frame measured in 0.5dBm units relative to the noise floor.  The E<.Vt "
+"noise> parameter is the best approximation of the noise floor in dBm units "
+"at the time the frame was received.  RSSI and noise are used by the E<.Nm "
+"net80211> layer to make scanning and roaming decisions in station mode and "
+"to do auto channel selection for hostap and similar modes.  Otherwise the "
+"values are made available to user applications (with the rssi presented as a "
+"filtered average over the last ten values and the noise floor the last "
+"reported value)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_input.9:115
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_input.9:116
+msgid "E<.Xr ieee80211 9>"
+msgstr ""

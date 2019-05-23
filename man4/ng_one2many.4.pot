@@ -1,0 +1,477 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_one2many.4:37
+#, no-wrap
+msgid "November 13, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_one2many.4:38
+#, no-wrap
+msgid "NG_ONE2MANY 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:42
+msgid "E<.Nm ng_one2many>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_one2many.4:42
+#, no-wrap
+msgid "packet multiplexing netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_one2many.4:44
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_one2many.4:45
+#, no-wrap
+msgid "netgraph/ng_one2many.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:69
+msgid ""
+"The E<.Nm one2many> provides a simple mechanism for routing packets over "
+"several links in a one-to-many (and in the reverse direction, many-to-one) "
+"fashion.  There is a single hook named E<.Dv one>, and multiple hooks named "
+"E<.Dv many0>, E<.Dv many1>, etc.  Packets received on any of the E<.Dv many> "
+"hooks are forwarded out the E<.Dv one> hook.  Packets received on the E<.Dv "
+"one> hook are forwarded out one or more of the E<.Dv many> hooks; which "
+"hook(s) is determined by the node's configured transmit algorithm.  Packets "
+"are not altered in any way."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:74
+msgid ""
+"Each of the connected many links may be considered to be up or down.  "
+"Packets are never delivered out a many hook that is down.  How a link is "
+"determined to be up or down depends on the node's configured link failure "
+"detection algorithm."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:85
+msgid ""
+"Before an interface or link can be plumbed into a group, its status must be "
+"marked as being E<.Dq up>.  This is normally setup during the initial boot "
+"stages by E<.Xr rc.conf 5>.  It is also possible to change an interface's "
+"status to E<.Dq up> by using the E<.Xr ifconfig 8> utility."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:85
+#, no-wrap
+msgid "TRANSMIT ALGORITHMS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:87
+#, no-wrap
+msgid "Dv NG_ONE2MANY_XMIT_ROUNDROBIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:92
+msgid ""
+"Packets are delivered out the many hooks in sequential order.  Each packet "
+"goes out on a different E<.Dv many> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:92
+#, no-wrap
+msgid "Dv NG_ONE2MANY_XMIT_ALL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:99
+msgid ""
+"Packets are delivered out all the E<.Dv many> hooks.  Each packet goes out "
+"each E<.Dv many> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:99
+#, no-wrap
+msgid "Dv NG_ONE2MANY_XMIT_FAILOVER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:103
+msgid "Packets are delivered out the first active E<.Dv many> hook."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:106 /usr/src/share/man/man4/ng_one2many.4:128
+msgid "In the future other algorithms may be added as well."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:106
+#, no-wrap
+msgid "LINK FAILURE DETECTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:110
+msgid ""
+"The node distinguishes between active and failed links.  Data is sent only "
+"to active links.  The following link failure detection algorithms are "
+"available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:111
+#, no-wrap
+msgid "Dv NG_ONE2MANY_FAIL_MANUAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:116
+msgid ""
+"The node is explicitly told which of the links are up via the E<.Dv "
+"NGM_ONE2MANY_SET_CONFIG> control message (see below).  Newly connected links "
+"are down until configured otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:116
+#, no-wrap
+msgid "Dv NG_ONE2MANY_FAIL_NOTIFY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:125
+msgid ""
+"The node listens to flow control message from E<.Va many> hooks, and "
+"considers link failed if E<.Dv NGM_LINK_IS_DOWN> is received.  If the E<.Dv "
+"NGM_LINK_IS_UP> message is received, node considers link active."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:139
+msgid ""
+"When all links are considered failed, node sends the E<.Dv NGM_LINK_IS_DOWN> "
+"message towards the E<.Va one> hook.  When at least one link comes up, node "
+"sends the E<.Dv NGM_LINK_IS_UP> message towards the E<.Va one> hook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:139
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:148
+msgid ""
+"This node type supports up to E<.Dv NG_ONE2MANY_MAX_LINKS> hooks named E<.Dv "
+"many0>, E<.Dv many1>, etc., plus a single hook named E<.Dv one>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:148
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:151
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:152
+#, no-wrap
+msgid "Dv NGM_ONE2MANY_SET_CONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:156
+msgid ""
+"Sets the node configuration using a E<.Dv \"struct "
+"ng_one2many_link_config\"> as the control message argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:163
+#, no-wrap
+msgid ""
+"/* Node configuration structure */\n"
+"struct ng_one2many_config {\n"
+"  uint32_t    xmitAlg;        /* how to distribute packets */\n"
+"  uint32_t    failAlg;        /* how to detect link failure */\n"
+"  u_char      enabledLinks[NG_ONE2MANY_MAX_LINKS];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:177
+msgid ""
+"Currently, the valid settings for the E<.Dv xmitAlg> field are E<.Dv "
+"NG_ONE2MANY_XMIT_ROUNDROBIN> (default) or E<.Dv NG_ONE2MANY_XMIT_ALL>.  The "
+"valid settings for E<.Dv failAlg> are E<.Dv NG_ONE2MANY_FAIL_MANUAL> "
+"(default) or E<.Dv NG_ONE2MANY_FAIL_NOTIFY>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:177
+#, no-wrap
+msgid "Dv NGM_ONE2MANY_GET_CONFIG Pq Ic getconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:180
+msgid ""
+"Returns the current node configuration in a E<.Dv \"struct "
+"ng_one2many_link_config\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:180
+#, no-wrap
+msgid "Dv NGM_ONE2MANY_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:187
+msgid ""
+"This command takes a 32 bit link number as an argument and returns a E<.Dv "
+"\"struct ng_one2many_link_stats\"> containing statistics for the "
+"corresponding E<.Dv many> link, which may or may not be currently connected:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:196
+#, no-wrap
+msgid ""
+"/* Statistics structure (one for each link) */\n"
+"struct ng_one2many_link_stats {\n"
+"  uint64_t   recvOctets;     /* total octets rec'd on link */\n"
+"  uint64_t   recvPackets;    /* total pkts rec'd on link */\n"
+"  uint64_t   xmitOctets;     /* total octets xmit'd on link */\n"
+"  uint64_t   xmitPackets;    /* total pkts xmit'd on link */\n"
+"  uint64_t   memoryFailures; /* times couldn't get mem or mbuf */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:202
+msgid "To access statistics for the E<.Dv one> link, use the link number E<.Dv -1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:202
+#, no-wrap
+msgid "Dv NGM_ONE2MANY_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:205
+msgid ""
+"This command takes a 32 bit link number as an argument and clears the "
+"statistics for that link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_one2many.4:205
+#, no-wrap
+msgid "Dv NGM_ONE2MANY_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:209
+msgid ""
+"Same as E<.Dv NGM_ONE2MANY_GET_STATS>, but also atomically clears the "
+"statistics for the link as well."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:210
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:214
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:214
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:222
+msgid ""
+"The following commands will set up Ethernet interfaces E<.Dv fxp0> to "
+"deliver packets alternating over the physical interfaces corresponding to "
+"networking interfaces E<.Dv fxp0> through E<.Dv fxp3>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:224
+#, no-wrap
+msgid "  # Plumb nodes together\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:230
+#, no-wrap
+msgid ""
+"  ngctl mkpeer fxp0: one2many upper one\n"
+"  ngctl connect fxp0: fxp0:upper lower many0\n"
+"  ngctl connect fxp1: fxp0:upper lower many1\n"
+"  ngctl connect fxp2: fxp0:upper lower many2\n"
+"  ngctl connect fxp3: fxp0:upper lower many3\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:232
+#, no-wrap
+msgid "  # Allow fxp1 through fxp3 to xmit/recv fxp0 frames\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:239
+#, no-wrap
+msgid ""
+"  ngctl msg fxp1: setpromisc 1\n"
+"  ngctl msg fxp2: setpromisc 1\n"
+"  ngctl msg fxp3: setpromisc 1\n"
+"  ngctl msg fxp1: setautosrc 0\n"
+"  ngctl msg fxp2: setautosrc 0\n"
+"  ngctl msg fxp3: setautosrc 0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:241
+#, no-wrap
+msgid "  # Configure all four links as up\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:244
+#, no-wrap
+msgid ""
+"  ngctl msg fxp0:upper \\e\n"
+"    setconfig \"{ xmitAlg=1 failAlg=1 enabledLinks=[ 1 1 1 1 ] }\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:246
+#, no-wrap
+msgid "  # Bring up interface\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:248
+#, no-wrap
+msgid "  ifconfig fxp0 192.168.1.1 netmask 0xfffffffc\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:254
+msgid ""
+"With a similar setup on a peer machine (using the address 192.168.1.2), a "
+"point-to-point Ethernet connection with four times normal bandwidth is "
+"achieved."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:254
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:261
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_bridge 4>, E<.Xr ng_ether 4>, E<.Xr ng_hub 4>, "
+"E<.Xr ifconfig 8>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:261
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:266
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:266
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:274
+msgid ""
+"E<.An -nosplit> The E<.Nm one2many> netgraph node (with round-robin "
+"algorithm) was written by E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>.  The "
+"all algorithm was added by E<.An Rogier R. Mulhuijzen Aq Mt "
+"drwilco@drwilco.net>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_one2many.4:274
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_one2many.4:276
+msgid ""
+"More transmit and link failure algorithms should be supported.  A good "
+"candidate is Cisco's Etherchannel."
+msgstr ""

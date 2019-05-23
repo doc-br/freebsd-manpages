@@ -1,0 +1,1112 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ip.4:31
+#, no-wrap
+msgid "February 22, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ip.4:32
+#, no-wrap
+msgid "IP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:36
+msgid "E<.Nm ip>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ip.4:36
+#, no-wrap
+msgid "Internet Protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ip.4:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ip.4:39
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ip.4:40
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:43
+msgid "E<.Ft int> E<.Fn socket AF_INET SOCK_RAW proto>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:61
+msgid ""
+"E<.Tn IP> is the transport layer protocol used by the Internet protocol "
+"family.  Options may be set at the E<.Tn IP> level when using higher-level "
+"protocols that are based on E<.Tn IP> (such as E<.Tn TCP> and E<.Tn UDP>).  "
+"It may also be accessed through a E<.Dq raw socket> when developing new "
+"protocols, or special-purpose applications."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:88
+msgid ""
+"There are several E<.Tn IP-level> E<.Xr setsockopt 2> and E<.Xr getsockopt "
+"2> options.  E<.Dv IP_OPTIONS> may be used to provide E<.Tn IP> options to "
+"be transmitted in the E<.Tn IP> header of each outgoing packet or to examine "
+"the header options on incoming packets.  E<.Tn IP> options may be used with "
+"any socket type in the Internet family.  The format of E<.Tn IP> options to "
+"be sent is that specified by the E<.Tn IP> protocol specification (RFC-791), "
+"with one exception: the list of addresses for Source Route options must "
+"include the first-hop gateway at the beginning of the list of gateways.  The "
+"first-hop gateway address will be extracted from the option list and the "
+"size adjusted accordingly before use.  To disable previously specified "
+"options, use a zero-length buffer:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:90
+#, no-wrap
+msgid "setsockopt(s, IPPROTO_IP, IP_OPTIONS, NULL, 0);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:104
+msgid ""
+"E<.Dv IP_TOS> and E<.Dv IP_TTL> may be used to set the type-of-service and "
+"time-to-live fields in the E<.Tn IP> header for E<.Dv SOCK_STREAM , "
+"SOCK_DGRAM>, and certain types of E<.Dv SOCK_RAW> sockets.  For example,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:107
+#, no-wrap
+msgid ""
+"int tos = IPTOS_LOWDELAY;       /* see E<lt>netinet/ip.hE<gt> */\n"
+"setsockopt(s, IPPROTO_IP, IP_TOS, &tos, sizeof(tos));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:110
+#, no-wrap
+msgid ""
+"int ttl = 60;                   /* max = 255 */\n"
+"setsockopt(s, IPPROTO_IP, IP_TTL, &ttl, sizeof(ttl));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:119
+msgid ""
+"E<.Dv IP_MINTTL> may be used to set the minimum acceptable TTL a packet must "
+"have when received on a socket.  All packets with a lower TTL are silently "
+"dropped.  This option is only really useful when set to 255, preventing "
+"packets from outside the directly connected networks reaching local "
+"listeners on sockets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:137
+msgid ""
+"E<.Dv IP_DONTFRAG> may be used to set the Don't Fragment flag on IP "
+"packets.  Currently this option is respected only on E<.Xr udp 4> and raw "
+"E<.Nm> sockets, unless the E<.Dv IP_HDRINCL> option has been set.  On E<.Xr "
+"tcp 4> sockets, the Don't Fragment flag is controlled by the Path MTU "
+"Discovery option.  Sending a packet larger than the MTU size of the egress "
+"interface, determined by the destination address, returns an E<.Er EMSGSIZE> "
+"error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:163
+msgid ""
+"If the E<.Dv IP_ORIGDSTADDR> option is enabled on a E<.Dv SOCK_DGRAM> "
+"socket, the E<.Xr recvmsg 2> call will return the destination E<.Tn IP> "
+"address and destination port or a E<.Tn UDP> datagram.  The E<.Vt "
+"msg_control> field in the E<.Vt msghdr> structure points to a buffer that "
+"contains a E<.Vt cmsghdr> structure followed by the E<.Tn in_sockkaddr> "
+"structre.  The E<.Vt cmsghdr> fields have the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:167
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(sizeof(struct in_sockaddr))\n"
+"cmsg_level = IPPROTO_IP\n"
+"cmsg_type = IP_ORIGDSTADDR\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:194
+msgid ""
+"If the E<.Dv IP_RECVDSTADDR> option is enabled on a E<.Dv SOCK_DGRAM> "
+"socket, the E<.Xr recvmsg 2> call will return the destination E<.Tn IP> "
+"address for a E<.Tn UDP> datagram.  The E<.Vt msg_control> field in the "
+"E<.Vt msghdr> structure points to a buffer that contains a E<.Vt cmsghdr> "
+"structure followed by the E<.Tn IP> address.  The E<.Vt cmsghdr> fields have "
+"the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:198
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(sizeof(struct in_addr))\n"
+"cmsg_level = IPPROTO_IP\n"
+"cmsg_type = IP_RECVDSTADDR\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:211
+msgid ""
+"The source address to be used for outgoing E<.Tn UDP> datagrams on a socket "
+"can be specified as ancillary data with a type code of E<.Dv "
+"IP_SENDSRCADDR>.  The msg_control field in the msghdr structure should point "
+"to a buffer that contains a E<.Vt cmsghdr> structure followed by the E<.Tn "
+"IP> address.  The cmsghdr fields should have the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:215
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(sizeof(struct in_addr))\n"
+"cmsg_level = IPPROTO_IP\n"
+"cmsg_type = IP_SENDSRCADDR\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:230
+msgid ""
+"The socket should be either bound to E<.Dv INADDR_ANY> and a local port, and "
+"the address supplied with E<.Dv IP_SENDSRCADDR> should't be E<.Dv "
+"INADDR_ANY>, or the socket should be bound to a local address and the "
+"address supplied with E<.Dv IP_SENDSRCADDR> should be E<.Dv INADDR_ANY>.  In "
+"the latter case bound address is overridden via generic source address "
+"selection logic, which would choose IP address of interface closest to "
+"destination."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:242
+msgid ""
+"For convenience, E<.Dv IP_SENDSRCADDR> is defined to have the same value as "
+"E<.Dv IP_RECVDSTADDR>, so the E<.Dv IP_RECVDSTADDR> control message from "
+"E<.Xr recvmsg 2> can be used directly as a control message for E<.Xr sendmsg "
+"2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:259
+msgid ""
+"If the E<.Dv IP_ONESBCAST> option is enabled on a E<.Dv SOCK_DGRAM> or a "
+"E<.Dv SOCK_RAW> socket, the destination address of outgoing broadcast "
+"datagrams on that socket will be forced to the undirected broadcast address, "
+"E<.Dv INADDR_BROADCAST>, before transmission.  This is in contrast to the "
+"default behavior of the system, which is to transmit undirected broadcasts "
+"via the first network interface with the E<.Dv IFF_BROADCAST> flag set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:266
+msgid ""
+"This option allows applications to choose which interface is used to "
+"transmit an undirected broadcast datagram.  For example, the following code "
+"would force an undirected broadcast to be transmitted via the interface "
+"configured with the broadcast address 192.168.2.255:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:270
+#, no-wrap
+msgid ""
+"char msg[512];\n"
+"struct sockaddr_in sin;\n"
+"int onesbcast = 1;\t/* 0 = disable (default), 1 = enable */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:275
+#, no-wrap
+msgid ""
+"setsockopt(s, IPPROTO_IP, IP_ONESBCAST, &onesbcast, sizeof(onesbcast));\n"
+"sin.sin_addr.s_addr = inet_addr(\"192.168.2.255\");\n"
+"sin.sin_port = htons(1234);\n"
+"sendto(s, msg, sizeof(msg), 0, &sin, sizeof(sin));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:286
+msgid ""
+"It is the application's responsibility to set the E<.Dv IP_TTL> option to an "
+"appropriate value in order to prevent broadcast storms.  The application "
+"must have sufficient credentials to set the E<.Dv SO_BROADCAST> socket level "
+"option, otherwise the E<.Dv IP_ONESBCAST> option has no effect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:303
+msgid ""
+"If the E<.Dv IP_BINDANY> option is enabled on a E<.Dv SOCK_STREAM>, E<.Dv "
+"SOCK_DGRAM> or a E<.Dv SOCK_RAW> socket, one can E<.Xr bind 2> to any "
+"address, even one not bound to any available network interface in the "
+"system.  This functionality (in conjunction with special firewall rules) can "
+"be used for implementing a transparent proxy.  The E<.Dv "
+"PRIV_NETINET_BINDANY> privilege is needed to set this option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:320
+msgid ""
+"If the E<.Dv IP_RECVTTL> option is enabled on a E<.Dv SOCK_DGRAM> socket, "
+"the E<.Xr recvmsg 2> call will return the E<.Tn IP> E<.Tn TTL> (time to "
+"live) field for a E<.Tn UDP> datagram.  The msg_control field in the msghdr "
+"structure points to a buffer that contains a cmsghdr structure followed by "
+"the E<.Tn TTL>.  The cmsghdr fields have the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:324
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(sizeof(u_char))\n"
+"cmsg_level = IPPROTO_IP\n"
+"cmsg_type = IP_RECVTTL\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:343
+msgid ""
+"If the E<.Dv IP_RECVTOS> option is enabled on a E<.Dv SOCK_DGRAM> socket, "
+"the E<.Xr recvmsg 2> call will return the E<.Tn IP> E<.Tn TOS> (type of "
+"service) field for a E<.Tn UDP> datagram.  The msg_control field in the "
+"msghdr structure points to a buffer that contains a cmsghdr structure "
+"followed by the E<.Tn TOS>.  The cmsghdr fields have the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:347
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(sizeof(u_char))\n"
+"cmsg_level = IPPROTO_IP\n"
+"cmsg_type = IP_RECVTOS\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:371
+msgid ""
+"If the E<.Dv IP_RECVIF> option is enabled on a E<.Dv SOCK_DGRAM> socket, the "
+"E<.Xr recvmsg 2> call returns a E<.Vt \"struct sockaddr_dl\"> corresponding "
+"to the interface on which the packet was received.  The E<.Va msg_control> "
+"field in the E<.Vt msghdr> structure points to a buffer that contains a "
+"E<.Vt cmsghdr> structure followed by the E<.Vt \"struct sockaddr_dl\">.  The "
+"E<.Vt cmsghdr> fields have the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:375
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(sizeof(struct sockaddr_dl))\n"
+"cmsg_level = IPPROTO_IP\n"
+"cmsg_type = IP_RECVIF\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:382
+msgid ""
+"E<.Dv IP_PORTRANGE> may be used to set the port range used for selecting a "
+"local port number on a socket with an unspecified (zero) port number.  It "
+"has the following possible values:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:383
+#, no-wrap
+msgid "Dv IP_PORTRANGE_DEFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:392
+msgid ""
+"use the default range of values, normally E<.Dv IPPORT_HIFIRSTAUTO> through "
+"E<.Dv IPPORT_HILASTAUTO>.  This is adjustable through the sysctl setting: "
+"E<.Va net.inet.ip.portrange.first> and E<.Va net.inet.ip.portrange.last>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:392
+#, no-wrap
+msgid "Dv IP_PORTRANGE_HIGH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:401
+msgid ""
+"use a high range of values, normally E<.Dv IPPORT_HIFIRSTAUTO> and E<.Dv "
+"IPPORT_HILASTAUTO>.  This is adjustable through the sysctl setting: E<.Va "
+"net.inet.ip.portrange.hifirst> and E<.Va net.inet.ip.portrange.hilast>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:401
+#, no-wrap
+msgid "Dv IP_PORTRANGE_LOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:415
+msgid ""
+"use a low range of ports, which are normally restricted to privileged "
+"processes on E<.Ux> systems.  The range is normally from E<.Dv "
+"IPPORT_RESERVED> \\- 1 down to E<.Li IPPORT_RESERVEDSTART> in descending "
+"order.  This is adjustable through the sysctl setting: E<.Va "
+"net.inet.ip.portrange.lowfirst> and E<.Va net.inet.ip.portrange.lowlast>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:437
+msgid ""
+"The range of privileged ports which only may be opened by root-owned "
+"processes may be modified by the E<.Va net.inet.ip.portrange.reservedlow> "
+"and E<.Va net.inet.ip.portrange.reservedhigh> sysctl settings.  The values "
+"default to the traditional range, 0 through E<.Dv IPPORT_RESERVED> \\- 1 (0 "
+"through 1023), respectively.  Note that these settings do not affect and are "
+"not accounted for in the use or calculation of the other E<.Va "
+"net.inet.ip.portrange> values above.  Changing these values departs from "
+"E<.Ux> tradition and has security consequences that the administrator should "
+"carefully evaluate before modifying these settings."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:459
+msgid ""
+"Ports are allocated at random within the specified port range in order to "
+"increase the difficulty of random spoofing attacks.  In scenarios such as "
+"benchmarking, this behavior may be undesirable.  In these cases, E<.Va "
+"net.inet.ip.portrange.randomized> can be used to toggle randomization off.  "
+"If more than E<.Va net.inet.ip.portrange.randomcps> ports have been "
+"allocated in the last second, then return to sequential port allocation.  "
+"Return to random allocation only once the current port allocation rate drops "
+"below E<.Va net.inet.ip.portrange.randomcps> for at least E<.Va "
+"net.inet.ip.portrange.randomtime> seconds.  The default values for E<.Va "
+"net.inet.ip.portrange.randomcps> and E<.Va net.inet.ip.portrange.randomtime> "
+"are 10 port allocations per second and 45 seconds correspondingly."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip.4:459
+#, no-wrap
+msgid "Multicast Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:469
+msgid ""
+"E<.Tn IP> multicasting is supported only on E<.Dv AF_INET> sockets of type "
+"E<.Dv SOCK_DGRAM> and E<.Dv SOCK_RAW>, and only on networks where the "
+"interface driver supports multicasting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:475
+msgid ""
+"The E<.Dv IP_MULTICAST_TTL> option changes the time-to-live (TTL)  for "
+"outgoing multicast datagrams in order to control the scope of the "
+"multicasts:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:478
+#, no-wrap
+msgid ""
+"u_char ttl;\t/* range: 0 to 255, default = 1 */\n"
+"setsockopt(s, IPPROTO_IP, IP_MULTICAST_TTL, &ttl, sizeof(ttl));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:487
+msgid ""
+"Datagrams with a TTL of 1 are not forwarded beyond the local network.  "
+"Multicast datagrams with a TTL of 0 will not be transmitted on any network, "
+"but may be delivered locally if the sending host belongs to the destination "
+"group and if multicast loopback has not been disabled on the sending socket "
+"(see below).  Multicast datagrams with TTL greater than 1 may be forwarded "
+"to other networks if a multicast router is attached to the local network."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:495
+msgid ""
+"For hosts with multiple interfaces, where an interface has not been "
+"specified for a multicast group membership, each multicast transmission is "
+"sent from the primary network interface.  The E<.Dv IP_MULTICAST_IF> option "
+"overrides the default for subsequent transmissions from a given socket:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:498
+#, no-wrap
+msgid ""
+"struct in_addr addr;\n"
+"setsockopt(s, IPPROTO_IP, IP_MULTICAST_IF, &addr, sizeof(addr));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:505
+msgid ""
+"where \"addr\" is the local E<.Tn IP> address of the desired interface or "
+"E<.Dv INADDR_ANY> to specify the default interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:514
+msgid ""
+"To specify an interface by index, an instance of E<.Vt ip_mreqn> may be "
+"passed instead.  The E<.Vt imr_ifindex> member should be set to the index of "
+"the desired interface, or 0 to specify the default interface.  The kernel "
+"differentiates between these two structures by their size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:526
+msgid ""
+"The use of E<.Vt IP_MULTICAST_IF> is E<.Em not recommended>, as multicast "
+"memberships are scoped to each individual interface.  It is supported for "
+"legacy use only by applications, such as routing daemons, which expect to be "
+"able to transmit link-local IPv4 multicast datagrams (224.0.0.0/24)  on "
+"multiple interfaces, without requesting an individual membership for each "
+"interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:535
+msgid ""
+"An interface's local IP address and multicast capability can be obtained via "
+"the E<.Dv SIOCGIFCONF> and E<.Dv SIOCGIFFLAGS> ioctls.  Normal applications "
+"should not need to use this option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:543
+msgid ""
+"If a multicast datagram is sent to a group to which the sending host itself "
+"belongs (on the outgoing interface), a copy of the datagram is, by default, "
+"looped back by the IP layer for local delivery.  The E<.Dv "
+"IP_MULTICAST_LOOP> option gives the sender explicit control over whether or "
+"not subsequent datagrams are looped back:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:546
+#, no-wrap
+msgid ""
+"u_char loop;\t/* 0 = disable, 1 = enable (default) */\n"
+"setsockopt(s, IPPROTO_IP, IP_MULTICAST_LOOP, &loop, sizeof(loop));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:556
+msgid ""
+"This option improves performance for applications that may have no more than "
+"one instance on a single host (such as a routing daemon), by eliminating the "
+"overhead of receiving their own transmissions.  It should generally not be "
+"used by applications for which there may be more than one instance on a "
+"single host (such as a conferencing program) or for which the sender does "
+"not belong to the destination group (such as a time querying program)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:562
+msgid ""
+"The sysctl setting E<.Va net.inet.ip.mcast.loop> controls the default "
+"setting of the E<.Dv IP_MULTICAST_LOOP> socket option for new sockets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:567
+msgid ""
+"A multicast datagram sent with an initial TTL greater than 1 may be "
+"delivered to the sending host on a different interface from that on which it "
+"was sent, if the host belongs to the destination group on that other "
+"interface.  The loopback control option has no effect on such delivery."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:573
+msgid ""
+"A host must become a member of a multicast group before it can receive "
+"datagrams sent to the group.  To join a multicast group, use the E<.Dv "
+"IP_ADD_MEMBERSHIP> option:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:576
+#, no-wrap
+msgid ""
+"struct ip_mreqn mreqn;\n"
+"setsockopt(s, IPPROTO_IP, IP_ADD_MEMBERSHIP, &mreqn, sizeof(mreqn));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:581
+msgid "where E<.Fa mreqn> is the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:587
+#, no-wrap
+msgid ""
+"struct ip_mreqn {\n"
+"    struct in_addr imr_multiaddr; /* IP multicast address of group */\n"
+"    struct in_addr imr_interface; /* local IP address of interface */\n"
+"    int            imr_ifindex;   /* interface index */\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:610
+msgid ""
+"E<.Va imr_ifindex> should be set to the index of a particular "
+"multicast-capable interface if the host is multihomed.  If E<.Va "
+"imr_ifindex> is non-zero, value of E<.Va imr_interface> is ignored.  "
+"Otherwise, if E<.Va imr_ifindex> is 0, kernel will use IP address from E<.Va "
+"imr_interface> to lookup the interface.  Value of E<.Va imr_interface> may "
+"be set to E<.Va INADDR_ANY> to choose the default interface, although this "
+"is not recommended; this is considered to be the first interface "
+"corresponding to the default route.  Otherwise, the first multicast-capable "
+"interface configured in the system will be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:623
+msgid ""
+"Legacy E<.Vt \"struct ip_mreq\">, that lacks E<.Va imr_ifindex> field is "
+"also supported by E<.Dv IP_ADD_MEMBERSHIP> setsockopt.  In this case kernel "
+"would behave as if E<.Va imr_ifindex> was set to zero: E<.Va imr_interface> "
+"will be used to lookup interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:638
+msgid ""
+"Prior to E<.Fx 7.0>, if the E<.Va imr_interface> member is within the "
+"network range E<.Li 0.0.0.0/8>, it is treated as an interface index in the "
+"system interface MIB, as per the RIP Version 2 MIB Extension (RFC-1724).  In "
+"versions of E<.Fx> since 7.0, this behavior is no longer supported.  "
+"Developers should instead use the RFC 3678 multicast source filter APIs; in "
+"particular, E<.Dv MCAST_JOIN_GROUP>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:645
+msgid ""
+"Up to E<.Dv IP_MAX_MEMBERSHIPS> memberships may be added on a single "
+"socket.  Membership is associated with a single interface; programs running "
+"on multihomed hosts may need to join the same group on more than one "
+"interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:647
+msgid "To drop a membership, use:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:650
+#, no-wrap
+msgid ""
+"struct ip_mreq mreq;\n"
+"setsockopt(s, IPPROTO_IP, IP_DROP_MEMBERSHIP, &mreq, sizeof(mreq));\n"
+msgstr ""
+
+#.  TODO: Update this piece when IPv4 source-address selection is implemented.
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:657
+msgid ""
+"where E<.Fa mreq> contains the same values as used to add the membership.  "
+"Memberships are dropped when the socket is closed or the process exits."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:665
+msgid ""
+"The IGMP protocol uses the primary IP address of the interface as its "
+"identifier for group membership.  This is the first IP address configured on "
+"the interface.  If this address is removed or changed, the results are "
+"undefined, as the IGMP membership state will then be inconsistent.  If "
+"multiple IP aliases are configured on the same interface, they will be "
+"ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:669
+msgid ""
+"This shortcoming was addressed in IPv6; MLDv2 requires that the unique "
+"link-local address for an interface is used to identify an MLDv2 listener."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip.4:669
+#, no-wrap
+msgid "Source-Specific Multicast Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:681
+msgid ""
+"Since E<.Fx 8.0>, the use of Source-Specific Multicast (SSM) is supported.  "
+"These extensions require an IGMPv3 multicast router in order to make best "
+"use of them.  If a legacy multicast router is present on the link, E<.Fx> "
+"will simply downgrade to the version of IGMP spoken by the router, and the "
+"benefits of source filtering on the upstream link will not be present, "
+"although the kernel will continue to squelch transmissions from blocked "
+"sources."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:683
+msgid "Each group membership on a socket now has a filter mode:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:684
+#, no-wrap
+msgid "Dv MCAST_EXCLUDE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:687
+msgid ""
+"Datagrams sent to this group are accepted, unless the source is in a list of "
+"blocked source addresses."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:687
+#, no-wrap
+msgid "Dv MCAST_INCLUDE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:690
+msgid ""
+"Datagrams sent to this group are accepted only if the source is in a list of "
+"accepted source addresses."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:698
+msgid ""
+"Groups joined using the legacy E<.Dv IP_ADD_MEMBERSHIP> option are placed in "
+"exclusive-mode, and are able to request that certain sources are blocked or "
+"allowed.  This is known as the E<.Em delta-based API>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:700
+msgid "To block a multicast source on an existing group membership:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:703
+#, no-wrap
+msgid ""
+"struct ip_mreq_source mreqs;\n"
+"setsockopt(s, IPPROTO_IP, IP_BLOCK_SOURCE, &mreqs, sizeof(mreqs));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:708
+msgid "where E<.Fa mreqs> is the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:714
+#, no-wrap
+msgid ""
+"struct ip_mreq_source {\n"
+"    struct in_addr imr_multiaddr; /* IP multicast address of group */\n"
+"    struct in_addr imr_sourceaddr; /* IP address of source */\n"
+"    struct in_addr imr_interface; /* local IP address of interface */\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:717
+msgid ""
+"E<.Va imr_sourceaddr> should be set to the address of the source to be "
+"blocked."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:719
+msgid "To unblock a multicast source on an existing group:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:722
+#, no-wrap
+msgid ""
+"struct ip_mreq_source mreqs;\n"
+"setsockopt(s, IPPROTO_IP, IP_UNBLOCK_SOURCE, &mreqs, sizeof(mreqs));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:731
+msgid ""
+"The E<.Dv IP_BLOCK_SOURCE> and E<.Dv IP_UNBLOCK_SOURCE> options are E<.Em "
+"not permitted> for inclusive-mode group memberships."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:736
+msgid ""
+"To join a multicast group in E<.Dv MCAST_INCLUDE> mode with a single source, "
+"or add another source to an existing inclusive-mode membership:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:739
+#, no-wrap
+msgid ""
+"struct ip_mreq_source mreqs;\n"
+"setsockopt(s, IPPROTO_IP, IP_ADD_SOURCE_MEMBERSHIP, &mreqs, "
+"sizeof(mreqs));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:742
+msgid "To leave a single source from an existing group in inclusive mode:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:745
+#, no-wrap
+msgid ""
+"struct ip_mreq_source mreqs;\n"
+"setsockopt(s, IPPROTO_IP, IP_DROP_SOURCE_MEMBERSHIP, &mreqs, "
+"sizeof(mreqs));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:748
+msgid ""
+"If this is the last accepted source for the group, the membership will be "
+"dropped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:763
+msgid ""
+"The E<.Dv IP_ADD_SOURCE_MEMBERSHIP> and E<.Dv IP_DROP_SOURCE_MEMBERSHIP> "
+"options are E<.Em not accepted> for exclusive-mode group memberships.  "
+"However, both exclusive and inclusive mode memberships support the use of "
+"the E<.Em full-state API> documented in RFC 3678.  For management of source "
+"filter lists using this API, please refer to E<.Xr sourcefilter 3>."
+msgstr ""
+
+#. -----------------------
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:771
+msgid ""
+"The sysctl settings E<.Va net.inet.ip.mcast.maxsocksrc> and E<.Va "
+"net.inet.ip.mcast.maxgrpsrc> are used to specify an upper limit on the "
+"number of per-socket and per-group source filter entries which the kernel "
+"may allocate."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip.4:771
+#, no-wrap
+msgid "Raw IP Sockets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:791
+msgid ""
+"Raw E<.Tn IP> sockets are connectionless, and are normally used with the "
+"E<.Xr sendto 2> and E<.Xr recvfrom 2> calls, though the E<.Xr connect 2> "
+"call may also be used to fix the destination for future packets (in which "
+"case the E<.Xr read 2> or E<.Xr recv 2> and E<.Xr write 2> or E<.Xr send 2> "
+"system calls may be used)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:803
+msgid ""
+"If E<.Fa proto> is 0, the default protocol E<.Dv IPPROTO_RAW> is used for "
+"outgoing packets, and only incoming packets destined for that protocol are "
+"received.  If E<.Fa proto> is non-zero, that protocol number will be used on "
+"outgoing packets and to filter incoming packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:817
+msgid ""
+"Outgoing packets automatically have an E<.Tn IP> header prepended to them "
+"(based on the destination address and the protocol number the socket is "
+"created with), unless the E<.Dv IP_HDRINCL> option has been set.  Unlike in "
+"previous E<.Bx> releases, incoming packets are received with E<.Tn IP> "
+"header and options intact, leaving all fields in network byte order."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:823
+msgid ""
+"E<.Dv IP_HDRINCL> indicates the complete IP header is included with the data "
+"and may be used only with the E<.Dv SOCK_RAW> type."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:826
+#, no-wrap
+msgid ""
+"#include E<lt>netinet/in_systm.hE<gt>\n"
+"#include E<lt>netinet/ip.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:829
+#, no-wrap
+msgid ""
+"int hincl = 1;                  /* 1 = on, 0 = off */\n"
+"setsockopt(s, IPPROTO_IP, IP_HDRINCL, &hincl, sizeof(hincl));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:835
+msgid ""
+"Unlike previous E<.Bx> releases, the program must set all the fields of the "
+"IP header, including the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:841
+#, no-wrap
+msgid ""
+"ip-E<gt>ip_v = IPVERSION;\n"
+"ip-E<gt>ip_hl = hlen E<gt>E<gt> 2;\n"
+"ip-E<gt>ip_id = 0;  /* 0 means kernel set appropriate value */\n"
+"ip-E<gt>ip_off = htons(offset);\n"
+"ip-E<gt>ip_len = htons(len);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:859
+msgid ""
+"The packet should be provided as is to be sent over wire.  This implies all "
+"fields, including E<.Va ip_len> and E<.Va ip_off> to be in network byte "
+"order.  See E<.Xr byteorder 3> for more information on network byte order.  "
+"If the E<.Va ip_id> field is set to 0 then the kernel will choose an "
+"appropriate value.  If the header source address is set to E<.Dv "
+"INADDR_ANY>, the kernel will choose an appropriate address."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:859
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:861
+msgid "A socket operation may fail with one of the following errors returned:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:862
+#, no-wrap
+msgid "Bq Er EISCONN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:866
+msgid ""
+"when trying to establish a connection on a socket which already has one, or "
+"when trying to send a datagram with the destination address specified and "
+"the socket is already connected;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:866
+#, no-wrap
+msgid "Bq Er ENOTCONN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:870
+msgid ""
+"when trying to send a datagram, but no destination address is specified, and "
+"the socket has not been connected;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:870
+#, no-wrap
+msgid "Bq Er ENOBUFS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:873
+msgid "when the system runs out of memory for an internal data structure;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:873
+#, no-wrap
+msgid "Bq Er EADDRNOTAVAIL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:877
+msgid ""
+"when an attempt is made to create a socket with a network address for which "
+"no network interface exists."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:877
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:880
+msgid ""
+"when an attempt is made to create a raw IP socket by a non-privileged "
+"process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:887
+msgid ""
+"The following errors specific to E<.Tn IP> may occur when setting or getting "
+"E<.Tn IP> options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip.4:888 /usr/src/share/man/man4/ip.4:890 /usr/src/share/man/man4/ip.4:904
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:890
+msgid "An unknown socket option name was given."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:894
+msgid ""
+"The IP option field was improperly formed; an option field was shorter than "
+"the minimum value or longer than the option buffer provided."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:903
+msgid ""
+"The following errors may occur when attempting to send E<.Tn IP> datagrams "
+"via a E<.Dq raw socket> with the E<.Dv IP_HDRINCL> option set:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:908
+msgid ""
+"The user-supplied E<.Va ip_len> field was not equal to the length of the "
+"datagram written to the socket."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:909
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:929
+msgid ""
+"E<.Xr getsockopt 2>, E<.Xr recv 2>, E<.Xr send 2>, E<.Xr byteorder 3>, E<.Xr "
+"CMSG_DATA 3>, E<.Xr sourcefilter 3>, E<.Xr icmp 4>, E<.Xr igmp 4>, E<.Xr "
+"inet 4>, E<.Xr intro 4>, E<.Xr multicast 4> E<.Rs> E<.%A D. Thaler> E<.%A "
+"B. Fenner> E<.%A B. Quinn> E<.%T \"Socket Interface Extensions for Multicast "
+"Source Filters\"> E<.%N RFC 3678> E<.%D Jan 2004> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:929
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:938
+msgid ""
+"The E<.Nm> protocol appeared in E<.Bx 4.2>.  The E<.Vt ip_mreqn> structure "
+"appeared in E<.Tn Linux 2.4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip.4:938
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:946
+msgid ""
+"Before E<.Fx 10.0> packets received on raw IP sockets had the E<.Va ip_hl> "
+"subtracted from the E<.Va ip_len> field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip.4:958
+msgid ""
+"Before E<.Fx 11.0> packets received on raw IP sockets had the E<.Va ip_len> "
+"and E<.Va ip_off> fields converted to host byte order.  Packets written to "
+"raw IP sockets were expected to have E<.Va ip_len> and E<.Va ip_off> in host "
+"byte order."
+msgstr ""

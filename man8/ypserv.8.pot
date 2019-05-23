@@ -1,0 +1,505 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/ypserv/ypserv.8:33
+#, no-wrap
+msgid "December 13, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/ypserv/ypserv.8:34
+#, no-wrap
+msgid "YPSERV 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:38
+msgid "E<.Nm ypserv>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/ypserv/ypserv.8:38
+#, no-wrap
+msgid "NIS database server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:45
+msgid "E<.Nm> E<.Op Fl n> E<.Op Fl d> E<.Op Fl P Ar port> E<.Op Fl p Ar path>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:60
+msgid ""
+"E<.Tn NIS> is an RPC-based service designed to allow a number of UNIX-based "
+"machines to share a common set of configuration files.  Rather than "
+"requiring a system administrator to update several copies of files such as "
+"E<.Pa /etc/hosts>, E<.Pa /etc/passwd> and E<.Pa /etc/group>, which tend to "
+"require frequent changes in most environments, E<.Tn NIS> allows groups of "
+"computers to share one set of data which can be updated from a single "
+"location."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:82
+msgid ""
+"The E<.Nm> utility is the server that distributes E<.Tn NIS> databases to "
+"client systems within an E<.Tn NIS> E<.Em domain>.  Each client in an E<.Tn "
+"NIS> domain must have its domainname set to one of the domains served by "
+"E<.Nm> using the E<.Xr domainname 1> command.  The clients must also run "
+"E<.Xr ypbind 8> in order to attach to a particular server, since it is "
+"possible to have several servers within a single E<.Tn NIS> domain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:94
+msgid ""
+"The databases distributed by E<.Nm> are stored in E<.Pa "
+"/var/yp/[domainname]> where E<.Pa domainname> is the name of the domain "
+"being served.  There can be several such directories with different "
+"domainnames, and you need only one E<.Nm> daemon to handle them all."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:112
+msgid ""
+"The databases, or E<.Pa maps> as they are often called, are created by E<.Pa "
+"/var/yp/Makefile> using several system files as source.  The database files "
+"are in E<.Xr db 3> format to help speed retrieval when there are many "
+"records involved.  In E<.Fx>, the maps are always readable and writable only "
+"by root for security reasons.  Technically this is only necessary for the "
+"password maps, but since the data in the other maps can be found in other "
+"world-readable files anyway, it does not hurt and it is considered good "
+"general practice."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:119
+msgid ""
+"The E<.Nm> utility is started by E<.Pa /etc/rc.d/ypserv> if it has been "
+"enabled in E<.Pa /etc/rc.conf>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:119
+#, no-wrap
+msgid "SPECIAL FEATURES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:134
+msgid ""
+"There are some problems associated with distributing a E<.Fx> password "
+"database via E<.Tn NIS>: E<.Fx> normally only stores encrypted passwords in "
+"E<.Pa /etc/master.passwd>, which is readable and writable only by root.  By "
+"turning this file into an E<.Tn NIS> map, this security feature would be "
+"completely defeated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:156
+msgid ""
+"To make up for this, the E<.Fx> version of E<.Nm> handles the E<.Pa "
+"master.passwd.byname> and E<.Pa master.passwd.byuid> maps in a special way.  "
+"When the server receives a request to access either of these two maps (or in "
+"fact either of the E<.Pa shadow.byname> or E<.Pa shadow.byuid> maps), it "
+"will check the TCP port from which the request originated and return an "
+"error if the port number is greater than 1023.  Since only the superuser is "
+"allowed to bind to TCP ports with values less than 1024, the server can use "
+"this test to determine whether or not the access request came from a "
+"privileged user.  Any requests made by non-privileged users are therefore "
+"rejected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:183
+msgid ""
+"Furthermore, the E<.Xr getpwent 3> routines in the E<.Fx> standard C library "
+"will only attempt to retrieve data from the E<.Pa master.passwd.byname> and "
+"E<.Pa master.passwd.byuid> maps for the superuser: if a normal user calls "
+"any of these functions, the standard E<.Pa passwd.byname> and E<.Pa "
+"passwd.byuid> maps will be accessed instead.  The latter two maps are "
+"constructed by E<.Pa /var/yp/Makefile> by parsing the E<.Pa master.passwd> "
+"file and stripping out the password fields, and are therefore safe to pass "
+"on to unprivileged users.  In this way, the shadow password aspect of the "
+"protected E<.Pa master.passwd> database is maintained through E<.Tn NIS>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:183
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ypserv/ypserv.8:184
+#, no-wrap
+msgid "Setting Up Master and Slave Servers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:189
+msgid ""
+"E<.Xr ypinit 8> is a convenient script that will help setup master and slave "
+"E<.Tn NIS> servers."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ypserv/ypserv.8:189
+#, no-wrap
+msgid "Limitations"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:194
+msgid ""
+"There are two problems inherent with password shadowing in E<.Tn NIS> that "
+"users should be aware of:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:201
+msgid ""
+"The E<.Sq TCP port less than 1024> test is trivial to defeat for users with "
+"unrestricted access to machines on your network (even those machines which "
+"do not run UNIX-based operating systems)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:222
+msgid ""
+"If you plan to use a E<.Fx> system to serve E<.No non- Ns Fx> clients that "
+"have no support for password shadowing (which is most of them), you will "
+"have to disable the password shadowing entirely by uncommenting the E<.Em "
+"UNSECURE=True> entry in E<.Pa /var/yp/Makefile>.  This will cause the "
+"standard E<.Pa passwd.byname> and E<.Pa passwd.byuid> maps to be generated "
+"with valid encrypted password fields, which is necessary in order for E<.No "
+"non- Ns Fx> clients to perform user authentication through E<.Tn NIS>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ypserv/ypserv.8:223
+#, no-wrap
+msgid "Security"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:252
+msgid ""
+"In general, any remote user can issue an RPC to E<.Nm> and retrieve the "
+"contents of your E<.Tn NIS> maps, provided the remote user knows your domain "
+"name.  To prevent such unauthorized transactions, E<.Nm> supports a feature "
+"called E<.Pa securenets> which can be used to restrict access to a given set "
+"of hosts.  At startup, E<.Nm> will attempt to load the securenets "
+"information from a file called E<.Pa /var/yp/securenets>.  (Note that this "
+"path varies depending on the path specified with the E<.Fl p> option, which "
+"is explained below.)  This file contains entries that consist of a network "
+"specification and a network mask separated by white space.  Lines starting "
+"with E<.Dq \\&#> are considered to be comments.  A sample securenets file "
+"might look like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:261
+#, no-wrap
+msgid ""
+"# allow connections from local host -- mandatory\n"
+"127.0.0.1     255.255.255.255\n"
+"# allow connections from any host\n"
+"# on the 192.168.128.0 network\n"
+"192.168.128.0 255.255.255.0\n"
+"# allow connections from any host\n"
+"# between 10.0.0.0 to 10.0.15.255\n"
+"10.0.0.0      255.255.240.0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:275
+msgid ""
+"If E<.Nm> receives a request from an address that matches one of these "
+"rules, it will process the request normally.  If the address fails to match "
+"a rule, the request will be ignored and a warning message will be logged.  "
+"If the E<.Pa /var/yp/securenets> file does not exist, E<.Nm> will allow "
+"connections from any host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:288
+msgid ""
+"The E<.Nm> utility also has support for Wietse Venema's E<.Em tcpwrapper> "
+"package.  This allows the administrator to use the tcpwrapper configuration "
+"files E<.Pa ( /etc/hosts.allow> and E<.Pa /etc/hosts.deny>)  for access "
+"control instead of E<.Pa /var/yp/securenets>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:294
+msgid ""
+"Note: while both of these access control mechanisms provide some security, "
+"they, like the privileged port test, are both vulnerable to E<.Dq IP "
+"spoofing> attacks."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ypserv/ypserv.8:294
+#, no-wrap
+msgid "NIS v1 compatibility"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:326
+msgid ""
+"This version of E<.Nm> has some support for serving E<.Tn NIS> v1 clients.  "
+"The E<.Fx> E<.Tn NIS> implementation only uses the E<.Tn NIS> v2 protocol, "
+"however other implementations include support for the v1 protocol for "
+"backwards compatibility with older systems.  The E<.Xr ypbind 8> daemons "
+"supplied with these systems will try to establish a binding to an E<.Tn NIS> "
+"v1 server even though they may never actually need it (and they may persist "
+"in broadcasting in search of one even after they receive a response from a "
+"v2 server).  Note that while support for normal client calls is provided, "
+"this version of E<.Nm> does not handle v1 map transfer requests; "
+"consequently, it cannot be used as a master or slave in conjunction with "
+"older E<.Tn NIS> servers that only support the v1 protocol.  Fortunately, "
+"there probably are not any such servers still in use today."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ypserv/ypserv.8:326
+#, no-wrap
+msgid "NIS servers that are also NIS clients"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:341
+msgid ""
+"Care must be taken when running E<.Nm> in a multi-server domain where the "
+"server machines are also E<.Tn NIS> clients.  It is generally a good idea to "
+"force the servers to bind to themselves rather than allowing them to "
+"broadcast bind requests and possibly become bound to each other: strange "
+"failure modes can result if one server goes down and others are dependent "
+"upon on it.  (Eventually all the clients will time out and attempt to bind "
+"to other servers, but the delay involved can be considerable and the failure "
+"mode is still present since the servers might bind to each other all over "
+"again)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:346
+msgid ""
+"Refer to the E<.Xr ypbind 8> man page for details on how to force it to bind "
+"to a particular server."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:346
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:349
+msgid "The following options are supported by E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:350
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:374
+msgid ""
+"This option affects the way E<.Nm> handles yp_match requests for the E<.Pa "
+"hosts.byname> and E<.Pa hosts.byaddress> maps.  By default, if E<.Nm> cannot "
+"find an entry for a given host in its hosts maps, it will return an error "
+"and perform no further processing.  With the E<.Fl n> flag, E<.Nm> will go "
+"one step further: rather than giving up immediately, it will try to resolve "
+"the hostname or address using a DNS nameserver query.  If the query is "
+"successful, E<.Nm> will construct a fake database record and return it to "
+"the client, thereby making it seem as though the client's yp_match request "
+"succeeded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:388
+msgid ""
+"This feature is provided for compatibility with SunOS 4.1.x, which has "
+"brain-damaged resolver functions in its standard C library that depend on "
+"E<.Tn NIS> for hostname and address resolution.  The E<.Fx> resolver can be "
+"configured to do DNS queries directly, therefore it is not necessary to "
+"enable this option when serving only E<.Fx> E<.Tn NIS> clients."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:388
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:409
+msgid ""
+"Cause the server to run in debugging mode.  Normally, E<.Nm> reports only "
+"unusual errors (access violations, file access failures)  using the E<.Xr "
+"syslog 3> facility.  In debug mode, the server does not background itself "
+"and prints extra status messages to stderr for each request that it "
+"receives.  Also, while running in debug mode, E<.Nm> will not spawn any "
+"additional subprocesses as it normally does when handling yp_all requests or "
+"doing DNS lookups.  (These actions often take a fair amount of time to "
+"complete and are therefore handled in subprocesses, allowing the parent "
+"server process to go on handling other requests.)  This makes it easier to "
+"trace the server with a debugging tool."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:409
+#, no-wrap
+msgid "Fl h Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:418
+msgid ""
+"Specify a specific address to bind to for requests.  This option may be "
+"specified multiple times.  If no E<.Fl h> option is specified, E<.Nm> will "
+"bind to default passive address E<.Pq e.g. INADDR_ANY for IPv4> for each "
+"transport."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:418
+#, no-wrap
+msgid "Fl P Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:421
+msgid ""
+"Force ypserv to bind to a specific TCP/UDP port, rather than selecting its "
+"own."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:421
+#, no-wrap
+msgid "Fl p Ar path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:435
+msgid ""
+"Normally, E<.Nm> assumes that all E<.Tn NIS> maps are stored under E<.Pa "
+"/var/yp>.  The E<.Fl p> flag may be used to specify an alternate E<.Tn NIS> "
+"root path, allowing the system administrator to move the map files to a "
+"different place within the file system."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:436
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:438
+#, no-wrap
+msgid "Pa /var/yp/[domainname]/[maps]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:442
+msgid "the E<.Tn NIS> maps"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:442
+#, no-wrap
+msgid "Pa /etc/nsswitch.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:444
+msgid "name switch configuration file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypserv.8:444
+#, no-wrap
+msgid "Pa /var/yp/securenets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:446
+msgid "host access control file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:447
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:457
+msgid ""
+"E<.Xr ypcat 1>, E<.Xr db 3>, E<.Xr hosts_access 5>, E<.Xr rpc.yppasswdd 8>, "
+"E<.Xr yp 8>, E<.Xr ypbind 8>, E<.Xr ypinit 8>, E<.Xr yppush 8>, E<.Xr ypxfr "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:457
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:462
+msgid "This version of E<.Nm> first appeared in E<.Fx 2.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypserv.8:462
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypserv.8:463
+msgid "E<.An Bill Paul Aq Mt wpaul@ctr.columbia.edu>"
+msgstr ""

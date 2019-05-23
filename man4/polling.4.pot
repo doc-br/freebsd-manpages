@@ -1,0 +1,362 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/polling.4:27
+#, no-wrap
+msgid "April 6, 2007"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/polling.4:28
+#, no-wrap
+msgid "POLLING 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/polling.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:32
+msgid "E<.Nm polling>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/polling.4:32
+#, no-wrap
+msgid "device polling support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/polling.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:35
+msgid "E<.Cd \"options DEVICE_POLLING\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/polling.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:47
+msgid ""
+"Device polling E<.Nm (> for brevity) refers to a technique that lets the "
+"operating system periodically poll devices, instead of relying on the "
+"devices to generate interrupts when they need attention.  This might seem "
+"inefficient and counterintuitive, but when done properly, E<.Nm> gives more "
+"control to the operating system on when and how to handle devices, with a "
+"number of advantages in terms of system responsiveness and performance."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:55
+msgid ""
+"In particular, E<.Nm> reduces the overhead for context switches which is "
+"incurred when servicing interrupts, and gives more control on the scheduling "
+"of the CPU between various tasks (user processes, software interrupts, "
+"device handling)  which ultimately reduces the chances of livelock in the "
+"system."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/polling.4:55
+#, no-wrap
+msgid "Principles of Operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:69
+msgid ""
+"In the normal, interrupt-based mode, devices generate an interrupt whenever "
+"they need attention.  This in turn causes a context switch and the execution "
+"of an interrupt handler which performs whatever processing is needed by the "
+"device.  The duration of the interrupt handler is potentially unbounded "
+"unless the device driver has been programmed with real-time concerns in mind "
+"(which is generally not the case for E<.Fx> drivers).  Furthermore, under "
+"heavy traffic load, the system might be persistently processing interrupts "
+"without being able to complete other work, either in the kernel or in "
+"userland."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:77
+msgid ""
+"Device polling disables interrupts by polling devices at appropriate times, "
+"i.e., on clock interrupts and within the idle loop.  This way, the context "
+"switch overhead is removed.  Furthermore, the operating system can control "
+"accurately how much work to spend in handling device events, and thus "
+"prevent livelock by reserving some amount of CPU to other tasks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:83
+msgid ""
+"Enabling E<.Nm> also changes the way software network interrupts are "
+"scheduled, so there is never the risk of livelock because packets are not "
+"processed to completion."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/polling.4:83
+#, no-wrap
+msgid "Enabling polling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:90
+msgid ""
+"Currently only network interface drivers support the E<.Nm> feature.  It is "
+"turned on and off with help of E<.Xr ifconfig 8> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:95
+msgid ""
+"The historic E<.Va kern.polling.enable>, which enabled polling for all "
+"interfaces, can be replaced with the following code:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:99
+#, no-wrap
+msgid ""
+"for i in `ifconfig -l` ;\n"
+"  do ifconfig $i polling; # use -polling to disable\n"
+"done\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/polling.4:100
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:106
+msgid ""
+"The operation of E<.Nm> is controlled by the following E<.Xr sysctl 8> MIB "
+"variables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:108
+#, no-wrap
+msgid "Va kern.polling.user_frac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:117
+msgid ""
+"When E<.Nm> is enabled, and provided that there is some work to do, up to "
+"this percent of the CPU cycles is reserved to userland tasks, the remaining "
+"fraction being available for E<.Nm> processing.  Default is 50."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:118
+#, no-wrap
+msgid "Va kern.polling.burst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:125
+msgid ""
+"Maximum number of packets grabbed from each network interface in each timer "
+"tick.  This number is dynamically adjusted by the kernel, according to the "
+"programmed E<.Va user_frac , burst_max>, CPU speed, and system load."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:126
+#, no-wrap
+msgid "Va kern.polling.each_burst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:134
+msgid ""
+"The burst above is split into smaller chunks of this number of packets, "
+"going round-robin among all interfaces registered for E<.Nm>.  This prevents "
+"the case that a large burst from a single interface can saturate the IP "
+"interrupt queue E<.Pq Va net.inet.ip.intr_queue_maxlen>.  Default is 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:135
+#, no-wrap
+msgid "Va kern.polling.burst_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:148
+msgid ""
+"Upper bound for E<.Va kern.polling.burst>.  Note that when E<.Nm> is "
+"enabled, each interface can receive at most E<.Pq Va HZ No * Va burst_max> "
+"packets per second unless there are spare CPU cycles available for E<.Nm> in "
+"the idle loop.  This number should be tuned to match the expected load "
+"(which can be quite high with GigE cards).  Default is 150 which is adequate "
+"for 100Mbit network and HZ=1000."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:149
+#, no-wrap
+msgid "Va kern.polling.idle_poll"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:155
+msgid ""
+"Controls if E<.Nm> is enabled in the idle loop.  There are no reasons (other "
+"than power saving or bugs in the scheduler's handling of idle priority "
+"kernel threads) to disable this."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:156
+#, no-wrap
+msgid "Va kern.polling.reg_frac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:164
+msgid ""
+"Controls how often (every E<.Va reg_frac No / Va HZ> seconds) the status "
+"registers of the device are checked for error conditions and the like.  "
+"Increasing this value reduces the load on the bus, but also delays the error "
+"detection.  Default is 20."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:165
+#, no-wrap
+msgid "Va kern.polling.handlers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:168
+msgid "How many active devices have registered for E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:169
+#, no-wrap
+msgid "Va kern.polling.short_ticks"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:170
+#, no-wrap
+msgid "Va kern.polling.lost_polls"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:171
+#, no-wrap
+msgid "Va kern.polling.pending_polls"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:172
+#, no-wrap
+msgid "Va kern.polling.residual_burst"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:173
+#, no-wrap
+msgid "Va kern.polling.phase"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:174
+#, no-wrap
+msgid "Va kern.polling.suspect"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/polling.4:175
+#, no-wrap
+msgid "Va kern.polling.stalled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:177
+msgid "Debugging variables."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/polling.4:178
+#, no-wrap
+msgid "SUPPORTED DEVICES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:210
+msgid ""
+"Device polling requires explicit modifications to the device drivers.  As of "
+"this writing, the E<.Xr bge 4>, E<.Xr dc 4>, E<.Xr em 4>, E<.Xr fwe 4>, "
+"E<.Xr fwip 4>, E<.Xr fxp 4>, E<.Xr igb 4>, E<.Xr nfe 4>, E<.Xr nge 4>, E<.Xr "
+"re 4>, E<.Xr rl 4>, E<.Xr sf 4>, E<.Xr sis 4>, E<.Xr ste 4>, E<.Xr stge 4>, "
+"E<.Xr vge 4>, E<.Xr vr 4>, and E<.Xr xl 4> devices are supported, with "
+"others in the works.  The modifications are rather straightforward, "
+"consisting in the extraction of the inner part of the interrupt service "
+"routine and writing a callback function, E<.Fn *_poll>, which is invoked to "
+"probe the device for events and process them.  (See the conditionally "
+"compiled sections of the devices mentioned above for more details.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:214
+msgid ""
+"As in the worst case the devices are only polled on clock interrupts, in "
+"order to reduce the latency in processing packets, it is not advisable to "
+"decrease the frequency of the clock below 1000 Hz."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/polling.4:214
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:219
+msgid "Device polling first appeared in E<.Fx 4.6> and E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/polling.4:219
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/polling.4:221
+msgid "Device polling was written by E<.An Luigi Rizzo Aq Mt luigi@iet.unipi.it>."
+msgstr ""

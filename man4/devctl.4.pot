@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/devctl.4:27
+#, no-wrap
+msgid "March 26, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/devctl.4:28
+#, no-wrap
+msgid "DEVCTL 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/devctl.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:32
+msgid "E<.Nm devctl>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/devctl.4:32
+#, no-wrap
+msgid "device event reporting and device control interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/devctl.4:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:38
+msgid ""
+"The E<.Nm> device is used to report device events from the kernel.  Future "
+"versions will allow for some device control as well."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/devctl.4:38
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:44
+msgid ""
+"This design allows only one reader for E<.Pa /dev/devctl>.  This is not "
+"desirable in the long run, but will get a lot of hair out of this "
+"implementation.  Maybe we should make this device a clonable device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:55
+msgid ""
+"Also note: we specifically do not attach a device to the E<.Vt device_t> "
+"tree to avoid potential chicken and egg problems.  One could argue that all "
+"of this belongs to the root node.  One could also further argue that the "
+"E<.Xr sysctl 3> interface that we have now might more properly be an E<.Xr "
+"ioctl 2> interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:68
+msgid ""
+"E<.Dv SIGIO> support is included in the driver.  However, the author is not "
+"sure that the E<.Dv SIGIO> support is done correctly.  It was copied from a "
+"driver that had E<.Dv SIGIO> support that likely has not been tested since "
+"E<.Fx 3.4> or E<.Fx 2.2.8 !>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:75
+msgid ""
+"The read channel for this device is used to report changes to userland in "
+"realtime.  We return one record at a time.  If you try to read this device a "
+"character at a time, you will lose the rest of the data.  Listening programs "
+"are expected to cope."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:84
+msgid ""
+"The sysctl E<.Va hw.bus.devctl_queue> can be used to control queue length.  "
+"It is set to 0 to disable E<.Nm> when no E<.Xr devd 8> is running."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/devctl.4:84
+#, no-wrap
+msgid "PROTOCOL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:94
+msgid ""
+"The E<.Nm> device uses an E<.Tn ASCII> protocol.  The driver returns one "
+"record at a time to its readers.  Each record is terminated with a newline.  "
+"The first character of the record is the event type."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:101
+msgid ""
+"E<.Em \"Type\tDescription\"> !\tA notify event, such as a link state "
+"change.  +\tDevice node in tree attached.  -\tDevice node in tree detached.  "
+"?\tUnknown device detected."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/devctl.4:102
+#, no-wrap
+msgid "Message Formats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:105
+msgid ""
+"Except for the first character in the record, attach and detach messages "
+"have the same format."
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/devctl.4:106
+#, no-wrap
+msgid "Ar T Ns Ar dev Li at Ar parent Li on Ar location"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:110
+msgid "E<.Em \"Part\tDescription\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/devctl.4:110
+#, no-wrap
+msgid "Ar T Ta \"+ or -\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/devctl.4:111
+#, no-wrap
+msgid "Ar dev Ta \"The device name that was attached/detached.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/devctl.4:112
+#, no-wrap
+msgid "Ar parent Ta \"The device name of the parent bus that attached the device.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/devctl.4:113
+#, no-wrap
+msgid "Ar location Ta \"Bus specific location information.\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:121
+msgid ""
+"The nomatch messages can be used to load devices driver.  If you load a "
+"device driver, then one of two things can happen.  If the device driver "
+"attaches to something, you will get a device attached message.  If it does "
+"not, then nothing will happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:128
+msgid ""
+"The attach and detach messages arrive after the event.  This means one "
+"cannot use the attach message to load an alternate driver.  The attach "
+"message driver has already claimed this device.  One cannot use the detach "
+"messages to flush data to the device.  The device is already gone."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/devctl.4:128
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/devctl.4:129
+msgid "E<.Xr devd 8>"
+msgstr ""

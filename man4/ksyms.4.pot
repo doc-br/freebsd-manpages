@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ksyms.4:30
+#, no-wrap
+msgid "August 2, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ksyms.4:31
+#, no-wrap
+msgid "KSYMS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:35
+msgid "E<.Nm ksyms>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ksyms.4:35
+#, no-wrap
+msgid "kernel symbol table interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:38
+msgid "E<.Cd \"device ksyms\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:49
+msgid ""
+"The E<.Pa /dev/ksyms> character device provides a read-only interface to a "
+"snapshot of the kernel symbol table.  The in-kernel symbol manager is "
+"designed to be able to handle many types of symbols tables, however, only "
+"E<.Xr elf 5> symbol tables are supported by this device.  The ELF format "
+"image contains two sections: a symbol table and a corresponding string "
+"table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ksyms.4:50
+#, no-wrap
+msgid "Dv Symbol Table"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:55
+msgid ""
+"The SYMTAB section contains the symbol table entries present in the current "
+"running kernel, including the symbol table entries of any loaded modules.  "
+"The symbols are ordered by the kernel module load time starting with kernel "
+"file symbols first, followed by the first loaded module's symbols and so on."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ksyms.4:55
+#, no-wrap
+msgid "Dv String Table"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:58
+msgid ""
+"The STRTAB section contains the symbol name strings from the kernel and any "
+"loaded modules that the symbol table entries reference."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:72
+msgid ""
+"Elf formatted symbol table data read from the E<.Pa /dev/ksyms> file "
+"represents the state of the kernel at the time when the device is opened.  "
+"Since E<.Pa /dev/ksyms> has no text or data, most of the fields are "
+"initialized to NULL.  The E<.Nm> driver does not block the loading or "
+"unloading of modules into the kernel while the E<.Pa /dev/ksyms> file is "
+"open but may contain stale data."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:72
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ksyms.4:74
+#, no-wrap
+msgid "Pa /dev/ksyms"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:76
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:82
+msgid "An E<.Xr open 2> of E<.Pa /dev/ksyms> will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ksyms.4:83
+#, no-wrap
+msgid "Bq Er EBUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:88
+msgid ""
+"The device is already open.  A process must close E<.Pa /dev/ksyms> before "
+"it can be opened again."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ksyms.4:88
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:90
+msgid "There is a resource shortage in the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ksyms.4:90
+#, no-wrap
+msgid "Bq Er ENXIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:95
+msgid ""
+"The driver was unsuccessful in creating a snapshot of the kernel symbol "
+"table.  This may occur if the kernel was in the process of loading or "
+"unloading a module."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:96
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:100
+msgid "E<.Xr nlist 3>, E<.Xr elf 5>, E<.Xr kldload 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:100
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:107
+msgid ""
+"A E<.Nm> device exists in many different operating systems.  This "
+"implementation is similar in function to the Solaris and NetBSD E<.Nm> "
+"driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:114
+msgid "The E<.Nm> driver first appeared in E<.Fx 8.0> to support E<.Xr lockstat 1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:114
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:119
+msgid "The E<.Nm> driver was written by E<.An Stacey Son Aq Mt sson@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ksyms.4:119
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:129
+msgid ""
+"Because files can be dynamically linked into the kernel at any time the "
+"symbol information can vary.  When you open the E<.Pa /dev/ksyms> file, you "
+"have access to an ELF image which represents a snapshot of the state of the "
+"kernel symbol information at that instant in time.  Keeping the device open "
+"does not block the loading or unloading of kernel modules.  To get a new "
+"snapshot you must close and re-open the device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ksyms.4:135
+msgid ""
+"A process is only allowed to open the E<.Pa /dev/ksyms> file once at a "
+"time.  The process must close the E<.Pa /dev/ksyms> before it is allowed to "
+"open it again."
+msgstr ""

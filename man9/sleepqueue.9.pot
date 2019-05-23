@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sleepqueue.9:25
+#, no-wrap
+msgid "September 22, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sleepqueue.9:26
+#, no-wrap
+msgid "SLEEPQUEUE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleepqueue.9:28
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:48
+msgid ""
+"E<.Nm init_sleepqueues>, E<.Nm sleepq_abort>, E<.Nm sleepq_add>, E<.Nm "
+"sleepq_alloc>, E<.Nm sleepq_broadcast>, E<.Nm sleepq_free>, E<.Nm "
+"sleepq_lock>, E<.Nm sleepq_lookup>, E<.Nm sleepq_release>, E<.Nm "
+"sleepq_remove>, E<.Nm sleepq_signal>, E<.Nm sleepq_set_timeout>, E<.Nm "
+"sleepq_set_timeout_sbt>, E<.Nm sleepq_sleepcnt>, E<.Nm sleepq_timedwait>, "
+"E<.Nm sleepq_timedwait_sig>, E<.Nm sleepq_type>, E<.Nm sleepq_wait>, E<.Nm "
+"sleepq_wait_sig>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sleepqueue.9:48
+#, no-wrap
+msgid "manage the queues of sleeping threads"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleepqueue.9:49
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sleepqueue.9:50
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sleepqueue.9:51
+#, no-wrap
+msgid "sys/sleepqueue.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:91
+msgid ""
+"E<.Ft void> E<.Fn init_sleepqueues \"void\"> E<.Ft int> E<.Fn sleepq_abort "
+"\"struct thread *td\"> E<.Ft void> E<.Fn sleepq_add \"void *wchan\" \"struct "
+"lock_object *lock\" \"const char *wmesg\" \"int flags\" \"int queue\"> E<.Ft "
+"struct sleepqueue *> E<.Fn sleepq_alloc \"void\"> E<.Ft int> E<.Fn "
+"sleepq_broadcast \"void *wchan\" \"int flags\" \"int pri\" \"int queue\"> "
+"E<.Ft void> E<.Fn sleepq_free \"struct sleepqueue *sq\"> E<.Ft struct "
+"sleepqueue *> E<.Fn sleepq_lookup \"void *wchan\"> E<.Ft void> E<.Fn "
+"sleepq_lock \"void *wchan\"> E<.Ft void> E<.Fn sleepq_release \"void "
+"*wchan\"> E<.Ft void> E<.Fn sleepq_remove \"struct thread *td\" \"void "
+"*wchan\"> E<.Ft int> E<.Fn sleepq_signal \"void *wchan\" \"int flags\" \"int "
+"pri\" \"int queue\"> E<.Ft void> E<.Fn sleepq_set_timeout \"void *wchan\" "
+"\"int timo\"> E<.Ft void> E<.Fn sleepq_set_timeout_sbt \"void *wchan\" "
+"\"sbintime_t sbt\" \"sbintime_t pr\" \"int flags\"> E<.Ft u_int> E<.Fn "
+"sleepq_sleepcnt \"void *wchan\" \"int queue\"> E<.Ft int> E<.Fn "
+"sleepq_timedwait \"void *wchan\" \"int pri\"> E<.Ft int> E<.Fn "
+"sleepq_timedwait_sig \"void *wchan\" \"int pri\"> E<.Ft int> E<.Fn "
+"sleepq_type \"void *wchan\"> E<.Ft void> E<.Fn sleepq_wait \"void *wchan\" "
+"\"int pri\"> E<.Ft int> E<.Fn sleepq_wait_sig \"void *wchan\" \"int pri\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleepqueue.9:91
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:108
+msgid ""
+"Sleep queues provide a mechanism for suspending execution of a thread until "
+"some condition is met.  Each queue is associated with a specific wait "
+"channel when it is active, and only one queue may be associated with a wait "
+"channel at any given point in time.  The implementation of each wait channel "
+"splits its sleepqueue into 2 sub-queues in order to enable some "
+"optimizations on threads' wakeups.  An active queue holds a list of threads "
+"that are blocked on the associated wait channel.  Threads that are not "
+"blocked on a wait channel have an associated inactive sleep queue.  When a "
+"thread blocks on a wait channel it donates its inactive sleep queue to the "
+"wait channel.  When a thread is resumed, the wait channel that it was "
+"blocked on gives it an inactive sleep queue for later use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:117
+msgid ""
+"The E<.Fn sleepq_alloc> function allocates an inactive sleep queue and is "
+"used to assign a sleep queue to a thread during thread creation.  The E<.Fn "
+"sleepq_free> function frees the resources associated with an inactive sleep "
+"queue and is used to free a queue during thread destruction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:127
+msgid ""
+"Active sleep queues are stored in a hash table hashed on the addresses "
+"pointed to by wait channels.  Each bucket in the hash table contains a sleep "
+"queue chain.  A sleep queue chain contains a spin mutex and a list of sleep "
+"queues that hash to that specific chain.  Active sleep queues are protected "
+"by their chain's spin mutex.  The E<.Fn init_sleepqueues> function "
+"initializes the hash table of sleep queue chains."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:132
+msgid ""
+"The E<.Fn sleepq_lock> function locks the sleep queue chain associated with "
+"wait channel E<.Fa wchan>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:147
+msgid ""
+"The E<.Fn sleepq_lookup> returns a pointer to the currently active sleep "
+"queue for that wait channel associated with E<.Fa wchan> or E<.Dv NULL> if "
+"there is no active sleep queue associated with argument E<.Fa wchan>.  It "
+"requires the sleep queue chain associated with E<.Fa wchan> to have been "
+"locked by a prior call to E<.Fn sleepq_lock>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:154
+msgid ""
+"The E<.Fn sleepq_release> function unlocks the sleep queue chain associated "
+"with E<.Fn wchan> and is primarily useful when aborting a pending sleep "
+"request before one of the wait functions is called."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:184
+msgid ""
+"The E<.Fn sleepq_add> function places the current thread on the sleep queue "
+"associated with the wait channel E<.Fa wchan>.  The sleep queue chain "
+"associated with argument E<.Fa wchan> must be locked by a prior call to "
+"E<.Fn sleepq_lock> when this function is called.  If a lock is specified via "
+"the E<.Fa lock> argument, and if the kernel was compiled with E<.Cd "
+"\"options INVARIANTS\">, then the sleep queue code will perform extra checks "
+"to ensure that the lock is used by all threads sleeping on E<.Fa wchan>.  "
+"The E<.Fa wmesg> parameter should be a short description of E<.Fa wchan>.  "
+"The E<.Fa flags> parameter is a bitmask consisting of the type of sleep "
+"queue being slept on and zero or more optional flags.  The E<.Fa queue> "
+"parameter specifies the sub-queue, in which the contending thread will be "
+"inserted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:186
+msgid "There are currently three types of sleep queues:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleepqueue.9:188
+#, no-wrap
+msgid "Dv SLEEPQ_CONDVAR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:190
+msgid "A sleep queue used to implement condition variables."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleepqueue.9:190
+#, no-wrap
+msgid "Dv SLEEPQ_SLEEP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:196
+msgid ""
+"A sleep queue used to implement E<.Xr sleep 9>, E<.Xr wakeup 9> and E<.Xr "
+"wakeup_one 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleepqueue.9:196
+#, no-wrap
+msgid "Dv SLEEPQ_PAUSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:199
+msgid "A sleep queue used to implement E<.Xr pause 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:202
+msgid "There are currently two optional flag:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleepqueue.9:204
+#, no-wrap
+msgid "Dv SLEEPQ_INTERRUPTIBLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:206
+msgid "The current thread is entering an interruptible sleep."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleepqueue.9:208
+#, no-wrap
+msgid "Dv SLEEPQ_STOP_ON_BDRY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:213
+msgid ""
+"When thread is entering an interruptible sleep, do not stop it upon arrival "
+"of stop action, like E<.Dv SIGSTOP>.  Wake it up instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:230
+msgid ""
+"A timeout on the sleep may be specified by calling E<.Fn sleepq_set_timeout> "
+"after E<.Fn sleepq_add>.  The E<.Fa wchan> parameter should be the same "
+"value from the preceding call to E<.Fn sleepq_add>, and the sleep queue "
+"chain associated with E<.Fa wchan> must have been locked by a prior call to "
+"E<.Fn sleepq_lock>.  The E<.Fa timo> parameter should specify the timeout "
+"value in ticks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:247
+msgid ""
+"E<.Fn sleepq_set_timeout_sbt> function takes E<.Fa sbt> argument instead of "
+"E<.Fa timo>.  It allows to specify relative or absolute wakeup time with "
+"higher resolution in form of E<.Vt sbintime_t>.  The parameter E<.Fa pr> "
+"allows to specify wanted absolute event precision.  The parameter E<.Fa "
+"flags> allows to pass additional E<.Fn callout_reset_sbt> flags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:276
+msgid ""
+"Once the thread is ready to suspend, one of the wait functions is called to "
+"put the current thread to sleep until it is awakened and to context switch "
+"to another thread.  The E<.Fn sleepq_wait> function is used for "
+"non-interruptible sleeps that do not have a timeout.  The E<.Fn "
+"sleepq_timedwait> function is used for non-interruptible sleeps that have "
+"had a timeout set via E<.Fn sleepq_set_timeout>.  The E<.Fn sleepq_wait_sig> "
+"function is used for interruptible sleeps that do not have a timeout.  The "
+"E<.Fn sleepq_timedwait_sig> function is used for interruptible sleeps that "
+"do have a timeout set.  The E<.Fa wchan> argument to all of the wait "
+"functions is the wait channel being slept on.  The sleep queue chain "
+"associated with argument E<.Fa wchan> needs to have been locked with a prior "
+"call to E<.Fn sleepq_lock>.  The E<.Fa pri> argument is used to set the "
+"priority of the thread when it is awakened.  If it is set to zero, the "
+"thread's priority is left alone."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:285
+msgid ""
+"When the thread is resumed, the wait functions return a non-zero value if "
+"the thread was awakened due to an interrupt other than a signal or a "
+"timeout.  If the sleep timed out, then E<.Er EWOULDBLOCK> is returned.  If "
+"the sleep was interrupted by something other than a signal, then some other "
+"return value will be returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:320
+msgid ""
+"A sleeping thread is normally resumed by the E<.Fn sleepq_broadcast> and "
+"E<.Fn sleepq_signal> functions.  The E<.Fn sleepq_signal> function awakens "
+"the highest priority thread sleeping on a wait channel while E<.Fn "
+"sleepq_broadcast> awakens all of the threads sleeping on a wait channel.  "
+"The E<.Fa wchan> argument specifics which wait channel to awaken.  The E<.Fa "
+"flags> argument must match the sleep queue type contained in the E<.Fa "
+"flags> argument passed to E<.Fn sleepq_add> by the threads sleeping on the "
+"wait channel.  If the E<.Fa pri> argument does not equal \\-1, then each "
+"thread that is awakened will have its priority raised to E<.Fa pri> if it "
+"has a lower priority.  The sleep queue chain associated with argument E<.Fa "
+"wchan> must be locked by a prior call to E<.Fn sleepq_lock> before calling "
+"any of these functions.  The E<.Fa queue> argument specifies the sub-queue, "
+"from which threads need to be woken up."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:347
+msgid ""
+"A thread in an interruptible sleep can be interrupted by another thread via "
+"the E<.Fn sleepq_abort> function.  The E<.Fa td> argument specifies the "
+"thread to interrupt.  An individual thread can also be awakened from "
+"sleeping on a specific wait channel via the E<.Fn sleepq_remove> function.  "
+"The E<.Fa td> argument specifies the thread to awaken and the E<.Fa wchan> "
+"argument specifies the wait channel to awaken it from.  If the thread E<.Fa "
+"td> is not blocked on the wait channel E<.Fa wchan> then this function will "
+"not do anything, even if the thread is asleep on a different wait channel.  "
+"This function should only be used if one of the other functions above is not "
+"sufficient.  One possible use is waking up a specific thread from a widely "
+"shared sleep channel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:355
+msgid ""
+"The E<.Fn sleepq_sleepcnt> function offer a simple way to retrieve the "
+"number of threads sleeping for the specified E<.Fa queue>, given a E<.Fa "
+"wchan>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:361
+msgid ""
+"The E<.Fn sleepq_type> function returns the type of E<.Fa wchan> associated "
+"to a sleepqueue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:376
+msgid ""
+"The E<.Fn sleepq_abort>, E<.Fn sleepq_broadcast>, and E<.Fn sleepq_signal> "
+"functions all return a boolean value.  If the return value is true, then at "
+"least one thread was resumed that is currently swapped out.  The caller is "
+"responsible for awakening the scheduler process so that the resumed thread "
+"will be swapped back in.  This is done by calling the E<.Fn kick_proc0> "
+"function after releasing the sleep queue chain lock via a call to E<.Fn "
+"sleepq_release>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:384
+msgid ""
+"The sleep queue interface is currently used to implement the E<.Xr sleep 9> "
+"and E<.Xr condvar 9> interfaces.  Almost all other code in the kernel should "
+"use one of those interfaces rather than manipulating sleep queues directly."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleepqueue.9:384
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleepqueue.9:389
+msgid ""
+"E<.Xr condvar 9>, E<.Xr runqueue 9>, E<.Xr scheduler 9>, E<.Xr sleep 9>, "
+"E<.Xr timeout 9>"
+msgstr ""

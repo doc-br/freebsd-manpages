@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/dev_refthread.9:27
+#, no-wrap
+msgid "August 29, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/dev_refthread.9:28
+#, no-wrap
+msgid "DEV_REFTHREAD 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:34
+msgid "E<.Nm dev_refthread>, E<.Nm devvn_refthread>, E<.Nm dev_relthread>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/dev_refthread.9:34
+#, no-wrap
+msgid "safely access device methods"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/dev_refthread.9:36
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/dev_refthread.9:37
+#, no-wrap
+msgid "sys/conf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:44
+msgid ""
+"E<.Ft \"struct cdevsw *\"> E<.Fn dev_refthread \"struct cdev *dev\" \"int "
+"*ref\"> E<.Ft \"struct cdevsw *\"> E<.Fn devvn_refthread \"struct vnode "
+"*vp\" \"struct cdev **devp\" \"int *ref\"> E<.Ft void> E<.Fn dev_relthread "
+"\"struct cdev *dev\" \"int ref\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:56
+msgid ""
+"The E<.Fn dev_refthread> (or E<.Fn devvn_refthread>)  and E<.Fn "
+"dev_relthread> routines provide a safe way to access E<.Xr devfs 5> devices "
+"that may be concurrently destroyed by E<.Fn destroy_dev> (e.g., removable "
+"media)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:69
+msgid ""
+"If successful, E<.Fn dev_refthread> and E<.Fn devvn_refthread> acquire a "
+"\"thread reference\" to the associated E<.Vt \"struct cdev\"> and return a "
+"non-NULL pointer to the cdev's E<.Vt \"struct cdevsw\"> method table.  For "
+"the duration of that reference, the cdev's associated private data and "
+"method table object are valid.  Destruction of the cdev sleeps until the "
+"thread reference is released."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:79
+msgid ""
+"A reference cannot prevent media removal.  It is an implementation detail of "
+"individual drivers how method calls from callers with E<.Fn dev_refthread> "
+"references are handled when the device is pending destruction.  A common "
+"behavior for disk devices is to return the E<.Er ENXIO> status, but that is "
+"not required by this KPI."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:97
+msgid ""
+"The E<.Fn devvn_refthread> variant of E<.Fn dev_refthread> extracts the "
+"E<.Vt \"struct cdev\"> pointer out of the E<.Dv VCHR> E<.Xr vnode 9> "
+"automatically before performing the same actions as E<.Fn dev_refthread>.  "
+"Additionally, a pointer to the E<.Vt \"struct cdev\"> is returned to the "
+"caller via E<.Fa \"*devp\">.  E<.Fn devvn_refthread> correctly handles "
+"possible parallel reclamation of the vnode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:109
+msgid ""
+"E<.Fn dev_relthread> is used to release a reference to a E<.Vt \"struct "
+"cdev\">.  E<.Fn dev_relthread> E<.Sy must> only be invoked when the "
+"associated invocation of E<.Fn dev_refthread> or E<.Fn devvn_refthread> "
+"returned a non-NULL E<.Vt \"struct cdevsw *\">."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:109
+#, no-wrap
+msgid "CONTEXT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:132
+msgid ""
+"E<.Vt struct cdev> objects have two reference counts, E<.Va si_refcount> and "
+"E<.Va si_threadcount>.  The E<.Fn dev_refthread>, E<.Fn devvn_refthread>, "
+"and E<.Fn dev_relthread> functions manipulate the E<.Va si_threadcount>.  "
+"The E<.Va si_threadcount> reference guarantees the liveness of the E<.Vt "
+"struct cdev> object.  The other E<.Va si_refcount> reference provides only "
+"the weaker guarantee that the memory backing the E<.Vt struct cdev> has not "
+"been freed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:132
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:147
+msgid ""
+"If E<.Fn dev_refthread> or E<.Fn devvn_refthread> are unsuccessful, they "
+"return E<.Dv NULL>.  E<.Bf Em> If these routines are unsuccessful, they do "
+"not increment the E<.Vt \"struct cdev\"> E<.Va si_threadcount> and do not "
+"initialize the value pointed to by the E<.Fa \"*ref\"> parameter in any "
+"way.  E<.Ef>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:147
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:150
+msgid "E<.Xr destroy_dev 9>, E<.Xr devfs 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_refthread.9:150
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_refthread.9:153
+msgid ""
+"Do not invoke E<.Fn dev_relthread> unless the matching refthread routine "
+"succeeded!"
+msgstr ""

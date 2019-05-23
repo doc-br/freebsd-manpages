@@ -1,0 +1,279 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_node.9:29
+#, no-wrap
+msgid "April 28, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_node.9:30
+#, no-wrap
+msgid "IEEE80211_NODE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_node.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:34
+msgid "E<.Nm ieee80211_node>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_node.9:34
+#, no-wrap
+msgid "software 802.11 stack node management functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_node.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_node.9:36
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:76
+msgid ""
+"E<.Ft struct ieee80211_node *> E<.Fo ieee80211_find_rxnode> E<.Fa \"struct "
+"ieee80211com *\"> E<.Fa \"const struct ieee80211_frame_min *\"> E<.Fc> E<.Ft "
+"struct ieee80211_node *> E<.Fo ieee80211_find_rxnode_withkey> E<.Fa \"struct "
+"ieee80211com *\"> E<.Fa \"const struct ieee80211_frame_min *\"> E<.Fa "
+"\"ieee80211_keyix\"> E<.Fc> E<.Ft struct ieee80211_node *> E<.Fn "
+"ieee80211_ref_node \"struct ieee80211_node *\"> E<.Ft void> E<.Fn "
+"ieee80211_unref_node \"struct ieee80211_node *\"> E<.Ft void> E<.Fn "
+"ieee80211_free_node \"struct ieee80211_node *\"> E<.Ft void> E<.Fo "
+"ieee80211_iterate_nodes> E<.Fa \"struct ieee80211_node_table *\"> E<.Fa "
+"\"ieee80211_iter_func *f\"> E<.Fa \"void *arg\"> E<.Fc> E<.Ft void> E<.Fo "
+"ieee80211_dump_nodes> E<.Fa \"struct ieee80211_node_table *\"> E<.Fc> E<.Ft "
+"void> E<.Fo ieee80211_dump_node> E<.Fa \"struct ieee80211_node *\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_node.9:76
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:99
+msgid ""
+"The E<.Nm net80211> layer that supports 802.11 device drivers maintains a "
+"database of peer stations called the E<.Dq node table> in the E<.Vt ic_sta> "
+"entry of the E<.Vt ieee80211com> structure.  Station mode vaps create an "
+"entry for the access point the station is associated to.  AP mode vaps "
+"create entries for associated stations.  Adhoc and mesh mode vaps create "
+"entries for neighbor stations.  WDS mode vaps create an entry for the peer "
+"station.  Stations for all vaps reside in the same table; each node entry "
+"has a E<.Vt ni_vap> field that identifies the vap that created it.  In some "
+"instances an entry is used by multiple vaps (e.g. for dynamic WDS a station "
+"associated to an ap vap may also be the peer of a WDS vap)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:119
+msgid ""
+"Node table entries are reference counted.  That is, there is a count of all "
+"long term references that determines when an entry may be reclaimed.  "
+"References are held by every in-flight frame sent to a station to ensure the "
+"entry is not reclaimed while the frame is queued or otherwise held by a "
+"driver.  Routines that lookup a table entry return a E<.Dq held reference> "
+"(i.e. a pointer to a table entry with the reference count incremented).  The "
+"E<.Fn ieee80211_ref_node> and E<.Fn ieee80211_unref_node> calls explicitly "
+"increment/decrement the reference count of a node, but are rarely used.  "
+"Instead most callers use E<.Fn ieee80211_free_node> to release a reference "
+"and, if the count goes to zero, reclaim the table entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:136
+msgid ""
+"The station table and its entries are exposed to drivers in several ways.  "
+"Each frame transmitted to a station includes a reference to the associated "
+"node in the E<.Vt m_pkthdr.rcvif> field.  This reference must be reclaimed "
+"by the driver when transmit processing is done.  For each frame received the "
+"driver must lookup the table entry to use in dispatching the frame E<.Dq up "
+"the stack>.  This lookup implicitly obtains a reference to the table entry "
+"and the driver must reclaim the reference when frame processing is "
+"completed.  Otherwise drivers frequently inspect the contents of the E<.Vt "
+"iv_bss> node when handling state machine changes as important information is "
+"maintained in the data structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:147
+msgid ""
+"The node table is opaque to drivers.  Entries may be looked up using one of "
+"the pre-defined API's or the E<.Fn ieee80211_iterate_nodes> call may be used "
+"to iterate through all entries to do per-node processing or implement some "
+"non-standard search mechanism.  Note that E<.Fn ieee80211_iterate_nodes> is "
+"single-threaded per-device and the effort processing involved is fairly "
+"substantial so it should be used carefully."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:160
+msgid ""
+"Two routines are provided to print the contents of nodes to the console for "
+"debugging: E<.Fn ieee80211_dump_node> displays the contents of a single node "
+"while E<.Fn ieee80211_dump_nodes> displays the contents of the specified "
+"node table.  Nodes may also be displayed using E<.Xr ddb 4> with the E<.Dq "
+"show node> directive and the station node table can be displayed with E<.Dq "
+"show statab>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_node.9:160
+#, no-wrap
+msgid "DRIVER PRIVATE STATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:173
+msgid ""
+"Node data structures may be extended by the driver to include driver-private "
+"state.  This is done by overriding the E<.Vt ic_node_alloc> method used to "
+"allocate a node table entry.  The driver method must allocate a structure "
+"that is an extension of the E<.Vt ieee80211_node> structure.  For example "
+"the E<.Xr iwi 4> driver defines a private node structure as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:178
+#, no-wrap
+msgid ""
+"struct iwi_node {\n"
+"        struct ieee80211_node   in_node;\n"
+"\tint                     in_station;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:181
+msgid "and then provides a private allocation routine that does this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:187
+#, no-wrap
+msgid ""
+"static struct ieee80211_node *\n"
+"iwi_node_alloc(struct ieee80211vap *vap,\n"
+"    const uint8_t mac[IEEE80211_ADDR_LEN])\n"
+"{\n"
+"        struct iwi_node *in;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:195
+#, no-wrap
+msgid ""
+"        in = malloc(sizeof(struct iwi_node), M_80211_NODE,\n"
+"\t\tM_NOWAIT | M_ZERO);\n"
+"        if (in == NULL)\n"
+"                return NULL;\n"
+"        in-E<gt>in_station = -1;\n"
+"        return &in-E<gt>in_node;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:202
+msgid ""
+"Note that when reclaiming a node allocated by the driver the E<.Dq parent "
+"method> must be called to ensure E<.Nm net80211> state is reclaimed; for "
+"example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:209
+#, no-wrap
+msgid ""
+"static void\n"
+"iwi_node_free(struct ieee80211_node *ni)\n"
+"{\n"
+"        struct ieee80211com *ic = ni-E<gt>ni_ic;\n"
+"        struct iwi_softc *sc = ic-E<gt>ic_ifp-E<gt>if_softc;\n"
+"        struct iwi_node *in = (struct iwi_node *)ni;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:214
+#, no-wrap
+msgid ""
+"        if (in-E<gt>in_station != -1)\n"
+"                free_unr(sc-E<gt>sc_unr, in-E<gt>in_station);\n"
+"        sc-E<gt>sc_node_free(ni);\t/* invoke net80211 free handler */\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:229
+msgid ""
+"Beware that care must be taken to avoid holding references that might cause "
+"nodes from being reclaimed.  E<.Nm net80211> will reclaim a node when the "
+"last reference is reclaimed in its data structures.  However if a driver "
+"holds additional references then E<.Nm net80211> will not recognize this and "
+"table entries will not be reclaimed.  Such references should not be needed "
+"if the driver overrides the E<.Vt ic_node_cleanup> and/or E<.Vt "
+"ic_node_free> methods."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_node.9:229
+#, no-wrap
+msgid "KEY TABLE SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:248
+msgid ""
+"Node table lookups are typically done using a hash of the stations' mac "
+"address.  When receiving frames this is sufficient to find the node table "
+"entry for the transmitter.  But some devices also identify the sending "
+"station in the device state received with each frame and this data can be "
+"used to optimize lookups on receive using a companion table called the E<.Dq "
+"keytab>.  This table records a separate node table reference that can be "
+"fetched without any locking using the table index.  This logic is handled "
+"with the E<.Fn ieee80211_find_rxnode_withkey> call: if a keytab entry is "
+"found using the specified index then it is returned directly; otherwise a "
+"normal lookup is done and the keytab entry is written using the specified "
+"index.  If the specified index is E<.Dv IEEE80211_KEYIX_NONE> then a normal "
+"lookup is done without a table update."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_node.9:248
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_node.9:251
+msgid "E<.Xr ddb 4>, E<.Xr ieee80211 9>, E<.Xr ieee80211_proto 9>"
+msgstr ""

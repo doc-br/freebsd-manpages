@@ -1,0 +1,253 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ucred.9:29
+#, no-wrap
+msgid "January 23, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ucred.9:30
+#, no-wrap
+msgid "UCRED 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:40
+msgid ""
+"E<.Nm ucred>, E<.Nm crget>, E<.Nm crhold>, E<.Nm crfree>, E<.Nm crcopy>, "
+"E<.Nm crdup>, E<.Nm cru2x>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ucred.9:40
+#, no-wrap
+msgid "functions related to user credentials"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:41
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ucred.9:42
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ucred.9:43
+#, no-wrap
+msgid "sys/ucred.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:60
+msgid ""
+"E<.Ft \"struct ucred *\"> E<.Fn crget void> E<.Ft \"struct ucred *\"> E<.Fn "
+"crhold \"struct ucred *cr\"> E<.Ft void> E<.Fn crfree \"struct ucred *cr\"> "
+"E<.Ft void> E<.Fn crcopy \"struct ucred *dest\" \"struct ucred *src\"> E<.Ft "
+"\"struct ucred *\"> E<.Fn crcopysafe \"struct proc *p\" \"struct ucred "
+"*cr\"> E<.Ft \"struct ucred *\"> E<.Fn crdup \"struct ucred *cr\"> E<.Ft "
+"void> E<.Fn crsetgroups \"struct ucred *cr\" \"int ngrp\" \"gid_t *groups\"> "
+"E<.Ft void> E<.Fn cru2x \"struct ucred *cr\" \"struct xucred *xcr\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:60
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:66
+msgid ""
+"The E<.Nm> family of functions is used to manage user credential structures "
+"E<.Pq Vt \"struct ucred\"> within the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:72
+msgid ""
+"The E<.Fn crget> function allocates memory for a new structure, sets its "
+"reference count to 1, and initializes its lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:76
+msgid "The E<.Fn crhold> function increases the reference count on the credential."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:81
+msgid ""
+"The E<.Fn crfree> function decreases the reference count on the credential.  "
+"If the count drops to 0, the storage for the structure is freed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:91
+msgid ""
+"The E<.Fn crcopy> function copies the contents of the source (template)  "
+"credential into the destination template.  The E<.Vt uidinfo> structure "
+"within the destination is referenced by calling E<.Xr uihold 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:103
+msgid ""
+"The E<.Fn crcopysafe> function copies the current credential associated with "
+"the process E<.Fa p> into the newly allocated credential E<.Fa cr>.  The "
+"process lock on E<.Fa p> must be held and will be dropped and reacquired as "
+"needed to allocate group storage space in E<.Fa cr>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:112
+msgid ""
+"The E<.Fn crdup> function allocates memory for a new structure and copies "
+"the contents of E<.Fa cr> into it.  The actual copying is performed by E<.Fn "
+"crcopy>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:126
+msgid ""
+"The E<.Fn crsetgroups> function sets the E<.Va cr_groups> and E<.Va "
+"cr_ngroups> variables and allocates space as needed.  It also truncates the "
+"group list to the current maximum number of groups.  No other mechanism "
+"should be used to modify the E<.Va cr_groups> array except for updating the "
+"primary group via assignment to E<.Va cr_groups[0]>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:146
+msgid ""
+"The E<.Fn cru2x> function converts a E<.Vt ucred> structure to an E<.Vt "
+"xucred> structure.  That is, it copies data from E<.Fa cr> to E<.Fa xcr>; it "
+"ignores fields in the former that are not present in the latter (e.g., E<.Va "
+"cr_uidinfo>), and appropriately sets fields in the latter that are not "
+"present in the former (e.g., E<.Va cr_version>)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:147
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:156
+msgid ""
+"E<.Fn crget>, E<.Fn crhold>, E<.Fn crdup>, and E<.Fn crcopysafe> all return "
+"a pointer to a E<.Vt ucred> structure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:156
+#, no-wrap
+msgid "USAGE NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:169
+msgid ""
+"As of E<.Fx 5.0>, the E<.Vt ucred> structure contains extensible fields.  "
+"This means that the correct protocol must always be followed to create a "
+"fresh and writable credential structure: new credentials must always be "
+"derived from existing credentials using E<.Fn crget>, E<.Fn crcopy>, and "
+"E<.Fn crcopysafe>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:177
+msgid ""
+"In the common case, credentials required for access control decisions are "
+"used in a read-only manner.  In these circumstances, the thread credential "
+"E<.Va td_ucred> should be used, as it requires no locking to access safely, "
+"and remains stable for the duration of the call even in the face of a "
+"multi-threaded application changing the process credentials from another "
+"thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:189
+msgid ""
+"During a process credential update, the process lock must be held across "
+"check and update, to prevent race conditions.  The process credential, E<.Va "
+"td-E<gt>td_proc-E<gt>p_ucred>, must be used both for check and update.  If a "
+"process credential is updated during a system call and checks against the "
+"thread credential are to be made later during the same system call, the "
+"thread credential must also be refreshed from the process credential so as "
+"to prevent use of a stale value.  To avoid this scenario, it is recommended "
+"that system calls updating the process credential be designed to avoid other "
+"authorization functions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:199
+msgid ""
+"If temporarily elevated privileges are required for a thread, the thread "
+"credential can by replaced for the duration of an activity, or for the "
+"remainder of the system call.  However, as a thread credential is often "
+"shared, appropriate care should be taken to make sure modifications are made "
+"to a writable credential through the use of E<.Fn crget> and E<.Fn crcopy>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:211
+msgid ""
+"Caution should be exercised when checking authorization for a thread or "
+"process perform an operation on another thread or process.  As a result of "
+"temporary elevation, the target thread credential should E<.Em never> be "
+"used as the target credential in an access control decision: the process "
+"credential associated with the thread, E<.Va td-E<gt>td_proc-E<gt>p_ucred>, "
+"should be used instead.  For example, E<.Xr p_candebug 9> accepts a target "
+"process, not a target thread, for access control purposes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:211
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:213
+msgid "E<.Xr uihold 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ucred.9:213
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ucred.9:215
+msgid "This manual page was written by E<.An Chad David Aq Mt davidc@acns.ab.ca>."
+msgstr ""

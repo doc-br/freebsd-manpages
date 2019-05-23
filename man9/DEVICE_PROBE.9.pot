@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:31
+#, no-wrap
+msgid "February 8, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:32
+#, no-wrap
+msgid "DEVICE_PROBE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:36
+msgid "E<.Nm DEVICE_PROBE>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:36
+#, no-wrap
+msgid "probe for device existence"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:39
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:42
+msgid "E<.Ft int> E<.Fn DEVICE_PROBE \"device_t dev\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:61
+msgid ""
+"The E<.Fn DEVICE_PROBE> method should probe to see if the device is "
+"present.  It should return 0 if the device exists, E<.Er ENXIO> if it cannot "
+"be found.  If some other error happens during the probe (such as a memory "
+"allocation failure), an appropriate error code should be returned.  For "
+"cases where more than one driver matches a device, a priority value can be "
+"returned.  In this case, success codes are values less than or equal to zero "
+"with the highest value representing the best match.  Failure codes are "
+"represented by positive values and the regular E<.Ux> error codes should be "
+"used for the purpose."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:73
+msgid ""
+"If a driver returns a success code which is less than zero, it must not "
+"assume that it will be the same driver which is attached to the device.  In "
+"particular, it must not assume that any values stored in the softc structure "
+"will be available for its attach method and any resources allocated during "
+"probe must be released and re-allocated if the attach method is called.  In "
+"addition it is an absolute requirement that the probe routine have no side "
+"effects whatsoever.  The probe routine may be called more than once before "
+"the attach routine is called."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:79
+msgid ""
+"If a success code of zero is returned, the driver can assume that it will be "
+"the one attached, but must not hold any resources when the probe routine "
+"returns.  A driver may assume that the softc is preserved when it returns a "
+"success code of zero."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:79
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:86
+msgid ""
+"A value equal to or less than zero indicates success, greater than zero "
+"indicates an error (errno).  For values equal to or less than zero: zero "
+"indicates highest priority, no further probing is done; for a value less "
+"than zero, the lower the value the lower the priority, e.g.\\& -100 "
+"indicates a lower priority than -50."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:91
+msgid ""
+"The following values are used by convention to indicate different strengths "
+"of matching in a probe routine.  Except as noted, these are just suggested "
+"values, and there's nothing magical about them."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:92
+#, no-wrap
+msgid "BUS_PROBE_SPECIFIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:96
+msgid ""
+"The device that cannot be reprobed, and that no possible other driver may "
+"exist (typically legacy drivers who don't follow all the rules, or special "
+"needs drivers)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:96
+#, no-wrap
+msgid "BUS_PROBE_VENDOR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:102
+msgid ""
+"The device is supported by a vendor driver.  This is for source or binary "
+"drivers that are not yet integrated into the E<.Fx> tree.  Its use in the "
+"base OS is prohibited."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:102
+#, no-wrap
+msgid "BUS_PROBE_DEFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:108
+msgid ""
+"The device is a normal device matching some plug and play ID.  This is the "
+"normal return value for drivers to use.  It is intended that nearly all of "
+"the drivers in the tree should return this value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:108
+#, no-wrap
+msgid "BUS_PROBE_LOW_PRIORITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:116
+msgid ""
+"The driver is a legacy driver, or an otherwise less desirable driver for a "
+"given plug and play ID.  The driver has special requirements like when there "
+"are two drivers that support overlapping series of hardware devices.  In "
+"this case the one that supports the older part of the line would return this "
+"value, while the one that supports the newer ones would return "
+"BUS_PROBE_DEFAULT."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:116
+#, no-wrap
+msgid "BUS_PROBE_GENERIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:121
+msgid ""
+"The driver matches the type of device generally.  This allows drivers to "
+"match all serial ports generally, with specialized drivers matching "
+"particular types of serial ports that need special treatment for some "
+"reason."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:121
+#, no-wrap
+msgid "BUS_PROBE_HOOVER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:126
+msgid ""
+"The driver matches all unclaimed devices on a bus.  The E<.Xr ugen 4> device "
+"is one example."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:126
+#, no-wrap
+msgid "BUS_PROBE_NOWILDCARD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:131
+msgid ""
+"The driver expects its parent to tell it which children to manage and no "
+"probing is really done.  The device only matches if its parent bus "
+"specifically said to use this driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:132
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:138
+msgid ""
+"E<.Xr device 9>, E<.Xr DEVICE_ATTACH 9>, E<.Xr DEVICE_DETACH 9>, E<.Xr "
+"DEVICE_IDENTIFY 9>, E<.Xr DEVICE_SHUTDOWN 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:138
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_PROBE.9:140
+msgid "This manual page was written by E<.An Doug Rabson>."
+msgstr ""

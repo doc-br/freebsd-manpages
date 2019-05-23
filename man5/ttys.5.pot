@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/libexec/getty/ttys.5:31
+#, no-wrap
+msgid "August 3, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/libexec/getty/ttys.5:32
+#, no-wrap
+msgid "TTYS 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/getty/ttys.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:36
+msgid "E<.Nm ttys>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/libexec/getty/ttys.5:36
+#, no-wrap
+msgid "terminal initialization information"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/getty/ttys.5:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:57
+msgid ""
+"The file E<.Nm> contains information that is used by various routines to "
+"initialize and control the use of terminal special files.  Pseudo-terminals "
+"(see E<.Xr pts 4>)  are not listed.  This information is read with the E<.Xr "
+"getttyent 3> library routines.  There is one line in the E<.Nm> file per "
+"special device file.  Fields are separated by tabs and/or spaces.  Fields "
+"comprised of more than one word should be enclosed in double quotes "
+"(``\"'').  Blank lines and comments may appear anywhere in the file; "
+"comments are delimited by hash marks (``#'') and new lines.  Any unspecified "
+"fields will default to null."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:63
+msgid ""
+"The first field is normally the name of the terminal special file as it is "
+"found in E<.Pa /dev>.  However, it can be any arbitrary string when the "
+"associated command is not related to a tty."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:74
+msgid ""
+"The second field of the file is the command to execute for the line, usually "
+"E<.Xr getty 8>, which initializes and opens the line, setting the speed, "
+"waiting for a user name and executing the E<.Xr login 1> program.  It can "
+"be, however, any desired command, for example the start up for a window "
+"system terminal emulator or some other daemon process, and can contain "
+"multiple words if quoted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:86
+msgid ""
+"The third field is the type of terminal usually connected to that tty line, "
+"normally the one found in the E<.Xr termcap 5> data base file.  The "
+"environment variable E<.Ev TERM> is initialized with the value by either "
+"E<.Xr getty 8> or E<.Xr login 1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:101
+msgid ""
+"The remaining fields set flags in the E<.Fa ty_status> entry (see E<.Xr "
+"getttyent 3>), specify a window system process that E<.Xr init 8> will "
+"maintain for the terminal line, optionally determine the type of tty "
+"(whether dialin, network or otherwise), or specify a tty group name that "
+"allows the login class database (see E<.Xr login.conf 5>)  to refer to many "
+"ttys as a group, to selectively allow or deny access or enable or disable "
+"accounting facilities for ttys as a group."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:127
+msgid ""
+"As flag values, the strings ``on'' and ``off'' specify that E<.Xr init 8> "
+"should (should not) execute the command given in the second field.  "
+"``onifconsole'' will cause this line to be enabled if and only if it is an "
+"active kernel console device (it is equivalent to ``on'' in this case).  The "
+"flag ``onifexists'' will cause this line to be enabled if and only if the "
+"name exists.  If the name starts with a ``/'', it will be considered an "
+"absolute path.  Otherwise, it is considered a path relative to E<.Pa /dev>.  "
+"The flag ``secure'' (if the console is enabled) allows users with a uid of 0 "
+"to login on this line.  The flag ``dialin'' indicates that a tty entry "
+"describes a dialin line, and ``network'' is obsolete and does nothing.  "
+"Either of these strings may also be specified in the terminal type field.  "
+"The string ``window='' may be followed by a quoted command string which "
+"E<.Xr init 8> will execute E<.Em before> starting the command specified by "
+"the second field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:137
+msgid ""
+"The string ``group='' may be followed by a group name comprised of "
+"alphanumeric characters that can be used by E<.Xr login.conf 5> to refer to "
+"many tty lines as a group to enable or disable access and accounting "
+"facilities.  If no group is specified, then the tty becomes a member of the "
+"group \"none\".  For backwards compatibility, the ``group='' should appear "
+"last on the line, immediately before the optional comment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:145
+msgid ""
+"Both the second field and any command specified with ``window='' will be "
+"split into words and executed using E<.Xr execve 2>.  Words are separated by "
+"any combinations of tabs and spaces.  Arguments containing whitespace should "
+"be enclosed in single quotes E<.Pq Li '>.  Note that no shell-style globbing "
+"or other variable substitution occurs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/getty/ttys.5:145
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/getty/ttys.5:147
+#, no-wrap
+msgid "Pa /etc/ttys"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/getty/ttys.5:149
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:161
+#, no-wrap
+msgid ""
+"# root login on console at 1200 baud\n"
+"console\t\"/usr/libexec/getty std.1200\"\tvt100\ton secure\n"
+"# dialup at 1200 baud, no root logins\n"
+"ttyd0\t\"/usr/libexec/getty d1200\"\tdialup\ton group=dialup\t# 555-1234\n"
+"# Mike's terminal: hp2621\n"
+"ttyh0\t\"/usr/libexec/getty std.9600\"\thp2621-nl\ton group=dialup\t# 457 "
+"Evans\n"
+"# John's terminal: vt100\n"
+"ttyh1\t\"/usr/libexec/getty std.9600\"\tvt100\ton group=dialup\t\t# 459 "
+"Evans\n"
+"# terminal emulate/window system\n"
+"ttyv0\t\"/usr/local/bin/xterm -display :0\"\txterm\ton "
+"window=\"/usr/local/bin/X :0\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/getty/ttys.5:162
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:172
+msgid ""
+"E<.Xr login 1>, E<.Xr getttyent 3>, E<.Xr gettytab 5>, E<.Xr login.conf 5>, "
+"E<.Xr termcap 5>, E<.Xr getty 8>, E<.Xr init 8>, E<.Xr pam_securetty 8>, "
+"E<.Xr pstat 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/getty/ttys.5:172
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/getty/ttys.5:176
+msgid "A E<.Nm> file appeared in E<.At v6>."
+msgstr ""

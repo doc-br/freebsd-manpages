@@ -1,0 +1,5367 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/mandoc/roff.7:18
+#, no-wrap
+msgid "$Mdocdate: January 1 2019 $"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/mandoc/roff.7:19
+#, no-wrap
+msgid "ROFF 7"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:21
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:23
+msgid "E<.Nm roff>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/mandoc/roff.7:23
+#, no-wrap
+msgid "roff language reference for mandoc"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:24
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:56
+msgid ""
+"The E<.Nm roff> language is a general purpose text formatting language.  "
+"Since traditional implementations of the E<.Xr mdoc 7> and E<.Xr man 7> "
+"manual formatting languages are based on it, many real-world manuals use "
+"small numbers of E<.Nm> requests and escape sequences intermixed with their "
+"E<.Xr mdoc 7> or E<.Xr man 7> code.  To properly format such manuals, the "
+"E<.Xr mandoc 1> utility supports a subset of E<.Nm> requests and escapes.  "
+"Even though this manual page lists all E<.Nm> requests and escape sequences, "
+"it only contains partial information about requests not supported by E<.Xr "
+"mandoc 1> and about language features that do not matter for manual pages.  "
+"For complete E<.Nm> manuals, consult the E<.Sx SEE ALSO> section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:75
+msgid ""
+"Input lines beginning with the control character E<.Sq \\&.> are parsed for "
+"requests and macros.  Such lines are called E<.Dq request lines> or E<.Dq "
+"macro lines>, respectively.  Requests change the processing state and "
+"manipulate the formatting; some macros also define the document structure "
+"and produce formatted output.  The single quote E<.Pq Qq \\(aq> is accepted "
+"as an alternative control character, treated by E<.Xr mandoc 1> just like "
+"E<.Ql \\&.>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:80
+msgid ""
+"Lines not beginning with control characters are called E<.Dq text lines>.  "
+"They provide free-form text to be printed; the formatting of the text "
+"depends on the respective processing context."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:80
+#, no-wrap
+msgid "LANGUAGE SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:93
+msgid ""
+"E<.Nm> documents may contain only graphable 7-bit ASCII characters, the "
+"space character, and, in certain circumstances, the tab character.  The "
+"backslash character E<.Sq \\e> indicates the start of an escape sequence, "
+"used for example for E<.Sx Comments> and E<.Sx Special Characters>.  For a "
+"complete listing of escape sequences, consult the E<.Sx ESCAPE SEQUENCE "
+"REFERENCE> below."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:93
+#, no-wrap
+msgid "Comments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:102
+msgid ""
+"Text following an escaped double-quote E<.Sq \\e\\(dq>, whether in a "
+"request, macro, or text line, is ignored to the end of the line.  A request "
+"line beginning with a control character and comment escape E<.Sq "
+"\\&.\\e\\(dq> is also ignored.  Furthermore, request lines with only a "
+"control character and optional trailing whitespace are stripped from input."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:104 /usr/src/contrib/mandoc/roff.7:126 /usr/src/contrib/mandoc/roff.7:205 /usr/src/contrib/mandoc/roff.7:292 /usr/src/contrib/mandoc/roff.7:319 /usr/src/contrib/mandoc/roff.7:389
+msgid "Examples:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:110
+#, no-wrap
+msgid ""
+"\\&.\\e\\(dq This is a comment line.\n"
+"\\&.\\e\\(dq The next line is ignored:\n"
+"\\&.\n"
+"\\&.Sh EXAMPLES \\e\\(dq This is a comment, too.\n"
+"\\&example text \\e\\(dq And so is this.\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:111
+#, no-wrap
+msgid "Special Characters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:124
+msgid ""
+"Special characters are used to encode special glyphs and are rendered "
+"differently across output media.  They may occur in request, macro, and text "
+"lines.  Sequences begin with the escape character E<.Sq \\e> followed by "
+"either an open-parenthesis E<.Sq \\&(> for two-character sequences; an "
+"open-bracket E<.Sq \\&[> for n-character sequences (terminated at a "
+"close-bracket E<.Sq \\&]>); or a single one character sequence."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:127
+#, no-wrap
+msgid "Li \\e(em"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:129
+msgid "Two-letter em dash escape."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:129
+#, no-wrap
+msgid "Li \\ee"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:131
+msgid "One-letter backslash escape."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:136
+msgid "See E<.Xr mandoc_char 7> for a complete list."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:136
+#, no-wrap
+msgid "Font Selection"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:151
+msgid ""
+"In E<.Xr mdoc 7> and E<.Xr man 7> documents, fonts are usually selected with "
+"macros.  The E<.Ic \\ef> escape sequence and the E<.Ic \\&ft> request can be "
+"used to manually change the font, but this is not recommended in E<.Xr mdoc "
+"7> documents.  Such manual font changes are overridden by many subsequent "
+"macros."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:153
+msgid "The following fonts are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:155
+#, no-wrap
+msgid "Cm B"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:157
+msgid "Bold font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:157
+#, no-wrap
+msgid "Cm BI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:159
+msgid "A font that is both bold and italic."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:159
+#, no-wrap
+msgid "Cm CB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:164
+msgid "Bold constant width font.  Same as E<.Cm B> in terminal output."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:164
+#, no-wrap
+msgid "Cm CI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:169
+msgid "Italic constant width font.  Same as E<.Cm I> in terminal output."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:169
+#, no-wrap
+msgid "Cm CR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:174
+msgid "Regular constant width font.  Same as E<.Cm R> in terminal output."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:174
+#, no-wrap
+msgid "Cm CW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:177
+msgid "An alias for E<.Cm CR>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:177
+#, no-wrap
+msgid "Cm I"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:179
+msgid "Italic font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:179
+#, no-wrap
+msgid "Cm P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:187
+msgid ""
+"Return to the previous font.  If a macro caused a font change since the last "
+"E<.Ic \\ef> eascape sequence or E<.Ic \\&ft> request, this returns to the "
+"font before the last font change in the macro rather than to the font before "
+"the last manual font change."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:187
+#, no-wrap
+msgid "Cm R"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:190
+msgid "Roman font.  This is the default font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:190
+#, no-wrap
+msgid "Cm 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:193
+msgid "An alias for E<.Cm R>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:193
+#, no-wrap
+msgid "Cm 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:196
+msgid "An alias for E<.Cm I>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:196
+#, no-wrap
+msgid "Cm 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:199
+msgid "An alias for E<.Cm B>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:199
+#, no-wrap
+msgid "Cm 4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:202
+msgid "An alias for E<.Cm BI>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:206
+#, no-wrap
+msgid "Li \\efBbold\\efR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:208
+msgid "Write in B<bold>, then switch to regular font mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:208
+#, no-wrap
+msgid "Li \\efIitalic\\efP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:210
+msgid "Write in I<italic>, then return to previous font mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:210
+#, no-wrap
+msgid "Li \\ef(BIbold italic\\efP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:212
+msgid "Write in \\f(BIbold italic\\fR, then return to previous font mode."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:213
+#, no-wrap
+msgid "Whitespace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:217
+msgid ""
+"Whitespace consists of the space character.  In text lines, whitespace is "
+"preserved within a line.  In request and macro lines, whitespace delimits "
+"arguments and is discarded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:225
+msgid ""
+"Unescaped trailing spaces are stripped from text line input unless in a "
+"literal context.  In general, trailing whitespace on any input line is "
+"discouraged for reasons of portability.  In the rare case that a space "
+"character is needed at the end of an input line, it may be forced by E<.Sq "
+"\\e\\ \\e&>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:231
+msgid ""
+"Literal space characters can be produced in the output using escape "
+"sequences.  In macro lines, they can also be included in arguments using "
+"quotation; see E<.Sx MACRO SYNTAX> for details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:236
+msgid ""
+"Blank text lines, which may include whitespace, are only permitted within "
+"literal contexts.  If the first character of a text line is a space, that "
+"line is printed with a leading newline."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:236
+#, no-wrap
+msgid "Scaling Widths"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:241
+msgid ""
+"Many requests and macros support scaled widths for their arguments.  The "
+"syntax for a scaled width is E<.Sq Li [+-]?[0-9]*.[0-9]*[:unit:]>, where a "
+"decimal must be preceded or followed by at least one digit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:243
+msgid "The following scaling units are accepted:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:245
+#, no-wrap
+msgid "c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:247
+msgid "centimetre"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:247
+#, no-wrap
+msgid "i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:249
+msgid "inch"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:249
+#, no-wrap
+msgid "P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:251
+msgid "pica (1/6 inch)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:251
+#, no-wrap
+msgid "p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:253
+msgid "point (1/72 inch)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:253
+#, no-wrap
+msgid "f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:257
+msgid "scale E<.Sq u> by 65536"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:257
+#, no-wrap
+msgid "v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:259
+msgid "default vertical span"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:259
+#, no-wrap
+msgid "m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:264
+msgid "width of rendered E<.Sq m> E<.Pq em> character"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:264
+#, no-wrap
+msgid "n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:269
+msgid "width of rendered E<.Sq n> E<.Pq en> character"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:269
+#, no-wrap
+msgid "u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:271
+msgid "default horizontal span for the terminal"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:271
+#, no-wrap
+msgid "M"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:273
+msgid "mini-em (1/100 em)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:283
+msgid ""
+"Using anything other than E<.Sq m>, E<.Sq n>, or E<.Sq v> is necessarily "
+"non-portable across output media.  See E<.Sx COMPATIBILITY>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:290
+msgid ""
+"If a scaling unit is not provided, the numerical value is interpreted under "
+"the default rules of E<.Sq v> for vertical spaces and E<.Sq u> for "
+"horizontal ones."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:293
+#, no-wrap
+msgid "Li \\&.Bl -tag -width 2i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:296
+msgid "two-inch tagged list indentation in E<.Xr mdoc 7>"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:296
+#, no-wrap
+msgid "Li \\&.HP 2i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:299
+msgid "two-inch tagged list indentation in E<.Xr man 7>"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:299
+#, no-wrap
+msgid "Li \\&.sp 2v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:301
+msgid "two vertical spaces"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:302
+#, no-wrap
+msgid "Sentence Spacing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:314
+msgid ""
+"Each sentence should terminate at the end of an input line.  By doing this, "
+"a formatter will be able to apply the proper amount of spacing after the end "
+"of sentence (unescaped) period, exclamation mark, or question mark followed "
+"by zero or more non-sentence closing delimiters E<.Po> E<.Sq \\&)>, E<.Sq "
+"\\&]>, E<.Sq \\&'>, E<.Sq \\&\"> E<.Pc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:317
+msgid ""
+"The proper spacing is also intelligently preserved if a sentence ends at the "
+"boundary of a macro line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:324
+#, no-wrap
+msgid ""
+"Do not end sentences mid-line like this.  Instead,\n"
+"end a sentence like this.\n"
+"A macro would end like this:\n"
+"\\&.Xr mandoc 1 \\&.\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:325
+#, no-wrap
+msgid "REQUEST SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:327
+msgid "A request or macro line consists of:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:335
+msgid ""
+"the control character E<.Sq \\&.> or E<.Sq \\(aq> at the beginning of the "
+"line,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:337
+msgid "optionally an arbitrary amount of whitespace,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:340
+msgid ""
+"the name of the request or the macro, which is one word of arbitrary length, "
+"terminated by whitespace,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:342
+msgid "and zero or more arguments delimited by whitespace."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:345
+msgid "Thus, the following request lines are all equivalent:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:349
+#, no-wrap
+msgid ""
+"\\&.ig end\n"
+"\\&.ig    end\n"
+"\\&.   ig end\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:350
+#, no-wrap
+msgid "MACRO SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:367
+msgid ""
+"Macros are provided by the E<.Xr mdoc 7> and E<.Xr man 7> languages and can "
+"be defined by the E<.Ic \\&de> request.  When called, they follow the same "
+"syntax as requests, except that macro arguments may optionally be quoted by "
+"enclosing them in double quote characters E<.Pq Sq \\(dq>.  Quoted text, "
+"even if it contains whitespace or would cause a macro invocation when "
+"unquoted, is always considered literal text.  Inside quoted text, pairs of "
+"double quote characters E<.Pq Sq Qq> resolve to single double quote "
+"characters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:379
+msgid ""
+"To be recognised as the beginning of a quoted argument, the opening quote "
+"character must be preceded by a space character.  A quoted argument extends "
+"to the next double quote character that is not part of a pair, or to the end "
+"of the input line, whichever comes earlier.  Leaving out the terminating "
+"double quote character at the end of the line is discouraged.  For clarity, "
+"if more arguments follow on the same input line, it is recommended to follow "
+"the terminating double quote character by a space character; in case the "
+"next character after the terminating double quote character is anything "
+"else, it is regarded as the beginning of the next, unquoted argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:387
+msgid ""
+"Both in quoted and unquoted arguments, pairs of backslashes E<.Pq Sq \\e\\e> "
+"resolve to single backslashes.  In unquoted arguments, space characters can "
+"alternatively be included by preceding them with a backslash E<.Pq Sq "
+"\\e\\~>, but quoting is usually better for clarity."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:390
+#, no-wrap
+msgid "Li .Fn strlen \\(dqconst char *s\\(dq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:400
+msgid ""
+"Group arguments E<.Qq const char *s> into one function argument.  If "
+"unspecified, E<.Qq const>, E<.Qq char>, and E<.Qq *s> would be considered "
+"separate arguments."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:400
+#, no-wrap
+msgid "Li .Op \\(dqFl a\\(dq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:404
+msgid "Consider E<.Qq \\&Fl a> as literal text instead of a flag macro."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:405
+#, no-wrap
+msgid "REQUEST REFERENCE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:412
+msgid ""
+"The E<.Xr mandoc 1> E<.Nm> parser recognises the following requests.  For "
+"requests marked as \"ignored\" or \"unsupported\", any arguments are "
+"ignored, and the number of arguments is not checked."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:413
+#, no-wrap
+msgid "Ic \\&ab Op Ar message"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:416
+msgid "Abort processing.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:416
+#, no-wrap
+msgid "Ic \\&ad Op Cm b | c | l | n | r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:419
+msgid "Set line adjustment mode for subsequent text.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:419
+#, no-wrap
+msgid "Ic \\&af Ar registername format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:422
+msgid "Assign an output format to a number register.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:422
+#, no-wrap
+msgid "Ic \\&aln Ar newname oldname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:425
+msgid "Create an alias for a number register.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:425
+#, no-wrap
+msgid "Ic \\&als Ar newname oldname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:427
+msgid "Create an alias for a request, string, macro, or diversion."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:427
+#, no-wrap
+msgid "Ic \\&am Ar macroname Op Ar endmacro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:431
+msgid ""
+"Append to a macro definition.  The syntax of this request is the same as "
+"that of E<.Ic \\&de>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:431
+#, no-wrap
+msgid "Ic \\&am1 Ar macroname Op Ar endmacro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:442
+msgid ""
+"Append to a macro definition, switching roff compatibility mode off during "
+"macro execution (groff extension).  The syntax of this request is the same "
+"as that of E<.Ic \\&de1>.  Since E<.Xr mandoc 1> does not implement E<.Nm> "
+"compatibility mode at all, it handles this request as an alias for E<.Ic "
+"\\&am>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:442
+#, no-wrap
+msgid "Ic \\&ami Ar macrostring Op Ar endstring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:447
+msgid ""
+"Append to a macro definition, specifying the macro name indirectly (groff "
+"extension).  The syntax of this request is the same as that of E<.Ic "
+"\\&dei>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:447
+#, no-wrap
+msgid "Ic \\&ami1 Ar macrostring Op Ar endstring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:459
+msgid ""
+"Append to a macro definition, specifying the macro name indirectly and "
+"switching roff compatibility mode off during macro execution (groff "
+"extension).  The syntax of this request is the same as that of E<.Ic "
+"\\&dei1>.  Since E<.Xr mandoc 1> does not implement E<.Nm> compatibility "
+"mode at all, it handles this request as an alias for E<.Ic \\&ami>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:459
+#, no-wrap
+msgid "Ic \\&as Ar stringname Op Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:465
+msgid ""
+"Append to a user-defined string.  The syntax of this request is the same as "
+"that of E<.Ic \\&ds>.  If a user-defined string with the specified name does "
+"not yet exist, it is set to the empty string before appending."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:465
+#, no-wrap
+msgid "Ic \\&as1 Ar stringname Op Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:476
+msgid ""
+"Append to a user-defined string, switching roff compatibility mode off "
+"during macro execution (groff extension).  The syntax of this request is the "
+"same as that of E<.Ic \\&ds1>.  Since E<.Xr mandoc 1> does not implement "
+"E<.Nm> compatibility mode at all, it handles this request as an alias for "
+"E<.Ic \\&as>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:476
+#, no-wrap
+msgid "Ic \\&asciify Ar divname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:479
+msgid "Fully unformat a diversion.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:479
+#, no-wrap
+msgid "Ic \\&backtrace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:482
+msgid ""
+"Print a backtrace of the input stack.  This is a groff extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:482
+#, no-wrap
+msgid "Ic \\&bd Ar font Oo Ar curfont Oc Op Ar offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:485
+msgid ""
+"Artificially embolden by repeated printing with small shifts.  Currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:485
+#, no-wrap
+msgid "Ic \\&bleedat Ar left top width height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:488
+msgid ""
+"Set the BleedBox page parameter for PDF generation.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:488
+#, no-wrap
+msgid "Ic \\&blm Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:491
+msgid "Set a blank line trap.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:491
+#, no-wrap
+msgid "Ic \\&box Ar divname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:494
+msgid ""
+"Begin a diversion without including a partially filled line.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:494
+#, no-wrap
+msgid "Ic \\&boxa Ar divname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:497
+msgid ""
+"Add to a diversion without including a partially filled line.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:497
+#, no-wrap
+msgid "Ic \\&bp Oo Cm + Ns | Ns Cm - Oc Ns Ar pagenumber"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:500
+msgid "Begin a new page.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:500
+#, no-wrap
+msgid "Ic \\&BP Ar source height width position offset flags label"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:503
+msgid ""
+"Define a frame and place a picture in it.  This is a Heirloom extension and "
+"currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:503
+#, no-wrap
+msgid "Ic \\&br"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:505
+msgid "Break the output line."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:505
+#, no-wrap
+msgid "Ic \\&break"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:510
+msgid "Break out of a E<.Ic \\&while> loop.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:510
+#, no-wrap
+msgid "Ic \\&breakchar Ar char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:513
+msgid ""
+"Optional line break characters.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:513
+#, no-wrap
+msgid "Ic \\&brnl Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:518
+msgid ""
+"Break output line after the next E<.Ar N> input lines.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:518
+#, no-wrap
+msgid "Ic \\&brp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:522
+msgid ""
+"Break and spread output line.  Currently, this is implemented as an alias "
+"for E<.Ic \\&br>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:522
+#, no-wrap
+msgid "Ic \\&brpnl Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:527
+msgid ""
+"Break and spread output line after the next E<.Ar N> input lines.  This is a "
+"Heirloom extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:527
+#, no-wrap
+msgid "Ic \\&c2 Op Ar char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:530
+msgid "Change the no-break control character.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:530
+#, no-wrap
+msgid "Ic \\&cc Op Ar char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:537
+msgid ""
+"Change the control character.  If E<.Ar char> is not specified, the control "
+"character is reset to E<.Sq \\&.>.  Trailing characters are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:537
+#, no-wrap
+msgid "Ic \\&ce Op Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:545
+msgid ""
+"Center the next E<.Ar N> input lines without filling.  E<.Ar N> defaults to "
+"1.  An argument of 0 or less ends centering.  Currently, high level macros "
+"abort centering."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:545
+#, no-wrap
+msgid "Ic \\&cf Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:548
+msgid "Output the contents of a file.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:548
+#, no-wrap
+msgid "Ic \\&cflags Ar flags char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:551
+msgid "Set character flags.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:551
+#, no-wrap
+msgid "Ic \\&ch Ar macroname Op Ar dist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:554
+msgid "Change a trap location.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:554
+#, no-wrap
+msgid "Ic \\&char Ar glyph Op Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:564
+msgid ""
+"Define or redefine the ASCII character or character escape sequence E<.Ar "
+"glyph> to be rendered as E<.Ar string>, which can be empty.  Only partially "
+"supported in E<.Xr mandoc 1>; may interact incorrectly with E<.Ic \\&tr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:564
+#, no-wrap
+msgid "Ic \\&chop Ar stringname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:567
+msgid ""
+"Remove the last character from a macro, string, or diversion.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:567
+#, no-wrap
+msgid "Ic \\&class Ar classname char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:570
+msgid "Define a character class.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:570
+#, no-wrap
+msgid "Ic \\&close Ar streamname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:573
+msgid "Close an open file.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:573
+#, no-wrap
+msgid "Ic \\&CL Ar color text"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:576
+msgid ""
+"Print text in color.  This is a Heirloom extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:576
+#, no-wrap
+msgid "Ic \\&color Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:579
+msgid ""
+"Activate or deactivate colors.  This is a groff extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:579
+#, no-wrap
+msgid "Ic \\&composite Ar from to"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:582
+msgid ""
+"Define a name component for composite glyph names.  This is a groff "
+"extension and currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:582
+#, no-wrap
+msgid "Ic \\&continue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:587
+msgid ""
+"Immediately start the next iteration of a E<.Ic \\&while> loop.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:587
+#, no-wrap
+msgid "Ic \\&cp Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:592
+msgid "Switch E<.Nm> compatibility mode on or off.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:592
+#, no-wrap
+msgid "Ic \\&cropat Ar left top width height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:595
+msgid ""
+"Set the CropBox page parameter for PDF generation.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:595
+#, no-wrap
+msgid "Ic \\&cs Ar font Op Ar width Op Ar emsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:598
+msgid "Constant character spacing mode.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:598
+#, no-wrap
+msgid "Ic \\&cu Op Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:603
+msgid ""
+"Underline next E<.Ar N> input lines including whitespace.  Currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:603
+#, no-wrap
+msgid "Ic \\&da Ar divname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:606
+msgid "Append to a diversion.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:606
+#, no-wrap
+msgid "Ic \\&dch Ar macroname Op Ar dist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:609
+msgid ""
+"Change a trap location in the current diversion.  This is a Heirloom "
+"extension and currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:609
+#, no-wrap
+msgid "Ic \\&de Ar macroname Op Ar endmacro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:614
+msgid "Define a E<.Nm> macro.  Its syntax can be either"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:618
+#, no-wrap
+msgid ""
+"E<.Pf . Ic \\&de Ar macroname>\n"
+"E<.Ar definition>\n"
+"\\&..\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:621 /usr/src/contrib/mandoc/roff.7:1198
+msgid "or"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:625
+#, no-wrap
+msgid ""
+"E<.Pf . Ic \\&de Ar macroname Ar endmacro>\n"
+"E<.Ar definition>\n"
+"E<.Pf . Ar endmacro>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:641
+msgid ""
+"Both forms define or redefine the macro E<.Ar macroname> to represent the "
+"E<.Ar definition>, which may consist of one or more input lines, including "
+"the newline characters terminating each line, optionally containing calls to "
+"E<.Nm> requests, E<.Nm> macros or high-level macros like E<.Xr man 7> or "
+"E<.Xr mdoc 7> macros, whichever applies to the document in question."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:655
+msgid ""
+"Specifying a custom E<.Ar endmacro> works in the same way as for E<.Ic "
+"\\&ig>; namely, the call to E<.Sq Pf . Ar endmacro> first ends the E<.Ar "
+"definition>, and after that, it is also evaluated as a E<.Nm> request or "
+"E<.Nm> macro, but not as a high-level macro."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:657
+msgid "The macro can be invoked later using the syntax"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:658
+#, no-wrap
+msgid "Pf . Ar macroname Op Ar argument Op Ar argument ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:663
+msgid "Regarding argument parsing, see E<.Sx MACRO SYNTAX> above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:674
+msgid ""
+"The line invoking the macro will be replaced in the input stream by the "
+"E<.Ar definition>, replacing all occurrences of E<.No \\e\\e$ Ns Ar N>, "
+"where E<.Ar N> is a digit, by the E<.Ar N Ns th Ar argument>.  For example,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:679
+#, no-wrap
+msgid ""
+"\\&.de ZN\n"
+"\\efI\\e^\\e\\e$1\\e^\\efP\\e\\e$2\n"
+"\\&..\n"
+"\\&.ZN XtFree .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:682
+msgid "produces"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:683
+#, no-wrap
+msgid "\\efI\\e^XtFree\\e^\\efP."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:690
+msgid ""
+"in the input stream, and thus in the output: I<\\^XtFree\\^>.  Each "
+"occurrence of \\e\\e$* is replaced with all the arguments, joined together "
+"with single space characters.  The variant \\e\\e$@ is similar, except that "
+"each argument is individually quoted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:704
+msgid ""
+"Since macros and user-defined strings share a common string table, defining "
+"a macro E<.Ar macroname> clobbers the user-defined string E<.Ar macroname>, "
+"and the E<.Ar definition> can also be printed using the E<.Sq \\e*> string "
+"interpolation syntax described below E<.Ic ds>, but this is rarely useful "
+"because every macro definition contains at least one explicit newline "
+"character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:712
+msgid ""
+"In order to prevent endless recursion, both groff and E<.Xr mandoc 1> limit "
+"the stack depth for expanding macros and strings to a large, but finite "
+"number, and E<.Xr mandoc 1> also limits the length of the expanded input "
+"line.  Do not rely on the exact values of these limits."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:712
+#, no-wrap
+msgid "Ic \\&de1 Ar macroname Op Ar endmacro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:725
+msgid ""
+"Define a E<.Nm> macro that will be executed with E<.Nm> compatibility mode "
+"switched off during macro execution.  This is a groff extension.  Since "
+"E<.Xr mandoc 1> does not implement E<.Nm> compatibility mode at all, it "
+"handles this request as an alias for E<.Ic \\&de>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:725
+#, no-wrap
+msgid "Ic \\&defcolor Ar newname scheme component ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:728
+msgid "Define a color name.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:728
+#, no-wrap
+msgid "Ic \\&dei Ar macrostring Op Ar endstring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:735
+msgid ""
+"Define a E<.Nm> macro, specifying the macro name indirectly (groff "
+"extension).  The syntax of this request is the same as that of E<.Ic "
+"\\&de>.  The effect is the same as:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:736
+#, no-wrap
+msgid "Pf . Cm \\&de No \\e* Ns Bo Ar macrostring Bc Op \\e* Ns Bq Ar endstring"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:737
+#, no-wrap
+msgid "Ic \\&dei1 Ar macrostring Op Ar endstring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:750
+msgid ""
+"Define a E<.Nm> macro that will be executed with E<.Nm> compatibility mode "
+"switched off during macro execution, specifying the macro name indirectly "
+"(groff extension).  Since E<.Xr mandoc 1> does not implement E<.Nm> "
+"compatibility mode at all, it handles this request as an alias for E<.Ic "
+"\\&dei>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:750
+#, no-wrap
+msgid "Ic \\&device Ar string ..."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:751
+#, no-wrap
+msgid "Ic \\&devicem Ar stringname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:754
+msgid ""
+"These two requests only make sense with the groff-specific intermediate "
+"output format and are unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:754
+#, no-wrap
+msgid "Ic \\&di Ar divname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:757
+msgid "Begin a diversion.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:757
+#, no-wrap
+msgid "Ic \\&do Ar command Op Ar argument ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:762
+msgid ""
+"Execute E<.Nm> request or macro line with compatibility mode disabled.  "
+"Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:762
+#, no-wrap
+msgid "Ic \\&ds Ar stringname Op Oo \\(dq Oc Ns Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:776
+msgid ""
+"Define a user-defined string.  The E<.Ar stringname> and E<.Ar string> "
+"arguments are space-separated.  If the E<.Ar string> begins with a "
+"double-quote character, that character will not be part of the string.  All "
+"remaining characters on the input line form the E<.Ar string>, including "
+"whitespace and double-quote characters, even trailing ones."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:789
+msgid ""
+"The E<.Ar string> can be interpolated into subsequent text by using E<.No "
+"\\e* Ns Bq Ar stringname> for a E<.Ar stringname> of arbitrary length, or "
+"\\e*(NN or \\e*N if the length of E<.Ar stringname> is two or one "
+"characters, respectively.  Interpolation can be prevented by escaping the "
+"leading backslash; that is, an asterisk preceded by an even number of "
+"backslashes does not trigger string interpolation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:804
+msgid ""
+"Since user-defined strings and macros share a common string table, defining "
+"a string E<.Ar stringname> clobbers the macro E<.Ar stringname>, and the "
+"E<.Ar stringname> used for defining a string can also be invoked as a macro, "
+"in which case the following input line will be appended to the E<.Ar "
+"string>, forming a new input line passed to the E<.Nm> parser.  For example,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:808
+#, no-wrap
+msgid ""
+"\\&.ds badidea .S\n"
+"\\&.badidea\n"
+"H SYNOPSIS\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:816
+msgid ""
+"invokes the E<.Ic SH> macro when used in a E<.Xr man 7> document.  Such "
+"abuse is of course strongly discouraged."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:816
+#, no-wrap
+msgid "Ic \\&ds1 Ar stringname Op Oo \\(dq Oc Ns Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:827
+msgid ""
+"Define a user-defined string that will be expanded with E<.Nm> compatibility "
+"mode switched off during string expansion.  This is a groff extension.  "
+"Since E<.Xr mandoc 1> does not implement E<.Nm> compatibility mode at all, "
+"it handles this request as an alias for E<.Ic \\&ds>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:827
+#, no-wrap
+msgid "Ic \\&dwh Ar dist macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:830
+msgid ""
+"Set a location trap in the current diversion.  This is a Heirloom extension "
+"and currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:830
+#, no-wrap
+msgid "Ic \\&dt Op Ar dist macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:833
+msgid "Set a trap within a diversion.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:833
+#, no-wrap
+msgid "Ic \\&ec Op Ar char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:839
+msgid ""
+"Enable the escape mechanism and change the escape character.  The E<.Ar "
+"char> argument defaults to the backslash E<.Pq Sq \\e>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:839
+#, no-wrap
+msgid "Ic \\&ecr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:842
+msgid "Restore the escape character.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:842
+#, no-wrap
+msgid "Ic \\&ecs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:845
+msgid "Save the escape character.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:845
+#, no-wrap
+msgid "Ic \\&el Ar body"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:859
+msgid ""
+"The E<.Dq else> half of an if/else conditional.  Pops a result off the stack "
+"of conditional evaluations pushed by E<.Ic \\&ie> and uses it as its "
+"conditional.  If no stack entries are present (e.g., due to no prior E<.Ic "
+"\\&ie> calls)  then false is assumed.  The syntax of this request is similar "
+"to E<.Ic \\&if> except that the conditional is missing."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:859
+#, no-wrap
+msgid "Ic \\&em Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:862
+msgid "Set a trap at the end of input.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:862
+#, no-wrap
+msgid "Ic \\&EN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:866
+msgid "End an equation block.  See E<.Ic \\&EQ>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:866
+#, no-wrap
+msgid "Ic \\&eo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:868
+msgid "Disable the escape mechanism completely."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:868
+#, no-wrap
+msgid "Ic \\&EP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:872
+msgid ""
+"End a picture started by E<.Ic \\&BP>.  This is a Heirloom extension and "
+"currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:872
+#, no-wrap
+msgid "Ic \\&EQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:877
+msgid ""
+"Begin an equation block.  See E<.Xr eqn 7> for a description of the equation "
+"language."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:877
+#, no-wrap
+msgid "Ic \\&errprint Ar message"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:880
+msgid ""
+"Print a string like an error message.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:880
+#, no-wrap
+msgid "Ic \\&ev Op Ar envname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:883
+msgid "Switch to another environment.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:883
+#, no-wrap
+msgid "Ic \\&evc Op Ar envname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:886
+msgid "Copy an environment into the current environment.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:886
+#, no-wrap
+msgid "Ic \\&ex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:889
+msgid "Abort processing and exit.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:889
+#, no-wrap
+msgid "Ic \\&fallback Ar curfont font ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:892
+msgid ""
+"Select the fallback sequence for a font.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:892
+#, no-wrap
+msgid "Ic \\&fam Op Ar familyname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:895
+msgid "Change the font family.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:895
+#, no-wrap
+msgid "Ic \\&fc Op Ar delimchar Op Ar padchar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:898
+msgid ""
+"Define a delimiting and a padding character for fields.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:898
+#, no-wrap
+msgid "Ic \\&fchar Ar glyphname Op Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:901
+msgid "Define a fallback glyph.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:901
+#, no-wrap
+msgid "Ic \\&fcolor Ar colorname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:904
+msgid ""
+"Set the fill color for \\eD objects.  This is a groff extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:904
+#, no-wrap
+msgid "Ic \\&fdeferlig Ar font string ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:907
+msgid ""
+"Defer ligature building.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:907
+#, no-wrap
+msgid "Ic \\&feature Cm + Ns | Ns Cm - Ns Ar name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:910
+msgid ""
+"Enable or disable an OpenType feature.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:910
+#, no-wrap
+msgid "Ic \\&fi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:928
+msgid ""
+"Break the output line and switch to fill mode, which is active by default "
+"but can be ended with the E<.Ic \\&nf> request.  In fill mode, input from "
+"subsequent input lines is added to the same output line until the next word "
+"no longer fits, at which point the output line is broken.  This request is "
+"implied by the E<.Xr mdoc 7> E<.Ic \\&Sh> macro and by the E<.Xr man 7> "
+"E<.Ic \\&SH>, E<.Ic \\&SS>, and E<.Ic \\&EE> macros."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:928
+#, no-wrap
+msgid "Ic \\&fkern Ar font minkern"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:931
+msgid ""
+"Control the use of kerning tables for a font.  This is a Heirloom extension "
+"and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:931
+#, no-wrap
+msgid "Ic \\&fl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:934
+msgid "Flush output.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:934
+#, no-wrap
+msgid "Ic \\&flig Ar font string char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:937
+msgid "Define ligatures.  This is a Heirloom extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:937
+#, no-wrap
+msgid "Ic \\&fp Ar position font Op Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:940
+msgid "Assign font position.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:940
+#, no-wrap
+msgid "Ic \\&fps Ar mapname ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:943
+msgid ""
+"Mount a font with a special character map.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:943
+#, no-wrap
+msgid "Ic \\&fschar Ar font glyphname Op Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:946
+msgid ""
+"Define a font-specific fallback glyph.  This is a groff extension and "
+"currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:946
+#, no-wrap
+msgid "Ic \\&fspacewidth Ar font Op Ar afmunits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:949
+msgid ""
+"Set a font-specific width for the space character.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:949
+#, no-wrap
+msgid "Ic \\&fspecial Ar curfont Op Ar font ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:952
+msgid ""
+"Conditionally define a special font.  This is a groff extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:952
+#, no-wrap
+msgid "Ic \\&ft Op Ar font"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:959
+msgid ""
+"Change the font; see E<.Sx Font Selection>.  The E<.Ar font> argument "
+"defaults to E<.Cm P>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:959
+#, no-wrap
+msgid "Ic \\&ftr Ar newname Op Ar oldname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:962
+msgid "Translate font name.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:962
+#, no-wrap
+msgid "Ic \\&fzoom Ar font Op Ar permille"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:965
+msgid "Zoom font size.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:965
+#, no-wrap
+msgid "Ic \\&gcolor Op Ar colorname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:968
+msgid "Set glyph color.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:968
+#, no-wrap
+msgid "Ic \\&hc Op Ar char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:971
+msgid "Set the hyphenation character.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:971
+#, no-wrap
+msgid "Ic \\&hcode Ar char code ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:974
+msgid "Set hyphenation codes of characters.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:974
+#, no-wrap
+msgid "Ic \\&hidechar Ar font char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:977
+msgid ""
+"Hide characters in a font.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:977
+#, no-wrap
+msgid "Ic \\&hla Ar language"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:980
+msgid "Set hyphenation language.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:980
+#, no-wrap
+msgid "Ic \\&hlm Op Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:983
+msgid "Set maximum number of consecutive hyphenated lines.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:983
+#, no-wrap
+msgid "Ic \\&hpf Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:986
+msgid ""
+"Load hyphenation pattern file.  This is a groff extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:986
+#, no-wrap
+msgid "Ic \\&hpfa Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:989
+msgid ""
+"Load hyphenation pattern file, appending to the current patterns.  This is a "
+"groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:989
+#, no-wrap
+msgid "Ic \\&hpfcode Ar code code ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:992
+msgid ""
+"Define mapping values for character codes in hyphenation patterns.  This is "
+"a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:992
+#, no-wrap
+msgid "Ic \\&hw Ar word ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:995
+msgid "Specify hyphenation points in words.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:995
+#, no-wrap
+msgid "Ic \\&hy Op Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:998
+msgid "Set automatic hyphenation mode.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:998
+#, no-wrap
+msgid "Ic \\&hylang Ar language"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1001
+msgid ""
+"Set hyphenation language.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1001
+#, no-wrap
+msgid "Ic \\&hylen Ar nchar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1004
+msgid ""
+"Minimum word length for hyphenation.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1004
+#, no-wrap
+msgid "Ic \\&hym Op Ar length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1007
+msgid "Set hyphenation margin.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1007
+#, no-wrap
+msgid "Ic \\&hypp Ar penalty ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1010
+msgid ""
+"Define hyphenation penalties.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1010
+#, no-wrap
+msgid "Ic \\&hys Op Ar length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1013
+msgid "Set hyphenation space.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1013
+#, no-wrap
+msgid "Ic \\&ie Ar condition body"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1023
+msgid ""
+"The E<.Dq if> half of an if/else conditional.  The result of the conditional "
+"is pushed into a stack used by subsequent invocations of E<.Ic \\&el>, which "
+"may be separated by any intervening input (or not exist at all).  Its syntax "
+"is equivalent to E<.Ic \\&if>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1023
+#, no-wrap
+msgid "Ic \\&if Ar condition body"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1026
+msgid "Begin a conditional.  This request can also be written as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1029
+#, no-wrap
+msgid ""
+"E<.Pf . Ic \\&if Ar condition No \\e{ Ns Ar body>\n"
+"E<.Ar body ... Ns \\e}>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1034
+#, no-wrap
+msgid ""
+"E<.Pf . Ic \\&if Ar condition No \\e{\\e>\n"
+"E<.Ar body ...>\n"
+"E<.Pf . No \\e}>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1042
+msgid ""
+"The E<.Ar condition> is a boolean expression.  Currently, E<.Xr mandoc 1> "
+"supports the following subset of roff conditionals:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1049
+msgid "If E<.Sq \\&!> is prefixed to E<.Ar condition>, it is logically inverted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1061
+msgid ""
+"If the first character of E<.Ar condition> is E<.Sq n> E<.Pq nroff mode> or "
+"E<.Sq o> E<.Pq odd page>, it evaluates to true, and the E<.Ar body> starts "
+"with the next character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1075
+msgid ""
+"If the first character of E<.Ar condition> is E<.Sq e> E<.Pq even page>, "
+"E<.Sq t> E<.Pq troff mode>, or E<.Sq v> E<.Pq vroff mode>, it evaluates to "
+"false, and the E<.Ar body> starts with the next character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1086
+msgid ""
+"If the first character of E<.Ar condition> is E<.Sq c> E<.Pq character "
+"available>, it evaluates to true if the following character is an ASCII "
+"character or a valid character escape sequence, or to false otherwise.  The "
+"E<.Ar body> starts with the character following that next character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1095
+msgid ""
+"If the first character of E<.Ar condition> is E<.Sq d>, it evaluates to true "
+"if the rest of E<.Ar condition> is the name of an existing user defined "
+"macro or string; otherwise, it evaluates to false."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1104
+msgid ""
+"If the first character of E<.Ar condition> is E<.Sq r>, it evaluates to true "
+"if the rest of E<.Ar condition> is the name of an existing number register; "
+"otherwise, it evaluates to false."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1113
+msgid ""
+"If the E<.Ar condition> starts with a parenthesis or with an optionally "
+"signed integer number, it is evaluated according to the rules of E<.Sx "
+"Numerical expressions> explained below.  It evaluates to true if the result "
+"is positive, or to false if the result is zero or negative."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1119
+msgid ""
+"Otherwise, the first character of E<.Ar condition> is regarded as a "
+"delimiter and it evaluates to true if the string extending from its first to "
+"its second occurrence is equal to the string extending from its second to "
+"its third occurrence."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1123
+msgid "If E<.Ar condition> cannot be parsed, it evaluates to false."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1129
+msgid ""
+"If a conditional is false, its children are not processed, but are "
+"syntactically interpreted to preserve the integrity of the input document.  "
+"Thus,"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:1130
+#, no-wrap
+msgid "\\&.if t .ig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1135
+msgid "will discard the E<.Sq \\&.ig>, which may lead to interesting results, but"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:1136
+#, no-wrap
+msgid "\\&.if t .if t \\e{\\e"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1142
+msgid ""
+"will continue to syntactically interpret to the block close of the final "
+"conditional.  Sub-conditionals, in this case, obviously inherit the truth "
+"value of the parent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1161
+msgid ""
+"If the E<.Ar body> section is begun by an escaped brace E<.Sq \\e{>, scope "
+"continues until the end of the input line containing the matching "
+"closing-brace escape sequence E<.Sq \\e}>.  If the E<.Ar body> is not "
+"enclosed in braces, scope continues until the end of the line.  If the E<.Ar "
+"condition> is followed by a E<.Ar body> on the same line, whether after a "
+"brace or not, then requests and macros E<.Em must> begin with a control "
+"character.  It is generally more intuitive, in this case, to write"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1165
+#, no-wrap
+msgid ""
+"E<.Pf . Ic \\&if Ar condition No \\e{\\e>\n"
+"E<.Pf . Ar request>\n"
+"E<.Pf . No \\e}>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1168
+msgid "than having the request or macro follow as"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:1169
+#, no-wrap
+msgid "Pf . Ic \\&if Ar condition Pf \\e{. Ar request"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1173
+msgid ""
+"The scope of a conditional is always parsed, but only executed if the "
+"conditional evaluates to true."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1180
+msgid ""
+"Note that the E<.Sq \\e}> is converted into a zero-width escape sequence if "
+"not passed as a standalone macro E<.Sq \\&.\\e}>.  For example,"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:1181
+#, no-wrap
+msgid "\\&.Fl a \\e} b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1188
+msgid ""
+"will result in E<.Sq \\e}> being considered an argument of the E<.Sq \\&Fl> "
+"macro."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1188
+#, no-wrap
+msgid "Ic \\&ig Op Ar endmacro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1191
+msgid "Ignore input.  Its syntax can be either"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1195
+#, no-wrap
+msgid ""
+"E<.Pf . Cm \\&ig>\n"
+"E<.Ar ignored text>\n"
+"\\&..\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1202
+#, no-wrap
+msgid ""
+"E<.Pf . Cm \\&ig Ar endmacro>\n"
+"E<.Ar ignored text>\n"
+"E<.Pf . Ar endmacro>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1215
+msgid ""
+"In the first case, input is ignored until a E<.Sq \\&..> request is "
+"encountered on its own line.  In the second case, input is ignored until the "
+"specified E<.Sq Pf . Ar endmacro> is encountered.  Do not use the escape "
+"character E<.Sq \\e> anywhere in the definition of E<.Ar endmacro>; it would "
+"cause very strange behaviour."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1219
+msgid "When the E<.Ar endmacro> is a roff request or a roff macro, like in"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/roff.7:1220
+#, no-wrap
+msgid "\\&.ig if"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1232
+msgid ""
+"the subsequent invocation of E<.Ic \\&if> will first terminate the E<.Ar "
+"ignored text>, then be invoked as usual.  Otherwise, it only terminates the "
+"E<.Ar ignored text>, and arguments following it or the E<.Sq \\&..> request "
+"are discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1232
+#, no-wrap
+msgid "Ic \\&in Op Oo Cm + Ns | Ns Cm - Oc Ns Ar width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1238
+msgid "Change indentation.  See E<.Xr man 7>.  Ignored in E<.Xr mdoc 7>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1238
+#, no-wrap
+msgid "Ic \\&index Ar register stringname substring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1241
+msgid ""
+"Find a substring in a string.  This is a Heirloom extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1241
+#, no-wrap
+msgid "Ic \\&it Ar expression macro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1253
+msgid ""
+"Set an input line trap.  The named E<.Ar macro> will be invoked after "
+"processing the number of input text lines specified by the numerical E<.Ar "
+"expression>.  While evaluating the E<.Ar expression>, the unit suffixes "
+"described below E<.Sx Scaling Widths> are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1253
+#, no-wrap
+msgid "Ic \\&itc Ar expression macro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1256
+msgid ""
+"Set an input line trap, not counting lines ending with \\ec.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1256
+#, no-wrap
+msgid "Ic \\&IX Ar class keystring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1263
+msgid ""
+"To support the generation of a table of contents, E<.Xr pod2man 1> emits "
+"this user-defined macro, usually without defining it.  To avoid reporting "
+"large numbers of spurious errors, E<.Xr mandoc 1> ignores it."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1263
+#, no-wrap
+msgid "Ic \\&kern Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1266
+msgid "Switch kerning on or off.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1266
+#, no-wrap
+msgid "Ic \\&kernafter Ar font char ... afmunits ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1269
+msgid ""
+"Increase kerning after some characters.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1269
+#, no-wrap
+msgid "Ic \\&kernbefore Ar font char ... afmunits ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1272
+msgid ""
+"Increase kerning before some characters.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1272
+#, no-wrap
+msgid "Ic \\&kernpair Ar font char ... font char ... afmunits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1275
+msgid ""
+"Add a kerning pair to the kerning table.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1275
+#, no-wrap
+msgid "Ic \\&lc Op Ar glyph"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1278
+msgid "Define a leader repetition character.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1278
+#, no-wrap
+msgid "Ic \\&lc_ctype Ar localename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1283
+msgid ""
+"Set the E<.Dv LC_CTYPE> locale.  This is a Heirloom extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1283
+#, no-wrap
+msgid "Ic \\&lds Ar macroname string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1286
+msgid ""
+"Define a local string.  This is a Heirloom extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1286
+#, no-wrap
+msgid "Ic \\&length Ar register string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1289
+msgid "Count the number of input characters in a string.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1289
+#, no-wrap
+msgid "Ic \\&letadj Ar lspmin lshmin letss lspmax lshmax"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1292
+msgid ""
+"Dynamic letter spacing and reshaping.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1292
+#, no-wrap
+msgid "Ic \\&lf Ar lineno Op Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1295
+msgid "Change the line number for error messages.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1295
+#, no-wrap
+msgid "Ic \\&lg Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1298
+msgid "Switch the ligature mechanism on or off.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1298
+#, no-wrap
+msgid "Ic \\&lhang Ar font char ... afmunits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1301
+msgid ""
+"Hang characters at left margin.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1301
+#, no-wrap
+msgid "Ic \\&linetabs Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1304
+msgid ""
+"Enable or disable line-tabs mode.  This is a groff extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1304
+#, no-wrap
+msgid "Ic \\&ll Op Oo Cm + Ns | Ns Cm - Oc Ns Ar width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1317
+msgid ""
+"Change the output line length.  If the E<.Ar width> argument is omitted, the "
+"line length is reset to its previous value.  The default setting for "
+"terminal output is 78n.  If a sign is given, the line length is added to or "
+"subtracted from; otherwise, it is set to the provided value.  Using this "
+"request in new manuals is discouraged for several reasons, among others "
+"because it overrides the E<.Xr mandoc 1> E<.Fl O Cm width> command line "
+"option."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1317
+#, no-wrap
+msgid "Ic \\&lnr Ar register Oo Cm + Ns | Ns Cm - Oc Ns Ar value Op Ar increment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1320
+msgid ""
+"Set local number register.  This is a Heirloom extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1320
+#, no-wrap
+msgid "Ic \\&lnrf Ar register Oo Cm + Ns | Ns Cm - Oc Ns Ar value Op Ar increment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1323
+msgid ""
+"Set local floating-point register.  This is a Heirloom extension and "
+"currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1323
+#, no-wrap
+msgid "Ic \\&lpfx Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1326
+msgid "Set a line prefix.  This is a Heirloom extension and currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1326
+#, no-wrap
+msgid "Ic \\&ls Op Ar factor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1331
+msgid ""
+"Set line spacing.  It takes one integer argument specifying the vertical "
+"distance of subsequent output text lines measured in v units.  Currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1331
+#, no-wrap
+msgid "Ic \\&lsm Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1334
+msgid ""
+"Set a leading spaces trap.  This is a groff extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1334
+#, no-wrap
+msgid "Ic \\&lt Op Oo Cm + Ns | Ns Cm - Oc Ns Ar width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1337
+msgid "Set title line length.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1337
+#, no-wrap
+msgid "Ic \\&mc Ar glyph Op Ar dist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1342
+msgid ""
+"Print margin character in the right margin.  The E<.Ar dist> is currently "
+"ignored; instead, 1n is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1342
+#, no-wrap
+msgid "Ic \\&mediasize Ar media"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1345
+msgid ""
+"Set the device media size.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1345
+#, no-wrap
+msgid "Ic \\&minss Ar width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1348
+msgid "Set minimum word space.  This is a Heirloom extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1348
+#, no-wrap
+msgid "Ic \\&mk Op Ar register"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1351
+msgid "Mark vertical position.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1351
+#, no-wrap
+msgid "Ic \\&mso Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1354
+msgid "Load a macro file using the search path.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1354
+#, no-wrap
+msgid "Ic \\&na"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1357
+msgid "Disable adjusting without changing the adjustment mode.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1357
+#, no-wrap
+msgid "Ic \\&ne Op Ar height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1361
+msgid ""
+"Declare the need for the specified minimum vertical space before the next "
+"trap or the bottom of the page.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1361
+#, no-wrap
+msgid "Ic \\&nf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1378
+msgid ""
+"Break the output line and switch to no-fill mode.  Subsequent input lines "
+"are kept together on the same output line even when exceeding the right "
+"margin, and line breaks in subsequent input cause output line breaks.  This "
+"request is implied by the E<.Xr mdoc 7> E<.Ic \\&Bd Fl unfilled> and E<.Ic "
+"\\&Bd Fl literal> macros and by the E<.Xr man 7> E<.Ic \\&EX> macro.  The "
+"E<.Ic \\&fi> request switches back to the default fill mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1378
+#, no-wrap
+msgid "Ic \\&nh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1381
+msgid "Turn off automatic hyphenation mode.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1381
+#, no-wrap
+msgid "Ic \\&nhychar Ar char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1384
+msgid ""
+"Define hyphenation-inhibiting characters.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1384
+#, no-wrap
+msgid "Ic \\&nm Op Ar start Op Ar inc Op Ar space Op Ar indent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1387
+msgid "Print line numbers.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1387
+#, no-wrap
+msgid "Ic \\&nn Op Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1390
+msgid "Temporarily turn off line numbering.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1390
+#, no-wrap
+msgid "Ic \\&nop Ar body"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1396
+msgid ""
+"Execute the rest of the input line as a request, macro, or text line, "
+"skipping the E<.Ic \\&nop> request and any space characters immediately "
+"following it.  This is mostly used to indent text lines inside macro "
+"definitions."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1396
+#, no-wrap
+msgid "Ic \\&nr Ar register Oo Cm + Ns | Ns Cm - Oc Ns Ar expression Op Ar stepsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1407
+msgid ""
+"Define or change a register.  A register is an arbitrary string value that "
+"defines some sort of state, which influences parsing and/or formatting.  For "
+"the syntax of E<.Ar expression>, see E<.Sx Numerical expressions> below.  If "
+"it is prefixed by a sign, the register will be incremented or decremented "
+"instead of assigned to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1415
+msgid ""
+"The E<.Ar stepsize> is used by the E<.Ic \\en+> auto-increment feature.  It "
+"remains unchanged when omitted while changing an existing register, and it "
+"defaults to 0 when defining a new register."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1419
+msgid "The following E<.Ar register> is handled specially:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1420
+#, no-wrap
+msgid "Cm nS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1436
+msgid ""
+"If set to a positive integer value, certain E<.Xr mdoc 7> macros will behave "
+"in the same way as in the E<.Em SYNOPSIS> section.  If set to 0, these "
+"macros will behave in the same way as outside the E<.Em SYNOPSIS> section, "
+"even when called within the E<.Em SYNOPSIS> section itself.  Note that "
+"starting a new E<.Xr mdoc 7> section with the E<.Ic \\&Sh> macro will reset "
+"this register."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1437
+#, no-wrap
+msgid "Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1443
+msgid ""
+"E<.Ic \\&nrf Ar register Oo Cm + Ns | Ns Cm - Oc Ns Ar expression> E<.Op Ar "
+"increment> E<.Xc> Define or change a floating-point register.  This is a "
+"Heirloom extension and currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1443
+#, no-wrap
+msgid "Ic \\&nroff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1446
+msgid "Force nroff mode.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1446
+#, no-wrap
+msgid "Ic \\&ns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1449
+msgid "Turn on no-space mode.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1449
+#, no-wrap
+msgid "Ic \\&nx Op Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1452
+msgid ""
+"Abort processing of the current input file and process another one.  Ignored "
+"because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1452
+#, no-wrap
+msgid "Ic \\&open Ar stream file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1455
+msgid "Open a file for writing.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1455
+#, no-wrap
+msgid "Ic \\&opena Ar stream file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1458
+msgid "Open a file for appending.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1458
+#, no-wrap
+msgid "Ic \\&os"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1461
+msgid "Output saved vertical space.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1461
+#, no-wrap
+msgid "Ic \\&output Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1464
+msgid "Output directly to intermediate output.  Not supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1464
+#, no-wrap
+msgid "Ic \\&padj Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1467
+msgid ""
+"Globally control paragraph-at-once adjustment.  This is a Heirloom extension "
+"and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1467
+#, no-wrap
+msgid "Ic \\&papersize Ar media"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1470
+msgid "Set the paper size.  This is a Heirloom extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1470
+#, no-wrap
+msgid "Ic \\&pc Op Ar char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1473
+msgid "Change the page number character.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1473
+#, no-wrap
+msgid "Ic \\&pev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1476
+msgid "Print environments.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1476
+#, no-wrap
+msgid "Ic \\&pi Ar command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1479
+msgid "Pipe output to a shell command.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1479
+#, no-wrap
+msgid "Ic \\&PI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1483
+msgid ""
+"Low-level request used by E<.Ic \\&BP>.  This is a Heirloom extension and "
+"currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1483
+#, no-wrap
+msgid "Ic \\&pl Op Oo Cm + Ns | Ns Cm - Oc Ns Ar height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1486
+msgid "Change page length.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1486
+#, no-wrap
+msgid "Ic \\&pm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1490
+msgid ""
+"Print names and sizes of macros, strings, and diversions to standard error "
+"output.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1490
+#, no-wrap
+msgid "Ic \\&pn Oo Cm + Ns | Ns Cm - Oc Ns Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1493
+msgid "Change the page number of the next page.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1493
+#, no-wrap
+msgid "Ic \\&pnr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1496
+msgid "Print all number registers on standard error output.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1496
+#, no-wrap
+msgid "Ic \\&po Op Oo Cm + Ns | Ns Cm - Oc Ns Ar offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1506
+msgid ""
+"Set a horizontal page offset.  If no argument is specified, the page offset "
+"is reverted to its previous value.  If a sign is specified, the new page "
+"offset is calculated relative to the current one; otherwise, it is "
+"absolute.  The argument follows the syntax of E<.Sx Scaling Widths> and the "
+"default scaling unit is E<.Cm m>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1506
+#, no-wrap
+msgid "Ic \\&ps Op Oo Cm + Ns | Ns Cm - Oc Ns size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1509
+msgid "Change point size.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1509
+#, no-wrap
+msgid "Ic \\&psbb Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1512
+msgid "Retrieve the bounding box of a PostScript file.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1512
+#, no-wrap
+msgid "Ic \\&pshape Ar indent length ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1515
+msgid ""
+"Set a special shape for the current paragraph.  This is a Heirloom extension "
+"and currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1515
+#, no-wrap
+msgid "Ic \\&pso Ar command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1518
+msgid "Include output of a shell command.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1518
+#, no-wrap
+msgid "Ic \\&ptr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1521
+msgid ""
+"Print the names and positions of all traps on standard error output.  This "
+"is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1521
+#, no-wrap
+msgid "Ic \\&pvs Op Oo Cm + Ns | Ns Cm - Oc Ns Ar height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1524
+msgid ""
+"Change post-vertical spacing.  This is a groff extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1524
+#, no-wrap
+msgid "Ic \\&rchar Ar glyph ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1527
+msgid "Remove glyph definitions.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1527
+#, no-wrap
+msgid "Ic \\&rd Op Ar prompt Op Ar argument ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1530
+msgid "Read from standard input.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1530
+#, no-wrap
+msgid "Ic \\&recursionlimit Ar maxrec maxtail"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1533
+msgid ""
+"Set the maximum stack depth for recursive macros.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1533
+#, no-wrap
+msgid "Ic \\&return Op Ar twice"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1536
+msgid ""
+"Exit the presently executed macro and return to the caller.  The argument is "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1536
+#, no-wrap
+msgid "Ic \\&rfschar Ar font glyph ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1539
+msgid "Remove font-specific fallback glyph definitions.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1539
+#, no-wrap
+msgid "Ic \\&rhang Ar font char ... afmunits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1542
+msgid ""
+"Hang characters at right margin.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1542
+#, no-wrap
+msgid "Ic \\&rj Op Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1549
+msgid ""
+"Justify the next E<.Ar N> input lines to the right margin without filling.  "
+"E<.Ar N> defaults to 1.  An argument of 0 or less ends right adjustment."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1549
+#, no-wrap
+msgid "Ic \\&rm Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1551
+msgid "Remove a request, macro or string."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1551
+#, no-wrap
+msgid "Ic \\&rn Ar oldname newname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1563
+msgid ""
+"Rename a request, macro, diversion, or string.  In E<.Xr mandoc 1>, "
+"user-defined macros, E<.Xr mdoc 7> and E<.Xr man 7> macros, and user-defined "
+"strings can be renamed, but renaming of predefined strings and of E<.Nm> "
+"requests is not supported, and diversions are not implemented at all."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1563
+#, no-wrap
+msgid "Ic \\&rnn Ar oldname newname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1566
+msgid "Rename a number register.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1566
+#, no-wrap
+msgid "Ic \\&rr Ar register"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1568
+msgid "Remove a register."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1568
+#, no-wrap
+msgid "Ic \\&rs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1571
+msgid "End no-space mode.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1571
+#, no-wrap
+msgid "Ic \\&rt Op Ar dist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1574
+msgid "Return to marked vertical position.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1574
+#, no-wrap
+msgid "Ic \\&schar Ar glyph Op Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1577
+msgid ""
+"Define global fallback glyph.  This is a groff extension and currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1577
+#, no-wrap
+msgid "Ic \\&sentchar Ar char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1580
+msgid ""
+"Define sentence-ending characters.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1580
+#, no-wrap
+msgid "Ic \\&shc Op Ar glyph"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1583
+msgid "Change the soft hyphen character.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1583
+#, no-wrap
+msgid "Ic \\&shift Op Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1589
+msgid ""
+"Shift macro arguments E<.Ar number> times, by default once: \\e\\e$i becomes "
+"what \\e\\e$i+number was.  Also decrement \\en(.$ by E<.Ar number>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1589
+#, no-wrap
+msgid "Ic \\&sizes Ar size ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1592
+msgid ""
+"Define permissible point sizes.  This is a groff extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1592
+#, no-wrap
+msgid "Ic \\&so Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1603
+msgid ""
+"Include a source file.  The file is read and its contents processed as input "
+"in place of the E<.Ic \\&so> request line.  To avoid inadvertent inclusion "
+"of unrelated files, E<.Xr mandoc 1> only accepts relative paths not "
+"containing the strings E<.Qq ../> and E<.Qq /..>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1610
+msgid ""
+"This request requires E<.Xr man 1> to change to the right directory before "
+"calling E<.Xr mandoc 1>, per convention to the root of the manual tree.  "
+"Typical usage looks like:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/contrib/mandoc/roff.7:1611
+#, no-wrap
+msgid "\\&.so man3/Xcursor.3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1619
+msgid ""
+"As the whole concept is rather fragile, the use of E<.Ic \\&so> is "
+"discouraged.  Use E<.Xr ln 1> instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1619
+#, no-wrap
+msgid "Ic \\&sp Op Ar height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1625
+msgid ""
+"Break the output line and emit vertical space.  The argument follows the "
+"syntax of E<.Sx Scaling Widths> and defaults to one blank line E<.Pq Li 1v>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1625
+#, no-wrap
+msgid "Ic \\&spacewidth Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1628
+msgid ""
+"Set the space width from the font metrics file.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1628
+#, no-wrap
+msgid "Ic \\&special Op Ar font ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1631
+msgid "Define a special font.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1631
+#, no-wrap
+msgid "Ic \\&spreadwarn Op Ar width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1634
+msgid "Warn about wide spacing between words.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1634
+#, no-wrap
+msgid "Ic \\&ss Ar wordspace Op Ar sentencespace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1637
+msgid "Set space character size.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1637
+#, no-wrap
+msgid "Ic \\&sty Ar position style"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1640
+msgid ""
+"Associate style with a font position.  This is a groff extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1640
+#, no-wrap
+msgid "Ic \\&substring Ar stringname startpos Op Ar endpos"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1643
+msgid "Replace a user-defined string with a substring.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1643
+#, no-wrap
+msgid "Ic \\&sv Op Ar height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1646
+msgid "Save vertical space.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1646
+#, no-wrap
+msgid "Ic \\&sy Ar command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1649
+msgid "Execute shell command.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1649
+#, no-wrap
+msgid "Ic \\&T&"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1654
+msgid ""
+"Re-start a table layout, retaining the options of the prior table "
+"invocation.  See E<.Ic \\&TS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1654
+#, no-wrap
+msgid "Ic \\&ta Op Ar width ... Op Cm T Ar width ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1668
+msgid ""
+"Set tab stops.  Each E<.Ar width> argument follows the syntax of E<.Sx "
+"Scaling Widths>.  If prefixed by a plus sign, it is relative to the previous "
+"tab stop.  The arguments after the E<.Cm T> marker are used repeatedly as "
+"often as needed; for each reuse, they are taken relative to the last "
+"previously established tab stop.  When E<.Ic \\&ta> is called without "
+"arguments, all tab stops are cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1668
+#, no-wrap
+msgid "Ic \\&tc Op Ar glyph"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1671
+msgid "Change tab repetition character.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1671
+#, no-wrap
+msgid "Ic \\&TE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1675
+msgid "End a table context.  See E<.Ic \\&TS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1675
+#, no-wrap
+msgid "Ic \\&ti Oo Cm + Ns | Ns Cm - Oc Ns Ar width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1684
+msgid ""
+"Break the output line and indent the next output line by E<.Ar width>.  If a "
+"sign is specified, the temporary indentation is calculated relative to the "
+"current indentation; otherwise, it is absolute.  The argument follows the "
+"syntax of E<.Sx Scaling Widths> and the default scaling unit is E<.Cm m>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1684
+#, no-wrap
+msgid "Ic \\&tkf Ar font minps width1 maxps width2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1687
+msgid "Enable track kerning for a font.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1687
+#, no-wrap
+msgid "Ic \\&tl No \\& Ap Ar left Ap Ar center Ap Ar right Ap"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1690
+msgid "Print a title line.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1690
+#, no-wrap
+msgid "Ic \\&tm Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1693
+msgid "Print to standard error output.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1693
+#, no-wrap
+msgid "Ic \\&tm1 Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1696
+msgid ""
+"Print to standard error output, allowing leading blanks.  This is a groff "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1696
+#, no-wrap
+msgid "Ic \\&tmc Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1699
+msgid ""
+"Print to standard error output without a trailing newline.  This is a groff "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1699
+#, no-wrap
+msgid "Ic \\&tr Ar glyph glyph ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1703
+msgid ""
+"Output character translation.  The first glyph in each pair is replaced by "
+"the second one.  Character escapes can be used; for example,"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/contrib/mandoc/roff.7:1704
+#, no-wrap
+msgid "tr \\e(xx\\e(yy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1707
+msgid "replaces all invocations of \\e(xx with \\e(yy."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1707
+#, no-wrap
+msgid "Ic \\&track Ar font minps width1 maxps width2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1710
+msgid ""
+"Static letter space tracking.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1710
+#, no-wrap
+msgid "Ic \\&transchar Ar char ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1713
+msgid ""
+"Define transparent characters for sentence-ending.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1713
+#, no-wrap
+msgid "Ic \\&trf Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1716
+msgid ""
+"Output the contents of a file, disallowing invalid characters.  This is a "
+"groff extension and ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1716
+#, no-wrap
+msgid "Ic \\&trimat Ar left top width height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1719
+msgid ""
+"Set the TrimBox page parameter for PDF generation.  This is a Heirloom "
+"extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1719
+#, no-wrap
+msgid "Ic \\&trin Ar glyph glyph ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1723
+msgid ""
+"Output character translation, ignored by E<.Ic \\&asciify>.  Currently "
+"unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1723
+#, no-wrap
+msgid "Ic \\&trnt Ar glyph glyph ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1726
+msgid "Output character translation, ignored by \\e!.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1726
+#, no-wrap
+msgid "Ic \\&troff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1729
+msgid "Force troff mode.  This is a groff extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1729
+#, no-wrap
+msgid "Ic \\&TS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1734
+msgid ""
+"Begin a table, which formats input in aligned rows and columns.  See E<.Xr "
+"tbl 7> for a description of the tbl language."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1734
+#, no-wrap
+msgid "Ic \\&uf Ar font"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1737
+msgid "Globally set the underline font.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1737
+#, no-wrap
+msgid "Ic \\&ul Op Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1742
+msgid "Underline next E<.Ar N> input lines.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1742
+#, no-wrap
+msgid "Ic \\&unformat Ar divname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1745
+msgid "Unformat spaces and tabs in a diversion.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1745
+#, no-wrap
+msgid "Ic \\&unwatch Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1748
+msgid ""
+"Disable notification for string or macro.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1748
+#, no-wrap
+msgid "Ic \\&unwatchn Ar register"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1751
+msgid ""
+"Disable notification for register.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1751
+#, no-wrap
+msgid "Ic \\&vpt Op Cm 1 | 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1754
+msgid ""
+"Enable or disable vertical position traps.  This is a groff extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1754
+#, no-wrap
+msgid "Ic \\&vs Op Oo Cm + Ns | Ns Cm - Oc Ns Ar height"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1757
+msgid "Change vertical spacing.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1757
+#, no-wrap
+msgid "Ic \\&warn Ar flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1760
+msgid "Set warning level.  Currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1760
+#, no-wrap
+msgid "Ic \\&warnscale Ar si"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1763
+msgid ""
+"Set the scaling indicator used in warnings.  This is a groff extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1763
+#, no-wrap
+msgid "Ic \\&watch Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1766
+msgid ""
+"Notify on change of string or macro.  This is a Heirloom extension and "
+"currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1766
+#, no-wrap
+msgid "Ic \\&watchlength Ar maxlength"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1770
+msgid ""
+"On change, report the contents of macros and strings up to the specified "
+"length.  This is a Heirloom extension and currently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1770
+#, no-wrap
+msgid "Ic \\&watchn Ar register"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1773
+msgid ""
+"Notify on change of register.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1773
+#, no-wrap
+msgid "Ic \\&wh Ar dist Op Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1776
+msgid "Set a page location trap.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1776
+#, no-wrap
+msgid "Ic \\&while Ar condition body"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1783
+msgid ""
+"Repeated execution while a E<.Ar condition> is true, with syntax similar to "
+"E<.Ic \\&if>.  Currently implemented with two restrictions: cannot nest, and "
+"each loop must start and end in the same scope."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1783
+#, no-wrap
+msgid "Ic \\&write Oo \\(dq Oc Ns Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1786
+msgid "Write to an open file.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1786
+#, no-wrap
+msgid "Ic \\&writec Oo \\(dq Oc Ns Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1789
+msgid ""
+"Write to an open file without appending a newline.  Ignored because "
+"insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1789
+#, no-wrap
+msgid "Ic \\&writem Ar macroname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1792
+msgid "Write macro or string to an open file.  Ignored because insecure."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1792
+#, no-wrap
+msgid "Ic \\&xflag Ar level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1795
+msgid ""
+"Set the extension level.  This is a Heirloom extension and currently "
+"ignored."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/mandoc/roff.7:1796
+#, no-wrap
+msgid "Numerical expressions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1817
+msgid ""
+"The E<.Ic \\&nr>, E<.Ic \\&if>, and E<.Ic \\&ie> requests accept integer "
+"numerical expressions as arguments.  These are always evaluated using the C "
+"E<.Vt int> type; integer overflow works the same way as in the C language.  "
+"Numbers consist of an arbitrary number of digits E<.Sq 0> to E<.Sq 9> "
+"prefixed by an optional sign E<.Sq +> or E<.Sq ->.  Each number may be "
+"followed by one optional scaling unit described below E<.Sx Scaling "
+"Widths>.  The following equations hold:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1821
+#, no-wrap
+msgid ""
+"1i = 6v = 6P = 10m = 10n = 72p = 1000M = 240u = 240\n"
+"254c = 100i = 24000u = 24000\n"
+"1f = 65536u = 65536\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1825
+msgid ""
+"The following binary operators are implemented.  Unless otherwise stated, "
+"they behave as in the C language:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1827
+#, no-wrap
+msgid "Ic +"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1829
+msgid "addition"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1829
+#, no-wrap
+msgid "Ic -"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1831
+msgid "subtraction"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1831
+#, no-wrap
+msgid "Ic *"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1833
+msgid "multiplication"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1833
+#, no-wrap
+msgid "Ic /"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1835
+msgid "division"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1835
+#, no-wrap
+msgid "Ic %"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1837
+msgid "remainder of division"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1837
+#, no-wrap
+msgid "Ic E<lt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1839
+msgid "less than"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1839
+#, no-wrap
+msgid "Ic E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1841
+msgid "greater than"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1841
+#, no-wrap
+msgid "Ic =="
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1843
+msgid "equal to"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1843
+#, no-wrap
+msgid "Ic ="
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1847
+msgid "equal to, same effect as E<.Ic ==> (this differs from C)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1847
+#, no-wrap
+msgid "Ic E<lt>="
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1849
+msgid "less than or equal to"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1849
+#, no-wrap
+msgid "Ic E<gt>="
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1851
+msgid "greater than or equal to"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1851
+#, no-wrap
+msgid "Ic E<lt>E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1856
+msgid ""
+"not equal to (corresponds to C E<.Ic !=>; this one is of limited "
+"portability, it is supported by Heirloom roff, but not by groff)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1856
+#, no-wrap
+msgid "Ic &"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1859
+msgid "logical and (corresponds to C E<.Ic &&>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1859
+#, no-wrap
+msgid "Ic \\&:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1862
+msgid "logical or (corresponds to C E<.Ic ||>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1862
+#, no-wrap
+msgid "Ic E<lt>?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1864
+msgid "minimum (not available in C)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1864
+#, no-wrap
+msgid "Ic E<gt>?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1866
+msgid "maximum (not available in C)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1871
+msgid ""
+"There is no concept of precedence; evaluation proceeds from left to right, "
+"except when subexpressions are enclosed in parentheses.  Inside parentheses, "
+"whitespace is ignored."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:1871
+#, no-wrap
+msgid "ESCAPE SEQUENCE REFERENCE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1884
+msgid ""
+"The E<.Xr mandoc 1> E<.Nm> parser recognises the following escape "
+"sequences.  In E<.Xr mdoc 7> and E<.Xr man 7> documents, using escape "
+"sequences is discouraged except for those described in the E<.Sx LANGUAGE "
+"SYNTAX> section above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1887
+msgid ""
+"A backslash followed by any character not listed here simply prints that "
+"character itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1888
+#, no-wrap
+msgid "Ic \\eE<lt>newlineE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1892
+msgid ""
+"A backslash at the end of an input line can be used to continue the logical "
+"input line on the next physical input line, joining the text on both lines "
+"together as if it were on a single input line."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1892
+#, no-wrap
+msgid "Ic \\eE<lt>spaceE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1899
+msgid ""
+"The escape sequence backslash-space E<.Pq Sq \\e\\ \\&> is an unpaddable "
+"space-sized non-breaking space character; see E<.Sx Whitespace> and E<.Xr "
+"mandoc_char 7>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1899
+#, no-wrap
+msgid "Ic \\e!"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1904
+msgid ""
+"Embed text up to and including the end of the input line into the current "
+"diversion or into intermediate output without interpreting requests, macros, "
+"and escapes.  Currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1904
+#, no-wrap
+msgid "Ic \\e\\(dq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1907
+msgid "The rest of the input line is treated as E<.Sx Comments>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1907
+#, no-wrap
+msgid "Ic \\e#"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1913
+msgid ""
+"Line continuation with comment.  Discard the rest of the physical input line "
+"and continue the logical input line on the next physical input line, joining "
+"the text on both lines together as if it were on a single input line.  This "
+"is a groff extension."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1913
+#, no-wrap
+msgid "Ic \\e$ Ns Ar arg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1916
+msgid "Macro argument expansion, see E<.Ic \\&de>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1916
+#, no-wrap
+msgid "Ic \\e%"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1919
+msgid "Hyphenation allowed at this point of the word; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1919
+#, no-wrap
+msgid "Ic \\e&"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1930
+msgid ""
+"Non-printing zero-width character, often used for various kinds of escaping; "
+"see E<.Sx Whitespace>, E<.Xr mandoc_char 7>, and the E<.Dq MACRO SYNTAX> and "
+"E<.Dq Delimiters> sections in E<.Xr mdoc 7>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1930
+#, no-wrap
+msgid "Ic \\e\\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1934
+msgid "Acute accent special character; use E<.Ic \\e(aa> instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1934
+#, no-wrap
+msgid "Ic \\e( Ns Ar cc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1938
+msgid "E<.Sx Special Characters> with two-letter names, see E<.Xr mandoc_char 7>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1938
+#, no-wrap
+msgid "Ic \\e)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1942
+msgid ""
+"Zero-width space transparent to end-of-sentence detection; ignored by E<.Xr "
+"mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1942
+#, no-wrap
+msgid "Ic \\e*[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1949
+msgid ""
+"Interpolate the string with the E<.Ar name>.  For short names, there are "
+"variants E<.Ic \\e* Ns Ar c> and E<.Ic \\e*( Ns Ar cc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1956
+msgid ""
+"One string is predefined on the E<.Nm> language level: E<.Ic \\e*(.T> "
+"expands to the name of the output device, for example ascii, utf8, ps, pdf, "
+"html, or markdown."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1963
+msgid ""
+"Macro sets traditionally predefine additional strings which are not portable "
+"and differ across implementations.  Those supported by E<.Xr mandoc 1> are "
+"listed in E<.Xr mandoc_char 7>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1970
+msgid ""
+"Strings can be defined, changed, and deleted with the E<.Ic \\&ds>, E<.Ic "
+"\\&as>, and E<.Ic \\&rm> requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1970
+#, no-wrap
+msgid "Ic \\e,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1973
+msgid "Left italic correction (groff extension); ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1973
+#, no-wrap
+msgid "Ic \\e-"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1979
+msgid ""
+"Special character E<.Dq mathematical minus sign>; see E<.Xr mandoc_char 7> "
+"for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1979
+#, no-wrap
+msgid "Ic \\e/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1982
+msgid "Right italic correction (groff extension); ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1982
+#, no-wrap
+msgid "Ic \\e:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1985
+msgid ""
+"Breaking the line is allowed at this point of the word without inserting a "
+"hyphen."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1985
+#, no-wrap
+msgid "Ic \\e?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1991
+msgid ""
+"Embed the text up to the next E<.Ic \\e?> into the current diversion without "
+"interpreting requests, macros, and escapes.  This is a groff extension and "
+"currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1991
+#, no-wrap
+msgid "Ic \\e[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1995
+msgid ""
+"E<.Sx Special Characters> with names of arbitrary length, see E<.Xr "
+"mandoc_char 7>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1995
+#, no-wrap
+msgid "Ic \\e^"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:1998
+msgid ""
+"One-twelfth em half-narrow space character, effectively zero-width in E<.Xr "
+"mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:1998
+#, no-wrap
+msgid "Ic \\e_"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2002
+msgid "Underline special character; use E<.Ic \\e(ul> instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2002
+#, no-wrap
+msgid "Ic \\e`"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2006
+msgid "Grave accent special character; use E<.Ic \\e(ga> instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2006
+#, no-wrap
+msgid "Ic \\e{"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2009
+msgid "Begin conditional input; see E<.Ic \\&if>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2009
+#, no-wrap
+msgid "Ic \\e\\(ba"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2012
+msgid ""
+"One-sixth em narrow space character, effectively zero-width in E<.Xr mandoc "
+"1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2012
+#, no-wrap
+msgid "Ic \\e}"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2015
+msgid "End conditional input; see E<.Ic \\&if>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2015
+#, no-wrap
+msgid "Ic \\e~"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2017
+msgid "Paddable non-breaking space character."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2017
+#, no-wrap
+msgid "Ic \\e0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2019
+msgid "Digit width space character."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2019
+#, no-wrap
+msgid "Ic \\eA\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2022
+msgid "Anchor definition; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2022
+#, no-wrap
+msgid "Ic \\ea"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2025
+msgid "Leader character; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2025
+#, no-wrap
+msgid "Ic \\eB\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2035
+msgid ""
+"Interpolate E<.Sq 1> if E<.Ar string> conforms to the syntax of E<.Sx "
+"Numerical expressions> explained above or E<.Sq 0> otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2035
+#, no-wrap
+msgid "Ic \\eb\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2038
+msgid "Bracket building function; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2038
+#, no-wrap
+msgid "Ic \\eC\\(aq Ns Ar name Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2041
+msgid "E<.Sx Special Characters> with names of arbitrary length."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2041
+#, no-wrap
+msgid "Ic \\ec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2046
+msgid ""
+"When encountered at the end of an input text line, the next input text line "
+"is considered to continue that line, even if there are request or macro "
+"lines in between.  No whitespace is inserted."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2046
+#, no-wrap
+msgid "Ic \\eD\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2049
+msgid "Draw graphics function; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2049
+#, no-wrap
+msgid "Ic \\ed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2052
+msgid "Move down by half a line; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2052
+#, no-wrap
+msgid "Ic \\eE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2059
+msgid ""
+"Escape character intended to not be interpreted in copy mode.  In E<.Xr "
+"mandoc 1>, it currently does the same as E<.Ic \\e> itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2059
+#, no-wrap
+msgid "Ic \\ee"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2061
+msgid "Backslash special character."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2061
+#, no-wrap
+msgid "Ic \\eF[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2068
+msgid ""
+"Switch font family (groff extension); ignored by E<.Xr mandoc 1>.  For short "
+"names, there are variants E<.Ic \\eF Ns Ar c> and E<.Ic \\eF( Ns Ar cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2068
+#, no-wrap
+msgid "Ic \\ef[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2081
+msgid ""
+"Switch to the font E<.Ar name>, see E<.Sx Font Selection>.  For short names, "
+"there are variants E<.Ic \\ef Ns Ar c> and E<.Ic \\ef( Ns Ar cc>.  An empty "
+"name E<.Ic \\ef[]> defaults to E<.Ic \\efP>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2081
+#, no-wrap
+msgid "Ic \\eg[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2088
+msgid ""
+"Interpolate the format of a number register; ignored by E<.Xr mandoc 1>.  "
+"For short names, there are variants E<.Ic \\eg Ns Ar c> and E<.Ic \\eg( Ns "
+"Ar cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2088
+#, no-wrap
+msgid "Ic \\eH\\(aq Ns Oo +|- Oc Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2091
+msgid "Set the height of the current font; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2091
+#, no-wrap
+msgid "Ic \\eh\\(aq Ns Oo Cm \\&| Oc Ns Ar width Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2098
+msgid ""
+"Horizontal motion.  If the vertical bar is given, the motion is relative to "
+"the current indentation.  Otherwise, it is relative to the current "
+"position.  The default scaling unit is E<.Cm m>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2098
+#, no-wrap
+msgid "Ic \\ek[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2105
+msgid ""
+"Mark horizontal input place in register; ignored by E<.Xr mandoc 1>.  For "
+"short names, there are variants E<.Ic \\ek Ns Ar c> and E<.Ic \\ek( Ns Ar "
+"cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2105
+#, no-wrap
+msgid "Ic \\eL\\(aq Ns Ar number Ns Oo Ar c Oc Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2108
+msgid "Vertical line drawing function; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2108
+#, no-wrap
+msgid "Ic \\el\\(aq Ns Ar width Ns Oo Ar c Oc Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2113
+msgid "Draw a horizontal line of E<.Ar width> using the glyph E<.Ar c>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2113
+#, no-wrap
+msgid "Ic \\eM[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2120
+msgid ""
+"Set fill (background) color (groff extension); ignored by E<.Xr mandoc 1>.  "
+"For short names, there are variants E<.Ic \\eM Ns Ar c> and E<.Ic \\eM( Ns "
+"Ar cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2120
+#, no-wrap
+msgid "Ic \\em[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2127
+msgid ""
+"Set glyph drawing color (groff extension); ignored by E<.Xr mandoc 1>.  For "
+"short names, there are variants E<.Ic \\em Ns Ar c> and E<.Ic \\em( Ns Ar "
+"cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2127
+#, no-wrap
+msgid "Ic \\eN\\(aq Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2131
+msgid "Character E<.Ar number> on the current font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2131
+#, no-wrap
+msgid "Ic \\en Ns Oo +|- Oc Ns Ic \\&[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2144
+msgid ""
+"Interpolate the number register E<.Ar name>.  For short names, there are "
+"variants E<.Ic \\en Ns Ar c> and E<.Ic \\en( Ns Ar cc>.  If the optional "
+"sign is specified, the register is first incremented or decremented by the "
+"E<.Ar stepsize> that was specified in the relevant E<.Ic \\&nr> request, and "
+"the changed value is interpolated."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2144
+#, no-wrap
+msgid "Ic \\eO Ns Ar digit , Ic \\eO[5 Ns arguments Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2152
+msgid ""
+"Suppress output.  This is a groff extension and currently unsupported.  With "
+"an argument of E<.Ic 1 , 2 , 3>, or E<.Ic 4>, it is ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2152
+#, no-wrap
+msgid "Ic \\eo\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2158
+msgid ""
+"Overstrike, writing all the characters contained in the E<.Ar string> to the "
+"same output position.  In terminal and HTML output modes, only the last one "
+"of the characters is visible."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2158
+#, no-wrap
+msgid "Ic \\ep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2160
+msgid "Break the output line at the end of the current word."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2160
+#, no-wrap
+msgid "Ic \\eR\\(aq Ns Ar name Oo +|- Oc Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2163
+msgid "Set number register; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2163
+#, no-wrap
+msgid "Ic \\er"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2166
+msgid "Move up by one line; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2166
+#, no-wrap
+msgid "Ic \\eS\\(aq Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2169
+msgid "Slant output; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2169
+#, no-wrap
+msgid "Ic \\es\\(aq Ns Oo +|- Oc Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2179
+msgid ""
+"Change point size; ignored by E<.Xr mandoc 1>.  Alternative forms E<.Ic \\es "
+"Ns Oo +|- Oc Ns Ar n>, E<.Ic \\es Ns Oo +|- Oc Ns Ic \\(aq Ns Ar number Ns "
+"Ic \\(aq>, E<.Ic \\es[ Ns Oo +|- Oc Ns Ar number Ns Ic \\&]>, and E<.Ic \\es "
+"Ns Oo +|- Oc Ns Ic \\&[ Ns Ar number Ns Ic \\&]> are also parsed and "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2179
+#, no-wrap
+msgid "Ic \\et"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2182
+msgid "Horizontal tab; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2182
+#, no-wrap
+msgid "Ic \\eu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2185
+msgid "Move up by half a line; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2185
+#, no-wrap
+msgid "Ic \\eV[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2192
+msgid ""
+"Interpolate an environment variable; ignored by E<.Xr mandoc 1>.  For short "
+"names, there are variants E<.Ic \\eV Ns Ar c> and E<.Ic \\eV( Ns Ar cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2192
+#, no-wrap
+msgid "Ic \\ev\\(aq Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2195
+msgid "Vertical motion; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2195
+#, no-wrap
+msgid "Ic \\ew\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2204
+msgid ""
+"Interpolate the width of the E<.Ar string>.  The E<.Xr mandoc 1> "
+"implementation assumes that after expansion of user-defined strings, the "
+"E<.Ar string> only contains normal characters, no escape sequences, and that "
+"each character has a width of 24 basic units."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2204
+#, no-wrap
+msgid "Ic \\eX\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2209
+msgid ""
+"Output E<.Ar string> as device control function; ignored in nroff mode and "
+"by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2209
+#, no-wrap
+msgid "Ic \\ex\\(aq Ns Ar number Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2212
+msgid "Extra line space function; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2212
+#, no-wrap
+msgid "Ic \\eY[ Ns Ar name Ns Ic \\&]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2219
+msgid ""
+"Output a string as a device control function; ignored in nroff mode and by "
+"E<.Xr mandoc 1>.  For short names, there are variants E<.Ic \\eY Ns Ar c> "
+"and E<.Ic \\eY( Ns Ar cc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2219
+#, no-wrap
+msgid "Ic \\eZ\\(aq Ns Ar string Ns Ic \\(aq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2224
+msgid "Print E<.Ar string> with zero width and height; ignored by E<.Xr mandoc 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/roff.7:2224
+#, no-wrap
+msgid "Ic \\ez"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2226
+msgid "Output the next character without advancing the cursor position."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:2227
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2234
+msgid ""
+"The E<.Xr mandoc 1> implementation of the E<.Nm> language is incomplete.  "
+"Major unimplemented features include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2242
+msgid ""
+"For security reasons, E<.Xr mandoc 1> never reads or writes external files "
+"except via E<.Ic \\&so> requests with safe relative paths."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2245
+msgid ""
+"There is no automatic hyphenation, no adjustment to the right margin, and "
+"very limited support for centering; the output is always set flush-left."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2248
+msgid ""
+"Support for setting tabulator and leader characters is missing, and support "
+"for manually changing indentation is limited."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2254
+msgid ""
+"The E<.Sq u> scaling unit is the default terminal unit.  In traditional "
+"troff systems, this unit changes depending on the output media."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2258
+msgid ""
+"Width measurements are implemented in a crude way and often yield wrong "
+"results.  Support for explicit movement requests and escapes is limited."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2262
+msgid ""
+"There is no concept of output pages, no support for floats, graphics "
+"drawing, and picture inclusion; terminal output is always continuous."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2267
+msgid ""
+"Requests regarding color, font families, font sizes, and glyph manipulation "
+"are ignored.  Font support is very limited.  Kerning is not implemented, and "
+"no ligatures are produced."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2271
+msgid ""
+"The E<.Qq \\(aq> macro control character does not suppress output line "
+"breaks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2274
+msgid ""
+"Diversions and environments are not implemented, and support for traps is "
+"very incomplete."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2278
+msgid "Use of macros is not supported inside E<.Xr tbl 7> code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2287
+msgid ""
+"The special semantics of the E<.Cm nS> number register is an idiosyncracy of "
+"E<.Ox> manuals and not supported by other E<.Xr mdoc 7> implementations."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:2287
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2313
+msgid ""
+"E<.Xr mandoc 1>, E<.Xr eqn 7>, E<.Xr man 7>, E<.Xr mandoc_char 7>, E<.Xr "
+"mdoc 7>, E<.Xr tbl 7> E<.Rs> E<.%A Joseph F. Ossanna> E<.%A Brian "
+"W. Kernighan> E<.%I AT&T Bell Laboratories> E<.%T Troff User's Manual> E<.%R "
+"Computing Science Technical Report> E<.%N 54> E<.%C Murray Hill, New Jersey> "
+"E<.%D 1976 and 1992> E<.%U http://www.kohala.com/start/troff/cstr54.ps> "
+"E<.Re> E<.Rs> E<.%A Joseph F. Ossanna> E<.%A Brian W. Kernighan> E<.%A "
+"Gunnar Ritter> E<.%T Heirloom Documentation Tools Nroff/Troff User's Manual> "
+"E<.%D September 17, 2007> E<.%U "
+"http://heirloom.sourceforge.net/doctools/troff.pdf> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:2313
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2330
+msgid ""
+"The RUNOFF typesetting system, whose input forms the basis for E<.Nm>, was "
+"written in MAD and FAP for the CTSS operating system by Jerome E.  Saltzer "
+"in 1964.  Doug McIlroy rewrote it in BCPL in 1969, renaming it E<.Nm>.  "
+"Dennis M. Ritchie rewrote McIlroy's E<.Nm> in PDP-11 assembly for E<.At v1>, "
+"Joseph F. Ossanna improved roff and renamed it nroff for E<.At v2>, then "
+"ported nroff to C as troff, which Brian W. Kernighan released with E<.At "
+"v7>.  In 1989, James Clarke re-implemented troff in C++, naming it groff."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/roff.7:2330
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/roff.7:2337
+msgid ""
+"E<.An -nosplit> This E<.Nm> reference was written by E<.An Kristaps Dzonsons "
+"Aq Mt kristaps@bsd.lv> and E<.An Ingo Schwarze Aq Mt schwarze@openbsd.org>."
+msgstr ""

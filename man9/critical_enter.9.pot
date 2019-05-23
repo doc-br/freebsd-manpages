@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/critical_enter.9:26
+#, no-wrap
+msgid "October 5, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/critical_enter.9:27
+#, no-wrap
+msgid "CRITICAL_ENTER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/critical_enter.9:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:32
+msgid "E<.Nm critical_enter>, E<.Nm critical_exit>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/critical_enter.9:32
+#, no-wrap
+msgid "enter and exit a critical region"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/critical_enter.9:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/critical_enter.9:34
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/critical_enter.9:35
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:40
+msgid ""
+"E<.Ft void> E<.Fn critical_enter \"void\"> E<.Ft void> E<.Fn critical_exit "
+"\"void\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/critical_enter.9:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:48
+msgid ""
+"These functions are used to prevent preemption in a critical region of "
+"code.  All that is guaranteed is that the thread currently executing on a "
+"CPU will not be preempted.  Specifically, a thread in a critical region will "
+"not migrate to another CPU while it is in a critical region.  The current "
+"CPU may still trigger faults and exceptions during a critical section; "
+"however, these faults are usually fatal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:58
+msgid ""
+"The E<.Fn critical_enter> and E<.Fn critical_exit> functions manage a "
+"per-thread counter to handle nested critical sections.  If a thread is made "
+"runnable that would normally preempt the current thread while the current "
+"thread is in a critical section, then the preemption will be deferred until "
+"the current thread exits the outermost critical section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:64
+msgid ""
+"Note that these functions are not required to provide any inter-CPU "
+"synchronization, data protection, or memory ordering guarantees and thus "
+"should E<.Em not> be used to protect shared data structures."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:71
+msgid ""
+"These functions should be used with care as an infinite loop within a "
+"critical region will deadlock the CPU.  Also, they should not be interlocked "
+"with operations on mutexes, sx locks, semaphores, or other synchronization "
+"primitives.  One exception to this is that spin mutexes include a critical "
+"section, so in certain cases critical sections may be interlocked with spin "
+"mutexes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/critical_enter.9:71
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/critical_enter.9:73
+msgid "These functions were introduced in E<.Fx 5.0>."
+msgstr ""

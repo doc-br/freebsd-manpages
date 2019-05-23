@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/condvar.9:29
+#, no-wrap
+msgid "February 19, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/condvar.9:30
+#, no-wrap
+msgid "CONDVAR 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/condvar.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:47
+msgid ""
+"E<.Nm condvar>, E<.Nm cv_init>, E<.Nm cv_destroy>, E<.Nm cv_wait>, E<.Nm "
+"cv_wait_sig>, E<.Nm cv_wait_unlock>, E<.Nm cv_timedwait>, E<.Nm "
+"cv_timedwait_sbt>, E<.Nm cv_timedwait_sig>, E<.Nm cv_timedwait_sig_sbt>, "
+"E<.Nm cv_signal>, E<.Nm cv_broadcast>, E<.Nm cv_broadcastpri>, E<.Nm "
+"cv_wmesg>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/condvar.9:47
+#, no-wrap
+msgid "kernel condition variable"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/condvar.9:48
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/condvar.9:49
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/condvar.9:50
+#, no-wrap
+msgid "sys/proc.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/condvar.9:51
+#, no-wrap
+msgid "sys/condvar.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:80
+msgid ""
+"E<.Ft void> E<.Fn cv_init \"struct cv *cvp\" \"const char *desc\"> E<.Ft "
+"void> E<.Fn cv_destroy \"struct cv *cvp\"> E<.Ft void> E<.Fn cv_wait "
+"\"struct cv *cvp\" \"lock\"> E<.Ft int> E<.Fn cv_wait_sig \"struct cv *cvp\" "
+"\"lock\"> E<.Ft void> E<.Fn cv_wait_unlock \"struct cv *cvp\" \"lock\"> "
+"E<.Ft int> E<.Fn cv_timedwait \"struct cv *cvp\" \"lock\" \"int timo\"> "
+"E<.Ft int> E<.Fn cv_timedwait_sbt \"struct cv *cvp\" \"lock\" \"sbintime_t "
+"sbt\" \"sbintime_t pr\" \"int flags\"> E<.Ft int> E<.Fn cv_timedwait_sig "
+"\"struct cv *cvp\" \"lock\" \"int timo\"> E<.Ft int> E<.Fn "
+"cv_timedwait_sig_sbt \"struct cv *cvp\" \"lock\" \"sbintime_t sbt\" "
+"\"sbintime_t pr\" \"int flags\"> E<.Ft void> E<.Fn cv_signal \"struct cv "
+"*cvp\"> E<.Ft void> E<.Fn cv_broadcast \"struct cv *cvp\"> E<.Ft void> E<.Fn "
+"cv_broadcastpri \"struct cv *cvp\" \"int pri\"> E<.Ft const char *> E<.Fn "
+"cv_wmesg \"struct cv *cvp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/condvar.9:80
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:119
+msgid ""
+"Condition variables are used in conjunction with mutexes to wait for "
+"conditions to occur.  Condition variables are created with E<.Fn cv_init>, "
+"where E<.Fa cvp> is a pointer to space for a E<.Vt struct cv>, and E<.Fa "
+"desc> is a pointer to a null-terminated character string that describes the "
+"condition variable.  Condition variables are destroyed with E<.Fn "
+"cv_destroy>.  Threads wait on condition variables by calling E<.Fn cv_wait>, "
+"E<.Fn cv_wait_sig>, E<.Fn cv_wait_unlock>, E<.Fn cv_timedwait>, or E<.Fn "
+"cv_timedwait_sig>.  Threads unblock waiters by calling E<.Fn cv_signal> to "
+"unblock one waiter, or E<.Fn cv_broadcast> or E<.Fn cv_broadcastpri> to "
+"unblock all waiters.  In addition to waking waiters, E<.Fn cv_broadcastpri> "
+"ensures that all of the waiters have a priority of at least E<.Fa pri> by "
+"raising the priority of any threads that do not.  E<.Fn cv_wmesg> returns "
+"the description string of E<.Fa cvp>, as set by the initial call to E<.Fn "
+"cv_init>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:172
+msgid ""
+"The E<.Fa lock> argument is a pointer to either a E<.Xr mutex 9>, E<.Xr "
+"rwlock 9>, or E<.Xr sx 9> lock.  A E<.Xr mutex 9> argument must be "
+"initialized with E<.Dv MTX_DEF> and not E<.Dv MTX_SPIN>.  A thread must hold "
+"E<.Fa lock> before calling E<.Fn cv_wait>, E<.Fn cv_wait_sig>, E<.Fn "
+"cv_wait_unlock>, E<.Fn cv_timedwait>, or E<.Fn cv_timedwait_sig>.  When a "
+"thread waits on a condition, E<.Fa lock> is atomically released before the "
+"thread is blocked, then reacquired before the function call returns.  In "
+"addition, the thread will fully drop the E<.Va Giant> mutex (even if "
+"recursed)  while the it is suspended and will reacquire the E<.Va Giant> "
+"mutex before the function returns.  The E<.Fn cv_wait_unlock> function does "
+"not reacquire the lock before returning.  Note that the E<.Va Giant> mutex "
+"may be specified as E<.Fa lock>.  However, E<.Va Giant> may not be used as "
+"E<.Fa lock> for the E<.Fn cv_wait_unlock> function.  All waiters must pass "
+"the same E<.Fa lock> in conjunction with E<.Fa cvp>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:202
+msgid ""
+"When E<.Fn cv_wait>, E<.Fn cv_wait_sig>, E<.Fn cv_wait_unlock>, E<.Fn "
+"cv_timedwait>, and E<.Fn cv_timedwait_sig> unblock, their calling threads "
+"are made runnable.  E<.Fn cv_timedwait> and E<.Fn cv_timedwait_sig> wait for "
+"at most E<.Fa timo> / E<.Dv HZ> seconds before being unblocked and returning "
+"E<.Er EWOULDBLOCK>; otherwise, they return 0.  E<.Fn cv_wait_sig> and E<.Fn "
+"cv_timedwait_sig> return prematurely with a value of E<.Er EINTR> or E<.Er "
+"ERESTART> if a signal is caught, or 0 if signaled via E<.Fn cv_signal> or "
+"E<.Fn cv_broadcast>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:221
+msgid ""
+"E<.Fn cv_timedwait_sbt> and E<.Fn cv_timedwait_sig_sbt> functions take E<.Fa "
+"sbt> argument instead of E<.Fa timo>.  It allows to specify relative or "
+"absolute unblock time with higher resolution in form of E<.Vt sbintime_t>.  "
+"The parameter E<.Fa pr> allows to specify wanted absolute event precision.  "
+"The parameter E<.Fa flags> allows to pass additional E<.Fn "
+"callout_reset_sbt> flags."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/condvar.9:221
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:229
+msgid ""
+"If successful, E<.Fn cv_wait_sig>, E<.Fn cv_timedwait>, and E<.Fn "
+"cv_timedwait_sig> return 0.  Otherwise, a non-zero error code is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:233
+msgid ""
+"E<.Fn cv_wmesg> returns the description string that was passed to E<.Fn "
+"cv_init>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/condvar.9:233
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:238
+msgid "E<.Fn cv_wait_sig> and E<.Fn cv_timedwait_sig> will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/condvar.9:239
+#, no-wrap
+msgid "Bq Er EINTR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:241
+msgid "A signal was caught and the system call should be interrupted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/condvar.9:241
+#, no-wrap
+msgid "Bq Er ERESTART"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:243
+msgid "A signal was caught and the system call should be restarted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:249
+msgid "E<.Fn cv_timedwait> and E<.Fn cv_timedwait_sig> will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/condvar.9:250
+#, no-wrap
+msgid "Bq Er EWOULDBLOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:252
+msgid "Timeout expired."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/condvar.9:253
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/condvar.9:261
+msgid ""
+"E<.Xr locking 9>, E<.Xr mtx_pool 9>, E<.Xr mutex 9>, E<.Xr rwlock 9>, E<.Xr "
+"sema 9>, E<.Xr sleep 9>, E<.Xr sx 9>, E<.Xr timeout 9>"
+msgstr ""

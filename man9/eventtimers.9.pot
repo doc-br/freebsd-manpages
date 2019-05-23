@@ -1,0 +1,440 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/eventtimers.9:27
+#, no-wrap
+msgid "April 2, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/eventtimers.9:28
+#, no-wrap
+msgid "EVENTTIMERS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:32
+msgid "E<.Nm eventtimers>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/eventtimers.9:32
+#, no-wrap
+msgid "kernel event timers subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/eventtimers.9:34
+#, no-wrap
+msgid "sys/timeet.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:37
+#, no-wrap
+msgid "struct eventtimer;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:43
+#, no-wrap
+msgid ""
+"typedef int et_start_t(struct eventtimer *et,\n"
+"    sbintime_t first, sbintime_t period);\n"
+"typedef int et_stop_t(struct eventtimer *et);\n"
+"typedef void et_event_cb_t(struct eventtimer *et, void *arg);\n"
+"typedef int et_deregister_cb_t(struct eventtimer *et, void *arg);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:66
+#, no-wrap
+msgid ""
+"struct eventtimer {\n"
+"\tSLIST_ENTRY(eventtimer)\tet_all;\n"
+"\tchar\t\t\t*et_name;\n"
+"\tint\t\t\tet_flags;\n"
+"#define ET_FLAGS_PERIODIC\t1\n"
+"#define ET_FLAGS_ONESHOT\t2\n"
+"#define ET_FLAGS_PERCPU\t\t4\n"
+"#define ET_FLAGS_C3STOP\t\t8\n"
+"#define ET_FLAGS_POW2DIV\t16\n"
+"\tint\t\t\tet_quality;\n"
+"\tint\t\t\tet_active;\n"
+"\tuint64_t\t\tet_frequency;\n"
+"\tsbintime_t\t\tet_min_period;\n"
+"\tsbintime_t\t\tet_max_period;\n"
+"\tet_start_t\t\t*et_start;\n"
+"\tet_stop_t\t\t*et_stop;\n"
+"\tet_event_cb_t\t\t*et_event_cb;\n"
+"\tet_deregister_cb_t\t*et_deregister_cb;\n"
+"\tvoid \t\t\t*et_arg;\n"
+"\tvoid\t\t\t*et_priv;\n"
+"\tstruct sysctl_oid\t*et_sysctl;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:87
+msgid ""
+"E<.Ft int> E<.Fn et_register \"struct eventtimer *et\"> E<.Ft int> E<.Fn "
+"et_deregister \"struct eventtimer *et\"> E<.Ft void> E<.Fn "
+"et_change_frequency \"struct eventtimer *et\" \"uint64_t newfreq\"> E<.Fn "
+"ET_LOCK> E<.Fn ET_UNLOCK> E<.Ft struct eventtimer *> E<.Fn et_find \"const "
+"char *name\" \"int check\" \"int want\"> E<.Ft int> E<.Fn et_init \"struct "
+"eventtimer *et\" \"et_event_cb_t *event\" \"et_deregister_cb_t *deregister\" "
+"\"void *arg\"> E<.Ft int> E<.Fn et_start \"struct eventtimer *et\" "
+"\"sbintime_t first\" \"sbintime_t period\"> E<.Ft int> E<.Fn et_stop "
+"\"struct eventtimer *et\"> E<.Ft int> E<.Fn et_ban \"struct eventtimer "
+"*et\"> E<.Ft int> E<.Fn et_free \"struct eventtimer *et\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:87
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:91
+msgid ""
+"Event timers are responsible for generating interrupts at specified time or "
+"periodically, to run different time-based events.  Subsystem consists of "
+"three main parts:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:92
+#, no-wrap
+msgid "Drivers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:94
+msgid "Manage hardware to generate requested time events."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:94
+#, no-wrap
+msgid "Consumers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:102
+msgid ""
+"E<.Pa sys/kern/kern_clocksource.c> uses event timers to supply kernel with "
+"E<.Fn hardclock>, E<.Fn statclock> and E<.Fn profclock> time events."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:102
+#, no-wrap
+msgid "Glue code"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:106
+msgid ""
+"E<.Pa sys/sys/timeet.h>, E<.Pa sys/kern/kern_et.c> provide APIs for event "
+"timer drivers and consumers."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:107
+#, no-wrap
+msgid "DRIVER API"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:112
+msgid ""
+"Driver API is built around eventtimer structure.  To register its "
+"functionality driver allocates that structure and calls E<.Fn et_register>.  "
+"Driver should fill following fields there:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:113
+#, no-wrap
+msgid "Va et_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:115
+msgid "Unique name of the event timer for management purposes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:115
+#, no-wrap
+msgid "Va et_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:117
+msgid "Set of flags, describing timer capabilities:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:118
+#, no-wrap
+msgid "ET_FLAGS_PERIODIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:120
+msgid "Periodic mode supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:120
+#, no-wrap
+msgid "ET_FLAGS_ONESHOT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:122
+msgid "One-shot mode supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:122
+#, no-wrap
+msgid "ET_FLAGS_PERCPU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:124
+msgid "Timer is per-CPU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:124
+#, no-wrap
+msgid "ET_FLAGS_C3STOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:126
+msgid "Timer may stop in CPU sleep state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:126
+#, no-wrap
+msgid "ET_FLAGS_POW2DIV"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:128
+msgid "Timer supports only 2^n divisors."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:129
+#, no-wrap
+msgid "Va et_quality"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:132
+msgid ""
+"Abstract value to certify whether this timecounter is better than the "
+"others.  Higher value means better."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:132
+#, no-wrap
+msgid "Va et_frequency"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:137
+msgid ""
+"Timer oscillator's base frequency, if applicable and known.  Used by "
+"consumers to predict set of possible frequencies that could be obtained by "
+"dividing it.  Should be zero if not applicable or unknown."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:137
+#, no-wrap
+msgid "Va et_min_period , et_max_period"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:139
+msgid "Minimal and maximal reliably programmable time periods."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:139
+#, no-wrap
+msgid "Va et_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:141
+msgid "Driver's timer start function pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:141
+#, no-wrap
+msgid "Va et_stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:143
+msgid "Driver's timer stop function pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/eventtimers.9:143
+#, no-wrap
+msgid "Va et_priv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:145
+msgid "Driver's private data storage."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:178
+msgid ""
+"After the event timer functionality is registered, it is controlled via "
+"E<.Va et_start> and E<.Va et_stop> methods.  E<.Va et_start> method is "
+"called to start the specified event timer.  The last two arguments are used "
+"to specify time when events should be generated.  E<.Va first> argument "
+"specifies time period before the first event generated.  In periodic mode "
+"NULL value specifies that first period is equal to the E<.Va period> "
+"argument value.  E<.Va period> argument specifies the time period between "
+"following events for the periodic mode.  The NULL value there specifies the "
+"one-shot mode.  At least one of these two arguments should be not NULL.  "
+"When event time arrive, driver should call E<.Va et_event_cb> callback "
+"function, passing E<.Va et_arg> as the second argument.  E<.Va et_stop> "
+"method is called to stop the specified event timer.  For the per-CPU event "
+"timers E<.Va et_start> and E<.Va et_stop> methods control timers associated "
+"with the current CPU."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:181
+msgid "Driver may deregister its functionality by calling E<.Fn et_deregister>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:196
+msgid ""
+"If the frequency of the clock hardware can change while it is running (for "
+"example, during power-saving modes), the driver must call E<.Fn "
+"et_change_frequency> on each change.  If the given event timer is the active "
+"timer, E<.Fn et_change_frequency> stops the timer on all CPUs, updates E<.Va "
+"et-E<gt>frequency>, then restarts the timer on all CPUs so that all current "
+"events are rescheduled using the new frequency.  If the given timer is not "
+"currently active, E<.Fn et_change_frequency> simply updates E<.Va "
+"et-E<gt>frequency>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:196
+#, no-wrap
+msgid "CONSUMER API"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:216
+msgid ""
+"E<.Fn et_find> allows consumer to find available event timer, optionally "
+"matching specific name and/or capability flags.  Consumer may read returned "
+"eventtimer structure, but should not modify it.  When wanted event timer is "
+"found, E<.Fn et_init> should be called for it, submitting E<.Va event> and "
+"optionally E<.Va deregister> callbacks functions, and the opaque argument "
+"E<.Va arg>.  That argument will be passed as argument to the callbacks.  "
+"Event callback function will be called on scheduled time events.  It is "
+"called from the hardware interrupt context, so no sleep is permitted there.  "
+"Deregister callback function may be called to report consumer that the event "
+"timer functionality is no longer available.  On this call, consumer should "
+"stop using event timer before the return."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:223
+msgid ""
+"After the timer is found and initialized, it can be controlled via E<.Fn "
+"et_start> and E<.Fn et_stop>.  The arguments are the same as described in "
+"driver API.  Per-CPU event timers can be controlled only from specific CPUs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:231
+msgid ""
+"E<.Fn et_ban> allows consumer to mark event timer as broken via clearing "
+"both one-shot and periodic capability flags, if it was somehow detected.  "
+"E<.Fn et_free> is the opposite to E<.Fn et_init>.  It releases the event "
+"timer for other consumers use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:250
+msgid ""
+"E<.Fn ET_LOCK> and E<.Fn ET_UNLOCK> macros should be used to manage E<.Xr "
+"mutex 9> lock around E<.Fn et_find>, E<.Fn et_init> and E<.Fn et_free> calls "
+"to serialize access to the list of the registered event timers and the "
+"pointers returned by E<.Fn et_find>.  E<.Fn et_start> and E<.Fn et_stop> "
+"calls should be serialized in consumer's internal way to avoid concurrent "
+"timer hardware access."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:250
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:252
+msgid "E<.Xr eventtimers 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/eventtimers.9:252
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/eventtimers.9:253
+msgid "E<.An Alexander Motin Aq Mt mav@FreeBSD.org>"
+msgstr ""

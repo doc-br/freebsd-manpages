@@ -1,0 +1,302 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_deflate.4:31
+#, no-wrap
+msgid "December 23, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_deflate.4:32
+#, no-wrap
+msgid "NG_DEFLATE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:36
+msgid "E<.Nm ng_deflate>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_deflate.4:36
+#, no-wrap
+msgid "Deflate PPP compression (RFC 1979) netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_deflate.4:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_deflate.4:39
+#, no-wrap
+msgid "netgraph/ng_deflate.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:45
+msgid ""
+"The E<.Nm deflate> node type implements the Deflate sub-protocols of the "
+"Compression Control Protocol (CCP)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:61
+msgid ""
+"The node has two hooks, E<.Va comp> for compression and E<.Va decomp> for "
+"decompression.  Only one of them can be connected at the same time, "
+"specifying node's operation mode.  Typically that hooks would be connected "
+"to the E<.Xr ng_ppp 4> node type hook of the same name.  Corresponding E<.Xr "
+"ng_ppp 4> node hook must be switched to E<.Dv NG_PPP_DECOMPRESS_FULL> mode "
+"to permit sending uncompressed frames."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:61
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:63
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:65
+#, no-wrap
+msgid "Va comp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:71
+msgid ""
+"Connection to E<.Xr ng_ppp 4> E<.Va comp> hook.  Incoming frames are "
+"compressed (if possible) and sent back out the same hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:71
+#, no-wrap
+msgid "Va decomp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:78
+msgid ""
+"Connection to E<.Xr ng_ppp 4> E<.Va decomp> hook.  Incoming frames are "
+"decompressed (if they are compressed), and sent back out the same hook."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:82
+msgid ""
+"Only one hook can be connected at the same time, specifying node's operation "
+"mode."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:82
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:84
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:85
+#, no-wrap
+msgid "Dv NGM_DEFLATE_CONFIG Pq Ic config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:91
+msgid ""
+"This command resets and configures the node for a session (i.e., for "
+"compression or decompression).  This command takes a E<.Vt \"struct "
+"ng_deflate_config\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:96
+#, no-wrap
+msgid ""
+"struct ng_deflate_config {\n"
+"\tu_char\tenable;\t\t\t/* node enabled */\n"
+"\tu_char\twindowBits;\t\t/* log2(Window size) */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:104
+msgid ""
+"The E<.Fa enabled> field enables traffic flow through the node.  The E<.Fa "
+"windowBits> specify compression windows size as negotiated by the "
+"Compression Control Protocol (CCP) in PPP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:104
+#, no-wrap
+msgid "Dv NGM_DEFLATE_RESETREQ Pq Ic resetreq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:111
+msgid ""
+"This message contains no arguments, and is bi-directional.  If an error is "
+"detected during decompression, this message is sent by the node to the "
+"originator of the E<.Dv NGM_DEFLATE_CONFIG> message that initiated the "
+"session.  The receiver should respond by sending a PPP CCP Reset-Request to "
+"the peer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:116
+msgid ""
+"This message may also be received by this node type when a CCP Reset-Request "
+"or Reset-Ack is received by the local PPP entity.  The node will respond by "
+"flushing its compression state so the sides can resynchronize."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:116
+#, no-wrap
+msgid "Dv NGM_DEFLATE_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:120
+msgid ""
+"This control message obtains statistics for a given hook.  The statistics "
+"are returned in E<.Vt \"struct ng_deflate_stats\">:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:129
+#, no-wrap
+msgid ""
+"struct ng_deflate_stats {\n"
+"\tuint64_t\tFramesPlain;\n"
+"\tuint64_t\tFramesComp;\n"
+"\tuint64_t\tFramesUncomp;\n"
+"\tuint64_t\tInOctets;\n"
+"\tuint64_t\tOutOctets;\n"
+"\tuint64_t\tErrors;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:130
+#, no-wrap
+msgid "Dv NGM_DEFLATE_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:132
+msgid "This control message clears statistics for a given hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_deflate.4:132
+#, no-wrap
+msgid "Dv NGM_DEFLATE_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:134
+msgid "This control message obtains and clears statistics for a given hook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:135
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:139
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when hook have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:139
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:153
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_ppp 4>, E<.Xr ngctl 8> E<.Rs> E<.%A J. Woods> "
+"E<.%T \"PPP Deflate Protocol\"> E<.%O RFC 1979> E<.Re> E<.Rs> E<.%A "
+"W. Simpson> E<.%T \"The Point-to-Point Protocol (PPP)\"> E<.%O RFC 1661> "
+"E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:153
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:155
+msgid "E<.An Alexander Motin Aq Mt mav@alkar.net>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_deflate.4:155
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_deflate.4:159
+msgid ""
+"Due to nature of netgraph PPP implementation there are possible race "
+"conditions between data packet and ResetAck CCP packet in case of packet "
+"loss.  As result, packet loss can produce bigger performance degradation "
+"than supposed by protocol."
+msgstr ""

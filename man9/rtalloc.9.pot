@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/rtalloc.9:31
+#, no-wrap
+msgid "July 4, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/rtalloc.9:32
+#, no-wrap
+msgid "RTALLOC 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:38
+msgid "E<.Nm rtalloc1_fib>, E<.Nm rtalloc_ign_fib>, E<.Nm rtalloc_fib>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/rtalloc.9:38
+#, no-wrap
+msgid "look up a route in the kernel routing table"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rtalloc.9:40
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rtalloc.9:41
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rtalloc.9:42
+#, no-wrap
+msgid "net/route.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:64
+msgid ""
+"E<.Ft \"struct rtentry *\"> E<.Fn rtalloc1_fib \"struct sockaddr *dst\" "
+"\"int report\" \"u_long flags\" \"u_int fibnum\"> E<.Ft void> E<.Fn "
+"rtalloc_fib \"struct route *ro\" \"u_int fibnum\"> E<.Ft void> E<.Fn "
+"rtalloc_ign_fib \"struct route *ro\" \"u_long flags\" \"u_int fibnum\"> "
+"E<.Fn RTFREE_LOCKED \"struct rt_entry *rt\"> E<.Fn RTFREE \"struct rt_entry "
+"*rt\"> E<.Fn RT_LOCK \"struct rt_entry *rt\"> E<.Fn RT_UNLOCK \"struct "
+"rt_entry *rt\"> E<.Fn RT_ADDREF \"struct rt_entry *rt\"> E<.Fn RT_REMREF "
+"\"struct rt_entry *rt\"> E<.Fn RO_RTFREE \"struct route *ro\"> E<.Ft void> "
+"E<.Fn rtfree \"struct rt_entry *rt\"> E<.Ft \"struct rtentry *\"> E<.Fn "
+"rtalloc1 \"struct sockaddr *dst\" \"int report\" \"u_long flags\"> E<.Ft "
+"void> E<.Fn rtalloc \"struct route *ro\"> E<.Ft void> E<.Fn rtalloc_ign "
+"\"struct route *ro\" \"u_long flags\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:66
+msgid "E<.Cd options RADIX_MPATH>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:77
+msgid ""
+"The kernel uses a radix tree structure to manage routes for the networking "
+"subsystem.  If compiled with E<.Cd options RADIX_MPATH> kernel may maintain "
+"several independent forwarding information databases (FIBs).  The E<.Fn "
+"rtalloc> family of routines is used by protocols to query these structures "
+"for a route corresponding to a particular end-node address, and to cause "
+"certain protocol\\- and interface-specific actions to take place."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:95
+msgid ""
+"The E<.Fn rtalloc1_fib> function is the most general form of E<.Fn rtalloc>, "
+"and all of the other forms are implemented as calls to it.  It takes a E<.Fa "
+"\"struct sockaddr *\"> directly as the E<.Fa dst> argument.  The second "
+"argument, E<.Fa report>, controls whether the routing sockets are notified "
+"when a lookup fails.  The third argument, E<.Fa flags>, is a combination of "
+"the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:99
+msgid "E<.Dv RTF_RNH_LOCKED> indicates that the radix tree lock is already held"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:110
+msgid ""
+"The last argument E<.Fa fibnum> specifies number of forwarding information "
+"database (FIB) on which the lookup should be performed.  In case of success "
+"the E<.Fn rtalloc1_fib> function returns a pointer to a locked E<.Vt "
+"\"struct rtentry\"> with an additional reference."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:119
+msgid ""
+"The E<.Fn rtalloc_fib> is the most simple variant.  Its main argument is "
+"E<.Fa ro>, a pointer to a E<.Fa \"struct route\">, which is defined as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:125
+#, no-wrap
+msgid ""
+"struct route {\n"
+"\tstruct rtentry *ro_rt;\n"
+"\tstruct llentry *ro_lle;\n"
+"\tstruct sockaddr ro_dst;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:154
+msgid ""
+"Thus, this function can only be used for address families which are smaller "
+"than the default E<.Ft \"struct sockaddr\">.  Before calling E<.Fn "
+"rtalloc_fib> for the first time, callers should ensure that unused bits of "
+"the structure are set to zero.  The second argument E<.Fa fibnum> is FIB "
+"number.  In case of success of the E<.Fn rtalloc_fib> the E<.Fa ro_rt> "
+"points to a valid and unlocked E<.Xr rtentry 9>, which has an additional "
+"reference put on it, freeing which is responsibility of the caller.  On "
+"subsequent calls, E<.Fn rtalloc_fib> returns without performing a lookup if "
+"E<.Fa ro-E<gt>ro_rt> is non-null and the E<.Dv RTF_UP> flag is set in the "
+"rtentry's E<.Fa rt_flags> field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:163
+msgid ""
+"The E<.Fn rtalloc_ign_fib> function is the same as the E<.Fn rtalloc_fib>, "
+"but there is additional E<.Fa flags> argument, which is same as in E<.Fn "
+"rtalloc1_fib>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:169
+msgid ""
+"The E<.Fn RTFREE_LOCKED> macro is used to unref and possibly free a locked "
+"routing entry with one our reference, for example previously allocated by "
+"E<.Fn rtalloc1_fib>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:177
+msgid ""
+"The E<.Fn RTFREE> macro is used to unref and possibly free an unlocked route "
+"entries with one our reference, for example previously allocated by E<.Fn "
+"rtalloc_fib> or E<.Fn rtalloc_ign_fib>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:184
+msgid ""
+"Both E<.Fn RTFREE_LOCKED> and E<.Fn RTFREE> macros decrement the reference "
+"count on the routing table entry, and proceed with actual freeing if the "
+"reference count has reached zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:188
+msgid "The E<.Fn RT_LOCK> macro is used to lock a routing table entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:192
+msgid "The E<.Fn RT_UNLOCK> macro is used to unlock a routing table entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:199
+msgid ""
+"The E<.Fn RT_ADDREF> macro increments the reference count on a previously "
+"locked route entry.  It should be used whenever a reference to an E<.Xr "
+"rtentry 9> is going to be stored outside the routing table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:205
+msgid ""
+"The E<.Fn RT_REMREF> macro decrements the reference count on a previously "
+"locked route entry.  Its usage is contrary to E<.Fn RT_ADDREF>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:213
+msgid ""
+"The E<.Fn RO_RTFREE> macro is used to free route entry that is referenced by "
+"struct route.  At certain circumstances the latter may not hold a reference "
+"on rtentry, and E<.Fn RO_RTFREE> treats such routes correctly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:218
+msgid ""
+"The E<.Fn rtfree> function does the actual free of the routing table entry, "
+"and shouldn't be called directly by facilities, that just perform routing "
+"table lookups."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:218
+#, no-wrap
+msgid "LEGACY INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:234
+msgid ""
+"Prior to introduction of multiple routing tables functions did not require "
+"the E<.Fa \"u_int fibnum\"> argument.  Legacy E<.Fn rtalloc1>, E<.Fn "
+"rtalloc> and E<.Fn rtalloc_ign> functions are kept for compatibility, and "
+"are equivalent to calling new interface with E<.Fa fibnum> argument equal to "
+"E<.Va 0>, which implies default forwarding table."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:234
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:256
+msgid ""
+"The E<.Fn rtalloc1_fib> function returns a pointer to a locked routing-table "
+"entry if it succeeds, otherwise a null pointer.  The E<.Fn rtalloc_fib> and "
+"E<.Fn rtalloc_ign_fib> functions do not return a value, but they fill in the "
+"E<.Fa *ro_rt> member of the E<.Fa *ro> argument with a pointer to an "
+"unlocked routing-table entry if they succeed, otherwise a null pointer.  In "
+"a case of success all functions put a reference on the routing-table entry, "
+"freeing of which is responsibility of the caller.  Lack of a route should in "
+"most cases be translated to the E<.Xr errno 2> value E<.Er EHOSTUNREACH>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:256
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:259
+msgid "E<.Xr route 4>, E<.Xr rtentry 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:259
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:277
+msgid ""
+"The E<.Nm rtalloc> facility first appeared in E<.Bx 4.2>, although with much "
+"different internals.  The E<.Fn rtalloc_ign> function and the E<.Fa flags> "
+"argument to E<.Fn rtalloc1> first appeared in E<.Fx 2.0>.  Routing table "
+"locking was introduced in E<.Fx 5.2>.  Multiple routing tables were "
+"introduced in E<.Fx 8.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rtalloc.9:277
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rtalloc.9:282
+msgid ""
+"The original version of this manual page was written by E<.An -nosplit> "
+"E<.An \"Garrett Wollman\">.  It was significantly updated by E<.An \"Gleb "
+"Smirnoff\">."
+msgstr ""

@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/hpet.4:27
+#, no-wrap
+msgid "September 14, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/hpet.4:28
+#, no-wrap
+msgid "HPET 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hpet.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:32
+msgid "E<.Nm hpet>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/hpet.4:32
+#, no-wrap
+msgid "High Precision Event Timer driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hpet.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:37
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:39
+#, no-wrap
+msgid "E<.Cd \"device acpi\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:43
+msgid "The following tunables are settable from the E<.Xr loader 8>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hpet.4:44
+#, no-wrap
+msgid "Va hint.hpet. Ns Ar X Ns Va .allowed_irqs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:50
+msgid ""
+"is a 32bit mask.  Each set bit allows driver to use respective IRQ, if BIOS "
+"also set respective capability bit in comparator's configuration register.  "
+"Default value is 0xffff0000, except some known broken hardware."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hpet.4:50
+#, no-wrap
+msgid "Va hint.hpet. Ns Ar X Ns Va .clock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:54
+msgid ""
+"controls event timers functionality support.  Setting to 0, disables it.  "
+"Default value is 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hpet.4:54
+#, no-wrap
+msgid "Va hint.hpet. Ns Ar X Ns Va .legacy_route"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:59
+msgid ""
+"controls \"LegacyReplacement Route\" mode.  If enabled, HPET will steal IRQ0 "
+"of i8254 timer and IRQ8 of RTC.  Before using it, make sure that respective "
+"drivers are not using interrupts, by setting also:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:62
+#, no-wrap
+msgid ""
+"hint.attimer.0.clock=0\n"
+"hint.atrtc.0.clock=0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:64
+msgid "Default value is 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hpet.4:64
+#, no-wrap
+msgid "Va hint.hpet. Ns Ar X Ns Va .per_cpu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:69
+msgid ""
+"controls how much per-CPU event timers should driver attempt to register.  "
+"This functionality requires every comparator in a group to have own unshared "
+"IRQ, so it depends on hardware capabilities and interrupts configuration.  "
+"Default value is 1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hpet.4:70
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:89
+msgid ""
+"This driver uses High Precision Event Timer hardware (part of the chipset, "
+"usually enumerated via ACPI) to supply kernel with one time counter and "
+"several (usually from 3 to 8) event timers.  This hardware includes single "
+"main counter with known increment frequency (10MHz or more), and several "
+"programmable comparators (optionally with automatic reload feature).  When "
+"value of the main counter matches current value of any comparator, interrupt "
+"can be generated.  Depending on hardware capabilities and configuration, "
+"interrupt can be delivered as regular I/O APIC interrupt (ISA or PCI) in "
+"range from 0 to 31, or as Front Side Bus interrupt, alike to PCI MSI "
+"interrupts, or in so called \"LegacyReplacement Route\" HPET can steal IRQ0 "
+"of i8254 and IRQ8 of the RTC.  Interrupt can be either edge- or "
+"level-triggered.  In last case they could be safely shared with PCI IRQs.  "
+"Driver prefers to use FSB interrupts, if supported, to avoid sharing.  If it "
+"is not possible, it uses single sharable IRQ from PCI range.  Other modes "
+"(LegacyReplacement and ISA IRQs) require special care to setup, but could be "
+"configured manually via device hints."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:92
+msgid ""
+"Event timers provided by the driver support both one-shot an periodic modes "
+"and irrelevant to CPU power states."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:99
+msgid ""
+"Depending on hardware capabilities and configuration, driver can expose each "
+"comparator as separate event timer or group them into one or several per-CPU "
+"event timers.  In last case interrupt of every of those comparators within "
+"group is bound to specific CPU core.  This is possible only when each of "
+"these comparators has own unsharable IRQ."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hpet.4:99
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:106
+msgid ""
+"E<.Xr acpi 4>, E<.Xr apic 4>, E<.Xr atrtc 4>, E<.Xr attimer 4>, E<.Xr "
+"eventtimers 4>, E<.Xr timecounters 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hpet.4:106
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hpet.4:112
+msgid ""
+"The E<.Nm> driver first appeared in E<.Fx 6.3>.  Support for event timers "
+"was added in E<.Fx 9.0>."
+msgstr ""

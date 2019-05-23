@@ -1,0 +1,255 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/targ.4:27
+#, no-wrap
+msgid "December 13, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/targ.4:28
+#, no-wrap
+msgid "TARG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:32
+msgid "E<.Nm targ>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/targ.4:32
+#, no-wrap
+msgid "SCSI target emulator driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:37
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:39
+#, no-wrap
+msgid "E<.Cd \"device targ\">\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:49
+msgid ""
+"The E<.Nm> driver provides an interface for usermode programs to emulate "
+"SCSI target devices.  A sample program that emulates a disk drive (similar "
+"to E<.Xr da 4>)  can be found in E<.Pa /usr/share/examples/scsi_target>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:68
+msgid ""
+"The E<.Nm> driver supplies the control device E<.Pa /dev/targ>.  After "
+"opening the device, the file descriptor must be bound to a specific "
+"bus/target/LUN and enabled to process CCBs using the E<.Dv TARGIOCENABLE> "
+"ioctl.  The process then uses E<.Xr write 2> to send CCBs to the SIM and "
+"E<.Xr poll 2> or E<.Xr kqueue 2> to see if responses are ready.  Pointers to "
+"completed CCBs are returned via E<.Xr read 2>.  Any data transfers requested "
+"by the user CCBs are done via zero-copy IO."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:68
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:72
+msgid "The following E<.Xr ioctl 2> calls are defined in the header file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/targ.4:72
+#, no-wrap
+msgid "cam/scsi/scsi_targetio.h ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/targ.4:74
+#, no-wrap
+msgid "Dv TARGIOCENABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:77
+msgid ""
+"E<.Pq Vt \"struct ioc_enable_lun\"> Enable target mode on the LUN specified "
+"by the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:85
+#, no-wrap
+msgid ""
+"struct ioc_enable_lun {\n"
+"\tpath_id_t\tpath_id;\n"
+"\ttarget_id_t\ttarget_id;\n"
+"\tlun_id_t\tlun_id;\n"
+"\tint\t\tgrp6_len;\n"
+"\tint\t\tgrp7_len;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:96
+msgid ""
+"The selected path (bus), target, and LUN must not already be in use or E<.Er "
+"EADDRINUSE> is returned.  If E<.Va grp6_len> or E<.Va grp7_len> are "
+"non-zero, reception of vendor-specific commands is enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/targ.4:96
+#, no-wrap
+msgid "Dv TARGIOCDISABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:105
+msgid ""
+"Disable target mode and abort all pending CCBs.  The CCBs may optionally be "
+"read as they complete.  E<.Dv TARGIOCENABLE> can then be called to activate "
+"a different LUN.  Multiple disable calls have no effect.  The E<.Xr close 2> "
+"system call automatically disables target mode if enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/targ.4:105
+#, no-wrap
+msgid "Dv TARGIOCDEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:111
+msgid ""
+"E<.Pq Vt int> Enables E<.Dv CAM_PERIPH> debugging if the argument is "
+"non-zero, otherwise disables it."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:112
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/targ.4:114
+#, no-wrap
+msgid "In cam/scsi/scsi_targetio.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:116
+msgid "describes the usermode interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/targ.4:116
+#, no-wrap
+msgid "Pa /sys/cam/scsi/scsi_target.c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:118
+msgid "is the driver source file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/targ.4:118
+#, no-wrap
+msgid "Pa /dev/targ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:120
+msgid "is the control device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:121
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:130
+msgid ""
+"E<.Pa /usr/share/examples/scsi_target>, E<.Xr ahc 4>, E<.Xr isp 4>, E<.Xr "
+"scsi 4> E<.Rs> E<.%T \"FreeBSD Target Information\"> E<.%U "
+"http://www.root.org/~nate/freebsd/> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:130
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:143
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver first appeared in E<.Fx 3.0> and was "
+"written by E<.An Justin T. Gibbs>.  It was rewritten for E<.Fx 5.0> by E<.An "
+"Nate Lawson Aq Mt nate@root.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/targ.4:143
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:149
+msgid ""
+"Currently, only the E<.Xr ahc 4> and E<.Xr isp 4> drivers fully support "
+"target mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/targ.4:152
+msgid "The E<.Xr ahc 4> driver does not support tagged queuing in target mode."
+msgstr ""

@@ -1,0 +1,852 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_tcp.4:27
+#, no-wrap
+msgid "August 1, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_tcp.4:28
+#, no-wrap
+msgid "DTRACE_TCP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:32
+msgid "E<.Nm dtrace_tcp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_tcp.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing events related to the"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:35
+msgid "E<.Xr tcp 4> protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:52
+msgid ""
+"E<.Fn tcp:::accept-established \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" "
+"\"tcpsinfo_t *\" \"tcpinfo_t *\"> E<.Fn tcp:::accept-refused \"pktinfo_t *\" "
+"\"csinfo_t *\" \"ipinfo_t *\" \"tcpsinfo_t *\" \"tcpinfo_t *\"> E<.Fn "
+"tcp:::connect-established \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" "
+"\"tcpsinfo_t *\" \"tcpinfo_t *\"> E<.Fn tcp:::connect-refused \"pktinfo_t "
+"*\" \"csinfo_t *\" \"ipinfo_t *\" \"tcpsinfo_t *\" \"tcpinfo_t *\"> E<.Fn "
+"tcp:::connect-request \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" "
+"\"tcpsinfo_t *\" \"tcpinfo_t *\"> E<.Fn tcp:::receive \"pktinfo_t *\" "
+"\"csinfo_t *\" \"ipinfo_t *\" \"tcpsinfo_t *\" \"tcpinfo_t *\"> E<.Fn "
+"tcp:::send \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" \"tcpsinfo_t *\" "
+"\"tcpinfo_t *\"> E<.Fn tcp:::state-change \"void *\" \"csinfo_t *\" \"void "
+"*\" \"tcpsinfo_t *\" \"void *\" \"tcplsinfo_t *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:77
+msgid ""
+"The DTrace E<.Nm tcp> provider allows users to trace events in the E<.Xr tcp "
+"4> protocol implementation.  This provider is similar to the E<.Xr dtrace_ip "
+"4> and E<.Xr dtrace_udp 4> providers, but additionally contains probes "
+"corresponding to protocol events at a level higher than packet reception and "
+"transmission.  All E<.Nm tcp> probes except for E<.Fn tcp:::state-change> "
+"have the same number and type of arguments.  The last three arguments are "
+"used to describe a TCP segment: the E<.Vt ipinfo_t> argument exposes the "
+"version-agnostic fields of the IP header, while the E<.Vt tcpinfo_t> "
+"argument exposes the TCP header, and the E<.Vt tcpsinfo_t> argument "
+"describes details of the corresponding TCP connection state, if any.  Their "
+"fields are described in the ARGUMENTS section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:89
+msgid ""
+"The E<.Fn tcp:::accept-established> probe fires when a remotely-initiated "
+"active TCP open succeeds.  At this point the new connection is in the "
+"ESTABLISHED state, and the probe arguments expose the headers associated "
+"with the final ACK of the three-way handshake.  The E<.Fn "
+"tcp:::accept-refused> probe fires when a SYN arrives on a port without a "
+"listening socket.  The probe arguments expose the headers associated with "
+"the RST to be transmitted to the remote host in response to the SYN segment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:116
+msgid ""
+"The E<.Fn tcp:::connect-established>, E<.Fn tcp:::connect-refused>, and "
+"E<.Fn tcp:::connect-request> probes are similar to the E<.Ql accept> probes, "
+"except that they correspond to locally-initiated TCP connections.  The E<.Fn "
+"tcp:::connect-established> probe fires when the SYN-ACK segment of a "
+"three-way handshake is received from the remote host and a final ACK is "
+"prepared for transmission.  This occurs immediately after the local "
+"connection state transitions from SYN-SENT to ESTABLISHED.  The probe "
+"arguments describe the headers associated with the received SYN-ACK "
+"segment.  The E<.Fn tcp:::connect-refused> probe fires when the local host "
+"receives a RST segment in response to a SYN segment, indicating that the "
+"remote host refused to open a connection.  The probe arguments describe the "
+"IP and TCP headers associated with the received RST segment.  The E<.Fn "
+"tcp:::connect-request> probe fires as the kernel prepares to transmit the "
+"initial SYN segment of a three-way handshake."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:130
+msgid ""
+"The E<.Fn tcp:::send> and E<.Fn tcp:::receive> probes fire when the host "
+"sends or receives a TCP packet, respectively.  As with the E<.Xr dtrace_udp "
+"4> provider, E<.Nm tcp> probes fire only for packets sent by or to the local "
+"host; forwarded packets are handled in the IP layer and are only visible to "
+"the E<.Xr dtrace_ip 4> provider."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:139
+msgid ""
+"The E<.Fn tcp:::state-change> probe fires upon local TCP connection state "
+"transitions.  Its first, third and fifth arguments are currently always "
+"E<.Dv NULL>.  Its last argument describes the from-state in the transition, "
+"and the to-state can be obtained from E<.Dv args[3]-E<gt>tcps_state>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:139
+#, no-wrap
+msgid "ARGUMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:145
+msgid ""
+"The E<.Vt pktinfo_t> argument is currently unimplemented and is included for "
+"compatibility with other implementations of this provider.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:146
+#, no-wrap
+msgid "Vt uinptr_t pkt_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:148 /usr/src/share/man/man4/dtrace_tcp.4:158 /usr/src/share/man/man4/dtrace_tcp.4:165
+msgid "Always set to 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:155
+msgid ""
+"The E<.Vt csinfo_t> argument is currently unimplemented and is included for "
+"compatibility with other implementations of this provider.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:156
+#, no-wrap
+msgid "Vt uintptr_t cs_addr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:158
+#, no-wrap
+msgid "Vt uint64_t cs_cid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:163
+msgid "A pointer to the E<.Vt struct inpcb> for this packet, or E<.Dv NULL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:163
+#, no-wrap
+msgid "Vt pid_t cs_pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:173
+msgid ""
+"The E<.Vt ipinfo_t> type is a version-agnostic representation of fields from "
+"an IP header.  Its fields are described in the E<.Xr dtrace_ip 4> manual "
+"page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:185
+msgid ""
+"The E<.Vt tcpsinfo_t> type is used to provide a stable representation of TCP "
+"connection state.  Some E<.Nm tcp> probes, such as E<.Fn "
+"tcp:::accept-refused>, fire in a context where there is no TCP connection; "
+"this argument is E<.Dv NULL> in that case.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:186
+#, no-wrap
+msgid "Vt uintptr_t tcps_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:190
+msgid ""
+"The address of the corresponding TCP control block.  This is currently a "
+"pointer to a E<.Vt struct tcpcb>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:190
+#, no-wrap
+msgid "Vt int tcps_local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:193
+msgid ""
+"A boolean indicating whether the connection is local to the host.  Currently "
+"unimplemented and always set to -1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:193
+#, no-wrap
+msgid "Vt int tcps_active"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:196
+msgid ""
+"A boolean indicating whether the connection was initiated by the local "
+"host.  Currently unimplemented and always set to -1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:196
+#, no-wrap
+msgid "Vt uint16_t tcps_lport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:198
+msgid "Local TCP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:198
+#, no-wrap
+msgid "Vt uint16_t tcps_rport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:200
+msgid "Remote TCP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:200
+#, no-wrap
+msgid "Vt string tcps_laddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:202
+msgid "Local address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:202
+#, no-wrap
+msgid "Vt string tcps_raddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:204
+msgid "Remote address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:204 /usr/src/share/man/man4/dtrace_tcp.4:281
+#, no-wrap
+msgid "Vt int32_t tcps_state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:210
+msgid ""
+"Current TCP state.  The valid TCP state values are given by the constants "
+"prefixed with E<.Ql TCPS_> in E<.Pa /usr/lib/dtrace/tcp.d>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:210
+#, no-wrap
+msgid "Vt uint32_t tcps_iss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:212
+msgid "Initial send sequence number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:212
+#, no-wrap
+msgid "Vt uint32_t tcps_suna"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:214
+msgid "Initial sequence number of sent but unacknowledged data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:214
+#, no-wrap
+msgid "Vt uint32_t tcps_snxt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:216
+msgid "Next sequence number for send."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:216
+#, no-wrap
+msgid "Vt uint32_t tcps_rack"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:218
+msgid "Sequence number of received and acknowledged data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:218
+#, no-wrap
+msgid "Vt uint32_t tcps_rnxt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:220
+msgid "Next expected sequence number for receive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:220
+#, no-wrap
+msgid "Vt u_long tcps_swnd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:222
+msgid "TCP send window size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:222
+#, no-wrap
+msgid "Vt int32_t tcps_snd_ws"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:224
+msgid "Window scaling factor for the TCP send window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:224
+#, no-wrap
+msgid "Vt u_long tcps_rwnd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:226
+msgid "TCP receive window size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:226
+#, no-wrap
+msgid "Vt int32_t tcps_rcv_ws"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:228
+msgid "Window scaling factor for the TCP receive window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:228
+#, no-wrap
+msgid "Vt u_long tcps_cwnd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:230
+msgid "TCP congestion window size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:230
+#, no-wrap
+msgid "Vt u_long tcps_cwnd_ssthresh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:233
+msgid ""
+"Congestion window threshold at which slow start ends and congestion "
+"avoidance begins."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:233
+#, no-wrap
+msgid "Vt uint32_t tcps_sack_fack"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:235
+msgid "Last sequence number selectively acknowledged by the receiver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:235
+#, no-wrap
+msgid "Vt uint32_t tcps_sack_snxt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:237
+msgid ""
+"Next selectively acknowledge sequence number at which to begin "
+"retransmitting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:237
+#, no-wrap
+msgid "Vt uint32_t tcps_rto"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:239
+msgid "Round-trip timeout, in milliseconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:239
+#, no-wrap
+msgid "Vt uint32_t tcps_mss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:241
+msgid "Maximum segment size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:241
+#, no-wrap
+msgid "Vt int tcps_retransmit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:243
+msgid "A boolean indicating that the local sender is retransmitting data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:243
+#, no-wrap
+msgid "Vt int tcps_srtt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:245
+msgid "Smoothed round-trip time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:251
+msgid ""
+"The E<.Vt tcpinfo_t> type exposes the fields in a TCP segment header in host "
+"order.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:252
+#, no-wrap
+msgid "Vt uint16_t tcp_sport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:254
+msgid "Source TCP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:254
+#, no-wrap
+msgid "Vt uint16_t tcp_dport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:256
+msgid "Destination TCP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:256
+#, no-wrap
+msgid "Vt uint32_t tcp_seq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:258
+msgid "Sequence number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:258
+#, no-wrap
+msgid "Vt uint32_t tcp_ack"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:260
+msgid "Acknowledgement number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:260
+#, no-wrap
+msgid "Vt uint8_t tcp_offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:262
+msgid "Data offset, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:262
+#, no-wrap
+msgid "Vt uint8_t tcp_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:264
+msgid "TCP flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:264
+#, no-wrap
+msgid "Vt uint16_t tcp_window"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:266
+msgid "TCP window size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:266
+#, no-wrap
+msgid "Vt uint16_t tcp_checksum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:268
+msgid "Checksum."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:268
+#, no-wrap
+msgid "Vt uint16_t tcp_urgent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:270
+msgid "Urgent data pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:270
+#, no-wrap
+msgid "Vt struct tcphdr *tcp_hdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:272
+msgid "A pointer to the raw TCP header."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:280
+msgid ""
+"The E<.Vt tcplsinfo_t> type is used by the E<.Fn tcp:::state-change> probe "
+"to provide the from-state of a transition.  Its fields are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:287
+msgid ""
+"A TCP state.  The valid TCP state values are given by the constants prefixed "
+"with E<.Ql TCPS_> in E<.Pa /usr/lib/dtrace/tcp.d>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:288
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_tcp.4:290
+#, no-wrap
+msgid "Pa /usr/lib/dtrace/tcp.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:294
+msgid "DTrace type and translator definitions for the E<.Nm tcp> provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:295
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:297
+msgid "The following script logs TCP segments in real time:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:300
+#, no-wrap
+msgid ""
+"#pragma D option quiet\n"
+"#pragma D option switchrate=10hz\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:306
+#, no-wrap
+msgid ""
+"dtrace:::BEGIN\n"
+"{\n"
+"        printf(\" %3s %15s:%-5s      %15s:%-5s %6s  %s\\en\", \"CPU\",\n"
+"            \"LADDR\", \"LPORT\", \"RADDR\", \"RPORT\", \"BYTES\", "
+"\"FLAGS\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:322
+#, no-wrap
+msgid ""
+"tcp:::send\n"
+"{\n"
+"        this-E<gt>length = args[2]-E<gt>ip_plength - "
+"args[4]-E<gt>tcp_offset;\n"
+"        printf(\" %3d %16s:%-5d -E<gt> %16s:%-5d %6d  (\", cpu, "
+"args[2]-E<gt>ip_saddr,\n"
+"            args[4]-E<gt>tcp_sport, args[2]-E<gt>ip_daddr, "
+"args[4]-E<gt>tcp_dport,\n"
+"            this-E<gt>length);\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_FIN ? \"FIN|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_SYN ? \"SYN|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_RST ? \"RST|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_PUSH ? \"PUSH|\" : "
+"\"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_ACK ? \"ACK|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_URG ? \"URG|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags == 0 ? \"null \" : \"\");\n"
+"        printf(\"\\b)\\en\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:338
+#, no-wrap
+msgid ""
+"tcp:::receive\n"
+"{\n"
+"        this-E<gt>length = args[2]-E<gt>ip_plength - "
+"args[4]-E<gt>tcp_offset;\n"
+"        printf(\" %3d %16s:%-5d E<lt>- %16s:%-5d %6d  (\", cpu,\n"
+"            args[2]-E<gt>ip_daddr, args[4]-E<gt>tcp_dport, "
+"args[2]-E<gt>ip_saddr,\n"
+"            args[4]-E<gt>tcp_sport, this-E<gt>length);\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_FIN ? \"FIN|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_SYN ? \"SYN|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_RST ? \"RST|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_PUSH ? \"PUSH|\" : "
+"\"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_ACK ? \"ACK|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags & TH_URG ? \"URG|\" : \"\");\n"
+"        printf(\"%s\", args[4]-E<gt>tcp_flags == 0 ? \"null \" : \"\");\n"
+"        printf(\"\\b)\\en\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:340
+msgid "The following script logs TCP connection state changes as they occur:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:343
+#, no-wrap
+msgid ""
+"#pragma D option quiet\n"
+"#pragma D option switchrate=25hz\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:345
+#, no-wrap
+msgid "int last[int];\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:351
+#, no-wrap
+msgid ""
+"dtrace:::BEGIN\n"
+"{\n"
+"        printf(\"   %12s %-20s    %-20s %s\\en\",\n"
+"            \"DELTA(us)\", \"OLD\", \"NEW\", \"TIMESTAMP\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:360
+#, no-wrap
+msgid ""
+"tcp:::state-change\n"
+"{\n"
+"        this-E<gt>elapsed = (timestamp - last[args[1]-E<gt>cs_cid]) / "
+"1000;\n"
+"        printf(\"   %12d %-20s -E<gt> %-20s %d\\en\", this-E<gt>elapsed,\n"
+"            tcp_state_string[args[5]-E<gt>tcps_state],\n"
+"            tcp_state_string[args[3]-E<gt>tcps_state], timestamp);\n"
+"        last[args[1]-E<gt>cs_cid] = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:369
+#, no-wrap
+msgid ""
+"tcp:::state-change\n"
+"/last[args[1]-E<gt>cs_cid] == 0/\n"
+"{\n"
+"        printf(\"   %12s %-20s -E<gt> %-20s %d\\en\", \"-\",\n"
+"            tcp_state_string[args[5]-E<gt>tcps_state],\n"
+"            tcp_state_string[args[3]-E<gt>tcps_state], timestamp);\n"
+"        last[args[1]-E<gt>cs_cid] = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:370
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:374
+msgid "This provider is compatible with the E<.Nm tcp> provider in Solaris."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:374
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:382
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr dtrace_ip 4>, E<.Xr dtrace_sctp 4>, E<.Xr dtrace_udp "
+"4>, E<.Xr dtrace_udplite 4>, E<.Xr tcp 4>, E<.Xr SDT 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:382
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:388
+msgid "The E<.Nm tcp> provider first appeared in E<.Fx> 10.0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:388
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:391
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_tcp.4:391
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_tcp.4:398
+msgid ""
+"The E<.Vt tcps_local> and E<.Vt tcps_active> fields of E<.Vt tcpsinfo_t> are "
+"not filled in by the translator."
+msgstr ""

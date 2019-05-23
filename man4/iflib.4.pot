@@ -1,0 +1,637 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/iflib.4:2
+#, no-wrap
+msgid "September 27, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/iflib.4:3
+#, no-wrap
+msgid "IFLIB 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/iflib.4:5
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:7
+msgid "E<.Nm iflib>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/iflib.4:7
+#, no-wrap
+msgid "Network Interface Driver Framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/iflib.4:8
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:11
+msgid "E<.Cd \"device pci\"> E<.Cd \"device iflib\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/iflib.4:11
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:21
+msgid ""
+"E<.Nm> is a framework for network interface drivers for E<.Fx>.  It is "
+"designed to remove a large amount of the boilerplate that is often needed "
+"for modern network interface devices, allowing driver authors to focus on "
+"the specific code needed for their hardware.  This allows for a shared set "
+"of E<.Xr sysctl 8> names, rather than each driver naming them individually."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/iflib.4:21
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:29
+msgid ""
+"These variables must be set before loading the driver, either via E<.Xr "
+"loader.conf 5> or through the use of E<.Xr kenv 1>.  They are all prefixed "
+"by E<.Va dev.X.Y.iflib\\&.> where X is the driver name, and Y is the "
+"instance number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:30
+#, no-wrap
+msgid "Va override_nrxds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:37
+msgid ""
+"Override the number of RX descriptors for each queue.  The value is a comma "
+"separated list of positive integers.  Some drivers only use a single value, "
+"but others may use more.  These numbers must be powers of two, and zero "
+"means to use the default.  Individual drivers may have additional "
+"restrictions on allowable values.  Defaults to all zeros."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:37
+#, no-wrap
+msgid "Va override_ntxds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:44
+msgid ""
+"Override the number of TX descriptors for each queue.  The value is a comma "
+"separated list of positive integers.  Some drivers only use a single value, "
+"but others may use more.  These numbers must be powers of two, and zero "
+"means to use the default.  Individual drivers may have additional "
+"restrictions on allowable values.  Defaults to all zeros."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:44
+#, no-wrap
+msgid "Va override_qs_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:47
+msgid ""
+"When set, allows the number of transmit and receive queues to be different.  "
+"If not set, the lower of the number of TX or RX queues will be used for "
+"both."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:47
+#, no-wrap
+msgid "Va override_nrxqs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:52
+msgid ""
+"Set the number of RX queues.  If zero, the number of RX queues is derived "
+"from the number of cores on the socket connected to the controller.  "
+"Defaults to 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:52
+#, no-wrap
+msgid "Va override_ntxqs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:56
+msgid ""
+"Set the number of TX queues.  If zero, the number of TX queues is derived "
+"from the number of cores on the socket connected to the controller."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:56
+#, no-wrap
+msgid "Va disable_msix"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:58
+msgid "Disables MSI-X interrupts for the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:58
+#, no-wrap
+msgid "Va core_offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:62
+msgid ""
+"Specifies a starting core offset to assign queues to.  If the value is "
+"unspecified or 65535, cores are assigned sequentially across controllers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:62
+#, no-wrap
+msgid "Va separate_txrx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:68
+msgid ""
+"Requests that RX and TX queues not be paired on the same core.  If this is "
+"zero or not set, an RX and TX queue pair will be assigned to each core.  "
+"When set to a non-zero value, TX queues are assigned to cores following the "
+"last RX queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:73
+msgid "These E<.Xr sysctl 8> variables can be changed at any time:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:74
+#, no-wrap
+msgid "Va tx_abdicate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:86
+msgid ""
+"Controls how the transmit ring is serviced.  If set to zero, when a frame is "
+"submitted to the transmission ring, the same task that is submitting it will "
+"service the ring unless there's already a task servicing the TX ring.  This "
+"ensures that whenever there is a pending transmission, the transmit ring is "
+"being serviced.  This results in higher transmit throughput.  If set to a "
+"non-zero value, task returns immediately and the transmit ring is serviced "
+"by a different task.  This returns control to the caller faster and under "
+"high receive load, may result in fewer dropped RX frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:86
+#, no-wrap
+msgid "Va rx_budget"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:89
+msgid ""
+"Sets the maximum number of frames to be received at a time.  Zero (the "
+"default) indicates the default (currently 16) should be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:93
+msgid ""
+"There are also some global sysctls which can change behaviour for all "
+"drivers, and may be changed at any time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:94
+#, no-wrap
+msgid "Va net.iflib.min_tx_latency"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:99
+msgid ""
+"If this is set to a non-zero value, iflib will avoid any attempt to combine "
+"multiple transmits, and notify the hardware as quickly as possible of new "
+"descriptors.  This will lower the maximum throughput, but will also lower "
+"transmit latency."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:99
+#, no-wrap
+msgid "Va net.iflib.no_tx_batch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:104
+msgid ""
+"Some NICs allow processing completed transmit descriptors in batches.  Doing "
+"so usually increases the transmit throughput by reducing the number of "
+"transmit interrupts.  Setting this to a non-zero value will disable the use "
+"of this feature."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:109
+msgid "These E<.Xr sysctl 8> variables are read-only:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:110
+#, no-wrap
+msgid "Va driver_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:112
+msgid "A string indicating the internal version of the driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:117
+msgid "There are a number of queue state E<.Xr sysctl 8> variables as well:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:118
+#, no-wrap
+msgid "Va txqZ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:121
+msgid ""
+"The following are repeated for each transmit queue, where Z is the transmit "
+"queue instance number:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:122
+#, no-wrap
+msgid "Va r_abdications"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:125
+msgid ""
+"Number of consumer abdications in the MP ring for this queue.  An abdication "
+"occurs on every ring submission when tx_abdicate is true."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:125
+#, no-wrap
+msgid "Va r_restarts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:129
+msgid ""
+"Number of consumer restarts in the MP ring for this queue.  A restart occurs "
+"when an attempt to drain a non-empty ring fails, and the ring is already in "
+"the STALLED state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:129
+#, no-wrap
+msgid "Va r_stalls"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:132
+msgid ""
+"Number of consumer stalls in the MP ring for this queue.  A stall occurs "
+"when an attempt to drain a non-empty ring fails."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:132
+#, no-wrap
+msgid "Va r_starts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:135
+msgid ""
+"Number of normal consumer starts in the MP ring for this queue.  A start "
+"occurs when the MP ring transitions from IDLE to BUSY."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:135
+#, no-wrap
+msgid "Va r_drops"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:139
+msgid ""
+"Number of drops in the MP ring for this queue.  A drop occurs when there is "
+"an attempt to add an entry to an MP ring with no available space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:139
+#, no-wrap
+msgid "Va r_enqueues"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:141
+msgid "Number of entries which have been enqueued to the MP ring for this queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:141
+#, no-wrap
+msgid "Va ring_state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:147
+msgid ""
+"MP (soft) ring state.  This privides a snapshot of the current MP ring "
+"state, including the producer head and tail indexes, the consumer index, and "
+"the state.  The state is one of \"IDLE\", \"BUSY\", \"STALLED\", or "
+"\"ABDICATED\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:147
+#, no-wrap
+msgid "Va txq_cleaned"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:150
+msgid ""
+"The number of transmit descriptors which have been reclaimed.  Total "
+"cleaned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:150
+#, no-wrap
+msgid "Va txq_processed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:153
+msgid ""
+"The number of transmit descriptors which have been processed, but may not "
+"yet have been reclaimed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:153
+#, no-wrap
+msgid "Va txq_in_use"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:158
+msgid ""
+"Descriptors which have been added to the transmit queue, but have not yet "
+"been cleaned.  This value will include both untransmitted descriptors as "
+"well as descriptors which have been processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:158
+#, no-wrap
+msgid "Va txq_cidx_processed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:160
+msgid "The transmit queue consumer index of the next descriptor to process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:160
+#, no-wrap
+msgid "Va txq_cidx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:162
+msgid "The transmit queue consumer index of the oldest descriptor to reclaim."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:162
+#, no-wrap
+msgid "Va txq_pidx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:165
+msgid ""
+"The transmit queue producer index where the next descriptor to transmit will "
+"be inserted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:165
+#, no-wrap
+msgid "Va no_tx_dma_setup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:168
+msgid ""
+"Number of times DMA mapping a transmit mbuf failed for reasons other than "
+"E<.Er EFBIG>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:168
+#, no-wrap
+msgid "Va txd_encap_efbig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:171
+msgid ""
+"Number of times DMA mapping a transmit mbuf failed due to requiring too many "
+"segments."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:171
+#, no-wrap
+msgid "Va tx_map_failed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:174
+msgid ""
+"Number of times DMA mapping a transmit mbuf failed for any reason (sum of "
+"no_tx_dma_setup and txd_encap_efbig)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:174
+#, no-wrap
+msgid "Va no_desc_avail"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:177
+msgid ""
+"Number of times a descriptor couldn't be added to the transmit ring because "
+"the transmit ring was full."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:177
+#, no-wrap
+msgid "Va mbuf_defrag_failed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:186
+msgid ""
+"Number of times both E<.Xr m_collapse 9> and E<.Xr m_defrag 9> failed after "
+"an E<.Er EFBIG> error result from DMA mapping a transmit mbuf."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:186
+#, no-wrap
+msgid "Va m_pullups"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:190
+msgid "Number of times E<.Xr m_pullup 9> was called attempting to parse a header."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:190
+#, no-wrap
+msgid "Va mbuf_defrag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:194
+msgid "Number of times E<.Xr m_defrag 9> was called."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:195
+#, no-wrap
+msgid "Va rxqZ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:198
+msgid ""
+"The following are repeated for each receive queue, where Z is the receive "
+"queue instance number:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:199
+#, no-wrap
+msgid "Va rxq_fl0.credits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:201
+msgid "Credits currently available in the receive ring."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:201
+#, no-wrap
+msgid "Va rxq_fl0.cidx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:203
+msgid "Current receive ring consumer index."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/iflib.4:203
+#, no-wrap
+msgid "Va rxq_fl0.pidx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:205
+msgid "Current receive ring producer index."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:210
+msgid ""
+"Additional OIDs useful for driver and iflib development are exposed when the "
+"INVARIANTS and/or WITNESS options are enabled in the kernel."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/iflib.4:210
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:212
+msgid "E<.Xr iflib 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/iflib.4:212
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/iflib.4:214
+msgid "This framework was introduced in E<.Fx 11.0>."
+msgstr ""

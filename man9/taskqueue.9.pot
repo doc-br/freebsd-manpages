@@ -1,0 +1,535 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/taskqueue.9:31
+#, no-wrap
+msgid "November 21, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/taskqueue.9:32
+#, no-wrap
+msgid "TASKQUEUE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/taskqueue.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:36
+msgid "E<.Nm taskqueue>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/taskqueue.9:36
+#, no-wrap
+msgid "asynchronous task execution"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/taskqueue.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/taskqueue.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/taskqueue.9:39
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/taskqueue.9:40
+#, no-wrap
+msgid "sys/malloc.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/taskqueue.9:41
+#, no-wrap
+msgid "sys/queue.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/taskqueue.9:42
+#, no-wrap
+msgid "sys/taskqueue.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:45
+#, no-wrap
+msgid "typedef void (*task_fn_t)(void *context, int pending);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:47
+#, no-wrap
+msgid "typedef void (*taskqueue_enqueue_fn)(void *context);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:55
+#, no-wrap
+msgid ""
+"struct task {\n"
+"\tSTAILQ_ENTRY(task)\tta_link;\t/* link for queue */\n"
+"\tu_short\t\t\tta_pending;\t/* count times queued */\n"
+"\tu_short\t\t\tta_priority;\t/* priority of task in queue */\n"
+"\ttask_fn_t\t\tta_func;\t/* task handler */\n"
+"\tvoid\t\t\t*ta_context;\t/* argument for handler */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:60
+#, no-wrap
+msgid ""
+"enum taskqueue_callback_type {\n"
+"\tTASKQUEUE_CALLBACK_TYPE_INIT,\n"
+"\tTASKQUEUE_CALLBACK_TYPE_SHUTDOWN,\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:62
+#, no-wrap
+msgid "typedef void (*taskqueue_callback_fn)(void *context);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:64
+#, no-wrap
+msgid "struct timeout_task;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:114
+msgid ""
+"E<.Ft struct taskqueue *> E<.Fn taskqueue_create \"const char *name\" \"int "
+"mflags\" \"taskqueue_enqueue_fn enqueue\" \"void *context\"> E<.Ft struct "
+"taskqueue *> E<.Fn taskqueue_create_fast \"const char *name\" \"int mflags\" "
+"\"taskqueue_enqueue_fn enqueue\" \"void *context\"> E<.Ft int> E<.Fn "
+"taskqueue_start_threads \"struct taskqueue **tqp\" \"int count\" \"int pri\" "
+"\"const char *name\" \"...\"> E<.Ft int> E<.Fo "
+"taskqueue_start_threads_pinned> E<.Fa \"struct taskqueue **tqp\" \"int "
+"count\" \"int pri\" \"int cpu_id\"> E<.Fa \"const char *name\" \"...\"> "
+"E<.Fc> E<.Ft void> E<.Fn taskqueue_set_callback \"struct taskqueue *queue\" "
+"\"enum taskqueue_callback_type cb_type\" \"taskqueue_callback_fn callback\" "
+"\"void *context\"> E<.Ft void> E<.Fn taskqueue_free \"struct taskqueue "
+"*queue\"> E<.Ft int> E<.Fn taskqueue_enqueue \"struct taskqueue *queue\" "
+"\"struct task *task\"> E<.Ft int> E<.Fn taskqueue_enqueue_timeout \"struct "
+"taskqueue *queue\" \"struct timeout_task *timeout_task\" \"int ticks\"> "
+"E<.Ft int> E<.Fn taskqueue_enqueue_timeout_sbt \"struct taskqueue *queue\" "
+"\"struct timeout_task *timeout_task\" \"sbintime_t sbt\" \"sbintime_t pr\" "
+"\"int flags\"> E<.Ft int> E<.Fn taskqueue_cancel \"struct taskqueue *queue\" "
+"\"struct task *task\" \"u_int *pendp\"> E<.Ft int> E<.Fn "
+"taskqueue_cancel_timeout \"struct taskqueue *queue\" \"struct timeout_task "
+"*timeout_task\" \"u_int *pendp\"> E<.Ft void> E<.Fn taskqueue_drain \"struct "
+"taskqueue *queue\" \"struct task *task\"> E<.Ft void> E<.Fn "
+"taskqueue_drain_timeout \"struct taskqueue *queue\" \"struct timeout_task "
+"*timeout_task\"> E<.Ft void> E<.Fn taskqueue_drain_all \"struct taskqueue "
+"*queue\"> E<.Ft void> E<.Fn taskqueue_quiesce \"struct taskqueue *queue\"> "
+"E<.Ft void> E<.Fn taskqueue_block \"struct taskqueue *queue\"> E<.Ft void> "
+"E<.Fn taskqueue_unblock \"struct taskqueue *queue\"> E<.Ft int> E<.Fn "
+"taskqueue_member \"struct taskqueue *queue\" \"struct thread *td\"> E<.Ft "
+"void> E<.Fn taskqueue_run \"struct taskqueue *queue\"> E<.Fn TASK_INIT "
+"\"struct task *task\" \"int priority\" \"task_fn_t func\" \"void *context\"> "
+"E<.Fn TASK_INITIALIZER \"int priority\" \"task_fn_t func\" \"void "
+"*context\"> E<.Fn TASKQUEUE_DECLARE \"name\"> E<.Fn TASKQUEUE_DEFINE "
+"\"name\" \"taskqueue_enqueue_fn enqueue\" \"void *context\" \"init\"> E<.Fn "
+"TASKQUEUE_FAST_DEFINE \"name\" \"taskqueue_enqueue_fn enqueue\" \"void "
+"*context\" \"init\"> E<.Fn TASKQUEUE_DEFINE_THREAD \"name\"> E<.Fn "
+"TASKQUEUE_FAST_DEFINE_THREAD \"name\"> E<.Fn TIMEOUT_TASK_INIT \"struct "
+"taskqueue *queue\" \"struct timeout_task *timeout_task\" \"int priority\" "
+"\"task_fn_t func\" \"void *context\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/taskqueue.9:114
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:117
+msgid ""
+"These functions provide a simple interface for asynchronous execution of "
+"code."
+msgstr ""
+
+#.  XXX	The rest of the sentence gets lots in relation to the first part.
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:147
+msgid ""
+"The function E<.Fn taskqueue_create> is used to create new queues.  The "
+"arguments to E<.Fn taskqueue_create> include a name that should be unique, a "
+"set of E<.Xr malloc 9> flags that specify whether the call to E<.Fn malloc> "
+"is allowed to sleep, a function that is called from E<.Fn taskqueue_enqueue> "
+"when a task is added to the queue, and a pointer to the memory location "
+"where the identity of the thread that services the queue is recorded.  The "
+"function called from E<.Fn taskqueue_enqueue> must arrange for the queue to "
+"be processed (for instance by scheduling a software interrupt or waking a "
+"kernel thread).  The memory location where the thread identity is recorded "
+"is used to signal the service thread(s) to terminate--when this value is set "
+"to zero and the thread is signaled it will terminate.  If the queue is "
+"intended for use in fast interrupt handlers E<.Fn taskqueue_create_fast> "
+"should be used in place of E<.Fn taskqueue_create>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:153
+msgid ""
+"The function E<.Fn taskqueue_free> should be used to free the memory used by "
+"the queue.  Any tasks that are on the queue will be executed at this time "
+"after which the thread servicing the queue will be signaled that it should "
+"exit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:166
+msgid ""
+"Once a taskqueue has been created, its threads should be started using E<.Fn "
+"taskqueue_start_threads> or E<.Fn taskqueue_start_threads_pinned>.  E<.Fn "
+"taskqueue_start_threads_pinned> takes a E<.Va cpu_id> argument which will "
+"cause the threads which are started for the taskqueue to be pinned to run on "
+"the given CPU.  Callbacks may optionally be registered using E<.Fn "
+"taskqueue_set_callback>.  Currently, callbacks may be registered for the "
+"following purposes:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/taskqueue.9:167
+#, no-wrap
+msgid "Dv TASKQUEUE_CALLBACK_TYPE_INIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:171
+msgid ""
+"This callback is called by every thread in the taskqueue, before it executes "
+"any tasks.  This callback must be set before the taskqueue's threads are "
+"started."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/taskqueue.9:171
+#, no-wrap
+msgid "Dv TASKQUEUE_CALLBACK_TYPE_SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:176
+msgid ""
+"This callback is called by every thread in the taskqueue, after it executes "
+"its last task.  This callback will always be called before the taskqueue "
+"structure is reclaimed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:195
+msgid ""
+"To add a task to the list of tasks queued on a taskqueue, call E<.Fn "
+"taskqueue_enqueue> with pointers to the queue and task.  If the task's E<.Va "
+"ta_pending> field is non-zero, then it is simply incremented to reflect the "
+"number of times the task was enqueued, up to a cap of USHRT_MAX.  Otherwise, "
+"the task is added to the list before the first task which has a lower E<.Va "
+"ta_priority> value or at the end of the list if no tasks have a lower "
+"priority.  Enqueueing a task does not perform any memory allocation which "
+"makes it suitable for calling from an interrupt handler.  This function will "
+"return E<.Er EPIPE> if the queue is being freed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:215
+msgid ""
+"When a task is executed, first it is removed from the queue, the value of "
+"E<.Va ta_pending> is recorded and then the field is zeroed.  The function "
+"E<.Va ta_func> from the task structure is called with the value of the field "
+"E<.Va ta_context> as its first argument and the value of E<.Va ta_pending> "
+"as its second argument.  After the function E<.Va ta_func> returns, E<.Xr "
+"wakeup 9> is called on the task pointer passed to E<.Fn taskqueue_enqueue>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:241
+msgid ""
+"The E<.Fn taskqueue_enqueue_timeout> function is used to schedule the "
+"enqueue after the specified number of E<.Va ticks>.  The E<.Fn "
+"taskqueue_enqueue_timeout_sbt> function provides finer control over the "
+"scheduling based on E<.Va sbt>, E<.Va pr>, and E<.Va flags>, as detailed in "
+"E<.Xr timeout 9>.  Only non-fast task queues can be used for E<.Va "
+"timeout_task> scheduling.  If the E<.Va ticks> argument is negative, the "
+"already scheduled enqueueing is not re-scheduled.  Otherwise, the task is "
+"scheduled for enqueueing in the future, after the absolute value of E<.Va "
+"ticks> is passed.  This function returns -1 if the task is being drained.  "
+"Otherwise, the number of pending calls is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:258
+msgid ""
+"The E<.Fn taskqueue_cancel> function is used to cancel a task.  The E<.Va "
+"ta_pending> count is cleared, and the old value returned in the reference "
+"parameter E<.Fa pendp>, if it is E<.Pf non- Dv NULL>.  If the task is "
+"currently running, E<.Dv EBUSY> is returned, otherwise 0.  To implement a "
+"blocking E<.Fn taskqueue_cancel> that waits for a running task to finish, it "
+"could look like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:261
+#, no-wrap
+msgid ""
+"while (taskqueue_cancel(tq, task, NULL) != 0)\n"
+"\ttaskqueue_drain(tq, task);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:267
+msgid ""
+"Note that, as with E<.Fn taskqueue_drain>, the caller is responsible for "
+"ensuring that the task is not re-enqueued after being canceled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:271
+msgid ""
+"Similarly, the E<.Fn taskqueue_cancel_timeout> function is used to cancel "
+"the scheduled task execution."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:288
+msgid ""
+"The E<.Fn taskqueue_drain> function is used to wait for the task to finish, "
+"and the E<.Fn taskqueue_drain_timeout> function is used to wait for the "
+"scheduled task to finish.  There is no guarantee that the task will not be "
+"enqueued after call to E<.Fn taskqueue_drain>.  If the caller wants to put "
+"the task into a known state, then before calling E<.Fn taskqueue_drain> the "
+"caller should use out-of-band means to ensure that the task would not be "
+"enqueued.  For example, if the task is enqueued by an interrupt filter, then "
+"the interrupt could be disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:309
+msgid ""
+"The E<.Fn taskqueue_drain_all> function is used to wait for all pending and "
+"running tasks that are enqueued on the taskqueue to finish.  Tasks posted to "
+"the taskqueue after E<.Fn taskqueue_drain_all> begins processing, including "
+"pending enqueues scheduled by a previous call to E<.Fn "
+"taskqueue_enqueue_timeout>, do not extend the wait time of E<.Fn "
+"taskqueue_drain_all> and may complete after E<.Fn taskqueue_drain_all> "
+"returns.  The E<.Fn taskqueue_quiesce> function is used to wait for the "
+"queue to become empty and for all running tasks to finish.  To avoid "
+"blocking indefinitely, the caller must ensure by some mechanism that tasks "
+"will eventually stop being posted to the queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:355
+msgid ""
+"The E<.Fn taskqueue_block> function blocks the taskqueue.  It prevents any "
+"enqueued but not running tasks from being executed.  Future calls to E<.Fn "
+"taskqueue_enqueue> will enqueue tasks, but the tasks will not be run until "
+"E<.Fn taskqueue_unblock> is called.  Please note that E<.Fn taskqueue_block> "
+"does not wait for any currently running tasks to finish.  Thus, the E<.Fn "
+"taskqueue_block> does not provide a guarantee that E<.Fn taskqueue_run> is "
+"not running after E<.Fn taskqueue_block> returns, but it does provide a "
+"guarantee that E<.Fn taskqueue_run> will not be called again until E<.Fn "
+"taskqueue_unblock> is called.  If the caller requires a guarantee that E<.Fn "
+"taskqueue_run> is not running, then this must be arranged by the caller.  "
+"Note that if E<.Fn taskqueue_drain> is called on a task that is enqueued on "
+"a taskqueue that is blocked by E<.Fn taskqueue_block>, then E<.Fn "
+"taskqueue_drain> can not return until the taskqueue is unblocked.  This can "
+"result in a deadlock if the thread blocked in E<.Fn taskqueue_drain> is the "
+"thread that is supposed to call E<.Fn taskqueue_unblock>.  Thus, use of "
+"E<.Fn taskqueue_drain> after E<.Fn taskqueue_block> is discouraged, because "
+"the state of the task can not be known in advance.  The same caveat applies "
+"to E<.Fn taskqueue_drain_all>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:360
+msgid ""
+"The E<.Fn taskqueue_unblock> function unblocks the previously blocked "
+"taskqueue.  All enqueued tasks can be run after this call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:372
+msgid ""
+"The E<.Fn taskqueue_member> function returns E<.No 1> if the given thread "
+"E<.Fa td> is part of the given taskqueue E<.Fa queue> and E<.No 0> "
+"otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:378
+msgid ""
+"The E<.Fn taskqueue_run> function will run all pending tasks in the "
+"specified E<.Fa queue>.  Normally this function is only used internally."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:400
+msgid ""
+"A convenience macro, E<.Fn TASK_INIT \"task\" \"priority\" \"func\" "
+"\"context\"> is provided to initialise a E<.Va task> structure.  The E<.Fn "
+"TASK_INITIALIZER> macro generates an initializer for a task structure.  A "
+"macro E<.Fn TIMEOUT_TASK_INIT \"queue\" \"timeout_task\" \"priority\" "
+"\"func\" \"context\"> initializes the E<.Va timeout_task> structure.  The "
+"values of E<.Va priority>, E<.Va func>, and E<.Va context> are simply copied "
+"into the task structure fields and the E<.Va ta_pending> field is cleared."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:427
+msgid ""
+"Five macros E<.Fn TASKQUEUE_DECLARE \"name\">, E<.Fn TASKQUEUE_DEFINE "
+"\"name\" \"enqueue\" \"context\" \"init\">, E<.Fn TASKQUEUE_FAST_DEFINE "
+"\"name\" \"enqueue\" \"context\" \"init\">, and E<.Fn "
+"TASKQUEUE_DEFINE_THREAD \"name\"> E<.Fn TASKQUEUE_FAST_DEFINE_THREAD "
+"\"name\"> are used to declare a reference to a global queue, to define the "
+"implementation of the queue, and declare a queue that uses its own thread.  "
+"The E<.Fn TASKQUEUE_DEFINE> macro arranges to call E<.Fn taskqueue_create> "
+"with the values of its E<.Va name>, E<.Va enqueue> and E<.Va context> "
+"arguments during system initialisation.  After calling E<.Fn "
+"taskqueue_create>, the E<.Va init> argument to the macro is executed as a C "
+"statement, allowing any further initialisation to be performed (such as "
+"registering an interrupt handler, etc.)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:434
+msgid ""
+"The E<.Fn TASKQUEUE_DEFINE_THREAD> macro defines a new taskqueue with its "
+"own kernel thread to serve tasks.  The variable E<.Vt struct taskqueue "
+"*taskqueue_name> is used to enqueue tasks onto the queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:444
+msgid ""
+"E<.Fn TASKQUEUE_FAST_DEFINE> and E<.Fn TASKQUEUE_FAST_DEFINE_THREAD> act "
+"just like E<.Fn TASKQUEUE_DEFINE> and E<.Fn TASKQUEUE_DEFINE_THREAD> "
+"respectively but taskqueue is created with E<.Fn taskqueue_create_fast>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/taskqueue.9:444
+#, no-wrap
+msgid "Predefined Task Queues"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:476
+msgid ""
+"The system provides four global taskqueues, E<.Va taskqueue_fast>, E<.Va "
+"taskqueue_swi>, E<.Va taskqueue_swi_giant>, and E<.Va taskqueue_thread>.  "
+"The E<.Va taskqueue_fast> queue is for swi handlers dispatched from fast "
+"interrupt handlers, where sleep mutexes cannot be used.  The swi taskqueues "
+"are run via a software interrupt mechanism.  The E<.Va taskqueue_swi> queue "
+"runs without the protection of the E<.Va Giant> kernel lock, and the E<.Va "
+"taskqueue_swi_giant> queue runs with the protection of the E<.Va Giant> "
+"kernel lock.  The thread taskqueue E<.Va taskqueue_thread> runs in a kernel "
+"thread context, and tasks run from this thread do not run under the E<.Va "
+"Giant> kernel lock.  If the caller wants to run under E<.Va Giant>, he "
+"should explicitly acquire and release E<.Va Giant> in his taskqueue handler "
+"routine."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:482
+msgid ""
+"To use these queues, call E<.Fn taskqueue_enqueue> with the value of the "
+"global taskqueue variable for the queue you wish to use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:490
+msgid ""
+"The software interrupt queues can be used, for instance, for implementing "
+"interrupt handlers which must perform a significant amount of processing in "
+"the handler.  The hardware interrupt handler would perform minimal "
+"processing of the interrupt and then enqueue a task to finish the work.  "
+"This reduces to a minimum the amount of time spent with interrupts disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:495
+msgid ""
+"The thread queue can be used, for instance, by interrupt level routines that "
+"need to call kernel functions that do things that can only be done from a "
+"thread context.  (e.g., call malloc with the M_WAITOK flag.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:501
+msgid ""
+"Note that tasks queued on shared taskqueues such as E<.Va taskqueue_swi> may "
+"be delayed an indeterminate amount of time before execution.  If queueing "
+"delays cannot be tolerated then a private taskqueue should be created with a "
+"dedicated processing thread."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/taskqueue.9:501
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:506
+msgid "E<.Xr ithread 9>, E<.Xr kthread 9>, E<.Xr swi 9> E<.Xr timeout 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/taskqueue.9:506
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:510
+msgid ""
+"This interface first appeared in E<.Fx 5.0>.  There is a similar facility "
+"called work_queue in the Linux kernel."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/taskqueue.9:510
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/taskqueue.9:512
+msgid "This manual page was written by E<.An Doug Rabson>."
+msgstr ""

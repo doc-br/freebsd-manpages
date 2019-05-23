@@ -1,0 +1,253 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/yppush/yppush.8:30
+#, no-wrap
+msgid "February 5, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/yppush/yppush.8:31
+#, no-wrap
+msgid "YPPUSH 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:35
+msgid "E<.Nm yppush>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/yppush/yppush.8:35
+#, no-wrap
+msgid "force propagation of updated NIS databases"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:45
+msgid ""
+"E<.Nm> E<.Op Fl d Ar domain> E<.Op Fl t Ar timeout> E<.Op Fl j Ar #parallel "
+"jobs> E<.Op Fl h Ar host> E<.Op Fl p Ar path> E<.Op Fl v> E<.Ar mapname>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:68
+msgid ""
+"The E<.Nm> utility distributes updated NIS databases (or E<.Pa maps>)  from "
+"an NIS master server to NIS slave servers within an NIS domain.  It is "
+"normally only run on the NIS master by E<.Pa /var/yp/Makefile> whenever any "
+"of the NIS maps are updated.  Note that E<.Pa /var/yp/Makefile> does not "
+"invoke E<.Nm> by default: the E<.Dq Li NOPUSH=True> entry in the Makefile "
+"must first be commented out (the default E<.Fx> configuration assumes a "
+"small network with only a single NIS server; in such a configuration, E<.Nm> "
+"is not needed)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:91
+msgid ""
+"By default, E<.Nm> determines the names of the slave servers for a domain by "
+"searching the E<.Pa ypservers> map.  A destination host (or a list of hosts) "
+"can also be manually specified on the command line.  Once it has a complete "
+"list of slave servers, it sends a 'map transfer' request to each slave, "
+"which in turn reads a copy of the map from the master NIS server using E<.Xr "
+"ypxfr 8>.  Included within each request is the name of the map to be copied "
+"and some special information required by E<.Xr ypxfr 8> to successfully "
+"'callback' to E<.Nm> and carry out the transfer.  Any error messages E<.Nm> "
+"receives from E<.Xr ypxfr 8> via callback will be printed to stderr."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:93
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:94
+#, no-wrap
+msgid "Fl d Ar domain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:100
+msgid ""
+"Specify a particular domain.  The NIS domain of the local host system is "
+"used by default.  If the local host's domain name is not set, the domain "
+"name must be specified with this flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:100
+#, no-wrap
+msgid "Fl t Ar timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:107
+msgid ""
+"Specify a timeout value in seconds.  This timeout controls how long E<.Nm> "
+"will wait for a response from a slave server before sending a map transfer "
+"request to the next slave server in its list."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:107
+#, no-wrap
+msgid "Fl j Ar #parallel jobs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:127
+msgid ""
+"The E<.Nm> utility normally performs transfers serially, meaning that it "
+"will send a map transfer request to one slave server and then wait for it to "
+"respond before moving on to the next slave server.  In environments with "
+"many slaves, it is more efficient to initiate several map transfers at once "
+"so that the transfers can take place in parallel.  The E<.Fl j> flag is used "
+"to specify the desired number of parallel jobs: E<.Nm> will initiate the "
+"specified number of transfers immediately and listen for responses.  If the "
+"number of specified parallel jobs is less than the number of slave servers, "
+"E<.Nm> will initiate only the number of specified jobs and then wait for "
+"some of them to finish before starting any more."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:135
+msgid ""
+"Note that E<.Nm> handles callbacks asynchronously, which means that it will "
+"collect and display the callback information received from E<.Xr ypxfr 8> as "
+"soon as it arrives, even it arrives before all of the map transfer requests "
+"have been sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:135
+#, no-wrap
+msgid "Fl h Ar host"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:145
+msgid ""
+"Can be used to transfer a map to a user-specified machine or group of "
+"machines instead of the list of servers contained in the E<.Pa ypservers> "
+"map.  A list of hosts can be specified by using multiple instances of the "
+"E<.Fl h> flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:145
+#, no-wrap
+msgid "Fl p Ar path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:154
+msgid ""
+"By default, E<.Nm> expects all the local NIS maps to be stored under E<.Pa "
+"/var/yp>.  The E<.Fl p> flag can be used to specify an alternate path in the "
+"event that the system administrator decides to store the NIS maps somewhere "
+"else."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:154
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:162
+msgid ""
+"Verbose mode: it causes E<.Nm> to print debugging messages as it runs.  "
+"Specifying this flag twice makes E<.Nm> even more verbose."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:163
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yppush/yppush.8:165
+#, no-wrap
+msgid "Pa /var/yp/[domainname]/ypservers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:168
+msgid ""
+"the NIS ypservers map containing the names of all servers in a particular "
+"NIS domain"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:169
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:173
+msgid "E<.Xr yp 8>, E<.Xr ypserv 8>, E<.Xr ypxfr 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:173
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:175
+msgid "E<.An Bill Paul Aq Mt wpaul@ctr.columbia.edu>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yppush/yppush.8:175
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yppush/yppush.8:180
+msgid ""
+"The mechanism for transferring NIS maps in NIS v1 is different than that in "
+"NIS version 2.  This version of E<.Nm> has support for transferring maps to "
+"NIS v2 systems only."
+msgstr ""

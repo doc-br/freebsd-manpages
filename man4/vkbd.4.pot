@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/vkbd.4:4
+#, no-wrap
+msgid "August 12, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/vkbd.4:5
+#, no-wrap
+msgid "VKBD 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:7
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:9
+msgid "E<.Nm vkbd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/vkbd.4:9
+#, no-wrap
+msgid "the virtual AT keyboard interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:10
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:12
+msgid "E<.Cd \"device vkbd\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:12
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:23
+msgid ""
+"The E<.Nm> interface is a software loopback mechanism that can be loosely "
+"described as the virtual AT keyboard analog of the E<.Xr pty 4>, that is, "
+"E<.Nm> does for virtual AT keyboards what the E<.Xr pty 4> driver does for "
+"terminals."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:36
+msgid ""
+"The E<.Nm> driver, like the E<.Xr pty 4> driver, provides two interfaces: a "
+"keyboard interface like the usual facility it is simulating (a virtual AT "
+"keyboard in the case of E<.Nm>, or a terminal for E<.Xr pty 4>), and a "
+"character-special device E<.Dq control> interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:40
+msgid ""
+"The virtual AT keyboards are named E<.Pa vkbd0 , vkbd1>, etc., one for each "
+"control device that has been opened."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:52
+msgid ""
+"The E<.Nm> interface permits opens on the special control device E<.Pa "
+"/dev/vkbdctl>.  When this device is opened, E<.Nm> will return a handle for "
+"the lowest unused E<.Pa vkbdctl> device (use E<.Xr devname 3> to determine "
+"which)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:65
+msgid ""
+"Each virtual AT keyboard supports the usual keyboard interface E<.Xr ioctl 2 "
+"Ns s>, and thus can be used with E<.Xr kbdcontrol 1> like any other "
+"keyboard.  The control device supports exactly the same E<.Xr ioctl 2 Ns s> "
+"as the virtual AT keyboard device.  Writing AT scan codes to the control "
+"device generates an input on the virtual AT keyboard, as if the "
+"(non-existent)  hardware had just received it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:75
+msgid ""
+"The virtual AT keyboard control device, normally E<.Pa /dev/vkbdctl Ns Aq Ar "
+"N>, is exclusive-open (it cannot be opened if it is already open)  and is "
+"restricted to the super-user.  A E<.Xr read 2> call will return the virtual "
+"AT keyboard status structure (defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/vkbd.4:75
+#, no-wrap
+msgid "dev/vkbd/vkbd_var.h )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:80
+msgid ""
+"if one is available; if not, it will either block until one is or return "
+"E<.Er EWOULDBLOCK>, depending on whether non-blocking I/O has been enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:93
+msgid ""
+"A E<.Xr write 2> call passes AT scan codes to be E<.Dq received> from the "
+"virtual AT keyboard.  Each AT scan code must be passed as E<.Vt \"unsigned "
+"int\">.  Although AT scan codes must be passes as E<.Vt \"unsigned int\" Ns "
+"s>, the size of the buffer passed to E<.Xr write 2> still should be in "
+"bytes, i.e.,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:99
+#, no-wrap
+msgid ""
+"static unsigned int     codes[] =\n"
+"{\n"
+"/*      Make    Break */\n"
+"        0x1e,   0x9e\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:104
+#, no-wrap
+msgid ""
+"int\n"
+"main(void)\n"
+"{\n"
+"        int     fd, len;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:108
+#, no-wrap
+msgid ""
+"        fd = open(\"/dev/vkbdctl0\", O_RDWR);\n"
+"        if (fd E<lt> 0)\n"
+"                err(1, \"open\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:113
+#, no-wrap
+msgid ""
+"        /* Note sizeof(codes) - not 2! */\n"
+"        len = write(fd, codes, sizeof(codes));\n"
+"        if (len E<lt> 0)\n"
+"                err(1, \"write\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:115
+#, no-wrap
+msgid "        close(fd);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:118
+#, no-wrap
+msgid ""
+"        return (0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:121
+msgid "Write will block if there is not enough space in the input queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:125
+msgid "The control device also supports E<.Xr select 2> for read and write."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:128
+msgid ""
+"On the last close of the control device, the virtual AT keyboard is "
+"removed.  All queued scan codes are thrown away."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:128
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:134
+msgid ""
+"E<.Xr kbdcontrol 1>, E<.Xr atkbdc 4>, E<.Xr psm 4>, E<.Xr syscons 4>, E<.Xr "
+"vt 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:134
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:139
+msgid "The E<.Nm> module was implemented in E<.Fx 6.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:139
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:141
+msgid "E<.An Maksim Yevmenkin Aq Mt m_evmenkin@yahoo.com>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vkbd.4:141
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vkbd.4:154
+msgid ""
+"The E<.Nm> interface is a software loopback mechanism, and, thus E<.Xr ddb "
+"4> will not work with it.  Current implementation of the E<.Xr syscons 4> "
+"driver can accept input from only one keyboard, even if it is virtual.  Thus "
+"it is not possible to have both wired and virtual keyboard to be active at "
+"the same time.  It is, however, in principal possible to obtain AT scan "
+"codes from the different sources and write them into the same virtual "
+"keyboard.  The virtual keyboard state synchronization is the user's "
+"responsibility."
+msgstr ""

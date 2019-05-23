@@ -1,0 +1,1309 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/crypto.9:20
+#, no-wrap
+msgid "July 17, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/crypto.9:21
+#, no-wrap
+msgid "CRYPTO 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:23
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:25
+msgid "E<.Nm crypto>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/crypto.9:25
+#, no-wrap
+msgid "API for cryptographic services in the kernel"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:26
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/crypto.9:27
+#, no-wrap
+msgid "opencrypto/cryptodev.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:58
+msgid ""
+"E<.Ft int32_t> E<.Fn crypto_get_driverid device_t size_t int> E<.Ft int> "
+"E<.Fn crypto_register uint32_t int uint16_t uint32_t \"int "
+"\\*[lp]*\\*[rp]\\*[lp]void *, uint32_t *, struct cryptoini *\\*[rp]\" \"int "
+"\\*[lp]*\\*[rp]\\*[lp]void *, uint64_t\\*[rp]\" \"int "
+"\\*[lp]*\\*[rp]\\*[lp]void *, struct cryptop *\\*[rp]\" \"void *\"> E<.Ft "
+"int> E<.Fn crypto_kregister uint32_t int uint32_t \"int "
+"\\*[lp]*\\*[rp]\\*[lp]void *, struct cryptkop *\\*[rp]\" \"void *\"> E<.Ft "
+"int> E<.Fn crypto_unregister uint32_t int> E<.Ft int> E<.Fn "
+"crypto_unregister_all uint32_t> E<.Ft void> E<.Fn crypto_done \"struct "
+"cryptop *\"> E<.Ft void> E<.Fn crypto_kdone \"struct cryptkop *\"> E<.Ft "
+"int> E<.Fn crypto_find_driver \"const char *\"> E<.Ft int> E<.Fn "
+"crypto_newsession \"crypto_session_t *\" \"struct cryptoini *\" int> E<.Ft "
+"int> E<.Fn crypto_freesession crypto_session_t> E<.Ft int> E<.Fn "
+"crypto_dispatch \"struct cryptop *\"> E<.Ft int> E<.Fn crypto_kdispatch "
+"\"struct cryptkop *\"> E<.Ft int> E<.Fn crypto_unblock uint32_t int> E<.Ft "
+"\"struct cryptop *\"> E<.Fn crypto_getreq int> E<.Ft void> E<.Fn "
+"crypto_freereq void>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:61
+#, no-wrap
+msgid ""
+"#define\tCRYPTO_SYMQ\t0x1\n"
+"#define\tCRYPTO_ASYMQ\t0x2\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:63
+#, no-wrap
+msgid "#define EALG_MAX_BLOCK_LEN      16\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:72
+#, no-wrap
+msgid ""
+"struct cryptoini {\n"
+"\tint                cri_alg;\n"
+"\tint                cri_klen;\n"
+"\tint                cri_mlen;\n"
+"\tcaddr_t            cri_key;\n"
+"\tuint8_t            cri_iv[EALG_MAX_BLOCK_LEN];\n"
+"\tstruct cryptoini  *cri_next;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:85
+#, no-wrap
+msgid ""
+"struct cryptodesc {\n"
+"\tint                crd_skip;\n"
+"\tint                crd_len;\n"
+"\tint                crd_inject;\n"
+"\tint                crd_flags;\n"
+"\tstruct cryptoini   CRD_INI;\n"
+"#define crd_iv          CRD_INI.cri_iv\n"
+"#define crd_key         CRD_INI.cri_key\n"
+"#define crd_alg         CRD_INI.cri_alg\n"
+"#define crd_klen        CRD_INI.cri_klen\n"
+"\tstruct cryptodesc *crd_next;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:99
+#, no-wrap
+msgid ""
+"struct cryptop {\n"
+"\tTAILQ_ENTRY(cryptop) crp_next;\n"
+"\tcrypto_session_t   crp_session;\n"
+"\tint                crp_ilen;\n"
+"\tint                crp_olen;\n"
+"\tint                crp_etype;\n"
+"\tint                crp_flags;\n"
+"\tcaddr_t            crp_buf;\n"
+"\tcaddr_t            crp_opaque;\n"
+"\tstruct cryptodesc *crp_desc;\n"
+"\tint              (*crp_callback) (struct cryptop *);\n"
+"\tcaddr_t            crp_mac;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:104
+#, no-wrap
+msgid ""
+"struct crparam {\n"
+"        caddr_t         crp_p;\n"
+"        u_int           crp_nbits;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:106
+#, no-wrap
+msgid "#define CRK_MAXPARAM    8\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:117
+#, no-wrap
+msgid ""
+"struct cryptkop {\n"
+"        TAILQ_ENTRY(cryptkop) krp_next;\n"
+"        u_int              krp_op;         /* ie. CRK_MOD_EXP or other */\n"
+"        u_int              krp_status;     /* return status */\n"
+"        u_short            krp_iparams;    /* # of input parameters */\n"
+"        u_short            krp_oparams;    /* # of output parameters */\n"
+"        uint32_t           krp_hid;\n"
+"        struct crparam     krp_param[CRK_MAXPARAM];\n"
+"        int               (*krp_callback)(struct cryptkop *);\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:118
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:136
+msgid ""
+"E<.Nm> is a framework for drivers of cryptographic hardware to register with "
+"the kernel so E<.Dq consumers> (other kernel subsystems, and users through "
+"the E<.Pa /dev/crypto> device) are able to make use of it.  Drivers register "
+"with the framework the algorithms they support, and provide entry points "
+"(functions) the framework may call to establish, use, and tear down "
+"sessions.  Sessions are used to cache cryptographic information in a "
+"particular driver (or associated hardware), so initialization is not needed "
+"with every request.  Consumers of cryptographic services pass a set of "
+"descriptors that instruct the framework (and the drivers registered with it) "
+"of the operations that should be applied on the data (more than one "
+"cryptographic operation can be requested)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:141
+msgid ""
+"Keying operations are supported as well.  Unlike the symmetric operators "
+"described above, these sessionless commands perform mathematical operations "
+"using input and output parameters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:160
+msgid ""
+"Since the consumers may not be associated with a process, drivers may not "
+"E<.Xr sleep 9>.  The same holds for the framework.  Thus, a callback "
+"mechanism is used to notify a consumer that a request has been completed "
+"(the callback is specified by the consumer on a per-request basis).  The "
+"callback is invoked by the framework whether the request was successfully "
+"completed or not.  An error indication is provided in the latter case.  A "
+"specific error code, E<.Er EAGAIN>, is used to indicate that a session "
+"handle has changed and that the request may be re-submitted immediately with "
+"the new session.  Errors are only returned to the invoking function if not "
+"enough information to call the callback is available (meaning, there was a "
+"fatal error in verifying the arguments).  For session initialization and "
+"teardown no callback mechanism is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:165
+msgid ""
+"The E<.Fn crypto_find_driver> function may be called to return the specific "
+"id of the provided name.  If the specified driver could not be found, the "
+"returned id is -1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:187
+msgid ""
+"The E<.Fn crypto_newsession> routine is called by consumers of cryptographic "
+"services (such as the E<.Xr ipsec 4> stack) that wish to establish a new "
+"session with the framework.  The second argument contains all the necessary "
+"information for the driver to establish the session.  The third argument is "
+"either a specific driver id, or one or both of E<.Dv CRYPTOCAP_F_HARDWARE>, "
+"to select hardware devices, or E<.Dv CRYPTOCAP_F_SOFTWARE>, to select "
+"software devices.  If both are specified, a hardware device will be returned "
+"before a software device will be.  On success, the value pointed to by the "
+"first argument will be the opaque session handle.  The various fields in the "
+"E<.Vt cryptoini> structure are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:188
+#, no-wrap
+msgid "Va cri_alg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:191
+msgid "Contains an algorithm identifier.  Currently supported algorithms are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:193
+#, no-wrap
+msgid "Dv CRYPTO_AES_128_NIST_GMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:194
+#, no-wrap
+msgid "Dv CRYPTO_AES_192_NIST_GMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:195
+#, no-wrap
+msgid "Dv CRYPTO_AES_256_NIST_GMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:196
+#, no-wrap
+msgid "Dv CRYPTO_AES_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:197
+#, no-wrap
+msgid "Dv CRYPTO_AES_ICM"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:198
+#, no-wrap
+msgid "Dv CRYPTO_AES_NIST_GCM_16"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:199
+#, no-wrap
+msgid "Dv CRYPTO_AES_NIST_GMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:200
+#, no-wrap
+msgid "Dv CRYPTO_AES_XTS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:201
+#, no-wrap
+msgid "Dv CRYPTO_ARC4"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:202
+#, no-wrap
+msgid "Dv CRYPTO_BLF_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:203
+#, no-wrap
+msgid "Dv CRYPTO_CAMELLIA_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:204
+#, no-wrap
+msgid "Dv CRYPTO_CAST_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:205
+#, no-wrap
+msgid "Dv CRYPTO_DEFLATE_COMP"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:206
+#, no-wrap
+msgid "Dv CRYPTO_DES_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:207
+#, no-wrap
+msgid "Dv CRYPTO_3DES_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:208
+#, no-wrap
+msgid "Dv CRYPTO_MD5"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:209
+#, no-wrap
+msgid "Dv CRYPTO_MD5_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:210
+#, no-wrap
+msgid "Dv CRYPTO_MD5_KPDK"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:211
+#, no-wrap
+msgid "Dv CRYPTO_NULL_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:212
+#, no-wrap
+msgid "Dv CRYPTO_NULL_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:213
+#, no-wrap
+msgid "Dv CRYPTO_RIPEMD160_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:214
+#, no-wrap
+msgid "Dv CRYPTO_SHA1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:215
+#, no-wrap
+msgid "Dv CRYPTO_SHA1_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:216
+#, no-wrap
+msgid "Dv CRYPTO_SHA1_KPDK"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:217
+#, no-wrap
+msgid "Dv CRYPTO_SHA2_256_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:218
+#, no-wrap
+msgid "Dv CRYPTO_SHA2_384_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:219
+#, no-wrap
+msgid "Dv CRYPTO_SHA2_512_HMAC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:220
+#, no-wrap
+msgid "Dv CRYPTO_SKIPJACK_CBC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:222
+#, no-wrap
+msgid "Va cri_klen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:225
+msgid "Specifies the length of the key in bits, for variable-size key algorithms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:225
+#, no-wrap
+msgid "Va cri_mlen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:228
+msgid ""
+"Specifies how many bytes from the calculated hash should be copied back.  0 "
+"means entire hash."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:228
+#, no-wrap
+msgid "Va cri_key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:230
+msgid "Contains the key to be used with the algorithm."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:230
+#, no-wrap
+msgid "Va cri_iv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:237
+msgid ""
+"Contains an explicit initialization vector (IV), if it does not prefix the "
+"data.  This field is ignored during initialization E<.Pq Nm "
+"crypto_newsession>.  If no IV is explicitly passed (see below on details), a "
+"random IV is used by the device driver processing the request."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:237
+#, no-wrap
+msgid "Va cri_next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:244
+msgid ""
+"Contains a pointer to another E<.Vt cryptoini> structure.  Multiple such "
+"structures may be linked to establish multi-algorithm sessions E<.Xr ( ipsec "
+"4> is an example consumer of such a feature)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:250
+msgid ""
+"The E<.Vt cryptoini> structure and its contents will not be modified by the "
+"framework (or the drivers used)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:255
+msgid ""
+"E<.Fn crypto_freesession> is called with the session handle returned by "
+"E<.Fn crypto_newsession> to free the session."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:261
+msgid ""
+"E<.Fn crypto_dispatch> is called to process a request.  The various fields "
+"in the E<.Vt cryptop> structure are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:262
+#, no-wrap
+msgid "Va crp_session"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:264
+msgid "Contains the session handle."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:264
+#, no-wrap
+msgid "Va crp_ilen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:266
+msgid "Indicates the total length in bytes of the buffer to be processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:266
+#, no-wrap
+msgid "Va crp_olen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:271
+msgid ""
+"On return, contains the total length of the result.  For symmetric crypto "
+"operations, this will be the same as the input length.  This will be used if "
+"the framework needs to allocate a new buffer for the result (or for "
+"re-formatting the input)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:271
+#, no-wrap
+msgid "Va crp_callback"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:283
+msgid ""
+"This routine is invoked upon completion of the request, whether successful "
+"or not.  It is invoked through the E<.Fn crypto_done> routine.  If the "
+"request was not successful, an error code is set in the E<.Va crp_etype> "
+"field.  It is the responsibility of the callback routine to set the "
+"appropriate E<.Xr spl 9> level."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:283
+#, no-wrap
+msgid "Va crp_etype"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:298
+msgid ""
+"Contains the error type, if any errors were encountered, or zero if the "
+"request was successfully processed.  If the E<.Er EAGAIN> error code is "
+"returned, the session handle has changed (and has been recorded in the E<.Va "
+"crp_session> field).  The consumer should record the new session handle and "
+"use it in all subsequent requests.  In this case, the request may be "
+"re-submitted immediately.  This mechanism is used by the framework to "
+"perform session migration (move a session from one driver to another, "
+"because of availability, performance, or other considerations)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:308
+msgid ""
+"Note that this field only makes sense when examined by the callback routine "
+"specified in E<.Va crp_callback>.  Errors are returned to the invoker of "
+"E<.Fn crypto_process> only when enough information is not present to call "
+"the callback routine (i.e., if the pointer passed is E<.Dv NULL> or if no "
+"callback routine was specified)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:308
+#, no-wrap
+msgid "Va crp_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:311
+msgid ""
+"Is a bitmask of flags associated with this request.  Currently defined flags "
+"are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:312
+#, no-wrap
+msgid "Dv CRYPTO_F_IMBUF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:316
+msgid "The buffer pointed to by E<.Va crp_buf> is an mbuf chain."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:316
+#, no-wrap
+msgid "Dv CRYPTO_F_IOV"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:322
+msgid "The buffer pointed to by E<.Va crp_buf> is an E<.Vt uio> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:322
+#, no-wrap
+msgid "Dv CRYPTO_F_BATCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:324
+msgid "Batch operation if possible."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:324
+#, no-wrap
+msgid "Dv CRYPTO_F_CBIMM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:326
+msgid "Do callback immediately instead of doing it from a dedicated kernel thread."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:326
+#, no-wrap
+msgid "Dv CRYPTO_F_DONE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:328
+msgid "Operation completed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:328
+#, no-wrap
+msgid "Dv CRYPTO_F_CBIFSYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:333
+msgid ""
+"Do callback immediately if operation is synchronous (that the driver "
+"specified the E<.Dv CRYPTOCAP_F_SYNC> flag)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:333
+#, no-wrap
+msgid "Dv CRYPTO_F_ASYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:340
+msgid ""
+"Try to do the crypto operation in a pool of workers if the operation is "
+"synchronous (that is, if the driver specified the E<.Dv CRYPTOCAP_F_SYNC> "
+"flag).  It aims to speed up processing by dispatching crypto operations on "
+"different processors."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:340
+#, no-wrap
+msgid "Dv CRYPTO_F_ASYNC_KEEPORDER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:345
+msgid ""
+"Dispatch callbacks in the same order they are posted.  Only relevant if the "
+"E<.Dv CRYPTO_F_ASYNC> flag is set and if the operation is synchronous."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:346
+#, no-wrap
+msgid "Va crp_buf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:354
+msgid ""
+"Points to the input buffer.  On return (when the callback is invoked), it "
+"contains the result of the request.  The input buffer may be an mbuf chain "
+"or a contiguous buffer, depending on E<.Va crp_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:354
+#, no-wrap
+msgid "Va crp_opaque"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:357
+msgid ""
+"This is passed through the crypto framework untouched and is intended for "
+"the invoking application's use."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:357
+#, no-wrap
+msgid "Va crp_desc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:363
+msgid ""
+"This is a linked list of descriptors.  Each descriptor provides information "
+"about what type of cryptographic operation should be done on the input "
+"buffer.  The various fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:364
+#, no-wrap
+msgid "Va crd_iv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:368
+msgid "When the flag E<.Dv CRD_F_IV_EXPLICIT> is set, this field contains the IV."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:368
+#, no-wrap
+msgid "Va crd_key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:374
+msgid ""
+"When the E<.Dv CRD_F_KEY_EXPLICIT> flag is set, the E<.Va crd_key> points to "
+"a buffer with encryption or authentication key."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:374
+#, no-wrap
+msgid "Va crd_alg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:377
+msgid "An algorithm to use.  Must be the same as the one given at newsession time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:377
+#, no-wrap
+msgid "Va crd_klen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:381
+msgid "The E<.Va crd_key> key length."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:381
+#, no-wrap
+msgid "Va crd_skip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:383
+msgid "The offset in the input buffer where processing should start."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:383
+#, no-wrap
+msgid "Va crd_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:387
+msgid "How many bytes, after E<.Va crd_skip>, should be processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:387
+#, no-wrap
+msgid "Va crd_inject"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:397
+msgid ""
+"The E<.Va crd_inject> field specifies an offset in bytes from the beginning "
+"of the buffer.  For encryption algorithms, this may be where the IV will be "
+"inserted when encrypting or where the IV may be found for decryption "
+"(subject to E<.Va crd_flags>).  For MAC algorithms, this is where the result "
+"of the keyed hash will be inserted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:397
+#, no-wrap
+msgid "Va crd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:399
+msgid "The following flags are defined:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:400
+#, no-wrap
+msgid "Dv CRD_F_ENCRYPT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:403
+msgid ""
+"For encryption algorithms, this bit is set when encryption is required (when "
+"not set, decryption is performed)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:403
+#, no-wrap
+msgid "Dv CRD_F_IV_PRESENT"
+msgstr ""
+
+#.  This flag name has nothing to do w/ it's behavior, fix the name.
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:420
+msgid ""
+"For encryption, if this bit is not set the IV used to encrypt the packet "
+"will be written at the location pointed to by E<.Va crd_inject>.  The IV "
+"length is assumed to be equal to the blocksize of the encryption algorithm.  "
+"For encryption, if this bit is set, nothing is done.  For decryption, this "
+"flag has no meaning.  Applications that do special E<.Dq \"IV cooking\">, "
+"such as the half-IV mode in E<.Xr ipsec 4>, can use this flag to indicate "
+"that the IV should not be written on the packet.  This flag is typically "
+"used in conjunction with the E<.Dv CRD_F_IV_EXPLICIT> flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:420
+#, no-wrap
+msgid "Dv CRD_F_IV_EXPLICIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:435
+msgid ""
+"This bit is set when the IV is explicitly provided by the consumer in the "
+"E<.Va crd_iv> field.  Otherwise, for encryption operations the IV is "
+"provided for by the driver used to perform the operation, whereas for "
+"decryption operations the offset of the IV is provided by the E<.Va "
+"crd_inject> field.  This flag is typically used when the IV is calculated "
+"E<.Dq \"on the fly\"> by the consumer, and does not precede the data (some "
+"E<.Xr ipsec 4> configurations, and the encrypted swap are two such "
+"examples)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:435
+#, no-wrap
+msgid "Dv CRD_F_KEY_EXPLICIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:445
+msgid ""
+"For encryption and authentication (MAC) algorithms, this bit is set when the "
+"key is explicitly provided by the consumer in the E<.Va crd_key> field for "
+"the given operation.  Otherwise, the key is taken at newsession time from "
+"the E<.Va cri_key> field.  As calculating the key schedule may take a while, "
+"it is recommended that often used keys are given their own session."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:445
+#, no-wrap
+msgid "Dv CRD_F_COMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:448
+msgid ""
+"For compression algorithms, this bit is set when compression is required "
+"(when not set, decompression is performed)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:449
+#, no-wrap
+msgid "Va CRD_INI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:459
+msgid ""
+"This E<.Vt cryptoini> structure will not be modified by the framework or the "
+"device drivers.  Since this information accompanies every cryptographic "
+"operation request, drivers may re-initialize state on-demand (typically an "
+"expensive operation).  Furthermore, the cryptographic framework may re-route "
+"requests as a result of full queues or hardware failure, as described above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:459
+#, no-wrap
+msgid "Va crd_next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:465
+msgid ""
+"Point to the next descriptor.  Linked operations are useful in protocols "
+"such as E<.Xr ipsec 4>, where multiple cryptographic transforms may be "
+"applied on the same block of data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:474
+msgid ""
+"E<.Fn crypto_getreq> allocates a E<.Vt cryptop> structure with a linked list "
+"of as many E<.Vt cryptodesc> structures as were specified in the argument "
+"passed to it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:486
+msgid ""
+"E<.Fn crypto_freereq> deallocates a structure E<.Vt cryptop> and any E<.Vt "
+"cryptodesc> structures linked to it.  Note that it is the responsibility of "
+"the callback routine to do the necessary cleanups associated with the opaque "
+"field in the E<.Vt cryptop> structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:492
+msgid ""
+"E<.Fn crypto_kdispatch> is called to perform a keying operation.  The "
+"various fields in the E<.Vt cryptkop> structure are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:493
+#, no-wrap
+msgid "Va krp_op"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:496
+msgid "Operation code, such as E<.Dv CRK_MOD_EXP>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:496
+#, no-wrap
+msgid "Va krp_status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:502
+msgid ""
+"Return code.  This E<.Va errno Ns -style> variable indicates whether lower "
+"level reasons for operation failure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:502
+#, no-wrap
+msgid "Va krp_iparams"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:505
+msgid ""
+"Number if input parameters to the specified operation.  Note that each "
+"operation has a (typically hardwired) number of such parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:505
+#, no-wrap
+msgid "Va krp_oparams"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:508
+msgid ""
+"Number if output parameters from the specified operation.  Note that each "
+"operation has a (typically hardwired) number of such parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:508
+#, no-wrap
+msgid "Va krp_kvp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:510
+msgid "An array of kernel memory blocks containing the parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:510
+#, no-wrap
+msgid "Va krp_hid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:512
+msgid "Identifier specifying which low-level driver is being used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:512
+#, no-wrap
+msgid "Va krp_callback"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:514
+msgid "Callback called on completion of a keying operation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:515
+#, no-wrap
+msgid "DRIVER-SIDE API"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:528
+msgid ""
+"The E<.Fn crypto_get_driverid>, E<.Fn crypto_get_driver_session>, E<.Fn "
+"crypto_register>, E<.Fn crypto_kregister>, E<.Fn crypto_unregister>, E<.Fn "
+"crypto_unblock>, and E<.Fn crypto_done> routines are used by drivers that "
+"provide support for cryptographic primitives to register and unregister with "
+"the kernel crypto services framework."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:548
+msgid ""
+"Drivers must first use the E<.Fn crypto_get_driverid> function to acquire a "
+"driver identifier, specifying the E<.Fa flags> as an argument.  One of E<.Dv "
+"CRYPTOCAP_F_SOFTWARE> or E<.Dv CRYPTOCAP_F_HARDWARE> must be specified.  The "
+"E<.Dv CRYPTOCAP_F_SYNC> may also be specified, and should be specified if "
+"the driver does all of it's operations synchronously.  Drivers must pass the "
+"size of their session struct as the second argument.  An appropriately sized "
+"memory will be allocated by the framework, zeroed, and passed to the "
+"driver's E<.Fn newsession> method."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:562
+msgid ""
+"For each algorithm the driver supports, it must then call E<.Fn "
+"crypto_register>.  The first two arguments are the driver and algorithm "
+"identifiers.  The next two arguments specify the largest possible operator "
+"length (in bits, important for public key operations) and flags for this "
+"algorithm.  The last four arguments must be provided in the first call to "
+"E<.Fn crypto_register> and are ignored in all subsequent calls.  They are "
+"pointers to three driver-provided functions that the framework may call to "
+"establish new cryptographic context with the driver, free already "
+"established context, and ask for a request to be processed (encrypt, "
+"decrypt, etc.); and an opaque parameter to pass when calling each of these "
+"routines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:581
+msgid ""
+"E<.Fn crypto_unregister> is called by drivers that wish to withdraw support "
+"for an algorithm.  The two arguments are the driver and algorithm "
+"identifiers, respectively.  Typically, drivers for PCMCIA crypto cards that "
+"are being ejected will invoke this routine for all algorithms supported by "
+"the card.  E<.Fn crypto_unregister_all> will unregister all algorithms "
+"registered by a driver and the driver will be disabled (no new sessions will "
+"be allocated on that driver, and any existing sessions will be migrated to "
+"other drivers).  The same will be done if all algorithms associated with a "
+"driver are unregistered one by one.  After a call to E<.Fn "
+"crypto_unregister_all> there will be no threads in either the newsession or "
+"freesession function of the driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:583
+msgid "The calling convention for the driver-supplied routines are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:588
+msgid ""
+"E<.Ft int> E<.Fn \\*[lp]*newsession\\*[rp] \"device_t\" \"crypto_session_t\" "
+"\"struct cryptoini *\">;"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:591
+msgid ""
+"E<.Ft void> E<.Fn \\*[lp]*freesession\\*[rp] \"device_t\" "
+"\"crypto_session_t\">;"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:594
+msgid ""
+"E<.Ft int> E<.Fn \\*[lp]*process\\*[rp] \"device_t\" \"struct cryptop *\" "
+"\"int\">;"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:597
+msgid ""
+"E<.Ft int> E<.Fn \\*[lp]*kprocess\\*[rp] \"device_t\" \"struct cryptkop *\" "
+"\"int\">;"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:609
+msgid ""
+"On invocation, the first argument to all routines is the E<.Fa device_t> "
+"that was provided to E<.Fn crypto_get_driverid>.  The second argument to "
+"E<.Fn newsession> is the opaque session handle for the new session.  The "
+"third argument is identical to that of E<.Fn crypto_newsession>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:615
+msgid ""
+"Drivers obtain a pointer to their session memory by invoking E<.Fn "
+"crypto_get_driver_session> on the opaque E<.Vt crypto_session_t> handle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:628
+msgid ""
+"The E<.Fn freesession> routine takes as arguments the opaque data value and "
+"the session handle.  It should clear any context associated with the session "
+"(clear hardware registers, memory, etc.).  If no resources need to be "
+"released other than the contents of session memory, the method is optional.  "
+"The E<.Nm> framework will zero and release the allocated session memory "
+"(after running the E<.Fn freesession> method, if one exists)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:644
+msgid ""
+"The E<.Fn process> routine is invoked with a request to perform crypto "
+"processing.  This routine must not block or sleep, but should queue the "
+"request and return immediately or process the request to completion.  In "
+"case of an unrecoverable error, the error indication must be placed in the "
+"E<.Va crp_etype> field of the E<.Vt cryptop> structure.  When the request is "
+"completed, or an error is detected, the E<.Fn process> routine must invoke "
+"E<.Fn crypto_done>.  Session migration may be performed, as mentioned "
+"previously."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:663
+msgid ""
+"In case of a temporary resource exhaustion, the E<.Fn process> routine may "
+"return E<.Er ERESTART> in which case the crypto services will requeue the "
+"request, mark the driver as E<.Dq blocked>, and stop submitting requests for "
+"processing.  The driver is then responsible for notifying the crypto "
+"services when it is again able to process requests through the E<.Fn "
+"crypto_unblock> routine.  This simple flow control mechanism should only be "
+"used for short-lived resource exhaustion as it causes operations to be "
+"queued in the crypto layer.  Doing so is preferable to returning an error in "
+"such cases as it can cause network protocols to degrade performance by "
+"treating the failure much like a lost packet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:679
+msgid ""
+"The E<.Fn kprocess> routine is invoked with a request to perform crypto key "
+"processing.  This routine must not block, but should queue the request and "
+"return immediately.  Upon processing the request, the callback routine "
+"should be invoked.  In case of an unrecoverable error, the error indication "
+"must be placed in the E<.Va krp_status> field of the E<.Vt cryptkop> "
+"structure.  When the request is completed, or an error is detected, the "
+"E<.Fn kprocess> routine should invoked E<.Fn crypto_kdone>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:679
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:705
+msgid ""
+"E<.Fn crypto_register>, E<.Fn crypto_kregister>, E<.Fn crypto_unregister>, "
+"E<.Fn crypto_newsession>, E<.Fn crypto_freesession>, and E<.Fn "
+"crypto_unblock> return 0 on success, or an error code on failure.  E<.Fn "
+"crypto_get_driverid> returns a non-negative value on error, and \\-1 on "
+"failure.  E<.Fn crypto_getreq> returns a pointer to a E<.Vt cryptop> "
+"structure and E<.Dv NULL> on failure.  E<.Fn crypto_dispatch> returns E<.Er "
+"EINVAL> if its argument or the callback function was E<.Dv NULL>, and 0 "
+"otherwise.  The callback is provided with an error code in case of failure, "
+"in the E<.Va crp_etype> field."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:705
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/crypto.9:707
+#, no-wrap
+msgid "Pa sys/opencrypto/crypto.c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:709
+msgid "most of the framework code"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:710
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:716
+msgid ""
+"E<.Xr crypto 4>, E<.Xr ipsec 4>, E<.Xr crypto 7>, E<.Xr malloc 9>, E<.Xr "
+"sleep 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:716
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:721
+msgid ""
+"The cryptographic framework first appeared in E<.Ox 2.7> and was written by "
+"E<.An Angelos D. Keromytis Aq Mt angelos@openbsd.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/crypto.9:721
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:726
+msgid ""
+"The framework currently assumes that all the algorithms in a E<.Fn "
+"crypto_newsession> operation must be available by the same driver.  If that "
+"is not the case, session initialization will fail."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:730
+msgid ""
+"The framework also needs a mechanism for determining which driver is best "
+"for a specific set of algorithms associated with a session.  Some type of "
+"benchmarking is in order here."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/crypto.9:732
+msgid ""
+"Multiple instances of the same algorithm in the same session are not "
+"supported."
+msgstr ""

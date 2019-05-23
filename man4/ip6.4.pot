@@ -1,0 +1,1077 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ip6.4:33
+#, no-wrap
+msgid "November 1, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ip6.4:34
+#, no-wrap
+msgid "IP6 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:38
+msgid "E<.Nm ip6>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ip6.4:38
+#, no-wrap
+msgid "Internet Protocol version 6 (IPv6) network layer"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ip6.4:40
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ip6.4:41
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:44
+msgid "E<.Ft int> E<.Fn socket AF_INET6 SOCK_RAW proto>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:58
+msgid ""
+"The IPv6 network layer is used by the IPv6 protocol family for transporting "
+"data.  IPv6 packets contain an IPv6 header that is not provided as part of "
+"the payload contents when passed to an application.  IPv6 header options "
+"affect the behavior of this protocol and may be used by high-level protocols "
+"(such as the E<.Xr tcp 4> and E<.Xr udp 4> protocols) as well as directly by "
+"E<.Dq raw sockets>, which process IPv6 messages at a lower-level and may be "
+"useful for developing new protocols and special-purpose applications."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip6.4:58
+#, no-wrap
+msgid "Header"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:72
+msgid ""
+"All IPv6 packets begin with an IPv6 header.  When data received by the "
+"kernel are passed to the application, this header is not included in buffer, "
+"even when raw sockets are being used.  Likewise, when data are sent to the "
+"kernel for transmit from the application, the buffer is not examined for an "
+"IPv6 header: the kernel always constructs the header.  To directly access "
+"IPv6 headers from received packets and specify them as part of the buffer "
+"passed to the kernel, link-level access E<.Po> E<.Xr bpf 4>, for example "
+"E<.Pc> must instead be utilized."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:74
+msgid "The header has the following definition:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:88
+#, no-wrap
+msgid ""
+"struct ip6_hdr {\n"
+"     union {\n"
+"          struct ip6_hdrctl {\n"
+"               uint32_t ip6_un1_flow;\t/* 20 bits of flow ID */\n"
+"               uint16_t ip6_un1_plen;\t/* payload length */\n"
+"               uint8_t  ip6_un1_nxt;\t/* next header */\n"
+"               uint8_t  ip6_un1_hlim;\t/* hop limit */\n"
+"          } ip6_un1;\n"
+"          uint8_t ip6_un2_vfc;\t/* version and class */\n"
+"     } ip6_ctlun;\n"
+"     struct in6_addr ip6_src;\t/* source address */\n"
+"     struct in6_addr ip6_dst;\t/* destination address */\n"
+"} __packed;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:95
+#, no-wrap
+msgid ""
+"#define ip6_vfc\t\tip6_ctlun.ip6_un2_vfc\n"
+"#define ip6_flow\tip6_ctlun.ip6_un1.ip6_un1_flow\n"
+"#define ip6_plen\tip6_ctlun.ip6_un1.ip6_un1_plen\n"
+"#define ip6_nxt\t\tip6_ctlun.ip6_un1.ip6_un1_nxt\n"
+"#define ip6_hlim\tip6_ctlun.ip6_un1.ip6_un1_hlim\n"
+"#define ip6_hops\tip6_ctlun.ip6_un1.ip6_un1_hlim\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:101
+msgid ""
+"All fields are in network-byte order.  Any options specified (see E<.Sx "
+"Options> below) must also be specified in network-byte order."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:110
+msgid ""
+"E<.Va ip6_flow> specifies the flow ID.  E<.Va ip6_plen> specifies the "
+"payload length.  E<.Va ip6_nxt> specifies the type of the next header.  "
+"E<.Va ip6_hlim> specifies the hop limit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:114
+msgid ""
+"The top 4 bits of E<.Va ip6_vfc> specify the class and the bottom 4 bits "
+"specify the version."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:119
+msgid ""
+"E<.Va ip6_src> and E<.Va ip6_dst> specify the source and destination "
+"addresses."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:122
+msgid ""
+"The IPv6 header may be followed by any number of extension headers that "
+"start with the following generic definition:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:127
+#, no-wrap
+msgid ""
+"struct ip6_ext {\n"
+"     uint8_t ip6e_nxt;\n"
+"     uint8_t ip6e_len;\n"
+"} __packed;\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip6.4:128
+#, no-wrap
+msgid "Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:143
+msgid ""
+"IPv6 allows header options on packets to manipulate the behavior of the "
+"protocol.  These options and other control requests are accessed with the "
+"E<.Xr getsockopt 2> and E<.Xr setsockopt 2> system calls at level E<.Dv "
+"IPPROTO_IPV6> and by using ancillary data in E<.Xr recvmsg 2> and E<.Xr "
+"sendmsg 2>.  They can be used to access most of the fields in the IPv6 "
+"header and extension headers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:145
+msgid "The following socket options are supported:"
+msgstr ""
+
+#.  .It Dv IPV6_OPTIONS
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:147
+#, no-wrap
+msgid "Dv IPV6_UNICAST_HOPS Fa \"int *\""
+msgstr ""
+
+#.  .It Dv IPV6_RECVOPTS Fa "int *"
+#.  Get or set the status of whether all header options will be
+#.  delivered along with the datagram when it is received.
+#.  .It Dv IPV6_RECVRETOPTS Fa "int *"
+#.  Get or set the status of whether header options will be delivered
+#.  for reply.
+#.  .It Dv IPV6_RECVDSTADDR Fa "int *"
+#.  Get or set the status of whether datagrams are received with
+#.  destination addresses.
+#.  .It Dv IPV6_ORIGDSTADDR Fa "int *"
+#.  Get or set the status of whether datagrams are received with
+#.  destination addresses and destination ports.
+#.  .It Dv IPV6_RETOPTS
+#.  Get or set IPv6 options.
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:164
+msgid ""
+"Get or set the default hop limit header field for outgoing unicast datagrams "
+"sent on this socket."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:164
+#, no-wrap
+msgid "Dv IPV6_MULTICAST_IF Fa \"u_int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:171
+msgid ""
+"Get or set the interface from which multicast packets will be sent.  For "
+"hosts with multiple interfaces, each multicast transmission is sent from the "
+"primary network interface.  The interface is specified as its index as "
+"provided by E<.Xr if_nametoindex 3>.  A value of zero specifies the default "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:171
+#, no-wrap
+msgid "Dv IPV6_MULTICAST_HOPS Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:175
+msgid ""
+"Get or set the default hop limit header field for outgoing multicast "
+"datagrams sent on this socket.  This option controls the scope of multicast "
+"datagram transmissions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:186
+msgid ""
+"Datagrams with a hop limit of 1 are not forwarded beyond the local network.  "
+"Multicast datagrams with a hop limit of zero will not be transmitted on any "
+"network but may be delivered locally if the sending host belongs to the "
+"destination group and if multicast loopback (see below) has not been "
+"disabled on the sending socket.  Multicast datagrams with a hop limit "
+"greater than 1 may be forwarded to the other networks if a multicast router "
+"(such as E<.Xr mrouted 8 Pq Pa ports/net/mrouted>)  is attached to the local "
+"network."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:186
+#, no-wrap
+msgid "Dv IPV6_MULTICAST_LOOP Fa \"u_int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:190
+msgid ""
+"Get or set the status of whether multicast datagrams will be looped back for "
+"local delivery when a multicast datagram is sent to a group to which the "
+"sending host belongs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:198
+msgid ""
+"This option improves performance for applications that may have no more than "
+"one instance on a single host (such as a router daemon) by eliminating the "
+"overhead of receiving their own transmissions.  It should generally not be "
+"used by applications for which there may be more than one instance on a "
+"single host (such as a conferencing program)  or for which the sender does "
+"not belong to the destination group (such as a time-querying program)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:204
+msgid ""
+"A multicast datagram sent with an initial hop limit greater than 1 may be "
+"delivered to the sending host on a different interface from that on which it "
+"was sent if the host belongs to the destination group on that other "
+"interface.  The multicast loopback control option has no effect on such "
+"delivery."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:204
+#, no-wrap
+msgid "Dv IPV6_JOIN_GROUP Fa \"struct ipv6_mreq *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:208
+msgid ""
+"Join a multicast group.  A host must become a member of a multicast group "
+"before it can receive datagrams sent to the group."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:213
+#, no-wrap
+msgid ""
+"struct ipv6_mreq {\n"
+"\tstruct in6_addr\tipv6mr_multiaddr;\n"
+"\tunsigned int\tipv6mr_interface;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:222
+msgid ""
+"E<.Va ipv6mr_interface> may be set to zeroes to choose the default multicast "
+"interface or to the index of a particular multicast-capable interface if the "
+"host is multihomed.  Membership is associated with a single interface; "
+"programs running on multihomed hosts may need to join the same group on more "
+"than one interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:226
+msgid ""
+"If the multicast address is unspecified (i.e., all zeroes), messages from "
+"all multicast addresses will be accepted by this group.  Note that setting "
+"to this value requires superuser privileges."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:226
+#, no-wrap
+msgid "Dv IPV6_LEAVE_GROUP Fa \"struct ipv6_mreq *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:230
+msgid ""
+"Drop membership from the associated multicast group.  Memberships are "
+"automatically dropped when the socket is closed or when the process exits."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:230
+#, no-wrap
+msgid "Dv IPV6_PORTRANGE Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:234
+msgid ""
+"Get or set the allocation policy of ephemeral ports for when the kernel "
+"automatically binds a local address to this socket.  The following values "
+"are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:236
+#, no-wrap
+msgid "Dv IPV6_PORTRANGE_DEFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:239
+msgid "Use the regular range of non-reserved ports (varies, see E<.Xr ip 4>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:239
+#, no-wrap
+msgid "Dv IPV6_PORTRANGE_HIGH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:242
+msgid "Use a high range (varies, see E<.Xr ip 4>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:242
+#, no-wrap
+msgid "Dv IPV6_PORTRANGE_LOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:245
+msgid "Use a low, reserved range (600\\-1023, see E<.Xr ip 4>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:246
+#, no-wrap
+msgid "Dv IPV6_PKTINFO Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:253
+msgid ""
+"Get or set whether additional information about subsequent packets will be "
+"provided as ancillary data along with the payload in subsequent E<.Xr "
+"recvmsg 2> calls.  The information is stored in the following structure in "
+"the ancillary data returned:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:258
+#, no-wrap
+msgid ""
+"struct in6_pktinfo {\n"
+"\tstruct in6_addr ipi6_addr;    /* src/dst IPv6 address */\n"
+"\tunsigned int    ipi6_ifindex; /* send/recv if index */\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:259
+#, no-wrap
+msgid "Dv IPV6_HOPLIMIT Fa \"int *\""
+msgstr ""
+
+#.  .It Dv IPV6_NEXTHOP Fa "int *"
+#.  Get or set whether the address of the next hop for subsequent
+#.  packets will be provided as ancillary data along with the payload in
+#.  subsequent
+#.  .Xr recvmsg 2
+#.  calls.
+#.  The option is stored as a
+#.  .Vt sockaddr
+#.  structure in the ancillary data returned.
+#.  .Pp
+#.  This option requires superuser privileges.
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:278
+msgid ""
+"Get or set whether the hop limit header field from subsequent packets will "
+"be provided as ancillary data along with the payload in subsequent E<.Xr "
+"recvmsg 2> calls.  The value is stored as an E<.Vt int> in the ancillary "
+"data returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:278
+#, no-wrap
+msgid "Dv IPV6_HOPOPTS Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:285
+msgid ""
+"Get or set whether the hop-by-hop options from subsequent packets will be "
+"provided as ancillary data along with the payload in subsequent E<.Xr "
+"recvmsg 2> calls.  The option is stored in the following structure in the "
+"ancillary data returned:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:291
+#, no-wrap
+msgid ""
+"struct ip6_hbh {\n"
+"\tuint8_t ip6h_nxt;\t/* next header */\n"
+"\tuint8_t ip6h_len;\t/* length in units of 8 octets */\n"
+"/* followed by options */\n"
+"} __packed;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:296 /usr/src/share/man/man4/ip6.4:316 /usr/src/share/man/man4/ip6.4:350
+msgid ""
+"The E<.Fn inet6_option_space> routine and family of routines may be used to "
+"manipulate this data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:298 /usr/src/share/man/man4/ip6.4:318 /usr/src/share/man/man4/ip6.4:352
+msgid "This option requires superuser privileges."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:298
+#, no-wrap
+msgid "Dv IPV6_DSTOPTS Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:305
+msgid ""
+"Get or set whether the destination options from subsequent packets will be "
+"provided as ancillary data along with the payload in subsequent E<.Xr "
+"recvmsg 2> calls.  The option is stored in the following structure in the "
+"ancillary data returned:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:311
+#, no-wrap
+msgid ""
+"struct ip6_dest {\n"
+"\tuint8_t ip6d_nxt;\t/* next header */\n"
+"\tuint8_t ip6d_len;\t/* length in units of 8 octets */\n"
+"/* followed by options */\n"
+"} __packed;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:318
+#, no-wrap
+msgid "Dv IPV6_TCLASS Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:323
+msgid ""
+"Get or set the value of the traffic class field used for outgoing datagrams "
+"on this socket.  The value must be between \\-1 and 255.  A value of \\-1 "
+"resets to the default value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:323
+#, no-wrap
+msgid "Dv IPV6_RECVTCLASS Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:330
+msgid ""
+"Get or set the status of whether the traffic class header field will be "
+"provided as ancillary data along with the payload in subsequent E<.Xr "
+"recvmsg 2> calls.  The header field is stored as a single value of type "
+"E<.Vt int>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:330
+#, no-wrap
+msgid "Dv IPV6_RTHDR Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:337
+msgid ""
+"Get or set whether the routing header from subsequent packets will be "
+"provided as ancillary data along with the payload in subsequent E<.Xr "
+"recvmsg 2> calls.  The header is stored in the following structure in the "
+"ancillary data returned:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:345
+#, no-wrap
+msgid ""
+"struct ip6_rthdr {\n"
+"\tuint8_t ip6r_nxt;\t/* next header */\n"
+"\tuint8_t ip6r_len;\t/* length in units of 8 octets */\n"
+"\tuint8_t ip6r_type;\t/* routing type */\n"
+"\tuint8_t ip6r_segleft;\t/* segments left */\n"
+"/* followed by routing-type-specific data */\n"
+"} __packed;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:352
+#, no-wrap
+msgid "Dv IPV6_PKTOPTIONS Fa \"struct cmsghdr *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:373
+msgid ""
+"Get or set all header options and extension headers at one time on the last "
+"packet sent or received on the socket.  All options must fit within the size "
+"of an mbuf (see E<.Xr mbuf 9>).  Options are specified as a series of E<.Vt "
+"cmsghdr> structures followed by corresponding values.  E<.Va cmsg_level> is "
+"set to E<.Dv IPPROTO_IPV6>, E<.Va cmsg_type> to one of the other values in "
+"this list, and trailing data to the option value.  When setting options, if "
+"the length E<.Va optlen> to E<.Xr setsockopt 2> is zero, all header options "
+"will be reset to their default values.  Otherwise, the length should specify "
+"the size the series of control messages consumes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:381
+msgid ""
+"Instead of using E<.Xr sendmsg 2> to specify option values, the ancillary "
+"data used in these calls that correspond to the desired header options may "
+"be directly specified as the control message in the series of control "
+"messages provided as the argument to E<.Xr setsockopt 2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:381
+#, no-wrap
+msgid "Dv IPV6_CHECKSUM Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:392
+msgid ""
+"Get or set the byte offset into a packet where the 16-bit checksum is "
+"located.  When set, this byte offset is where incoming packets will be "
+"expected to have checksums of their data stored and where outgoing packets "
+"will have checksums of their data computed and stored by the kernel.  A "
+"value of \\-1 specifies that no checksums will be checked on incoming "
+"packets and that no checksums will be computed or stored on outgoing "
+"packets.  The offset of the checksum for ICMPv6 sockets cannot be relocated "
+"or turned off."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:392
+#, no-wrap
+msgid "Dv IPV6_V6ONLY Fa \"int *\""
+msgstr ""
+
+#. With
+#. .Ox
+#. IPv6 sockets are always IPv6-only, so the socket option is read-only
+#. (not modifiable).
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:399
+msgid ""
+"Get or set whether only IPv6 connections can be made to this socket.  For "
+"wildcard sockets, this can restrict connections to IPv6 only."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:399
+#, no-wrap
+msgid "Dv IPV6_USE_MIN_MTU Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:403
+msgid ""
+"Get or set whether the minimal IPv6 maximum transmission unit (MTU) size "
+"will be used to avoid fragmentation from occurring for subsequent outgoing "
+"datagrams."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:403
+#, no-wrap
+msgid "Dv IPV6_AUTH_LEVEL Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:407
+msgid "Get or set the E<.Xr ipsec 4> authentication level."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:407
+#, no-wrap
+msgid "Dv IPV6_ESP_TRANS_LEVEL Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:409
+msgid "Get or set the ESP transport level."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:409
+#, no-wrap
+msgid "Dv IPV6_ESP_NETWORK_LEVEL Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:411
+msgid "Get or set the ESP encapsulation level."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:411
+#, no-wrap
+msgid "Dv IPV6_IPCOMP_LEVEL Fa \"int *\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:415
+msgid "Get or set the E<.Xr ipcomp 4> level."
+msgstr ""
+
+#.  .Dv IPV6_NEXTHOP ,
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:447
+msgid ""
+"The E<.Dv IPV6_PKTINFO>, E<.Dv IPV6_HOPLIMIT>, E<.Dv IPV6_HOPOPTS>, E<.Dv "
+"IPV6_DSTOPTS>, and E<.Dv IPV6_RTHDR> options will return ancillary data "
+"along with payload contents in subsequent E<.Xr recvmsg 2> calls with E<.Va "
+"cmsg_level> set to E<.Dv IPPROTO_IPV6> and E<.Va cmsg_type> set to "
+"respective option name value (e.g., E<.Dv IPV6_HOPTLIMIT>).  These options "
+"may also be used directly as ancillary E<.Va cmsg_type> values in E<.Xr "
+"sendmsg 2> to set options on the packet being transmitted by the call.  The "
+"E<.Va cmsg_level> value must be E<.Dv IPPROTO_IPV6>.  For these options, the "
+"ancillary data object value format is the same as the value returned as "
+"explained for each when received with E<.Xr recvmsg 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:453
+msgid ""
+"Note that using E<.Xr sendmsg 2> to specify options on particular packets "
+"works only on UDP and raw sockets.  To manipulate header options for packets "
+"on TCP sockets, only the socket options may be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:466
+msgid ""
+"In some cases, there are multiple APIs defined for manipulating an IPv6 "
+"header field.  A good example is the outgoing interface for multicast "
+"datagrams, which can be set by the E<.Dv IPV6_MULTICAST_IF> socket option, "
+"through the E<.Dv IPV6_PKTINFO> option, and through the E<.Va sin6_scope_id> "
+"field of the socket address passed to the E<.Xr sendto 2> system call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:484
+msgid ""
+"Resolving these conflicts is implementation dependent.  This implementation "
+"determines the value in the following way: options specified by using "
+"ancillary data (i.e., E<.Xr sendmsg 2>)  are considered first, options "
+"specified by using E<.Dv IPV6_PKTOPTIONS> to set E<.Dq sticky> options are "
+"considered second, options specified by using the individual, basic, and "
+"direct socket options (e.g., E<.Dv IPV6_UNICAST_HOPS>)  are considered "
+"third, and options specified in the socket address supplied to E<.Xr sendto "
+"2> are the last choice."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip6.4:484
+#, no-wrap
+msgid "Multicasting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:501
+msgid ""
+"IPv6 multicasting is supported only on E<.Dv AF_INET6> sockets of type E<.Dv "
+"SOCK_DGRAM> and E<.Dv SOCK_RAW>, and only on networks where the interface "
+"driver supports multicasting.  Socket options (see above) that manipulate "
+"membership of multicast groups and other multicast options include E<.Dv "
+"IPV6_MULTICAST_IF>, E<.Dv IPV6_MULTICAST_HOPS>, E<.Dv IPV6_MULTICAST_LOOP>, "
+"E<.Dv IPV6_LEAVE_GROUP>, and E<.Dv IPV6_JOIN_GROUP>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ip6.4:501
+#, no-wrap
+msgid "Raw Sockets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:515
+msgid ""
+"Raw IPv6 sockets are connectionless and are normally used with the E<.Xr "
+"sendto 2> and E<.Xr recvfrom 2> calls, although the E<.Xr connect 2> call "
+"may be used to fix the destination address for future outgoing packets so "
+"that E<.Xr send 2> may instead be used and the E<.Xr bind 2> call may be "
+"used to fix the source address for future outgoing packets instead of having "
+"the kernel choose a source address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:527
+msgid ""
+"By using E<.Xr connect 2> or E<.Xr bind 2>, raw socket input is constrained "
+"to only packets with their source address matching the socket destination "
+"address if E<.Xr connect 2> was used and to packets with their destination "
+"address matching the socket source address if E<.Xr bind 2> was used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:548
+msgid ""
+"If the E<.Ar proto> argument to E<.Xr socket 2> is zero, the default "
+"protocol E<.Pq Dv IPPROTO_RAW> is used for outgoing packets.  For incoming "
+"packets, protocols recognized by kernel are E<.Sy not> passed to the "
+"application socket (e.g., E<.Xr tcp 4> and E<.Xr udp 4>)  except for some "
+"ICMPv6 messages.  The ICMPv6 messages not passed to raw sockets include "
+"echo, timestamp, and address mask requests.  If E<.Ar proto> is non-zero, "
+"only packets with this protocol will be passed to the socket."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:554
+msgid ""
+"IPv6 fragments are also not passed to application sockets until they have "
+"been reassembled.  If reception of all packets is desired, link-level access "
+"(such as E<.Xr bpf 4>)  must be used instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:560
+msgid ""
+"Outgoing packets automatically have an IPv6 header prepended to them (based "
+"on the destination address and the protocol number the socket was created "
+"with).  Incoming packets are received by an application without the IPv6 "
+"header or any extension headers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:565
+msgid ""
+"Outgoing packets will be fragmented automatically by the kernel if they are "
+"too large.  Incoming packets will be reassembled before being sent to the "
+"raw socket, so packet fragments or fragment headers will never be seen on a "
+"raw socket."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:565
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:567
+msgid "The following determines the hop limit on the next packet received:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:575
+#, no-wrap
+msgid ""
+"struct iovec iov[2];\n"
+"u_char buf[BUFSIZ];\n"
+"struct cmsghdr *cm;\n"
+"struct msghdr m;\n"
+"int optval;\n"
+"bool found;\n"
+"u_char data[2048];\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:577
+#, no-wrap
+msgid "/* Create socket. */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:580
+#, no-wrap
+msgid ""
+"(void)memset(&m, 0, sizeof(m));\n"
+"(void)memset(&iov, 0, sizeof(iov));\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:583
+#, no-wrap
+msgid ""
+"iov[0].iov_base = data;\t\t/* buffer for packet payload */\n"
+"iov[0].iov_len = sizeof(data);\t/* expected packet length */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:590
+#, no-wrap
+msgid ""
+"m.msg_name = &from;\t\t/* sockaddr_in6 of peer */\n"
+"m.msg_namelen = sizeof(from);\n"
+"m.msg_iov = iov;\n"
+"m.msg_iovlen = 1;\n"
+"m.msg_control = (caddr_t)buf;\t/* buffer for control messages */\n"
+"m.msg_controllen = sizeof(buf);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:599
+#, no-wrap
+msgid ""
+"/*\n"
+" * Enable the hop limit value from received packets to be\n"
+" * returned along with the payload.\n"
+" */\n"
+"optval = 1;\n"
+"if (setsockopt(s, IPPROTO_IPV6, IPV6_HOPLIMIT, &optval,\n"
+"    sizeof(optval)) == -1)\n"
+"\terr(1, \"setsockopt\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:616
+#, no-wrap
+msgid ""
+"found = false;\n"
+"do {\n"
+"\tif (recvmsg(s, &m, 0) == -1)\n"
+"\t\terr(1, \"recvmsg\");\n"
+"\tfor (cm = CMSG_FIRSTHDR(&m); cm != NULL;\n"
+"\t     cm = CMSG_NXTHDR(&m, cm)) {\n"
+"\t\tif (cm-E<gt>cmsg_level == IPPROTO_IPV6 &&\n"
+"\t\t    cm-E<gt>cmsg_type == IPV6_HOPLIMIT &&\n"
+"\t\t    cm-E<gt>cmsg_len == CMSG_LEN(sizeof(int))) {\n"
+"\t\t\tfound = true;\n"
+"\t\t\t(void)printf(\"hop limit: %d\\en\",\n"
+"\t\t\t    *(int *)CMSG_DATA(cm));\n"
+"\t\t\tbreak;\n"
+"\t\t}\n"
+"\t}\n"
+"} while (!found);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:617
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:619
+msgid "A socket operation may fail with one of the following errors returned:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:620
+#, no-wrap
+msgid "Bq Er EISCONN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:624
+msgid ""
+"when trying to establish a connection on a socket which already has one or "
+"when trying to send a datagram with the destination address specified and "
+"the socket is already connected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:624
+#, no-wrap
+msgid "Bq Er ENOTCONN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:628
+msgid ""
+"when trying to send a datagram, but no destination address is specified, and "
+"the socket has not been connected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:628
+#, no-wrap
+msgid "Bq Er ENOBUFS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:631
+msgid "when the system runs out of memory for an internal data structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:631
+#, no-wrap
+msgid "Bq Er EADDRNOTAVAIL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:635
+msgid ""
+"when an attempt is made to create a socket with a network address for which "
+"no network interface exists."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:635
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:638
+msgid ""
+"when an attempt is made to create a raw IPv6 socket by a non-privileged "
+"process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:642
+msgid ""
+"The following errors specific to IPv6 may occur when setting or getting "
+"header options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ip6.4:643 /usr/src/share/man/man4/ip6.4:645
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:645
+msgid "An unknown socket option name was given."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:647
+msgid "An ancillary data object was improperly formed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:648
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:721
+msgid ""
+"E<.Xr getsockopt 2>, E<.Xr recv 2>, E<.Xr send 2>, E<.Xr setsockopt 2>, "
+"E<.Xr socket 2>, E<.Xr CMSG_DATA 3>, E<.Xr if_nametoindex 3>, E<.Xr "
+"inet6_opt_init 3>, E<.Xr bpf 4>, E<.Xr icmp6 4>, E<.Xr inet6 4>, E<.Xr ip "
+"4>, E<.Xr netintro 4>, E<.Xr tcp 4>, E<.Xr udp 4> E<.Rs> E<.%A W. Stevens> "
+"E<.%A M. Thomas> E<.%T Advanced Sockets API for IPv6> E<.%R RFC 2292> E<.%D "
+"February 1998> E<.Re> E<.Rs> E<.%A S. Deering> E<.%A R. Hinden> E<.%T "
+"Internet Protocol, Version 6 (IPv6) Specification> E<.%R RFC 2460> E<.%D "
+"December 1998> E<.Re> E<.Rs> E<.%A R. Gilligan> E<.%A S. Thomson> E<.%A "
+"J. Bound> E<.%A W. Stevens> E<.%T Basic Socket Interface Extensions for "
+"IPv6> E<.%R RFC 2553> E<.%D March 1999> E<.Re> E<.Rs> E<.%A R. Gilligan> "
+"E<.%A S. Thomson> E<.%A J. Bound> E<.%A J. McCann> E<.%A W. Stevens> E<.%T "
+"Basic Socket Interface Extensions for IPv6> E<.%R RFC 3493> E<.%D February "
+"2003> E<.Re> E<.Rs> E<.%A W. Stevens> E<.%A M. Thomas> E<.%A E. Nordmark> "
+"E<.%A T. Jinmei> E<.%T Advanced Sockets Application Program Interface (API) "
+"for IPv6> E<.%R RFC 3542> E<.%D May 2003> E<.Re> E<.Rs> E<.%A S. Deering> "
+"E<.%A R. Hinden> E<.%T Internet Protocol, Version 6 (IPv6) Specification> "
+"E<.%R RFC 8200> E<.%D July 2017> E<.Re> E<.Rs> E<.%A W. Stevens> E<.%A "
+"B. Fenner> E<.%A A. Rudoff> E<.%T UNIX Network Programming, 3rd Edition> "
+"E<.%I Addison-Wesley Professional> E<.%D November 2003> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ip6.4:721
+#, no-wrap
+msgid "STANDARDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ip6.4:727
+msgid ""
+"Most of the socket options are defined in RFC 2292 / 3542 or RFC 2553 / "
+"3493.  The E<.Dv IPV6_PORTRANGE> socket option and the conflict resolution "
+"rule are not defined in the RFCs and should be considered implementation "
+"dependent."
+msgstr ""

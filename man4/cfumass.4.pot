@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/cfumass.4:29
+#, no-wrap
+msgid "April 21, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/cfumass.4:30
+#, no-wrap
+msgid "CFUMASS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:34
+msgid "E<.Nm cfumass>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/cfumass.4:34
+#, no-wrap
+msgid "USB device side support for Mass Storage Class Transport"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:38
+msgid ""
+"This driver can be compiled into the kernel by placing these lines in the "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:43
+#, no-wrap
+msgid ""
+"E<.Cd \"device usb\">\n"
+"E<.Cd \"device usb_template\">\n"
+"E<.Cd \"device ctl\">\n"
+"E<.Cd \"device cfumass\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:47
+msgid ""
+"The driver module can also be loaded at boot by adding this line to E<.Xr "
+"loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:49
+#, no-wrap
+msgid "cfumass_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:58
+msgid ""
+"The E<.Nm> driver provides device side support for emulating an USB mass "
+"storage device compliant with the USB Mass Storage Class Bulk-Only (BBB) "
+"Transport specification, implemented as a E<.Xr ctl 4> frontend driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:61
+msgid "To use E<.Nm>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:65
+msgid "E<.Xr cfumass 4> must be loaded as a module or compiled into the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:69
+msgid ""
+"The USB Mass Storage template must be chosen by setting the E<.Va "
+"hw.usb.template> sysctl to 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:72
+msgid ""
+"The USB OTG port must be working in USB device-side mode.  This happens "
+"automatically upon connection to a USB host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:78
+msgid "There must be a E<.Xr ctl 4> LUN configured for the E<.Pa cfumass> port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:99
+msgid ""
+"Upon loading, the driver creates a E<.Xr ctl 4> port named E<.Pa cfumass>, "
+"presenting the first LUN mapped for that port - usually LUN 0 - to the USB "
+"host.  See E<.Xr ctl.conf 5> and E<.Xr ctld 8> for details on configuring "
+"the LUN.  See the E<.Cm cfumass_enable> and E<.Cm cfumass_dir> E<.Xr rc 8> "
+"variables in E<.Xr rc.conf 5> for an automated way to configure it at boot."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:99
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:105
+msgid ""
+"These variables are available as both E<.Xr sysctl 8> variables and E<.Xr "
+"loader 8> tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cfumass.4:106
+#, no-wrap
+msgid "Va hw.usb.cfumass.debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:113
+msgid ""
+"Verbosity level for log messages from the E<.Nm> driver.  Set to 0 to "
+"disable logging or 1 to warn about potential problems.  Larger values enable "
+"debugging output.  Defaults to 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cfumass.4:113
+#, no-wrap
+msgid "Va hw.usb.cfumass.ignore_stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:121
+msgid ""
+"Ignore START STOP UNIT SCSI commands with START and LOEJ bits cleared.  Some "
+"initiators send that command to stop the target when the user attempts to "
+"gracefully eject the drive, but fail to start it when the drive is "
+"reconnected.  Set to 0 to handle the command in a standards-compliant way, 1 "
+"to ignore it and log a warning, or 2 to ignore it silently.  Defaults to 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cfumass.4:121
+#, no-wrap
+msgid "Va hw.usb.cfumass.max_lun"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:126
+msgid ""
+"Max LUN number to report to the initiator (USB host).  Must be between 0 and "
+"15.  Some initiators incorrectly handle values larger than 0.  Defaults to "
+"0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:127
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:134
+msgid ""
+"E<.Xr ctl 4>, E<.Xr umass 4>, E<.Xr usb 4>, E<.Xr usb_template 4>, E<.Xr "
+"ctl.conf 5>, E<.Xr ctld 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:134
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:139
+msgid "The E<.Nm> driver first appeared in E<.Fx 11.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cfumass.4:139
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cfumass.4:144
+msgid ""
+"The E<.Nm> driver was developed by E<.An Edward Tomasz Napierala Aq Mt "
+"trasz@FreeBSD.org> under sponsorship from the FreeBSD Foundation."
+msgstr ""

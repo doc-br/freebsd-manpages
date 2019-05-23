@@ -1,0 +1,356 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/man4.i386/pbio.4:29
+#, no-wrap
+msgid "January 14, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/man4.i386/pbio.4:30
+#, no-wrap
+msgid "PBIO 4 i386"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:34
+msgid "E<.Nm pbio>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/man4.i386/pbio.4:34
+#, no-wrap
+msgid "8255 parallel peripheral interface basic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:37
+msgid "E<.Tn I/O> driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:39
+msgid "E<.Cd \"device pbio\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:44
+msgid ""
+"In E<.Pa /boot/device.hints>: E<.Cd hint.pbio.0.at=\"isa\"> E<.Cd "
+"hint.pbio.0.port=\"0x360\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/man4.i386/pbio.4:45
+#, no-wrap
+msgid "dev/pbio/pbioio.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:67
+msgid ""
+"The E<.Nm> driver supports direct access to the Intel 8255A programmable "
+"peripheral interface (PPI) chip running in mode 0 (simple E<.Tn I/O>).  Such "
+"an interface provides 24 digital E<.Tn I/O> lines.  The driver is designed "
+"for performing E<.Tn I/O> under program control using peripherals such as "
+"the E<.Tn Advantech> E<.Tn PCL-724> card, which emulates the Intel 8255A PPI "
+"in mode 0.  Other 8255A-based peripherals such as the E<.Tn BMC> Messsysteme "
+"E<.Tn PIO24II> card have also been reported to work."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:75
+msgid ""
+"The PPI provides two 8-bit ports (port A and port B) and two 4-bit ports "
+"(port C upper, port C lower).  Each port can be individually programmed for "
+"input and (latched) output, and appears at a different offset of the "
+"device's base E<.Tn I/O> address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:90
+msgid ""
+"A separate register allows the configuration of ports for input or output.  "
+"The device is so simple, that reliably probing for it when input data "
+"arrives at its terminals is impossible; therefore the kernel configuration "
+"has to specify the device's base address.  The device driver provides four "
+"character devices that correspond to the peripheral's E<.Tn I/O> ports.  "
+"Opening a device for read or write automatically configures the "
+"corresponding hardware port for input or output.  At boot time all ports are "
+"set configured for input to avoid damaging external circuitry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:99
+msgid ""
+"A set of E<.Xr ioctl 2> requests allow polled input and paced output to be "
+"efficiently performed at the driver level without expensive user/kernel "
+"context switching.  The driver can perform E<.Tn I/O> in three different "
+"ways:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:100
+#, no-wrap
+msgid "Basic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:103
+msgid ""
+"The read or write operation returns immediately after reading or writing the "
+"data to the port at bus speed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:103
+#, no-wrap
+msgid "Paced"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:108
+msgid ""
+"Data is transferred from or to the port at intervals specified by a separate "
+"E<.Xr ioctl 2> call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:108
+#, no-wrap
+msgid "Differential"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:111
+msgid ""
+"(Input only.)  Only port values that differ from the previous port value are "
+"returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:125
+msgid ""
+"The pacing interval is specified in E<.Em Hz> unit increments.  Setting a "
+"pace of E<.Ar n> seconds will result in no more than one value being read or "
+"written every E<.Ar n> seconds.  Single byte read/write operations will take "
+"at least E<.Ar n> seconds to complete."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:129
+msgid "The following E<.Xr ioctl 2> calls are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:130
+#, no-wrap
+msgid "Dv PBIO_SETDIFF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:135
+msgid ""
+"accepts a pointer to an integer as the third argument, and sets the driver "
+"for differential input if the integer is non-zero.  The input pace speed "
+"determines the periodic interval the driver will use to examine the port for "
+"a changed value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:135
+#, no-wrap
+msgid "Dv PBIO_GETDIFF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:138
+msgid ""
+"accepts a pointer to an integer as the third argument, and sets the integer "
+"to the last set value for differential input."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:138
+#, no-wrap
+msgid "Dv PBIO_SETIPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:141
+msgid ""
+"accepts a pointer to an integer as the third argument, and sets the driver's "
+"input pacing speed to the value of that integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:141
+#, no-wrap
+msgid "Dv PBIO_GETIPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:144
+msgid ""
+"accepts a pointer to an integer as the third argument, and sets the integer "
+"to the last set value for the input pace."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:144
+#, no-wrap
+msgid "Dv PBIO_SETOPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:147
+msgid ""
+"accepts a pointer to an integer as the third argument, and sets the driver's "
+"output pacing speed to the value of that integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:147
+#, no-wrap
+msgid "Dv PBIO_GETOPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:150
+msgid ""
+"accepts a pointer to an integer as the third argument, and sets the integer "
+"to the last set value for the output pace."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:151
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:153
+#, no-wrap
+msgid "Pa /dev/pbio0a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:156
+msgid "Port A (8 bit E<.Tn I/O>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:156
+#, no-wrap
+msgid "Pa /dev/pbio0b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:159
+msgid "Port B (8 bit E<.Tn I/O>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:159
+#, no-wrap
+msgid "Pa /dev/pbio0ch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:162
+msgid "Port C upper (4 bit E<.Tn I/O>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.i386/pbio.4:162
+#, no-wrap
+msgid "Pa /dev/pbio0cl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:165
+msgid "Port C lower (4 bit E<.Tn I/O>)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:166
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:176
+msgid ""
+"E<.Rs> E<.%A \"Diomidis Spinellis\"> E<.%T \"The information furnace: "
+"Consolidated home control\"> E<.%D \"2003\"> E<.%J \"Personal and Ubiquitous "
+"Computing\"> E<.%N 1> E<.%V 7> E<.%P \"53-69\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:176
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:181
+msgid "The E<.Nm> device was first used under E<.Fx 4.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:181
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:183
+msgid "E<.An Diomidis D. Spinellis Aq Mt dds@aueb.gr>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pbio.4:183
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pbio.4:187
+msgid ""
+"One of the E<.Tn PCL-724> card's inputs can optionally be wired to generate "
+"an interrupt.  This feature is not supported."
+msgstr ""

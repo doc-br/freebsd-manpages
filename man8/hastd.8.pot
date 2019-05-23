@@ -1,0 +1,355 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/hastd/hastd.8:30
+#, no-wrap
+msgid "September 8, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/hastd/hastd.8:31
+#, no-wrap
+msgid "HASTD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:35
+msgid "E<.Nm hastd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/hastd/hastd.8:35
+#, no-wrap
+msgid "Highly Available Storage daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:41
+msgid "E<.Nm> E<.Op Fl dFh> E<.Op Fl c Ar config> E<.Op Fl P Ar pidfile>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:45
+msgid ""
+"The E<.Nm> daemon is responsible for managing highly available GEOM "
+"providers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:56
+msgid ""
+"E<.Nm> allows the transpaent storage of data on two physically separated "
+"machines connected over a TCP/IP network.  Only one machine (cluster node) "
+"can actively use storage provided by E<.Nm>.  This machine is called "
+"primary.  The E<.Nm> daemon operates on block level, which makes it "
+"transparent to file systems and applications."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:67
+msgid ""
+"There is one main E<.Nm> daemon which starts new worker process as soon as a "
+"role for the given resource is changed to primary or as soon as a role for "
+"the given resource is changed to secondary and remote (primary) node will "
+"successfully connect to it.  Every worker process gets a new process title "
+"(see E<.Xr setproctitle 3>), which describes its role and resource it "
+"controls.  The exact format is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:69
+#, no-wrap
+msgid "hastd: E<lt>resource nameE<gt> (E<lt>roleE<gt>)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:86
+msgid ""
+"If (and only if)  E<.Nm> operates in primary role for the given resource, a "
+"corresponding E<.Pa /dev/hast/E<lt>nameE<gt>> disk-like device (GEOM "
+"provider) is created.  File systems and applications can use this provider "
+"to send I/O requests to.  Every write, delete and flush operation E<.Dv ( "
+"BIO_WRITE , BIO_DELETE , BIO_FLUSH>)  is sent to the local component and "
+"replicated on the remote (secondary) node if it is available.  Read "
+"operations E<.Dv ( BIO_READ>)  are handled locally unless an I/O error "
+"occurs or the local version of the data is not up-to-date yet "
+"(synchronization is in progress)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:95
+msgid ""
+"The E<.Nm> daemon uses the GEOM Gate class to receive I/O requests from the "
+"in-kernel GEOM infrastructure.  The E<.Nm geom_gate.ko> module is loaded "
+"automatically if the kernel was not compiled with the following option:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:97
+#, no-wrap
+msgid "E<.Cd \"options GEOM_GATE\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:112
+msgid ""
+"The connection between two E<.Nm> daemons is always initiated from the one "
+"running as primary to the one running as secondary.  When the primary E<.Nm> "
+"is unable to connect or the connection fails, it will try to re-establish "
+"the connection every few seconds.  Once the connection is established, the "
+"primary E<.Nm> will synchronize every extent that was modified during "
+"connection outage to the secondary E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:131
+msgid ""
+"It is possible that in the case of a connection outage between the nodes the "
+"E<.Nm> primary role for the given resource will be configured on both "
+"nodes.  This in turn leads to incompatible data modifications.  Such a "
+"condition is called a split-brain and cannot be automatically resolved by "
+"the E<.Nm> daemon as this will lead most likely to data corruption or loss "
+"of important changes.  Even though it cannot be fixed by E<.Nm> itself, it "
+"will be detected and a further connection between independently modified "
+"nodes will not be possible.  Once this situation is manually resolved by an "
+"administrator, the resource on one of the nodes can be initialized (erasing "
+"local data), which makes a connection to the remote node possible again.  "
+"Connection of the freshly initialized component will trigger full resource "
+"synchronization."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:143
+msgid ""
+"A E<.Nm> daemon never picks its role automatically.  The role has to be "
+"configured with the E<.Xr hastctl 8> control utility by additional software "
+"like E<.Nm ucarp> or E<.Nm heartbeat> that can reliably manage role "
+"separation and switch secondary node to primary role in case of the "
+"primary's failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:147
+msgid "The E<.Nm> daemon can be started with the following command line arguments:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:148
+#, no-wrap
+msgid "Fl c Ar config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:152
+msgid ""
+"Specify alternative location of the configuration file.  The default "
+"location is E<.Pa /etc/hast.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:152
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:156
+msgid ""
+"Print or log debugging information.  This option can be specified multiple "
+"times to raise the verbosity level."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:156
+#, no-wrap
+msgid "Fl F"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:163
+msgid ""
+"Start the E<.Nm> daemon in the foreground.  By default E<.Nm> starts in the "
+"background."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:163
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:167
+msgid "Print the E<.Nm> usage message."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:167
+#, no-wrap
+msgid "Fl P Ar pidfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:172
+msgid ""
+"Specify alternative location of a file where main process PID will be "
+"stored.  The default location is E<.Pa /var/run/hastd.pid>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:173
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:175
+#, no-wrap
+msgid "Pa /etc/hast.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:180
+msgid "The configuration file for E<.Nm> and E<.Xr hastctl 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:180
+#, no-wrap
+msgid "Pa /var/run/hastctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:185
+msgid ""
+"Control socket used by the E<.Xr hastctl 8> control utility to communicate "
+"with E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hastd.8:185
+#, no-wrap
+msgid "Pa /var/run/hastd.pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:189
+msgid "The default location of the E<.Nm> PID file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:190
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:194
+msgid ""
+"Exit status is 0 on success, or one of the values described in E<.Xr "
+"sysexits 3> on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:194
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:207
+msgid ""
+"Launch E<.Nm> on both nodes.  Set role for resource E<.Nm shared> to primary "
+"on E<.Nm nodeA> and to secondary on E<.Nm nodeB>.  Create file system on "
+"E<.Pa /dev/hast/shared> provider and mount it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:210
+#, no-wrap
+msgid ""
+"nodeB# hastd\n"
+"nodeB# hastctl role secondary shared\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:215
+#, no-wrap
+msgid ""
+"nodeA# hastd\n"
+"nodeA# hastctl role primary shared\n"
+"nodeA# newfs -U /dev/hast/shared\n"
+"nodeA# mount -o noatime /dev/hast/shared /shared\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:216
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:227
+msgid ""
+"E<.Xr sysexits 3>, E<.Xr geom 4>, E<.Xr hast.conf 5>, E<.Xr ggatec 8>, E<.Xr "
+"ggated 8>, E<.Xr ggatel 8>, E<.Xr hastctl 8>, E<.Xr mount 8>, E<.Xr newfs "
+"8>, E<.Xr g_bio 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:227
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:232
+msgid "The E<.Nm> utility appeared in E<.Fx 8.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hastd.8:232
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hastd.8:237
+msgid ""
+"The E<.Nm> was developed by E<.An Pawel Jakub Dawidek Aq Mt pjd@FreeBSD.org> "
+"under sponsorship of the FreeBSD Foundation."
+msgstr ""

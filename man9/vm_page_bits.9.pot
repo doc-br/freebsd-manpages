@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vm_page_bits.9:29
+#, no-wrap
+msgid "December 1, 2001"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vm_page_bits.9:30
+#, no-wrap
+msgid "VM_PAGE_BITS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_bits.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:42
+msgid ""
+"E<.Nm vm_page_bits>, E<.Nm vm_page_set_validclean>, E<.Nm "
+"vm_page_clear_dirty>, E<.Nm vm_page_set_invalid>, E<.Nm "
+"vm_page_zero_invalid>, E<.Nm vm_page_is_valid>, E<.Nm vm_page_test_dirty>, "
+"E<.Nm vm_page_dirty>, E<.Nm vm_page_undirty>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vm_page_bits.9:42
+#, no-wrap
+msgid "manage page clean and dirty bits"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_bits.9:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_page_bits.9:44
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_page_bits.9:45
+#, no-wrap
+msgid "vm/vm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_page_bits.9:46
+#, no-wrap
+msgid "vm/vm_page.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:65
+msgid ""
+"E<.Ft int> E<.Fn vm_page_bits \"int base\" \"int size\"> E<.Ft void> E<.Fn "
+"vm_page_set_validclean \"vm_page_t m\" \"int base\" \"int size\"> E<.Ft "
+"void> E<.Fn vm_page_clear_dirty \"vm_page_t m\" \"int base\" \"int size\"> "
+"E<.Ft void> E<.Fn vm_page_set_invalid \"vm_page_t m\" \"int base\" \"int "
+"size\"> E<.Ft void> E<.Fn vm_page_zero_invalid \"vm_page_t m\" \"boolean_t "
+"setvalid\"> E<.Ft int> E<.Fn vm_page_is_valid \"vm_page_t m\" \"int base\" "
+"\"int size\"> E<.Ft void> E<.Fn vm_page_test_dirty \"vm_page_t m\"> E<.Ft "
+"void> E<.Fn vm_page_dirty \"vm_page_t m\"> E<.Ft void> E<.Fn vm_page_undirty "
+"\"vm_page_t m\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_bits.9:65
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:76
+msgid ""
+"E<.Fn vm_page_bits> calculates the bits representing the E<.Dv DEV_BSIZE> "
+"range of bytes between E<.Fa base> and E<.Fa size>.  The byte range is "
+"expected to be within a single page, and if E<.Fa size> is zero, no bits "
+"will be set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:90
+msgid ""
+"E<.Fn vm_page_set_validclean> flags the byte range between E<.Fa base> and "
+"E<.Fa size> as valid and clean.  The range is expected to be E<.Dv "
+"DEV_BSIZE> aligned and no larger than E<.Dv PAGE_SIZE>.  If it is not "
+"properly aligned, any unaligned chunks of the E<.Dv DEV_BSIZE> blocks at the "
+"beginning and end of the range will be zeroed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:99
+msgid ""
+"If E<.Fa base> is zero and E<.Fa size> is one page, the modified bit in the "
+"page map is cleared; as well, the E<.Dv VPO_NOSYNC> flag is cleared."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:107
+msgid ""
+"E<.Fn vm_page_clear_dirty> clears the dirty bits within a page in the range "
+"between E<.Fa base> and E<.Fa size>.  The bits representing the range are "
+"calculated by calling E<.Fn vm_page_bits>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:121
+msgid ""
+"E<.Fn vm_page_set_invalid> clears the bits in both the valid and dirty flags "
+"representing the E<.Dv DEV_BSIZE> blocks between E<.Fa base> and E<.Fa size> "
+"in the page.  The bits are calculated by calling E<.Fn vm_page_bits>.  As "
+"well as clearing the bits within the page, the generation number within the "
+"object holding the page is incremented."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:130
+msgid ""
+"E<.Fn vm_page_zero_invalid> zeroes all of the blocks within the page that "
+"are currently flagged as invalid.  If E<.Fa setvalid> is E<.Dv TRUE>, all of "
+"the valid bits within the page are set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:133
+msgid ""
+"In some cases, such as NFS, the valid bits cannot be set in order to "
+"maintain cache consistency."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:150
+msgid ""
+"E<.Fn vm_page_is_valid> checks to determine if the all of the E<.Dv "
+"DEV_BSIZE> blocks between E<.Fa base> and E<.Fa size> of the page are "
+"valid.  If E<.Fa size> is zero and the page is entirely invalid E<.Fn "
+"vm_page_is_valid> will return E<.Dv TRUE>, in all other cases a size of zero "
+"will return E<.Dv FALSE>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:156
+msgid ""
+"E<.Fn vm_page_test_dirty> checks if a page has been modified via any of its "
+"physical maps, and if so, flags the entire page as dirty.  E<.Fn "
+"vm_page_dirty> is called to modify the dirty bits."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:160
+msgid ""
+"E<.Fn vm_page_dirty> flags the entire page as dirty.  It is expected that "
+"the page is not currently on the cache queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:163
+msgid "E<.Fn vm_page_undirty> clears all of the dirty bits in a page."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_bits.9:163
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:165
+msgid "None of these functions are allowed to block."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_bits.9:165
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_bits.9:167
+msgid "This manual page was written by E<.An Chad David Aq Mt davidc@acns.ab.ca>."
+msgstr ""

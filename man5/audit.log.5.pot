@@ -1,0 +1,1191 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/openbsm/man/audit.log.5:27
+#, no-wrap
+msgid "November 5, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/openbsm/man/audit.log.5:28
+#, no-wrap
+msgid "AUDIT.LOG 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit.log.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:32
+msgid "E<.Nm audit>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/openbsm/man/audit.log.5:32
+#, no-wrap
+msgid "Basic Security Module (BSM) file format"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit.log.5:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:41
+msgid ""
+"The E<.Nm> file format is based on Sun's Basic Security Module (BSM) file "
+"format, a token-based record stream to represent system audit data.  This "
+"file format is both flexible and extensible, able to describe a broad range "
+"of data types, and easily extended to describe new data types in a "
+"moderately backward and forward compatible way."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:57
+msgid ""
+"BSM token streams typically begin and end with a E<.Dq file> token, which "
+"provides time stamp and file name information for the stream; when "
+"processing a BSM token stream from a stream as opposed to a single file "
+"source, file tokens may be seen at any point between ordinary records "
+"identifying when particular parts of the stream begin and end.  All other "
+"tokens will appear in the context of a complete BSM audit record, which "
+"begins with a E<.Dq header> token, and ends with a E<.Dq trailer> token, "
+"which describe the audit record.  Between these two tokens will appear a "
+"variety of data tokens, such as process information, file path names, IPC "
+"object information, MAC labels, socket information, and so on."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:61
+msgid ""
+"The BSM file format defines specific token orders for each record event "
+"type; however, some variation may occur depending on the operating system in "
+"use, what system options, such as mandatory access control, are present."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:68
+msgid ""
+"This manual page documents the common token types and their binary format, "
+"and is intended for reference purposes only.  It is recommended that "
+"application programmers use the E<.Xr libbsm 3> interface to read and write "
+"tokens, rather than parsing or constructing records by hand."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:68
+#, no-wrap
+msgid "File Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:79
+msgid ""
+"The E<.Dq file> token is used at the beginning and end of an audit log file "
+"to indicate when the audit log begins and ends.  It includes a pathname so "
+"that, if concatenated together, original file boundaries are still "
+"observable, and gaps in the audit log can be identified.  A E<.Dq file> "
+"token can be created using E<.Xr au_to_file 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:80 /usr/src/contrib/openbsm/man/audit.log.5:102 /usr/src/contrib/openbsm/man/audit.log.5:126 /usr/src/contrib/openbsm/man/audit.log.5:148 /usr/src/contrib/openbsm/man/audit.log.5:168 /usr/src/contrib/openbsm/man/audit.log.5:185 /usr/src/contrib/openbsm/man/audit.log.5:203 /usr/src/contrib/openbsm/man/audit.log.5:217 /usr/src/contrib/openbsm/man/audit.log.5:239 /usr/src/contrib/openbsm/man/audit.log.5:252 /usr/src/contrib/openbsm/man/audit.log.5:267 /usr/src/contrib/openbsm/man/audit.log.5:292 /usr/src/contrib/openbsm/man/audit.log.5:318 /usr/src/contrib/openbsm/man/audit.log.5:344 /usr/src/contrib/openbsm/man/audit.log.5:367 /usr/src/contrib/openbsm/man/audit.log.5:393 /usr/src/contrib/openbsm/man/audit.log.5:414 /usr/src/contrib/openbsm/man/audit.log.5:428 /usr/src/contrib/openbsm/man/audit.log.5:449 /usr/src/contrib/openbsm/man/audit.log.5:467 /usr/src/contrib/openbsm/man/audit.log.5:479 /usr/src/contrib/openbsm/man/audit.log.5:499 /usr/src/contrib/openbsm/man/audit.log.5:513 /usr/src/contrib/openbsm/man/audit.log.5:525 /usr/src/contrib/openbsm/man/audit.log.5:539 /usr/src/contrib/openbsm/man/audit.log.5:570 /usr/src/contrib/openbsm/man/audit.log.5:587 /usr/src/contrib/openbsm/man/audit.log.5:596 /usr/src/contrib/openbsm/man/audit.log.5:604 /usr/src/contrib/openbsm/man/audit.log.5:612 /usr/src/contrib/openbsm/man/audit.log.5:620 /usr/src/contrib/openbsm/man/audit.log.5:633
+#, no-wrap
+msgid "Sy \"Field\tBytes\tDescription\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:81 /usr/src/contrib/openbsm/man/audit.log.5:103 /usr/src/contrib/openbsm/man/audit.log.5:127 /usr/src/contrib/openbsm/man/audit.log.5:149 /usr/src/contrib/openbsm/man/audit.log.5:169 /usr/src/contrib/openbsm/man/audit.log.5:186 /usr/src/contrib/openbsm/man/audit.log.5:204 /usr/src/contrib/openbsm/man/audit.log.5:218 /usr/src/contrib/openbsm/man/audit.log.5:240 /usr/src/contrib/openbsm/man/audit.log.5:253 /usr/src/contrib/openbsm/man/audit.log.5:268 /usr/src/contrib/openbsm/man/audit.log.5:293 /usr/src/contrib/openbsm/man/audit.log.5:319 /usr/src/contrib/openbsm/man/audit.log.5:345 /usr/src/contrib/openbsm/man/audit.log.5:368 /usr/src/contrib/openbsm/man/audit.log.5:394 /usr/src/contrib/openbsm/man/audit.log.5:415 /usr/src/contrib/openbsm/man/audit.log.5:429 /usr/src/contrib/openbsm/man/audit.log.5:450 /usr/src/contrib/openbsm/man/audit.log.5:468 /usr/src/contrib/openbsm/man/audit.log.5:480 /usr/src/contrib/openbsm/man/audit.log.5:500 /usr/src/contrib/openbsm/man/audit.log.5:514 /usr/src/contrib/openbsm/man/audit.log.5:526 /usr/src/contrib/openbsm/man/audit.log.5:540 /usr/src/contrib/openbsm/man/audit.log.5:588 /usr/src/contrib/openbsm/man/audit.log.5:597 /usr/src/contrib/openbsm/man/audit.log.5:605 /usr/src/contrib/openbsm/man/audit.log.5:613 /usr/src/contrib/openbsm/man/audit.log.5:621 /usr/src/contrib/openbsm/man/audit.log.5:634
+#, no-wrap
+msgid "Token ID\t1 byte\tToken ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:82
+#, no-wrap
+msgid "Seconds\t4 bytes\tFile time stamp"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:83
+#, no-wrap
+msgid "Microseconds\t4 bytes\tFile time stamp"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:84
+#, no-wrap
+msgid "File name length\t2 bytes\tFile name of audit trail"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:85
+#, no-wrap
+msgid "File pathname\tN bytes + 1 NUL\tFile name of audit trail"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:87
+#, no-wrap
+msgid "Header Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:101
+msgid ""
+"The E<.Dq header> token is used to mark the beginning of a complete audit "
+"record, and includes the length of the total record in bytes, a version "
+"number for the record layout, the event type and subtype, and the time at "
+"which the event occurred.  A 32-bit E<.Dq header> token can be created using "
+"E<.Xr au_to_header32 3>; a 64-bit E<.Dq header> token can be created using "
+"E<.Xr au_to_header64 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:104 /usr/src/contrib/openbsm/man/audit.log.5:128 /usr/src/contrib/openbsm/man/audit.log.5:151
+#, no-wrap
+msgid "Record Byte Count\t4 bytes\tNumber of bytes in record"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:105 /usr/src/contrib/openbsm/man/audit.log.5:129
+#, no-wrap
+msgid "Version Number\t2 bytes\tRecord version number"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:106 /usr/src/contrib/openbsm/man/audit.log.5:130
+#, no-wrap
+msgid "Event Type\t2 bytes\tEvent type"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:107 /usr/src/contrib/openbsm/man/audit.log.5:131
+#, no-wrap
+msgid "Event Modifier\t2 bytes\tEvent sub-type"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:108 /usr/src/contrib/openbsm/man/audit.log.5:134
+#, no-wrap
+msgid "Seconds\t4/8 bytes\tRecord time stamp (32/64-bits)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:109 /usr/src/contrib/openbsm/man/audit.log.5:135
+#, no-wrap
+msgid "Nanoseconds\t4/8 bytes\tRecord time stamp (32/64-bits)"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:111
+#, no-wrap
+msgid "Expanded Header Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:125
+msgid ""
+"The E<.Dq expanded header> token is an expanded version of the E<.Dq header> "
+"token, with the addition of a machine IPv4 or IPv6 address.  A 32-bit "
+"extended E<.Dq header> token can be created using E<.Xr au_to_header32_ex "
+"3>; a 64-bit extended E<.Dq header> token can be created using E<.Xr "
+"au_to_header64_ex 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:132
+#, no-wrap
+msgid "Address Type/Length\t1 byte\tHost address type and length"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:133
+#, no-wrap
+msgid "Machine Address\t4/16 bytes\tIPv4 or IPv6 address"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:137
+#, no-wrap
+msgid "Trailer Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:147
+msgid ""
+"The E<.Dq trailer> terminates a BSM audit record, and contains a magic "
+"number, E<.Dv AUT_TRAILER_MAGIC> and length that can be used to validate "
+"that the record was read properly.  A E<.Dq trailer> token can be created "
+"using E<.Xr au_to_trailer 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:150
+#, no-wrap
+msgid "Trailer Magic\t2 bytes\tTrailer magic number"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:153
+#, no-wrap
+msgid "Arbitrary Data Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:167
+msgid ""
+"The E<.Dq arbitrary data> token contains a byte stream of opaque (untyped) "
+"data.  The size of the data is calculated as the size of each unit of data "
+"multiplied by the number of units of data.  A E<.Dq How to print> field is "
+"present to specify how to print the data, but interpretation of that field "
+"is not currently defined.  An E<.Dq arbitrary data> token can be created "
+"using E<.Xr au_to_data 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:170
+#, no-wrap
+msgid "How to Print\t1 byte\tUser-defined printing information"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:171
+#, no-wrap
+msgid "Basic Unit\t1 byte\tSize of a unit in bytes"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:172
+#, no-wrap
+msgid "Unit Count\t1 byte\tNumber of units of data present"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:173
+#, no-wrap
+msgid "Data Items\tVariable\tUser data"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:175
+#, no-wrap
+msgid "in_addr Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:184
+msgid ""
+"The E<.Dq in_addr> token holds a network byte order IPv4 address.  An E<.Dq "
+"in_addr> token can be created using E<.Xr au_to_in_addr 3> for an IPv4 "
+"address."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:187
+#, no-wrap
+msgid "IP Address\t4 bytes\tIPv4 address"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:189
+#, no-wrap
+msgid "Expanded in_addr Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:198
+msgid ""
+"The E<.Dq in_addr_ex> token holds a network byte order IPv4 or IPv6 "
+"address.  An E<.Dq in_addr_ex> token can be created using E<.Xr "
+"au_to_in_addr_ex 3> for an IPv6 address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:202
+msgid "See the E<.Sx BUGS> section for information on the storage of this token."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:205
+#, no-wrap
+msgid "IP Address Type\t1 byte\tType of address"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:206
+#, no-wrap
+msgid "IP Address\t4/16 bytes\tIPv4 or IPv6 address"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:208
+#, no-wrap
+msgid "ip Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:216
+msgid ""
+"The E<.Dq ip> token contains an IP packet header in network byte order.  An "
+"E<.Dq ip> token can be created using E<.Xr au_to_ip 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:219
+#, no-wrap
+msgid "Version and IHL\t1 byte\tVersion and IP header length"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:220
+#, no-wrap
+msgid "Type of Service\t1 byte\tIP TOS field"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:221
+#, no-wrap
+msgid "Length\t2 bytes\tIP packet length in network byte order"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:222
+#, no-wrap
+msgid "ID\t2 bytes\tIP header ID for reassembly"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:223
+#, no-wrap
+msgid "Offset\t2 bytes\tIP fragment offset and flags, network byte order"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:224
+#, no-wrap
+msgid "TTL\t1 byte\tIP Time-to-Live"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:225
+#, no-wrap
+msgid "Protocol\t1 byte\tIP protocol number"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:226
+#, no-wrap
+msgid "Checksum\t2 bytes\tIP header checksum, network byte order"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:227
+#, no-wrap
+msgid "Source Address\t4 bytes\tIPv4 source address"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:228
+#, no-wrap
+msgid "Destination Address\t4 bytes\tIPv4 destination address"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:230
+#, no-wrap
+msgid "iport Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:238
+msgid ""
+"The E<.Dq iport> token stores an IP port number in network byte order.  An "
+"E<.Dq iport> token can be created using E<.Xr au_to_iport 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:241
+#, no-wrap
+msgid "Port Number\t2 bytes\tPort number in network byte order"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:243
+#, no-wrap
+msgid "Path Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:251
+msgid ""
+"The E<.Dq path> token contains a pathname.  A E<.Dq path> token can be "
+"created using E<.Xr au_to_path 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:254
+#, no-wrap
+msgid "Path Length\t2 bytes\tLength of path in bytes"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:255
+#, no-wrap
+msgid "Path\tN bytes + 1 NUL\tPath name"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:257
+#, no-wrap
+msgid "path_attr Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:266
+msgid ""
+"The E<.Dq path_attr> token contains a set of NUL-terminated path names.  The "
+"E<.Xr libbsm 3> API cannot currently create a E<.Dq path_attr> token."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:269
+#, no-wrap
+msgid "Count\t2 bytes\tNumber of NUL-terminated string(s) in token"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:270
+#, no-wrap
+msgid "Path\tVariable\tcount NUL-terminated string(s)"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:272
+#, no-wrap
+msgid "Process Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:291
+msgid ""
+"The E<.Dq process> token contains a description of the security properties "
+"of a process involved as the target of an auditable event, such as the "
+"destination for signal delivery.  It should not be confused with the E<.Dq "
+"subject> token, which describes the subject performing an auditable event.  "
+"This includes both the traditional E<.Ux> security properties, such as user "
+"IDs and group IDs, but also audit information such as the audit user ID and "
+"session.  A E<.Dq process> token can be created using E<.Xr au_to_process32 "
+"3> or E<.Xr au_to_process64 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:294 /usr/src/contrib/openbsm/man/audit.log.5:320 /usr/src/contrib/openbsm/man/audit.log.5:369 /usr/src/contrib/openbsm/man/audit.log.5:395
+#, no-wrap
+msgid "Audit ID\t4 bytes\tAudit user ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:295 /usr/src/contrib/openbsm/man/audit.log.5:321 /usr/src/contrib/openbsm/man/audit.log.5:370 /usr/src/contrib/openbsm/man/audit.log.5:396
+#, no-wrap
+msgid "Effective User ID\t4 bytes\tEffective user ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:296 /usr/src/contrib/openbsm/man/audit.log.5:322 /usr/src/contrib/openbsm/man/audit.log.5:371 /usr/src/contrib/openbsm/man/audit.log.5:397
+#, no-wrap
+msgid "Effective Group ID\t4 bytes\tEffective group ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:297 /usr/src/contrib/openbsm/man/audit.log.5:323 /usr/src/contrib/openbsm/man/audit.log.5:372 /usr/src/contrib/openbsm/man/audit.log.5:398
+#, no-wrap
+msgid "Real User ID\t4 bytes\tReal user ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:298 /usr/src/contrib/openbsm/man/audit.log.5:324 /usr/src/contrib/openbsm/man/audit.log.5:373 /usr/src/contrib/openbsm/man/audit.log.5:399
+#, no-wrap
+msgid "Real Group ID\t4 bytes\tReal group ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:299 /usr/src/contrib/openbsm/man/audit.log.5:325 /usr/src/contrib/openbsm/man/audit.log.5:374 /usr/src/contrib/openbsm/man/audit.log.5:400
+#, no-wrap
+msgid "Process ID\t4 bytes\tProcess ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:300 /usr/src/contrib/openbsm/man/audit.log.5:326 /usr/src/contrib/openbsm/man/audit.log.5:375 /usr/src/contrib/openbsm/man/audit.log.5:401
+#, no-wrap
+msgid "Session ID\t4 bytes\tAudit session ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:301 /usr/src/contrib/openbsm/man/audit.log.5:327 /usr/src/contrib/openbsm/man/audit.log.5:376 /usr/src/contrib/openbsm/man/audit.log.5:402
+#, no-wrap
+msgid "Terminal Port ID\t4/8 bytes\tTerminal port ID (32/64-bits)"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:302 /usr/src/contrib/openbsm/man/audit.log.5:377
+#, no-wrap
+msgid "Terminal Machine Address\t4 bytes\tIP address of machine"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:304
+#, no-wrap
+msgid "Expanded Process Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:317
+msgid ""
+"The E<.Dq expanded process> token contains the contents of the E<.Dq "
+"process> token, with the addition of a machine address type and variable "
+"length address storage capable of containing IPv6 addresses.  An E<.Dq "
+"expanded process> token can be created using E<.Xr au_to_process32_ex 3> or "
+"E<.Xr au_to_process64_ex 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:328 /usr/src/contrib/openbsm/man/audit.log.5:403
+#, no-wrap
+msgid "Terminal Address Type/Length\t1 byte\tLength of machine address"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:329 /usr/src/contrib/openbsm/man/audit.log.5:404
+#, no-wrap
+msgid "Terminal Machine Address\t4 bytes\tIPv4 or IPv6 address of machine"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:331
+#, no-wrap
+msgid "Return Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:343
+msgid ""
+"The E<.Dq return> token contains a system call or library function return "
+"condition, including return value and error number associated with the "
+"global variable E<.Er errno>.  A E<.Dq return> token can be created using "
+"E<.Xr au_to_return32 3> or E<.Xr au_to_return64 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:346
+#, no-wrap
+msgid "Error Number\t1 byte\tErrno value, or 0 if undefined"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:347
+#, no-wrap
+msgid "Return Value\t4/8 bytes\tReturn value (32/64-bits)"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:349
+#, no-wrap
+msgid "Subject Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:366
+msgid ""
+"The E<.Dq subject> token contains information on the subject performing the "
+"operation described by an audit record, and includes similar information to "
+"that found in the E<.Dq process> and E<.Dq expanded process> tokens.  "
+"However, those tokens are used where the process being described is the "
+"target of the operation, not the authorizing party.  A E<.Dq subject> token "
+"can be created using E<.Xr au_to_subject32 3> and E<.Xr au_to_subject64 3>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:379
+#, no-wrap
+msgid "Expanded Subject Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:392
+msgid ""
+"The E<.Dq expanded subject> token consists of the same elements as the E<.Dq "
+"subject> token, with the addition of type/length and variable size machine "
+"address information in the terminal ID.  An E<.Dq expanded subject> token "
+"can be created using E<.Xr au_to_subject32_ex 3> or E<.Xr au_to_subject64_ex "
+"3>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:406
+#, no-wrap
+msgid "System V IPC Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:413
+msgid ""
+"The E<.Dq System V IPC> token contains the System V IPC message handle, "
+"semaphore handle or shared memory handle.  A System V IPC token may be "
+"created using +.Xr au_to_ipc 3 ."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:416
+#, no-wrap
+msgid "Object ID type\t1 byte\tObject ID"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:417
+#, no-wrap
+msgid "Object ID\t4 bytes\tObject ID"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:419
+#, no-wrap
+msgid "Text Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:427
+msgid ""
+"The E<.Dq text> token contains a single NUL-terminated text string.  A E<.Dq "
+"text> token may be created using E<.Xr au_to_text 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:430
+#, no-wrap
+msgid "Text Length\t2 bytes\tLength of text string including NUL"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:431
+#, no-wrap
+msgid "Text\tN bytes + 1 NUL\tText string including NUL"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:433
+#, no-wrap
+msgid "Attribute Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:448
+msgid ""
+"The E<.Dq attribute> token describes the attributes of a file associated "
+"with the audit event.  As files may be identified by 0, 1, or many path "
+"names, a path name is not included with the attribute block for a file; "
+"optional E<.Dq path> tokens may also be present in an audit record "
+"indicating which path, if any, was used to reach the object.  An E<.Dq "
+"attribute> token can be created using E<.Xr au_to_attr32 3> or E<.Xr "
+"au_to_attr64 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:451
+#, no-wrap
+msgid "File Access Mode\t1 byte\tmode_t associated with file"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:452
+#, no-wrap
+msgid "Owner User ID\t4 bytes\tuid_t associated with file"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:453
+#, no-wrap
+msgid "Owner Group ID\t4 bytes\tgid_t associated with file"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:454
+#, no-wrap
+msgid "File System ID\t4 bytes\tfsid_t associated with file"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:455
+#, no-wrap
+msgid "File System Node ID\t8 bytes\tino_t associated with file"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:456
+#, no-wrap
+msgid "Device\t4/8 bytes\tDevice major/minor number (32/64-bit)"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:458
+#, no-wrap
+msgid "Groups Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:466
+msgid ""
+"The E<.Dq groups> token contains a list of group IDs associated with the "
+"audit event.  A E<.Dq groups> token can be created using E<.Xr au_to_groups "
+"3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:469
+#, no-wrap
+msgid "Number of Groups\t2 bytes\tNumber of groups in token"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:470
+#, no-wrap
+msgid "Group List\tN * 4 bytes\tList of N group IDs"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:472
+#, no-wrap
+msgid "System V IPC Permission Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:478
+msgid ""
+"The E<.Dq System V IPC permission> token contains a System V IPC access "
+"permissions.  A System V IPC permission token may be created using E<.Xr "
+"au_to_ipc_perm 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:481
+#, no-wrap
+msgid "Li \"Owner user ID\" Ta \"4 bytes\" Ta \"User ID of IPC owner\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:482
+#, no-wrap
+msgid "Li \"Owner group ID\" Ta \"4 bytes\" Ta \"Group ID of IPC owner\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:483
+#, no-wrap
+msgid "Li \"Creator user ID\" Ta \"4 bytes\" Ta \"User ID of IPC creator\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:484
+#, no-wrap
+msgid "Li \"Creator group ID\" Ta \"4 bytes\" Ta \"Group ID of IPC creator\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:485
+#, no-wrap
+msgid "Li \"Access mode\" Ta \"4 bytes\" Ta \"Access mode\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:486
+#, no-wrap
+msgid "Li \"Sequence number\" Ta \"4 bytes\" Ta \"Sequence number\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:487
+#, no-wrap
+msgid "Li Key Ta \"4 bytes\" Ta \"IPC key\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:489
+#, no-wrap
+msgid "Arg Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:498
+msgid ""
+"The E<.Dq arg> token contains information about arguments of the system "
+"call.  Depending on the size of the desired argument value, an Arg token may "
+"be created using E<.Xr au_to_arg32 3> or E<.Xr au_to_arg64 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:501
+#, no-wrap
+msgid "Li \"Argument ID\" Ta \"1 byte\" Ta \"Argument ID\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:502
+#, no-wrap
+msgid "Li \"Argument value\" Ta \"4/8 bytes\" Ta \"Argument value\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:503
+#, no-wrap
+msgid "Li Length Ta \"2 bytes\" Ta \"Length of the text\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:504
+#, no-wrap
+msgid "Li Text Ta \"N bytes + 1 nul\" Ta \"The string including nul\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:506
+#, no-wrap
+msgid "exec_args Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:512
+msgid ""
+"The E<.Dq exec_args> token contains information about arguments of the "
+"exec() system call.  An exec_args token may be created using E<.Xr "
+"au_to_exec_args 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:515
+#, no-wrap
+msgid "Li Count Ta \"4 bytes\" Ta \"Number of arguments\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:516 /usr/src/contrib/openbsm/man/audit.log.5:528
+#, no-wrap
+msgid "Li Text Ta \"* bytes\" Ta \"Count nul-terminated strings\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:518
+#, no-wrap
+msgid "exec_env Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:524
+msgid ""
+"The E<.Dq exec_env> token contains current environment variables to an "
+"exec() system call.  An exec_args token may be created using E<.Xr "
+"au_to_exec_env 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:527
+#, no-wrap
+msgid "Li \"Count ID\" Ta \"4 bytes\" Ta \"Number of variables\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:530
+#, no-wrap
+msgid "Exit Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:538
+msgid ""
+"The E<.Dq exit> token contains process exit/return code information.  An "
+"E<.Dq exit> token can be created using E<.Xr au_to_exit 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:541
+#, no-wrap
+msgid "Status\t4 bytes\tProcess status on exit"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:542
+#, no-wrap
+msgid "Return Value\t4 bytes\tProcess return value on exit"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:544
+#, no-wrap
+msgid "Socket Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:554
+msgid ""
+"The E<.Dq socket> token contains information about UNIX domain and Internet "
+"sockets.  Each token has four or eight fields.  Depending on the type of "
+"socket, a socket token may be created using E<.Xr au_to_sock_unix 3>, E<.Xr "
+"au_to_sock_inet32 3> or E<.Xr au_to_sock_inet128 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:555
+#, no-wrap
+msgid "Sy Field Ta Sy Bytes Ta Sy Description"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:556 /usr/src/contrib/openbsm/man/audit.log.5:571
+#, no-wrap
+msgid "Li \"Token ID\" Ta \"1 byte\" Ta \"Token ID\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:557
+#, no-wrap
+msgid "Li \"Socket family\" Ta \"2 bytes\" Ta \"Socket family\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:558 /usr/src/contrib/openbsm/man/audit.log.5:575
+#, no-wrap
+msgid "Li \"Local port\" Ta \"2 bytes\" Ta \"Local port\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:559
+#, no-wrap
+msgid "Li \"Socket address\" Ta \"4 bytes\" Ta \"Socket address\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:561
+#, no-wrap
+msgid "Expanded Socket Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:569
+msgid ""
+"The E<.Dq expanded socket> token contains information about IPv4 and IPv6 "
+"sockets.  A E<.Dq expanded socket> token can be created using E<.Xr "
+"au_to_socket_ex 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:572
+#, no-wrap
+msgid "Li \"Socket domain\" Ta \"2 bytes\" Ta \"Socket domain\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:573
+#, no-wrap
+msgid "Li \"Socket type\" Ta \"2 bytes\" Ta \"Socket type\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:574
+#, no-wrap
+msgid "Li \"Address type\" Ta \"2 byte\" Ta \"Address type (IPv4/IPv6)\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:576
+#, no-wrap
+msgid "Li \"Local IP address\" Ta \"4/16 bytes\" Ta \"Local IP address\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:577
+#, no-wrap
+msgid "Li \"Remote port\" Ta \"2 bytes\" Ta \"Remote port\""
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:578
+#, no-wrap
+msgid "Li \"Remote IP address\" Ta \"4/16 bytes\" Ta \"Remote IP address\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:580
+#, no-wrap
+msgid "Seq Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:586
+msgid ""
+"The E<.Dq seq> token contains a unique and monotonically increasing audit "
+"event sequence ID.  Due to the limited range of 32 bits, serial number "
+"arithmetic and caution should be used when comparing sequence numbers."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:589
+#, no-wrap
+msgid "Sequence Number\t4 bytes\tAudit event sequence number"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:591
+#, no-wrap
+msgid "privilege Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:595
+msgid "The E<.Dq privilege> token ..."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:599
+#, no-wrap
+msgid "Use-of-auth Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:603
+msgid "The E<.Dq use-of-auth> token ..."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:607
+#, no-wrap
+msgid "Command Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:611
+msgid "The E<.Dq command> token ..."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:615
+#, no-wrap
+msgid "ACL Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:619
+msgid "The E<.Dq ACL> token ..."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/openbsm/man/audit.log.5:623
+#, no-wrap
+msgid "Zonename Token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:632
+msgid ""
+"The E<.Dq zonename> token holds a NUL-terminated string with the name of the "
+"zone or jail from which the record originated.  A E<.Dq zonename> token can "
+"be created using E<.Xr au_to_zonename 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:635
+#, no-wrap
+msgid "Zonename length\t2 bytes\tLength of zonename string including NUL"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit.log.5:636
+#, no-wrap
+msgid "Zonename\tN bytes + 1 NUL\tZonename string including NUL"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit.log.5:638
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:645
+msgid ""
+"E<.Xr auditreduce 1>, E<.Xr praudit 1>, E<.Xr libbsm 3>, E<.Xr audit 4>, "
+"E<.Xr auditpipe 4>, E<.Xr audit 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit.log.5:645
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:650
+msgid ""
+"The OpenBSM implementation was created by McAfee Research, the security "
+"division of McAfee Inc., under contract to Apple Computer Inc.\\& in 2004.  "
+"It was subsequently adopted by the TrustedBSD Project as the foundation for "
+"the OpenBSM distribution."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit.log.5:650
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:653
+msgid ""
+"The Basic Security Module (BSM) interface to audit records and audit event "
+"stream format were defined by Sun Microsystems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:656
+msgid "This manual page was written by E<.An Robert Watson Aq rwatson@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit.log.5:656
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:662
+msgid ""
+"The E<.Dq How to print> field in the E<.Dq arbitrary data> token has "
+"undefined values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit.log.5:670
+msgid ""
+"The E<.Dq in_addr> and E<.Dq in_addr_ex> token layout documented here "
+"appears to be in conflict with the E<.Xr libbsm 3> implementation of E<.Xr "
+"au_to_in_addr_ex 3>."
+msgstr ""

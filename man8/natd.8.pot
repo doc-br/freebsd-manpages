@@ -1,0 +1,1231 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/natd/natd.8:2
+#, no-wrap
+msgid "October 5, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/natd/natd.8:3
+#, no-wrap
+msgid "NATD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:5
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:7
+msgid "E<.Nm natd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/natd/natd.8:7
+#, no-wrap
+msgid "Network Address Translation daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:8
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:41
+msgid ""
+"E<.Nm> E<.Bk -words> E<.Op Fl unregistered_only | u> E<.Op Fl log | l> E<.Op "
+"Fl proxy_only> E<.Op Fl reverse> E<.Op Fl deny_incoming | d> E<.Op Fl "
+"use_sockets | s> E<.Op Fl same_ports | m> E<.Op Fl verbose | v> E<.Op Fl "
+"dynamic> E<.Op Fl in_port | i Ar port> E<.Op Fl out_port | o Ar port> E<.Op "
+"Fl port | p Ar port> E<.Op Fl alias_address | a Ar address> E<.Op Fl "
+"target_address | t Ar address> E<.Op Fl interface | n Ar interface> E<.Op Fl "
+"proxy_rule Ar proxyspec> E<.Op Fl redirect_port Ar linkspec> E<.Op Fl "
+"redirect_proto Ar linkspec> E<.Op Fl redirect_address Ar linkspec> E<.Op Fl "
+"config | f Ar configfile> E<.Op Fl instance Ar instancename> E<.Op Fl "
+"globalport Ar port> E<.Op Fl log_denied> E<.Op Fl log_facility Ar "
+"facility_name> E<.Op Fl punch_fw Ar firewall_range> E<.Op Fl skinny_port Ar "
+"port> E<.Op Fl log_ipfw_denied> E<.Op Fl pid_file | P Ar pidfile> E<.Op Fl "
+"exit_delay | P Ar ms> E<.Ek>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:49
+msgid ""
+"The E<.Nm> utility provides a Network Address Translation facility for use "
+"with E<.Xr divert 4> sockets under E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:59
+msgid ""
+"(If you need NAT on a PPP link, E<.Xr ppp 8> provides the E<.Fl nat> option "
+"that gives most of the E<.Nm> functionality, and uses the same E<.Xr "
+"libalias 3> library.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:66
+msgid ""
+"The E<.Nm> utility normally runs in the background as a daemon.  It is "
+"passed raw IP packets as they travel into and out of the machine, and will "
+"possibly change these before re-injecting them back into the IP packet "
+"stream."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:77
+msgid ""
+"It changes all packets destined for another host so that their source IP "
+"address is that of the current machine.  For each packet changed in this "
+"manner, an internal table entry is created to record this fact.  The source "
+"port number is also changed to indicate the table entry applying to the "
+"packet.  Packets that are received with a target IP of the current host are "
+"checked against this internal table.  If an entry is found, it is used to "
+"determine the correct target IP address and port to place in the packet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:79
+msgid "The following command line options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:80
+#, no-wrap
+msgid "Fl log | l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:86
+msgid ""
+"Log various aliasing statistics and information to the file E<.Pa "
+"/var/log/alias.log>.  This file is truncated each time E<.Nm> is started."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:86
+#, no-wrap
+msgid "Fl deny_incoming | d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:89
+msgid ""
+"Do not pass incoming packets that have no entry in the internal translation "
+"table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:94
+msgid ""
+"If this option is not used, then such a packet will be altered using the "
+"rules in E<.Fl target_address> below, and the entry will be made in the "
+"internal translation table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:94
+#, no-wrap
+msgid "Fl log_denied"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:99
+msgid ""
+"Log denied incoming packets via E<.Xr syslog 3> (see also E<.Fl "
+"log_facility>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:99
+#, no-wrap
+msgid "Fl log_facility Ar facility_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:106
+msgid ""
+"Use specified log facility when logging information via E<.Xr syslog 3>.  "
+"Argument E<.Ar facility_name> is one of the keywords specified in E<.Xr "
+"syslog.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:106
+#, no-wrap
+msgid "Fl use_sockets | s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:112
+msgid ""
+"Allocate a E<.Xr socket 2> in order to establish an FTP data or IRC DCC send "
+"connection.  This option uses more system resources, but guarantees "
+"successful connections when port numbers conflict."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:112
+#, no-wrap
+msgid "Fl same_ports | m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:118
+msgid ""
+"Try to keep the same port number when altering outgoing packets.  With this "
+"option, protocols such as RPC will have a better chance of working.  If it "
+"is not possible to maintain the port number, it will be silently changed as "
+"per normal."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:118
+#, no-wrap
+msgid "Fl verbose | v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:125
+msgid ""
+"Do not call E<.Xr daemon 3> on startup.  Instead, stay attached to the "
+"controlling terminal and display all packet alterations to the standard "
+"output.  This option should only be used for debugging purposes."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:125
+#, no-wrap
+msgid "Fl unregistered_only | u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:131
+msgid ""
+"Only alter outgoing packets with an E<.Em unregistered> source address.  "
+"According to RFC 1918, unregistered source addresses are 10.0.0.0/8, "
+"172.16.0.0/12 and 192.168.0.0/16."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:131 /usr/src/sbin/natd/natd.8:244
+#, no-wrap
+msgid "Fl redirect_port Ar proto Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:164
+msgid ""
+"E<.Ar targetIP Ns : Ns Xo> E<.Ar targetPORT Ns Oo - Ns Ar targetPORT Oc Xc> "
+"E<.Oo Ar aliasIP Ns : Oc Ns Xo> E<.Ar aliasPORT Ns Oo - Ns Ar aliasPORT Oc "
+"Xc> E<.Oo Ar remoteIP Ns Oo : Ns> E<.Ar remotePORT Ns Op - Ns Ar remotePORT> "
+"E<.Oc Oc> E<.Xc> Redirect incoming connections arriving to given port(s) to "
+"another host and port(s).  Argument E<.Ar proto> is either E<.Ar tcp> or "
+"E<.Ar udp>, E<.Ar targetIP> is the desired target IP address, E<.Ar "
+"targetPORT> is the desired target port number or range, E<.Ar aliasPORT> is "
+"the requested port number or range, and E<.Ar aliasIP> is the aliasing "
+"address.  Arguments E<.Ar remoteIP> and E<.Ar remotePORT> can be used to "
+"specify the connection more accurately if necessary.  If E<.Ar remotePORT> "
+"is not specified, it is assumed to be all ports."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:183
+msgid ""
+"Arguments E<.Ar targetIP , aliasIP> and E<.Ar remoteIP> can be given as IP "
+"addresses or as hostnames.  The E<.Ar targetPORT , aliasPORT> and E<.Ar "
+"remotePORT> ranges need not be the same numerically, but must have the same "
+"size.  When E<.Ar targetPORT , aliasPORT> or E<.Ar remotePORT> specifies a "
+"singular value (not a range), it can be given as a service name that is "
+"searched for in the E<.Xr services 5> database."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:185
+msgid "For example, the argument"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:186
+#, no-wrap
+msgid "Ar tcp inside1:telnet 6666"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:190
+msgid ""
+"means that incoming TCP packets destined for port 6666 on this machine will "
+"be sent to the telnet port on the inside1 machine."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:191
+#, no-wrap
+msgid "Ar tcp inside2:2300-2399 3300-3399"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:196
+msgid ""
+"will redirect incoming connections on ports 3300-3399 to host inside2, ports "
+"2300-2399.  The mapping is 1:1 meaning port 3300 maps to 2300, 3301 maps to "
+"2301, etc."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:196
+#, no-wrap
+msgid "Fl redirect_proto Ar proto localIP Oo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:208
+msgid ""
+"E<.Ar publicIP Op Ar remoteIP> E<.Oc> Redirect incoming IP packets of "
+"protocol E<.Ar proto> (see E<.Xr protocols 5>)  destined for E<.Ar publicIP> "
+"address to a E<.Ar localIP> address and vice versa."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:217
+msgid ""
+"If E<.Ar publicIP> is not specified, then the default aliasing address is "
+"used.  If E<.Ar remoteIP> is specified, then only packets coming from/to "
+"E<.Ar remoteIP> will match the rule."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:217
+#, no-wrap
+msgid "Fl redirect_address Ar localIP publicIP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:225
+msgid ""
+"Redirect traffic for public IP address to a machine on the local network.  "
+"This function is known as E<.Em static NAT>.  Normally static NAT is useful "
+"if your ISP has allocated a small block of IP addresses to you, but it can "
+"even be used in the case of single address:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:226
+#, no-wrap
+msgid "Ar redirect_address 10.0.0.8 0.0.0.0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:230
+msgid "The above command would redirect all incoming traffic to machine 10.0.0.8."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:233
+msgid "If several address aliases specify the same public address as follows"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:237
+#, no-wrap
+msgid ""
+"redirect_address 192.168.0.2 public_addr\n"
+"redirect_address 192.168.0.3 public_addr\n"
+"redirect_address 192.168.0.4 public_addr\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:244
+msgid ""
+"the incoming traffic will be directed to the last translated local address "
+"(192.168.0.4), but outgoing traffic from the first two addresses will still "
+"be aliased to appear from the specified E<.Ar public_addr>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:258
+msgid ""
+"E<.Ar targetIP Ns : Ns Xo> E<.Ar targetPORT Ns Oo , Ns> E<.Ar targetIP Ns : "
+"Ns Xo> E<.Ar targetPORT Ns Oo , Ns> E<.Ar ...\\&> E<.Oc Xc Oc Xc> E<.Oo Ar "
+"aliasIP Ns : Oc Ns Xo> E<.Ar aliasPORT> E<.Xc> E<.Oo Ar remoteIP Ns> E<.Op : "
+"Ns Ar remotePORT> E<.Oc> E<.Xc>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:258
+#, no-wrap
+msgid "Fl redirect_address Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:275
+msgid ""
+"E<.Ar localIP Ns Oo , Ns> E<.Ar localIP Ns Oo , Ns> E<.Ar ...\\&> E<.Oc Oc> "
+"E<.Ar publicIP> E<.Xc> These forms of E<.Fl redirect_port> and E<.Fl "
+"redirect_address> are used to transparently offload network load on a single "
+"server and distribute the load across a pool of servers.  This function is "
+"known as E<.Em LSNAT> (RFC 2391).  For example, the argument"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:276
+#, no-wrap
+msgid "Ar tcp www1:http,www2:http,www3:http www:http"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:281
+msgid ""
+"means that incoming HTTP requests for host www will be transparently "
+"redirected to one of the www1, www2 or www3, where a host is selected simply "
+"on a round-robin basis, without regard to load on the net."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:281
+#, no-wrap
+msgid "Fl dynamic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:294
+msgid ""
+"If the E<.Fl n> or E<.Fl interface> option is used, E<.Nm> will monitor the "
+"routing socket for alterations to the E<.Ar interface> passed.  If the "
+"interface's IP address is changed, E<.Nm> will dynamically alter its concept "
+"of the alias address."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:294
+#, no-wrap
+msgid "Fl in_port | i Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:301
+msgid ""
+"Read from and write to E<.Xr divert 4> port E<.Ar port>, treating all "
+"packets as E<.Dq incoming>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:301
+#, no-wrap
+msgid "Fl out_port | o Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:308
+msgid ""
+"Read from and write to E<.Xr divert 4> port E<.Ar port>, treating all "
+"packets as E<.Dq outgoing>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:308
+#, no-wrap
+msgid "Fl port | p Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:327
+msgid ""
+"Read from and write to E<.Xr divert 4> port E<.Ar port>, distinguishing "
+"packets as E<.Dq incoming> or E<.Dq outgoing> using the rules specified in "
+"E<.Xr divert 4>.  If E<.Ar port> is not numeric, it is searched for in the "
+"E<.Xr services 5> database.  If this option is not specified, the divert "
+"port named E<.Ar natd> will be used as a default."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:327
+#, no-wrap
+msgid "Fl alias_address | a Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:340
+msgid ""
+"Use E<.Ar address> as the aliasing address.  Either this or the E<.Fl "
+"interface> option must be used (but not both), if the E<.Fl proxy_only> "
+"option is not specified.  The specified address is usually the address "
+"assigned to the E<.Dq public> network interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:362
+msgid ""
+"All data passing E<.Em out> will be rewritten with a source address equal to "
+"E<.Ar address>.  All data coming E<.Em in> will be checked to see if it "
+"matches any already-aliased outgoing connection.  If it does, the packet is "
+"altered accordingly.  If not, all E<.Fl redirect_port>, E<.Fl "
+"redirect_proto> and E<.Fl redirect_address> assignments are checked and "
+"actioned.  If no other action can be made and if E<.Fl deny_incoming> is not "
+"specified, the packet is delivered to the local machine using the rules "
+"specified in E<.Fl target_address> option below."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:362
+#, no-wrap
+msgid "Fl t | target_address Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:367
+msgid ""
+"Set the target address.  When an incoming packet not associated with any "
+"pre-existing link arrives at the host machine, it will be sent to the "
+"specified E<.Ar address>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:374
+msgid ""
+"The target address may be set to E<.Ar 255.255.255.255>, in which case all "
+"new incoming packets go to the alias address set by E<.Fl alias_address> or "
+"E<.Fl interface>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:381
+msgid ""
+"If this option is not used, or called with the argument E<.Ar 0.0.0.0>, then "
+"all new incoming packets go to the address specified in the packet.  This "
+"allows external machines to talk directly to internal machines if they can "
+"route packets to the machine in question."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:381
+#, no-wrap
+msgid "Fl interface | n Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:393
+msgid ""
+"Use E<.Ar interface> to determine the aliasing address.  If there is a "
+"possibility that the IP address associated with E<.Ar interface> may change, "
+"the E<.Fl dynamic> option should also be used.  If this option is not "
+"specified, the E<.Fl alias_address> option must be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:401
+msgid ""
+"The specified E<.Ar interface> is usually the E<.Dq public> (or E<.Dq "
+"external>)  network interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:401
+#, no-wrap
+msgid "Fl config | f Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:409
+msgid ""
+"Read configuration from E<.Ar file>.  A E<.Ar file> should contain a list of "
+"options, one per line, in the same form as the long form of the above "
+"command line options.  For example, the line"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:410 /usr/src/sbin/natd/natd.8:442
+#, no-wrap
+msgid "alias_address 158.152.17.1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:419
+msgid ""
+"would specify an alias address of 158.152.17.1.  Options that do not take an "
+"argument are specified with an argument of E<.Ar yes> or E<.Ar no> in the "
+"configuration file.  For example, the line"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:420
+#, no-wrap
+msgid "log yes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:424
+msgid "is synonymous with E<.Fl log>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:434
+msgid ""
+"Options can be divided to several sections.  Each section applies to own "
+"E<.Nm> instance.  This ability allows the configuration of one E<.Nm> "
+"process for several NAT instances.  The first instance that always exists is "
+"a \"default\" instance.  Each another instance should begin with"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:435
+#, no-wrap
+msgid "instance Ar instance_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:439
+msgid "At the next should be placed a configuration option.  Example:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:440
+#, no-wrap
+msgid "\\&# default instance"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:441
+#, no-wrap
+msgid "port 8668"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:444
+#, no-wrap
+msgid "\\&# second instance"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:445
+#, no-wrap
+msgid "instance dsl1"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:446
+#, no-wrap
+msgid "port 8888"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:447
+#, no-wrap
+msgid "alias_address 192.168.0.1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:453
+msgid ""
+"Trailing spaces and empty lines are ignored.  A E<.Ql \\&#> sign will mark "
+"the rest of the line as a comment."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:453
+#, no-wrap
+msgid "Fl instance Ar instancename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:463
+msgid ""
+"This option switches command line options processing to configure instance "
+"E<.Ar instancename> (creating it if necessary) till the next E<.Fl instance> "
+"option or end of command line.  It is easier to set up multiple instances in "
+"the configuration file specified with the E<.Fl config> option rather than "
+"on a command line."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:463
+#, no-wrap
+msgid "Fl globalport Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:479
+msgid ""
+"Read from and write to E<.Xr divert 4> port E<.Ar port>, treating all "
+"packets as E<.Dq outgoing>.  This option is intended to be used with "
+"multiple instances: packets received on this port are checked against "
+"internal translation tables of every configured instance.  If an entry is "
+"found, packet is aliased according to that entry.  If no entry was found in "
+"any of the instances, packet is passed unchanged, and no new entry will be "
+"created.  See the section E<.Sx MULTIPLE INSTANCES> for more details."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:479
+#, no-wrap
+msgid "Fl reverse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:491
+msgid ""
+"This option makes E<.Nm> reverse the way it handles E<.Dq incoming> and "
+"E<.Dq outgoing> packets, allowing it to operate on the E<.Dq internal> "
+"network interface rather than the E<.Dq external> one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:498
+msgid ""
+"This can be useful in some transparent proxying situations when outgoing "
+"traffic is redirected to the local machine and E<.Nm> is running on the "
+"internal interface (it usually runs on the external interface)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:498
+#, no-wrap
+msgid "Fl proxy_only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:503
+msgid ""
+"Force E<.Nm> to perform transparent proxying only.  Normal address "
+"translation is not performed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:503
+#, no-wrap
+msgid "Fl proxy_rule Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:517
+msgid ""
+"E<.Op Ar type encode_ip_hdr | encode_tcp_stream> E<.Ar port xxxx> E<.Ar "
+"server a.b.c.d:yyyy> E<.Xc> Enable transparent proxying.  Outgoing TCP "
+"packets with the given port going through this host to any other host are "
+"redirected to the given server and port.  Optionally, the original target "
+"address can be encoded into the packet.  Use E<.Ar encode_ip_hdr> to put "
+"this information into the IP option field or E<.Ar encode_tcp_stream> to "
+"inject the data into the beginning of the TCP stream."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:517
+#, no-wrap
+msgid "Fl punch_fw Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:531
+msgid ""
+"E<.Ar basenumber Ns : Ns Ar count> E<.Xc> This option directs E<.Nm> to "
+"E<.Dq punch holes> in an E<.Xr ipfirewall 4> based firewall for FTP/IRC DCC "
+"connections.  This is done dynamically by installing temporary firewall "
+"rules which allow a particular connection (and only that connection) to go "
+"through the firewall.  The rules are removed once the corresponding "
+"connection terminates."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:542
+msgid ""
+"A maximum of E<.Ar count> rules starting from the rule number E<.Ar "
+"basenumber> will be used for punching firewall holes.  The range will be "
+"cleared for all rules on startup.  This option has no effect when the kernel "
+"is in security level 3, see E<.Xr init 8> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:542
+#, no-wrap
+msgid "Fl skinny_port Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:549
+msgid ""
+"This option allows you to specify the TCP port used for the Skinny Station "
+"protocol.  Skinny is used by Cisco IP phones to communicate with Cisco Call "
+"Managers to set up voice over IP calls.  By default, Skinny aliasing is not "
+"performed.  The typical port value for Skinny is 2000."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:549
+#, no-wrap
+msgid "Fl log_ipfw_denied"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:555
+msgid ""
+"Log when a packet cannot be re-injected because an E<.Xr ipfw 8> rule blocks "
+"it.  This is the default with E<.Fl verbose>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:555
+#, no-wrap
+msgid "Fl pid_file | P Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:559
+msgid ""
+"Specify an alternate file in which to store the process ID.  The default is "
+"E<.Pa /var/run/natd.pid>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/natd/natd.8:559
+#, no-wrap
+msgid "Fl exit_delay Ar ms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:563
+msgid ""
+"Specify delay in ms before daemon exit after signal.  The default is E<.Pa "
+"10000>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:564
+#, no-wrap
+msgid "RUNNING NATD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:567
+msgid "The following steps are necessary before attempting to run E<.Nm>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:570
+msgid "Build a custom kernel with the following options:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:573
+#, no-wrap
+msgid ""
+"options IPFIREWALL\n"
+"options IPDIVERT\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:577
+msgid "Refer to the handbook for detailed instructions on building a custom kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:580
+msgid ""
+"Ensure that your machine is acting as a gateway.  This can be done by "
+"specifying the line"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:581
+#, no-wrap
+msgid "gateway_enable=YES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:586
+msgid "in the E<.Pa /etc/rc.conf> file or using the command"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:587
+#, no-wrap
+msgid "sysctl net.inet.ip.forwarding=1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:602
+msgid ""
+"If you use the E<.Fl interface> option, make sure that your interface is "
+"already configured.  If, for example, you wish to specify E<.Ql tun0> as "
+"your E<.Ar interface>, and you are using E<.Xr ppp 8> on that interface, you "
+"must make sure that you start E<.Nm ppp> prior to starting E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:608
+msgid "Running E<.Nm> is fairly straight forward.  The line"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:609
+#, no-wrap
+msgid "natd -interface ed0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:619
+msgid ""
+"should suffice in most cases (substituting the correct interface name).  "
+"Please check E<.Xr rc.conf 5> on how to configure it to be started "
+"automatically during boot.  Once E<.Nm> is running, you must ensure that "
+"traffic is diverted to E<.Nm>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:626
+msgid ""
+"You will need to adjust the E<.Pa /etc/rc.firewall> script to taste.  If you "
+"are not interested in having a firewall, the following lines will do:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:630
+#, no-wrap
+msgid ""
+"/sbin/ipfw -f flush\n"
+"/sbin/ipfw add divert natd all from any to any via ed0\n"
+"/sbin/ipfw add pass all from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:635
+msgid ""
+"The second line depends on your interface (change E<.Ql ed0> as "
+"appropriate)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:642
+msgid ""
+"You should be aware of the fact that, with these firewall settings, everyone "
+"on your local network can fake his source-address using your host as "
+"gateway.  If there are other hosts on your local network, you are strongly "
+"encouraged to create firewall rules that only allow traffic to and from "
+"trusted hosts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:647
+msgid ""
+"If you specify real firewall rules, it is best to specify line 2 at the "
+"start of the script so that E<.Nm> sees all packets before they are dropped "
+"by the firewall."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:653
+msgid ""
+"After translation by E<.Nm>, packets re-enter the firewall at the rule "
+"number following the rule number that caused the diversion (not the next "
+"rule if there are several at the same number)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:655
+msgid "Enable your firewall by setting"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/natd/natd.8:656
+#, no-wrap
+msgid "firewall_enable=YES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:671
+msgid ""
+"in E<.Pa /etc/rc.conf>.  This tells the system startup scripts to run the "
+"E<.Pa /etc/rc.firewall> script.  If you do not wish to reboot now, just run "
+"this by hand from the console.  NEVER run this from a remote session unless "
+"you put it into the background.  If you do, you will lock yourself out after "
+"the flush takes place, and execution of E<.Pa /etc/rc.firewall> will stop at "
+"this point - blocking all accesses permanently.  Running the script in the "
+"background should be enough to prevent this disaster."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:672
+#, no-wrap
+msgid "MULTIPLE INSTANCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:688
+msgid ""
+"It is not so uncommon to have a need of aliasing to several external IP "
+"addresses.  While this traditionally was achieved by running several E<.Nm> "
+"processes with independent configurations, E<.Nm> can have multiple aliasing "
+"instances in a single process, also allowing them to be not so independent "
+"of each other.  For example, let us see a common task of load balancing two "
+"channels to different providers on a machine with two external interfaces "
+"E<.Ql sis0> (with IP 1.2.3.4) and E<.Ql sis2> (with IP 2.3.4.5):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:698
+#, no-wrap
+msgid ""
+"          net 1.2.3.0/24\n"
+"1.2.3.1 ------------------ sis0\n"
+"(router)                (1.2.3.4)\n"
+"                                         net 10.0.0.0/24\n"
+"                                  sis1 ------------------- 10.0.0.2\n"
+"                               (10.0.0.1)\n"
+"          net 2.3.4.0/24\n"
+"2.3.4.1 ------------------ sis2\n"
+"(router)                (2.3.4.5)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:702
+msgid "Default route is out via E<.Ql sis0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:709
+msgid ""
+"Interior machine (10.0.0.2) is accessible on TCP port 122 through both "
+"exterior IPs, and outgoing connections choose a path randomly between E<.Ql "
+"sis0> and E<.Ql sis2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:713
+msgid ""
+"The way this works is that E<.Pa natd.conf> builds two instances of the "
+"aliasing engine."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:724
+msgid ""
+"In addition to these instances' private E<.Xr divert 4> sockets, a third "
+"socket called the E<.Dq globalport> is created; packets sent to E<.Nm> via "
+"this one will be matched against all instances and translated if an existing "
+"entry is found, and unchanged if no entry is found.  The following lines are "
+"placed into E<.Pa /etc/natd.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:728
+#, no-wrap
+msgid ""
+"log\n"
+"deny_incoming\n"
+"verbose\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:733
+#, no-wrap
+msgid ""
+"instance default\n"
+"interface sis0\n"
+"port 1000\n"
+"redirect_port tcp 10.0.0.2:122 122\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:738
+#, no-wrap
+msgid ""
+"instance sis2\n"
+"interface sis2\n"
+"port 2000\n"
+"redirect_port tcp 10.0.0.2:122 122\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:740
+#, no-wrap
+msgid "globalport 3000\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:745
+msgid "And the following E<.Xr ipfw 8> rules are used:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:747
+#, no-wrap
+msgid "ipfw -f flush\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:749
+#, no-wrap
+msgid "ipfw add      allow ip from any to any via sis1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:754
+#, no-wrap
+msgid ""
+"ipfw add      skipto 1000 ip from any to any in via sis0\n"
+"ipfw add      skipto 2000 ip from any to any out via sis0\n"
+"ipfw add      skipto 3000 ip from any to any in via sis2\n"
+"ipfw add      skipto 4000 ip from any to any out via sis2\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:756
+#, no-wrap
+msgid "ipfw add 1000 count ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:759 /usr/src/sbin/natd/natd.8:771
+#, no-wrap
+msgid ""
+"ipfw add      divert 1000 ip from any to any\n"
+"ipfw add      allow ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:761
+#, no-wrap
+msgid "ipfw add 2000 count ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:763
+#, no-wrap
+msgid "ipfw add      divert 3000 ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:766
+#, no-wrap
+msgid ""
+"ipfw add      allow ip from 1.2.3.4 to any\n"
+"ipfw add      skipto 5000 ip from 2.3.4.5 to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:768
+#, no-wrap
+msgid "ipfw add      prob .5 skipto 4000 ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:773
+#, no-wrap
+msgid "ipfw add 3000 count ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:776
+#, no-wrap
+msgid ""
+"ipfw add      divert 2000 ip from any to any\n"
+"ipfw add      allow ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:778
+#, no-wrap
+msgid "ipfw add 4000 count ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:780
+#, no-wrap
+msgid "ipfw add      divert 2000 ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:783
+#, no-wrap
+msgid ""
+"ipfw add 5000 fwd 2.3.4.1 ip from 2.3.4.5 to not 2.3.4.0/24\n"
+"ipfw add      allow ip from any to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:801
+msgid ""
+"Here the packet from internal network to Internet goes out via E<.Ql sis0> "
+"(rule number 2000) and gets caught by the E<.Ic globalport> socket (3000).  "
+"After that, either a match is found in a translation table of one of the two "
+"instances, or the packet is passed to one of the two other E<.Xr divert 4> "
+"ports (1000 or 2000), with equal probability.  This ensures that load "
+"balancing is done on a per-flow basis (i.e., packets from a single TCP "
+"connection always flow through the same interface).  Translated packets with "
+"source IP of a non-default interface E<.Pq Ql sis2> are forwarded to the "
+"appropriate router on that interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:801
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:811
+msgid ""
+"E<.Xr libalias 3>, E<.Xr divert 4>, E<.Xr protocols 5>, E<.Xr rc.conf 5>, "
+"E<.Xr services 5>, E<.Xr syslog.conf 5>, E<.Xr init 8>, E<.Xr ipfw 8>, E<.Xr "
+"ppp 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:811
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:816
+msgid "The E<.Nm> utility appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/natd/natd.8:816
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:819
+msgid "This program is the result of the efforts of many people at different times:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/natd/natd.8:835
+msgid ""
+"E<.An Archie Cobbs Aq Mt archie@FreeBSD.org> (divert sockets)  E<.An Charles "
+"Mott Aq Mt cm@linktel.net> (packet aliasing)  E<.An Eivind Eklund Aq Mt "
+"perhaps@yes.no> (IRC support & misc additions)  E<.An Ari Suutari Aq Mt "
+"suutari@iki.fi> (natd)  E<.An Dru Nelson Aq Mt dnelson@redwoodsoft.com> "
+"(early PPTP support)  E<.An Brian Somers Aq Mt brian@awfulhak.org> (glue)  "
+"E<.An Ruslan Ermilov Aq Mt ru@FreeBSD.org> (natd, packet aliasing, glue)  "
+"E<.An Poul-Henning Kamp Aq Mt phk@FreeBSD.org> (multiple instances)"
+msgstr ""

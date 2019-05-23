@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:27
+#, no-wrap
+msgid "February 28, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:28
+#, no-wrap
+msgid "DEVCFG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:32
+msgid "E<.Nm devcfg>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:32
+#, no-wrap
+msgid "Zynq PL device config interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:35
+msgid "E<.Cd device devcfg>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:39
+msgid ""
+"The special file E<.Pa /dev/devcfg> can be used to configure the PL (FPGA) "
+"section of the Xilinx Zynq-7000."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:48
+msgid ""
+"On the first write to the character device at file offset 0, the E<.Nm> "
+"driver asserts the top-level PL reset signals, disables the PS-PL level "
+"shifters, and clears the PL configuration.  Write data is sent to the PCAP "
+"(processor configuration access port).  When the PL asserts the DONE signal, "
+"the devcfg driver will enable the level shifters and release the top-level "
+"PL reset signals."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:51
+msgid ""
+"The PL (FPGA) can be configured by writing the bitstream to the character "
+"device like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:53
+#, no-wrap
+msgid "cat design.bit.bin E<gt> /dev/devcfg\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:61
+msgid ""
+"The file should not be confused with the .bit file output by the FPGA design "
+"tools.  It is the binary form of the configuration bitstream.  The Xilinx "
+"E<.Ic promgen> tool can do the conversion:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:63
+#, no-wrap
+msgid "promgen -b -w -p bin -data_width 32 -u 0 design.bit -o design.bit.bin\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:64
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:70
+msgid "The E<.Nm> driver provides the following E<.Xr sysctl 8> variables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:71
+#, no-wrap
+msgid "Va hw.fpga.pl_done"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:75
+msgid ""
+"This variable always reflects the status of the PL's DONE signal.  A 1 means "
+"the PL section has been properly programmed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:75
+#, no-wrap
+msgid "Va hw.fpga.en_level_shifters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:84
+msgid ""
+"This variable controls if the PS-PL level shifters are enabled after the PL "
+"section has been reconfigured.  This variable is 1 by default but setting it "
+"to 0 allows the PL section to be programmed with configurations that do not "
+"interface to the PS section of the part.  Changing this value has no effect "
+"on the level shifters until the next device reconfiguration."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:85
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:87
+#, no-wrap
+msgid "Pa /dev/devcfg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:91
+msgid "Character device for the E<.Nm> driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:92
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:94
+msgid "Zynq-7000 SoC Technical Reference Manual (Xilinx doc UG585)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:94
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/devcfg.4:95
+msgid "E<.An Thomas Skibo>"
+msgstr ""

@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/cc_vegas.4:32
+#, no-wrap
+msgid "September 15, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/cc_vegas.4:33
+#, no-wrap
+msgid "CC_VEGAS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:37
+msgid "E<.Nm cc_vegas>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/cc_vegas.4:37
+#, no-wrap
+msgid "Vegas Congestion Control Algorithm"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:42
+msgid ""
+"The Vegas congestion control algorithm uses what the authors term the actual "
+"and expected transmission rates to determine whether there is congestion "
+"along the network path i.e."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:45
+msgid "actual rate = (total data sent in a RTT) / RTT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:47
+msgid "expected rate = cwnd / RTTmin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:49
+msgid "diff = expected - actual"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:53
+msgid ""
+"where RTT is the measured instantaneous round trip time and RTTmin is the "
+"smallest round trip time observed during the connection."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:56
+msgid ""
+"The algorithm aims to keep diff between two parameters alpha and beta, such "
+"that:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:59
+msgid "alpha E<lt> diff E<lt> beta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:65
+msgid ""
+"If diff E<gt> beta, congestion is inferred and cwnd is decremented by one "
+"packet (or the maximum TCP segment size).  If diff E<lt> alpha, then cwnd is "
+"incremented by one packet.  Alpha and beta govern the amount of buffering "
+"along the path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:70
+msgid ""
+"The implementation was done in a clean-room fashion, and is based on the "
+"paper referenced in the E<.Sx SEE ALSO> section below."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:70
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:78
+msgid ""
+"The time from the transmission of a marked packet until the receipt of an "
+"acknowledgement for that packet is measured once per RTT.  This "
+"implementation does not implement Brakmo's and Peterson's original duplicate "
+"ACK policy since clock ticks in today's machines are not as coarse as they "
+"were (i.e. 500ms) when Vegas was originally designed.  Note that modern TCP "
+"recovery processes such as fast retransmit and SACK are enabled by default "
+"in the TCP stack."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:78
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:84
+msgid ""
+"The algorithm exposes the following tunable variables in the E<.Va "
+"net.inet.tcp.cc.vegas> branch of the E<.Xr sysctl 3> MIB:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_vegas.4:85
+#, no-wrap
+msgid "Va alpha"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:89
+msgid ""
+"Query or set the Vegas alpha parameter as a number of buffers on the path.  "
+"When setting alpha, the value must satisfy: 0 E<lt> alpha E<lt> beta.  "
+"Default is 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_vegas.4:89
+#, no-wrap
+msgid "Va beta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:93
+msgid ""
+"Query or set the Vegas beta parameter as a number of buffers on the path.  "
+"When setting beta, the value must satisfy: 0 E<lt> alpha E<lt> beta.  "
+"Default is 3."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:94
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:115
+msgid ""
+"E<.Xr cc_chd 4>, E<.Xr cc_cubic 4>, E<.Xr cc_hd 4>, E<.Xr cc_htcp 4>, E<.Xr "
+"cc_newreno 4>, E<.Xr h_ertt 4>, E<.Xr mod_cc 4>, E<.Xr tcp 4>, E<.Xr khelp "
+"9>, E<.Xr mod_cc 9> E<.Rs> E<.%A \"L. S. Brakmo\"> E<.%A \"L. L. Peterson\"> "
+"E<.%T \"TCP Vegas: end to end congestion avoidance on a global internet\"> "
+"E<.%J \"IEEE J. Sel. Areas Commun.\"> E<.%D \"October 1995\"> E<.%V \"13\"> "
+"E<.%N \"8\"> E<.%P \"1465-1480\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:115
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:119
+msgid ""
+"Development and testing of this software were made possible in part by "
+"grants from the FreeBSD Foundation and Cisco University Research Program "
+"Fund at Community Foundation Silicon Valley."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:119
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:124
+msgid "The E<.Nm> congestion control module first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:129
+msgid ""
+"The module was first released in 2010 by David Hayes whilst working on the "
+"NewTCP research project at Swinburne University of Technology's Centre for "
+"Advanced Internet Architectures, Melbourne, Australia.  More details are "
+"available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:131
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_vegas.4:131
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_vegas.4:136
+msgid ""
+"E<.An -nosplit> The E<.Nm> congestion control module and this manual page "
+"were written by E<.An David Hayes Aq Mt david.hayes@ieee.org>."
+msgstr ""

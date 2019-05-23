@@ -1,0 +1,634 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mtio.4:34
+#, no-wrap
+msgid "February 12, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mtio.4:35
+#, no-wrap
+msgid "MTIO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mtio.4:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:39
+msgid "E<.Nm mtio>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mtio.4:39
+#, no-wrap
+msgid "FreeBSD magtape interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mtio.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:50
+msgid ""
+"The special files named E<.Pa /dev/[en]sa*> refer to SCSI tape drives, which "
+"may be attached to the system.  E<.Pa /dev/sa*.ctl> are control devices that "
+"can be used to issue ioctls to the SCSI tape driver to set parameters that "
+"are required to last beyond the unmounting of a tape."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:61
+msgid ""
+"The rewind devices automatically rewind when the last requested read, write "
+"or seek has finished, or the end of the tape has been reached.  The letter "
+"E<.Ql n> is prepended to the name of the no-rewind devices.  The letter "
+"E<.Ql e> is prepended to the name of the eject devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:72
+msgid ""
+"Tapes can be written with either fixed length records or variable length "
+"records.  See E<.Xr sa 4> for more information.  Two filemarks mark the end "
+"of a tape, and one filemark marks the end of a tape file.  If the tape is "
+"not to be rewound it is positioned with the head in between the two tape "
+"marks, where the next write will over write the second end-of-file marker."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:76
+msgid "All of the magtape devices may be manipulated with the E<.Xr mt 1> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:82
+msgid ""
+"A number of E<.Xr ioctl 2> operations are available on raw magnetic tape.  "
+"The following definitions are from"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mtio.4:82
+#, no-wrap
+msgid "sys/mtio.h :"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:86
+#, no-wrap
+msgid ""
+"#ifndef\t_SYS_MTIO_H_\n"
+"#define\t_SYS_MTIO_H_\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:91
+#, no-wrap
+msgid ""
+"#ifndef _KERNEL\n"
+"#include E<lt>sys/types.hE<gt>\n"
+"#endif\n"
+"#include E<lt>sys/ioccom.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:95
+#, no-wrap
+msgid ""
+"/*\n"
+" * Structures and definitions for mag tape io control commands\n"
+" */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:101
+#, no-wrap
+msgid ""
+"/* structure for MTIOCTOP - mag tape op command */\n"
+"struct mtop {\n"
+"\tshort\tmt_op;\t\t/* operations defined below */\n"
+"\tint32_t\tmt_count;\t/* how many of them */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:113
+#, no-wrap
+msgid ""
+"/* operations */\n"
+"#define MTWEOF\t\t0\t/* write an end-of-file record */\n"
+"#define MTFSF\t\t1\t/* forward space file */\n"
+"#define MTBSF\t\t2\t/* backward space file */\n"
+"#define MTFSR\t\t3\t/* forward space record */\n"
+"#define MTBSR\t\t4\t/* backward space record */\n"
+"#define MTREW\t\t5\t/* rewind */\n"
+"#define MTOFFL\t\t6\t/* rewind and put the drive offline */\n"
+"#define MTNOP\t\t7\t/* no operation, sets status only */\n"
+"#define MTCACHE\t\t8\t/* enable controller cache */\n"
+"#define MTNOCACHE\t9\t/* disable controller cache */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:120
+#, no-wrap
+msgid ""
+"#if defined(__FreeBSD__)\n"
+"/* Set block size for device. If device is a variable size dev\t\t*/\n"
+"/* a non zero parameter will change the device to a fixed block size\t*/\n"
+"/* device with block size set to that of the parameter passed in.\t*/\n"
+"/* Resetting the block size to 0 will restore the device to a variable\t*/\n"
+"/* block size device. */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:122
+#, no-wrap
+msgid "#define MTSETBSIZ\t10\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:124
+#, no-wrap
+msgid ""
+"/* Set density values for device. Sets the value for the opened mode "
+"only. */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:126
+#, no-wrap
+msgid "#define MTSETDNSTY\t11\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:136
+#, no-wrap
+msgid ""
+"#define MTERASE\t\t12\t/* erase to EOM */\n"
+"#define MTEOD\t\t13\t/* Space to EOM */\n"
+"#define MTCOMP\t\t14\t/* select compression mode 0=off, 1=def */\n"
+"#define MTRETENS\t15\t/* re-tension tape */\n"
+"#define MTWSS\t\t16\t/* write setmark(s) */\n"
+"#define MTFSS\t\t17\t/* forward space setmark */\n"
+"#define MTBSS\t\t18\t/* backward space setmark */\n"
+"#define MTLOAD\t\t19\t/* load tape in drive */\n"
+"#define MTWEOFI\t\t20\t/* write an end-of-file record without waiting*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:140
+#, no-wrap
+msgid ""
+"#define MT_COMP_ENABLE\t\t0xffffffff\n"
+"#define MT_COMP_DISABLED\t0xfffffffe\n"
+"#define MT_COMP_UNSUPP\t\t0xfffffffd\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:158
+#, no-wrap
+msgid ""
+"/*\n"
+" * Values in mt_dsreg that say what the device is doing\n"
+" */\n"
+"#define\tMTIO_DSREG_NIL\t0\t/* Unknown */\n"
+"#define\tMTIO_DSREG_REST\t1\t/* Doing Nothing */\n"
+"#define\tMTIO_DSREG_RBSY\t2\t/* Communicating with tape (but no motion) */\n"
+"#define\tMTIO_DSREG_WR\t20\t/* Writing */\n"
+"#define\tMTIO_DSREG_FMK\t21\t/* Writing Filemarks */\n"
+"#define\tMTIO_DSREG_ZER\t22\t/* Erasing */\n"
+"#define\tMTIO_DSREG_RD\t30\t/* Reading */\n"
+"#define\tMTIO_DSREG_FWD\t40\t/* Spacing Forward */\n"
+"#define\tMTIO_DSREG_REV\t41\t/* Spacing Reverse */\n"
+"#define\tMTIO_DSREG_POS\t42\t/* Hardware Positioning (direction unknown) "
+"*/\n"
+"#define\tMTIO_DSREG_REW\t43\t/* Rewinding */\n"
+"#define\tMTIO_DSREG_TEN\t44\t/* Retensioning */\n"
+"#define\tMTIO_DSREG_UNL\t45\t/* Unloading */\n"
+"#define\tMTIO_DSREG_LD\t46\t/* Loading */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:160
+#, no-wrap
+msgid "#endif\t/* __FreeBSD__ */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:162
+#, no-wrap
+msgid "/* structure for MTIOCGET - mag tape get status command */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:198
+#, no-wrap
+msgid ""
+"struct mtget {\n"
+"\tshort\tmt_type;\t/* type of magtape device */\n"
+"/* the following two registers are grossly device dependent */\n"
+"\tshort\tmt_dsreg;\t/* ``drive status'' register */\n"
+"\tshort\tmt_erreg;\t/* ``error'' register */\n"
+"/* end device-dependent registers */\n"
+"\t/*\n"
+"\t * Note that the residual count, while maintained, may be\n"
+"\t * be nonsense because the size of the residual may (greatly)\n"
+"\t * exceed 32 K-bytes. Use the MTIOCERRSTAT ioctl to get a\n"
+"\t * more accurate count.\n"
+"\t */\n"
+"\tshort\tmt_resid;\t/* residual count */\n"
+"#if defined (__FreeBSD__)\n"
+"\tint32_t mt_blksiz;\t/* presently operating blocksize */\n"
+"\tint32_t mt_density;\t/* presently operating density */\n"
+"\tuint32_t mt_comp;\t/* presently operating compression */\n"
+"\tint32_t mt_blksiz0;\t/* blocksize for mode 0 */\n"
+"\tint32_t mt_blksiz1;\t/* blocksize for mode 1 */\n"
+"\tint32_t mt_blksiz2;\t/* blocksize for mode 2 */\n"
+"\tint32_t mt_blksiz3;\t/* blocksize for mode 3 */\n"
+"\tint32_t mt_density0;\t/* density for mode 0 */\n"
+"\tint32_t mt_density1;\t/* density for mode 1 */\n"
+"\tint32_t mt_density2;\t/* density for mode 2 */\n"
+"\tint32_t mt_density3;\t/* density for mode 3 */\n"
+"/* the following are not yet implemented */\n"
+"\tuint32_t mt_comp0;\t/* compression type for mode 0 */\n"
+"\tuint32_t mt_comp1;\t/* compression type for mode 1 */\n"
+"\tuint32_t mt_comp2;\t/* compression type for mode 2 */\n"
+"\tuint32_t mt_comp3;\t/* compression type for mode 3 */\n"
+"/* end not yet implemented */\n"
+"#endif\n"
+"\tint32_t\tmt_fileno;\t/* relative file number of current position */\n"
+"\tint32_t\tmt_blkno;\t/* relative block number of current position */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:226
+#, no-wrap
+msgid ""
+"/* structure for MTIOCERRSTAT - tape get error status command */\n"
+"/* really only supported for SCSI tapes right now */\n"
+"struct scsi_tape_errors {\n"
+"\t/*\n"
+"\t * These are latched from the last command that had a SCSI\n"
+"\t * Check Condition noted for these operations. The act\n"
+"\t * of issuing an MTIOCERRSTAT unlatches and clears them.\n"
+"\t */\n"
+"\tuint8_t io_sense[32];\t/* Last Sense Data For Data I/O */\n"
+"\tint32_t io_resid;\t/* residual count from last Data I/O */\n"
+"\tuint8_t io_cdb[16];\t/* Command that Caused the Last Data Sense */\n"
+"\tuint8_t ctl_sense[32];\t/* Last Sense Data For Control I/O */\n"
+"\tint32_t ctl_resid;\t/* residual count from last Control I/O */\n"
+"\tuint8_t ctl_cdb[16];\t/* Command that Caused the Last Control Sense */\n"
+"\t/*\n"
+"\t * These are the read and write cumulative error counters.\n"
+"\t * (how to reset cumulative error counters is not yet defined).\n"
+"\t * (not implemented as yet but space is being reserved for them)\n"
+"\t */\n"
+"\tstruct {\n"
+"\t\tuint32_t retries;\t/* total # retries performed */\n"
+"\t\tuint32_t corrected;\t/* total # corrections performed */\n"
+"\t\tuint32_t processed;\t/* total # corrections successful */\n"
+"\t\tuint32_t failures;\t/* total # corrections/retries failed */\n"
+"\t\tuint64_t nbytes;\t/* total # bytes processed */\n"
+"\t} wterr, rderr;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:231
+#, no-wrap
+msgid ""
+"union mterrstat {\n"
+"\tstruct scsi_tape_errors scsi_errstat;\n"
+"\tchar _reserved_padding[256];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:237
+#, no-wrap
+msgid ""
+"struct mtrblim {\n"
+"\tuint32_t granularity;\n"
+"\tuint32_t min_block_length;\n"
+"\tuint32_t max_block_length;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:244
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tMT_LOCATE_DEST_OBJECT\t= 0x00,\n"
+"\tMT_LOCATE_DEST_FILE\t= 0x01,\n"
+"\tMT_LOCATE_DEST_SET\t= 0x02,\n"
+"\tMT_LOCATE_DEST_EOD\t= 0x03\n"
+"} mt_locate_dest_type;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:249
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tMT_LOCATE_BAM_IMPLICIT\t= 0x00,\n"
+"\tMT_LOCATE_BAM_EXPLICIT\t= 0x01\n"
+"} mt_locate_bam;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:254
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tMT_LOCATE_FLAG_IMMED\t\t= 0x01,\n"
+"\tMT_LOCATE_FLAG_CHANGE_PART\t= 0x02\n"
+"} mt_locate_flags;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:263
+#, no-wrap
+msgid ""
+"struct mtlocate {\n"
+"\tmt_locate_flags\t\tflags;\n"
+"\tmt_locate_dest_type \tdest_type;\n"
+"\tmt_locate_bam\t\tblock_address_mode;\n"
+"\tint64_t\t\t\tpartition;\n"
+"\tuint64_t\t\tlogical_id;\n"
+"\tuint8_t\t\t\treserved[64];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:270
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tMT_EXT_GET_NONE,\n"
+"\tMT_EXT_GET_OK,\n"
+"\tMT_EXT_GET_NEED_MORE_SPACE,\n"
+"\tMT_EXT_GET_ERROR\n"
+"} mt_ext_get_status;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:279
+#, no-wrap
+msgid ""
+"struct mtextget {\n"
+"\tuint32_t\t\talloc_len;\n"
+"\tchar\t\t\t*status_xml;\n"
+"\tuint32_t\t\tfill_len;\n"
+"\tmt_ext_get_status\tstatus;\n"
+"\tchar\t\t\terror_str[128];\n"
+"\tuint8_t\t\t\treserved[64];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:287
+#, no-wrap
+msgid ""
+"#define\tMT_EXT_GET_ROOT_NAME\t\t\"mtextget\"\n"
+"#define\tMT_DENSITY_ROOT_NAME\t\t\"mtdensity\"\n"
+"#define\tMT_MEDIA_DENSITY_NAME\t\t\"media_density\"\n"
+"#define\tMT_DENSITY_REPORT_NAME\t\t\"density_report\"\n"
+"#define\tMT_MEDIUM_TYPE_REPORT_NAME\t\"medium_type_report\"\n"
+"#define\tMT_MEDIA_REPORT_NAME\t\t\"media_report\"\n"
+"#define\tMT_DENSITY_ENTRY_NAME\t\t\"density_entry\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:291
+#, no-wrap
+msgid ""
+"#define\tMT_DENS_WRITE_OK\t\t0x80\n"
+"#define\tMT_DENS_DUP\t\t\t0x40\n"
+"#define\tMT_DENS_DEFLT\t\t\t0x20\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:301
+#, no-wrap
+msgid ""
+"#define\tMT_PARAM_FIXED_STR_LEN\t32\n"
+"union mt_param_value {\n"
+"\tint64_t\t\tvalue_signed;\n"
+"\tuint64_t\tvalue_unsigned;\n"
+"\tchar\t\t*value_var_str;\n"
+"\tchar\t\tvalue_fixed_str[MT_PARAM_FIXED_STR_LEN];\n"
+"\tuint8_t\t\treserved[64];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:309
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tMT_PARAM_SET_NONE,\n"
+"\tMT_PARAM_SET_SIGNED,\n"
+"\tMT_PARAM_SET_UNSIGNED,\n"
+"\tMT_PARAM_SET_VAR_STR,\n"
+"\tMT_PARAM_SET_FIXED_STR\n"
+"} mt_param_set_type;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:315
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tMT_PARAM_STATUS_NONE,\n"
+"\tMT_PARAM_STATUS_OK,\n"
+"\tMT_PARAM_STATUS_ERROR\n"
+"} mt_param_set_status;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:325
+#, no-wrap
+msgid ""
+"#define\tMT_PARAM_VALUE_NAME_LEN\t64\n"
+"struct mtparamset {\n"
+"\tchar\t\t\tvalue_name[MT_PARAM_VALUE_NAME_LEN];\n"
+"\tmt_param_set_type\tvalue_type;\n"
+"\tint\t\t\tvalue_len;\n"
+"\tunion mt_param_value\tvalue;\n"
+"\tmt_param_set_status\tstatus;\n"
+"\tchar\t\t\terror_str[128];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:328
+#, no-wrap
+msgid ""
+"#define\tMT_PARAM_ROOT_NAME\t\"mtparamget\"\n"
+"#define\tMT_PROTECTION_NAME\t\"protection\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:337
+#, no-wrap
+msgid ""
+"/*\n"
+" * Set a list of parameters.\n"
+" */\n"
+"struct mtsetlist {\n"
+"\tint num_params;\n"
+"\tint param_len;\n"
+"\tstruct mtparamset *params;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:362
+#, no-wrap
+msgid ""
+"/*\n"
+" * Constants for mt_type byte.  These are the same\n"
+" * for controllers compatible with the types listed.\n"
+" */\n"
+"#define\tMT_ISTS\t\t0x01\t\t/* TS-11 */\n"
+"#define\tMT_ISHT\t\t0x02\t\t/* TM03 Massbus: TE16, TU45, TU77 */\n"
+"#define\tMT_ISTM\t\t0x03\t\t/* TM11/TE10 Unibus */\n"
+"#define\tMT_ISMT\t\t0x04\t\t/* TM78/TU78 Massbus */\n"
+"#define\tMT_ISUT\t\t0x05\t\t/* SI TU-45 emulation on Unibus */\n"
+"#define\tMT_ISCPC\t0x06\t\t/* SUN */\n"
+"#define\tMT_ISAR\t\t0x07\t\t/* SUN */\n"
+"#define\tMT_ISTMSCP\t0x08\t\t/* DEC TMSCP protocol (TU81, TK50) */\n"
+"#define MT_ISCY\t\t0x09\t\t/* CCI Cipher */\n"
+"#define MT_ISCT\t\t0x0a\t\t/* HP 1/4 tape */\n"
+"#define MT_ISFHP\t0x0b\t\t/* HP 7980 1/2 tape */\n"
+"#define MT_ISEXABYTE\t0x0c\t\t/* Exabyte */\n"
+"#define MT_ISEXA8200\t0x0c\t\t/* Exabyte EXB-8200 */\n"
+"#define MT_ISEXA8500\t0x0d\t\t/* Exabyte EXB-8500 */\n"
+"#define MT_ISVIPER1\t0x0e\t\t/* Archive Viper-150 */\n"
+"#define MT_ISPYTHON\t0x0f\t\t/* Archive Python (DAT) */\n"
+"#define MT_ISHPDAT\t0x10\t\t/* HP 35450A DAT drive */\n"
+"#define MT_ISMFOUR\t0x11\t\t/* M4 Data 1/2 9track drive */\n"
+"#define MT_ISTK50\t0x12\t\t/* DEC SCSI TK50 */\n"
+"#define MT_ISMT02\t0x13\t\t/* Emulex MT02 SCSI tape controller */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:393
+#, no-wrap
+msgid ""
+"/* mag tape io control commands */\n"
+"#define\tMTIOCTOP\t_IOW('m', 1, struct mtop)\t/* do a mag tape op */\n"
+"#define\tMTIOCGET\t_IOR('m', 2, struct mtget)\t/* get tape status */\n"
+"/* these two do not appear to be used anywhere */\n"
+"#define MTIOCIEOT\t_IO('m', 3)\t\t\t/* ignore EOT error */\n"
+"#define MTIOCEEOT\t_IO('m', 4)\t\t\t/* enable EOT error */\n"
+"/*\n"
+" * When more SCSI-3 SSC (streaming device) devices are out there\n"
+" * that support the full 32 byte type 2 structure, we'll have to\n"
+" * rethink these ioctls to support all the entities they haul into\n"
+" * the picture (64 bit blocks, logical file record numbers, etc..).\n"
+" */\n"
+"#define\tMTIOCRDSPOS\t_IOR('m', 5, uint32_t)\t/* get logical blk addr */\n"
+"#define\tMTIOCRDHPOS\t_IOR('m', 6, uint32_t)\t/* get hardware blk addr */\n"
+"#define\tMTIOCSLOCATE\t_IOW('m', 5, uint32_t)\t/* seek to logical blk addr "
+"*/\n"
+"#define\tMTIOCHLOCATE\t_IOW('m', 6, uint32_t)\t/* seek to hardware blk addr "
+"*/\n"
+"#define\tMTIOCERRSTAT\t_IOR('m', 7, union mterrstat)\t/* get tape errors "
+"*/\n"
+"/*\n"
+" * Set EOT model- argument is number of filemarks to end a tape with.\n"
+" * Note that not all possible values will be accepted.\n"
+" */\n"
+"#define\tMTIOCSETEOTMODEL\t_IOW('m', 8, uint32_t)\n"
+"/* Get current EOT model */\n"
+"#define\tMTIOCGETEOTMODEL\t_IOR('m', 8, uint32_t)\n"
+"#define\tMTIOCRBLIM\t_IOR('m', 9, struct mtrblim)    /* get block limits "
+"*/\n"
+"#define\tMTIOCEXTLOCATE\t_IOW('m', 10, struct mtlocate)  /* seek to position "
+"*/\n"
+"#define\tMTIOCEXTGET\t_IOWR('m', 11, struct mtextget) /* get tape status "
+"*/\n"
+"#define\tMTIOCPARAMGET\t_IOWR('m', 12, struct mtextget) /* get tape params "
+"*/\n"
+"#define\tMTIOCPARAMSET\t_IOWR('m', 13, struct mtparamset) /* set tape params "
+"*/\n"
+"#define\tMTIOCSETLIST\t_IOWR('m', 14, struct mtsetlist) /* set N params */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:397
+#, no-wrap
+msgid ""
+"#ifndef _KERNEL\n"
+"#define\tDEFTAPE\t\"/dev/nsa0\"\n"
+"#endif\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:399
+#, no-wrap
+msgid "#endif /* !_SYS_MTIO_H_ */\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mtio.4:400
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mtio.4:402
+#, no-wrap
+msgid "Pa /dev/[en]sa*"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mtio.4:404
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:408
+msgid "E<.Xr mt 1>, E<.Xr tar 1>, E<.Xr sa 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mtio.4:408
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mtio.4:414
+msgid ""
+"The E<.Nm> manual appeared in E<.Bx 4.2>.  An i386 version first appeared in "
+"E<.Fx 2.2>."
+msgstr ""

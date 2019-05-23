@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sema.9:29
+#, no-wrap
+msgid "February 1, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sema.9:30
+#, no-wrap
+msgid "SEMA 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sema.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:41
+msgid ""
+"E<.Nm sema>, E<.Nm sema_init>, E<.Nm sema_destroy>, E<.Nm sema_post>, E<.Nm "
+"sema_wait>, E<.Nm sema_timedwait>, E<.Nm sema_trywait>, E<.Nm sema_value>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sema.9:41
+#, no-wrap
+msgid "kernel counting semaphore"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sema.9:42
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sema.9:43
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sema.9:44
+#, no-wrap
+msgid "sys/lock.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sema.9:45
+#, no-wrap
+msgid "sys/sema.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:60
+msgid ""
+"E<.Ft void> E<.Fn sema_init \"struct sema *sema\" \"int value\" \"const char "
+"*description\"> E<.Ft void> E<.Fn sema_destroy \"struct sema *sema\"> E<.Ft "
+"void> E<.Fn sema_post \"struct sema *sema\"> E<.Ft void> E<.Fn sema_wait "
+"\"struct sema *sema\"> E<.Ft int> E<.Fn sema_timedwait \"struct sema *sema\" "
+"\"int timo\"> E<.Ft int> E<.Fn sema_trywait \"struct sema *sema\"> E<.Ft "
+"int> E<.Fn sema_value \"struct sema *sema\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sema.9:60
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:70
+msgid ""
+"Counting semaphores provide a mechanism for synchronizing access to a pool "
+"of resources.  Unlike mutexes, semaphores do not have the concept of an "
+"owner, so they can also be useful in situations where one thread needs to "
+"acquire a resource, and another thread needs to release it.  Each semaphore "
+"has an integer value associated with it.  Posting (incrementing) always "
+"succeeds, but waiting (decrementing) can only successfully complete if the "
+"resulting value of the semaphore is greater than or equal to zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:75
+msgid ""
+"Semaphores should not be used where mutexes and condition variables will "
+"suffice.  Semaphores are a more complex synchronization mechanism than "
+"mutexes and condition variables, and are not as efficient."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:102
+msgid ""
+"Semaphores are created with E<.Fn sema_init>, where E<.Fa sema> is a pointer "
+"to space for a E<.Vt \"struct sema\">, E<.Fa value> is the initial value of "
+"the semaphore, and E<.Fa description> is a pointer to a null-terminated "
+"character string that describes the semaphore.  Semaphores are destroyed "
+"with E<.Fn sema_destroy>.  A semaphore is posted (incremented) with E<.Fn "
+"sema_post>.  A semaphore is waited on (decremented) with E<.Fn sema_wait>, "
+"E<.Fn sema_timedwait>, or E<.Fn sema_trywait>.  The E<.Fa timo> argument to "
+"E<.Fn sema_timedwait> specifies the minimum time in ticks to wait before "
+"returning with failure.  E<.Fn sema_value> is used to read the current value "
+"of the semaphore."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sema.9:102
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:107
+msgid "The E<.Fn sema_value> function returns the current value of the semaphore."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:112
+msgid ""
+"If decrementing the semaphore would result in its value being negative, "
+"E<.Fn sema_trywait> returns 0 to indicate failure.  Otherwise, a non-zero "
+"value is returned to indicate success."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:118
+msgid ""
+"The E<.Fn sema_timedwait> function returns 0 if waiting on the semaphore "
+"succeeded; otherwise a non-zero error code is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sema.9:118
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:122
+msgid "The E<.Fn sema_timedwait> function will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sema.9:123
+#, no-wrap
+msgid "Bq Er EWOULDBLOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:125
+msgid "Timeout expired."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sema.9:126
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sema.9:132
+msgid ""
+"E<.Xr condvar 9>, E<.Xr locking 9>, E<.Xr mtx_pool 9>, E<.Xr mutex 9>, E<.Xr "
+"rwlock 9>, E<.Xr sx 9>"
+msgstr ""

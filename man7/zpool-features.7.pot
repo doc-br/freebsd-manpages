@@ -1,0 +1,902 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:26
+#, no-wrap
+msgid "June 7, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:27
+#, no-wrap
+msgid "ZPOOL-FEATURES 7"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:31
+msgid "E<.Nm zpool-features>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:31
+#, no-wrap
+msgid "ZFS pool feature descriptions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:32
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:44
+msgid ""
+"ZFS pool on\\-disk format versions are specified via \"features\" which "
+"replace the old on\\-disk format numbers (the last supported on\\-disk "
+"format number is 28).  To enable a feature on a pool use the E<.Cm upgrade> "
+"subcommand of the E<.Xr zpool 8> command, or set the E<.Sy "
+"feature@feature_name> property to E<.Ar enabled>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:47
+msgid ""
+"The pool format does not affect file system version compatibility or the "
+"ability to send file systems between pools."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:54
+msgid ""
+"Since most features can be enabled independently of each other the on\\-disk "
+"format of the pool is specified by the set of all features marked as E<.Sy "
+"active> on the pool.  If the pool was created by another software version "
+"this set may include unsupported features."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:54
+#, no-wrap
+msgid "Identifying features"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:63
+msgid ""
+"Every feature has a guid of the form E<.Sy com.example:feature_name>.  The "
+"reverse DNS name ensures that the feature's guid is unique across all ZFS "
+"implementations.  When unsupported features are encountered on a pool they "
+"will be identified by their guids.  Refer to the documentation for the ZFS "
+"implementation that created the pool for information about those features."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:72
+msgid ""
+"Each supported feature also has a short name.  By convention a feature's "
+"short name is the portion of its guid which follows the ':' (e.g.  E<.Sy "
+"com.example:feature_name> would have the short name E<.Sy feature_name ),> "
+"however a feature's short name may differ across ZFS implementations if "
+"following the convention would result in name conflicts."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:72
+#, no-wrap
+msgid "Feature states"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:74
+msgid "Features can be in one of three states:"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:75
+#, no-wrap
+msgid "Sy active"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:80
+msgid ""
+"This feature's on\\-disk format changes are in effect on the pool.  Support "
+"for this feature is required to import the pool in read\\-write mode.  If "
+"this feature is not read-only compatible, support is also required to import "
+"the pool in read\\-only mode (see \"Read\\-only compatibility\")."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:80
+#, no-wrap
+msgid "Sy enabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:93
+msgid ""
+"An administrator has marked this feature as enabled on the pool, but the "
+"feature's on\\-disk format changes have not been made yet.  The pool can "
+"still be imported by software that does not support this feature, but "
+"changes may be made to the on\\-disk format at any time which will move the "
+"feature to the E<.Sy active> state.  Some features may support returning to "
+"the E<.Sy enabled> state after becoming E<.Sy active>.  See "
+"feature\\-specific documentation for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:93
+#, no-wrap
+msgid "Sy disabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:99
+msgid ""
+"This feature's on\\-disk format changes have not been made and will not be "
+"made unless an administrator moves the feature to the E<.Sy enabled> state.  "
+"Features cannot be disabled once they have been enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:103
+msgid ""
+"The state of supported features is exposed through pool properties of the "
+"form E<.Sy feature@short_name>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:103
+#, no-wrap
+msgid "Read\\-only compatibility"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:113
+msgid ""
+"Some features may make on\\-disk format changes that do not interfere with "
+"other software's ability to read from the pool.  These features are referred "
+"to as \"read\\-only compatible\".  If all unsupported features on a pool are "
+"read\\-only compatible, the pool can be imported in read\\-only mode by "
+"setting the E<.Sy readonly> property during import (see E<.Xr zpool 8> for "
+"details on importing pools)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:113
+#, no-wrap
+msgid "Unsupported features"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:119
+msgid ""
+"For each unsupported feature enabled on an imported pool a pool property "
+"named E<.Sy unsupported@feature_guid> will indicate why the import was "
+"allowed despite the unsupported feature.  Possible values for this property "
+"are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:120
+#, no-wrap
+msgid "Sy inactive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:125
+msgid ""
+"The feature is in the E<.Sy enabled> state and therefore the pool's "
+"on\\-disk format is still compatible with software that does not support "
+"this feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:125
+#, no-wrap
+msgid "Sy readonly"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:128
+msgid ""
+"The feature is read\\-only compatible and the pool has been imported in "
+"read\\-only mode."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:129
+#, no-wrap
+msgid "Feature dependencies"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:133
+msgid ""
+"Some features depend on other features being enabled in order to function "
+"properly.  Enabling a feature will automatically enable any features it "
+"depends on."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:133
+#, no-wrap
+msgid "FEATURES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:135
+msgid "The following features are supported on this system:"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:136
+#, no-wrap
+msgid "Sy async_destroy"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:138
+#, no-wrap
+msgid "GUID Ta com.delphix:async_destroy"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:139 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:173 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:195 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:283 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:319 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:338 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:437 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:469 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:488
+#, no-wrap
+msgid "READ\\-ONLY COMPATIBLE Ta yes"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:140 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:174 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:213 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:263 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:284 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:303 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:339 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:410 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:438 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:455 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:489 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:534 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:573
+#, no-wrap
+msgid "DEPENDENCIES Ta none"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:151
+msgid ""
+"Destroying a file system requires traversing all of its data in order to "
+"return its used space to the pool.  Without E<.Sy async_destroy> the file "
+"system is not fully removed until all space has been reclaimed.  If the "
+"destroy operation is interrupted by a reboot or power outage the next "
+"attempt to open the pool will need to complete the destroy operation "
+"synchronously."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:164
+msgid ""
+"When E<.Sy async_destroy> is enabled the file system's data will be "
+"reclaimed by a background process, allowing the destroy operation to "
+"complete without traversing the entire file system.  The background process "
+"is able to resume interrupted destroys after the pool has been opened, "
+"eliminating the need to finish interrupted destroys as part of the open "
+"operation.  The amount of space remaining to be reclaimed by the background "
+"process is available through the E<.Sy freeing> property."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:170
+msgid "This feature is only E<.Sy active> while E<.Sy freeing> is non\\-zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:170
+#, no-wrap
+msgid "Sy empty_bpobj"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:172
+#, no-wrap
+msgid "GUID Ta com.delphix:empty_bpobj"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:180
+msgid ""
+"This feature increases the performance of creating and using a large number "
+"of snapshots of a single filesystem or volume, and also reduces the disk "
+"space required."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:187
+msgid ""
+"When there are many snapshots, each snapshot uses many Block Pointer Objects "
+"E<.Pq bpobj's> to track blocks associated with that snapshot.  However, in "
+"common use cases, most of these bpobj's are empty.  This feature allows us "
+"to create each bpobj on-demand, thus eliminating the empty bpobjs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:192
+msgid ""
+"This feature is E<.Sy active> while there are any filesystems, volumes, or "
+"snapshots which were created after enabling this feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:192
+#, no-wrap
+msgid "Sy filesystem_limits"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:194
+#, no-wrap
+msgid "GUID Ta com.joyent:filesystem_limits"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:196 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:320 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:507
+#, no-wrap
+msgid "DEPENDENCIES Ta extensible_dataset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:203
+msgid ""
+"This feature enables filesystem and snapshot limits.  These limits can be "
+"used to control how many filesystems and/or snapshots can be created at the "
+"point in the tree on which the limits are set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:209
+msgid ""
+"This feature is E<.Sy active> once either of the limit properties has been "
+"set on a dataset.  Once activated the feature is never deactivated."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:209
+#, no-wrap
+msgid "Sy lz4_compress"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:211
+#, no-wrap
+msgid "GUID Ta org.illumos:lz4_compress"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:212 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:262 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:302 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:355 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:409 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:454 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:506 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:533 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:572
+#, no-wrap
+msgid "READ\\-ONLY COMPATIBLE Ta no"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:229
+msgid ""
+"E<.Sy lz4> is a high-performance real-time compression algorithm that "
+"features significantly faster compression and decompression as well as a "
+"higher compression ratio than the older E<.Sy lzjb> compression.  Typically, "
+"E<.Sy lz4> compression is approximately 50% faster on compressible data and "
+"200% faster on incompressible data than E<.Sy lzjb>.  It is also "
+"approximately 80% faster on decompression, while giving approximately 10% "
+"better compression ratio."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:253
+msgid ""
+"When the E<.Sy lz4_compress> feature is set to E<.Sy enabled>, the "
+"administrator can turn on E<.Sy lz4> compression on any dataset on the pool "
+"using the E<.Xr zfs 8> command.  Also, all newly written metadata will be "
+"compressed with E<.Sy lz4> algorithm.  Since this feature is not read-only "
+"compatible, this operation will render the pool unimportable on systems "
+"without support for the E<.Sy lz4_compress> feature.  Booting off of E<.Sy "
+"lz4> -compressed root pools is supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:259 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:352 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:406 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:434 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:503
+msgid ""
+"This feature becomes E<.Sy active> as soon as it is enabled and will never "
+"return to being E<.Sy enabled>."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:259
+#, no-wrap
+msgid "Sy multi_vdev_crash_dump"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:261
+#, no-wrap
+msgid "GUID Ta com.joyent:multi_vdev_crash_dump"
+msgstr ""
+
+#.  TODO: this is not yet supported on FreeBSD.
+#.  .Pp
+#.  When the
+#.  .Sy multi_vdev_crash_dump
+#.  feature is set to
+#.  .Sy enabled ,
+#.  the administrator can use the
+#.  .Xr dumpon 8
+#.  command to configure a
+#.  dump device on a pool comprised of multiple vdevs.
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:280
+msgid ""
+"This feature allows a dump device to be configured with a pool comprised of "
+"multiple vdevs.  Those vdevs may be arranged in any mirrored or raidz "
+"configuration."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:280
+#, no-wrap
+msgid "Sy spacemap_histogram"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:282
+#, no-wrap
+msgid "GUID Ta com.delphix:spacemap_histogram"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:299
+msgid ""
+"This features allows ZFS to maintain more information about how free space "
+"is organized within the pool.  If this feature is E<.Sy enabled>, ZFS will "
+"set this feature to E<.Sy active> when a new space map object is created or "
+"an existing space map is upgraded to the new format.  Once the feature is "
+"E<.Sy active>, it will remain in that state until the pool is destroyed."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:299
+#, no-wrap
+msgid "Sy extensible_dataset"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:301
+#, no-wrap
+msgid "GUID Ta com.delphix:extensible_dataset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:308
+msgid ""
+"This feature allows more flexible use of internal ZFS data structures, and "
+"exists for other features to depend on."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:316
+msgid ""
+"This feature will be E<.Sy active> when the first dependent feature uses it, "
+"and will be returned to the E<.Sy enabled> state when all datasets that use "
+"this feature are destroyed."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:316
+#, no-wrap
+msgid "Sy bookmarks"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:318
+#, no-wrap
+msgid "GUID Ta com.delphix:bookmarks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:327
+msgid "This feature enables use of the E<.Nm zfs> E<.Cm bookmark> subcommand."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:335
+msgid ""
+"This feature is E<.Sy active> while any bookmarks exist in the pool.  All "
+"bookmarks in the pool can be listed by running E<.Nm zfs> E<.Cm list> E<.Fl "
+"t No bookmark Fl r Ar poolname>."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:335
+#, no-wrap
+msgid "Sy enabled_txg"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:337
+#, no-wrap
+msgid "GUID Ta com.delphix:enabled_txg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:346
+msgid ""
+"Once this feature is enabled ZFS records the transaction group number in "
+"which new features are enabled.  This has no user-visible impact, but other "
+"features may depend on this feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:352
+#, no-wrap
+msgid "Sy hole_birth"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:354
+#, no-wrap
+msgid "GUID Ta com.delphix:hole_birth"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:356
+#, no-wrap
+msgid "DEPENDENCIES Ta enabled_txg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:364
+msgid ""
+"This feature improves performance of incremental sends E<.Pq Dq zfs send -i> "
+"and receives for objects with many holes.  The most common case of "
+"hole-filled objects is zvols."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:384
+msgid ""
+"An incremental send stream from snapshot E<.Sy A> to snapshot E<.Sy B> "
+"contains information about every block that changed between E<.Sy A> and "
+"E<.Sy B>.  Blocks which did not change between those snapshots can be "
+"identified and omitted from the stream using a piece of metadata called the "
+"'block birth time', but birth times are not recorded for holes E<.Pq blocks "
+"filled only with zeroes>.  Since holes created after E<.Sy A> cannot be "
+"distinguished from holes created before E<.Sy A>, information about every "
+"hole in the entire filesystem or zvol is included in the send stream."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:392
+msgid ""
+"For workloads where holes are rare this is not a problem.  However, when "
+"incrementally replicating filesystems or zvols with many holes E<.Pq for "
+"example a zvol formatted with another filesystem> a lot of time will be "
+"spent sending and receiving unnecessary information about holes that already "
+"exist on the receiving side."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:400
+msgid ""
+"Once the E<.Sy hole_birth> feature has been enabled the block birth times of "
+"all new holes will be recorded.  Incremental sends between snapshots created "
+"after this feature is enabled will use this new metadata to avoid sending "
+"information about holes that already exist on the receiving side."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:406
+#, no-wrap
+msgid "Sy embedded_data"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:408
+#, no-wrap
+msgid "GUID Ta com.delphix:embedded_data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:417
+msgid ""
+"This feature improves the performance and compression ratio of "
+"highly-compressible blocks.  Blocks whose contents can compress to 112 bytes "
+"or smaller can take advantage of this feature."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:428
+msgid ""
+"When this feature is enabled, the contents of highly-compressible blocks are "
+"stored in the block \"pointer\" itself E<.Po a misnomer in this case, as it "
+"contains> the compressed data, rather than a pointer to its location on disk "
+"E<.Pc>.  Thus the space of the block E<.Pq one sector, typically 512 bytes "
+"or 4KB> is saved, and no additional i/o is needed to read and write the data "
+"block."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:434
+#, no-wrap
+msgid "Sy zpool_checkpoint"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:436
+#, no-wrap
+msgid "GUID Ta com.delphix:zpool_checkpoint"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:444
+msgid ""
+"This feature enables the \"zpool checkpoint\" subcommand that can checkpoint "
+"the state of the pool at the time it was issued and later rewind back to it "
+"or discard it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:451
+msgid ""
+"This feature becomes E<.Sy active> when the \"zpool checkpoint\" command is "
+"used to checkpoint the pool.  The feature will only return back to being "
+"E<.Sy enabled> when the pool is rewound or the checkpoint has been "
+"discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:451
+#, no-wrap
+msgid "Sy device_removal"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:453
+#, no-wrap
+msgid "GUID Ta com.delphix:device_removal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:460
+msgid ""
+"This feature enables the \"zpool remove\" subcommand to remove top-level "
+"vdevs, evacuating them to reduce the total size of the pool."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:466 /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:485
+msgid ""
+"This feature becomes E<.Sy active> when the \"zpool remove\" command is used "
+"on a top-level vdev, and will never return to being E<.Sy enabled>."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:466
+#, no-wrap
+msgid "Sy obsolete_counts"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:468
+#, no-wrap
+msgid "GUID Ta com.delphix:obsolete_counts"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:470
+#, no-wrap
+msgid "DEPENDENCIES Ta device_removal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:479
+msgid ""
+"This feature is an enhancement of device_removal, which will over time "
+"reduce the memory used to track removed devices.  When indirect blocks are "
+"freed or remapped, we note that their part of the indirect mapping is "
+"\"obsolete\", i.e. no longer needed.  See also the \"zfs remap\" subcommand "
+"in E<.Xr zfs 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:485
+#, no-wrap
+msgid "Sy spacemap_v2"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:487
+#, no-wrap
+msgid "GUID Ta com.delphix:spacemap_v2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:497
+msgid ""
+"This feature enables the use of the new space map encoding which consists of "
+"two words (instead of one) whenever it is advantageous.  The new encoding "
+"allows space maps to represent large regions of space more efficiently "
+"on-disk while also increasing their maximum addressable offset."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:503
+#, no-wrap
+msgid "Sy large_blocks"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:505
+#, no-wrap
+msgid "GUID Ta org.open-zfs:large_block"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:514
+msgid ""
+"The E<.Sy large_block> feature allows the record size on a dataset to be set "
+"larger than 128KB."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:523
+msgid ""
+"This feature becomes E<.Sy active> once a E<.Sy recordsize> property has "
+"been set larger than 128KB, and will return to being E<.Sy enabled> once all "
+"filesystems that have ever had their recordsize larger than 128KB are "
+"destroyed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:530
+msgid ""
+"Please note that booting from datasets that have recordsize greater than "
+"128KB is E<.Em NOT> supported by the E<.Fx> boot loader."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:530
+#, no-wrap
+msgid "Sy sha512"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:532
+#, no-wrap
+msgid "GUID Ta org.illumos:sha512"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:548
+msgid ""
+"The E<.Sy sha512> feature enables the use of the SHA-512/256 truncated hash "
+"algorithm E<.Pq FIPS 180-4> for checksum and dedup.  The native 64-bit "
+"arithmetic of SHA-512 provides an approximate 50% performance boost over "
+"SHA-256 on 64-bit hardware and is thus a good minimum-change replacement "
+"candidate for systems where hash performance is important, but these systems "
+"cannot for whatever reason utilize the faster E<.Sy skein> algorithms."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:556
+msgid ""
+"When the E<.Sy sha512> feature is set to E<.Sy enabled>, the administrator "
+"can turn on the E<.Sy sha512> checksum on any dataset using the"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:556
+#, no-wrap
+msgid "# zfs set checksum=sha512 Ar dataset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:569
+msgid ""
+"command.  This feature becomes E<.Sy active> once a E<.Sy checksum> property "
+"has been set to E<.Sy sha512>, and will return to being E<.Sy enabled> once "
+"all filesystems that have ever had their checksum set to E<.Sy sha512> are "
+"destroyed."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:569
+#, no-wrap
+msgid "Sy skein"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:571
+#, no-wrap
+msgid "GUID Ta org.illumos:skein"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:590
+msgid ""
+"The E<.Sy skein> feature enables the use of the Skein hash algorithm for "
+"checksum and dedup.  Skein is a high-performance secure hash algorithm that "
+"was a finalist in the NIST SHA-3 competition.  It provides a very high "
+"security margin and high performance on 64-bit hardware E<.Pq 80% faster "
+"than SHA-256>.  This implementation also utilizes the new salted "
+"checksumming functionality in ZFS, which means that the checksum is "
+"pre-seeded with a secret 256-bit random key E<.Pq stored on the pool> before "
+"being fed the data block to be checksummed.  Thus the produced checksums are "
+"unique to a given pool, preventing hash collision attacks on systems with "
+"dedup."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:598
+msgid ""
+"When the E<.Sy skein> feature is set to E<.Sy enabled>, the administrator "
+"can turn on the E<.Sy skein> checksum on any dataset using the"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:598
+#, no-wrap
+msgid "# zfs set checksum=skein Ar dataset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:611
+msgid ""
+"command.  This feature becomes E<.Sy active> once a E<.Sy checksum> property "
+"has been set to E<.Sy skein>, and will return to being E<.Sy enabled> once "
+"all filesystems that have ever had their checksum set to E<.Sy skein> are "
+"destroyed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:612
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:614
+msgid "E<.Xr zpool 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:614
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:625
+msgid ""
+"This manual page is a E<.Xr mdoc 7> reimplementation of the E<.Tn illumos> "
+"manual page E<.Em zpool-features(5)>, modified and customized for E<.Fx> and "
+"licensed under the Common Development and Distribution License E<.Pq Tn "
+"CDDL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zpool/zpool-features.7:629
+msgid ""
+"The E<.Xr mdoc 7> implementation of this manual page was initially written "
+"by E<.An Martin Matuska Aq mm@FreeBSD.org>."
+msgstr ""

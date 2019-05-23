@@ -1,0 +1,340 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:31
+#, no-wrap
+msgid "August 8, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:32
+#, no-wrap
+msgid "VOP_LOOKUP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:36
+msgid "E<.Nm VOP_LOOKUP>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:36
+#, no-wrap
+msgid "lookup a component of a pathname"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:39
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:40
+#, no-wrap
+msgid "sys/namei.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:43
+msgid ""
+"E<.Ft int> E<.Fn VOP_LOOKUP \"struct vnode *dvp\" \"struct vnode **vpp\" "
+"\"struct componentname *cnp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:45
+msgid "This entry point looks up a single pathname component in a given directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:47
+msgid "Its arguments are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:48
+#, no-wrap
+msgid "Fa dvp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:50
+msgid "The locked vnode of the directory to search."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:50
+#, no-wrap
+msgid "Fa vpp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:52
+msgid "The address of a variable where the resulting locked vnode should be stored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:52
+#, no-wrap
+msgid "Fa cnp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:55
+msgid ""
+"The pathname component to be searched for.  It is a pointer to a "
+"componentname structure defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:72
+#, no-wrap
+msgid ""
+"struct componentname {\n"
+"\t/*\n"
+"\t * Arguments to lookup.\n"
+"\t */\n"
+"\tu_long\tcn_nameiop;\t/* namei operation */\n"
+"\tu_long\tcn_flags;\t/* flags to namei */\n"
+"\tstruct\tthread *cn_thread;\t/* thread requesting lookup */\n"
+"\tstruct\tucred *cn_cred;\t/* credentials */\n"
+"\tint     cn_lkflags;     /* Lock flags LK_EXCLUSIVE or LK_SHARED */\n"
+"\t/*\n"
+"\t * Shared between lookup and commit routines.\n"
+"\t */\n"
+"\tchar\t*cn_pnbuf;\t/* pathname buffer */\n"
+"\tchar\t*cn_nameptr;\t/* pointer to looked up name */\n"
+"\tlong\tcn_namelen;\t/* length of looked up component */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:78
+msgid ""
+"Convert a component of a pathname into a pointer to a locked vnode.  This is "
+"a very central and rather complicated routine.  If the file system is not "
+"maintained in a strict tree hierarchy, this can result in a deadlock "
+"situation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:95
+msgid ""
+"The E<.Fa cnp-E<gt>cn_nameiop> argument is E<.Dv LOOKUP>, E<.Dv CREATE>, "
+"E<.Dv RENAME>, or E<.Dv DELETE> depending on the intended use of the "
+"object.  When E<.Dv CREATE>, E<.Dv RENAME>, or E<.Dv DELETE> is specified, "
+"information usable in creating, renaming, or deleting a directory entry may "
+"be calculated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:97
+msgid "Overall outline of VOP_LOOKUP:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:101
+#, no-wrap
+msgid ""
+"Check accessibility of directory.\n"
+"Look for name in cache, if found, then return name.\n"
+"Search for name in directory, goto to found or notfound as appropriate.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:104
+msgid "notfound:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:110
+#, no-wrap
+msgid ""
+"If creating or renaming and at end of pathname,\n"
+"return\n"
+"E<.Er EJUSTRETURN>,\n"
+"leaving info on available slots else return\n"
+"E<.Er ENOENT>.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:113
+msgid "found:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:119
+#, no-wrap
+msgid ""
+"If at end of path and deleting, return information to allow delete.\n"
+"If at end of path and renaming, lock target\n"
+"inode and return info to allow rename.\n"
+"If not at end, add name to cache; if at end and neither creating\n"
+"nor deleting, add name to cache.\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:120
+#, no-wrap
+msgid "LOCKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:125
+msgid ""
+"The directory E<.Fa dvp> should be locked on entry and exit, regardless of "
+"error condition.  If an entry is found in the directory, it will be returned "
+"locked."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:125
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:134
+msgid ""
+"Zero is returned with E<.Fa *vpp> set to the locked vnode of the file if the "
+"component is found.  If the component being searched for is \".\", then the "
+"vnode just has an extra reference added to it with E<.Xr vref 9>.  The "
+"caller must take care to release the locks appropriately in this case."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:145
+msgid ""
+"If the component is not found and the operation is E<.Dv CREATE> or E<.Dv "
+"RENAME>, the flag E<.Dv ISLASTCN> is specified and the operation would "
+"succeed, the special return value E<.Er EJUSTRETURN> is returned.  "
+"Otherwise, an appropriate error code is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:145
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:147
+#, no-wrap
+msgid "Bq Er ENOTDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:151
+msgid "The vnode E<.Fa dvp> does not represent a directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:151
+#, no-wrap
+msgid "Bq Er ENOENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:155
+msgid "The component E<.Fa dvp> was not found in this directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:155
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:157
+msgid "Access for the specified operation is denied."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:157
+#, no-wrap
+msgid "Bq Er EJUSTRETURN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:163
+msgid "A E<.Dv CREATE> or E<.Dv RENAME> operation would be successful."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:164
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:172
+msgid ""
+"E<.Xr vnode 9>, E<.Xr VOP_ACCESS 9>, E<.Xr VOP_CREATE 9>, E<.Xr VOP_MKDIR "
+"9>, E<.Xr VOP_MKNOD 9>, E<.Xr VOP_RENAME 9>, E<.Xr VOP_SYMLINK 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:172
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:177
+msgid "The function E<.Nm> appeared in E<.Bx 4.3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:177
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/VOP_LOOKUP.9:181
+msgid ""
+"This manual page was written by E<.An Doug Rabson>, with some text from "
+"comments in E<.Pa ufs_lookup.c>."
+msgstr ""

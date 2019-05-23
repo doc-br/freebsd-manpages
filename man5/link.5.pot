@@ -1,0 +1,1204 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/link.5:31
+#, no-wrap
+msgid "October 23, 1993"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/link.5:32
+#, no-wrap
+msgid "LINK 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/link.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:36
+msgid "E<.Nm link>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/link.5:36
+#, no-wrap
+msgid "dynamic loader and link editor interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/link.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/link.5:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/link.5:39
+#, no-wrap
+msgid "nlist.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/link.5:40 /usr/src/share/man/man5/link.5:43
+#, no-wrap
+msgid "link.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/link.5:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:43
+msgid "The include file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:66
+msgid ""
+"declares several structures that are present in dynamically linked programs "
+"and libraries.  The structures define the interface between several "
+"components of the link-editor and loader mechanism.  The layout of a number "
+"of these structures within the binaries resembles the a.out format in many "
+"places as it serves such similar functions as symbol definitions (including "
+"the accompanying string table) and relocation records needed to resolve "
+"references to external entities.  It also records a number of data "
+"structures unique to the dynamic loading and linking process.  These include "
+"references to other objects that are required to complete the link-editing "
+"process and indirection tables to facilitate E<.Em Position Independent "
+"Code> (PIC for short) to improve sharing of code pages among different "
+"processes.  The collection of data structures described here will be "
+"referred to as the E<.Em Run-time Relocation Section (RRS)> and is embedded "
+"in the standard text and data segments of the dynamically linked program or "
+"shared object image as the existing E<.Xr a.out 5> format offers no room for "
+"it elsewhere."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:87
+msgid ""
+"Several utilities cooperate to ensure that the task of getting a program "
+"ready to run can complete successfully in a way that optimizes the use of "
+"system resources.  The compiler emits PIC code from which shared libraries "
+"can be built by E<.Xr ld 1>.  The compiler also includes size information of "
+"any initialized data items through the .size assembler directive.  PIC code "
+"differs from conventional code in that it accesses data variables through an "
+"indirection table, the Global Offset Table, by convention accessible by the "
+"reserved name E<.Dv _GLOBAL_OFFSET_TABLE_>.  The exact mechanism used for "
+"this is machine dependent, usually a machine register is reserved for the "
+"purpose.  The rational behind this construct is to generate code that is "
+"independent of the actual load address.  Only the values contained in the "
+"Global Offset Table may need updating at run-time depending on the load "
+"addresses of the various shared objects in the address space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:92
+msgid ""
+"Likewise, procedure calls to globally defined functions are redirected "
+"through the Procedure Linkage Table (PLT) residing in the data segment of "
+"the core image.  Again, this is done to avoid run-time modifications to the "
+"text segment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:111
+msgid ""
+"The linker-editor allocates the Global Offset Table and Procedure Linkage "
+"Table when combining PIC object files into an image suitable for mapping "
+"into the process address space.  It also collects all symbols that may be "
+"needed by the run-time link-editor and stores these along with the image's "
+"text and data bits.  Another reserved symbol, E<.Em _DYNAMIC> is used to "
+"indicate the presence of the run-time linker structures.  Whenever _DYNAMIC "
+"is relocated to 0, there is no need to invoke the run-time link-editor.  If "
+"this symbol is non-zero, it points at a data structure from which the "
+"location of the necessary relocation- and symbol information can be "
+"derived.  This is most notably used by the start-up module, E<.Em crt0>.  "
+"The _DYNAMIC structure is conventionally located at the start of the data "
+"segment of the image to which it pertains."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/link.5:111
+#, no-wrap
+msgid "DATA STRUCTURES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:117
+msgid ""
+"The data structures supporting dynamic linking and run-time relocation "
+"reside both in the text and data segments of the image they apply to.  The "
+"text segments contain read-only data such as symbols descriptions and names, "
+"while the data segments contain the tables that need to be modified by "
+"during the relocation process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:121
+msgid "The _DYNAMIC symbol references a E<.Fa _dynamic> structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:130
+#, no-wrap
+msgid ""
+"struct\t_dynamic {\n"
+"\tint\td_version;\n"
+"\tstruct \tso_debug *d_debug;\n"
+"\tunion {\n"
+"\t\tstruct section_dispatch_table *d_sdt;\n"
+"\t} d_un;\n"
+"\tstruct  ld_entry *d_entry;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:132
+#, no-wrap
+msgid "Fa d_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:147
+msgid ""
+"This field provides for different versions of the dynamic linking "
+"implementation.  The current version numbers understood by E<.Xr ld 1> and "
+"E<.Xr ld.so 1> are E<.Em LD_VERSION_SUN (3)>, which is used by the E<.Tn "
+"SunOS> 4.x releases, and E<.Em LD_VERSION_BSD (8)>, which has been in use "
+"since E<.Fx 1.1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:147
+#, no-wrap
+msgid "Fa d_un"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:151
+msgid "Refers to a E<.Em d_version> dependent data structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:151
+#, no-wrap
+msgid "Fa so_debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:154
+msgid ""
+"this field provides debuggers with a hook to access symbol tables of shared "
+"objects loaded as a result of the actions of the run-time link-editor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:162
+msgid ""
+"The E<.Fa section_dispatch_table> structure is the main E<.Dq dispatcher> "
+"table, containing offsets into the image's segments where various symbol and "
+"relocation information is located."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:179
+#, no-wrap
+msgid ""
+"struct section_dispatch_table {\n"
+"\tstruct\tso_map *sdt_loaded;\n"
+"\tlong\tsdt_sods;\n"
+"\tlong\tsdt_filler1;\n"
+"\tlong\tsdt_got;\n"
+"\tlong\tsdt_plt;\n"
+"\tlong\tsdt_rel;\n"
+"\tlong\tsdt_hash;\n"
+"\tlong\tsdt_nzlist;\n"
+"\tlong\tsdt_filler2;\n"
+"\tlong\tsdt_buckets;\n"
+"\tlong\tsdt_strings;\n"
+"\tlong\tsdt_str_sz;\n"
+"\tlong\tsdt_text_sz;\n"
+"\tlong\tsdt_plt_sz;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:181
+#, no-wrap
+msgid "Fa sdt_loaded"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:185
+msgid ""
+"A pointer to the first link map loaded (see below).  This field is set by "
+"E<.Nm ld.so>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:185
+#, no-wrap
+msgid "Fa sdt_sods"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:189
+msgid ""
+"The start of a (linked) list of shared object descriptors needed by E<.Em "
+"this> object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:189
+#, no-wrap
+msgid "Fa sdt_filler1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:191
+msgid "Deprecated (used by SunOS to specify library search rules)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:191
+#, no-wrap
+msgid "Fa sdt_got"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:193
+msgid "The location of the Global Offset Table within this image."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:193
+#, no-wrap
+msgid "Fa sdt_plt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:195
+msgid "The location of the Procedure Linkage Table within this image."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:195
+#, no-wrap
+msgid "Fa sdt_rel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:202
+msgid ""
+"The location of an array of E<.Fa relocation_info> structures (see E<.Xr "
+"a.out 5>)  specifying run-time relocations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:202
+#, no-wrap
+msgid "Fa sdt_hash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:205
+msgid ""
+"The location of the hash table for fast symbol lookup in this object's "
+"symbol table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:205
+#, no-wrap
+msgid "Fa sdt_nzlist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:207
+msgid "The location of the symbol table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:207
+#, no-wrap
+msgid "Fa sdt_filler2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:209
+msgid "Currently unused."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:209
+#, no-wrap
+msgid "Fa sdt_buckets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:212
+msgid "The number of buckets in E<.Fa sdt_hash>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:212
+#, no-wrap
+msgid "Fa sdt_strings"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:215
+msgid "The location of the symbol string table that goes with E<.Fa sdt_nzlist>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:215
+#, no-wrap
+msgid "Fa sdt_str_sz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:217
+msgid "The size of the string table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:217
+#, no-wrap
+msgid "Fa sdt_text_sz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:219
+msgid "The size of the object's text segment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:219
+#, no-wrap
+msgid "Fa sdt_plt_sz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:221
+msgid "The size of the Procedure Linkage Table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:234
+msgid ""
+"A E<.Fa sod> structure describes a shared object that is needed to complete "
+"the link edit process of the object containing it.  A list of such objects "
+"(chained through E<.Fa sod_next>)  is pointed at by the E<.Fa sdt_sods> in "
+"the section_dispatch_table structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:243
+#, no-wrap
+msgid ""
+"struct sod {\n"
+"\tlong\tsod_name;\n"
+"\tu_int\tsod_library : 1,\n"
+"\t\tsod_reserved : 31;\n"
+"\tshort\tsod_major;\n"
+"\tshort\tsod_minor;\n"
+"\tlong\tsod_next;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:245
+#, no-wrap
+msgid "Fa sod_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:247
+msgid "The offset in the text segment of a string describing this link object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:247
+#, no-wrap
+msgid "Fa sod_library"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:261
+msgid ""
+"If set, E<.Fa sod_name> specifies a library that is to be searched for by "
+"E<.Nm ld.so>.  The path name is obtained by searching a set of directories "
+"(see also E<.Xr ldconfig 8>)  for a shared object matching E<.Em "
+"lib\\&E<lt>sod_nameE<gt>\\&.so.n.m>.  If not set, E<.Fa sod_name> should "
+"point at a full path name for the desired shared object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:261
+#, no-wrap
+msgid "Fa sod_major"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:263
+msgid "Specifies the major version number of the shared object to load."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:263
+#, no-wrap
+msgid "Fa sod_minor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:265
+msgid "Specifies the preferred minor version number of the shared object to load."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:272
+msgid ""
+"The run-time link-editor maintains a list of structures called E<.Em link "
+"maps> to keep track of all shared objects loaded into a process' address "
+"space.  These structures are only used at run-time and do not occur within "
+"the text or data segment of an executable or shared library."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:283
+#, no-wrap
+msgid ""
+"struct so_map {\n"
+"\tcaddr_t\tsom_addr;\n"
+"\tchar \t*som_path;\n"
+"\tstruct\tso_map *som_next;\n"
+"\tstruct\tsod *som_sod;\n"
+"\tcaddr_t som_sodbase;\n"
+"\tu_int\tsom_write : 1;\n"
+"\tstruct\t_dynamic *som_dynamic;\n"
+"\tcaddr_t\tsom_spd;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:285
+#, no-wrap
+msgid "Fa som_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:288
+msgid ""
+"The address at which the shared object associated with this link map has "
+"been loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:288
+#, no-wrap
+msgid "Fa som_path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:290
+msgid "The full path name of the loaded object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:290
+#, no-wrap
+msgid "Fa som_next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:292
+msgid "Pointer to the next link map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:292
+#, no-wrap
+msgid "Fa som_sod"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:296
+msgid ""
+"The E<.Fa sod> structure that was responsible for loading this shared "
+"object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:296
+#, no-wrap
+msgid "Fa som_sodbase"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:298
+msgid "Tossed out in later versions of the run-time linker."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:298
+#, no-wrap
+msgid "Fa som_write"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:300
+msgid "Set if (some portion of) this object's text segment is currently writable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:300
+#, no-wrap
+msgid "Fa som_dynamic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:304
+msgid "Pointer to this object's E<.Fa _dynamic> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:304
+#, no-wrap
+msgid "Fa som_spd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:306
+msgid "Hook for attaching private data maintained by the run-time link-editor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:321
+msgid ""
+"Symbol description with size.  This is simply an E<.Fa nlist> structure with "
+"one field E<.Pq Fa nz_size> added.  Used to convey size information on items "
+"in the data segment of shared objects.  An array of these lives in the "
+"shared object's text segment and is addressed by the E<.Fa sdt_nzlist> field "
+"of E<.Fa section_dispatch_table>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:333
+#, no-wrap
+msgid ""
+"struct nzlist {\n"
+"\tstruct nlist\tnlist;\n"
+"\tu_long\t\tnz_size;\n"
+"#define nz_un\t\tnlist.n_un\n"
+"#define nz_strx\t\tnlist.n_un.n_strx\n"
+"#define nz_name\t\tnlist.n_un.n_name\n"
+"#define nz_type\t\tnlist.n_type\n"
+"#define nz_value\tnlist.n_value\n"
+"#define nz_desc\t\tnlist.n_desc\n"
+"#define nz_other\tnlist.n_other\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:335
+#, no-wrap
+msgid "Fa nlist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:338
+msgid "(see E<.Xr nlist 3>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:338
+#, no-wrap
+msgid "Fa nz_size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:340
+msgid "The size of the data represented by this symbol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:351
+msgid ""
+"A hash table is included within the text segment of shared object to "
+"facilitate quick lookup of symbols during run-time link-editing.  The E<.Fa "
+"sdt_hash> field of the E<.Fa section_dispatch_table> structure points at an "
+"array of E<.Fa rrs_hash> structures:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:356
+#, no-wrap
+msgid ""
+"struct rrs_hash {\n"
+"\tint\trh_symbolnum;\t\t/* symbol number */\n"
+"\tint\trh_next;\t\t/* next hash entry */\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:358
+#, no-wrap
+msgid "Fa rh_symbolnum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:362
+msgid ""
+"The index of the symbol in the shared object's symbol table (as given by the "
+"E<.Fa ld_symbols> field)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:362
+#, no-wrap
+msgid "Fa rh_next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:366
+msgid ""
+"In case of collisions, this field is the offset of the next entry in this "
+"hash table bucket.  It is zero for the last bucket element."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:377
+msgid ""
+"The E<.Fa rt_symbol> structure is used to keep track of run-time allocated "
+"commons and data items copied from shared objects.  These items are kept on "
+"linked list and is exported through the E<.Fa dd_cc> field in the E<.Fa "
+"so_debug> structure (see below) for use by debuggers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:385
+#, no-wrap
+msgid ""
+"struct rt_symbol {\n"
+"\tstruct nzlist\t\t*rt_sp;\n"
+"\tstruct rt_symbol\t*rt_next;\n"
+"\tstruct rt_symbol\t*rt_link;\n"
+"\tcaddr_t\t\t\trt_srcaddr;\n"
+"\tstruct so_map\t\t*rt_smp;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:387
+#, no-wrap
+msgid "Fa rt_sp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:389
+msgid "The symbol description."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:389
+#, no-wrap
+msgid "Fa rt_next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:391
+msgid "Virtual address of next rt_symbol."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:391
+#, no-wrap
+msgid "Fa rt_link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:395
+msgid "Next in hash bucket.  Used internally by E<.Nm ld.so>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:395
+#, no-wrap
+msgid "Fa rt_srcaddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:397
+msgid "Location of the source of initialized data within a shared object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:397
+#, no-wrap
+msgid "Fa rt_smp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:400
+msgid ""
+"The shared object which is the original source of the data that this "
+"run-time symbol describes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:416
+msgid ""
+"The E<.Fa so_debug> structure is used by debuggers to gain knowledge of any "
+"shared objects that have been loaded in the process's address space as a "
+"result of run-time link-editing.  Since the run-time link-editor runs as a "
+"part of process initialization, a debugger that wishes to access symbols "
+"from shared objects can only do so after the link-editor has been called "
+"from crt0.  A dynamically linked binary contains a E<.Fa so_debug> structure "
+"which can be located by means of the E<.Fa d_debug> field in E<.Fa "
+"_dynamic>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:425
+#, no-wrap
+msgid ""
+"struct \tso_debug {\n"
+"\tint\tdd_version;\n"
+"\tint\tdd_in_debugger;\n"
+"\tint\tdd_sym_loaded;\n"
+"\tchar    *dd_bpt_addr;\n"
+"\tint\tdd_bpt_shadow;\n"
+"\tstruct rt_symbol *dd_cc;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:427
+#, no-wrap
+msgid "Fa dd_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:429
+msgid "Version number of this interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:429
+#, no-wrap
+msgid "Fa dd_in_debugger"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:432
+msgid ""
+"Set by the debugger to indicate to the run-time linker that the program is "
+"run under control of a debugger."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:432
+#, no-wrap
+msgid "Fa dd_sym_loaded"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:434
+msgid ""
+"Set by the run-time linker whenever it adds symbols by loading shared "
+"objects."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:434
+#, no-wrap
+msgid "Fa dd_bpt_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:441
+msgid ""
+"The address where a breakpoint will be set by the run-time linker to divert "
+"control to the debugger.  This address is determined by the start-up module, "
+"E<.Pa crt0.o>, to be some convenient place before the call to _main."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:441
+#, no-wrap
+msgid "Fa dd_bpt_shadow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:446
+msgid ""
+"Contains the original instruction that was at E<.Fa dd_bpt_addr>.  The "
+"debugger is expected to put this instruction back before continuing the "
+"program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:446
+#, no-wrap
+msgid "Fa dd_cc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:449
+msgid ""
+"A pointer to the linked list of run-time allocated symbols that the debugger "
+"may be interested in."
+msgstr ""
+
+#.  See
+#.  .Xr libdl.a
+#.  for more information.
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:458
+msgid ""
+"The E<.Em ld_entry> structure defines a set of service routines within E<.Nm "
+"ld.so>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:465
+#, no-wrap
+msgid ""
+"struct ld_entry {\n"
+"\tvoid\t*(*dlopen)(char *, int);\n"
+"\tint\t(*dlclose)(void *);\n"
+"\tvoid\t*(*dlsym)(void *, char *);\n"
+"\tchar\t*(*dlerror)(void);\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:471
+msgid ""
+"The E<.Fa crt_ldso> structure defines the interface between the start-up "
+"code in crt0 and E<.Nm ld.so>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:487
+#, no-wrap
+msgid ""
+"struct crt_ldso {\n"
+"\tint\t\tcrt_ba;\n"
+"\tint\t\tcrt_dzfd;\n"
+"\tint\t\tcrt_ldfd;\n"
+"\tstruct _dynamic\t*crt_dp;\n"
+"\tchar\t\t**crt_ep;\n"
+"\tcaddr_t\t\tcrt_bp;\n"
+"\tchar\t\t*crt_prog;\n"
+"\tchar\t\t*crt_ldso;\n"
+"\tstruct ld_entry\t*crt_ldentry;\n"
+"};\n"
+"#define CRT_VERSION_SUN\t\t1\n"
+"#define CRT_VERSION_BSD_2\t2\n"
+"#define CRT_VERSION_BSD_3\t3\n"
+"#define\tCRT_VERSION_BSD_4\t4\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:489
+#, no-wrap
+msgid "Fa crt_ba"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:493
+msgid "The virtual address at which E<.Nm ld.so> was loaded by crt0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:493
+#, no-wrap
+msgid "Fa crt_dzfd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:500
+msgid ""
+"On SunOS systems, this field contains an open file descriptor to E<.Dq Pa "
+"/dev/zero> used to get demand paged zeroed pages.  On E<.Fx> systems it "
+"contains -1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:500
+#, no-wrap
+msgid "Fa crt_ldfd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:503
+msgid "Contains an open file descriptor that was used by crt0 to load E<.Nm ld.so>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:503
+#, no-wrap
+msgid "Fa crt_dp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:507
+msgid "A pointer to main's E<.Fa _dynamic> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:507
+#, no-wrap
+msgid "Fa crt_ep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:509
+msgid "A pointer to the environment strings."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:509
+#, no-wrap
+msgid "Fa crt_bp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:514
+msgid ""
+"The address at which a breakpoint will be placed by the run-time linker if "
+"the main program is run by a debugger.  See E<.Fa so_debug>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:514
+#, no-wrap
+msgid "Fa crt_prog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:516
+msgid "The name of the main program as determined by crt0 (CRT_VERSION_BSD3 only)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:516
+#, no-wrap
+msgid "Fa crt_ldso"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:518
+msgid "The path of the run-time linker as mapped by crt0 (CRT_VERSION_BSD4 only)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:534
+msgid ""
+"The E<.Fa hints_header> and E<.Fa hints_bucket> structures define the layout "
+"of the library hints, normally found in E<.Dq Pa /var/run/ld.so.hints>, "
+"which is used by E<.Nm ld.so> to quickly locate the shared object images in "
+"the file system.  The organization of the hints file is not unlike that of "
+"an E<.Dq a.out> object file, in that it contains a header determining the "
+"offset and size of a table of fixed sized hash buckets and a common string "
+"pool."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:546
+#, no-wrap
+msgid ""
+"struct hints_header {\n"
+"\tlong\t\thh_magic;\n"
+"#define HH_MAGIC\t011421044151\n"
+"\tlong\t\thh_version;\n"
+"#define LD_HINTS_VERSION_1\t1\n"
+"\tlong\t\thh_hashtab;\n"
+"\tlong\t\thh_nbucket;\n"
+"\tlong\t\thh_strtab;\n"
+"\tlong\t\thh_strtab_sz;\n"
+"\tlong\t\thh_ehints;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:548
+#, no-wrap
+msgid "Fa hh_magic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:550
+msgid "Hints file magic number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:550
+#, no-wrap
+msgid "Fa hh_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:552
+msgid "Interface version number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:552
+#, no-wrap
+msgid "Fa hh_hashtab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:554
+msgid "Offset of hash table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:554
+#, no-wrap
+msgid "Fa hh_strtab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:556
+msgid "Offset of string table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:556
+#, no-wrap
+msgid "Fa hh_strtab_sz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:558
+msgid "Size of strings."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:558
+#, no-wrap
+msgid "Fa hh_ehints"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:560
+msgid "Maximum usable offset in hints file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:574
+#, no-wrap
+msgid ""
+"/*\n"
+" * Hash table element in hints file.\n"
+" */\n"
+"struct hints_bucket {\n"
+"\tint\t\thi_namex;\n"
+"\tint\t\thi_pathx;\n"
+"\tint\t\thi_dewey[MAXDEWEY];\n"
+"\tint\t\thi_ndewey;\n"
+"#define hi_major hi_dewey[0]\n"
+"#define hi_minor hi_dewey[1]\n"
+"\tint\t\thi_next;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:576
+#, no-wrap
+msgid "Fa hi_namex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:578
+msgid "Index of the string identifying the library."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:578
+#, no-wrap
+msgid "Fa hi_pathx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:580
+msgid "Index of the string representing the full path name of the library."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:580
+#, no-wrap
+msgid "Fa hi_dewey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:582
+msgid "The version numbers of the shared library."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:582
+#, no-wrap
+msgid "Fa hi_ndewey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:585
+msgid "The number of valid entries in E<.Fa hi_dewey>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/link.5:585
+#, no-wrap
+msgid "Fa hi_next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:587
+msgid "Next bucket in case of hashing collisions."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/link.5:588
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/link.5:590
+msgid ""
+"Only the (GNU) C compiler currently supports the creation of shared "
+"libraries.  Other programming languages cannot be used."
+msgstr ""

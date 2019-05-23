@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/if_ipsec.4:27
+#, no-wrap
+msgid "February 6, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/if_ipsec.4:28
+#, no-wrap
+msgid "if_ipsec 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/if_ipsec.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:32
+msgid "E<.Nm if_ipsec>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/if_ipsec.4:32
+#, no-wrap
+msgid "IPsec virtual tunneling interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/if_ipsec.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:41
+msgid ""
+"The E<.Cm if_ipsec> network interface is a part of the E<.Fx> IPsec "
+"implementation.  To compile it into the kernel, place this line in the "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:43
+#, no-wrap
+msgid "E<.Cd \"options IPSEC\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:48
+msgid ""
+"It can also be loaded as part of the E<.Cm ipsec> kernel module if the "
+"kernel was compiled with"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:50
+#, no-wrap
+msgid "E<.Cd \"options IPSEC_SUPPORT\">\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/if_ipsec.4:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:57
+msgid ""
+"The E<.Nm> network interface is targeted for creating route-based VPNs.  It "
+"can tunnel IPv4 and IPv6 traffic over either IPv4 or IPv6 and secure it with "
+"ESP."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:75
+msgid ""
+"E<.Nm> interfaces are dynamically created and destroyed with the E<.Xr "
+"ifconfig 8> E<.Cm create> and E<.Cm destroy> subcommands.  The administrator "
+"must configure IPsec E<.Cm tunnel> endpoint addresses.  These addresses will "
+"be used for the outer IP header of ESP packets.  The administrator can also "
+"configure the protocol and addresses for the inner IP header with E<.Xr "
+"ifconfig 8>, and modify the routing table to route the packets through the "
+"E<.Nm> interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:84
+msgid ""
+"When the E<.Nm> interface is configured, it automatically creates special "
+"security policies.  These policies can be used to acquire security "
+"associations from the IKE daemon, which are needed for establishing an IPsec "
+"tunnel.  It is also possible to create needed security associations manually "
+"with the E<.Xr setkey 8> utility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:102
+msgid ""
+"Each E<.Nm> interface has an additional numeric configuration option E<.Cm "
+"reqid Ar id>.  This E<.Ar id> is used to distinguish traffic and security "
+"policies between several E<.Nm> interfaces.  The E<.Cm reqid> can be "
+"specified on interface creation and changed later.  If not specified, it is "
+"automatically assigned.  Note that changing E<.Cm reqid> will lead to "
+"generation of new security policies, and this may require creating new "
+"security associations."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/if_ipsec.4:102
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:107
+msgid ""
+"The example below shows manual configuration of an IPsec tunnel between two "
+"FreeBSD hosts.  Host A has the IP address 192.168.0.3, and host B has the IP "
+"address 192.168.0.5."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:109
+msgid "On host A:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:117
+#, no-wrap
+msgid ""
+"ifconfig ipsec0 create reqid 100\n"
+"ifconfig ipsec0 inet tunnel 192.168.0.3 192.168.0.5\n"
+"ifconfig ipsec0 inet 172.16.0.3/16 172.16.0.5\n"
+"setkey -c\n"
+"add 192.168.0.3 192.168.0.5 esp 10000 -m tunnel -u 100 -E rijndael-cbc "
+"\"VerySecureKey!!1\";\n"
+"add 192.168.0.5 192.168.0.3 esp 10001 -m tunnel -u 100 -E rijndael-cbc "
+"\"VerySecureKey!!2\";\n"
+"^D\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:120
+msgid "On host B:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:128
+#, no-wrap
+msgid ""
+"ifconfig ipsec0 create reqid 200\n"
+"ifconfig ipsec0 inet tunnel 192.168.0.5 192.168.0.3\n"
+"ifconfig ipsec0 inet 172.16.0.5/16 172.16.0.3\n"
+"setkey -c\n"
+"add 192.168.0.3 192.168.0.5 esp 10000 -m tunnel -u 200 -E rijndael-cbc "
+"\"VerySecureKey!!1\";\n"
+"add 192.168.0.5 192.168.0.3 esp 10001 -m tunnel -u 200 -E rijndael-cbc "
+"\"VerySecureKey!!2\";\n"
+"^D\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:134
+msgid ""
+"Note the value 100 on host A and value 200 on host B are used as reqid.  The "
+"same value must be used as identifier of the policy entry in the E<.Xr "
+"setkey 8> command."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/if_ipsec.4:134
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:140
+msgid ""
+"E<.Xr gif 4>, E<.Xr gre 4>, E<.Xr ipsec 4>, E<.Xr ifconfig 8>, E<.Xr setkey "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/if_ipsec.4:140
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/if_ipsec.4:141
+msgid "E<.An Andrey V. Elsukov Aq Mt ae@FreeBSD.org>"
+msgstr ""

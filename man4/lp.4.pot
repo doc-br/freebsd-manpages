@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/lp.4:33
+#, no-wrap
+msgid "March 4, 1996"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/lp.4:34
+#, no-wrap
+msgid "LP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lp.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:38
+msgid "E<.Nm lp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/lp.4:38
+#, no-wrap
+msgid "printer port Internet Protocol driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lp.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:44
+msgid "E<.Nm ifconfig> E<.Ar plip0> E<.Ar myaddress hisaddress> E<.Op Fl link0>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:48
+msgid "E<.Cd \"device ppbus\"> E<.Cd \"device plip\"> E<.Cd \"device ppc\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lp.4:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:56
+msgid ""
+"The E<.Nm> driver allows a PC parallel printer port to be used as a "
+"point-to-point network interface between two similarly configured systems.  "
+"Data is transferred 4 bits at a time, using the printer status lines for "
+"input: hence there is no requirement for special bidirectional hardware and "
+"any standard AT-compatible printer port with working interrupts may be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:62
+msgid ""
+"During the boot process, for each E<.Nm plip> device which is probed and has "
+"an interrupt assigned, a corresponding E<.Nm network> device is created."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:70
+msgid ""
+"Configuring an E<.Nm> device with E<.Xr ifconfig 8> causes the corresponding "
+"E<.Nm parallel port bus> to be reserved for PLIP until the network interface "
+"is configured 'down'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:74
+msgid "The communication protocol is selected by the E<.Cm link0> flag:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:75
+#, no-wrap
+msgid "Fl link0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:81
+msgid ""
+"(default) Use E<.Fx> mode (LPIP).  This is the simpler of the two modes and "
+"therefore slightly more efficient."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:81
+#, no-wrap
+msgid "Cm link0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:85
+msgid ""
+"Use Crynwr/Linux compatible mode (CLPIP).  This mode has a simulated "
+"Ethernet packet header, and is easier to interface to other types of "
+"equipment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:90
+msgid ""
+"The interface MTU defaults to 1500, but may be set to any value.  Both ends "
+"of the link must be configured with the same MTU."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/lp.4:90
+#, no-wrap
+msgid "Cable Connections"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:92
+msgid "The cable connecting the two parallel ports should be wired as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:105
+#, no-wrap
+msgid ""
+"\tPin\tPin\tDescription\n"
+"\t2\t15\tData0 -E<gt> ERROR*\n"
+"\t3\t13\tData1 -E<gt> SLCT\n"
+"\t4\t12\tData2 -E<gt> PE\n"
+"\t5\t10\tData3 -E<gt> ACK*\n"
+"\t6\t11\tData4 -E<gt> BUSY\n"
+"\t15\t2\tERROR* -E<gt> Data0\n"
+"\t13\t3\tSLCT   -E<gt> Data1\n"
+"\t12\t4\tPE     -E<gt> Data2\n"
+"\t10\t5\tACK*   -E<gt> Data3\n"
+"\t11\t6\tBUSY   -E<gt> Data4\n"
+"\t18-25\t18-25\tGround\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:109
+msgid ""
+"Cables with this wiring are widely available as 'Laplink' cables, and are "
+"often coloured yellow."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:114
+msgid ""
+"The connections are symmetric, and provide 5 lines in each direction (four "
+"data plus one handshake).  The two modes use the same wiring, but make a "
+"different choice of which line to use as handshake."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/lp.4:114
+#, no-wrap
+msgid "FreeBSD LPIP mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:116 /usr/src/share/man/man4/lp.4:163
+msgid "The signal lines are used as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:117 /usr/src/share/man/man4/lp.4:164
+#, no-wrap
+msgid "Em Data0 (Pin 2)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:119 /usr/src/share/man/man4/lp.4:166
+msgid "Data out, bit 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:119 /usr/src/share/man/man4/lp.4:166
+#, no-wrap
+msgid "Em Data1 (Pin 3)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:121 /usr/src/share/man/man4/lp.4:168
+msgid "Data out, bit 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:121 /usr/src/share/man/man4/lp.4:168
+#, no-wrap
+msgid "Em Data2 (Pin 4)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:123 /usr/src/share/man/man4/lp.4:170
+msgid "Data out, bit 2."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:123 /usr/src/share/man/man4/lp.4:170
+#, no-wrap
+msgid "Em Data3 (Pin 5)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:125 /usr/src/share/man/man4/lp.4:174
+msgid "Handshake out."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:125 /usr/src/share/man/man4/lp.4:172
+#, no-wrap
+msgid "Em Data4 (Pin 6)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:127 /usr/src/share/man/man4/lp.4:172
+msgid "Data out, bit 3."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:127 /usr/src/share/man/man4/lp.4:174
+#, no-wrap
+msgid "Em ERROR* (pin 15)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:129 /usr/src/share/man/man4/lp.4:176
+msgid "Data in, bit 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:129 /usr/src/share/man/man4/lp.4:176
+#, no-wrap
+msgid "Em SLCT (pin 13)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:131 /usr/src/share/man/man4/lp.4:178
+msgid "Data in, bit 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:131 /usr/src/share/man/man4/lp.4:178
+#, no-wrap
+msgid "Em PE (pin 12)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:133 /usr/src/share/man/man4/lp.4:180
+msgid "Data in, bit 2."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:133 /usr/src/share/man/man4/lp.4:182
+#, no-wrap
+msgid "Em BUSY (pin 11)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:135 /usr/src/share/man/man4/lp.4:182
+msgid "Data in, bit 3."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lp.4:135 /usr/src/share/man/man4/lp.4:180
+#, no-wrap
+msgid "Em ACK* (pin 10)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:137 /usr/src/share/man/man4/lp.4:184
+msgid "Handshake in."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:145
+msgid ""
+"When idle, all data lines are at zero.  Each byte is signalled in four "
+"steps: sender writes the 4 most significant bits and raises the handshake "
+"line; receiver reads the 4 bits and raises its handshake to acknowledge; "
+"sender places the 4 least significant bits on the data lines and lowers the "
+"handshake; receiver reads the data and lowers its handshake."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:148
+msgid ""
+"The packet format has a two-byte header, comprising the fixed values 0x08, "
+"0x00, immediately followed by the IP header and data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:154
+msgid ""
+"The start of a packet is indicated by simply signalling the first byte of "
+"the header.  The end of the packet is indicated by inverting the data lines "
+"(i.e., writing the ones-complement of the previous nibble to be transmitted) "
+"without changing the state of the handshake."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:161
+msgid ""
+"Note that the end-of-packet marker assumes that the handshake signal and the "
+"data-out bits can be written in a single instruction - otherwise certain "
+"byte values in the packet data would falsely be interpreted as "
+"end-of-packet.  This is not a problem for the PC printer port, but requires "
+"care when implementing this protocol on other equipment."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/lp.4:161
+#, no-wrap
+msgid "Crynwr/Linux CLPIP mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:193
+msgid ""
+"When idle, all data lines are at zero.  Each byte is signalled in four "
+"steps: sender writes the 4 least significant bits and raises the handshake "
+"line; receiver reads the 4 bits and raises its handshake to acknowledge; "
+"sender places the 4 most significant bits on the data lines and lowers the "
+"handshake; receiver reads the data and lowers its handshake.  [Note that "
+"this is the opposite nibble order to LPIP mode]."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:195
+msgid "Packet format is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:203
+#, no-wrap
+msgid ""
+"Length (least significant byte)\n"
+"Length (most significant byte)\n"
+"12 bytes of supposed MAC addresses (ignored by FreeBSD).\n"
+"Fixed byte 0x08\n"
+"Fixed byte 0x00\n"
+"E<lt>IP datagramE<gt>\n"
+"Checksum byte.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:207
+msgid ""
+"The length includes the 14 header bytes, but not the length bytes themselves "
+"nor the checksum byte."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:213
+msgid ""
+"The checksum is a simple arithmetic sum of all the bytes (again, including "
+"the header but not checksum or length bytes).  E<.Fx> calculates outgoing "
+"checksums, but does not validate incoming ones."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:220
+msgid ""
+"The start of packet has to be signalled specially, since the line chosen for "
+"handshake-in cannot be used to generate an interrupt.  The sender writes the "
+"value 0x08 to the data lines, and waits for the receiver to respond by "
+"writing 0x01 to its data lines.  The sender then starts signalling the first "
+"byte of the packet (the length byte)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:224
+msgid ""
+"End of packet is deduced from the packet length and is not signalled "
+"specially (although the data lines are restored to the zero, idle state to "
+"avoid spuriously indicating the start of the next packet)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lp.4:224
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:228
+msgid "E<.Xr ppbus 4>, E<.Xr ppc 4>, E<.Xr ifconfig 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lp.4:228
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:237
+msgid ""
+"Busy-waiting loops are used while handshaking bytes, (and worse still when "
+"waiting for the receiving system to respond to an interrupt for the start of "
+"a packet).  Hence a fast system talking to a slow one will consume excessive "
+"amounts of CPU.  This is unavoidable in the case of CLPIP mode due to the "
+"choice of handshake lines; it could theoretically be improved in the case of "
+"LPIP mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lp.4:241
+msgid ""
+"Polling timeouts are controlled by counting loop iterations rather than "
+"timers, and so are dependent on CPU speed.  This is somewhat stabilised by "
+"the need to perform (slow) ISA bus cycles to actually read the port."
+msgstr ""

@@ -1,0 +1,701 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_uni.4:31
+#, no-wrap
+msgid "October 6, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_uni.4:32
+#, no-wrap
+msgid "NG_UNI 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:36
+msgid "E<.Nm ng_uni>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_uni.4:36
+#, no-wrap
+msgid "netgraph UNI node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_uni.4:38
+#, no-wrap
+msgid "netnatm/msg/unistruct.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_uni.4:39
+#, no-wrap
+msgid "netnatm/sig/unidef.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_uni.4:40
+#, no-wrap
+msgid "netgraph/atm/ng_uni.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:45
+msgid "The E<.Nm uni> netgraph node type implements ATM Forum signalling 4.0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:52
+msgid ""
+"After creation of the node, the UNI instance must be created by sending an "
+"E<.Dq enable> message to the node.  If the node is enabled, the UNI "
+"parameters can be retrieved and modified, and the protocol can be started."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:56
+msgid ""
+"The node is shut down either by an E<.Dv NGM_SHUTDOWN> message, or when all "
+"hooks are disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:56
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:60
+msgid "Each E<.Nm uni> node has three hooks with fixed names:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:61
+#, no-wrap
+msgid "Va lower"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:67
+msgid ""
+"This hook is the interface of the UNI protocol to the transport layer of the "
+"ATM control plane.  The node expects the interface exported by E<.Xr "
+"ng_sscfu 4> at this hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:67
+#, no-wrap
+msgid "Va upper"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:84
+msgid ""
+"This hook is the E<.Dq user> interface of the UNI protocol.  Because there "
+"is no standardized interface at this point, this implementation follows more "
+"or less the interface specified by the SDL diagrams in ITU-T recommendations "
+"Q.2931 and Q.2971.  Normally either a E<.Xr ng_ccatm 4> or a switch CAC "
+"should be stacked at this interface.  The message format at the E<.Va upper> "
+"hook is described below.  Because E<.Xr netgraph 4> is functional, it makes "
+"sometimes sense to switch this hook to queueing mode from the peer node upon "
+"connection."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:128
+msgid ""
+"The E<.Va upper> interface of the E<.Nm uni> node is loosely modelled after "
+"the interface specified in the ITU-T signalling standards.  There is however "
+"one derivation from this: normally there exists four kinds of signals: "
+"requests, responses, indications and confirmations.  These signals are "
+"usually triggered either by external events (receiving a message) or "
+"internal events (a timer or another signal).  This scheme works fine for "
+"user APIs that are entirely asynchronous, and in cases where error handling "
+"is not taken into account.  With synchronous APIs and error handling "
+"however, there is a problem.  If, for example, the application issues a "
+"request to set up a connection, it may do it by sending a E<.Dv "
+"SETUP.request> signal to the UNI.  Normally, the UNI stack will send a SETUP "
+"message and receive a message from the switch (a RELEASE, CONNECT, CALL "
+"PROCEEDING or ALERTING), or a timer in the UNI stack will time out.  In any "
+"of these cases, the UNI stack is supposed to report an event back to the "
+"application, and the application will unblock (in the case of a synchronous "
+"API) and handle the event.  The problem occurs when an error happens.  "
+"Suppose there is no memory to send the SETUP message and to start the "
+"timer.  In this case, the application will block forever because no received "
+"message and no timer will wake it up.  For this reason this implementation "
+"uses an additional message: for each signal sent from the application to the "
+"stack, the stack will respond with an error code.  If this code is zero, the "
+"stack has accepted the signal and the application may block; if the code is "
+"non-zero, the signal is effectively ignored and the code describes what was "
+"wrong.  This system makes it very easy to make a blocking interface out of "
+"the message based netgraph interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:132
+msgid "The E<.Va upper> interface uses the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:138
+#, no-wrap
+msgid ""
+"struct uni_arg {\n"
+"\tuint32_t\tsig;\n"
+"\tuint32_t\tcookie;\n"
+"\tu_char\t\tdata[];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:152
+msgid ""
+"The E<.Va sig> field contains the actual signal that is sent from the user "
+"to UNI or from UNI to the user.  The E<.Va cookie> can be used by the user "
+"to correlate requests with events and responses.  If an error response, a "
+"confirmation or an indication was triggered by a request or response, the "
+"cookie from that request or response is carried in the message from the "
+"stack to the user.  The E<.Va cookie> field is followed by the actual data "
+"for the signal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:154
+msgid "The signal is one of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:157
+#, no-wrap
+msgid ""
+"enum uni_sig {\n"
+"    UNIAPI_ERROR,\t\t\t/* UNI -E<gt> API */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:162
+#, no-wrap
+msgid ""
+"    UNIAPI_CALL_CREATED,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_CALL_DESTROYED,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_PARTY_CREATED,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_PARTY_DESTROYED,\t\t/* UNI -E<gt> API */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:167
+#, no-wrap
+msgid ""
+"    UNIAPI_LINK_ESTABLISH_request,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_LINK_ESTABLISH_confirm,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_LINK_RELEASE_request,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_LINK_RELEASE_confirm,\t/* UNI -E<gt> API */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:175
+#, no-wrap
+msgid ""
+"    UNIAPI_RESET_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_RESET_confirm,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_RESET_indication,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_RESET_ERROR_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_RESET_response,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_RESET_ERROR_response,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_RESET_STATUS_indication,\t/* UNI -E<gt> API */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:193
+#, no-wrap
+msgid ""
+"    UNIAPI_SETUP_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_SETUP_indication,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_SETUP_response,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_SETUP_confirm,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_SETUP_COMPLETE_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_ALERTING_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_ALERTING_indication,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_PROCEEDING_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_PROCEEDING_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_RELEASE_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_RELEASE_indication,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_RELEASE_response,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_RELEASE_confirm,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_NOTIFY_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_NOTIFY_indication,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_STATUS_indication,\t\t/* UNI -E<gt> API */\n"
+"    UNIAPI_STATUS_ENQUIRY_request,\t/* API -E<gt> UNI */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:206
+#, no-wrap
+msgid ""
+"    UNIAPI_ADD_PARTY_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_ADD_PARTY_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_PARTY_ALERTING_request,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_PARTY_ALERTING_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_ADD_PARTY_ACK_request,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_ADD_PARTY_ACK_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_ADD_PARTY_REJ_request,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_ADD_PARTY_REJ_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_DROP_PARTY_request,\t\t/* API -E<gt> UNI */\n"
+"    UNIAPI_DROP_PARTY_indication,\t/* UNI -E<gt> API */\n"
+"    UNIAPI_DROP_PARTY_ACK_request,\t/* API -E<gt> UNI */\n"
+"    UNIAPI_DROP_PARTY_ACK_indication,\t/* UNI -E<gt> API */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:208
+#, no-wrap
+msgid "    UNIAPI_ABORT_CALL_request,\t\t/* API -E<gt> UNI */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:211
+#, no-wrap
+msgid ""
+"    UNIAPI_MAXSIG\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:215
+msgid ""
+"The meaning of most of the signals can be deduced from the ITU-T SDLs.  A "
+"number of signals, however, is unique to this implementation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:216
+#, no-wrap
+msgid "Dv UNIAPI_ERROR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:220
+msgid ""
+"This is the error response, mentioned earlier.  It carries an error code or "
+"zero, if the signal was accepted by the stack."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:220
+#, no-wrap
+msgid "Dv UNIAPI_CALL_CREATED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:225
+msgid ""
+"The UNI stack has created a call instance either from an incoming SETUP or "
+"from the user requesting an outgoing SETUP.  This may be used to synchronize "
+"the creation and destroying of call data between the UNI stack and the user."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:225
+#, no-wrap
+msgid "Dv UNIAPI_CALL_DESTROYED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:227
+msgid "A call instance has been destroyed and all resources have been freed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:227
+#, no-wrap
+msgid "Dv UNIAPI_PARTY_CREATED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:231
+msgid ""
+"A new party has been created for an existing point-to-multipoint call.  This "
+"may be used to synchronize the creation and destroying of party data between "
+"the UNI stack and the user."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:231
+#, no-wrap
+msgid "Dv UNIAPI_PARTY_DESTROYED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:233
+msgid "A party has been destroyed and all resources have been freed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:233
+#, no-wrap
+msgid "Dv UNIAPI_ABORT_CALL_request"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:237
+msgid ""
+"This requests the stack to destroy the call instance and free all its "
+"resources, without sending any messages to the network."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:237
+#, no-wrap
+msgid "Dv UNIAPI_MAXSIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:240
+msgid ""
+"This is not a signal, but rather a definition to get the number of defined "
+"signals."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:243
+msgid "Each of the signals is followed by a fixed size structure defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_uni.4:243
+#, no-wrap
+msgid "netnatm/sig/unidef.h ."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:244
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:248
+msgid ""
+"The E<.Nm uni> node understands the standard control messages, plus the "
+"following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:249
+#, no-wrap
+msgid "Dv NGM_UNI_SETDEBUG Pq Ic setdebug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:256
+msgid ""
+"Set debugging facility levels.  The UNI stack defines a number of debugging "
+"facilities, each one associated with a debugging level.  If the debugging "
+"level of a facility is non-zero, text output will be generated to the "
+"console.  The message uses the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:260
+#, no-wrap
+msgid ""
+"struct ngm_uni_debug {\n"
+"\tuint32_t\tlevel[UNI_MAXFACILITY];\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:261
+#, no-wrap
+msgid "Dv NGM_UNI_GETDEBUG Pq Ic getdebug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:266
+msgid ""
+"Get debugging facility levels.  This returns an E<.Vt ngm_uni_debug> "
+"structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:266
+#, no-wrap
+msgid "Dv NGM_UNI_GET_CONFIG Pq Ic get_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:271
+msgid ""
+"Retrieve the current configuration of the UNI instance.  This message "
+"returns a E<.Vt uni_config> structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:293
+#, no-wrap
+msgid ""
+"struct uni_config {\n"
+"\tuint32_t proto;\t\t/* which protocol */\n"
+"\tuint32_t popt;\t\t/* protocol option */\n"
+"\tuint32_t option;\t/* other options */\n"
+"\tuint32_t timer301;\t/* T301 */\n"
+"\tuint32_t timer303;\t/* T303 */\n"
+"\tuint32_t init303;\t/* T303 retransmission count */\n"
+"\tuint32_t timer308;\t/* T308 */\n"
+"\tuint32_t init308;\t/* T308 retransmission count */\n"
+"\tuint32_t timer309;\t/* T309 */\n"
+"\tuint32_t timer310;\t/* T310 */\n"
+"\tuint32_t timer313;\t/* T313 */\n"
+"\tuint32_t timer316;\t/* T316 */\n"
+"\tuint32_t init316;\t/* T316 retransmission count */\n"
+"\tuint32_t timer317;\t/* T317 */\n"
+"\tuint32_t timer322;\t/* T322 */\n"
+"\tuint32_t init322;\t/* T322 retransmission count */\n"
+"\tuint32_t timer397;\t/* T397 */\n"
+"\tuint32_t timer398;\t/* T398 */\n"
+"\tuint32_t timer399;\t/* T399 */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:298
+msgid "The field E<.Va proto> specifies one of the following protocols:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:304
+#, no-wrap
+msgid ""
+"enum uni_proto {\n"
+"\tUNIPROTO_UNI40U,\t/* UNI4.0 user side */\n"
+"\tUNIPROTO_UNI40N,\t/* UNI4.0 network side */\n"
+"\tUNIPROTO_PNNI10,\t/* PNNI1.0 */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:308
+msgid "Some protocols may have options which can be set in E<.Va popt>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:312
+#, no-wrap
+msgid ""
+"enum uni_popt {\n"
+"\tUNIPROTO_GFP,\t\t/* enable GFP */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:317
+msgid "The E<.Va option> field controls parsing and checking of messages:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:323
+#, no-wrap
+msgid ""
+"enum uni_option {\n"
+"\tUNIOPT_GIT_HARD,\t/* harder check of GIT IE */\n"
+"\tUNIOPT_BEARER_HARD,\t/* harder check of BEARER IE */\n"
+"\tUNIOPT_CAUSE_HARD,\t/* harder check of CAUSE IE */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:329
+msgid ""
+"All timer values are given in milliseconds.  Note, however, that the actual "
+"resolution of the timers depend on system configuration (see E<.Xr timeout "
+"9>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:329
+#, no-wrap
+msgid "Dv NGM_UNI_SET_CONFIG Pq Ic set_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:332
+msgid "Change the UNI configuration.  This takes a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:342
+#, no-wrap
+msgid ""
+"struct ngm_uni_set_config {\n"
+"\tstruct uni_config\t\tconfig;\n"
+"\tstruct ngm_uni_config_mask\tmask;\n"
+"};\n"
+"struct ngm_uni_config_mask {\n"
+"\tuint32_t\tmask;\n"
+"\tuint32_t\tpopt_mask;\n"
+"\tuint32_t\toption_mask;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:358
+msgid ""
+"The fields of the E<.Vt ngm_uni_config_mask> specify which configuration "
+"parameter to change.  The E<.Va mask> field contains bit definitions for all "
+"timers, retransmission counters and the E<.Va proto> field, E<.Va popt_mask> "
+"selects which of the protocol options to change, and E<.Va option_mask> "
+"specifies which options should be changed.  The following bits are defined:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:378
+#, no-wrap
+msgid ""
+"enum uni_config_mask {\n"
+"\tUNICFG_PROTO,\n"
+"\tUNICFG_TIMER301,\n"
+"\tUNICFG_TIMER303,\n"
+"\tUNICFG_INIT303,\n"
+"\tUNICFG_TIMER308,\n"
+"\tUNICFG_INIT308,\n"
+"\tUNICFG_TIMER309,\n"
+"\tUNICFG_TIMER310,\n"
+"\tUNICFG_TIMER313,\n"
+"\tUNICFG_TIMER316,\n"
+"\tUNICFG_INIT316,\n"
+"\tUNICFG_TIMER317,\n"
+"\tUNICFG_TIMER322,\n"
+"\tUNICFG_INIT322,\n"
+"\tUNICFG_TIMER397,\n"
+"\tUNICFG_TIMER398,\n"
+"\tUNICFG_TIMER399,\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:389
+msgid ""
+"For E<.Va popt_mask> and E<.Va option_mask>, the definitions from E<.Vt "
+"\"enum uni_popt\"> and E<.Vt \"enum uni_option\"> should be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:389
+#, no-wrap
+msgid "Dv NGM_UNI_ENABLE Pq Ic enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:392
+msgid ""
+"Create the UNI instance and enable processing.  Before the UNI is enabled "
+"parameters cannot be retrieved or set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_uni.4:392
+#, no-wrap
+msgid "Dv NGM_UNI_DISABLE Pq Ic disable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:395
+msgid ""
+"Destroy the UNI instance and free all resources.  Note, that connections are "
+"not released."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:396
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:402
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_atm 4>, E<.Xr ng_sscfu 4>, E<.Xr ng_sscop 4>, "
+"E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:402
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:408
+msgid ""
+"The E<.Nm uni> netgraph node and this manual page were written by E<.An "
+"Harti Brandt Aq Mt harti@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_uni.4:408
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:412
+msgid "LIJ (leaf-initiated-join) is not implemented yet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:414
+msgid "GFP (generic functional protocol, Q.2932.1) is not yet implemented."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:416
+msgid "More testing needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:418
+msgid "PNNI not yet implemented."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_uni.4:420
+msgid "Need to implement connection modification and the Q.2931 amendments."
+msgstr ""

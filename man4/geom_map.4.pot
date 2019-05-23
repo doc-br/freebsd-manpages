@@ -1,0 +1,372 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/geom_map.4:28
+#, no-wrap
+msgid "June 8, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/geom_map.4:29
+#, no-wrap
+msgid "GEOM_MAP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_map.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:33
+msgid "E<.Nm geom_map>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/geom_map.4:33
+#, no-wrap
+msgid "GEOM module that maps defined items as separate partitions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_map.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:38
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:40
+#, no-wrap
+msgid "E<.Cd \"options geom_map\">\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_map.4:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:50
+msgid ""
+"The E<.Nm> framework provides support for mapping defined parts of the "
+"media.  Basically it is helpful for embedded devices where in the one "
+"continuous flash are loader, kernel and rootfs parts.  E<.Nm> allows making "
+"them available as separate parts and protects the loader from being "
+"overwritten."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:54
+msgid "At boot time E<.Nm> partitions are listed (only with bootverbose) as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:63
+#, no-wrap
+msgid ""
+"MAP: 0x30000, data=0x30000 \"/dev/map/bootloader\"\n"
+"MAP: 30000x10000, data=0x10000 \"/dev/map/factory\"\n"
+"MAP: 40000x7a0000, data=0x7a0000 \"/dev/map/upgrade\"\n"
+"MAP: search key \".!/bin/sh\" from 0x100000, step 0x10000\n"
+"MAP: 40000x110000, data=0x110000 \"/dev/map/kernel\"\n"
+"MAP: search key \".!/bin/sh\" from 0x100000, step 0x10000\n"
+"MAP: 150000x690000, data=0x690000 \"/dev/map/rootfs\"\n"
+"MAP: 7e0000x20000, data=0x20000 \"/dev/map/config\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:75
+msgid ""
+"The current E<.Nm> configuration can be accessed with the following E<.Xr "
+"sysctl 8> nodes: E<.Va kern.geom.conftxt , kern.geom.confxml>, and E<.Va "
+"kern.geom.confdot> or by using E<.Dq Li \"geom map list\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:86
+#, no-wrap
+msgid ""
+"# sysctl -n kern.geom.conftxt\n"
+"0 MD md0 10485760 512 u 0 s 512 f 0 fs 0 l 10485760 t malloc\n"
+"0 DISK cfid0 8388608 4 hd 0 sc 0\n"
+"1 MAP map/config 131072 4 i 5 o 8257536 entry 0 dsize 131072\n"
+"1 MAP map/rootfs 6881280 4 i 4 o 1376256 entry 0 dsize 6881280\n"
+"2 UZIP map/rootfs.uzip 18677760 512\n"
+"1 MAP map/kernel 1114112 4 i 3 o 262144 entry 0 dsize 1114112\n"
+"1 MAP map/upgrade 7995392 4 i 2 o 262144 entry 0 dsize 7995392\n"
+"1 MAP map/factory 65536 4 i 1 o 196608 entry 0 dsize 65536\n"
+"1 MAP map/bootloader 196608 4 i 0 o 0 entry 0 dsize 196608\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:91
+msgid ""
+"Driver configuration can be done in E<.Xr device.hints 5>.  List of used "
+"parameters:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:92
+#, no-wrap
+msgid "Va at"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:94
+msgid "select media to attach"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:94
+#, no-wrap
+msgid "Va name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:97
+msgid "name of partition (will create device E<.Pa /dev/map/ Ns Ar that_name>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:97
+#, no-wrap
+msgid "Va start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:102
+msgid ""
+"offset from the beginning of the parent media to start of the mapped "
+"partition.  This field can also have a special value E<.Qq Li search: Ns Ar "
+"searchstart Ns Li : Ns Ar searchstep Ns Li : Ns Ar searchkey>, where:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:103
+#, no-wrap
+msgid "Ar searchstart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:105
+msgid "offset from the beginning of the parent media where search will be started"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:105
+#, no-wrap
+msgid "Ar searchstep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:107
+msgid ""
+"value of the increment used while searching for the partition boundary "
+"markers"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:107
+#, no-wrap
+msgid "Ar searchkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:112
+msgid ""
+"key which will be used to find partition boundary markers.  The wildcard "
+"E<.Ql .\\&> can be used to match any character on that position"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:113
+#, no-wrap
+msgid "Va end"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:118
+msgid ""
+"offset from the beginning of the parent media to the end of the mapped "
+"partition.  This field can also have the special value E<.Qq Li search: Ns "
+"Ar searchstart Ns Li : Ns Ar searchstep Ns Li : Ns Ar searchkey>, as "
+"described above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_map.4:118
+#, no-wrap
+msgid "Va offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:120
+msgid "offset where the data of the mapped partition begins"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:125
+msgid ""
+"Each record contains the start address (in bytes) from the media begin, size "
+"(in bytes), offset where the data of mapped partition begins, and the name "
+"of new device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:127
+#, no-wrap
+msgid "MAP: 150000x690000, data=0x690000 \"/dev/map/rootfs\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:134
+#, no-wrap
+msgid ""
+"00150000 - start address\n"
+"00690000 - size\n"
+"00000000 - data begin from zero offset\n"
+"00690000 - data size\n"
+"\"map/rootfs\" - new media will be accessible via /dev/map/rootfs dev.\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_map.4:135
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:138
+msgid ""
+"If we need to implement layout shown above, we need to define the following "
+"hints:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:144
+#, no-wrap
+msgid ""
+"hint.map.0.at=\"cfid0\"\n"
+"hint.map.0.start=0x00000000\n"
+"hint.map.0.end=0x00030000\n"
+"hint.map.0.name=\"bootloader\"\n"
+"hint.map.0.readonly=1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:155
+msgid ""
+"This defines E<.Pa /dev/map/bootloader> at disk E<.Pa cfid0> starting at "
+"E<.Li 0x00000000> and ending at E<.Li 0x00030000>, it is also marked as "
+"readonly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:160
+#, no-wrap
+msgid ""
+"hint.map.1.at=\"cfid0\"\n"
+"hint.map.1.start=0x00030000\n"
+"hint.map.1.end=0x00040000\n"
+"hint.map.1.name=\"factory\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:165
+#, no-wrap
+msgid ""
+"hint.map.2.at=\"cfid0\"\n"
+"hint.map.2.start=0x00040000\n"
+"hint.map.2.end=0x007e0000\n"
+"hint.map.2.name=\"upgrade\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:170
+#, no-wrap
+msgid ""
+"hint.map.3.at=\"cfid0\"\n"
+"hint.map.3.name=\"kernel\"\n"
+"hint.map.3.start=0x00040000\n"
+"hint.map.3.end=\"search:0x00100000:0x10000:.!/bin/sh\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:192
+msgid ""
+"This defines E<.Pa /dev/map/kernel> at disk E<.Pa cfid0> starting at E<.Li "
+"0x00040000>, but the end position must be searched by finding the key E<.Dq "
+"Li \".!/bin/sh\">, from offset E<.Li 0x00100000> to the end of media with "
+"step E<.Li 0x10000>.  The real marker in this case is E<.Dq Li "
+"\"#!/bin/sh\">, but E<.Ql #> terminates the line when the hints file is "
+"parsed, so we need to use wildcard E<.Ql .\\&> instead of E<.Ql #>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:197
+#, no-wrap
+msgid ""
+"hint.map.4.at=\"cfid0\"\n"
+"hint.map.4.name=\"rootfs\"\n"
+"hint.map.4.start=\"search:0x00100000:0x10000:.!/bin/sh\"\n"
+"hint.map.4.end=0x007e0000\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:202
+#, no-wrap
+msgid ""
+"hint.map.5.at=\"cfid0\"\n"
+"hint.map.5.start=0x007e0000\n"
+"hint.map.5.end=0x00800000\n"
+"hint.map.5.name=\"config\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_map.4:203
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:207
+msgid "E<.Xr geom 4>, E<.Xr geom 8>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_map.4:207
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_map.4:211
+msgid ""
+"The E<.Nm> driver was written by E<.An Aleksandr Rybalko Aq Mt "
+"ray@ddteam.net>."
+msgstr ""

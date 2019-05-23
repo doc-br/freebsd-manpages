@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/libexec/tftpd/tftpd.8:31
+#, no-wrap
+msgid "June 22, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/libexec/tftpd/tftpd.8:32
+#, no-wrap
+msgid "TFTPD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/tftpd/tftpd.8:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:36
+msgid "E<.Nm tftpd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/libexec/tftpd/tftpd.8:36
+#, no-wrap
+msgid "Internet Trivial File Transfer Protocol server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/tftpd/tftpd.8:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:45
+msgid ""
+"E<.Nm tftpd> E<.Op Fl cdClnow> E<.Op Fl F Ar strftime-format> E<.Op Fl s Ar "
+"directory> E<.Op Fl u Ar user> E<.Op Fl U Ar umask> E<.Op Ar directory ...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/tftpd/tftpd.8:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:62
+msgid ""
+"The E<.Nm> utility is a server which supports the Internet Trivial File "
+"Transfer Protocol E<.Pq Tn RFC 1350>.  The E<.Tn TFTP> server operates at "
+"the port indicated in the E<.Ql tftp> service description; see E<.Xr "
+"services 5>.  The server is normally started by E<.Xr inetd 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:83
+msgid ""
+"The use of E<.Xr tftp 1> does not require an account or password on the "
+"remote system.  Due to the lack of authentication information, E<.Nm> will "
+"allow only publicly readable files to be accessed.  Files containing the "
+"string E<.Dq Li \"/../\"> or starting with E<.Dq Li \"../\"> are not "
+"allowed.  Files may be written only if they already exist and are publicly "
+"writable.  Note that this extends the concept of E<.Dq public> to include "
+"all users on all hosts that can be reached through the network; this may not "
+"be appropriate on all systems, and its implications should be considered "
+"before enabling tftp service.  The server should have the user ID with the "
+"lowest possible privilege."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:93
+msgid ""
+"Access to files may be restricted by invoking E<.Nm> with a list of "
+"directories by including up to 20 pathnames as server program arguments in "
+"E<.Xr inetd.conf 5>.  In this case access is restricted to files whose names "
+"are prefixed by the one of the given directories.  The given directories are "
+"also treated as a search path for relative filename requests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:118
+msgid ""
+"The E<.Fl s> option provides additional security by changing the root "
+"directory of E<.Nm>, thereby prohibiting accesses to outside of the "
+"specified E<.Ar directory>.  Because E<.Xr chroot 2> requires super-user "
+"privileges, E<.Nm> must be run as E<.Li root>.  However, after performing "
+"the E<.Xr chroot 2> call, E<.Nm> will set its user ID to that of the "
+"specified E<.Ar user>, or E<.Dq Li nobody> if no E<.Fl u> option is "
+"specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:120
+msgid "The options are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:121
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:134
+msgid ""
+"Changes the default root directory of a connecting host via E<.Xr chroot 2> "
+"based on the connecting IP address.  This prevents multiple clients from "
+"writing to the same file at the same time.  If the directory does not exist, "
+"the client connection is refused.  The E<.Fl s> option is required for E<.Fl "
+"c> and the specified E<.Ar directory> is used as a base."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:134
+#, no-wrap
+msgid "Fl C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:142
+msgid ""
+"Operates the same as E<.Fl c> except it falls back to E<.Ar directory> "
+"specified via E<.Fl s> if a directory does not exist for the client's IP."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:142
+#, no-wrap
+msgid "Fl F"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:149
+msgid ""
+"Use this E<.Xr strftime 3> compatible format string for the creation of the "
+"suffix if E<.Fl W> is specified.  By default the string \"%Y%m%d\" is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:149
+#, no-wrap
+msgid "Fl d, d Ar [value]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:157
+msgid ""
+"Enables debug output.  If E<.Ar value> is not specified, then the debug "
+"level is increased by one for each instance of E<.Fl d> which is specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:170
+msgid ""
+"If E<.Ar value> is specified, then the debug level is set to E<.Ar value>.  "
+"The debug level is a bitmask implemented in E<.Pa "
+"src/libexec/tftpd/tftp-utils.h>.  Valid values are 0 (DEBUG_NONE), 1 "
+"(DEBUG_PACKETS), 2, (DEBUG_SIMPLE), 4 (DEBUG_OPTIONS), and 8 "
+"(DEBUG_ACCESS).  Multiple debug values can be combined in the bitmask by "
+"logically OR'ing the values.  For example, specifying E<.Fl d> E<.Ar 15> "
+"will enable all the debug values."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:170
+#, no-wrap
+msgid "Fl l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:181
+msgid ""
+"Log all requests using E<.Xr syslog 3> with the facility of E<.Dv LOG_FTP>.  "
+"E<.Sy Note>: Logging of E<.Dv LOG_FTP> messages must also be enabled in the "
+"syslog configuration file, E<.Xr syslog.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:181
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:184
+msgid ""
+"Suppress negative acknowledgement of requests for nonexistent relative "
+"filenames."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:184
+#, no-wrap
+msgid "Fl o"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:186
+msgid "Disable support for RFC2347 style TFTP Options."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:186
+#, no-wrap
+msgid "Fl s Ar directory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:194
+msgid ""
+"Cause E<.Nm> to change its root directory to E<.Ar directory>.  After doing "
+"that but before accepting commands, E<.Nm> will switch credentials to an "
+"unprivileged user."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:194
+#, no-wrap
+msgid "Fl u Ar user"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:203
+msgid ""
+"Switch credentials to E<.Ar user> (default E<.Dq Li nobody>)  when the E<.Fl "
+"s> option is used.  The user must be specified by name, not a numeric UID."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:203
+#, no-wrap
+msgid "Fl U Ar umask"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:209
+msgid ""
+"Set the E<.Ar umask> for newly created files.  The default is 022 E<.Pq Dv "
+"S_IWGRP | S_IWOTH>."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:209
+#, no-wrap
+msgid "Fl w"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:218
+msgid ""
+"Allow write requests to create new files.  By default E<.Nm> requires that "
+"the file specified in a write request exist.  Note that this only works in "
+"directories writable by the user specified with E<.Fl u> option"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/tftpd/tftpd.8:218
+#, no-wrap
+msgid "Fl W"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:225
+msgid ""
+"As E<.Fl w> but append a YYYYMMDD.nn sequence number to the end of the "
+"filename.  Note that the string YYYYMMDD can be changed with the E<.Fl F> "
+"option."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/tftpd/tftpd.8:226
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:234
+msgid ""
+"E<.Xr tftp 1>, E<.Xr chroot 2>, E<.Xr syslog 3>, E<.Xr inetd.conf 5>, E<.Xr "
+"services 5>, E<.Xr syslog.conf 5>, E<.Xr inetd 8>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:248
+msgid ""
+"The following RFC's are supported: E<.Rs> E<.%T RFC 1350: The TFTP Protocol "
+"(Revision 2)> E<.Re> E<.Rs> E<.%T RFC 2347: TFTP Option Extension> E<.Re> "
+"E<.Rs> E<.%T RFC 2348: TFTP Blocksize Option> E<.Re> E<.Rs> E<.%T RFC 2349: "
+"TFTP Timeout Interval and Transfer Size Options> E<.Re>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:258
+msgid ""
+"The non-standard E<.Cm rollover> and E<.Cm blksize2> TFTP options are "
+"mentioned here: E<.Rs> E<.%T Extending TFTP> E<.%U "
+"http://www.compuphase.com/tftp.htm> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/tftpd/tftpd.8:258
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:281
+msgid ""
+"The E<.Nm> utility appeared in E<.Bx 4.2>; the E<.Fl s> option was "
+"introduced in E<.Fx 2.2>, the E<.Fl u> option was introduced in E<.Fx 4.2>, "
+"the E<.Fl c> option was introduced in E<.Fx 4.3>, and the E<.Fl F> and E<.Fl "
+"W> options were introduced in E<.Fx 7.4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:288
+msgid ""
+"Support for Timeout Interval and Transfer Size Options (RFC2349)  was "
+"introduced in E<.Fx 5.0>, support for the TFTP Blocksize Option (RFC2348) "
+"and the blksize2 option was introduced in E<.Fx 7.4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:294
+msgid ""
+"Edwin Groothuis E<lt>edwin@FreeBSD.orgE<gt> performed a major rewrite of the "
+"E<.Nm> and E<.Xr tftp 1> code to support RFC2348."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/tftpd/tftpd.8:294
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:303
+msgid ""
+"Files larger than 33,553,919 octets (65535 blocks, last one E<lt>512 octets) "
+"cannot be correctly transferred without client and server supporting "
+"blocksize negotiation (RFCs 2347 and 2348), or the non-standard TFTP "
+"rollover option.  As a kludge, E<.Nm> accepts a sequence of block number "
+"which wrap to zero after 65535, even if the rollover option is not "
+"specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/tftpd/tftpd.8:306
+msgid ""
+"Many tftp clients will not transfer files over 16,776,703 octets (32767 "
+"blocks), as they incorrectly count the block number using a signed rather "
+"than unsigned 16-bit integer."
+msgstr ""

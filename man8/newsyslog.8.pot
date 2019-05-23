@@ -1,0 +1,441 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:20
+#, no-wrap
+msgid "November 10, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:21
+#, no-wrap
+msgid "NEWSYSLOG 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:23
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:25
+msgid "E<.Nm newsyslog>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:25
+#, no-wrap
+msgid "maintain system log files to manageable sizes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:26
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:35
+msgid ""
+"E<.Nm> E<.Op Fl CFNPnrsv> E<.Op Fl a Ar directory> E<.Op Fl d Ar directory> "
+"E<.Op Fl f Ar config_file> E<.Op Fl S Ar pidfile> E<.Op Fl t Ar timefmt> "
+"E<.Op Oo Fl R Ar tagname Oc Ar>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:61
+msgid ""
+"The E<.Nm> utility should be scheduled to run periodically by E<.Xr cron "
+"8>.  When it is executed it archives log files if necessary.  If a log file "
+"is determined to require archiving, E<.Nm> rearranges the files so that "
+"E<.Dq Va logfile> is empty, E<.Dq Va logfile Ns Li \\&.0> has the last "
+"period's logs in it, E<.Dq Va logfile Ns Li \\&.1> has the next to last "
+"period's logs in it, and so on, up to a user-specified number of archived "
+"logs.  It is also possible to let archived log filenames be created using "
+"the time the log file was archived instead of the sequential number using "
+"the E<.Fl t> option.  Optionally the archived logs can be compressed to save "
+"space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:63
+msgid "A log can be archived for three reasons:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:66
+msgid "It is larger than the configured size (in kilobytes)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:69
+msgid "A configured number of hours have elapsed since the log was last archived."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:71
+msgid "This is the specific configured hour for rotation of the log."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:80
+msgid ""
+"The granularity of E<.Nm> is dependent on how often it is scheduled to run "
+"by E<.Xr cron 8>.  Since the program is quite fast, it may be scheduled to "
+"run every hour without any ill effects, and mode three (above) assumes that "
+"this is so."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:80
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:83
+msgid "The following options can be used with E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:84
+#, no-wrap
+msgid "Fl f Ar config_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:92
+msgid ""
+"Instruct E<.Nm> to use E<.Ar config_file> instead of E<.Pa "
+"/etc/newsyslog.conf> for its configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:92
+#, no-wrap
+msgid "Fl a Ar directory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:109
+msgid ""
+"Specify a E<.Ar directory> into which archived log files will be written.  "
+"If a relative path is given, it is appended to the path of each log file and "
+"the resulting path is used as the directory into which the archived log for "
+"that log file will be written.  If an absolute path is given, all archived "
+"logs are written into the given E<.Ar directory>.  If any component of the "
+"path E<.Ar directory> does not exist, it will be created when E<.Nm> is run."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:109
+#, no-wrap
+msgid "Fl d Ar directory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:118
+msgid ""
+"Specify a E<.Ar directory> which all log files will be relative to.  To "
+"allow archiving of logs outside the root, the E<.Ar directory> passed to the "
+"E<.Fl a> option is unaffected."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:118
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:124
+msgid ""
+"Place E<.Nm> in verbose mode.  In this mode it will print out each log and "
+"its reasons for either trimming that log or skipping it."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:124
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:132
+msgid ""
+"Cause E<.Nm> not to trim the logs, but to print out what it would do if this "
+"option were not specified.  This option implies the E<.Fl r> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:132
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:141
+msgid ""
+"Remove the restriction that E<.Nm> must be running as root.  Of course, "
+"E<.Nm> will not be able to send a HUP signal to E<.Xr syslogd 8> so this "
+"option should only be used in debugging."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:141
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:153
+msgid ""
+"Specify that E<.Nm> should not send any signals to any daemon processes that "
+"it would normally signal when rotating a log file.  For any log file which "
+"is rotated, this option will usually also mean the rotated log file will not "
+"be compressed if there is a daemon which would have been signalled without "
+"this option.  However, this option is most likely to be useful when "
+"specified with the E<.Fl R> option, and in that case the compression will be "
+"done."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:153
+#, no-wrap
+msgid "Fl t Ar timefmt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:179
+msgid ""
+"If specified E<.Nm> will create the E<.Dq rotated> logfiles using the "
+"specified time format instead of the default sequential filenames.  The "
+"filename used will be kept until it is deleted.  The time format is "
+"described in the E<.Xr strftime 3> manual page.  If the E<.Ar timefmt> "
+"argument is set to an empty string or the string E<.Dq DEFAULT>, the default "
+"built in time format is used.  If the E<.Ar timefmt> string is changed the "
+"old files created using the previous time format will not be automatically "
+"removed (unless the new format is very similar to the old format).  This is "
+"also the case when changing from sequential filenames to time based file "
+"names, and the other way around.  The time format should contain at least "
+"year, month, day, and hour to make sure rotating of old logfiles can select "
+"the correct logfiles."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:179
+#, no-wrap
+msgid "Fl C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:193
+msgid ""
+"If specified once, then E<.Nm> will create any log files which do not exist, "
+"and which have the E<.Sy C> flag specified in their config file entry.  If "
+"specified multiple times, then E<.Nm> will create all log files which do not "
+"already exist.  If log files are given on the command-line, then the E<.Fl "
+"C> or E<.Fl CC> will only apply to those specific log files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:193
+#, no-wrap
+msgid "Fl F"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:200
+msgid ""
+"Force E<.Nm> to trim the logs, even if the trim conditions have not been "
+"met.  This option is useful for diagnosing system problems by providing you "
+"with fresh logs that contain only the problems."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:200
+#, no-wrap
+msgid "Fl N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:207
+msgid ""
+"Do not perform any rotations.  This option is intended to be used with the "
+"E<.Fl C> or E<.Fl CC> options when creating log files is the only objective."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:207
+#, no-wrap
+msgid "Fl P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:211
+msgid ""
+"Prevent further action if we should send signal but the E<.Dq pidfile> is "
+"empty or does not exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:211
+#, no-wrap
+msgid "Fl R Ar tagname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:253
+msgid ""
+"Specify that E<.Nm> should rotate a given list of files, even if trim "
+"conditions are not met for those files.  The E<.Ar tagname> is only used in "
+"the messages written to the log files which are rotated.  This differs from "
+"the E<.Fl F> option in that one or more log files must also be specified, so "
+"that E<.Nm> will only operate on those specific files.  This option is "
+"mainly intended for the daemons or programs which write some log files, and "
+"want to trigger a rotate based on their own criteria.  With this option they "
+"can execute E<.Nm> to trigger the rotate when they want it to happen, and "
+"still give the system administrator a way to specify the rules of rotation "
+"(such as how many backup copies are kept, and what kind of compression is "
+"done).  When a daemon does execute E<.Nm> with the E<.Fl R> option, it "
+"should make sure all of the log files are closed before calling E<.Nm>, and "
+"then it should re-open the files after E<.Nm> returns.  Usually the calling "
+"process will also want to specify the E<.Fl s> option, so E<.Nm> will not "
+"send a signal to the very process which called it to force the rotate.  "
+"Skipping the signal step will also mean that E<.Nm> will return faster, "
+"since E<.Nm> normally waits a few seconds after any signal that is sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:253
+#, no-wrap
+msgid "Fl S Ar pidfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:259
+msgid "Use E<.Ar pidfile> as E<.Xr syslogd 8 Ns 's> pidfile."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:265
+msgid ""
+"If additional command line arguments are given, E<.Nm> will only examine log "
+"files that match those arguments; otherwise, it will examine all files "
+"listed in the configuration file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:265
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:267
+#, no-wrap
+msgid "Pa /etc/newsyslog.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:270
+msgid "E<.Nm> configuration file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:270
+#, no-wrap
+msgid "Pa /etc/newsyslog.conf.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:274 /usr/src/usr.sbin/newsyslog/newsyslog.8:278
+msgid ""
+"By default each file in this directory ending in '.conf' and not beginning "
+"with a '.' will be included by the default E<.Pa newsyslog.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:274
+#, no-wrap
+msgid "Pa /usr/local/etc/newsyslog.conf.d"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:279
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:290
+msgid ""
+"Previous versions of the E<.Nm> utility used the dot (``.'') character to "
+"distinguish the group name.  Beginning with E<.Fx 3.3>, this has been "
+"changed to a colon (``:'') character so that user and group names may "
+"contain the dot character.  The dot (``.'') character is still accepted for "
+"backwards compatibility."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:290
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:299
+msgid ""
+"E<.Xr bzip2 1>, E<.Xr gzip 1>, E<.Xr xz 1>, E<.Xr zstd 1>, E<.Xr syslog 3>, "
+"E<.Xr newsyslog.conf 5>, E<.Xr chown 8>, E<.Xr syslogd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:299
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:306
+msgid "The E<.Nm> utility originated from E<.Nx> and first appeared in E<.Fx 2.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:306
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:309
+msgid "E<.An Theodore Ts'o>, MIT Project Athena"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.8:310
+msgid "Copyright 1987, Massachusetts Institute of Technology"
+msgstr ""

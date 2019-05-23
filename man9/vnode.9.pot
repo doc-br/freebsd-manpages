@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vnode.9:29
+#, no-wrap
+msgid "February 12, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vnode.9:30
+#, no-wrap
+msgid "VNODE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:34
+msgid "E<.Nm vnode>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vnode.9:34
+#, no-wrap
+msgid "internal representation of a file or directory"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vnode.9:36
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vnode.9:37
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:46
+msgid ""
+"The vnode is the focus of all file activity in E<.Ux>.  A vnode is described "
+"by E<.Vt \"struct vnode\">.  There is a unique vnode allocated for each "
+"active file, each current directory, each mounted-on file, text file, and "
+"the root."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:81
+msgid ""
+"Each vnode has three reference counts, E<.Va v_usecount>, E<.Va v_holdcnt> "
+"and E<.Va v_writecount>.  The first is the number of clients within the "
+"kernel which are using this vnode.  This count is maintained by E<.Xr vref "
+"9>, E<.Xr vrele 9> and E<.Xr vput 9>.  The second is the number of clients "
+"within the kernel who veto the recycling of this vnode.  This count is "
+"maintained by E<.Xr vhold 9> and E<.Xr vdrop 9>.  When both the E<.Va "
+"v_usecount> and the E<.Va v_holdcnt> of a vnode reaches zero then the vnode "
+"will be put on the freelist and may be reused for another file, possibly in "
+"another file system.  The transition from the freelist is handled by E<.Xr "
+"getnewvnode 9>.  The third is a count of the number of clients which are "
+"writing into the file.  It is maintained by the E<.Xr open 2> and E<.Xr "
+"close 2> system calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:95
+msgid ""
+"Any call which returns a vnode (e.g.,\\& E<.Xr vget 9>, E<.Xr VOP_LOOKUP 9>, "
+"etc.\\&)  will increase the E<.Va v_usecount> of the vnode by one.  When the "
+"caller is finished with the vnode, it should release this reference by "
+"calling E<.Xr vrele 9> (or E<.Xr vput 9> if the vnode is locked)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:112
+msgid ""
+"Other commonly used members of the vnode structure are E<.Va v_id> which is "
+"used to maintain consistency in the name cache, E<.Va v_mount> which points "
+"at the file system which owns the vnode, E<.Va v_type> which contains the "
+"type of object the vnode represents and E<.Va v_data> which is used by file "
+"systems to store file system specific data with the vnode.  The E<.Va v_op> "
+"field is used by the E<.Dv VOP_*> macros to call functions in the file "
+"system which implement the vnode's functionality."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:112
+#, no-wrap
+msgid "VNODE TYPES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:114
+#, no-wrap
+msgid "Dv VNON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:116
+msgid "No type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:116
+#, no-wrap
+msgid "Dv VREG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:120
+msgid ""
+"A regular file; may be with or without VM object backing.  If you want to "
+"make sure this get a backing object, call E<.Fn vnode_create_vobject>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:120
+#, no-wrap
+msgid "Dv VDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:122
+msgid "A directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:122
+#, no-wrap
+msgid "Dv VBLK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:126
+msgid ""
+"A block device; may be with or without VM object backing.  If you want to "
+"make sure this get a backing object, call E<.Fn vnode_create_vobject>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:126
+#, no-wrap
+msgid "Dv VCHR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:128
+msgid "A character device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:128
+#, no-wrap
+msgid "Dv VLNK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:130
+msgid "A symbolic link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:130
+#, no-wrap
+msgid "Dv VSOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:133
+msgid "A socket.  Advisory locking will not work on this."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:133
+#, no-wrap
+msgid "Dv VFIFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:136
+msgid "A FIFO (named pipe).  Advisory locking will not work on this."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vnode.9:136
+#, no-wrap
+msgid "Dv VBAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:138
+msgid "Indicates that the vnode has been reclaimed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:139
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:146
+msgid ""
+"VFIFO uses the \"struct fileops\" from E<.Pa /sys/kern/sys_pipe.c>.  VSOCK "
+"uses the \"struct fileops\" from E<.Pa /sys/kern/sys_socket.c>.  Everything "
+"else uses the one from E<.Pa /sys/kern/vfs_vnops.c>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:150
+msgid ""
+"The VFIFO/VSOCK code, which is why \"struct fileops\" is used at all, is an "
+"artifact of an incomplete integration of the VFS code into the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:159
+msgid ""
+"Calls to E<.Xr malloc 9> or E<.Xr free 9> when holding a E<.Nm> interlock, "
+"will cause a LOR (Lock Order Reversal) due to the intertwining of VM Objects "
+"and Vnodes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:159
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:195
+msgid ""
+"E<.Xr malloc 9>, E<.Xr VFS 9>, E<.Xr VOP_ACCESS 9>, E<.Xr VOP_ACLCHECK 9>, "
+"E<.Xr VOP_ADVISE 9>, E<.Xr VOP_ADVLOCK 9>, E<.Xr VOP_ALLOCATE 9>, E<.Xr "
+"VOP_ATTRIB 9>, E<.Xr VOP_BWRITE 9>, E<.Xr VOP_CREATE 9>, E<.Xr VOP_FSYNC 9>, "
+"E<.Xr VOP_GETACL 9>, E<.Xr VOP_GETEXTATTR 9>, E<.Xr VOP_GETPAGES 9>, E<.Xr "
+"VOP_INACTIVE 9>, E<.Xr VOP_IOCTL 9>, E<.Xr VOP_LINK 9>, E<.Xr "
+"VOP_LISTEXTATTR 9>, E<.Xr VOP_LOCK 9>, E<.Xr VOP_LOOKUP 9>, E<.Xr "
+"VOP_OPENCLOSE 9>, E<.Xr VOP_PATHCONF 9>, E<.Xr VOP_PRINT 9>, E<.Xr VOP_RDWR "
+"9>, E<.Xr VOP_READDIR 9>, E<.Xr VOP_READLINK 9>, E<.Xr VOP_REALLOCBLKS 9>, "
+"E<.Xr VOP_REMOVE 9>, E<.Xr VOP_RENAME 9>, E<.Xr VOP_REVOKE 9>, E<.Xr "
+"VOP_SETACL 9>, E<.Xr VOP_SETEXTATTR 9>, E<.Xr VOP_STRATEGY 9>, E<.Xr "
+"VOP_VPTOCNP 9>, E<.Xr VOP_VPTOFH 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vnode.9:195
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vnode.9:197
+msgid "This manual page was written by E<.An Doug Rabson>."
+msgstr ""

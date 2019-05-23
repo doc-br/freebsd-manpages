@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/pass.4:30
+#, no-wrap
+msgid "May 3, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/pass.4:31
+#, no-wrap
+msgid "PASS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:35
+msgid "E<.Nm pass>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/pass.4:35
+#, no-wrap
+msgid "CAM application passthrough driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:38
+msgid "E<.Cd device pass>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:43
+msgid ""
+"The E<.Nm> driver provides a way for userland applications to issue CAM CCBs "
+"to the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:51
+msgid ""
+"Since the E<.Nm> driver allows direct access to the CAM subsystem, system "
+"administrators should exercise caution when granting access to this driver.  "
+"If used improperly, this driver can allow userland applications to crash a "
+"machine or cause data loss."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:65
+msgid ""
+"The E<.Nm> driver attaches to every E<.Tn SCSI> and E<.Tn ATA> device found "
+"in the system.  Since it attaches to every device, it provides a generic "
+"means of accessing E<.Tn SCSI> and E<.Tn ATA> devices, and allows the user "
+"to access devices which have no \"standard\" peripheral driver associated "
+"with them."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:65
+#, no-wrap
+msgid "KERNEL CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:75
+msgid ""
+"It is only necessary to configure one E<.Nm> device in the kernel; E<.Nm> "
+"devices are automatically allocated as E<.Tn SCSI> and E<.Tn ATA> devices "
+"are found."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:75
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pass.4:77
+#, no-wrap
+msgid "CAMIOCOMMAND union ccb *"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:88
+msgid ""
+"This ioctl takes most kinds of CAM CCBs and passes them through to the CAM "
+"transport layer for action.  Note that some CCB types are not allowed "
+"through the passthrough device, and must be sent through the E<.Xr xpt 4> "
+"device instead.  Some examples of xpt-only CCBs are XPT_SCAN_BUS, "
+"XPT_DEV_MATCH, XPT_RESET_BUS, XPT_SCAN_LUN, XPT_ENG_INQ, and XPT_ENG_EXEC.  "
+"These CCB types have various attributes that make it illogical or impossible "
+"to service them through the passthrough interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:93 /usr/src/share/man/man4/pass.4:173
+msgid ""
+"If the user would like the kernel to do error recovery, the E<.Dv "
+"CAM_PASS_ERR_RECOVER> flag must be set on the CCB, and the retry_count field "
+"set to the number of retries."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pass.4:93
+#, no-wrap
+msgid "CAMGETPASSTHRU union ccb *"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:104
+msgid ""
+"This ioctl takes an XPT_GDEVLIST CCB, and returns the passthrough device "
+"corresponding to the device in question.  Although this ioctl is available "
+"through the E<.Nm> driver, it is of limited use, since the caller must "
+"already know that the device in question is a passthrough device if they are "
+"issuing this ioctl.  It is probably more useful to issue this ioctl through "
+"the E<.Xr xpt 4> device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pass.4:104
+#, no-wrap
+msgid "CAMIOQUEUE union ccb *"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:114
+msgid ""
+"Queue a CCB to the E<.Nm> driver to be executed asynchronously.  The caller "
+"may use E<.Xr select 2>, E<.Xr poll 2> or E<.Xr kevent 2> to receive "
+"notification when the CCB has completed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:123
+msgid ""
+"This ioctl takes most CAM CCBs, but some CCB types are not allowed through "
+"the pass device, and must be sent through the E<.Xr xpt 4> device instead.  "
+"Some examples of xpt-only CCBs are XPT_SCAN_BUS, XPT_DEV_MATCH, "
+"XPT_RESET_BUS, XPT_SCAN_LUN, XPT_ENG_INQ, and XPT_ENG_EXEC.  These CCB types "
+"have various attributes that make it illogical or impossible to service them "
+"through the passthrough interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:132
+msgid ""
+"Although the E<.Dv CAMIOQUEUE> ioctl is not defined to take an argument, it "
+"does require a pointer to a union ccb.  It is not defined to take an "
+"argument to avoid an extra malloc and copy inside the generic E<.Xr ioctl 2> "
+"handler."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:149
+msgid ""
+"The completed CCB will be returned via the E<.Dv CAMIOGET> ioctl.  An error "
+"will only be returned from the E<.Dv CAMIOQUEUE> ioctl if there is an error "
+"allocating memory for the request or copying memory from userland.  All "
+"other errors will be reported as standard CAM CCB status errors.  Since the "
+"CCB is not copied back to the user process from the pass driver in the E<.Dv "
+"CAMIOQUEUE> ioctl, the user's passed-in CCB will not be modfied.  This is "
+"the case even with immediate CCBs.  Instead, the completed CCB must be "
+"retrieved via the E<.Dv CAMIOGET> ioctl and the status examined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:168
+msgid ""
+"Multiple CCBs may be queued via the E<.Dv CAMIOQUEUE> ioctl at any given "
+"time, and they may complete in a different order than the order that they "
+"were submitted.  The caller must take steps to identify CCBs that are queued "
+"and completed.  The E<.Dv periph_priv> structure inside struct ccb_hdr is "
+"available for userland use with the E<.Dv CAMIOQUEUE> and E<.Dv CAMIOGET> "
+"ioctls, and will be preserved across calls.  Also, the periph_links linked "
+"list pointers inside struct ccb_hdr are available for userland use with the "
+"E<.Dv CAMIOQUEUE> and E<.Dv CAMIOGET> ioctls and will be preserved across "
+"calls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pass.4:173
+#, no-wrap
+msgid "CAMIOGET union ccb *"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:186
+msgid ""
+"Retrieve completed CAM CCBs queued via the E<.Dv CAMIOQUEUE> ioctl.  An "
+"error will only be returned from the E<.Dv CAMIOGET> ioctl if the E<.Nm> "
+"driver fails to copy data to the user process or if there are no completed "
+"CCBs available to retrieve.  If no CCBs are available to retrieve, errno "
+"will be set to E<.Dv ENOENT>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:188
+msgid "All other errors will be reported as standard CAM CCB status errors."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:197
+msgid ""
+"Although the E<.Dv CAMIOGET> ioctl is not defined to take an argument, it "
+"does require a pointer to a union ccb.  It is not defined to take an "
+"argument to avoid an extra malloc and copy inside the generic E<.Xr ioctl 2> "
+"handler."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:212
+msgid ""
+"The pass driver will report via E<.Xr select 2>, E<.Xr poll 2> or E<.Xr "
+"kevent 2> when a CCB has completed.  One CCB may be retrieved per E<.Dv "
+"CAMIOGET> call.  CCBs may be returned in an order different than the order "
+"they were submitted.  So the caller should use the E<.Dv periph_priv> area "
+"inside the CCB header to store pointers to identifying information."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:213
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pass.4:215
+#, no-wrap
+msgid "Pa /dev/pass Ns Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:221
+msgid ""
+"Character device nodes for the E<.Nm> driver.  There should be one of these "
+"for each device accessed through the CAM subsystem."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:222
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:224
+msgid "None."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:224
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:238
+msgid ""
+"E<.Xr kqueue 2>, E<.Xr poll 2>, E<.Xr select 2>, E<.Xr cam 3>, E<.Xr "
+"cam_cdbparse 3>, E<.Xr cam 4>, E<.Xr cd 4>, E<.Xr ctl 4>, E<.Xr da 4>, E<.Xr "
+"sa 4>, E<.Xr xpt 4>, E<.Xr camcontrol 8>, E<.Xr camdd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:238
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:241
+msgid "The CAM passthrough driver first appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pass.4:241
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pass.4:242
+msgid "E<.An Kenneth Merry Aq Mt ken@FreeBSD.org>"
+msgstr ""

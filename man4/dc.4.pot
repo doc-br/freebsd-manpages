@@ -1,0 +1,729 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dc.4:33
+#, no-wrap
+msgid "October 24, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dc.4:34
+#, no-wrap
+msgid "DC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:38
+msgid "E<.Nm dc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dc.4:38
+#, no-wrap
+msgid "DEC/Intel 21143 and clone 10/100 Ethernet driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:43
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:46
+#, no-wrap
+msgid ""
+"E<.Cd \"device miibus\">\n"
+"E<.Cd \"device dc\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:51
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:53
+#, no-wrap
+msgid "if_dc_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:59
+msgid ""
+"The E<.Nm> driver provides support for several PCI Fast Ethernet adapters "
+"and embedded controllers based on the DEC/Intel 21143 chipset and clones."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:72
+msgid ""
+"All of supported chipsets have the same general register layout, DMA "
+"descriptor format and method of operation.  All of the clone chips are based "
+"on the 21143 design with various modifications.  The 21143 itself has "
+"support for 10baseT, BNC, AUI, MII and symbol media attachments, 10 and "
+"100Mbps speeds in full or half duplex, built in NWAY autonegotiation and "
+"wake on LAN.  The 21143 also offers several receive filter programming "
+"options including perfect filtering, inverse perfect filtering and hash "
+"table filtering."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:88
+msgid ""
+"Some clone chips duplicate the 21143 fairly closely while others only "
+"maintain superficial similarities.  Some support only MII media "
+"attachments.  Others use different receiver filter programming mechanisms.  "
+"At least one supports only chained DMA descriptors (most support both "
+"chained descriptors and contiguously allocated fixed size rings).  Some "
+"chips (especially the PNIC) also have peculiar bugs.  The E<.Nm> driver does "
+"its best to provide generalized support for all of these chipsets in order "
+"to keep special case code to a minimum."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:91
+msgid ""
+"These chips are used by many vendors which makes it difficult to provide a "
+"complete list of all supported cards."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:95
+msgid "The E<.Nm> driver supports the following media types:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:96
+#, no-wrap
+msgid "Cm autoselect"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:102
+msgid ""
+"Enable autoselection of the media type and options.  The user can manually "
+"override the autoselected mode by adding media options to the E<.Pa "
+"/etc/rc.conf> file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:111
+msgid ""
+"Note: the built-in NWAY autonegotiation on the original PNIC 82c168 chip is "
+"horribly broken and is not supported by the E<.Nm> driver at this time (see "
+"the E<.Sx BUGS> section for details).  The original 82c168 appears on very "
+"early revisions of the LinkSys LNE100TX and Matrox FastNIC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:111
+#, no-wrap
+msgid "Cm 10baseT/UTP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:123
+msgid ""
+"Set 10Mbps operation.  The E<.Cm mediaopt> option can also be used to enable "
+"E<.Cm full-duplex> operation.  Not specifying E<.Cm full-duplex> implies "
+"E<.Cm half-duplex> mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:123
+#, no-wrap
+msgid "Cm 100baseTX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:135
+msgid ""
+"Set 100Mbps (Fast Ethernet) operation.  The E<.Cm mediaopt> option can also "
+"be used to enable E<.Cm full-duplex> operation.  Not specifying E<.Cm "
+"full-duplex> implies E<.Cm half-duplex> mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:140
+msgid "The E<.Nm> driver supports the following media options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:141
+#, no-wrap
+msgid "Cm full-duplex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:145
+msgid ""
+"Force full duplex operation.  The interface will operate in half duplex mode "
+"if this media option is not specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:151
+msgid ""
+"Note that the 100baseTX media type may not be available on certain Intel "
+"21143 adapters which support 10Mbps media attachments only.  For more "
+"information on configuring this device, see E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:151
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:155
+msgid "The E<.Nm> driver provides support for the following chipsets:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:159
+msgid "DEC/Intel 21143"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:162
+msgid "ADMtek AL981 Comet, AN985 Centaur, ADM9511 Centaur II and ADM9513 Centaur II"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:164
+msgid "ALi/ULi M5261 and M5263"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:166
+msgid "ASIX Electronics AX88140A and AX88141"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:168
+msgid "Conexant LANfinity RS7112 (miniPCI)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:170
+msgid "Davicom DM9009, DM9100, DM9102 and DM9102A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:172
+msgid "Lite-On 82c168 and 82c169 PNIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:174
+msgid "Lite-On/Macronix 82c115 PNIC II"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:176
+msgid "Macronix 98713, 98713A, 98715, 98715A, 98715AEC-C, 98725, 98727 and 98732"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:178
+msgid "Xircom X3201 (cardbus only)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:184
+msgid "The following NICs are known to work with the E<.Nm> driver at this time:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:188
+msgid "3Com OfficeConnect 10/100B (ADMtek AN985 Centaur-P)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:190
+msgid "Abocom FE2500"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:192
+msgid "Accton EN1217 (98715A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:194
+msgid "Accton EN2242 MiniPCI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:196
+msgid "Adico AE310TX (98715A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:198
+msgid "Alfa Inc GFC2204 (ASIX AX88140A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:201
+msgid ""
+"Built in 10Mbps only Ethernet on Compaq Presario 7900 series desktops "
+"(21143, non-MII)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:204
+msgid ""
+"Built in Sun DMFE 10/100 Mbps Ethernet on Sun Netra X1 and Sun Fire V100 "
+"(DM9102A, MII)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:206
+msgid ""
+"Built in Ethernet on LinkSys EtherFast 10/100 Instant GigaDrive (DM9102, "
+"MII)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:208
+msgid "CNet Pro110B (ASIX AX88140A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:210
+msgid "CNet Pro120A (98715A or 98713A) and CNet Pro120B (98715)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:212
+msgid "Compex RL100-TX (98713 or 98713A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:214
+msgid "D-Link DFE-570TX (21143, MII, quad port)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:216
+msgid "Digital DE500-BA 10/100 (21143, non-MII)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:218
+msgid "ELECOM Laneed LD-CBL/TXA (ADMtek AN985)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:220
+msgid "Hawking CB102 CardBus"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:222
+msgid "IBM EtherJet Cardbus Adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:224
+msgid "Intel PRO/100 Mobile Cardbus (versions that use the X3201 chipset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:226
+msgid "Jaton XpressNet (Davicom DM9102)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:228
+msgid "Kingston KNE100TX (21143, MII)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:230
+msgid "Kingston KNE110TX (PNIC 82c169)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:232
+msgid "LinkSys LNE100TX (PNIC 82c168, 82c169)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:234
+msgid "LinkSys LNE100TX v2.0 (PNIC II 82c115)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:236
+msgid "LinkSys LNE100TX v4.0/4.1 (ADMtek AN985 Centaur-P)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:238
+msgid "Matrox FastNIC 10/100 (PNIC 82c168, 82c169)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:240
+msgid "Melco LGY-PCI-TXL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:242
+msgid "Microsoft MN-120 10/100 CardBus (ADMTek Centaur-C)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:244
+msgid "Microsoft MN-130 10/100 PCI (ADMTek Centaur-P)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:246
+msgid "NDC SOHOware SFA110A (98713A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:248
+msgid "NDC SOHOware SFA110A Rev B4 (98715AEC-C)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:250
+msgid "NetGear FA310-TX Rev.\\& D1, D2 or D3 (PNIC 82c169)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:252
+msgid "Netgear FA511"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:254
+msgid "PlaneX FNW-3602-T (ADMtek AN985)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:256
+msgid "SMC EZ Card 10/100 1233A-TX (ADMtek AN985)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:258
+msgid "SVEC PN102-TX (98713)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:260
+msgid "Xircom Cardbus Realport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:262
+msgid "Xircom Cardbus Ethernet 10/100"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:264
+msgid "Xircom Cardbus Ethernet II 10/100"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:265
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:287
+msgid ""
+"On sparc64 the E<.Nm> driver respects the E<.Va local-mac-address?> system "
+"configuration variable for the built in Sun DMFE 10/100 Mbps Ethernet "
+"interfaces on Sun Netra X1 and Sun Fire V100.  This system configuration "
+"variable can be set in the Open Firmware boot monitor using the E<.Ic "
+"setenv> command or by E<.Xr eeprom 8>.  If set to E<.Dq Li false> (the "
+"default), the E<.Nm> driver will use the system's default MAC address for "
+"both of the built in devices.  If set to E<.Dq Li true>, the unique MAC "
+"address of each interface is used rather than the system's default MAC "
+"address."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:287
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:289
+#, no-wrap
+msgid "dc%d: couldn't map ports/memory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:291 /usr/src/share/man/man4/dc.4:293
+msgid "A fatal initialization error has occurred."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:291
+#, no-wrap
+msgid "dc%d: couldn't map interrupt"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:293
+#, no-wrap
+msgid "dc%d: watchdog timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:301
+msgid ""
+"A packet was queued for transmission and a transmit command was issued, but "
+"the device failed to acknowledge the transmission before a timeout expired.  "
+"This can happen if the device is unable to deliver interrupts for some "
+"reason, of if there is a problem with the network connection (cable or "
+"network equipment) that results in a loss of link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:301
+#, no-wrap
+msgid "dc%d: no memory for rx list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:303
+msgid "The driver failed to allocate an mbuf for the receiver ring."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:303
+#, no-wrap
+msgid "dc%d: TX underrun -- increasing TX threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:312
+msgid ""
+"The device generated a transmit underrun error while attempting to DMA and "
+"transmit a packet.  This happens if the host is not able to DMA the packet "
+"data into the NIC's FIFO fast enough.  The driver will dynamically increase "
+"the transmit start threshold so that more data must be DMAed into the FIFO "
+"before the NIC will start transmitting it onto the wire."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:312
+#, no-wrap
+msgid "dc%d: TX underrun -- using store and forward mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:319
+msgid ""
+"The device continued to generate transmit underruns even after all possible "
+"transmit start threshold settings had been tried, so the driver programmed "
+"the chip for store and forward mode.  In this mode, the NIC will not begin "
+"transmission until the entire packet has been transferred into its FIFO "
+"memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dc.4:319
+#, no-wrap
+msgid "dc%d: chip is in D3 power state -- setting to D0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:336
+msgid ""
+"This message applies only to adapters which support power management.  Some "
+"operating systems place the controller in low power mode when shutting down, "
+"and some PCI BIOSes fail to bring the chip out of this state before "
+"configuring it.  The controller loses all of its PCI configuration in the D3 "
+"state, so if the BIOS does not set it back to full power mode in time, it "
+"will not be able to configure it correctly.  The driver tries to detect this "
+"condition and bring the adapter back to the D0 (full power) state, but this "
+"may not be enough to return the driver to a fully operational condition.  If "
+"you see this message at boot time and the driver fails to attach the device "
+"as a network interface, you will have to perform a second warm boot to have "
+"the device properly configured."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:342
+msgid ""
+"Note that this condition only occurs when warm booting from another "
+"operating system.  If you power down your system prior to booting E<.Fx>, "
+"the card should be configured correctly."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:343
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:377
+msgid ""
+"E<.Xr altq 4>, E<.Xr arp 4>, E<.Xr miibus 4>, E<.Xr netintro 4>, E<.Xr "
+"ng_ether 4>, E<.Xr polling 4>, E<.Xr vlan 4>, E<.Xr eeprom 8>, E<.Xr "
+"ifconfig 8> E<.Rs> E<.%T ADMtek AL981, AL983 and AL985 data sheets> E<.%U "
+"http://www.admtek.com.tw> E<.Re> E<.Rs> E<.%T ASIX Electronics AX88140A and "
+"AX88141 data sheets> E<.%U http://www.asix.com.tw> E<.Re> E<.Rs> E<.%T "
+"Davicom DM9102 data sheet> E<.%U "
+"http://www.davicom.com.tw/userfile/24247/DM9102H-DS-F01-021508.pdf> E<.Re> "
+"E<.Rs> E<.%T Intel 21143 Hardware Reference Manual> E<.%U "
+"http://developer.intel.com> E<.Re> E<.Rs> E<.%T Macronix 98713/A, 98715/A "
+"and 98725 data sheets> E<.%U http://www.macronix.com> E<.Re> E<.Rs> E<.%T "
+"Macronix 98713/A and 98715/A app notes> E<.%U http://www.macronix.com> "
+"E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:377
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:382
+msgid "The E<.Nm> device driver first appeared in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:382
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:387
+msgid ""
+"The E<.Nm> driver was written by E<.An Bill Paul Aq Mt "
+"wpaul@ee.columbia.edu>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dc.4:387
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:393
+msgid ""
+"The Macronix application notes claim that in order to put the chips in "
+"normal operation, the driver must write a certain magic number into the "
+"CSR16 register.  The numbers are documented in the app notes, but the exact "
+"meaning of the bits is not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:401
+msgid ""
+"The 98713A seems to have a problem with 10Mbps full duplex mode.  The "
+"transmitter works but the receiver tends to produce many unexplained errors "
+"leading to very poor overall performance.  The 98715A does not exhibit this "
+"problem.  All other modes on the 98713A seem to work correctly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:410
+msgid ""
+"The original 82c168 PNIC chip has built in NWAY support which is used on "
+"certain early LinkSys LNE100TX and Matrox FastNIC cards, however it is "
+"horribly broken and difficult to use reliably.  Consequently, "
+"autonegotiation is not currently supported for this chipset: the driver "
+"defaults the NIC to 10baseT half duplex, and it is up to the operator to "
+"manually select a different mode if necessary.  (Later cards use an external "
+"MII transceiver to implement NWAY autonegotiation and work correctly.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:419
+msgid ""
+"The E<.Nm> driver programs 82c168 and 82c169 PNIC chips to use the store and "
+"forward setting for the transmit start threshold by default.  This is to "
+"work around problems with some NIC/PCI bus combinations where the PNIC can "
+"transmit corrupt frames when operating at 100Mbps, probably due to PCI DMA "
+"burst transfer errors."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:431
+msgid ""
+"The 82c168 and 82c169 PNIC chips also have a receiver bug that sometimes "
+"manifests during periods of heavy receive and transmit activity, where the "
+"chip will improperly DMA received frames to the host.  The chips appear to "
+"upload several kilobytes of garbage data along with the received frame data, "
+"dirtying several RX buffers instead of just the expected one.  The E<.Nm> "
+"driver detects this condition and will salvage the frame; however, it incurs "
+"a serious performance penalty in the process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:439
+msgid ""
+"The PNIC chips also sometimes generate a transmit underrun error when the "
+"driver attempts to download the receiver filter setup frame, which can "
+"result in the receive filter being incorrectly programmed.  The E<.Nm> "
+"driver will watch for this condition and requeue the setup frame until it is "
+"transferred successfully."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dc.4:450
+msgid ""
+"The ADMtek AL981 chip (and possibly the AN985 as well) has been observed to "
+"sometimes wedge on transmit: this appears to happen when the driver queues a "
+"sequence of frames which cause it to wrap from the end of the transmit "
+"descriptor ring back to the beginning.  The E<.Nm> driver attempts to avoid "
+"this condition by not queuing any frames past the end of the transmit ring "
+"during a single invocation of the E<.Fn dc_start> routine.  This workaround "
+"has a negligible impact on transmit performance."
+msgstr ""

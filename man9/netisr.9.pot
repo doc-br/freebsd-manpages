@@ -1,0 +1,423 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/netisr.9:30
+#, no-wrap
+msgid "April 25, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/netisr.9:31
+#, no-wrap
+msgid "NETISR 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/netisr.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:35
+msgid "E<.Nm netisr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/netisr.9:35
+#, no-wrap
+msgid "Kernel network dispatch service"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/netisr.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/netisr.9:37
+#, no-wrap
+msgid "net/netisr.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:64
+msgid ""
+"E<.Ft void> E<.Fn netisr_register \"const struct netisr_handler *nhp\"> "
+"E<.Ft void> E<.Fn netisr_unregister \"const struct netisr_handler *nhp\"> "
+"E<.Ft int> E<.Fn netisr_dispatch \"u_int proto\" \"struct mbuf *m\"> E<.Ft "
+"int> E<.Fn netisr_dispatch_src \"u_int proto\" \"uintptr_t source\" \"struct "
+"mbuf *m\"> E<.Ft int> E<.Fn netisr_queue \"u_int proto\" \"struct mbuf *m\"> "
+"E<.Ft int> E<.Fn netisr_queue_src \"u_int proto\" \"uintptr_t source\" "
+"\"struct mbuf *m\"> E<.Ft void> E<.Fn netisr_clearqdrops \"const struct "
+"netisr_handler *nhp\"> E<.Ft void> E<.Fn netisr_getqdrops \"const struct "
+"netisr_handler *nhp\" \"uint64_t *qdropsp\"> E<.Ft void> E<.Fn "
+"netisr_getqlimit \"const struct netisr_handler *nhp\" \"u_int *qlimitp\"> "
+"E<.Ft int> E<.Fn netisr_setqlimit \"const struct netisr_handler *nhp\" "
+"\"u_int qlimit\"> E<.Ft u_int> E<.Fn netisr_default_flow2cpu \"u_int "
+"flowid\"> E<.Ft u_int> E<.Fn netisr_get_cpucount \"void\"> E<.Ft u_int> "
+"E<.Fn netisr_get_cpuid \"u_int cpunumber\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:67
+msgid ""
+"With optional virtual network stack support enabled via the following kernel "
+"compile option:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:69
+#, no-wrap
+msgid "E<.Cd \"options VIMAGE\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:74
+msgid ""
+"E<.Ft void> E<.Fn netisr_register_vnet \"const struct netisr_handler *nhp\"> "
+"E<.Ft void> E<.Fn netisr_unregister_vnet \"const struct netisr_handler "
+"*nhp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/netisr.9:74
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:81
+msgid ""
+"The E<.Nm> kernel interface suite allows device drivers (and other packet "
+"sources) to direct packets to protocols for directly dispatched or deferred "
+"processing.  Protocol registration and work stream statistics may be "
+"monitored using E<.Xr netstat 1>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/netisr.9:81
+#, no-wrap
+msgid "Protocol registration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:92
+msgid ""
+"Protocols register and unregister handlers using E<.Fn netisr_register> and "
+"E<.Fn netisr_unregister>, and may also manage queue limits and statistics "
+"using the E<.Fn netisr_clearqdrops>, E<.Fn netisr_getqdrops>, E<.Fn "
+"netisr_getqlimit>, and E<.Fn netisr_setqlimit>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:102
+msgid ""
+"In case of VIMAGE kernels each virtual network stack (vnet), that is not the "
+"default base system network stack, calls E<.Fn netisr_register_vnet> and "
+"E<.Fn netisr_unregister_vnet> to enable or disable packet processing by the "
+"E<.Nm> for each protocol.  Disabling will also purge any outstanding packet "
+"from the protocol queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:109
+msgid ""
+"E<.Nm> supports multi-processor execution of handlers, and relies on a "
+"combination of source ordering and protocol-specific ordering and "
+"work-placement policies to decide how to distribute work across one or more "
+"worker threads.  Registering protocols will declare one of three policies:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:110
+#, no-wrap
+msgid "Dv NETISR_POLICY_SOURCE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:117
+msgid ""
+"E<.Nm> should maintain source ordering without advice from the protocol.  "
+"E<.Nm> will ignore any flow IDs present on E<.Vt mbuf> headers for the "
+"purposes of work placement."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:117
+#, no-wrap
+msgid "Dv NETISR_POLICY_FLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:129
+msgid ""
+"E<.Nm> should maintain flow ordering as defined by the E<.Vt mbuf> header "
+"flow ID field.  If the protocol implements E<.Va nh_m2flow>, then E<.Nm> "
+"will query the protocol in the event that the E<.Vt mbuf> doesn't have a "
+"flow ID, falling back on source ordering."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:129
+#, no-wrap
+msgid "NETISR_POLICY_CPU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:135
+msgid ""
+"E<.Nm> will entirely delegate all work placement decisions to the protocol, "
+"querying E<.Va nh_m2cpuid> for each packet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:140
+msgid ""
+"Registration is declared using E<.Vt \"struct netisr_handler\">, whose "
+"fields are defined as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:141
+#, no-wrap
+msgid "Vt \"const char *\" Va nh_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:145
+msgid ""
+"Unique character string name of the protocol, which may be included in E<.Xr "
+"sysctl 3> MIB names, so should not contain whitespace."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:145
+#, no-wrap
+msgid "Vt netisr_handler_t Va nh_handler"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:148
+msgid ""
+"Protocol handler function that will be invoked on each packet received for "
+"the protocol."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:148
+#, no-wrap
+msgid "Vt netisr_m2flow_t Va nh_m2flow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:158
+msgid ""
+"Optional protocol function to generate a flow ID and set a valid hashtype "
+"for packets that enter the E<.Nm> with E<.Dv M_HASHTYPE_GET(m)> equal to "
+"E<.Dv M_HASHTYPE_NONE>.  Will be used only with E<.Dv NETISR_POLICY_FLOW>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:158
+#, no-wrap
+msgid "Vt netisr_m2cpuid_t Va nh_m2cpuid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:162
+msgid ""
+"Protocol function to determine what CPU a packet should be processed on.  "
+"Will be used only with E<.Dv NETISR_POLICY_CPU>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:162
+#, no-wrap
+msgid "Vt netisr_drainedcpu_t Va nh_drainedcpu"
+msgstr ""
+
+#.  In case you intend to use this please send 50 chocolate bars to each
+#.  of rwatson and bz and wait for an answer.
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:169
+msgid ""
+"Optional callback function that will be invoked when a per-CPU queue was "
+"drained.  It will never fire for directly dispatched packets.  Unless fully "
+"understood, this special-purpose function should not be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:169
+#, no-wrap
+msgid "Vt u_int Va nh_proto"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:177
+msgid ""
+"Protocol number used by both protocols to identify themselves to E<.Nm>, and "
+"by packet sources to select what handler will be used to process packets.  A "
+"table of supported protocol numbers appears below.  For implementation "
+"reasons, protocol numbers great than 15 are currently unsupported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:177
+#, no-wrap
+msgid "Vt u_int Va nh_qlimit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:181
+msgid ""
+"The maximum per-CPU queue depth for the protocol; due to internal "
+"implementation details, the effective queue depth may be as much as twice "
+"this number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:181
+#, no-wrap
+msgid "Vt u_int Va nh_policy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:184
+msgid ""
+"The ordering and work placement policy for the protocol, as described "
+"earlier."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/netisr.9:185
+#, no-wrap
+msgid "Packet source interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:201
+msgid ""
+"Packet sources, such as network interfaces, may request protocol processing "
+"using the E<.Fn netisr_dispatch> and E<.Fn netisr_queue> interfaces.  Both "
+"accept a protocol number and E<.Vt mbuf> argument, but while E<.Fn "
+"netisr_queue> will always execute the protocol handler asynchronously in a "
+"deferred context, E<.Fn netisr_dispatch> will optionally direct dispatch if "
+"permitted by global and per-protocol policy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:210
+msgid ""
+"In order to provide additional load balancing and flow information, packet "
+"sources may also specify an opaque source identifier, which in practice "
+"might be a network interface number or socket pointer, using the E<.Fn "
+"netisr_dispatch_src> and E<.Fn netisr_queue_src> variants."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/netisr.9:210
+#, no-wrap
+msgid "Protocol number constants"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:212
+msgid "The follow protocol numbers are currently defined:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:213
+#, no-wrap
+msgid "Dv NETISR_IP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:215
+msgid "IPv4"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:215
+#, no-wrap
+msgid "Dv NETISR_IGMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:217
+msgid "IGMPv3 loopback"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:217
+#, no-wrap
+msgid "Dv NETISR_ROUTE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:219
+msgid "Routing socket loopback"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:219
+#, no-wrap
+msgid "Dv NETISR_ARP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:221
+msgid "ARP"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:221
+#, no-wrap
+msgid "Dv NETISR_IPV6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:223
+msgid "IPv6"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/netisr.9:223
+#, no-wrap
+msgid "Dv NETISR_EPAIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:226
+msgid "E<.Xr netstat 1>, E<.Xr epair 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/netisr.9:227
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/netisr.9:231
+msgid ""
+"This manual page and the E<.Nm> implementation were written by E<.An Robert "
+"N. M. Watson>."
+msgstr ""

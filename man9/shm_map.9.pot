@@ -1,0 +1,301 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/shm_map.9:29
+#, no-wrap
+msgid "December 14, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/shm_map.9:30
+#, no-wrap
+msgid "SHM_MAP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:34
+msgid "E<.Nm shm_map , shm_unmap>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/shm_map.9:34
+#, no-wrap
+msgid "map shared memory objects into the kernel's address space"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/shm_map.9:36
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/shm_map.9:37
+#, no-wrap
+msgid "sys/mman.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:42
+msgid ""
+"E<.Ft int> E<.Fn shm_map \"struct file *fp\" \"size_t size\" \"off_t "
+"offset\" \"void **memp\"> E<.Ft int> E<.Fn shm_unmap \"struct file *fp\" "
+"\"void *mem\" \"size_t size\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:51
+msgid ""
+"The E<.Fn shm_map> and E<.Fn shm_unmap> functions provide an API for mapping "
+"shared memory objects into the kernel.  Shared memory objects are created by "
+"E<.Xr shm_open 2>.  These objects can then be passed into the kernel via "
+"file descriptors."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:56
+msgid ""
+"A shared memory object cannot be shrunk while it is mapped into the kernel.  "
+"This is to avoid invalidating any pages that may be wired into the kernel's "
+"address space.  Shared memory objects can still be grown while mapped into "
+"the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:63
+msgid ""
+"To simplify the accounting needed to enforce the above requirement, callers "
+"of this API are required to unmap the entire region mapped by E<.Fn shm_map> "
+"when calling E<.Fn shm_unmap>.  Unmapping only a portion of the region is "
+"not permitted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:77
+msgid ""
+"The E<.Fn shm_map> function locates the shared memory object associated with "
+"the open file E<.Fa fp>.  It maps the region of that object described by "
+"E<.Fa offset> and E<.Fa size> into the kernel's address space.  If it "
+"succeeds, E<.Fa *memp> will be set to the start of the mapping.  All pages "
+"for the range will be wired into memory upon successful return."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:90
+msgid ""
+"The E<.Fn shm_unmap> function unmaps a region previously mapped by E<.Fn "
+"shm_map>.  The E<.Fa mem> argument should match the value previously "
+"returned in E<.Fa *memp>, and the E<.Fa size> argument should match the "
+"value passed to E<.Fn shm_map>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:100
+msgid ""
+"Note that E<.Fn shm_map> will not hold an extra reference on the open file "
+"E<.Fa fp> for the lifetime of the mapping.  Instead, the calling code is "
+"required to do this if it wishes to use E<.Fn shm_unmap> on the region in "
+"the future."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:100
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:106
+msgid ""
+"The E<.Fn shm_map> and E<.Fn shm_unmap> functions return zero on success or "
+"an error on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:106
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:112
+msgid ""
+"The following function accepts a file descriptor for a shared memory "
+"object.  It maps the first sixteen kilobytes of the object into the kernel, "
+"performs some work on that address, and then unmaps the address before "
+"returning."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:119
+#, no-wrap
+msgid ""
+"int\n"
+"shm_example(int fd)\n"
+"{\n"
+"\tstruct file *fp;\n"
+"\tvoid *mem;\n"
+"\tint error;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:128
+#, no-wrap
+msgid ""
+"\terror = fget(curthread, fd, CAP_MMAP, &fp);\n"
+"\tif (error)\n"
+"\t\treturn (error);\n"
+"\terror = shm_map(fp, 16384, 0, &mem);\n"
+"\tif (error) {\n"
+"\t\tfdrop(fp, curthread);\n"
+"\t\treturn (error);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:130
+#, no-wrap
+msgid "\t/* Do something with 'mem'. */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:135
+#, no-wrap
+msgid ""
+"\terror = shm_unmap(fp, mem, 16384);\n"
+"\tfdrop(fp, curthread);\n"
+"\treturn (error);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:136
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:140
+msgid "The E<.Fn shm_map> function returns the following errors on failure:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/shm_map.9:141 /usr/src/share/man/man9/shm_map.9:145 /usr/src/share/man/man9/shm_map.9:155 /usr/src/share/man/man9/shm_map.9:163 /usr/src/share/man/man9/shm_map.9:167 /usr/src/share/man/man9/shm_map.9:173
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:145 /usr/src/share/man/man9/shm_map.9:167
+msgid "The open file E<.Fa fp> is not a shared memory object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:151
+msgid ""
+"The requested region described by E<.Fa offset> and E<.Fa size> extends "
+"beyond the end of the shared memory object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/shm_map.9:151
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:153
+msgid "Insufficient address space was available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/shm_map.9:153
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:155
+msgid "The shared memory object could not be mapped due to a protection error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:157
+msgid "The shared memory object could not be mapped due to some other VM error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:162
+msgid "The E<.Fn shm_unmap> function returns the following errors on failure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:173
+msgid ""
+"The address range described by E<.Fa mem> and E<.Fa size> is not a valid "
+"address range."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:181
+msgid ""
+"The address range described by E<.Fa mem> and E<.Fa size> is not backed by "
+"the shared memory object associated with the open file E<.Fa fp>, or the "
+"address range does not cover the entire mapping of the object."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:182
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:184
+msgid "E<.Xr shm_open 2>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/shm_map.9:184
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/shm_map.9:186
+msgid "This API was first introduced in E<.Fx 10.0>."
+msgstr ""

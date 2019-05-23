@@ -1,0 +1,660 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sbuf.9:28
+#, no-wrap
+msgid "May 7, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sbuf.9:29
+#, no-wrap
+msgid "SBUF 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:63
+msgid ""
+"E<.Nm sbuf>, E<.Nm sbuf_new>, E<.Nm sbuf_new_auto>, E<.Nm "
+"sbuf_new_for_sysctl>, E<.Nm sbuf_clear>, E<.Nm sbuf_get_flags>, E<.Nm "
+"sbuf_set_flags>, E<.Nm sbuf_clear_flags>, E<.Nm sbuf_setpos>, E<.Nm "
+"sbuf_bcat>, E<.Nm sbuf_bcopyin>, E<.Nm sbuf_bcpy>, E<.Nm sbuf_cat>, E<.Nm "
+"sbuf_copyin>, E<.Nm sbuf_cpy>, E<.Nm sbuf_printf>, E<.Nm sbuf_vprintf>, "
+"E<.Nm sbuf_putc>, E<.Nm sbuf_set_drain>, E<.Nm sbuf_trim>, E<.Nm "
+"sbuf_error>, E<.Nm sbuf_finish>, E<.Nm sbuf_data>, E<.Nm sbuf_len>, E<.Nm "
+"sbuf_done>, E<.Nm sbuf_delete>, E<.Nm sbuf_start_section>, E<.Nm "
+"sbuf_end_section>, E<.Nm sbuf_hexdump>, E<.Nm sbuf_printf_drain>, E<.Nm "
+"sbuf_putbuf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sbuf.9:63
+#, no-wrap
+msgid "safe string composition"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:64
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sbuf.9:65 /usr/src/share/man/man9/sbuf.9:206
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sbuf.9:66 /usr/src/share/man/man9/sbuf.9:207
+#, no-wrap
+msgid "sys/sbuf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:68
+msgid ""
+"E<.Ft typedef\\ int ( sbuf_drain_func ) ( void\\ *arg, const\\ char\\ *data, "
+"int\\ len>);"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:206
+msgid ""
+"E<.Ft struct sbuf *> E<.Fo sbuf_new> E<.Fa \"struct sbuf *s\"> E<.Fa \"char "
+"*buf\"> E<.Fa \"int length\"> E<.Fa \"int flags\"> E<.Fc> E<.Ft struct sbuf "
+"*> E<.Fo sbuf_new_auto> E<.Fa \"void\"> E<.Fc> E<.Ft void> E<.Fo sbuf_clear> "
+"E<.Fa \"struct sbuf *s\"> E<.Fc> E<.Ft int> E<.Fo sbuf_get_flags> E<.Fa "
+"\"struct sbuf *s\"> E<.Fc> E<.Ft void> E<.Fo sbuf_set_flags> E<.Fa \"struct "
+"sbuf *s\"> E<.Fa \"int flags\"> E<.Fc> E<.Ft void> E<.Fo sbuf_clear_flags> "
+"E<.Fa \"struct sbuf *s\"> E<.Fa \"int flags\"> E<.Fc> E<.Ft int> E<.Fo "
+"sbuf_setpos> E<.Fa \"struct sbuf *s\"> E<.Fa \"int pos\"> E<.Fc> E<.Ft int> "
+"E<.Fo sbuf_bcat> E<.Fa \"struct sbuf *s\"> E<.Fa \"const void *buf\"> E<.Fa "
+"\"size_t len\"> E<.Fc> E<.Ft int> E<.Fo sbuf_bcpy> E<.Fa \"struct sbuf *s\"> "
+"E<.Fa \"const void *buf\"> E<.Fa \"size_t len\"> E<.Fc> E<.Ft int> E<.Fo "
+"sbuf_cat> E<.Fa \"struct sbuf *s\"> E<.Fa \"const char *str\"> E<.Fc> E<.Ft "
+"int> E<.Fo sbuf_cpy> E<.Fa \"struct sbuf *s\"> E<.Fa \"const char *str\"> "
+"E<.Fc> E<.Ft int> E<.Fo sbuf_printf> E<.Fa \"struct sbuf *s\"> E<.Fa \"const "
+"char *fmt\" \"...\"> E<.Fc> E<.Ft int> E<.Fo sbuf_vprintf> E<.Fa \"struct "
+"sbuf *s\"> E<.Fa \"const char *fmt\"> E<.Fa \"va_list ap\"> E<.Fc> E<.Ft "
+"int> E<.Fo sbuf_putc> E<.Fa \"struct sbuf *s\"> E<.Fa \"int c\"> E<.Fc> "
+"E<.Ft void> E<.Fo sbuf_set_drain> E<.Fa \"struct sbuf *s\"> E<.Fa "
+"\"sbuf_drain_func *func\"> E<.Fa \"void *arg\"> E<.Fc> E<.Ft int> E<.Fo "
+"sbuf_trim> E<.Fa \"struct sbuf *s\"> E<.Fc> E<.Ft int> E<.Fo sbuf_error> "
+"E<.Fa \"struct sbuf *s\"> E<.Fc> E<.Ft int> E<.Fo sbuf_finish> E<.Fa "
+"\"struct sbuf *s\"> E<.Fc> E<.Ft char *> E<.Fo sbuf_data> E<.Fa \"struct "
+"sbuf *s\"> E<.Fc> E<.Ft ssize_t> E<.Fo sbuf_len> E<.Fa \"struct sbuf *s\"> "
+"E<.Fc> E<.Ft int> E<.Fo sbuf_done> E<.Fa \"struct sbuf *s\"> E<.Fc> E<.Ft "
+"void> E<.Fo sbuf_delete> E<.Fa \"struct sbuf *s\"> E<.Fc> E<.Ft void> E<.Fo "
+"sbuf_start_section> E<.Fa \"struct sbuf *s\"> E<.Fa \"ssize_t *old_lenp\"> "
+"E<.Fc> E<.Ft ssize_t> E<.Fo sbuf_end_section> E<.Fa \"struct sbuf *s\"> "
+"E<.Fa \"ssize_t old_len\"> E<.Fa \"size_t pad\"> E<.Fa \"int c\"> E<.Fc> "
+"E<.Ft void> E<.Fo sbuf_hexdump> E<.Fa \"struct sbuf *sb\"> E<.Fa \"void "
+"*ptr\"> E<.Fa \"int length\"> E<.Fa \"const char *hdr\"> E<.Fa \"int "
+"flags\"> E<.Fc> E<.Ft int> E<.Fo sbuf_printf_drain> E<.Fa \"void *arg\"> "
+"E<.Fa \"const char *data\"> E<.Fa \"int len\"> E<.Fc> E<.Ft void> E<.Fo "
+"sbuf_putbuf> E<.Fa \"struct sbuf *s\"> E<.Fc> E<.Fd #ifdef _KERNEL>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:220
+msgid ""
+"E<.Ft int> E<.Fo sbuf_bcopyin> E<.Fa \"struct sbuf *s\"> E<.Fa \"const void "
+"*uaddr\"> E<.Fa \"size_t len\"> E<.Fc> E<.Ft int> E<.Fo sbuf_copyin> E<.Fa "
+"\"struct sbuf *s\"> E<.Fa \"const void *uaddr\"> E<.Fa \"size_t len\"> "
+"E<.Fc>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sbuf.9:220
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:229
+msgid ""
+"E<.Ft struct sbuf *> E<.Fo sbuf_new_for_sysctl> E<.Fa \"struct sbuf *s\"> "
+"E<.Fa \"char *buf\"> E<.Fa \"int length\"> E<.Fa \"struct sysctl_req *req\"> "
+"E<.Fc> E<.Fd #endif\t/* _KERNEL */>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:229
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:234
+msgid ""
+"The E<.Nm> family of functions allows one to safely allocate, compose and "
+"release strings in kernel or user space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:239
+msgid ""
+"Instead of arrays of characters, these functions operate on structures "
+"called E<.Fa sbufs>, defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sbuf.9:239
+#, no-wrap
+msgid "sys/sbuf.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:245
+msgid ""
+"Any errors encountered during the allocation or composition of the string "
+"will be latched in the data structure, making a single error test at the end "
+"of the composition sufficient to determine success or failure of the entire "
+"process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:272
+msgid ""
+"The E<.Fn sbuf_new> function initializes the E<.Fa sbuf> pointed to by its "
+"first argument.  If that pointer is E<.Dv NULL>, E<.Fn sbuf_new> allocates a "
+"E<.Vt struct sbuf> using E<.Xr malloc 9>.  The E<.Fa buf> argument is a "
+"pointer to a buffer in which to store the actual string; if it is E<.Dv "
+"NULL>, E<.Fn sbuf_new> will allocate one using E<.Xr malloc 9>.  The E<.Fa "
+"length> is the initial size of the storage buffer.  The fourth argument, "
+"E<.Fa flags>, may be comprised of the following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sbuf.9:273
+#, no-wrap
+msgid "Dv SBUF_FIXEDLEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:276
+msgid ""
+"The storage buffer is fixed at its initial size.  Attempting to extend the "
+"sbuf beyond this size results in an overflow condition."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sbuf.9:276
+#, no-wrap
+msgid "Dv SBUF_AUTOEXTEND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:279
+msgid ""
+"This indicates that the storage buffer may be extended as necessary, so long "
+"as resources allow, to hold additional data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sbuf.9:279
+#, no-wrap
+msgid "Dv SBUF_INCLUDENUL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:281
+msgid "This causes the final nulterm byte to be counted in the length of the data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sbuf.9:281
+#, no-wrap
+msgid "Dv SBUF_DRAINTOEOR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:291
+msgid ""
+"Treat top-level sections started with E<.Fn sbuf_start_section> as a record "
+"boundary marker that will be used during drain operations to avoid records "
+"being split.  If a record grows sufficiently large such that it fills the "
+"E<.Fa sbuf> and therefore cannot be drained without being split, an error of "
+"E<.Er EDEADLK> is set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:302
+msgid ""
+"Note that if E<.Fa buf> is not E<.Dv NULL>, it must point to an array of at "
+"least E<.Fa length> characters.  The result of accessing that array directly "
+"while it is in use by the sbuf is undefined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:315
+msgid ""
+"The E<.Fn sbuf_new_auto> function is a shortcut for creating a completely "
+"dynamic E<.Nm>.  It is the equivalent of calling E<.Fn sbuf_new> with values "
+"E<.Dv NULL>, E<.Dv NULL>, E<.Dv 0>, and E<.Dv SBUF_AUTOEXTEND>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:324
+msgid ""
+"The E<.Fn sbuf_new_for_sysctl> function will set up an sbuf with a drain "
+"function to use E<.Fn SYSCTL_OUT> when the internal buffer fills.  Note that "
+"if the various functions which append to an sbuf are used while a "
+"non-sleepable lock is held, the user buffer should be wired using E<.Fn "
+"sysctl_wire_old_buffer>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:335
+msgid ""
+"The E<.Fn sbuf_delete> function clears the E<.Fa sbuf> and frees any memory "
+"allocated for it.  There must be a call to E<.Fn sbuf_delete> for every call "
+"to E<.Fn sbuf_new>.  Any attempt to access the sbuf after it has been "
+"deleted will fail."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:341
+msgid ""
+"The E<.Fn sbuf_clear> function invalidates the contents of the E<.Fa sbuf> "
+"and resets its position to zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:353
+msgid ""
+"The E<.Fn sbuf_get_flags> function returns the current user flags.  The "
+"E<.Fn sbuf_set_flags> and E<.Fn sbuf_get_flags> functions set or clear one "
+"or more user flags, respectively.  The user flags are described under the "
+"E<.Fn sbuf_new> function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:363
+msgid ""
+"The E<.Fn sbuf_setpos> function sets the E<.Fa sbuf Ns 's> end position to "
+"E<.Fa pos>, which is a value between zero and one less than the size of the "
+"storage buffer.  This effectively truncates the sbuf at the new position."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:372
+msgid ""
+"The E<.Fn sbuf_bcat> function appends the first E<.Fa len> bytes from the "
+"buffer E<.Fa buf> to the E<.Fa sbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:379
+msgid ""
+"The E<.Fn sbuf_bcopyin> function copies E<.Fa len> bytes from the specified "
+"userland address into the E<.Fa sbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:388
+msgid ""
+"The E<.Fn sbuf_bcpy> function replaces the contents of the E<.Fa sbuf> with "
+"the first E<.Fa len> bytes from the buffer E<.Fa buf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:396
+msgid ""
+"The E<.Fn sbuf_cat> function appends the NUL-terminated string E<.Fa str> to "
+"the E<.Fa sbuf> at the current position."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:409
+msgid ""
+"The E<.Fn sbuf_set_drain> function sets a drain function E<.Fa func> for the "
+"E<.Fa sbuf>, and records a pointer E<.Fa arg> to be passed to the drain on "
+"callback.  The drain function cannot be changed while E<.Fa sbuf_len> is "
+"non-zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:443
+msgid ""
+"The registered drain function E<.Vt sbuf_drain_func> will be called with the "
+"argument E<.Fa arg> provided to E<.Fn sbuf_set_drain>, a pointer E<.Fa data> "
+"to a byte string that is the contents of the sbuf, and the length E<.Fa len> "
+"of the data.  If the drain function exists, it will be called when the sbuf "
+"internal buffer is full, or on behalf of E<.Fn sbuf_finish>.  The drain "
+"function may drain some or all of the data, but must drain at least 1 byte.  "
+"The return value from the drain function, if positive, indicates how many "
+"bytes were drained.  If negative, the return value indicates the negative "
+"error code which will be returned from this or a later call to E<.Fn "
+"sbuf_finish>.  If the returned drained length is 0, an error of E<.Er "
+"EDEADLK> is set.  To do unbuffered draining, initialize the sbuf with a "
+"two-byte buffer.  The drain will be called for every byte added to the "
+"sbuf.  The E<.Fn sbuf_bcopyin>, E<.Fn sbuf_copyin>, E<.Fn sbuf_trim>, and "
+"E<.Fn sbuf_data> functions cannot be used on an sbuf with a drain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:457
+msgid ""
+"The E<.Fn sbuf_copyin> function copies a NUL-terminated string from the "
+"specified userland address into the E<.Fa sbuf>.  If the E<.Fa len> argument "
+"is non-zero, no more than E<.Fa len> characters (not counting the "
+"terminating NUL) are copied; otherwise the entire string, or as much of it "
+"as can fit in the E<.Fa sbuf>, is copied."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:472
+msgid ""
+"The E<.Fn sbuf_cpy> function replaces the contents of the E<.Fa sbuf> with "
+"those of the NUL-terminated string E<.Fa str>.  This is equivalent to "
+"calling E<.Fn sbuf_cat> with a fresh E<.Fa sbuf> or one which position has "
+"been reset to zero with E<.Fn sbuf_clear> or E<.Fn sbuf_setpos>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:481
+msgid ""
+"The E<.Fn sbuf_printf> function formats its arguments according to the "
+"format string pointed to by E<.Fa fmt> and appends the resulting string to "
+"the E<.Fa sbuf> at the current position."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:488
+msgid ""
+"The E<.Fn sbuf_vprintf> function behaves the same as E<.Fn sbuf_printf> "
+"except that the arguments are obtained from the variable-length argument "
+"list E<.Fa ap>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:496
+msgid ""
+"The E<.Fn sbuf_putc> function appends the character E<.Fa c> to the E<.Fa "
+"sbuf> at the current position."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:501
+msgid ""
+"The E<.Fn sbuf_trim> function removes trailing whitespace from the E<.Fa "
+"sbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:514
+msgid ""
+"The E<.Fn sbuf_error> function returns any error value that the E<.Fa sbuf> "
+"may have accumulated, either from the drain function, or E<.Er ENOMEM> if "
+"the E<.Fa sbuf> overflowed.  This function is generally not needed and "
+"instead the error code from E<.Fn sbuf_finish> is the preferred way to "
+"discover whether an sbuf had an error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:537
+msgid ""
+"The E<.Fn sbuf_finish> function will call the attached drain function if one "
+"exists until all the data in the E<.Fa sbuf> is flushed.  If there is no "
+"attached drain, E<.Fn sbuf_finish> NUL-terminates the E<.Fa sbuf>.  In "
+"either case it marks the E<.Fa sbuf> as finished, which means that it may no "
+"longer be modified using E<.Fn sbuf_setpos>, E<.Fn sbuf_cat>, E<.Fn "
+"sbuf_cpy>, E<.Fn sbuf_printf> or E<.Fn sbuf_putc>, until E<.Fn sbuf_clear> "
+"is used to reset the sbuf."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:556
+msgid ""
+"The E<.Fn sbuf_data> function returns the actual string; E<.Fn sbuf_data> "
+"only works on a finished E<.Fa sbuf>.  The E<.Fn sbuf_len> function returns "
+"the length of the string.  For an E<.Fa sbuf> with an attached drain, E<.Fn "
+"sbuf_len> returns the length of the un-drained data.  E<.Fn sbuf_done> "
+"returns non-zero if the E<.Fa sbuf> is finished."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:580
+msgid ""
+"The E<.Fn sbuf_start_section> and E<.Fn sbuf_end_section> functions may be "
+"used for automatic section alignment.  The arguments E<.Fa pad> and E<.Fa c> "
+"specify the padding size and a character used for padding.  The arguments "
+"E<.Fa old_lenp> and E<.Fa old_len> are to save and restore the current "
+"section length when nested sections are used.  For the top level section "
+"E<.Dv NULL> and \\-1 can be specified for E<.Fa old_lenp> and E<.Fa old_len> "
+"respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:588
+msgid ""
+"The E<.Fn sbuf_hexdump> function prints an array of bytes to the supplied "
+"sbuf, along with an ASCII representation of the bytes if possible.  See the "
+"E<.Xr hexdump 3> man page for more details on the interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:604
+msgid ""
+"The E<.Fn sbuf_printf_drain> function is a drain function that will call "
+"printf, or log to the console.  The argument E<.Fa arg> must be either E<.Dv "
+"NULL>, or a valid pointer to a E<.Vt size_t>.  If E<.Fa arg> is not E<.Dv "
+"NULL>, the total bytes drained will be added to the value pointed to by "
+"E<.Fa arg>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:614
+msgid ""
+"The E<.Fn sbuf_putbuf> function printfs the sbuf to stdout if in userland, "
+"and to the console and log if in the kernel.  The E<.Fa sbuf> must be "
+"finished before calling E<.Fn sbuf_putbuf>.  It does not drain the buffer or "
+"update any pointers."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:614
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:628
+msgid ""
+"If an operation caused an E<.Fa sbuf> to overflow, most subsequent "
+"operations on it will fail until the E<.Fa sbuf> is finished using E<.Fn "
+"sbuf_finish> or reset using E<.Fn sbuf_clear>, or its position is reset to a "
+"value between 0 and one less than the size of its storage buffer using E<.Fn "
+"sbuf_setpos>, or it is reinitialized to a sufficiently short string using "
+"E<.Fn sbuf_cpy>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:644
+msgid ""
+"Drains in user-space will not always function as indicated.  While the drain "
+"function will be called immediately on overflow from the E<.Fa sbuf_putc>, "
+"E<.Fa sbuf_bcat>, E<.Fa sbuf_cat> functions, E<.Fa sbuf_printf> and E<.Fa "
+"sbuf_vprintf> currently have no way to determine whether there will be an "
+"overflow until after it occurs, and cannot do a partial expansion of the "
+"format string.  Thus when using libsbuf the buffer may be extended to allow "
+"completion of a single printf call, even though a drain is attached."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:644
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:652
+msgid ""
+"The E<.Fn sbuf_new> function returns E<.Dv NULL> if it failed to allocate a "
+"storage buffer, and a pointer to the new E<.Fa sbuf> otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:658
+msgid ""
+"The E<.Fn sbuf_setpos> function returns \\-1 if E<.Fa pos> was invalid, and "
+"zero otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:669
+msgid ""
+"The E<.Fn sbuf_bcat>, E<.Fn sbuf_cat>, E<.Fn sbuf_cpy>, E<.Fn sbuf_printf>, "
+"E<.Fn sbuf_putc>, and E<.Fn sbuf_trim> functions all return \\-1 if the "
+"buffer overflowed, and zero otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:674
+msgid ""
+"The E<.Fn sbuf_error> function returns a non-zero value if the buffer has an "
+"overflow or drain error, and zero otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:678
+msgid "The E<.Fn sbuf_len> function returns \\-1 if the buffer overflowed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:684
+msgid ""
+"The E<.Fn sbuf_copyin> function returns \\-1 if copying string from userland "
+"failed, and number of bytes copied otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:688
+msgid ""
+"The E<.Fn sbuf_end_section> function returns the section length or \\-1 if "
+"the buffer has an error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:695
+msgid ""
+"The E<.Fn sbuf_finish 9> function (the kernel version) returns E<.Er ENOMEM> "
+"if the sbuf overflowed before being finished, or returns the error code from "
+"the drain if one is attached."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:700
+msgid ""
+"The E<.Fn sbuf_finish 3> function (the userland version)  will return zero "
+"for success and \\-1 and set errno on error."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:700
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:704
+#, no-wrap
+msgid ""
+"#include E<lt>sys/types.hE<gt>\n"
+"#include E<lt>sys/sbuf.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:706
+#, no-wrap
+msgid "struct sbuf *sb;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:718
+#, no-wrap
+msgid ""
+"sb = sbuf_new_auto();\n"
+"sbuf_cat(sb, \"Customers found:\\en\");\n"
+"TAILQ_FOREACH(foo, &foolist, list) {\n"
+"\tsbuf_printf(sb, \"   %4d %s\\en\", foo-E<gt>index, foo-E<gt>name);\n"
+"\tsbuf_printf(sb, \"      Address: %s\\en\", foo-E<gt>address);\n"
+"\tsbuf_printf(sb, \"      Zip: %s\\en\", foo-E<gt>zipcode);\n"
+"}\n"
+"if (sbuf_finish(sb) != 0) /* Check for any and all errors */\n"
+"\terr(1, \"Could not generate message\");\n"
+"transmit_msg(sbuf_data(sb), sbuf_len(sb));\n"
+"sbuf_delete(sb);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:719
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:727
+msgid ""
+"E<.Xr hexdump 3>, E<.Xr printf 3>, E<.Xr strcat 3>, E<.Xr strcpy 3>, E<.Xr "
+"copyin 9>, E<.Xr copyinstr 9>, E<.Xr printf 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:727
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:732
+msgid "The E<.Nm> family of functions first appeared in E<.Fx 4.4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sbuf.9:732
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:746
+msgid ""
+"E<.An -nosplit> The E<.Nm> family of functions was designed by E<.An "
+"Poul-Henning Kamp Aq Mt phk@FreeBSD.org> and implemented by E<.An Dag-Erling "
+"Sm\\(/orgrav Aq Mt des@FreeBSD.org>.  Additional improvements were suggested "
+"by E<.An Justin T. Gibbs Aq Mt gibbs@FreeBSD.org>.  Auto-extend support "
+"added by E<.An Kelly Yancey Aq Mt kbyanc@FreeBSD.org>.  Drain functionality "
+"added by E<.An Matthew Fleming Aq Mt mdf@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sbuf.9:748
+msgid ""
+"This manual page was written by E<.An Dag-Erling Sm\\(/orgrav Aq Mt "
+"des@FreeBSD.org>."
+msgstr ""

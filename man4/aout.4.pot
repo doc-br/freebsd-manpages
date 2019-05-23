@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/aout.4:25
+#, no-wrap
+msgid "August 14, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/aout.4:26
+#, no-wrap
+msgid "AOUT 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:28
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:30
+msgid "E<.Nm aout>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/aout.4:30
+#, no-wrap
+msgid "kernel support for executing binary files in legacy a.out format"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:31
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:34
+#, no-wrap
+msgid "kldload a.out\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:44
+msgid ""
+"The E<.Xr a.out 5> executable format was used before the release of E<.Fx "
+"3.0>.  Since i386 was the only supported architecture at that time, E<.Xr "
+"a.out 5> executables can only be activated on platforms that support "
+"execution of i386 code, such as i386 and amd64."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:47
+msgid ""
+"To add kernel support for old syscalls and old syscall invocation methods, "
+"place the following options in the kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:49
+#, no-wrap
+msgid "E<.Cd \"options COMPAT_43\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:51
+#, no-wrap
+msgid "E<.Cd \"options COMPAT_FREEBSD32\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:56
+msgid ""
+"The E<.Va COMPAT_FREEBSD32> option is only required on 64-bit CPU "
+"architectures."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:64
+msgid ""
+"The E<.Va aout.ko> module needs to be loaded with the E<.Xr kldload 8> "
+"utility in order to support the E<.Xr a.out 5> image activator:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:66
+#, no-wrap
+msgid "E<.Ic kldload aout>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:70
+msgid ""
+"Alternatively, to load the module at boot time, place the following line in "
+"E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:72
+#, no-wrap
+msgid "aout_load=\"YES\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:81
+msgid ""
+"The E<.Xr a.out 5> format was mainstream quite a long time ago.  Reasonable "
+"default settings and security requirements of modern operating systems today "
+"contradict the default environment of that time and require adjustments of "
+"the system to mimic natural environment for old binaries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:85
+msgid "The following E<.Xr sysctl 8> tunables are useful for this:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aout.4:86
+#, no-wrap
+msgid "Xo Va security.bsd.map_at_zero"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:92
+msgid ""
+"E<.Xc> Set to 1 to allow mapping of process pages at address 0.  Some very "
+"old E<.Va ZMAGIC> executable images require text mapping at address 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aout.4:92
+#, no-wrap
+msgid "Xo Va kern.pid_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:107
+msgid ""
+"E<.Xc> Old versions of E<.Fx> used signed 16-bit type for E<.Vt pid_t>.  "
+"Current kernels use 32-bit type for E<.Vt pid_t>, and allow process id's up "
+"to 99999.  Such values cannot be represented by old E<.Vt pid_t>, mostly "
+"causing issues for processes using E<.Xr wait 2> syscalls, for example "
+"shells.  Set the sysctl to 30000 to work around the problem."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aout.4:107
+#, no-wrap
+msgid "Xo Va kern.elf32.read_exec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:121
+msgid ""
+"E<.Xc> Set to 1 to force any accessible memory mapping performed by 32-bit "
+"process to allow execution, see E<.Xr mmap 2>.  Old i386 CPUs did not have a "
+"bit in PTE which disallowed execution from the page, so many old programs "
+"did not specify E<.Va PROT_EXEC> even for mapping of executable code.  The "
+"sysctl forces E<.Va PROT_EXEC> if mapping has any access allowed at all.  "
+"The setting is only needed if the host architecture allows non-executable "
+"mappings."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:122
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:127
+msgid "E<.Xr execve 2>, E<.Xr a.out 5>, E<.Xr elf 5>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:127
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:140
+msgid ""
+"The E<.Xr a.out 5> executable format was used on ancient E<.At> and served "
+"as the main executable format for E<.Fx> from the beginning up to E<.Fx "
+"2.2.9>.  In E<.Fx 3.0> it was superseded by E<.Xr elf 5>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:140
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:145
+msgid ""
+"The E<.Nm> manual page was written by E<.An Konstantin Belousov Aq Mt "
+"kib@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aout.4:145
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aout.4:146
+msgid "On 64bit architectures, not all wrappers for older syscalls are implemented."
+msgstr ""

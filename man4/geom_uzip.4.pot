@@ -1,0 +1,254 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/geom_uzip.4:28
+#, no-wrap
+msgid "February 26, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/geom_uzip.4:29
+#, no-wrap
+msgid "GEOM_UZIP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_uzip.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:33
+msgid "E<.Nm geom_uzip>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/geom_uzip.4:33
+#, no-wrap
+msgid "GEOM based compressed disk images and partitions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_uzip.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:38
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:41
+#, no-wrap
+msgid ""
+"E<.Cd \"device xz\">\n"
+"E<.Cd \"options GEOM_UZIP\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:46
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:48
+#, no-wrap
+msgid "geom_uzip_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_uzip.4:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:66
+msgid ""
+"The E<.Nm> framework provides support for compressed read-only disk images.  "
+"This allows significant storage savings at the expense of a some CPU time on "
+"each read.  Data written in the GEOM label area allows E<.Nm> to detect "
+"compressed images which have been created with E<.Xr mkuzip 8> and presented "
+"to the kernel as a logical disk device via E<.Xr md 4>.  E<.Nm> creates a "
+"unique E<.Pa md#.uzip> device for each image."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:76
+msgid ""
+"E<.Nm> is not limited to supporting only E<.Xr md 4> images.  The image can "
+"also reside on a block device.  E<.Pq For example, a disk, USB flash drive, "
+"DVD-ROM, etc.> The appropriate device node will appear with the E<.Pa .uzip> "
+"suffix."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:101
+#, no-wrap
+msgid ""
+"# gpart show da0\n"
+"=E<gt>      0  7833600  da0  BSD  (3.7G)\n"
+"        0  2097152    1  freebsd-ufs  (1.0G)\n"
+"  2097152  5736448       - free -  (2.7G)\n"
+"# gpart add -t freebsd-ufs -s 1G da0\n"
+"da0b added\n"
+"# dd if=/tmp/20160217_dcomp_zcomp.uzip bs=256k of=/dev/da0b\n"
+"3190+1 records in\n"
+"3190+1 records out\n"
+"836331008 bytes transferred in 111.021489 secs (7533055 bytes/sec)\n"
+"# fsck -t ffs /dev/da0b.uzip\n"
+"** /dev/da0b.uzip (NO WRITE)\n"
+"** Last Mounted on /mnt\n"
+"** Phase 1 - Check Blocks and Sizes\n"
+"** Phase 2 - Check Pathnames\n"
+"** Phase 3 - Check Connectivity\n"
+"** Phase 4 - Check Reference Counts\n"
+"** Phase 5 - Check Cyl groups\n"
+"97455 files, 604242 used, 184741 free (2349 frags, 22799 blocks,\n"
+"   0.3% fragmentation)\n"
+"# mount -o ro /dev/da0b.uzip /mnt\n"
+"# df /dev/da0b.uzip\n"
+"Filesystem     1K-blocks    Used  Avail Capacity  Mounted on\n"
+"/dev/da0b.uzip   3155932 2416968 738964    77%    /mnt\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:116
+msgid ""
+"The E<.Nm> device is subsequently used by E<.Fx> kernel to access the "
+"uncompressed data.  The E<.Nm> driver does not allow write operations to the "
+"underlying disk image.  To check which E<.Dq providers> match a given E<.Nm> "
+"device:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:127
+#, no-wrap
+msgid ""
+"# geom uzip list\n"
+"Geom name: md1.uzip\n"
+"Providers:\n"
+"1. Name: md1.uzip\n"
+"   Mediasize: 22003712 (21M)\n"
+"   Sectorsize: 512\n"
+"Consumers:\n"
+"1. Name: md1\n"
+"   Mediasize: 9563648 (9.1M)\n"
+"   Sectorsize: 512\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:137
+#, no-wrap
+msgid ""
+"Geom name: da0b.uzip\n"
+"Providers:\n"
+"1. Name: da0b.uzip\n"
+"   Mediasize: 3355443200 (3.1G)\n"
+"   Sectorsize: 512\n"
+"Consumers:\n"
+"1. Name: da0b\n"
+"   Mediasize: 1073741824 (1.0G)\n"
+"   Sectorsize: 512\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:147
+msgid ""
+"E<.Nm> allows mounting the root file system from a compressed disk partition "
+"by setting the E<.Dv vfs.root.mountfrom> tunable.  See E<.Xr loader.conf 5> "
+"for details."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_uzip.4:147
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:151
+msgid ""
+"Several flags are provided for tracing E<.Nm> I/O operations and TOC parsing "
+"via the following sysctls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_uzip.4:152
+#, no-wrap
+msgid "Va kern.geom.uzip.debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:158
+msgid ""
+"Log level.  Zero disables logging.  Higher values enable more verbose debug "
+"logging for E<.Nm>.  Supported levels are from 0 (no logging) to 4 (maximum "
+"amount of logging)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/geom_uzip.4:158
+#, no-wrap
+msgid "Va kern.geom.uzip.debug_block"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:160
+msgid "Log operations involving compressed cluster number."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_uzip.4:161
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:166
+msgid "E<.Xr GEOM 4>, E<.Xr md 4>, E<.Xr geom 8>, E<.Xr mkuzip 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_uzip.4:166
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:178
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Max Khon Aq Mt "
+"fjoe@FreeBSD.org>.  The block de-duplication code as well as some E<.Nm> "
+"driver optimizations have been contributed by E<.An Maxim Sobolev Aq Mt "
+"sobomax@FreeBSD.org>.  The LZMA decompression support and CLOOP 3.0 support "
+"have been added by E<.An Aleksandr Rybalko Aq Mt ray@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_uzip.4:180
+msgid "This manual page was written by E<.An Ceri Davies Aq Mt ceri@FreeBSD.org>."
+msgstr ""

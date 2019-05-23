@@ -1,0 +1,395 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/own.9:27
+#, no-wrap
+msgid "July 20, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/own.9:28
+#, no-wrap
+msgid "OWN 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:42
+msgid ""
+"E<.Nm own>, E<.Nm own_send_command>, E<.Nm own_commmand_wait>, E<.Nm "
+"own_self_command>, E<.Nm own_acquire_bus>, E<.Nm own crc>, E<.Nm "
+"own_release_bus>, E<.Nm OWN_ACQUIRE_BUS>, E<.Nm OWN_CRC>, E<.Nm "
+"OWN_RELEASE_BUS>, E<.Nm OWN_SEND_COMMAND>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/own.9:42
+#, no-wrap
+msgid "Dallas Semiconductor 1-Wire Network and Transport Interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/own.9:44
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/own.9:45
+#, no-wrap
+msgid "dev/ow/own.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:66
+msgid ""
+"E<.Ft int> E<.Fn own_send_command \"device_t pdev\" \"struct ow_cmd *cmd\"> "
+"E<.Ft int> E<.Fn own_command_wait \"device_t pdev\" \"struct ow_cmd *cmd\"> "
+"E<.Ft int> E<.Fn own_self_command \"device_t pdev\" \"struct ow_cmd *cmd\" "
+"\"uint8_t xpt_cmd\"> E<.Ft int> E<.Fn own_acquire_bus \"device_t pdev\" "
+"\"int how\"> E<.Ft int> E<.Fn own_release_bus \"device_t pdev\"> E<.Ft int> "
+"E<.Fn own_crc \"device_t pdev\" \"uint8_t *buffer\" \"size_t len\"> E<.Ft "
+"int> E<.Fn OWN_SEND_COMMAND \"device_t ndev\" \"device_t pdev\" \"struct "
+"ow_cmd *cmd\"> E<.Ft int> E<.Fn OWN_ACQUIRE_BUS \"device_t ndev\" \"device_t "
+"pdev\" \"int how\"> E<.Ft void> E<.Fn OWN_RELEASE_BUS \"device_t ndev\" "
+"\"device_t pdev\"> E<.Ft uint8_t> E<.Fn OWN_CRC \"device_t ndev\" \"device_t "
+"pdev\" \"uint8_t *buffer\" \"size_t len\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:81
+msgid ""
+"The E<.Nm> interface defines three sets of functions for interacting with "
+"1-Wire devices: sending commands, reserving the bus, and ensuring data "
+"integrity.  Wrappers are provided for the raw E<.Nm OWN> E<.Xr kobj 9> "
+"interfaces and should be used for improved safety over the E<.Xr kobj 9> "
+"ones."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/own.9:81
+#, no-wrap
+msgid "Bus Commands"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:90
+msgid ""
+"The 1-Wire bus defines different layers of access to the devices on the "
+"bus.  The E<.Nm> functions provide access to the network and transport "
+"layers.  The network layer designates the next command as being either for "
+"all devices on the bus, or for a specific device.  The network layer also "
+"specifies the speed used by the link layer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:95
+msgid ""
+"E<.Vt \"struct ow_cmd\"> encapsulates network access, speed, and timing "
+"information.  It specifies the commands to send and whether or not to read "
+"data.  Its members are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:96
+#, no-wrap
+msgid "Va flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:99
+msgid ""
+"Flags controlling the interpretation of the structure.  These flags are "
+"defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/own.9:99
+#, no-wrap
+msgid "dev/ow/ow.h :"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:101
+#, no-wrap
+msgid "OW_FLAG_OVERDRIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:107
+msgid "Send E<.Va xpt_cmd> bytes and read E<.Va xpt_read> bytes at overdrive speed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:107
+#, no-wrap
+msgid "OW_FLAG_READ_BIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:113
+msgid ""
+"Interpret E<.Va xpt_read_len> to be in bits to be read after E<.Va xpt_cmd> "
+"rather than bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:114
+#, no-wrap
+msgid "Va rom_cmd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:116
+msgid "ROM command bytes to send."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:116
+#, no-wrap
+msgid "Va rom_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:118
+msgid "Number of ROM command bytes to send."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:118
+#, no-wrap
+msgid "Va rom_read_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:120
+msgid "Number of bytes to read after sending the ROM command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:120
+#, no-wrap
+msgid "Va rom_read"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:122
+msgid "Buffer for bytes read after the ROM command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:122
+#, no-wrap
+msgid "Va xpt_cmd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:124
+msgid "Transport command to send."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:124
+#, no-wrap
+msgid "Va xpt_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:127
+msgid ""
+"Length of the transport command bytes to send.  Specify 0 for no transport "
+"command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:127
+#, no-wrap
+msgid "Va xpt_read_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:137
+msgid ""
+"Number of bytes to read after E<.Va xpt_cmd> bytes are sent.  If the E<.Dv "
+"OW_FLAG_READ_BIT> bit is set in E<.Va flags>, then it is the number of bits "
+"to read.  Bits read are packed into bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/own.9:137
+#, no-wrap
+msgid "Va xpt_read"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:139
+msgid "Buffer for data read."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:153
+msgid ""
+"E<.Fn own_command_wait> acquires the 1-Wire bus, waiting if necessary, sends "
+"the command, and then releases the bus.  E<.Fn own_send_command> sends the "
+"command without bus reservation.  E<.Fa pdev> is the client device (the "
+"presentation layer device) sending the command.  The E<.Fa cmd> argument "
+"describes the transaction to send to the 1-Wire bus."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:162
+msgid ""
+"E<.Fn own_self_command> fills in E<.Fa cmd> with a MATCH_ROM ROM command, "
+"the ROM address of E<.Fa pdev> and the E<.Fa xpt_cmd> as a convenient way to "
+"create directed commands."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/own.9:162
+#, no-wrap
+msgid "Bus Reservation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:166
+msgid ""
+"The 1-Wire system includes an advisory lock for the bus that presentation "
+"layer devices can use to coordinate access.  Locking is purely advisory at "
+"this time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:178
+msgid ""
+"E<.Fn own_acquire_bus> reserves the bus.  It waits indefinitely if the E<.Fa "
+"how> argument is E<.Dv OWN_WAIT> and returns the error E<.Dv EWOULDBLOCK> if "
+"passed E<.Dv OWN_DONTWAIT> when the bus is owned by another client."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:181
+msgid "E<.Fn own_release_bus> releases the bus."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/own.9:181
+#, no-wrap
+msgid "Data Integrity"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:189
+msgid ""
+"E<.Fn own_crc> computes the 1-Wire standard CRC function over the data "
+"passed in E<.Fa buffer> and E<.Fa len> and returns the result."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/own.9:189
+#, no-wrap
+msgid "Notes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:199
+msgid ""
+"The 1-Wire standard (Maxim AN937) defines layers that are akin to ISO "
+"networking layers.  The lowest relevant layer, the link layer, defines the "
+"polling windows and the timing of the signaling of different modes.  The "
+"network layer is built on top of the link layer and is used to address "
+"devices in a unicast or multicast manner.  The transport layer defines "
+"commands and responses from the devices.  The presentation layer is composed "
+"of the device specific commands and actions used to control the specific "
+"1-Wire devices on bus."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:213
+msgid ""
+"These interfaces are implemented by the E<.Xr ow 4> device.  Presentation "
+"layer devices (children of the newbus E<.Xr ow 4> device) should only call "
+"the functions described here.  The functionality provided by the E<.Xr owc "
+"4> device (specifically the E<.Xr owll 9> interface) should only be called "
+"by the E<.Xr ow 4> driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:213
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:218
+msgid ""
+"E<.Xr ow 4>, E<.Xr owc 4>, E<.Xr owll 9> E<.Pa "
+"https://pdfserv.maximintegrated.com/en/an/AN937.pdf>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:218
+#, no-wrap
+msgid "LEGAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:221
+msgid "E<.Tn 1-Wire> is a registered trademark of Maxim Integrated Products, Inc."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:221
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:226
+msgid "The E<.Nm> driver first appeared in E<.Fx 11.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/own.9:226
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/own.9:230
+msgid ""
+"The E<.Nm> device driver and this manual page were written by E<.An Warner "
+"Losh>."
+msgstr ""

@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/cc_chd.4:32
+#, no-wrap
+msgid "September 15, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/cc_chd.4:33
+#, no-wrap
+msgid "CC_CHD 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:37
+msgid "E<.Nm cc_chd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/cc_chd.4:37
+#, no-wrap
+msgid "CHD Congestion Control Algorithm"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:44
+msgid ""
+"CHD enhances the HD algorithm implemented in E<.Xr cc_hd 4>.  It provides "
+"tolerance to non-congestion related packet loss and improvements to "
+"coexistence with traditional loss-based TCP flows, especially when the "
+"bottleneck link is lightly multiplexed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:48
+msgid ""
+"Like HD, the algorithm aims to keep network queuing delays below a "
+"particular threshold (queue_threshold) and decides to reduce the congestion "
+"window (cwnd)  probabilistically based on its estimate of the network "
+"queuing delay."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:50
+msgid "It differs from HD in three key aspects:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:55
+msgid ""
+"The probability of cwnd reduction due to congestion is calculated once per "
+"round trip time instead of each time an acknowledgement is received as done "
+"by E<.Xr cc_hd 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:58
+msgid ""
+"Packet losses that occur while the queuing delay is less than "
+"queue_threshold do not cause cwnd to be reduced."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:61
+msgid ""
+"CHD uses a shadow window to help regain lost transmission opportunities when "
+"competing with loss-based TCP flows."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:62
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:68
+msgid ""
+"The algorithm exposes the following tunable variables in the E<.Va "
+"net.inet.tcp.cc.chd> branch of the E<.Xr sysctl 3> MIB:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_chd.4:69
+#, no-wrap
+msgid "Va queue_threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:72
+msgid "Queueing congestion threshold (qth) in ticks.  Default is 20."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_chd.4:72
+#, no-wrap
+msgid "Va pmax"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:75
+msgid "Per RTT maximum backoff probability as a percentage.  Default is 50."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_chd.4:75
+#, no-wrap
+msgid "Va qmin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:78
+msgid "Minimum queuing delay threshold (qmin) in ticks.  Default is 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_chd.4:78
+#, no-wrap
+msgid "Va loss_fair"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:82
+msgid ""
+"If 1, cwnd is adjusted using the shadow window when a congestion related "
+"loss is detected.  Default is 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_chd.4:82
+#, no-wrap
+msgid "Va use_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:87
+msgid ""
+"If 1, the maximum RTT seen within the measurement period is used as the "
+"basic delay measurement for the algorithm, otherwise a sampled RTT "
+"measurement is used.  Default is 1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:88
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:107
+msgid ""
+"E<.Xr cc_cubic 4>, E<.Xr cc_hd 4>, E<.Xr cc_htcp 4>, E<.Xr cc_newreno 4>, "
+"E<.Xr cc_vegas 4>, E<.Xr h_ertt 4>, E<.Xr mod_cc 4>, E<.Xr tcp 4>, E<.Xr "
+"khelp 9>, E<.Xr mod_cc 9> E<.Rs> E<.%A \"D. A. Hayes\"> E<.%A "
+"\"G. Armitage\"> E<.%T \"Improved coexistence and loss tolerance for delay "
+"based TCP congestion control\"> E<.%J \"in 35th Annual IEEE Conference on "
+"Local Computer Networks\"> E<.%D \"October 2010\"> E<.%P \"24-31\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:107
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:111
+msgid ""
+"Development and testing of this software were made possible in part by "
+"grants from the FreeBSD Foundation and Cisco University Research Program "
+"Fund at Community Foundation Silicon Valley."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:111
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:116
+msgid "The E<.Nm> congestion control module first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:121
+msgid ""
+"The module was first released in 2010 by David Hayes whilst working on the "
+"NewTCP research project at Swinburne University of Technology's Centre for "
+"Advanced Internet Architectures, Melbourne, Australia.  More details are "
+"available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:123
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_chd.4:123
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_chd.4:128
+msgid ""
+"E<.An -nosplit> The E<.Nm> congestion control module and this manual page "
+"were written by E<.An David Hayes Aq Mt david.hayes@ieee.org>."
+msgstr ""

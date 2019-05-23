@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sysctl_add_oid.9:30
+#, no-wrap
+msgid "December 13, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sysctl_add_oid.9:31
+#, no-wrap
+msgid "SYSCTL_ADD_OID 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:38
+msgid ""
+"E<.Nm sysctl_add_oid>, E<.Nm sysctl_move_oid>, E<.Nm sysctl_remove_oid>, "
+"E<.Nm sysctl_remove_name>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sysctl_add_oid.9:38
+#, no-wrap
+msgid "runtime sysctl tree manipulation"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sysctl_add_oid.9:40
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sysctl_add_oid.9:41
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:74
+msgid ""
+"E<.Ft struct sysctl_oid *> E<.Fo sysctl_add_oid> E<.Fa \"struct "
+"sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa "
+"\"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int kind\"> E<.Fa \"void "
+"*arg1\"> E<.Fa \"intmax_t arg2\"> E<.Fa \"int (*handler) "
+"(SYSCTL_HANDLER_ARGS)\"> E<.Fa \"const char *format\"> E<.Fa \"const char "
+"*descr\"> E<.Fa \"const char *label\"> E<.Fc> E<.Ft int> E<.Fo "
+"sysctl_move_oid> E<.Fa \"struct sysctl_oid *oidp\"> E<.Fa \"struct "
+"sysctl_oid_list *parent\"> E<.Fc> E<.Ft int> E<.Fo sysctl_remove_oid> E<.Fa "
+"\"struct sysctl_oid *oidp\"> E<.Fa \"int del\"> E<.Fa \"int recurse\"> "
+"E<.Fc> E<.Ft int> E<.Fo sysctl_remove_name> E<.Fa \"struct sysctl_oid "
+"*oidp\"> E<.Fa \"const char *name\"> E<.Fa \"int del\"> E<.Fa \"int "
+"recurse\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:74
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:82
+msgid ""
+"These functions provide the interface for creating and deleting sysctl OIDs "
+"at runtime for example during the lifetime of a module.  The wrapper macros "
+"defined by E<.Xr sysctl 9> are recommended when creating new OIDs.  E<.Fn "
+"sysctl_add_oid> should not be called directly from the code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:94
+msgid ""
+"Dynamic OIDs of type E<.Dv CTLTYPE_NODE> are reusable so that several code "
+"sections can create and delete them, but in reality they are allocated and "
+"freed based on their reference count.  As a consequence, it is possible for "
+"two or more code sections to create partially overlapping trees that they "
+"both can use.  It is not possible to create overlapping leaves, nor to "
+"create different child types with the same name and parent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:106
+msgid ""
+"The E<.Fn sysctl_add_oid> function creates a raw OID of any type and "
+"connects it to its parent node, if any.  If the OID is successfully created, "
+"the function returns a pointer to it else it returns E<.Dv NULL>.  Many of "
+"the arguments for E<.Fn sysctl_add_oid> are common to the wrapper macros "
+"defined by E<.Xr sysctl 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:114
+msgid ""
+"The E<.Fn sysctl_move_oid> function reparents an existing OID.  The OID is "
+"assigned a new number as if it had been created with E<.Fa number> set to "
+"E<.Dv OID_AUTO>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:120
+msgid ""
+"The E<.Fn sysctl_remove_oid> function removes a dynamically created OID from "
+"the tree and optionally freeing its resources.  It takes the following "
+"arguments:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl_add_oid.9:121
+#, no-wrap
+msgid "Fa oidp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:127
+msgid ""
+"A pointer to the dynamic OID to be removed.  If the OID is not dynamic, or "
+"the pointer is E<.Dv NULL>, the function returns E<.Er EINVAL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl_add_oid.9:127
+#, no-wrap
+msgid "Fa del"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:140
+msgid ""
+"If non-zero, E<.Fn sysctl_remove_oid> will try to free the OID's resources "
+"when the reference count of the OID becomes zero.  However, if E<.Fa del> is "
+"set to 0, the routine will only deregister the OID from the tree, without "
+"freeing its resources.  This behaviour is useful when the caller expects to "
+"rollback (possibly partially failed)  deletion of many OIDs later."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl_add_oid.9:140
+#, no-wrap
+msgid "Fa recurse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:159
+msgid ""
+"If non-zero, attempt to remove the node and all its children.  If E<.Pa "
+"recurse> is set to 0, any attempt to remove a node that contains any "
+"children will result in a E<.Er ENOTEMPTY> error.  E<.Em WARNING : \"use "
+"recursive deletion with extreme caution\" !> Normally it should not be "
+"needed if contexts are used.  Contexts take care of tracking "
+"inter-dependencies between users of the tree.  However, in some extreme "
+"cases it might be necessary to remove part of the subtree no matter how it "
+"was created, in order to free some other resources.  Be aware, though, that "
+"this may result in a system E<.Xr panic 9> if other code sections continue "
+"to use removed subtrees."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:178
+msgid ""
+"The E<.Fn sysctl_remove_name> function looks up the child node matching the "
+"E<.Fa name> argument and then invokes the E<.Fn sysctl_remove_oid> function "
+"on that node, passing along the E<.Fa del> and E<.Fa recurse> arguments.  If "
+"a node having the specified name does not exist an error code of E<.Er "
+"ENOENT> is returned.  Else the error code from E<.Fn sysctl_remove_oid> is "
+"returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:184
+msgid ""
+"In most cases the programmer should use contexts, as described in E<.Xr "
+"sysctl_ctx_init 9>, to keep track of created OIDs, and to delete them later "
+"in orderly fashion."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:184
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:189
+msgid ""
+"E<.Xr sysctl 8>, E<.Xr sysctl 9>, E<.Xr sysctl_ctx_free 9>, E<.Xr "
+"sysctl_ctx_init 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:189
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:192
+msgid "These functions first appeared in E<.Fx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:192
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:194
+msgid "E<.An Andrzej Bialecki Aq Mt abial@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl_add_oid.9:194
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:201
+msgid ""
+"Sharing nodes between many code sections causes interdependencies that "
+"sometimes may lock the resources.  For example, if module A hooks up a "
+"subtree to an OID created by module B, module B will be unable to delete "
+"that OID.  These issues are handled properly by sysctl contexts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl_add_oid.9:203
+msgid ""
+"Many operations on the tree involve traversing linked lists.  For this "
+"reason, OID creation and removal is relatively costly."
+msgstr ""

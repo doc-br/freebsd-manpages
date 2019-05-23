@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/safe.4:28
+#, no-wrap
+msgid "April 1, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/safe.4:29
+#, no-wrap
+msgid "SAFE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/safe.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:33
+msgid "E<.Nm safe>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/safe.4:33
+#, no-wrap
+msgid "SafeNet crypto accelerator"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/safe.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:38
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:42
+#, no-wrap
+msgid ""
+"E<.Cd \"device crypto\">\n"
+"E<.Cd \"device cryptodev\">\n"
+"E<.Cd \"device safe\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:47
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:49
+#, no-wrap
+msgid "safe_load=\"YES\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:56
+msgid ""
+"E<.Nm sysctl Va hw.safe.debug> E<.Nm sysctl Va hw.safe.dump> E<.Nm sysctl Va "
+"hw.safe.rnginterval> E<.Nm sysctl Va hw.safe.rngbufsize> E<.Nm sysctl Va "
+"hw.safe.rngmaxalarm>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/safe.4:56
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:60
+msgid ""
+"The E<.Nm> driver supports cards containing SafeNet crypto accelerator "
+"chips."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:68
+msgid ""
+"The E<.Nm> driver registers itself to accelerate DES, Triple-DES, AES, "
+"MD5-HMAC, SHA1-HMAC, and NULL operations for E<.Xr ipsec 4> and E<.Xr crypto "
+"4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:86
+msgid ""
+"On all models, the driver registers itself to provide random data to the "
+"E<.Xr random 4> subsystem.  Periodically the driver will poll the hardware "
+"RNG and retrieve data for use by the system.  If the driver detects that the "
+"hardware RNG is resonating with any local signal, it will reset the "
+"oscillators that generate random data.  Three E<.Xr sysctl 8> settings "
+"control this procedure: E<.Va hw.safe.rnginterval> specifies the time, in "
+"seconds, between polling operations, E<.Va hw.safe.rngbufsize> specifies the "
+"number of 32-bit words to retrieve on each poll, and E<.Va "
+"hw.safe.rngmaxalarm> specifies the threshold for resetting the oscillators."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:108
+msgid ""
+"When the driver is compiled with E<.Dv SAFE_DEBUG> defined, two E<.Xr sysctl "
+"8> variables are provided for debugging purposes: E<.Va hw.safe.debug> can "
+"be set to a non-zero value to enable debugging messages to be sent to the "
+"console for each cryptographic operation, E<.Va hw.safe.dump> is a "
+"write-only variable that can be used to force driver state to be sent to the "
+"console.  Set this variable to E<.Dq Li ring> to dump the current state of "
+"the descriptor ring, to E<.Dq Li dma> to dump the hardware DMA registers, or "
+"to E<.Dq Li int> to dump the hardware interrupt registers."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/safe.4:108
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:112
+msgid "The E<.Nm> driver supports cards containing any of the following chips:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/safe.4:113
+#, no-wrap
+msgid "SafeNet 1141"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:118
+msgid ""
+"The original chipset.  Supports DES, Triple-DES, AES, MD5, and SHA-1 "
+"symmetric crypto operations, RNG, public key operations, and full IPsec "
+"packet processing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/safe.4:118
+#, no-wrap
+msgid "SafeNet 1741"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:120
+msgid "A faster version of the 1141."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/safe.4:121
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:128
+msgid ""
+"E<.Xr crypt 3>, E<.Xr crypto 4>, E<.Xr intro 4>, E<.Xr ipsec 4>, E<.Xr "
+"random 4>, E<.Xr crypto 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/safe.4:128
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/safe.4:129
+msgid "Public key support is not implemented."
+msgstr ""

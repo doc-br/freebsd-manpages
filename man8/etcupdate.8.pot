@@ -1,0 +1,1234 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:28
+#, no-wrap
+msgid "November 27, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:29
+#, no-wrap
+msgid "ETCUPDATE 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:33
+msgid "E<.Nm etcupdate>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:33
+#, no-wrap
+msgid "manage updates to system files not updated by installworld"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:75
+msgid ""
+"E<.Nm> E<.Op Fl npBF> E<.Op Fl d Ar workdir> E<.Op Fl r | Fl s Ar source | "
+"Fl t Ar tarball> E<.Op Fl A Ar patterns> E<.Op Fl D Ar destdir> E<.Op Fl I "
+"Ar patterns> E<.Op Fl L Ar logfile> E<.Op Fl M Ar options> E<.Nm> E<.Cm "
+"build> E<.Op Fl B> E<.Op Fl d Ar workdir> E<.Op Fl s Ar source> E<.Op Fl L "
+"Ar logfile> E<.Op Fl M Ar options> E<.Ar tarball> E<.Nm> E<.Cm diff> E<.Op "
+"Fl d Ar workdir> E<.Op Fl D Ar destdir> E<.Op Fl I Ar patterns> E<.Op Fl L "
+"Ar logfile> E<.Nm> E<.Cm extract> E<.Op Fl B> E<.Op Fl d Ar workdir> E<.Op "
+"Fl s Ar source | Fl t Ar tarball> E<.Op Fl L Ar logfile> E<.Op Fl M Ar "
+"options> E<.Nm> E<.Cm resolve> E<.Op Fl p> E<.Op Fl d Ar workdir> E<.Op Fl D "
+"Ar destdir> E<.Op Fl L Ar logfile> E<.Nm> E<.Cm status> E<.Op Fl d Ar "
+"workdir> E<.Op Fl D Ar destdir>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:75
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:87
+msgid ""
+"The E<.Nm> utility is a tool for managing updates to files that are not "
+"updated as part of E<.Sq make installworld> such as files in E<.Pa /etc>.  "
+"It manages updates by doing a three-way merge of changes made to these files "
+"against the local versions.  It is also designed to minimize the amount of "
+"user intervention with the goal of simplifying upgrades for clusters of "
+"machines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:115
+msgid ""
+"To perform a three-way merge, E<.Nm> keeps copies of the current and "
+"previous versions of files that it manages.  These copies are stored in two "
+"trees known as the E<.Dq current> and E<.Dq previous> trees.  During a "
+"merge, E<.Nm> compares the E<.Dq current> and E<.Dq previous> copies of each "
+"file to determine which changes need to be merged into the local version of "
+"each file.  If a file can be updated without generating a conflict, E<.Nm> "
+"will update the file automatically.  If the local changes to a file conflict "
+"with the changes made to a file in the source tree, then a merge conflict is "
+"generated.  The conflict must be resolved after the merge has finished.  The "
+"E<.Nm> utility will not perform a new merge until all conflicts from an "
+"earlier merge are resolved."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:115
+#, no-wrap
+msgid "MODES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:122
+msgid ""
+"The E<.Nm> utility supports several modes of operation.  The mode is "
+"specified via an optional command argument.  If present, the command must be "
+"the first argument on the command line.  If a command is not specified, the "
+"default mode is used."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:122
+#, no-wrap
+msgid "Default Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:135
+msgid ""
+"The default mode merges changes from the source tree to the destination "
+"directory.  First, it updates the E<.Dq current> and E<.Dq previous> trees.  "
+"Next, it compares the two trees merging changes into the destination "
+"directory.  Finally, it displays warnings for any conditions it could not "
+"handle automatically."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:161
+msgid ""
+"If the E<.Fl r> option is not specified, then the first step taken is to "
+"update the E<.Dq current> and E<.Dq previous> trees.  If a E<.Dq current> "
+"tree already exists, then that tree is saved as the E<.Dq previous> tree.  "
+"An older E<.Dq previous> tree is removed if it exists.  By default the new "
+"E<.Dq current> tree is built from a source tree.  However, if a tarball is "
+"specified via the E<.Fl t> option, then the tree is extracted from that "
+"tarball instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:196
+msgid ""
+"Next, E<.Nm> compares the files in the E<.Dq current> and E<.Dq previous> "
+"trees.  If a file was removed from the E<.Dq current> tree, then it will be "
+"removed from the destination directory only if it does not have any local "
+"modifications.  If a file was added to the E<.Dq current> tree, then it will "
+"be copied to the destination directory only if it would not clobber an "
+"existing file.  If a file is changed in the E<.Dq current> tree, then E<.Nm> "
+"will attempt to merge the changes into the version of the file in the "
+"destination directory.  If the merge encounters conflicts, then a version of "
+"the file with conflict markers will be saved for future resolution.  If the "
+"merge does not encounter conflicts, then the merged version of the file will "
+"be saved in the destination directory.  If E<.Nm> is not able to safely "
+"merge in changes to a file other than a merge conflict, it will generate a "
+"warning."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:200
+msgid ""
+"For each file that is updated a line will be output with a leading character "
+"to indicate the action taken.  The possible actions follow:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:202
+#, no-wrap
+msgid "A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:204
+msgid "Added"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:204
+#, no-wrap
+msgid "C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:206
+msgid "Conflict"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:206
+#, no-wrap
+msgid "D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:208
+msgid "Deleted"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:208
+#, no-wrap
+msgid "M"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:210
+msgid "Merged"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:210
+#, no-wrap
+msgid "U"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:212
+msgid "Updated"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:217
+msgid ""
+"Finally, if any warnings were encountered they are displayed after the merge "
+"has completed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:268
+msgid ""
+"Note that for certain files E<.Nm> will perform post-install actions any "
+"time that the file is updated.  Specifically, E<.Xr pwd_mkdb 8> is invoked "
+"if E<.Pa /etc/master.passwd> is changed, E<.Xr cap_mkdb 1> is invoked to "
+"update E<.Pa /etc/login.conf.db> if E<.Pa /etc/login.conf> is changed, E<.Xr "
+"newaliases 1> is invoked if E<.Pa /etc/mail/aliases> is changed, E<.Xr "
+"services_mkdb 8> is invoked if E<.Pa /etc/services> is changed, E<.Xr "
+"tzsetup 8> is invoked if E<.Pa /etc/localtime> is changed and if E<.Fa "
+"/var/db/zoneinfo> exists, and E<.Pa /etc/rc.d/motd> is invoked if E<.Pa "
+"/etc/motd> is changed.  One exception is that if E<.Pa /etc/mail/aliases> is "
+"changed and the destination directory is not the default, then a warning "
+"will be issued instead.  This is due to a limitation of the E<.Xr newaliases "
+"1> command.  Similarly, if E<.Pa /etc/motd> is changed and the destination "
+"directory is not the default, then E<.Pa /etc/rc.d/motd> will not be "
+"executed due to a limitation of that script.  In this case no warning is "
+"issued as the result of E<.Pa /etc/rc.d/motd> is merely cosmetic and will be "
+"corrected on the next reboot."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:268
+#, no-wrap
+msgid "Build Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:286
+msgid ""
+"The E<.Cm build> mode is used to build a tarball that contains a snapshot of "
+"a E<.Dq current> tree.  This tarball can be used by the default and extract "
+"modes.  Using a tarball can allow E<.Nm> to perform a merge without "
+"requiring a source tree that matches the currently installed world.  The "
+"E<.Fa tarball> argument specifies the name of the file to create.  The file "
+"will be a E<.Xr tar 5> file compressed with E<.Xr bzip2 1>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:286
+#, no-wrap
+msgid "Diff Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:299
+msgid ""
+"The E<.Cm diff> mode compares the versions of files in the destination "
+"directory to the E<.Dq current> tree and generates a unified format diff of "
+"the changes.  This can be used to determine which files have been locally "
+"modified and how.  Note that E<.Nm> does not manage files that are not "
+"maintained in the source tree such as E<.Pa /etc/fstab> and E<.Pa "
+"/etc/rc.conf>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:299
+#, no-wrap
+msgid "Extract Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:314
+msgid ""
+"The E<.Cm extract> mode generates a new E<.Dq current> tree.  Unlike the "
+"default mode, it does not save any existing E<.Dq current> tree and does not "
+"modify any existing E<.Dq previous> tree.  The new E<.Dq current> tree can "
+"either be built from a source tree or extracted from a tarball."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:314
+#, no-wrap
+msgid "Resolve Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:323
+msgid ""
+"The E<.Cm resolve> mode is used to resolve any conflicts encountered during "
+"a merge.  In this mode, E<.Nm> iterates over any existing conflicts "
+"prompting the user for actions to take on each conflicted file.  For each "
+"file, the following actions are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:325
+#, no-wrap
+msgid "(p) postpone"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:327
+msgid "Ignore this conflict for now."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:327
+#, no-wrap
+msgid "(df) diff-full"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:329
+msgid "Show all changes made to the merged file as a unified diff."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:329
+#, no-wrap
+msgid "(e) edit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:331
+msgid "Change the merged file in an editor."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:331
+#, no-wrap
+msgid "(r) resolved"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:333
+msgid "Install the merged version of the file into the destination directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:333
+#, no-wrap
+msgid "(mf) mine-full"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:338
+msgid ""
+"Use the version of the file in the destination directory and ignore any "
+"changes made to the file in the E<.Dq current> tree."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:338
+#, no-wrap
+msgid "(tf) theirs-full"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:342
+msgid ""
+"Use the version of the file from the E<.Dq current> tree and discard any "
+"local changes made to the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:342
+#, no-wrap
+msgid "(h) help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:344
+msgid "Display the list of commands."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:345
+#, no-wrap
+msgid "Status Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:353
+msgid ""
+"The E<.Cm status> mode shows a summary of the results of the most recent "
+"merge.  First it lists any files for which there are unresolved conflicts.  "
+"Next it lists any warnings generated during the last merge.  If the last "
+"merge did not generate any conflicts or warnings, then nothing will be "
+"output."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:353
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:356
+msgid ""
+"The following options are available.  Note that most options do not apply to "
+"all modes."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:357
+#, no-wrap
+msgid "Fl A Ar patterns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:372
+msgid ""
+"Always install the new version of any files that match any of the patterns "
+"listed in E<.Ar patterns>.  Each pattern is evaluated as an E<.Xr sh 1> "
+"shell pattern.  This option may be specified multiple times to specify "
+"multiple patterns.  Multiple space-separated patterns may also be specified "
+"in a single option.  Note that ignored files specified via the E<.Ev "
+"IGNORE_FILES> variable or the E<.Fl I> option will not be installed."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:372
+#, no-wrap
+msgid "Fl B"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:383
+msgid ""
+"Do not build generated files in a private object tree.  Instead, reuse the "
+"generated files from a previously built object tree that matches the source "
+"tree.  This can be useful to avoid gratuitous conflicts in E<.Xr sendmail 8> "
+"configuration files when bootstrapping.  It can also be useful for building "
+"a tarball that matches a specific world build."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:383
+#, no-wrap
+msgid "Fl D Ar destdir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:393
+msgid ""
+"Specify an alternate destination directory as the target of a merge.  This "
+"is analogous to the E<.Dv DESTDIR> variable used with E<.Sq make "
+"installworld>.  The default destination directory is an empty string which "
+"results in merges updating E<.Pa /etc> on the local machine."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:393
+#, no-wrap
+msgid "Fl d Ar workdir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:402
+msgid ""
+"Specify an alternate directory to use as the work directory.  The work "
+"directory is used to store the E<.Dq current> and E<.Dq previous> trees as "
+"well as unresolved conflicts.  The default work directory is E<.Pa "
+"E<lt>destdirE<gt>/var/db/etcupdate>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:402
+#, no-wrap
+msgid "Fl F"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:415
+msgid ""
+"Ignore changes in the FreeBSD ID string when comparing files in the "
+"destination directory to files in either of the E<.Dq current> or E<.Dq "
+"previous> trees.  In E<.Cm diff> mode, this reduces noise due to FreeBSD ID "
+"string changes in the output.  During an update this can simplify handling "
+"for harmless conflicts caused by FreeBSD ID string changes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:438
+msgid ""
+"Specifically, if a file in the destination directory is identical to the "
+"same file in the E<.Dq previous> tree modulo the FreeBSD ID string, then the "
+"file is treated as if it was unmodified and the E<.Dq current> version of "
+"the file will be installed.  Similarly, if a file in the destination "
+"directory is identical to the same file in the E<.Dq current> tree modulo "
+"the FreeBSD ID string, then the E<.Dq current> version of the file will be "
+"installed to update the ID string.  If the E<.Dq previous> and E<.Dq "
+"current> versions of the file are identical, then E<.Nm> will not change the "
+"file in the destination directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:444
+msgid ""
+"Due to limitations in the E<.Xr diff 1> command, this option may not have an "
+"effect if there are other changes in a file that are close to the FreeBSD ID "
+"string."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:444
+#, no-wrap
+msgid "Fl I Ar patterns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:455
+msgid ""
+"Ignore any files that match any of the patterns listed in E<.Ar patterns>.  "
+"No warnings or other messages will be generated for those files during a "
+"merge.  Each pattern is evaluated as an E<.Xr sh 1> shell pattern.  This "
+"option may be specified multiple times to specify multiple patterns.  "
+"Multiple space-separated patterns may also be specified in a single option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:455
+#, no-wrap
+msgid "Fl L Ar logfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:464
+msgid ""
+"Specify an alternate path for the log file.  The E<.Nm> utility logs each "
+"command that it invokes along with the standard output and standard error to "
+"this file.  By default the log file is stored in a file named E<.Pa log> in "
+"the work directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:464
+#, no-wrap
+msgid "Fl M Ar options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:477
+msgid ""
+"Pass E<.Ar options> as additional parameters to E<.Xr make 1> when building "
+"a E<.Dq current> tree.  This can be used for to set the E<.Dv TARGET> or "
+"E<.Dv TARGET_ARCH> variables for a cross-build."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:477
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:495
+msgid ""
+"Enable E<.Dq dry-run> mode.  Do not merge any changes to the destination "
+"directory.  Instead, report what actions would be taken during a merge.  "
+"Note that the existing E<.Dq current> and E<.Dq previous> trees will not be "
+"changed.  If the E<.Fl r> option is not specified, then a temporary E<.Dq "
+"current> tree will be extracted to perform the comparison."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:495
+#, no-wrap
+msgid "Fl p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:522
+msgid ""
+"Enable E<.Dq pre-world> mode.  Only merge changes to files that are "
+"necessary to successfully run E<.Sq make installworld> or E<.Sq make "
+"installkernel>.  When this flag is enabled, the existing E<.Dq current> and "
+"E<.Dq previous> trees are left alone.  Instead, a temporary tree is "
+"populated with the necessary files.  This temporary tree is compared against "
+"the E<.Dq current> tree.  This allows a normal update to be run after E<.Sq "
+"make installworld> has completed.  Any conflicts generated during a E<.Dq "
+"pre-world> update should be resolved by a E<.Dq pre-world> E<.Cm resolve>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:522
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:531
+msgid ""
+"Do not update the E<.Dq current> and E<.Dq previous> trees during a merge.  "
+"This can be used to E<.Dq re-run> a previous merge operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:531
+#, no-wrap
+msgid "Fl s Ar source"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:537
+msgid ""
+"Specify an alternate source tree to use when building or extracting a E<.Dq "
+"current> tree.  The default source tree is E<.Pa /usr/src>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:537
+#, no-wrap
+msgid "Fl t Ar tarball"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:543
+msgid ""
+"Extract a new E<.Dq current> tree from a tarball previously generated by the "
+"E<.Cm build> command rather than building the tree from a source tree."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:544
+#, no-wrap
+msgid "CONFIG FILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:555
+msgid ""
+"The E<.Nm> utility can also be configured by setting variables in an "
+"optional configuration file named E<.Pa /etc/etcupdate.conf>.  Note that "
+"command line options override settings in the configuration file.  The "
+"configuration file is executed by E<.Xr sh 1>, so it uses that syntax to set "
+"configuration variables.  The following variables can be set:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:556
+#, no-wrap
+msgid "Ev ALWAYS_INSTALL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:561
+msgid ""
+"Always install files that match any of the patterns listed in this variable "
+"similar to the E<.Fl A> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:561
+#, no-wrap
+msgid "Ev DESTDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:565
+msgid "Specify an alternate destination directory similar to the E<.Fl D> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:565
+#, no-wrap
+msgid "Ev EDITOR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:567
+msgid "Specify a program to edit merge conflicts."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:567
+#, no-wrap
+msgid "Ev FREEBSD_ID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:572
+msgid ""
+"Ignore changes in the FreeBSD ID string similar to the E<.Fl F> option.  "
+"This is enabled by setting the variable to a non-empty value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:572
+#, no-wrap
+msgid "Ev IGNORE_FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:577
+msgid ""
+"Ignore files that match any of the patterns listed in this variable similar "
+"to the E<.Fl I> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:577
+#, no-wrap
+msgid "Ev LOGFILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:581
+msgid "Specify an alternate path for the log file similar to the E<.Fl L> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:581
+#, no-wrap
+msgid "Ev MAKE_OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:589
+msgid ""
+"Pass additional options to E<.Xr make 1> when building a E<.Dq current> tree "
+"similar to the E<.Fl M> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:589
+#, no-wrap
+msgid "Ev SRCDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:593
+msgid "Specify an alternate source tree similar to the E<.Fl s> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:593
+#, no-wrap
+msgid "Ev WORKDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:597
+msgid "Specify an alternate work directory similar to the E<.Fl d> option."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:598
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:609
+msgid ""
+"The E<.Nm> utility uses the program identified in the E<.Ev EDITOR> "
+"environment variable to edit merge conflicts.  If E<.Ev EDITOR> is not set, "
+"E<.Xr vi 1> is used as the default editor."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:609
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:611
+#, no-wrap
+msgid "Pa /etc/etcupdate.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:613
+msgid "Optional config file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:613
+#, no-wrap
+msgid "Pa /var/db/etcupdate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:615
+msgid "Default work directory used to store trees and other data."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:615
+#, no-wrap
+msgid "Pa /var/db/etcupdate/log"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:617
+msgid "Default log file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:618
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:620
+msgid "E<.Ex -std>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:620
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:624
+msgid "To compare the files in E<.Pa /etc> with the stock versions:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:625
+#, no-wrap
+msgid "etcupdate diff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:628
+msgid ""
+"To merge changes after an upgrade via the buildworld and installworld "
+"process:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:629
+#, no-wrap
+msgid "etcupdate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:632
+msgid "To resolve any conflicts generated during a merge:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:633
+#, no-wrap
+msgid "etcupdate resolve"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:634
+#, no-wrap
+msgid "Bootstrapping"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:642
+msgid ""
+"The E<.Nm> utility may need to be bootstrapped before it can be used.  The "
+"E<.Cm diff> command will fail with an error about a missing reference tree "
+"if bootstrapping is needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:651
+msgid ""
+"Bootstrapping E<.Nm> requires a source tree that matches the currently "
+"installed world.  The easiest way to ensure this is to bootstrap E<.Nm> "
+"before updating the source tree to start the next world upgrade cycle.  "
+"First, generate a reference tree:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:652
+#, no-wrap
+msgid "etcupdate extract"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:667
+msgid ""
+"Second, use the E<.Cm diff> command to compare the reference tree to your "
+"current files in E<.Pa /etc>.  Undesired differences should be removed using "
+"an editor, E<.Xr patch 1>, or by copying files from the reference tree "
+"E<.Po> located at E<.Pa /var/db/etcupdate/current> by default E<.Pc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:677
+msgid ""
+"If the tree at E<.Pa /usr/src> is already newer than the currently installed "
+"world, a new tree matching the currently installed world can be checked out "
+"to a temporary location.  The reference tree for E<.Nm> can then be "
+"generated via:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:678
+#, no-wrap
+msgid "etcupdate extract -s /path/to/tree"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:687
+msgid ""
+"The E<.Cm diff> command can be used as above to remove undesired "
+"differences.  Afterwards, the changes in the tree at E<.Pa /usr/src> can be "
+"merged via a regular merge."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:687
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:701
+msgid ""
+"The following warning messages may be generated during a merge.  Note that "
+"several of these warnings cover obscure cases that should occur rarely if at "
+"all in practice.  For example, if a file changes from a file to a directory "
+"in the E<.Dq current> tree and the file was modified in the destination "
+"directory, then a warning will be triggered.  In general, when a warning "
+"references a pathname, the corresponding file in the destination directory "
+"is not changed by a merge operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:702
+#, no-wrap
+msgid "Directory mismatch: E<lt>pathE<gt> (E<lt>typeE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:708
+msgid ""
+"An attempt was made to create a directory at E<.Pa path> but an existing "
+"file of type E<.Dq type> already exists for that path name."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:708
+#, no-wrap
+msgid "Modified link changed: E<lt>fileE<gt> (E<lt>oldE<gt> became E<lt>newE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:723
+msgid ""
+"The target of a symbolic link named E<.Pa file> was changed from E<.Dq old> "
+"to E<.Dq new> in the E<.Dq current> tree.  The symbolic link has been "
+"modified to point to a target that is neither E<.Dq old> nor E<.Dq new> in "
+"the destination directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:723
+#, no-wrap
+msgid "Modified mismatch: E<lt>fileE<gt> (E<lt>newE<gt> vs E<lt>destE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:734
+msgid ""
+"A file named E<.Pa file> of type E<.Dq new> was modified in the E<.Dq "
+"current> tree, but the file exists as a different type E<.Dq dest> in the "
+"destination directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:734
+#, no-wrap
+msgid ""
+"Modified E<lt>typeE<gt> changed: E<lt>fileE<gt> (E<lt>oldE<gt> became "
+"E<lt>newE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:750
+msgid ""
+"A file named E<.Pa file> changed type from E<.Dq old> in the E<.Dq previous> "
+"tree to type E<.Dq new> in the E<.Dq current> tree.  The file in the "
+"destination directory of type E<.Dq type> has been modified, so it could not "
+"be merged automatically."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:750
+#, no-wrap
+msgid "Modified E<lt>typeE<gt> remains: E<lt>fileE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:760
+msgid ""
+"The file of type E<.Dq type> named E<.Pa file> has been removed from the "
+"E<.Dq current> tree, but it has been locally modified.  The modified version "
+"of the file remains in the destination directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:760
+#, no-wrap
+msgid "Needs update: /etc/localtime (required manual update via tzsetup(8))"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:779
+msgid ""
+"The E<.Fa /var/db/zoneinfo> file does not exist, so E<.Nm> was not able to "
+"refresh E<.Fa /etc/localtime> from its source file in E<.Fa "
+"/usr/share/zoneinfo>.  Running E<.Xr tzsetup 8> will both refresh E<.Fa "
+"/etc/localtime> and generate E<.Fa /var/db/zoneinfo> permitting future "
+"updates to refresh E<.Fa /etc/localtime> automatically."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:779
+#, no-wrap
+msgid ""
+"Needs update: /etc/mail/aliases.db (required manual update via "
+"newaliases(1))"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:788
+msgid ""
+"The file E<.Pa /etc/mail/aliases> was updated during a merge with a "
+"non-empty destination directory.  Due to a limitation of the E<.Xr "
+"newaliases 1> command, E<.Nm> was not able to automatically update the "
+"corresponding aliases database."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:788
+#, no-wrap
+msgid "New file mismatch: E<lt>fileE<gt> (E<lt>newE<gt> vs E<lt>destE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:799
+msgid ""
+"A new file named E<.Pa file> of type E<.Dq new> has been added to the E<.Dq "
+"current> tree.  A file of that name already exists in the destination "
+"directory, but it is of a different type E<.Dq dest>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:799
+#, no-wrap
+msgid "New link conflict: E<lt>fileE<gt> (E<lt>newE<gt> vs E<lt>destE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:810
+msgid ""
+"A symbolic link named E<.Pa file> has been added to the E<.Dq current> tree "
+"that links to E<.Dq new>.  A symbolic link of the same name already exists "
+"in the destination directory, but it links to a different target E<.Dq "
+"dest>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:810
+#, no-wrap
+msgid "Non-empty directory remains: E<lt>fileE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:818
+msgid ""
+"The directory E<.Pa file> was removed from the E<.Dq current> tree, but it "
+"contains additional files in the destination directory.  These additional "
+"files as well as the directory remain."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:818
+#, no-wrap
+msgid "Remove mismatch: E<lt>fileE<gt> (E<lt>oldE<gt> became E<lt>newE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:831
+msgid ""
+"A file named E<.Pa file> changed from type E<.Dq old> in the E<.Dq previous> "
+"tree to type E<.Dq new> in the E<.Dq current> tree, but it has been removed "
+"in the destination directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:831
+#, no-wrap
+msgid "Removed file changed: E<lt>fileE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:838
+msgid ""
+"A file named E<.Pa file> was modified in the E<.Dq current> tree, but it has "
+"been removed in the destination directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:838
+#, no-wrap
+msgid "Removed link changed: E<lt>fileE<gt> (E<lt>oldE<gt> became E<lt>newE<gt>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:849
+msgid ""
+"The target of a symbolic link named E<.Pa file> was changed from E<.Dq old> "
+"to E<.Dq new> in the E<.Dq current> tree, but it has been removed in the "
+"destination directory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:850
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:860
+msgid ""
+"E<.Xr cap_mkdb 1>, E<.Xr diff 1>, E<.Xr make 1>, E<.Xr newaliases 1>, E<.Xr "
+"sh 1>, E<.Xr mergemaster 8>, E<.Xr pwd_mkdb 8>, E<.Xr services_mkdb 8>, "
+"E<.Xr tzsetup 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:860
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:865
+msgid "The E<.Nm> utility first appeared in E<.Fx 10.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:865
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:870
+msgid "The E<.Nm> utility was written by E<.An John Baldwin Aq Mt jhb@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:870
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:875
+msgid ""
+"Rerunning a merge does not automatically delete conflicts left over from a "
+"previous merge.  Any conflicts must be resolved before the merge can be "
+"rerun.  It is not clear if this is a feature or a bug."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:878
+msgid ""
+"There is no way to easily automate conflict resolution for specific files.  "
+"For example, one can imagine a syntax along the lines of"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:879
+#, no-wrap
+msgid "etcupdate resolve tf /some/file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:882
+msgid "to resolve a specific conflict in an automated fashion."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:888
+msgid ""
+"It might be nice to have something like a E<.Sq revert> command to replace a "
+"locally modified version of a file with the stock version of the file.  For "
+"example:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:889
+#, no-wrap
+msgid "etcupdate revert /etc/mail/freebsd.cf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/etcupdate/etcupdate.8:901
+msgid ""
+"Bootstrapping E<.Nm> often results in gratuitous diffs in E<.Pa "
+"/etc/mail/*.cf> that cause conflicts in the first merge.  If an object tree "
+"that matches the source tree is present when bootstrapping, then passing the "
+"E<.Fl B> flag to the E<.Cm extract> command can work around this."
+msgstr ""

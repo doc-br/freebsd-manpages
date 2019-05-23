@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/config_intrhook.9:29
+#, no-wrap
+msgid "August 10, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/config_intrhook.9:30
+#, no-wrap
+msgid "CONFIG_INTRHOOK 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:34
+msgid "E<.Nm config_intrhook>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/config_intrhook.9:34
+#, no-wrap
+msgid "schedule a function to be run after interrupts have been enabled,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:36
+msgid "but before root is mounted"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/config_intrhook.9:37
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:45
+msgid ""
+"E<.Vt typedef void (*ich_func_t)(void *arg);> E<.Ft int> E<.Fn "
+"config_intrhook_establish \"struct intr_config_hook *hook\"> E<.Ft void> "
+"E<.Fn config_intrhook_disestablish \"struct intr_config_hook *hook\"> E<.Ft "
+"void> E<.Fn config_intrhook_oneshot \"ich_func_t func\" \"void *arg\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:52
+msgid ""
+"The E<.Fn config_intrhook_establish> function schedules a function to be run "
+"after interrupts have been enabled, but before root is mounted.  If the "
+"system has already passed this point in its initialization, the function is "
+"called immediately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:56
+msgid ""
+"The E<.Fn config_intrhook_disestablish> function removes the entry from the "
+"hook queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:68
+msgid ""
+"The E<.Fn config_intrhook_oneshot> function schedules a function to be run "
+"as described for E<.Fn config_intrhook_establish>; the entry is "
+"automatically removed from the hook queue after that function runs.  This is "
+"appropriate when additional device configuration must be done after "
+"interrupts are enabled, but there is no need to stall the boot process after "
+"that.  This function allocates memory using M_WAITOK; do not call this while "
+"holding any non-sleepable locks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:81
+msgid ""
+"Before root is mounted, all the previously established hooks are run.  The "
+"boot process is then stalled until all handlers remove their hook from the "
+"hook queue with E<.Fn config_intrhook_disestablish>.  The boot process then "
+"proceeds to attempt to mount the root file system.  Any driver that can "
+"potentially provide devices they wish to be mounted as root must use either "
+"this hook, or probe all these devices in the initial probe.  Since "
+"interrupts are disabled during the probe process, many drivers need a method "
+"to probe for devices with interrupts enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:86
+msgid ""
+"The requests are made with the E<.Vt intr_config_hook> structure.  This "
+"structure is defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:92
+#, no-wrap
+msgid ""
+"struct intr_config_hook {\n"
+"\tTAILQ_ENTRY(intr_config_hook) ich_links;/* Private */\n"
+"\tich_func_t\tich_func;\t\t/* function to call */\n"
+"\tvoid\t\t*ich_arg;\t\t/* Argument to call */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:99
+msgid ""
+"Storage for the E<.Vt intr_config_hook> structure must be provided by the "
+"driver.  It must be stable from just before the hook is established until "
+"after the hook is disestablished."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:104
+msgid ""
+"Specifically, hooks are run at E<.Fn SI_SUB_INT_CONFIG_HOOKS>, which is "
+"immediately after the scheduler is started, and just before the root file "
+"system device is discovered."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:104
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:109
+msgid ""
+"A zero return value means the hook was successfully added to the queue (with "
+"either deferred or immediate execution).  A non-zero return value means the "
+"hook could not be added to the queue because it was already on the queue."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:109
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:111
+msgid "E<.Xr DEVICE_ATTACH 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:111
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:115
+msgid ""
+"These functions were introduced in E<.Fx 3.0> with the CAM subsystem, but "
+"are available for any driver to use."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/config_intrhook.9:115
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/config_intrhook.9:120
+msgid ""
+"E<.An -nosplit> The functions were written by E<.An Justin Gibbs Aq Mt "
+"gibbs@FreeBSD.org>.  This manual page was written by E<.An M. Warner Losh Aq "
+"Mt imp@FreeBSD.org>."
+msgstr ""

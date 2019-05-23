@@ -1,0 +1,415 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mac_biba.4:33
+#, no-wrap
+msgid "November 18, 2002"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mac_biba.4:34
+#, no-wrap
+msgid "MAC_BIBA 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_biba.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:38
+msgid "E<.Nm mac_biba>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mac_biba.4:38
+#, no-wrap
+msgid "Biba data integrity policy"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_biba.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:42
+msgid ""
+"To compile Biba into your kernel, place the following lines in your kernel "
+"configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:45
+#, no-wrap
+msgid ""
+"E<.Cd \"options MAC\">\n"
+"E<.Cd \"options MAC_BIBA\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:49
+msgid ""
+"Alternately, to load the Biba module at boot time, place the following line "
+"in your kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:51
+#, no-wrap
+msgid "E<.Cd \"options MAC\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:55
+msgid "and in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:57
+#, no-wrap
+msgid "mac_biba_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_biba.4:58
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:74
+msgid ""
+"The E<.Nm> policy module implements the Biba integrity model, which protects "
+"the integrity of system objects and subjects by means of a strict "
+"information flow policy.  In Biba, all system subjects and objects are "
+"assigned integrity labels, made up of hierarchal grades, and non-hierarchal "
+"components.  Together, these label elements permit all labels to be placed "
+"in a partial order, with information flow protections based on a dominance "
+"operator describing the order.  The hierarchal grade field is expressed as a "
+"value between 0 and 65535, with higher values reflecting higher integrity.  "
+"The non-hierarchal compartment field is expressed as a set of up to 256 "
+"components, numbered from 0 to 255.  A complete label consists of both "
+"hierarchal and non-hierarchal elements."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:76
+msgid "Three special label values exist:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:77
+#, no-wrap
+msgid "Sy Label Ta Sy Comparison"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:78
+#, no-wrap
+msgid "Li biba/low Ta \"lower than all other labels\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:79
+#, no-wrap
+msgid "Li biba/equal Ta \"equal to all other labels\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:80
+#, no-wrap
+msgid "Li biba/high Ta \"higher than all other labels\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:101
+msgid ""
+"The E<.Dq Li biba/high> label is assigned to system objects which affect the "
+"integrity of the system as a whole.  The E<.Dq Li biba/equal> label may be "
+"used to indicate that a particular subject or object is exempt from the Biba "
+"protections.  These special label values are not specified as containing any "
+"compartments, although in a label comparison, E<.Dq Li biba/high> appears to "
+"contain all compartments, E<.Dq Li biba/equal> the same compartments as the "
+"other label to which it is being compared, and E<.Dq Li biba/low> none."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:103
+msgid "In general, Biba access control takes the following model:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:107
+msgid ""
+"A subject at the same integrity level as an object may both read from and "
+"write to the object as though Biba protections were not in place."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:110
+msgid ""
+"A subject at a higher integrity level than an object may write to the "
+"object, but not read the object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:113
+msgid ""
+"A subject at a lower integrity level than an object may read the object, but "
+"not write to the object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:116
+msgid ""
+"If the subject and object labels may not be compared in the partial order, "
+"all access is restricted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:127
+msgid ""
+"These rules prevent subjects of lower integrity from influencing the "
+"behavior of higher integrity subjects by preventing the flow of information, "
+"and hence control, from allowing low integrity subjects to modify either a "
+"high integrity object or high integrity subjects acting on those objects.  "
+"Biba integrity policies may be appropriate in a number of environments, both "
+"from the perspective of preventing corruption of the operating system, and "
+"corruption of user data if marked as higher integrity than the attacker.  In "
+"traditional trusted operating systems, the Biba integrity model is used to "
+"protect the Trusted Code Base (TCB)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:135
+msgid ""
+"The Biba integrity model is similar to E<.Xr mac_lomac 4>, with the "
+"exception that LOMAC permits access by a higher integrity subject to a lower "
+"integrity object, but downgrades the integrity level of the subject to "
+"prevent integrity rules from being violated.  Biba is a fixed label policy "
+"in that all subject and object label changes are explicit, whereas LOMAC is "
+"a floating label policy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:143
+msgid ""
+"The Biba integrity model is also similar to E<.Xr mac_mls 4>, with the "
+"exception that the dominance operator and access rules are reversed, "
+"preventing the downward flow of information rather than the upward flow of "
+"information.  Multi-Level Security (MLS) protects the confidentiality, "
+"rather than the integrity, of subjects and objects."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/mac_biba.4:143
+#, no-wrap
+msgid "Label Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:148
+msgid ""
+"Almost all system objects are tagged with an effective, active label "
+"element, reflecting the integrity of the object, or integrity of the data "
+"contained in the object.  In general, objects labels are represented in the "
+"following form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:150 /usr/src/share/man/man4/mac_biba.4:168
+msgid "E<.Sm off>"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_biba.4:150
+#, no-wrap
+msgid "Li biba / Ar grade : compartments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:152 /usr/src/share/man/man4/mac_biba.4:171
+msgid "E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:154 /usr/src/share/man/man4/mac_biba.4:173
+msgid "For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:157
+#, no-wrap
+msgid ""
+"biba/10:2+3+6\n"
+"biba/low\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:166
+msgid ""
+"Subject labels consist of three label elements: an effective (active) label, "
+"as well as a range of available labels.  This range is represented using two "
+"ordered Biba label elements, and when set on a process, permits the process "
+"to change its active label to any label of greater or equal integrity to the "
+"low end of the range, and lesser or equal integrity to the high end of the "
+"range.  In general, subject labels are represented in the following form:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_biba.4:168
+#, no-wrap
+msgid ""
+"Li biba / Ar effectivegrade : effectivecompartments ( lograde : "
+"locompartments -"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_biba.4:169
+#, no-wrap
+msgid "Ar higrade : hicompartments )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:176
+#, no-wrap
+msgid ""
+"biba/10:2+3+6(5:2+3-20:2+3+4+5+6)\n"
+"biba/high(low-high)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:180
+msgid ""
+"Valid ranged labels must meet the following requirement regarding their "
+"elements:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_biba.4:181
+#, no-wrap
+msgid "Ar rangehigh No \\[E<gt>=] Ar effective No \\[E<gt>=] Ar rangelow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:188
+msgid ""
+"One class of objects with ranges currently exists, the network interface.  "
+"In the case of the network interface, the effective label element references "
+"the default label for packets received over the interface, and the range "
+"represents the range of acceptable labels of packets to be transmitted over "
+"the interface."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/mac_biba.4:188
+#, no-wrap
+msgid "Runtime Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:192
+msgid ""
+"The following E<.Xr sysctl 8> MIBs are available for fine-tuning the "
+"enforcement of this MAC policy."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:193
+#, no-wrap
+msgid "Va security.mac.biba.enabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:196
+msgid "Enables enforcement of the Biba integrity policy.  (Default: 1)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:196
+#, no-wrap
+msgid "Va security.mac.biba.ptys_equal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:203
+msgid ""
+"Label E<.Xr pty 4 Ns s> as E<.Dq Li biba/equal> upon creation.  (Default: "
+"0)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_biba.4:203
+#, no-wrap
+msgid "Va security.mac.biba.revocation_enabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:206
+msgid ""
+"Revoke access to objects if the label is changed to dominate the subject.  "
+"(Default: 0)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_biba.4:207
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:220
+msgid ""
+"E<.Xr mac 4>, E<.Xr mac_bsdextended 4>, E<.Xr mac_ifoff 4>, E<.Xr mac_lomac "
+"4>, E<.Xr mac_mls 4>, E<.Xr mac_none 4>, E<.Xr mac_partition 4>, E<.Xr "
+"mac_portacl 4>, E<.Xr mac_seeotheruids 4>, E<.Xr mac_test 4>, E<.Xr maclabel "
+"7>, E<.Xr mac 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_biba.4:220
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:228
+msgid ""
+"The E<.Nm> policy module first appeared in E<.Fx 5.0> and was developed by "
+"the E<.Tn TrustedBSD> Project."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_biba.4:228
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_biba.4:236
+msgid ""
+"This software was contributed to the E<.Fx> Project by Network Associates "
+"Labs, the Security Research Division of Network Associates Inc.  under "
+"DARPA/SPAWAR contract N66001-01-C-8035 E<.Pq Dq CBOSS>, as part of the DARPA "
+"CHATS research program."
+msgstr ""

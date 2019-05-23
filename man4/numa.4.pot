@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/numa.4:27
+#, no-wrap
+msgid "October 22, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/numa.4:28
+#, no-wrap
+msgid "NUMA 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:32
+msgid "E<.Nm NUMA>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/numa.4:32
+#, no-wrap
+msgid "Non-Uniform Memory Access"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:36
+msgid "E<.Cd options MAXMEMDOM> E<.Cd options NUMA>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:41
+msgid ""
+"Non-Uniform Memory Access is a computer architecture design which involves "
+"unequal costs between processors, memory and IO devices in a given system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:54
+msgid ""
+"In a E<.Nm> architecture, the latency to access specific memory or IO "
+"devices depends upon which processor the memory or device is attached to.  "
+"Accessing memory local to a processor is faster than accessing memory that "
+"is connected to one of the other processors.  E<.Fx> implements NUMA-aware "
+"memory allocation policies.  By default it attempts to ensure that "
+"allocations are balanced across each domain.  Users may override the default "
+"domain selection policy using E<.Xr cpuset 1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:68
+msgid ""
+"E<.Nm> support is enabled when the E<.Cd NUMA> option is specified in the "
+"kernel configuration file.  Each platform defines the E<.Cd MAXMEMDOM> "
+"constant, which specifies the maximum number of supported NUMA domains.  "
+"This constant may be specified in the kernel configuration file.  E<.Nm> "
+"support can be disabled at boot time by setting the E<.Va vm.numa.disabled> "
+"tunable to 1.  Other values for this tunable are currently ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:83
+msgid ""
+"Thread and process E<.Nm> policies are controlled with the E<.Xr "
+"cpuset_getdomain 2> and E<.Xr cpuset_setdomain 2> syscalls.  The E<.Xr "
+"cpuset 1> tool is available for starting processes with a non-default "
+"policy, or to change the policy of an existing thread or process.  See E<.Xr "
+"SMP 4> for information about CPU to domain mapping."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:88
+msgid ""
+"Systems with non-uniform access to I/O devices may mark those devices with "
+"the local VM domain identifier.  Drivers can find out their local domain "
+"information by calling E<.Xr bus_get_domain 9>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/numa.4:88
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:94
+msgid ""
+"The operation of E<.Nm> is controlled and exposes information with these "
+"E<.Xr sysctl 8> MIB variables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/numa.4:96
+#, no-wrap
+msgid "Va vm.ndomains"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:98
+msgid "The number of VM domains which have been detected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/numa.4:99
+#, no-wrap
+msgid "Va vm.phys_locality"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:104
+msgid ""
+"A table indicating the relative cost of each VM domain to each other.  A "
+"value of 10 indicates equal cost.  A value of -1 means the locality map is "
+"not available or no locality information is available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/numa.4:105
+#, no-wrap
+msgid "Va vm.phys_segs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:107
+msgid "The map of physical memory, grouped by VM domain."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:108
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:119
+msgid ""
+"The current E<.Nm> implementation is VM-focused.  The hardware E<.Nm> "
+"domains are mapped into a contiguous, non-sparse VM domain space, starting "
+"from 0.  Thus, VM domain information (for example, the domain identifier) is "
+"not necessarily the same as is found in the hardware specific information.  "
+"Policy information is available in both struct thread and struct proc."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:119
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:125
+msgid ""
+"E<.Xr cpuset 1>, E<.Xr cpuset_getaffinity 2>, E<.Xr cpuset_setaffinity 2>, "
+"E<.Xr SMP 4>, E<.Xr bus_get_domain 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:125
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:134
+msgid ""
+"E<.Nm> first appeared in E<.Fx 9.0> as a first-touch allocation policy with "
+"a fail-over to round-robin allocation and was not configurable.  It was then "
+"modified in E<.Fx 10.0> to implement a round-robin allocation policy and was "
+"also not configurable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:147
+msgid ""
+"The E<.Xr numa_getaffinity 2> and E<.Xr numa_setaffinity 2> syscalls and the "
+"E<.Xr numactl 1> tool first appeared in E<.Fx 11.0> and were removed in "
+"E<.Fx 12.0>.  The current implementation appeared in E<.Fx 12.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:148
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:151
+msgid "This manual page written by E<.An Adrian Chadd Aq Mt adrian@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/numa.4:151
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/numa.4:154
+msgid ""
+"No statistics are kept to indicate how often E<.Nm> allocation policies "
+"succeed or fail."
+msgstr ""

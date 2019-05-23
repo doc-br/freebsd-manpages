@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:27
+#, no-wrap
+msgid "April 10, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:28
+#, no-wrap
+msgid "STABLERESTART 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:32 /usr/src/usr.sbin/nfsd/stablerestart.5:37
+msgid "E<.Nm nfs-stablerestart>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:32
+#, no-wrap
+msgid "restart information for the"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:35
+msgid "E<.Tn NFSv4> server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:46
+msgid ""
+"The E<.Nm> file holds information that allows the E<.Tn NFSv4> server to "
+"restart without always returning the NFSERR_NOGRACE error, as described in "
+"the E<.Tn NFSv4> server specification; see E<.%T \"Network File System (NFS) "
+"Version 4 Protocol RFC 3530, Section 8.6.3\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:57
+msgid ""
+"The first record in the file, as defined by struct nfsf_rec in "
+"/usr/include/fs/nfs/nfsrvstate.h, holds the lease duration of the last "
+"incarnation of the server and the number of boot times that follows.  "
+"Following this are the number of previous boot times listed in the first "
+"record.  The lease duration is used to set the grace period.  The boot times "
+"are used to avoid the unlikely occurrence of a boot time being reused, due "
+"to a TOD clock going backwards. This record and the previous boot times with "
+"this boot time added is re-written at the end of the grace period."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:68
+msgid ""
+"The rest of the file are appended records, as defined by struct nfst_rec in "
+"/usr/include/fs/nfs/nfsrvstate.h and are used represent one of two "
+"things. There are records which indicate that a client successfully acquired "
+"state and records that indicate a client's state was revoked.  State revoke "
+"records indicate that state information for a client was discarded, due to "
+"lease expiry and an otherwise conflicting open or lock request being made by "
+"a different client.  These records can be used to determine if clients might "
+"have done either of the edge conditions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:72
+msgid ""
+"If a client might have done either edge condition or this file is empty or "
+"corrupted, the server returns NFSERR_NOGRACE for any reclaim request from "
+"the client."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:77
+msgid ""
+"For correct operation of the server, it must be ensured that the file is "
+"written to stable storage by the time a write op with IO_SYNC specified has "
+"returned. This might require hardware level caching to be disabled for a "
+"local disk drive that holds the file, or similar."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:77
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:79
+#, no-wrap
+msgid "Pa /var/db/nfs-stablerestart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:81
+msgid "NFSv4 stable restart file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:81
+#, no-wrap
+msgid "Pa /var/db/nfs-stablerestart.bak"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:83
+msgid "backup copy of the file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:84
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:87
+msgid "E<.Xr nfsv4 4>, E<.Xr nfsd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:87
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nfsd/stablerestart.5:97
+msgid ""
+"If the file is empty, the NFSv4 server has no choice but to return "
+"NFSERR_NOGRACE for all reclaim requests. Although correct, this is a highly "
+"undesirable occurrence, so the file should not be lost if at all "
+"possible. The backup copy of the file is maintained and used by the E<.Xr "
+"nfsd 8> to minimize the risk of this occurring.  To move the file, you must "
+"edit the nfsd sources and recompile it. This was done to discourage "
+"accidental relocation of the file."
+msgstr ""

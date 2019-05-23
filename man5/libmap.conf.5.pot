@@ -1,0 +1,336 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/libmap.conf.5:28
+#, no-wrap
+msgid "September 16, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/libmap.conf.5:29
+#, no-wrap
+msgid "LIBMAP.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:33
+msgid "E<.Nm libmap.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/libmap.conf.5:33
+#, no-wrap
+msgid "configuration file for dynamic object dependency mapping"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:40
+msgid ""
+"The E<.Nm libmap> functionality of E<.Xr ld-elf.so.1 1> allows dynamic "
+"object dependencies to be mapped to arbitrary names."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:44
+msgid "Each line in E<.Pa /etc/libmap.conf> can have one of five forms:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:45
+#, no-wrap
+msgid "Ar origin Ar target"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:53
+msgid ""
+"Whenever a dependency on E<.Ar origin> is encountered while loading a "
+"dynamic object, use E<.Ar target> instead of searching for E<.Ar origin> in "
+"the normal library search paths."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:53
+#, no-wrap
+msgid "Ar path1 Ar path2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:59
+msgid ""
+"When iterating through a library search path, replace any element that "
+"matches E<.Ar path1> exactly with E<.Ar path2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:59
+#, no-wrap
+msgid "Bq Ar constraint"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:67
+msgid ""
+"Apply E<.Ar constraint> to all subsequent mappings until the next constraint "
+"line or the end of the file.  See the E<.Sx Constraints> section for "
+"details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:67
+#, no-wrap
+msgid "Cm include Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:73
+msgid ""
+"Parse the contents of E<.Ar file> before continuing with the current file.  "
+"Nesting depth is limited only by available memory, but each file encountered "
+"is processed only once, and loops are silently ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:73
+#, no-wrap
+msgid "Cm includedir Ar dir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:82
+msgid ""
+"Recurse through E<.Ar dir> and parse the contents of any file that ends in "
+"E<.Pa .conf> before continuing with the current file.  Nesting depth is "
+"limited only by available memory, but each directory or file encountered is "
+"processed only once, and loops are silently ignored."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man5/libmap.conf.5:83
+#, no-wrap
+msgid "Constraints"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:87
+msgid ""
+"Constrained mappings only apply when processing binaries or libraries that "
+"satisfy the constraint.  There are three types of constraints:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:88
+#, no-wrap
+msgid "Exact"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:97
+msgid ""
+"The constraint is matched literally so that only an executable with an "
+"identical fully qualified pathname will satisfy the constraint.  This means "
+"that the executable E<.Pa /usr/bin/foo> will not satisfy the constraint "
+"E<.Bq Pa /usr/bin/./foo>, and vice-versa.  This is the default constraint "
+"type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:97
+#, no-wrap
+msgid "Basename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:108
+msgid ""
+"A constraint with no path is matched against the basename of the "
+"executable.  For instance, the constraint E<.Bq Pa foo> will match E<.Pa "
+"/bin/foo>, E<.Pa /usr/local/sbin/foo>, or any other executable named E<.Pa "
+"foo>, no matter what directory it is in."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:108
+#, no-wrap
+msgid "Directory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:115
+msgid ""
+"A constraint with a trailing slash is satisfied if the full pathname begins "
+"with the constraint string.  For instance, the constraint E<.Bq Pa "
+"/usr/bin/> will match any executable with a path starting with E<.Pa "
+"/usr/bin/>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:124
+msgid ""
+"Note that the constraints are matched against the path that was passed as "
+"the first argument to whichever E<.Xr exec 3> function was used to execute "
+"the binary in question.  Most programs executed from a shell are run without "
+"a full path, via E<.Xr execvp 3> or similar, so the basename constraint type "
+"is the most useful."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:131
+msgid ""
+"E<.Bf -symbolic> WARNING! Constraints apply to all mappings until the next "
+"constraint or the end of the file.  Hence, unconstrained mappings must be "
+"placed at the top of the file.  E<.Ef>"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man5/libmap.conf.5:131
+#, no-wrap
+msgid "ABI compatibility"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:138
+msgid ""
+"On 64-bit architectures that provide 32-bit binary compatibility, the "
+"mappings in E<.Pa /etc/libmap.conf> apply only to 64-bit binaries.  Mappings "
+"for 32-bit binaries must be placed in E<.Pa /etc/libmap32.conf>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:138
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:140
+#, no-wrap
+msgid "Pa /etc/libmap.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:142
+msgid "The libmap configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/libmap.conf.5:142
+#, no-wrap
+msgid "Pa /etc/libmap32.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:144
+msgid "The libmap configuration file for 32-bit binaries on 64-bit system."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:145
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:152
+#, no-wrap
+msgid ""
+"#\n"
+"# origin\t\ttarget\n"
+"#\n"
+"libc_r.so.6\t\tlibpthread.so.2\t# Everything that uses 'libc_r'\n"
+"libc_r.so\t\tlibpthread.so\t# now uses 'libpthread'\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:156
+#, no-wrap
+msgid ""
+"[/tmp/mplayer]\t\t# Test version of mplayer uses libc_r\n"
+"libpthread.so.2\t\tlibc_r.so.6\n"
+"libpthread.so\t\tlibc_r.so\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:162
+#, no-wrap
+msgid ""
+"[/usr/local/jdk1.4.1/]\t# All Java 1.4.1 programs use libthr\n"
+"\t\t\t# This works because \"javavms\" executes\n"
+"\t\t\t# programs with the full pathname\n"
+"libpthread.so.2\t\tlibthr.so.2\n"
+"libpthread.so\t\tlibthr.so\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:167
+#, no-wrap
+msgid ""
+"# Glue for Linux-only EPSON printer .so to be loaded into cups, etc.\n"
+"[/usr/local/lib/pips/libsc80c.so]\n"
+"libc.so.6\t\tpluginwrapper/pips.so\n"
+"libdl.so.2\t\tpluginwrapper/pips.so\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:168
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:171
+msgid "E<.Xr ldd 1>, E<.Xr rtld 1>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:171
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:176
+msgid "The E<.Nm libmap> mechanism first appeared in E<.Fx 5.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/libmap.conf.5:176
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/libmap.conf.5:181
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Matthew N. Dodd Aq Mt "
+"winter@jurai.net> and extensively rewritten by E<.An Dag-Erling Sm\\(/orgrav "
+"Aq Mt des@FreeBSD.org>."
+msgstr ""

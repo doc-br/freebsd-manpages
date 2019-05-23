@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/physio.9:32
+#, no-wrap
+msgid "January 19, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/physio.9:33
+#, no-wrap
+msgid "PHYSIO 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/physio.9:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:37
+msgid "E<.Nm physio>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/physio.9:37
+#, no-wrap
+msgid "initiate I/O on raw devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/physio.9:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/physio.9:39
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/physio.9:40
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/physio.9:41
+#, no-wrap
+msgid "sys/bio.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/physio.9:42
+#, no-wrap
+msgid "sys/buf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:45
+msgid ""
+"E<.Ft int> E<.Fn physio \"struct cdev *dev\" \"struct uio *uio\" \"int "
+"ioflag\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/physio.9:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:63
+msgid ""
+"The E<.Fn physio> is a helper function typically called from character "
+"device E<.Fn read> and E<.Fn write> routines to start I/O on a user process "
+"buffer.  The maximum amount of data to transfer with each call is determined "
+"by E<.Fa dev-E<gt>si_iosize_max>.  The E<.Fn physio> call converts the I/O "
+"request into a E<.Fn strategy> request and passes the new request to the "
+"driver's E<.Fn strategy> routine for processing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:75
+msgid ""
+"Since E<.Fa uio> normally describes user space addresses, E<.Fn physio> "
+"needs to lock those pages into memory.  This is done by calling E<.Fn "
+"vmapbuf> for the appropriate pages.  E<.Fn physio> always awaits the "
+"completion of the entire requested transfer before returning, unless an "
+"error condition is detected earlier."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:77
+msgid "A break-down of the arguments follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/physio.9:78
+#, no-wrap
+msgid "Fa dev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:80
+msgid "The device number identifying the device to interact with."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/physio.9:80
+#, no-wrap
+msgid "Fa uio"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:89
+msgid ""
+"The description of the entire transfer as requested by the user process.  "
+"Currently, the results of passing a E<.Fa uio> structure with the E<.Va "
+"uio_segflg> set to anything other than E<.Dv UIO_USERSPACE> are undefined."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/physio.9:89
+#, no-wrap
+msgid "Fa ioflag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:96
+msgid ""
+"The ioflag argument from the E<.Fn read> or E<.Fn write> function calling "
+"E<.Fn physio>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/physio.9:97
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:117
+msgid ""
+"If successful E<.Fn physio> returns 0.  E<.Er EFAULT> is returned if the "
+"address range described by E<.Fa uio> is not accessible by the requesting "
+"process.  E<.Fn physio> will return any error resulting from calls to the "
+"device strategy routine, by examining the E<.Dv B_ERROR> buffer flag and the "
+"E<.Va b_error> field.  Note that the actual transfer size may be less than "
+"requested by E<.Fa uio> if the device signals an E<.Dq \"end of file\"> "
+"condition."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/physio.9:117
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:120
+msgid "E<.Xr read 2>, E<.Xr write 2>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/physio.9:120
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:127
+msgid ""
+"The E<.Nm> manual page is originally from E<.Nx> with minor changes for "
+"applicability with E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/physio.9:131
+msgid ""
+"The E<.Nm> call has been completely re-written for providing higher I/O and "
+"paging performance."
+msgstr ""

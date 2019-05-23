@@ -1,0 +1,506 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man8/diskless.8:29
+#, no-wrap
+msgid "September 10, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man8/diskless.8:30
+#, no-wrap
+msgid "DISKLESS 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:34
+msgid "E<.Nm diskless>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man8/diskless.8:34
+#, no-wrap
+msgid "booting a system over the network"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:44
+msgid ""
+"The ability to boot a machine over the network is useful for E<.Em diskless> "
+"or E<.Em dataless> machines, or as a temporary measure while repairing or "
+"re-installing file systems on a local disk.  This file provides a general "
+"description of the interactions between a client and its server when a "
+"client is booting over the network."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:44
+#, no-wrap
+msgid "OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:47
+msgid ""
+"When booting a system over the network, there are three phases of "
+"interaction between client and server:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:51
+msgid ""
+"The stage-1 bootstrap, typically PXE built into your Ethernet card, loads a "
+"second-stage boot program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:56
+msgid ""
+"The second-stage boot program, typically E<.Xr pxeboot 8>, loads modules and "
+"the kernel, and boots the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:60
+msgid "The kernel E<.Tn NFS> mounts the root directory and continues from there."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:63
+msgid "Each of these phases are described in further detail below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:81
+msgid ""
+"First, the stage-1 bootstrap loads the stage-2 boot program over the "
+"network.  The stage-1 bootstrap typically uses E<.Tn BOOTP> or E<.Tn DHCP> "
+"to obtain the filename to load, then uses E<.Tn TFTP> to load the file.  "
+"This file is typically called E<.Pa pxeboot>, and should be copied from "
+"E<.Pa /boot/pxeboot> into the E<.Tn TFTP> directory on the server, which is "
+"typically E<.Pa /tftpdir>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:126
+msgid ""
+"The stage-2 boot program then loads additional modules and the kernel.  "
+"These files may not exist on the E<.Tn DHCP> or E<.Tn BOOTP> server.  You "
+"can use the E<.Ic next-server> option available in E<.Tn DHCP> "
+"configurations to specify the server holding the second stage boot files and "
+"kernel.  The stage-2 program uses E<.Tn NFS> or E<.Tn TFTP> to obtain these "
+"files.  By default, E<.Tn NFS> is used.  If you are using E<.Xr pxeboot 8>, "
+"you can install a version that uses E<.Tn TFTP> by setting E<.Li "
+"LOADER_TFTP_SUPPORT=YES> in your E<.Xr make.conf 5>, then recompiling and "
+"reinstalling E<.Xr pxeboot 8> via the command listed below.  It is often "
+"necessary to use E<.Tn TFTP> here so you can place a custom kernel in E<.Pa "
+"/tftpdir/>.  If you use E<.Tn NFS> and do not have a custom root file system "
+"for the E<.Nm> client, the stage-2 boot will load your server's kernel as "
+"the kernel for the E<.Nm> machine, which may not be what you want to have "
+"happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:130
+#, no-wrap
+msgid ""
+"cd /usr/src/stand\n"
+"make clean; make; make install\n"
+"cp /boot/pxeboot /tftpdir/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:154
+msgid ""
+"In phase 3, the kernel acquires IP networking configuration in one of two "
+"ways, and then proceeds to mount the root file system and start operation.  "
+"If the phase 2 loader supports passing network configuration to the kernel "
+"using the kernel environment, then the kernel will configure the network "
+"interface using that information.  Otherwise, it must use E<.Tn DHCP> or "
+"E<.Tn BOOTP> to acquire configuration information.  The boot scripts "
+"recognize a E<.Nm> startup and perform the actions found in E<.Pa "
+"/etc/rc.d/resolv>, E<.Pa /etc/rc.d/tmp>, E<.Pa /etc/rc.d/var>, and E<.Pa "
+"/etc/rc.initdiskless>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:154
+#, no-wrap
+msgid "CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:158
+msgid "In order to run a E<.Nm> client, you need the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:173
+msgid ""
+"An E<.Tn NFS> server which exports a root and E<.Pa /usr> partitions with "
+"appropriate permissions.  The E<.Nm> scripts work with read-only partitions, "
+"as long as root is exported with E<.Fl maproot Ns =0> so that some system "
+"files can be accessed.  As an example, E<.Pa /etc/exports> can contain the "
+"following lines:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:176
+#, no-wrap
+msgid ""
+"E<lt>ROOTE<gt> -ro -maproot=0 -alldirs E<lt>list of diskless clientsE<gt>\n"
+"/usr -ro -alldirs E<lt>list of diskless clientsE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:187
+msgid ""
+"where E<.Aq ROOT> is the mount point on the server of the root partition.  "
+"The script E<.Pa /usr/share/examples/diskless/clone_root> can be used to "
+"create a shared read-only root partition, but in many cases you may decide "
+"to export (again as read-only) the root directory used by the server itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:202
+msgid ""
+"A E<.Tn BOOTP> or E<.Tn DHCP> server.  E<.Xr bootpd 8> can be enabled by "
+"uncommenting the E<.Dq Li bootps> line in E<.Pa /etc/inetd.conf>.  A sample "
+"E<.Pa /etc/bootptab> can be the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:209
+#, no-wrap
+msgid ""
+" .default:\\e\n"
+"    hn:ht=1:vm=rfc1048:\\e\n"
+"    :sm=255.255.255.0:\\e\n"
+"    :sa=E<lt>SERVERE<gt>:\\e\n"
+"    :gw=E<lt>GATEWAYE<gt>:\\e\n"
+"    :rp=\"E<lt>SERVERE<gt>:E<lt>ROOTE<gt>\":\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:211
+#, no-wrap
+msgid "E<lt>CLIENTE<gt>:ha=0123456789ab:tc=.default\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:219
+msgid ""
+"where E<.Aq SERVER>, E<.Aq GATEWAY> and E<.Aq ROOT> have the obvious "
+"meanings."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:229
+msgid ""
+"A properly initialized root partition.  The script E<.Pa "
+"/usr/share/examples/diskless/clone_root> can help in creating it, using the "
+"server's root partition as a reference.  If you are just starting out, you "
+"should simply use the server's own root directory, E<.Pa />, and not try to "
+"clone it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:244
+msgid ""
+"You often do not want to use the same E<.Pa rc.conf> or E<.Pa rc.local> "
+"files for the E<.Nm> boot as you do on the server.  The E<.Nm> boot scripts "
+"provide a mechanism through which you can override various files in E<.Pa "
+"/etc> (as well as other subdirectories of root)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:255
+msgid ""
+"One difference that you should pay particular attention to is the value of "
+"E<.Va local_startup> in E<.Pa /etc/defaults/rc.conf>.  A typical value for a "
+"E<.Nm> boot is E<.Va mountcritremote>, however your needs may be different."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:286
+msgid ""
+"The scripts provide four overriding directories situated in E<.Pa "
+"/conf/base>, E<.Pa /conf/default>, E<.Pa /conf/E<lt>broadcast-ipE<gt>>, and "
+"E<.Pa /conf/E<lt>machine-ipE<gt>>.  You should always create E<.Pa "
+"/conf/base/etc>, which will entirely replace the server's E<.Pa /etc> on the "
+"E<.Nm> machine.  You can clone the server's E<.Pa /etc> here or you can "
+"create a special file which tells the E<.Nm> boot scripts to remount the "
+"server's E<.Pa /etc> onto E<.Pa /conf/base/etc>.  You do this by creating "
+"the file E<.Pa /conf/base/etc/diskless_remount> containing the mount point "
+"to use as a basis of the E<.Nm> machine's E<.Pa /etc>.  For example, the "
+"file might contain:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man8/diskless.8:287
+#, no-wrap
+msgid "10.0.0.1:/etc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:291
+msgid ""
+"Alternatively, if the server contains several independent roots, the file "
+"might contain:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man8/diskless.8:292
+#, no-wrap
+msgid "10.0.0.1:/usr/diskless/4.7-RELEASE/etc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:307
+msgid ""
+"This would work, but if you copied E<.Pa /usr/diskless/4.7-RELEASE> to E<.Pa "
+"/usr/diskless/4.8-RELEASE> and upgraded the installation, you would need to "
+"modify the E<.Pa diskless_remount> files to reflect that move.  To avoid "
+"that, paths in E<.Pa diskless_remount> files beginning with E<.Pa /> have "
+"the actual path of the client's root prepended to them so the file could "
+"instead contain:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man8/diskless.8:308
+#, no-wrap
+msgid "/etc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:321
+msgid ""
+"The E<.Nm> scripts create memory file systems to hold the overridden "
+"directories.  Only a 5MB partition is created by default, which may not be "
+"sufficient for your purposes.  To override this, you can create the file "
+"E<.Pa /conf/base/etc/md_size> containing the size, in 512 byte sectors, of "
+"the memory disk to create for that directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:333
+msgid ""
+"You then typically provide file-by-file overrides in the E<.Pa "
+"/conf/default/etc> directory.  At a minimum, you must provide overrides for "
+"E<.Pa /etc/fstab , /etc/rc.conf>, and E<.Pa /etc/rc.local> via E<.Pa "
+"/conf/default/etc/fstab , /conf/default/etc/rc.conf>, and E<.Pa "
+"/conf/default/etc/rc.local>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:356
+msgid ""
+"Overrides are hierarchical.  You can supply network-specific defaults in the "
+"E<.Pa /conf/ Ns Ao Ar BROADCASTIP Ac Ns Pa /etc> directory, where E<.Aq Ar "
+"BROADCASTIP> represents the broadcast IP address of the E<.Nm> system as "
+"given to it via E<.Tn BOOTP>.  The E<.Pa diskless_remount> and E<.Pa "
+"md_size> features work in any of these directories.  The configuration "
+"feature works on directories other then E<.Pa /etc>, you simply create the "
+"directory you wish to replace or override in E<.Pa "
+"/conf/{base,default,E<lt>broadcastE<gt>,E<lt>ipE<gt>}/*> and work it in the "
+"same way that you work E<.Pa /etc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:373
+msgid ""
+"Since you normally clone the server's E<.Pa /etc> using the E<.Pa "
+"/conf/base/etc/diskless_remount>, you might wish to remove unneeded files "
+"from the memory file system.  For example, if the server has a firewall but "
+"you do not, you might wish to remove E<.Pa /etc/ipfw.conf>.  You can do this "
+"by creating a E<.Pa /conf/base/ Ns Ao Ar DIRECTORY Ac Ns Pa .remove> file.  "
+"For example, E<.Pa /conf/base/etc.remove>, which contains a list of relative "
+"paths that the boot scripts should remove from the memory file systems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:376
+msgid ""
+"As a minimum, you normally need to have the following in E<.Pa "
+"/conf/default/etc/fstab>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:379
+#, no-wrap
+msgid ""
+"E<lt>SERVERE<gt>:E<lt>ROOTE<gt> /     nfs    ro 0 0\n"
+"E<lt>SERVERE<gt>:/usr   /usr  nfs    ro 0 0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:393
+msgid ""
+"You also need to create a customized version of E<.Pa "
+"/conf/default/etc/rc.conf> which should contain the startup options for the "
+"E<.Nm> client, and E<.Pa /conf/default/etc/rc.local> which could be empty "
+"but prevents the server's own E<.Pa /etc/rc.local> from leaking onto the "
+"E<.Nm> system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:411
+msgid ""
+"In E<.Pa rc.conf>, most likely you will not need to set E<.Va hostname> and "
+"E<.Va ifconfig_*> because these will be already set by the startup code.  "
+"Finally, it might be convenient to use a E<.Ic case> statement using E<.Li "
+"`hostname`> as the switch variable to do machine-specific configuration in "
+"case a number of E<.Nm> clients share the same configuration files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:419
+msgid ""
+"The kernel for the E<.Nm> clients, which will be loaded using E<.Tn NFS> or "
+"E<.Tn TFTP>, must include support for the NFS client:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man8/diskless.8:420
+#, no-wrap
+msgid "Cd \"options NFSCL\""
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man8/diskless.8:421
+#, no-wrap
+msgid "Cd \"options NFS_ROOT\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:426
+msgid ""
+"If you are using a boot mechanism that does not pass network configuration "
+"to the kernel using the kernel environment, you will also need to include "
+"the following options:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man8/diskless.8:427
+#, no-wrap
+msgid "Cd \"options BOOTP\""
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man8/diskless.8:428
+#, no-wrap
+msgid "Cd \"options BOOTP_NFSROOT\""
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man8/diskless.8:429
+#, no-wrap
+msgid "Cd \"options BOOTP_COMPAT\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:433
+msgid "E<.Em Note>: the PXE environment does not require these options."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:440
+msgid ""
+"The E<.Nm> booting environment relies on memory-backed file systems to "
+"support temporary local storage in the event that the root file system is "
+"mounted read-only; as such, it is necessary to add the following to the "
+"device section of the kernel configuration:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man8/diskless.8:441
+#, no-wrap
+msgid "Cd \"device md\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:449
+msgid ""
+"If you use the firewall, remember to default to E<.Dq open>, or your kernel "
+"will not be able to send/receive the E<.Tn BOOTP> packets."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:450
+#, no-wrap
+msgid "SECURITY ISSUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:456
+msgid ""
+"Be warned that using unencrypted E<.Tn NFS> to mount root and user "
+"partitions may expose information such as encryption keys."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:456
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:466
+msgid ""
+"E<.Xr ethers 5>, E<.Xr exports 5>, E<.Xr make.conf 5>, E<.Xr bootpd 8>, "
+"E<.Xr mountd 8>, E<.Xr nfsd 8>, E<.Xr pxeboot 8>, E<.Xr reboot 8>, E<.Xr "
+"tftpd 8>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:468
+msgid "E<.Pa ports/net/etherboot>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/diskless.8:468
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:470
+msgid "This manpage is probably incomplete."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/diskless.8:480
+msgid ""
+"E<.Fx> sometimes requires to write onto the root partition, so the startup "
+"scripts mount MFS file systems on some locations (e.g.\\& E<.Pa /etc> and "
+"E<.Pa /var>), while trying to preserve the original content.  The process "
+"might not handle all cases."
+msgstr ""

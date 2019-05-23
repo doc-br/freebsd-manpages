@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/io.4:30
+#, no-wrap
+msgid "June 1, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/io.4:31
+#, no-wrap
+msgid "IO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/io.4:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:35
+msgid "E<.Nm io>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/io.4:35
+#, no-wrap
+msgid "I/O privilege file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/io.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:38
+msgid "E<.Cd \"device io\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/io.4:39
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/io.4:40
+#, no-wrap
+msgid "sys/ioctl.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/io.4:41
+#, no-wrap
+msgid "dev/io/iodev.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/io.4:42
+#, no-wrap
+msgid "machine/iodev.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:50
+#, no-wrap
+msgid ""
+"struct iodev_pio_req {\n"
+"\tu_int access;\n"
+"\tu_int port;\n"
+"\tu_int width;\n"
+"\tu_int val;\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/io.4:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:59
+msgid ""
+"The special file E<.Pa /dev/io> is a controlled security hole that allows a "
+"process to gain I/O privileges (which are normally reserved for "
+"kernel-internal code).  This can be useful in order to write userland "
+"programs that handle some hardware directly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:65
+msgid ""
+"The usual operations on the device are to open it via the E<.Xr open 2> "
+"interface and to send I/O requests to the file descriptor using the E<.Xr "
+"ioctl 2> syscall."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:77
+msgid ""
+"The E<.Xr ioctl 2> requests available for E<.Pa /dev/io> are mostly platform "
+"dependent, but there are also some in common between all of them.  The E<.Dv "
+"IODEV_PIO> is used by all the architectures in order to request that an I/O "
+"operation be performed.  It takes a 'struct iodev_pio_req' argument that "
+"must be previously setup."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:82
+msgid ""
+"The E<.Fa access> member specifies the type of operation requested.  It may "
+"be:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/io.4:83
+#, no-wrap
+msgid "Dv IODEV_PIO_READ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:91
+msgid ""
+"The operation is an \"in\" type.  A value will be read from the specified "
+"port (retrieved from the E<.Fa port> member) and the result will be stored "
+"in the E<.Fa val> member."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/io.4:91
+#, no-wrap
+msgid "Dv IODEV_PIO_WRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:98
+msgid ""
+"The operation is a \"out\" type.  The value will be fetched from the E<.Fa "
+"val> member and will be written out to the specified port (defined as the "
+"E<.Fa port> member)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:104
+msgid ""
+"Finally, the E<.Fa width> member specifies the size of the operand to be "
+"read/written, expressed in bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:108
+msgid ""
+"In addition to any file access permissions on E<.Pa /dev/io>, the kernel "
+"enforces that only the super-user may open this device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/io.4:108
+#, no-wrap
+msgid "LEGACY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:119
+msgid ""
+"The E<.Pa /dev/io> interface used to be very i386 specific and worked "
+"differently.  The initial implementation simply raised the E<.Em IOPL> of "
+"the current thread when E<.Xr open 2> was called on the device.  This "
+"behaviour is retained in the current implementation as legacy support for "
+"both i386 and amd64 architectures."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/io.4:119
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:126
+msgid ""
+"E<.Xr close 2>, E<.Xr i386_get_ioperm 2>, E<.Xr i386_set_ioperm 2>, E<.Xr "
+"ioctl 2>, E<.Xr open 2>, E<.Xr mem 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/io.4:126
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/io.4:130
+msgid "The E<.Nm> file appeared in E<.Fx 1.0>."
+msgstr ""

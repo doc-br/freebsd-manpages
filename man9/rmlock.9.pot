@@ -1,0 +1,520 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/rmlock.9:29
+#, no-wrap
+msgid "November 11, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/rmlock.9:30
+#, no-wrap
+msgid "RMLOCK 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:47
+msgid ""
+"E<.Nm rmlock>, E<.Nm rm_init>, E<.Nm rm_init_flags>, E<.Nm rm_destroy>, "
+"E<.Nm rm_rlock>, E<.Nm rm_try_rlock>, E<.Nm rm_wlock>, E<.Nm rm_runlock>, "
+"E<.Nm rm_wunlock>, E<.Nm rm_wowned>, E<.Nm rm_sleep>, E<.Nm rm_assert>, "
+"E<.Nm RM_SYSINIT>, E<.Nm RM_SYSINIT_FLAGS>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/rmlock.9:47
+#, no-wrap
+msgid "kernel reader/writer lock optimized for read-mostly access patterns"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:48
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rmlock.9:49
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rmlock.9:50
+#, no-wrap
+msgid "sys/lock.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rmlock.9:51
+#, no-wrap
+msgid "sys/rmlock.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:72
+msgid ""
+"E<.Ft void> E<.Fn rm_init \"struct rmlock *rm\" \"const char *name\"> E<.Ft "
+"void> E<.Fn rm_init_flags \"struct rmlock *rm\" \"const char *name\" \"int "
+"opts\"> E<.Ft void> E<.Fn rm_destroy \"struct rmlock *rm\"> E<.Ft void> "
+"E<.Fn rm_rlock \"struct rmlock *rm\" \"struct rm_priotracker* tracker\"> "
+"E<.Ft int> E<.Fn rm_try_rlock \"struct rmlock *rm\" \"struct rm_priotracker* "
+"tracker\"> E<.Ft void> E<.Fn rm_wlock \"struct rmlock *rm\"> E<.Ft void> "
+"E<.Fn rm_runlock \"struct rmlock *rm\" \"struct rm_priotracker* tracker\"> "
+"E<.Ft void> E<.Fn rm_wunlock \"struct rmlock *rm\"> E<.Ft int> E<.Fn "
+"rm_wowned \"const struct rmlock *rm\"> E<.Ft int> E<.Fn rm_sleep \"void "
+"*wchan\" \"struct rmlock *rm\" \"int priority\" \"const char *wmesg\" \"int "
+"timo\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:77
+msgid ""
+"E<.Cd \"options INVARIANTS\"> E<.Cd \"options INVARIANT_SUPPORT\"> E<.Ft "
+"void> E<.Fn rm_assert \"struct rmlock *rm\" \"int what\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rmlock.9:77
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:80
+msgid ""
+"E<.Fn RM_SYSINIT \"name\" \"struct rmlock *rm\" \"const char *desc\"> E<.Fn "
+"RM_SYSINIT_FLAGS \"name\" \"struct rmlock *rm\" \"const char *desc\" \"int "
+"flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:80
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:89
+msgid ""
+"Read-mostly locks allow shared access to protected data by multiple threads, "
+"or exclusive access by a single thread.  The threads with shared access are "
+"known as E<.Em readers> since they only read the protected data.  A thread "
+"with exclusive access is known as a E<.Em writer> since it can modify "
+"protected data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:95
+msgid ""
+"Read-mostly locks are designed to be efficient for locks almost exclusively "
+"used as reader locks and as such should be used for protecting data that "
+"rarely changes.  Acquiring an exclusive lock after the lock has been locked "
+"for shared access is an expensive operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:115
+msgid ""
+"Normal read-mostly locks are similar to E<.Xr rwlock 9> locks and follow the "
+"same lock ordering rules as E<.Xr rwlock 9> locks.  Read-mostly locks have "
+"full priority propagation like mutexes.  Unlike E<.Xr rwlock 9>, read-mostly "
+"locks propagate priority to both readers and writers.  This is implemented "
+"via the E<.Va rm_priotracker> structure argument supplied to E<.Fn rm_rlock> "
+"and E<.Fn rm_runlock>.  Readers can recurse if the lock is initialized with "
+"the E<.Dv RM_RECURSE> option; however, writers are never allowed to recurse."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:132
+msgid ""
+"Sleepable read-mostly locks are created by passing E<.Dv RM_SLEEPABLE> to "
+"E<.Fn rm_init_flags>.  Unlike normal read-mostly locks, sleepable "
+"read-mostly locks follow the same lock ordering rules as E<.Xr sx 9> locks.  "
+"Sleepable read-mostly locks do not propagate priority to writers, but they "
+"do propagate priority to readers.  Writers are permitted to sleep while "
+"holding a read-mostly lock, but readers are not.  Unlike other sleepable "
+"locks such as E<.Xr sx 9> locks, readers must use try operations on other "
+"sleepable locks to avoid sleeping."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/rmlock.9:132
+#, no-wrap
+msgid "Macros and Functions"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:134
+#, no-wrap
+msgid "Fn rm_init \"struct rmlock *rm\" \"const char *name\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:142
+msgid ""
+"Initialize the read-mostly lock E<.Fa rm>.  The E<.Fa name> description is "
+"used solely for debugging purposes.  This function must be called before any "
+"other operations on the lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:142
+#, no-wrap
+msgid "Fn rm_init_flags \"struct rmlock *rm\" \"const char *name\" \"int opts\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:151
+msgid ""
+"Similar to E<.Fn rm_init>, initialize the read-mostly lock E<.Fa rm> with a "
+"set of optional flags.  The E<.Fa opts> arguments contains one or more of "
+"the following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:152
+#, no-wrap
+msgid "Dv RM_NOWITNESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:156
+msgid "Instruct E<.Xr witness 4> to ignore this lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:156
+#, no-wrap
+msgid "Dv RM_RECURSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:159
+msgid "Allow threads to recursively acquire shared locks for E<.Fa rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:159
+#, no-wrap
+msgid "Dv RM_SLEEPABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:161
+msgid "Create a sleepable read-mostly lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:161
+#, no-wrap
+msgid "Dv RM_NEW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:170
+msgid ""
+"If the kernel has been compiled with E<.Cd \"option INVARIANTS\">, E<.Fn "
+"rm_init_flags> will assert that the E<.Fa rm> has not been initialized "
+"multiple times without intervening calls to E<.Fn rm_destroy> unless this "
+"option is specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:171
+#, no-wrap
+msgid "Fn rm_rlock \"struct rmlock *rm\" \"struct rm_priotracker* tracker\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:193
+msgid ""
+"Lock E<.Fa rm> as a reader using E<.Fa tracker> to track read owners of a "
+"lock for priority propagation.  This data structure is only used internally "
+"by E<.Nm> and must persist until E<.Fn rm_runlock> has been called.  This "
+"data structure can be allocated on the stack since readers cannot sleep.  If "
+"any thread holds this lock exclusively, the current thread blocks, and its "
+"priority is propagated to the exclusive holder.  If the lock was initialized "
+"with the E<.Dv RM_RECURSE> option the E<.Fn rm_rlock> function can be called "
+"when the current thread has already acquired reader access on E<.Fa rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:193
+#, no-wrap
+msgid "Fn rm_try_rlock \"struct rmlock *rm\" \"struct rm_priotracker* tracker\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:209
+msgid ""
+"Try to lock E<.Fa rm> as a reader.  E<.Fn rm_try_rlock> will return 0 if the "
+"lock cannot be acquired immediately; otherwise, the lock will be acquired "
+"and a non-zero value will be returned.  Note that E<.Fn rm_try_rlock> may "
+"fail even while the lock is not currently held by a writer.  If the lock was "
+"initialized with the E<.Dv RM_RECURSE> option, E<.Fn rm_try_rlock> will "
+"succeed if the current thread has already acquired reader access."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:209
+#, no-wrap
+msgid "Fn rm_wlock \"struct rmlock *rm\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:217
+msgid ""
+"Lock E<.Fa rm> as a writer.  If there are any shared owners of the lock, the "
+"current thread blocks.  The E<.Fn rm_wlock> function cannot be called "
+"recursively."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:217
+#, no-wrap
+msgid "Fn rm_runlock \"struct rmlock *rm\" \"struct rm_priotracker* tracker\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:225
+msgid ""
+"This function releases a shared lock previously acquired by E<.Fn "
+"rm_rlock>.  The E<.Fa tracker> argument must match the E<.Fa tracker> "
+"argument used for acquiring the shared lock"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:225
+#, no-wrap
+msgid "Fn rm_wunlock \"struct rmlock *rm\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:228
+msgid ""
+"This function releases an exclusive lock previously acquired by E<.Fn "
+"rm_wlock>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:228
+#, no-wrap
+msgid "Fn rm_destroy \"struct rmlock *rm\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:234
+msgid ""
+"This functions destroys a lock previously initialized with E<.Fn rm_init>.  "
+"The E<.Fa rm> lock must be unlocked."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:234
+#, no-wrap
+msgid "Fn rm_wowned \"const struct rmlock *rm\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:238
+msgid ""
+"This function returns a non-zero value if the current thread owns an "
+"exclusive lock on E<.Fa rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:238
+#, no-wrap
+msgid ""
+"Fn rm_sleep \"void *wchan\" \"struct rmlock *rm\" \"int priority\" \"const "
+"char *wmesg\" \"int timo\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:248
+msgid ""
+"This function atomically releases E<.Fa rm> while waiting for an event.  The "
+"E<.Fa rm> lock must be exclusively locked.  For more details on the "
+"parameters to this function, see E<.Xr sleep 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:248
+#, no-wrap
+msgid "Fn rm_assert \"struct rmlock *rm\" \"int what\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:259
+msgid ""
+"This function asserts that the E<.Fa rm> lock is in the state specified by "
+"E<.Fa what>.  If the assertions are not true and the kernel is compiled with "
+"E<.Cd \"options INVARIANTS\"> and E<.Cd \"options INVARIANT_SUPPORT\">, the "
+"kernel will panic.  Currently the following base assertions are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:260
+#, no-wrap
+msgid "Dv RA_LOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:264
+msgid ""
+"Assert that current thread holds either a shared or exclusive lock of E<.Fa "
+"rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:264
+#, no-wrap
+msgid "Dv RA_RLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:267
+msgid "Assert that current thread holds a shared lock of E<.Fa rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:267
+#, no-wrap
+msgid "Dv RA_WLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:270
+msgid "Assert that current thread holds an exclusive lock of E<.Fa rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:270
+#, no-wrap
+msgid "Dv RA_UNLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:273
+msgid ""
+"Assert that current thread holds neither a shared nor exclusive lock of "
+"E<.Fa rm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:280
+msgid ""
+"In addition, one of the following optional flags may be specified with E<.Dv "
+"RA_LOCKED>, E<.Dv RA_RLOCKED>, or E<.Dv RA_WLOCKED>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:281
+#, no-wrap
+msgid "Dv RA_RECURSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:284
+msgid "Assert that the current thread holds a recursive lock of E<.Fa rm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rmlock.9:284
+#, no-wrap
+msgid "Dv RA_NOTRECURSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:287
+msgid "Assert that the current thread does not hold a recursive lock of E<.Fa rm>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:289
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:297
+msgid ""
+"E<.Xr locking 9>, E<.Xr mutex 9>, E<.Xr panic 9>, E<.Xr rwlock 9>, E<.Xr "
+"sema 9>, E<.Xr sleep 9>, E<.Xr sx 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:297
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:301
+msgid "These functions appeared in E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:301
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:311
+msgid ""
+"E<.An -nosplit> The E<.Nm> facility was written by E<.An \"Stephan "
+"Uphoff\">.  This manual page was written by E<.An \"Gleb Smirnoff\"> for "
+"rwlock and modified to reflect rmlock by E<.An \"Stephan Uphoff\">."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rmlock.9:311
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:315
+msgid ""
+"The E<.Nm> implementation is currently not optimized for single processor "
+"systems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:319
+msgid ""
+"E<.Fn rm_try_rlock> can fail transiently even when there is no writer, while "
+"another reader updates the state on the local CPU."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rmlock.9:325
+msgid ""
+"The E<.Nm> implementation uses a single per CPU list shared by all rmlocks "
+"in the system.  If rmlocks become popular, hashing to multiple per CPU "
+"queues may be needed to speed up the writer lock process."
+msgstr ""

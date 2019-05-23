@@ -1,0 +1,278 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/udbp.4:27
+#, no-wrap
+msgid "October 20, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/udbp.4:28
+#, no-wrap
+msgid "UDBP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:32
+msgid "E<.Nm udbp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/udbp.4:32
+#, no-wrap
+msgid "USB Double Bulk Pipe driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:37
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:39
+#, no-wrap
+msgid "E<.Cd \"device udbp\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:44
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:46
+#, no-wrap
+msgid "udbp_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:59
+msgid ""
+"The E<.Nm> driver provides support for host-to-host cables that contain at "
+"least two bulk pipes (one for each direction).  This typically includes "
+"cables branded for use with E<.Sy Windows USB Easy Transfer>, and many "
+"cables based on the Prolific PL2xx1 series of USB bridge chips.  A useful "
+"(but non-comprehensive) list of compatible USB host cables is listed in the "
+"E<.Sx SEE ALSO> section below."
+msgstr ""
+
+#.  XXX	The description of how to add netgraph to the kernel
+#. 	is out of place here.  It should be limited to the
+#. 	netgraph(4) manpage only.  However, that page does
+#. 	not yet give instructions for kldload(8) for the
+#. 	clueless.  Working on it -- sheldonh
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:77
+msgid ""
+"It requires E<.Xr netgraph 4> to be available.  This can be done either by "
+"adding E<.Cd \"options NETGRAPH\"> to your kernel configuration file, or "
+"alternatively loading E<.Xr netgraph 4> as a module, either from E<.Pa "
+"/boot/loader.conf> or from the command line, before the E<.Nm> module."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:77
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:78
+#, no-wrap
+msgid "options NETGRAPH"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:79
+#, no-wrap
+msgid "device udbp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:84
+msgid "Add the E<.Nm> driver to the kernel."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:85
+#, no-wrap
+msgid "kldload netgraph"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:86
+#, no-wrap
+msgid "kldload udbp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:93
+msgid "Load the E<.Xr netgraph 4> module and then the E<.Nm> driver."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:94
+#, no-wrap
+msgid "ngctl mkpeer udbp0: eiface data ether"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:95
+#, no-wrap
+msgid "ifconfig ngeth0 ether aa:dd:xx:xx:xx"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/udbp.4:96
+#, no-wrap
+msgid "ifconfig ngeth0 inet 169.254.x.x/16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:102
+msgid ""
+"Create a new Ethernet network interface node and connect its ether hook to "
+"the data hook of the E<.Nm> driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:108
+msgid ""
+"This enables FreeBSD to communicate with a Linux peer (e.g. using the E<.Sy "
+"plusb> driver).  The Linux node should be configured to prefer link-local "
+"IPv4 addresses (e.g. using Network Manager in Debian and Red Hat derived "
+"distributions)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:112
+msgid ""
+"Whilst both FreeBSD and Linux are able to interoperate by loosely following "
+"CDC EEM 1.0 in their behaviour, neither implementation has been expressly "
+"designed to follow its specification."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:112
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:133
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_eiface 4>, E<.Xr ohci 4>, E<.Xr uhci 4>, E<.Xr "
+"usb 4>, E<.Xr ngctl 8> E<.Rs> E<.%B Universal Serial Bus: Communications "
+"Class Subclass Specification for Ethernet Emulation Model Devices > E<.%N "
+"Revision 1.0> E<.%D February 2, 2005> E<.%I USB Implementers Forum, Inc.> "
+"E<.%U http://www.usb.org/developers/docs/devclass_docs/CDC_EEM10.pdf> E<.Re> "
+"E<.Rs> E<.%B Total Commander: Supported cables for USB cable connection> "
+"E<.%I Ghisler Software GmbH.> E<.%U "
+"https://www.ghisler.com/cables/index.htm> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:133
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:138
+msgid ""
+"The point-to-point nature and additional latency of USB host-host links "
+"makes them unsuitable as a \"drop-in\" replacement for an Ethernet LAN; for "
+"a USB 3.0 SuperSpeed cable, latency is comparable to 100BaseTX Ethernet (but "
+"often worse), with throughput comparable to 2.5GBASE-T."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:142
+msgid ""
+"However, their energy efficiency makes them attractive for embedded "
+"applications. A Plugable PL27A1 cable claims 24mA of USB3 bus power, as "
+"compared to 150mA for a typical USB 3.0 to Gigabit Ethernet interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:142
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:147
+msgid "The E<.Nm> driver first appeared in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:147
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:152
+msgid ""
+"The E<.Nm> driver does not support the special packets described in section "
+"5.1 of the CDC EEM specification."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/udbp.4:152
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:161
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Doug Ambrisko Aq Mt "
+"ambrisko@whistle.com>, E<.An Julian Elischer Aq Mt julian@FreeBSD.org> and "
+"E<.An Nick Hibma Aq Mt n_hibma@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/udbp.4:165
+msgid ""
+"This manual page was written by E<.An Nick Hibma Aq Mt n_hibma@FreeBSD.org > "
+"and updated by E<.An Bruce Simpson Aq Mt bms@FreeBSD.org>."
+msgstr ""

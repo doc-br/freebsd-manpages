@@ -1,0 +1,462 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mem.4:31
+#, no-wrap
+msgid "October 3, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mem.4:32
+#, no-wrap
+msgid "MEM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:37
+msgid "E<.Nm mem>, E<.Nm kmem>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mem.4:37
+#, no-wrap
+msgid "memory files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:40
+msgid "E<.Cd \"device mem\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:50
+msgid ""
+"The special file E<.Pa /dev/mem> is an interface to the physical memory of "
+"the computer.  Byte offsets in this file are interpreted as physical memory "
+"addresses.  Reading and writing this file is equivalent to reading and "
+"writing memory itself.  Only offsets within the bounds of E<.Pa /dev/mem> "
+"are allowed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:56
+msgid ""
+"Kernel virtual memory is accessed through the interface E<.Pa /dev/kmem> in "
+"the same manner as E<.Pa /dev/mem>.  Only kernel virtual addresses that are "
+"currently mapped to memory are allowed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:71
+msgid ""
+"On E<.Tn ISA> the E<.Tn I/O> memory space begins at physical address "
+"0x000a0000 and runs to 0x00100000.  The per-process data size for the "
+"current process is E<.Dv UPAGES> long, and ends at virtual address "
+"0xf0000000."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:71
+#, no-wrap
+msgid "IOCTL INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:79
+msgid ""
+"Several architectures allow attributes to be associated with ranges of "
+"physical memory.  These attributes can be manipulated via E<.Fn ioctl> calls "
+"performed on E<.Pa /dev/mem>.  Declarations and data types are to be found "
+"in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mem.4:79
+#, no-wrap
+msgid "sys/memrange.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:84
+msgid ""
+"The specific attributes, and number of programmable ranges may vary between "
+"architectures.  The full set of supported attributes is:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:85
+#, no-wrap
+msgid "Dv MDF_UNCACHEABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:87
+msgid "The region is not cached."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:87
+#, no-wrap
+msgid "Dv MDF_WRITECOMBINE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:89
+msgid "Writes to the region may be combined or performed out of order."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:89
+#, no-wrap
+msgid "Dv MDF_WRITETHROUGH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:91
+msgid "Writes to the region are committed synchronously."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:91
+#, no-wrap
+msgid "Dv MDF_WRITEBACK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:93
+msgid "Writes to the region are committed asynchronously."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:93
+#, no-wrap
+msgid "Dv MDF_WRITEPROTECT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:95
+msgid "The region cannot be written to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:99
+msgid "Memory ranges are described by E<.Vt struct mem_range_desc>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:104
+#, no-wrap
+msgid ""
+"uint64_t\tmr_base;\t/\\(** physical base address \\(**/\n"
+"uint64_t\tmr_len;\t\t/\\(** physical length of region \\(**/\n"
+"int\t\tmr_flags;\t/\\(** attributes of region \\(**/\n"
+"char\t\tmr_owner[8];\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:110
+msgid ""
+"In addition to the region attributes listed above, the following flags may "
+"also be set in the E<.Fa mr_flags> field:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:111
+#, no-wrap
+msgid "MDF_FIXBASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:113
+msgid "The region's base address cannot be changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:113
+#, no-wrap
+msgid "MDF_FIXLEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:115
+msgid "The region's length cannot be changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:115
+#, no-wrap
+msgid "MDF_FIRMWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:117
+msgid "The region is believed to have been established by the system firmware."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:117
+#, no-wrap
+msgid "MDF_ACTIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:119
+msgid "The region is currently active."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:119
+#, no-wrap
+msgid "MDF_BOGUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:121
+msgid "We believe the region to be invalid or otherwise erroneous."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:121
+#, no-wrap
+msgid "MDF_FIXACTIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:123
+msgid "The region cannot be disabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:123
+#, no-wrap
+msgid "MDF_BUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:126
+msgid "The region is currently owned by another process and may not be altered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:130
+msgid "Operations are performed using E<.Fa struct mem_range_op>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:133
+#, no-wrap
+msgid ""
+"struct mem_range_desc\t*mo_desc;\n"
+"int\t\t\tmo_arg[2];\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:146
+msgid ""
+"The E<.Dv MEMRANGE_GET> ioctl is used to retrieve current memory range "
+"attributes.  If E<.Va mo_arg[0]> is set to 0, it will be updated with the "
+"total number of memory range descriptors.  If greater than 0, the array at "
+"E<.Va mo_desc> will be filled with a corresponding number of descriptor "
+"structures, or the maximum, whichever is less."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:156
+msgid ""
+"The E<.Dv MEMRANGE_SET> ioctl is used to add, alter and remove memory range "
+"attributes.  A range with the E<.Dv MDF_FIXACTIVE> flag may not be removed; "
+"a range with the E<.Dv MDF_BUSY> flag may not be removed or updated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:163
+msgid ""
+"E<.Va mo_arg[0]> should be set to E<.Dv MEMRANGE_SET_UPDATE> to update an "
+"existing or establish a new range, or to E<.Dv MEMRANGE_SET_REMOVE> to "
+"remove a range."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:163
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:165
+#, no-wrap
+msgid "Bq Er EOPNOTSUPP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:167
+msgid "Memory range operations are not supported on this architecture."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:167
+#, no-wrap
+msgid "Bq Er ENXIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:170
+msgid ""
+"No memory range descriptors are available (e.g.\\& firmware has not enabled "
+"any)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:170
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:173
+msgid ""
+"The memory range supplied as an argument is invalid or overlaps another "
+"range in a fashion not supported by this architecture."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:173
+#, no-wrap
+msgid "Bq Er EBUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:175
+msgid "An attempt to remove or update a range failed because the range is busy."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:175
+#, no-wrap
+msgid "Bq Er ENOSPC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:178
+msgid ""
+"An attempt to create a new range failed due to a shortage of hardware "
+"resources (e.g.\\& descriptor slots)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:178
+#, no-wrap
+msgid "Bq Er ENOENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:181
+msgid ""
+"An attempt to remove a range failed because no range matches the descriptor "
+"base/length supplied."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:181
+#, no-wrap
+msgid "Bq Er EPERM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:184
+msgid ""
+"An attempt to remove a range failed because the range is permanently "
+"enabled."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:185
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:187
+#, no-wrap
+msgid "Pa /dev/mem"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mem.4:188
+#, no-wrap
+msgid "Pa /dev/kmem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:190
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:193
+msgid "E<.Xr kvm 3>, E<.Xr memcontrol 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:193
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:202
+msgid ""
+"The E<.Nm mem> and E<.Nm kmem> files appeared in E<.At v6>.  The ioctl "
+"interface for memory range attributes was added in E<.Fx 3.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mem.4:202
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:204
+msgid "Busy range attributes are not yet managed correctly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mem.4:207
+msgid "This device is required for all users of E<.Xr kvm 3> to operate."
+msgstr ""

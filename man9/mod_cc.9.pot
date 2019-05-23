@@ -1,0 +1,428 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/mod_cc.9:34
+#, no-wrap
+msgid "January 21, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/mod_cc.9:35
+#, no-wrap
+msgid "MOD_CC 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:41
+msgid "E<.Nm mod_cc>, E<.Nm DECLARE_CC_MODULE>, E<.Nm CCV>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/mod_cc.9:41
+#, no-wrap
+msgid "Modular Congestion Control"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:42
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mod_cc.9:43 /usr/src/share/man/man9/mod_cc.9:86
+#, no-wrap
+msgid "netinet/tcp.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mod_cc.9:44
+#, no-wrap
+msgid "netinet/cc/cc.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mod_cc.9:45
+#, no-wrap
+msgid "netinet/cc/cc_module.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:48
+msgid "E<.Fn DECLARE_CC_MODULE \"ccname\" \"ccalgo\"> E<.Fn CCV \"ccv\" \"what\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:59
+msgid ""
+"The E<.Nm> framework allows congestion control algorithms to be implemented "
+"as dynamically loadable kernel modules via the E<.Xr kld 4> facility.  "
+"Transport protocols can select from the list of available algorithms on a "
+"connection-by-connection basis, or use the system default (see E<.Xr mod_cc "
+"4> for more details)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:66
+msgid ""
+"E<.Nm> modules are identified by an E<.Xr ascii 7> name and set of hook "
+"functions encapsulated in a E<.Vt \"struct cc_algo\">, which has the "
+"following members:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:80
+#, no-wrap
+msgid ""
+"struct cc_algo {\n"
+"\tchar\tname[TCP_CA_NAME_MAX];\n"
+"\tint\t(*mod_init) (void);\n"
+"\tint\t(*mod_destroy) (void);\n"
+"\tint\t(*cb_init) (struct cc_var *ccv);\n"
+"\tvoid\t(*cb_destroy) (struct cc_var *ccv);\n"
+"\tvoid\t(*conn_init) (struct cc_var *ccv);\n"
+"\tvoid\t(*ack_received) (struct cc_var *ccv, uint16_t type);\n"
+"\tvoid\t(*cong_signal) (struct cc_var *ccv, uint32_t type);\n"
+"\tvoid\t(*post_recovery) (struct cc_var *ccv);\n"
+"\tvoid\t(*after_idle) (struct cc_var *ccv);\n"
+"\tint\t(*ctl_output)(struct cc_var *, struct sockopt *, void *);\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:86
+msgid ""
+"The E<.Va name> field identifies the unique name of the algorithm, and "
+"should be no longer than TCP_CA_NAME_MAX-1 characters in length (the "
+"TCP_CA_NAME_MAX define lives in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:88
+msgid "for compatibility reasons)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:98
+msgid ""
+"The E<.Va mod_init> function is called when a new module is loaded into the "
+"system but before the registration process is complete.  It should be "
+"implemented if a module needs to set up some global state prior to being "
+"available for use by new connections.  Returning a non-zero value from E<.Va "
+"mod_init> will cause the loading of the module to fail."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:105
+msgid ""
+"The E<.Va mod_destroy> function is called prior to unloading an existing "
+"module from the kernel.  It should be implemented if a module needs to clean "
+"up any global state before being removed from the kernel.  The return value "
+"is currently ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:117
+msgid ""
+"The E<.Va cb_init> function is called when a TCP control block E<.Vt struct "
+"tcpcb> is created.  It should be implemented if a module needs to allocate "
+"memory for storing private per-connection state.  Returning a non-zero value "
+"from E<.Va cb_init> will cause the connection set up to be aborted, "
+"terminating the connection as a result."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:125
+msgid ""
+"The E<.Va cb_destroy> function is called when a TCP control block E<.Vt "
+"struct tcpcb> is destroyed.  It should be implemented if a module needs to "
+"free memory allocated in E<.Va cb_init>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:132
+msgid ""
+"The E<.Va conn_init> function is called when a new connection has been "
+"established and variables are being initialised.  It should be implemented "
+"to initialise congestion control algorithm variables for the newly "
+"established connection."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:143
+msgid ""
+"The E<.Va ack_received> function is called when a TCP acknowledgement (ACK) "
+"packet is received.  Modules use the E<.Fa type> argument as an input to "
+"their congestion management algorithms.  The ACK types currently reported by "
+"the stack are CC_ACK and CC_DUPACK.  CC_ACK indicates the received ACK "
+"acknowledges previously unacknowledged data.  CC_DUPACK indicates the "
+"received ACK acknowledges data we have already received an ACK for."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:159
+msgid ""
+"The E<.Va cong_signal> function is called when a congestion event is "
+"detected by the TCP stack.  Modules use the E<.Fa type> argument as an input "
+"to their congestion management algorithms.  The congestion event types "
+"currently reported by the stack are CC_ECN, CC_RTO, CC_RTO_ERR and "
+"CC_NDUPACK.  CC_ECN is reported when the TCP stack receives an explicit "
+"congestion notification (RFC3168).  CC_RTO is reported when the "
+"retransmission time out timer fires.  CC_RTO_ERR is reported if the "
+"retransmission time out timer fired in error.  CC_NDUPACK is reported if N "
+"duplicate ACKs have been received back-to-back, where N is the fast "
+"retransmit duplicate ack threshold (N=3 currently as per RFC5681)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:164
+msgid ""
+"The E<.Va post_recovery> function is called after the TCP connection has "
+"recovered from a congestion event.  It should be implemented to adjust state "
+"as required."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:169
+msgid ""
+"The E<.Va after_idle> function is called when data transfer resumes after an "
+"idle period.  It should be implemented to adjust state as required."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:183
+msgid ""
+"The E<.Va ctl_output> function is called when E<.Xr getsockopt 2> or E<.Xr "
+"setsockopt 2> is called on a E<.Xr tcp 4> socket with the E<.Va struct "
+"sockopt> pointer forwarded unmodified from the TCP control, and a E<.Va void "
+"*> pointer to algorithm specific argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:200
+msgid ""
+"The E<.Fn DECLARE_CC_MODULE> macro provides a convenient wrapper around the "
+"E<.Xr DECLARE_MODULE 9> macro, and is used to register a E<.Nm> module with "
+"the E<.Nm> framework.  The E<.Fa ccname> argument specifies the module's "
+"name.  The E<.Fa ccalgo> argument points to the module's E<.Vt struct "
+"cc_algo>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:209
+msgid ""
+"E<.Nm> modules must instantiate a E<.Vt struct cc_algo>, but are only "
+"required to set the name field, and optionally any of the function "
+"pointers.  The stack will skip calling any function pointer which is NULL, "
+"so there is no requirement to implement any of the function pointers.  Using "
+"the C99 designated initialiser feature to set fields is encouraged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:214
+msgid ""
+"Each function pointer which deals with congestion control state is passed a "
+"pointer to a E<.Vt struct cc_var>, which has the following members:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:226
+#, no-wrap
+msgid ""
+"struct cc_var {\n"
+"\tvoid\t\t*cc_data;\n"
+"\tint\t\tbytes_this_ack;\n"
+"\ttcp_seq\t\tcurack;\n"
+"\tuint32_t\tflags;\n"
+"\tint\t\ttype;\n"
+"\tunion ccv_container {\n"
+"\t\tstruct tcpcb\t\t*tcp;\n"
+"\t\tstruct sctp_nets\t*sctp;\n"
+"\t} ccvc;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:237
+msgid ""
+"E<.Vt struct cc_var> groups congestion control related variables into a "
+"single, embeddable structure and adds a layer of indirection to accessing "
+"transport protocol control blocks.  The eventual goal is to allow a single "
+"set of E<.Nm> modules to be shared between all congestion aware transport "
+"protocols, though currently only E<.Xr tcp 4> is supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:254
+msgid ""
+"To aid the eventual transition towards this goal, direct use of variables "
+"from the transport protocol's data structures is strongly discouraged.  "
+"However, it is inevitable at the current time to require access to some of "
+"these variables, and so the E<.Fn CCV> macro exists as a convenience "
+"accessor.  The E<.Fa ccv> argument points to the E<.Vt struct cc_var> passed "
+"into the function by the E<.Nm> framework.  The E<.Fa what> argument "
+"specifies the name of the variable to access."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:264
+msgid ""
+"Apart from the E<.Va type> and E<.Va ccv_container> fields, the remaining "
+"fields in E<.Vt struct cc_var> are for use by E<.Nm> modules."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:272
+msgid ""
+"The E<.Va cc_data> field is available for algorithms requiring additional "
+"per-connection state to attach a dynamic memory pointer to.  The memory "
+"should be allocated and attached in the module's E<.Va cb_init> hook "
+"function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:280
+msgid ""
+"The E<.Va bytes_this_ack> field specifies the number of new bytes "
+"acknowledged by the most recently received ACK packet.  It is only valid in "
+"the E<.Va ack_received> hook function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:290
+msgid ""
+"The E<.Va curack> field specifies the sequence number of the most recently "
+"received ACK packet.  It is only valid in the E<.Va ack_received>, E<.Va "
+"cong_signal> and E<.Va post_recovery> hook functions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:308
+msgid ""
+"The E<.Va flags> field is used to pass useful information from the stack to "
+"a E<.Nm> module.  The CCF_ABC_SENTAWND flag is relevant in E<.Va "
+"ack_received> and is set when appropriate byte counting (RFC3465) has "
+"counted a window's worth of bytes has been sent.  It is the module's "
+"responsibility to clear the flag after it has processed the signal.  The "
+"CCF_CWND_LIMITED flag is relevant in E<.Va ack_received> and is set when the "
+"connection's ability to send data is currently constrained by the value of "
+"the congestion window.  Algorithms should use the absence of this flag being "
+"set to avoid accumulating a large difference between the congestion window "
+"and send window."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:308
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:318
+msgid ""
+"E<.Xr cc_cdg 4>, E<.Xr cc_chd 4>, E<.Xr cc_cubic 4>, E<.Xr cc_hd 4>, E<.Xr "
+"cc_htcp 4>, E<.Xr cc_newreno 4>, E<.Xr cc_vegas 4>, E<.Xr mod_cc 4>, E<.Xr "
+"tcp 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:318
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:322
+msgid ""
+"Development and testing of this software were made possible in part by "
+"grants from the FreeBSD Foundation and Cisco University Research Program "
+"Fund at Community Foundation Silicon Valley."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:322
+#, no-wrap
+msgid "FUTURE WORK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:325
+msgid "Integrate with E<.Xr sctp 4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:325
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:328
+msgid "The modular Congestion Control (CC) framework first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:335
+msgid ""
+"The framework was first released in 2007 by James Healy and Lawrence Stewart "
+"whilst working on the NewTCP research project at Swinburne University of "
+"Technology's Centre for Advanced Internet Architectures, Melbourne, "
+"Australia, which was made possible in part by a grant from the Cisco "
+"University Research Program Fund at Community Foundation Silicon Valley.  "
+"More details are available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:337
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mod_cc.9:337
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:346
+msgid ""
+"E<.An -nosplit> The E<.Nm> framework was written by E<.An Lawrence Stewart "
+"Aq Mt lstewart@FreeBSD.org>, E<.An James Healy Aq Mt jimmy@deefa.com> and "
+"E<.An David Hayes Aq Mt david.hayes@ieee.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mod_cc.9:350
+msgid ""
+"This manual page was written by E<.An David Hayes Aq Mt "
+"david.hayes@ieee.org> and E<.An Lawrence Stewart Aq Mt "
+"lstewart@FreeBSD.org>."
+msgstr ""

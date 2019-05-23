@@ -1,0 +1,803 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/restore/restore.8:31
+#, no-wrap
+msgid "October 12, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/restore/restore.8:32
+#, no-wrap
+msgid "RESTORE 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:37
+msgid "E<.Nm restore>, E<.Nm rrestore>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/restore/restore.8:37
+#, no-wrap
+msgid "restore files or file systems from backups made with dump"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:71
+msgid ""
+"E<.Nm> E<.Fl i> E<.Op Fl dDhmNuvy> E<.Op Fl b Ar blocksize> E<.Op Fl f Ar "
+"file | Fl P Ar pipecommand> E<.Op Fl s Ar fileno> E<.Nm> E<.Fl R> E<.Op Fl "
+"dDNuvy> E<.Op Fl b Ar blocksize> E<.Op Fl f Ar file | Fl P Ar pipecommand> "
+"E<.Op Fl s Ar fileno> E<.Nm> E<.Fl r> E<.Op Fl dDNuvy> E<.Op Fl b Ar "
+"blocksize> E<.Op Fl f Ar file | Fl P Ar pipecommand> E<.Op Fl s Ar fileno> "
+"E<.Nm> E<.Fl t> E<.Op Fl dDhNuvy> E<.Op Fl b Ar blocksize> E<.Op Fl f Ar "
+"file | Fl P Ar pipecommand> E<.Op Fl s Ar fileno> E<.Op Ar> E<.Nm> E<.Fl x> "
+"E<.Op Fl dDhmNuvy> E<.Op Fl b Ar blocksize> E<.Op Fl f Ar file | Fl P Ar "
+"pipecommand> E<.Op Fl s Ar fileno> E<.Op Ar>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:71
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:96
+msgid ""
+"The E<.Nm> utility performs the inverse function of E<.Xr dump 8>.  A full "
+"backup of a file system may be restored and subsequent incremental backups "
+"layered on top of it.  Single files and directory subtrees may be restored "
+"from full or partial backups.  The E<.Nm> utility works across a network; to "
+"do this see the E<.Fl f> and E<.Fl P> flags described below.  Other "
+"arguments to the command are file or directory names specifying the files "
+"that are to be restored.  Unless the E<.Fl h> flag is specified (see below), "
+"the appearance of a directory name refers to the files and (recursively) "
+"subdirectories of that directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:104
+msgid ""
+"E<.Nm> may also be invoked as E<.Nm rrestore>.  The E<.Bx 4.3> option syntax "
+"is implemented for backward compatibility, but is not documented here."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:106
+msgid "Exactly one of the following flags is required:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:107
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:116
+msgid ""
+"This mode allows interactive restoration of files from a dump.  After "
+"reading in the directory information from the dump, E<.Nm> provides a shell "
+"like interface that allows the user to move around the directory tree "
+"selecting files to be extracted.  The available commands are given below; "
+"for those commands that require an argument, the default is the current "
+"directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:117
+#, no-wrap
+msgid "Ic add Op Ar arg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:128
+msgid ""
+"The current directory or specified argument is added to the list of files to "
+"be extracted.  If a directory is specified, then it and all its descendents "
+"are added to the extraction list (unless the E<.Fl h> flag is specified on "
+"the command line).  Files that are on the extraction list are prepended with "
+"a ``*'' when they are listed by E<.Ic ls>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:128
+#, no-wrap
+msgid "Ic \\&cd Ar arg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:130
+msgid "Change the current working directory to the specified argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:130
+#, no-wrap
+msgid "Ic delete Op Ar arg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:141
+msgid ""
+"The current directory or specified argument is deleted from the list of "
+"files to be extracted.  If a directory is specified, then it and all its "
+"descendents are deleted from the extraction list (unless the E<.Fl h> flag "
+"is specified on the command line).  The most expedient way to extract most "
+"of the files from a directory is to add the directory to the extraction list "
+"and then delete those files that are not needed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:141
+#, no-wrap
+msgid "Ic extract"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:149
+msgid ""
+"All the files that are on the extraction list are extracted from the dump.  "
+"The E<.Nm> utility will ask which volume the user wishes to mount.  The "
+"fastest way to extract a few files is to start with the last volume, and "
+"work towards the first volume."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:149
+#, no-wrap
+msgid "Ic help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:151
+msgid "List a summary of the available commands."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:151
+#, no-wrap
+msgid "Ic \\&ls Op Ar arg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:157
+msgid ""
+"List the current or specified directory.  Entries that are directories are "
+"appended with a ``/''.  Entries that have been marked for extraction are "
+"prepended with a ``*''.  If the verbose flag is set the inode number of each "
+"entry is also listed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:157
+#, no-wrap
+msgid "Ic pwd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:159
+msgid "Print the full pathname of the current working directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:159
+#, no-wrap
+msgid "Ic quit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:162
+msgid "Exit immediately, even if the extraction list is not empty."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:162
+#, no-wrap
+msgid "Ic setmodes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:167
+msgid ""
+"All the directories that have been added to the extraction list have their "
+"owner, modes, and times set; nothing is extracted from the dump.  This is "
+"useful for cleaning up after a restore has been prematurely aborted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:167
+#, no-wrap
+msgid "Ic verbose"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:177
+msgid ""
+"The sense of the E<.Fl v> flag is toggled.  When set, the verbose flag "
+"causes the E<.Ic ls> command to list the inode numbers of all entries.  It "
+"also causes E<.Nm> to print out information about each file as it is "
+"extracted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:177
+#, no-wrap
+msgid "Ic what"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:181
+msgid ""
+"Display dump header information, which includes: date, level, label, and the "
+"file system and host dump was made from."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:182
+#, no-wrap
+msgid "Fl R"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:189
+msgid ""
+"Request a particular tape of a multi volume set on which to restart a full "
+"restore (see the E<.Fl r> flag below).  This is useful if the restore has "
+"been interrupted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:189
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:208
+msgid ""
+"Restore (rebuild a file system).  The target file system should be made "
+"pristine with E<.Xr newfs 8>, mounted and the user E<.Xr cd 1 Ns 'd> into "
+"the pristine file system before starting the restoration of the initial "
+"level 0 backup.  If the level 0 restores successfully, the E<.Fl r> flag may "
+"be used to restore any necessary incremental backups on top of the level 0.  "
+"The E<.Fl r> flag precludes an interactive file extraction and can be "
+"detrimental to one's health if not used carefully (not to mention the "
+"disk).  An example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:212
+#, no-wrap
+msgid ""
+"newfs /dev/da0s1a\n"
+"mount /dev/da0s1a /mnt\n"
+"cd /mnt\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:214
+#, no-wrap
+msgid "restore rf /dev/sa0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:224
+msgid ""
+"Note that E<.Nm> leaves a file E<.Pa restoresymtable> in the root directory "
+"to pass information between incremental restore passes.  This file should be "
+"removed when the last incremental has been restored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:234
+msgid ""
+"The E<.Nm> utility , in conjunction with E<.Xr newfs 8> and E<.Xr dump 8>, "
+"may be used to modify file system parameters such as size or block size."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:234
+#, no-wrap
+msgid "Fl t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:249
+msgid ""
+"The names of the specified files are listed if they occur on the backup.  If "
+"no file argument is given, then the root directory is listed, which results "
+"in the entire content of the backup being listed, unless the E<.Fl h> flag "
+"has been specified.  Note that the E<.Fl t> flag replaces the function of "
+"the old E<.Xr dumpdir 8> program."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:249
+#, no-wrap
+msgid "Fl x"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:266
+msgid ""
+"The named files are read from the given media.  If a named file matches a "
+"directory whose contents are on the backup and the E<.Fl h> flag is not "
+"specified, the directory is recursively extracted.  The owner, modification "
+"time, and mode are restored (if possible).  If no file argument is given, "
+"then the root directory is extracted, which results in the entire content of "
+"the backup being extracted, unless the E<.Fl h> flag has been specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:269
+msgid "The following additional options may be specified:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:270
+#, no-wrap
+msgid "Fl b Ar blocksize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:277
+msgid ""
+"The number of kilobytes per dump record.  If the E<.Fl b> option is not "
+"specified, E<.Nm> tries to determine the media block size dynamically."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:277
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:279
+msgid "Sends verbose debugging output to the standard error."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:279
+#, no-wrap
+msgid "Fl D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:285
+msgid ""
+"This puts E<.Nm> into degraded mode, causing restore to operate less "
+"efficiently but to try harder to read corrupted backups."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:285
+#, no-wrap
+msgid "Fl f Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:306
+msgid ""
+"Read the backup from E<.Ar file>; E<.Ar file> may be a special device file "
+"like E<.Pa /dev/sa0> (a tape drive), E<.Pa /dev/da1c> (a disk drive), an "
+"ordinary file, or E<.Sq Fl> (the standard input).  If the name of the file "
+"is of the form E<.Dq host:file>, or E<.Dq user@host:file>, E<.Nm> reads from "
+"the named file on the remote host using E<.Xr rmt 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:306
+#, no-wrap
+msgid "Fl P Ar pipecommand"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:325
+msgid ""
+"Use E<.Xr popen 3> to execute the E<.Xr sh 1> script string defined by E<.Ar "
+"pipecommand> as the input for every volume in the backup.  This child "
+"pipeline's E<.Dv stdout> E<.Pq Pa /dev/fd/1> is redirected to the E<.Nm> "
+"input stream, and the environment variable E<.Ev RESTORE_VOLUME> is set to "
+"the current volume number being read.  The E<.Ar pipecommand> script is "
+"started each time a volume is loaded, as if it were a tape drive."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:325
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:330
+msgid ""
+"Extract the actual directory, rather than the files that it references.  "
+"This prevents hierarchical restoration of complete subtrees from the dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:330
+#, no-wrap
+msgid "Fl m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:335
+msgid ""
+"Extract by inode numbers rather than by file name.  This is useful if only a "
+"few files are being extracted, and one wants to avoid regenerating the "
+"complete pathname to the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:335
+#, no-wrap
+msgid "Fl N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:340
+msgid ""
+"Do the extraction normally, but do not actually write any changes to disk.  "
+"This can be used to check the integrity of dump media or other test "
+"purposes."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:340
+#, no-wrap
+msgid "Fl s Ar fileno"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:345
+msgid ""
+"Read from the specified E<.Ar fileno> on a multi-file tape.  File numbering "
+"starts at 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:345
+#, no-wrap
+msgid "Fl u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:354
+msgid ""
+"When creating certain types of files, restore may generate a warning "
+"diagnostic if they already exist in the target directory.  To prevent this, "
+"the E<.Fl u> (unlink) flag causes restore to remove old entries before "
+"attempting to create new ones.  This flag is recommended when using extended "
+"attributes to avoid improperly accumulating attributes on pre-existing "
+"files."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:354
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:363
+msgid ""
+"Normally E<.Nm> does its work silently.  The E<.Fl v> (verbose)  flag causes "
+"it to type the name of each file it treats preceded by its file type."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:363
+#, no-wrap
+msgid "Fl y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:366
+msgid ""
+"Do not ask the user whether to abort the restore in the event of an error.  "
+"Always try to skip over the bad block(s) and continue."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:367
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:369
+#, no-wrap
+msgid "Ev TAPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:371
+msgid "Device from which to read backup."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:371
+#, no-wrap
+msgid "Ev TMPDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:373
+msgid "Name of directory where temporary files are to be created."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:374
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:376
+#, no-wrap
+msgid "Pa /dev/sa0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:378
+msgid "the default tape drive"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:378
+#, no-wrap
+msgid "Pa /tmp/rstdir*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:380
+msgid "file containing directories on the tape."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:380
+#, no-wrap
+msgid "Pa /tmp/rstmode*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:382
+msgid "owner, mode, and time stamps for directories."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:382
+#, no-wrap
+msgid "Pa \\&./restoresymtable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:384
+msgid "information passed between incremental restores."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:385
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:395
+msgid ""
+"The E<.Nm> utility complains if it gets a read error.  If E<.Fl y> has been "
+"specified, or the user responds E<.Ql y>, E<.Nm> will attempt to continue "
+"the restore."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:408
+msgid ""
+"If a backup was made using more than one tape volume, E<.Nm> will notify the "
+"user when it is time to mount the next volume.  If the E<.Fl x> or E<.Fl i> "
+"flag has been specified, E<.Nm> will also ask which volume the user wishes "
+"to mount.  The fastest way to extract a few files is to start with the last "
+"volume, and work towards the first volume."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:413
+msgid ""
+"There are numerous consistency checks that can be listed by E<.Nm>.  Most "
+"checks are self-explanatory or can ``never happen''.  Common errors are "
+"given below."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:415
+#, no-wrap
+msgid "E<lt>filenameE<gt>: not found on tape"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:420
+msgid ""
+"The specified file name was listed in the tape directory, but was not found "
+"on the tape.  This is caused by tape read errors while looking for the file, "
+"and from using a dump tape created on an active file system."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:421
+#, no-wrap
+msgid "expected next file E<lt>inumberE<gt>, got E<lt>inumberE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:424
+msgid ""
+"A file that was not listed in the directory showed up.  This can occur when "
+"using a dump created on an active file system."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:425
+#, no-wrap
+msgid "Incremental dump too low"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:429
+msgid ""
+"When doing incremental restore, a dump that was written before the previous "
+"incremental dump, or that has too low an incremental level has been loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:430
+#, no-wrap
+msgid "Incremental dump too high"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:435
+msgid ""
+"When doing incremental restore, a dump that does not begin its coverage "
+"where the previous incremental dump left off, or that has too high an "
+"incremental level has been loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:436
+#, no-wrap
+msgid "Tape read error while restoring E<lt>filenameE<gt>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:437
+#, no-wrap
+msgid "Tape read error while skipping over inode E<lt>inumberE<gt>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:438
+#, no-wrap
+msgid "Tape read error while trying to resynchronize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:445
+msgid ""
+"A tape (or other media) read error has occurred.  If a file name is "
+"specified, then its contents are probably partially wrong.  If an inode is "
+"being skipped or the tape is trying to resynchronize, then no extracted "
+"files have been corrupted, though files may not be found on the tape."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/restore/restore.8:446
+#, no-wrap
+msgid "resync restore, skipped E<lt>numE<gt> blocks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:451
+msgid ""
+"After a dump read error, E<.Nm> may have to resynchronize itself.  This "
+"message lists the number of blocks that were skipped over."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:452
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:457
+msgid "E<.Xr dump 8>, E<.Xr mount 8>, E<.Xr newfs 8>, E<.Xr rmt 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:457
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:462
+msgid "The E<.Nm> utility appeared in E<.Bx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/restore/restore.8:462
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:470
+msgid ""
+"The E<.Nm> utility can get confused when doing incremental restores from "
+"dumps that were made on active file systems without the E<.Fl L> option (see "
+"E<.Xr dump 8>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:477
+msgid ""
+"A level zero dump must be done after a full restore.  Because restore runs "
+"in user code, it has no control over inode allocation; thus a full dump must "
+"be done to get a new set of directories reflecting the new inode numbering, "
+"even though the contents of the files is unchanged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:484
+msgid ""
+"To do a network restore, you have to run restore as root.  This is due to "
+"the previous security history of dump and restore.  (restore is written to "
+"be setuid root, but we are not certain all bugs are gone from the restore "
+"code - run setuid at your own risk.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/restore/restore.8:505
+msgid ""
+"The temporary files E<.Pa /tmp/rstdir*> and E<.Pa /tmp/rstmode*> are "
+"generated with a unique name based on the date of the dump and the process "
+"ID (see E<.Xr mktemp 3>), except for when E<.Fl r> or E<.Fl R> is used.  "
+"Because E<.Fl R> allows you to restart a E<.Fl r> operation that may have "
+"been interrupted, the temporary files should be the same across different "
+"processes.  In all other cases, the files are unique because it is possible "
+"to have two different dumps started at the same time, and separate "
+"operations should not conflict with each other."
+msgstr ""

@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/libexec/ypxfr/ypxfr.8:33
+#, no-wrap
+msgid "February 5, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/libexec/ypxfr/ypxfr.8:34
+#, no-wrap
+msgid "YPXFR 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:38
+msgid "E<.Nm ypxfr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/libexec/ypxfr/ypxfr.8:38
+#, no-wrap
+msgid "transfer NIS database from remote server to local host"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:49
+msgid ""
+"E<.Nm /usr/libexec/ypxfr> E<.Op Fl f> E<.Op Fl c> E<.Op Fl d Ar target "
+"domain> E<.Op Fl h Ar source host> E<.Op Fl s Ar source domain> E<.Op Fl p "
+"Ar path> E<.Op Fl C Ar taskid program-number ipaddr port> E<.Ar mapname>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:84
+msgid ""
+"The E<.Nm> utility copies an E<.Tn NIS> database (or E<.Pa map>)  from one "
+"E<.Tn NIS> server to another using E<.Tn NIS> services.  In E<.Fx>, E<.Nm> "
+"is generally invoked by E<.Xr ypserv 8> when it receives a map transfer "
+"request from E<.Xr yppush 8>.  The E<.Nm> utility is used primarily in "
+"environments where several E<.Tn NIS> servers are in use in a single "
+"domain.  One server, the E<.Tn NIS> master, maintains the canonical copies "
+"of all E<.Tn NIS> maps, and all the other servers, the E<.Tn NIS> slaves, "
+"copy new versions of the maps from the master whenever any updates are made "
+"(i.e., when a user updates their password via E<.Xr yppasswd 1>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:105
+msgid ""
+"When run, E<.Nm> creates a temporary database file in E<.Pa "
+"/var/yp/[domainname]>, and fills it with the contents of E<.Ar mapname> as "
+"supplied by the specified E<.Ar source host>.  When the entire map has been "
+"transferred, E<.Nm> deletes the original copy of E<.Ar mapname> and moves "
+"the temporary copy into its place.  When the transfer is complete, E<.Nm> "
+"will attempt to send a 'clear current map' request to the local E<.Xr ypserv "
+"8> process to clear any possible references it may still have to the stale "
+"map."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:114
+msgid ""
+"Note that all files created by E<.Nm> are owner readable and writable only "
+"for security reasons.  Since the E<.Tn NIS> maps and the directory in which "
+"they reside are normally owned by root, this prevents non-privileged users "
+"from making unauthorized modifications."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:146
+msgid ""
+"In order to maintain consistency across all E<.Tn NIS> servers, E<.Nm> can "
+"be run periodically in a E<.Xr cron 8> job.  Maps which change infrequently "
+"need only be updated once a day (preferably late at night when system usage "
+"is lowest), whereas those that are subject to frequent changes (such a E<.Pa "
+"passwd.byname> and E<.Pa passwd.byuid>)  should be updated perhaps once "
+"every hour.  Using E<.Xr cron 8> to automatically update the E<.Tn NIS> maps "
+"is not strictly mandatory since all updates should be propagated by E<.Xr "
+"yppush 8> when E<.Pa /var/yp/Makefile> is run on the E<.Tn NIS> master "
+"server, however it is good practice on large networks where possible outages "
+"could cause E<.Tn NIS> servers to fall out of sync with each other."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:154
+msgid ""
+"When E<.Nm> is invoked without a controlling terminal, e.g.\\& from inside "
+"E<.Xr ypserv 8>, it logs all its output using the E<.Xr syslog 3> facility."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:154
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:183
+msgid ""
+"The E<.Fx> version of E<.Nm> has support for a special map transfer protocol "
+"which works in conjunction with the E<.Fx> E<.Xr rpc.ypxfrd 8> server.  This "
+"protocol allows it to transfer raw map database files from the E<.Tn NIS> "
+"master server and can be many times faster than the standard transfer "
+"method, particularly for very large E<.Tn NIS> maps.  The E<.Nm> utility "
+"will check to see if the E<.Xr rpc.ypxfrd 8> server is registered on the "
+"E<.Tn NIS> master server and attempt to use it if it is present.  If it is "
+"not it will fall back to the standard transfer method, copying the map "
+"contents from E<.Xr ypserv 8> and creating new maps instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:200
+msgid ""
+"Note that while the E<.Fx> ypxfrd protocol is conceptually similar to the "
+"SunOS ypxfrd protocol, the E<.Fx> protocol is not compatible with Sun's, "
+"therefore it will not work with Sun's ypxfrd server.  E<.Fx> slave systems "
+"can still transfer maps from any E<.No non- Ns Fx> E<.Tn NIS> server, "
+"however they will only be able to take advantage of the faster protocol if "
+"the master server is also running E<.Fx>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:200
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:203
+msgid "The following options and flags are supported by E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:204
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:214
+msgid ""
+"Force a map transfer.  Normally, E<.Nm> will not transfer a map if it "
+"determines that the E<.Tn NIS> master's copy is not newer than the existing "
+"copy already on the local host: the E<.Fl f> flag forces a transfer "
+"regardless of which server's version is more recent."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:214
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:228
+msgid ""
+"Do not send a 'clear current map' request to the E<.Xr ypserv 8> process "
+"running on the local host.  This flag is normally used when invoking E<.Nm> "
+"manually on a machine that is not yet running E<.Xr ypserv 8>.  Without this "
+"flag, failure to contact the local E<.Tn NIS> server will cause E<.Nm> to "
+"abort the transfer."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:228
+#, no-wrap
+msgid "Fl d Ar target domain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:232
+msgid "Specify a target domain other than the current E<.Tn NIS> domain."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:232
+#, no-wrap
+msgid "Fl h Ar source host"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:242
+msgid ""
+"Specify the name of the host from which to copy the E<.Tn NIS> maps.  This "
+"option is used to ensure that E<.Nm> only copies maps from the E<.Tn NIS> "
+"master server."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:242
+#, no-wrap
+msgid "Fl s Ar source domain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:247
+msgid ""
+"Specify the domain from which to transfer a map, in the event that the "
+"transfer is being done across two different E<.Tn NIS> domains."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:247
+#, no-wrap
+msgid "Fl p Ar path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:267
+msgid ""
+"Specify the top level directory containing the E<.Tn NIS> maps.  By default, "
+"this path is E<.Pa /var/yp>.  The E<.Fl p> flag allows you to specify an "
+"alternate path should you wish to store your E<.Tn NIS> maps in a different "
+"part of the file system.  The E<.Tn NIS> server, E<.Xr ypserv 8>, passes "
+"this flag to E<.Nm> if it too has been told to use an alternate path."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:267
+#, no-wrap
+msgid "Fl C Ar taskid program-number ipaddr port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:291
+msgid ""
+"These options are used only when E<.Nm> is invoked by E<.Xr ypserv 8> in "
+"response to a map transfer request initiated by E<.Xr yppush 8>.  In this "
+"instance, E<.Nm> needs to 'callback' to the E<.Xr yppush 8> process and "
+"interact with it, so E<.Xr yppush 8> passes to it an IP address E<.Ar "
+"ipaddr>, port number E<.Ar port>, registered program number E<.Ar "
+"program-number> and a transaction ID E<.Ar taskid> that it can use to "
+"contact the waiting E<.Xr yppush 8> process on the master server."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:291
+#, no-wrap
+msgid "Ar mapname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:293
+msgid "The name of the map to transfer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:294
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ypxfr/ypxfr.8:296
+#, no-wrap
+msgid "Pa /var/yp/[domainname]/[maps]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:302
+msgid "The E<.Tn NIS> maps for a particular E<.Tn NIS> domain."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:303
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:307
+msgid "E<.Xr yp 8>, E<.Xr yppush 8>, E<.Xr ypserv 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ypxfr/ypxfr.8:307
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ypxfr/ypxfr.8:308
+msgid "E<.An Bill Paul Aq Mt wpaul@ctr.columbia.edu>"
+msgstr ""

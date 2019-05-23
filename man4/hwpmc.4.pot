@@ -1,0 +1,1574 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/hwpmc.4:31
+#, no-wrap
+msgid "November 2, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/hwpmc.4:32
+#, no-wrap
+msgid "HWPMC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:36
+msgid "E<.Nm hwpmc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/hwpmc.4:36
+#, no-wrap
+msgid "Hardware Performance Monitoring Counter support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:40
+msgid "E<.Cd \"options HWPMC_HOOKS\"> E<.Cd \"device hwpmc\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:43
+msgid "Additionally, for i386 systems: E<.Cd \"device apic\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:49
+msgid ""
+"The E<.Nm> driver virtualizes the hardware performance monitoring facilities "
+"in modern CPUs and provides support for using these facilities from user "
+"level processes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:51
+msgid "The driver supports multi-processor systems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:62
+msgid ""
+"PMCs are allocated using the E<.Dv PMC_OP_PMCALLOCATE> request.  A "
+"successful E<.Dv PMC_OP_PMCALLOCATE> request will return a handle to the "
+"requesting process.  Subsequent operations on the allocated PMC use this "
+"handle to denote the specific PMC.  A process that has successfully "
+"allocated a PMC is termed an E<.Dq \"owner process\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:64
+msgid "PMCs may be allocated with process or system scope."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:65
+#, no-wrap
+msgid "Em Process-scope"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:68
+msgid ""
+"The PMC is active only when a thread belonging to a process it is attached "
+"to is scheduled on a CPU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:68
+#, no-wrap
+msgid "Em System-scope"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:71
+msgid ""
+"The PMC operates independently of processes and measures hardware events for "
+"the system as a whole."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:74
+msgid "PMCs may be allocated for counting or for sampling:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:75
+#, no-wrap
+msgid "Em Counting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:81
+msgid ""
+"In counting modes, the PMCs count hardware events.  These counts are "
+"retrievable using the E<.Dv PMC_OP_PMCREAD> system call on all "
+"architectures.  Some architectures offer faster methods of reading these "
+"counts."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:81
+#, no-wrap
+msgid "Em Sampling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:88
+msgid ""
+"In sampling modes, the PMCs are configured to sample the CPU instruction "
+"pointer (and optionally to capture the call chain leading up to the sampled "
+"instruction pointer) after a configurable number of hardware events have "
+"been observed.  Instruction pointer samples and call chain records are "
+"usually directed to a log file for subsequent analysis."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:92
+msgid ""
+"Scope and operational mode are orthogonal; a PMC may thus be configured to "
+"operate in one of the following four modes:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:93
+#, no-wrap
+msgid "Process-scope, counting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:103
+msgid ""
+"These PMCs count hardware events whenever a thread in their attached process "
+"is scheduled on a CPU.  These PMCs normally count from zero, but the initial "
+"count may be set using the E<.Dv PMC_OP_SETCOUNT> operation.  Applications "
+"can read the value of the PMC anytime using the E<.Dv PMC_OP_PMCRW> "
+"operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:103
+#, no-wrap
+msgid "Process-scope, sampling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:114
+msgid ""
+"These PMCs sample the target processes instruction pointer after they have "
+"seen the configured number of hardware events.  The PMCs only count events "
+"when a thread belonging to their attached process is active.  The desired "
+"frequency of sampling is set using the E<.Dv PMC_OP_SETCOUNT> operation "
+"prior to starting the PMC.  Log files are configured using the E<.Dv "
+"PMC_OP_CONFIGURELOG> operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:114
+#, no-wrap
+msgid "System-scope, counting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:124
+msgid ""
+"These PMCs count hardware events seen by them independent of the processes "
+"that are executing.  The current count on these PMCs can be read using the "
+"E<.Dv PMC_OP_PMCRW> request.  These PMCs normally count from zero, but the "
+"initial count may be set using the E<.Dv PMC_OP_SETCOUNT> operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:124
+#, no-wrap
+msgid "System-scope, sampling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:134
+msgid ""
+"These PMCs will periodically sample the instruction pointer of the CPU they "
+"are allocated on, and will write the sample to a log for further "
+"processing.  The desired frequency of sampling is set using the E<.Dv "
+"PMC_OP_SETCOUNT> operation prior to starting the PMC.  Log files are "
+"configured using the E<.Dv PMC_OP_CONFIGURELOG> operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:137
+msgid ""
+"System-wide statistical sampling can only be enabled by a process with "
+"super-user privileges."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:144
+msgid ""
+"Processes are allowed to allocate as many PMCs as the hardware and current "
+"operating conditions permit.  Processes may mix allocations of system-wide "
+"and process-private PMCs.  Multiple processes may be using PMCs "
+"simultaneously."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:152
+msgid ""
+"Allocated PMCs are started using the E<.Dv PMC_OP_PMCSTART> operation, and "
+"stopped using the E<.Dv PMC_OP_PMCSTOP> operation.  Stopping and starting a "
+"PMC is permitted at any time the owner process has a valid handle to the "
+"PMC."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:168
+msgid ""
+"Process-private PMCs need to be attached to a target process before they can "
+"be used.  Attaching a process to a PMC is done using the E<.Dv "
+"PMC_OP_PMCATTACH> operation.  An already attached PMC may be detached from "
+"its target process using the converse E<.Dv PMC_OP_PMCDETACH> operation.  "
+"Issuing a E<.Dv PMC_OP_PMCSTART> operation on an as yet unattached PMC will "
+"cause it to be attached to its owner process.  The following rules determine "
+"whether a given process may attach a PMC to another target process:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:172
+msgid ""
+"A non-jailed process with super-user privileges is allowed to attach to any "
+"other process in the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:176
+msgid ""
+"Other processes are only allowed to attach to targets that they would be "
+"able to attach to for debugging (as determined by E<.Xr p_candebug 9>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:183
+msgid ""
+"PMCs are released using E<.Dv PMC_OP_PMCRELEASE>.  After a successful E<.Dv "
+"PMC_OP_PMCRELEASE> operation the handle to the PMC will become invalid."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:183
+#, no-wrap
+msgid "Modifier Flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:188
+msgid ""
+"The E<.Dv PMC_OP_PMCALLOCATE> operation supports the following flags that "
+"modify the behavior of an allocated PMC:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:189
+#, no-wrap
+msgid "Dv PMC_F_CALLCHAIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:196
+msgid ""
+"This modifier informs sampling PMCs to record a callchain when capturing a "
+"sample.  The maximum depth to which call chains are recorded is specified by "
+"the E<.Va \"kern.hwpmc.callchaindepth\"> kernel tunable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:196
+#, no-wrap
+msgid "Dv PMC_F_DESCENDANTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:201
+msgid ""
+"This modifier is valid only for a PMC being allocated in process-private "
+"mode.  It signifies that the PMC will track hardware events for its target "
+"process and the target's current and future descendants."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:201
+#, no-wrap
+msgid "Dv PMC_F_KGMON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:208
+msgid ""
+"This modifier is valid only for a PMC being allocated in system-wide "
+"sampling mode.  It signifies that the PMC's sampling interrupt is to be used "
+"to drive kernel profiling via E<.Xr kgmon 8>.  This functionality is "
+"currently unimplemented."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:208
+#, no-wrap
+msgid "Dv PMC_F_LOG_PROCCSW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:215
+msgid ""
+"This modifier is valid only for a PMC being allocated in process-private "
+"mode.  When this modifier is present, at every context switch, E<.Nm> will "
+"log a record containing the number of hardware events seen by the target "
+"process when it was scheduled on the CPU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:215
+#, no-wrap
+msgid "Dv PMC_F_LOG_PROCEXIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:225
+msgid ""
+"This modifier is valid only for a PMC being allocated in process-private "
+"mode.  With this modifier present, E<.Nm> will maintain per-process counts "
+"for each target process attached to a PMC.  At process exit time, a record "
+"containing the target process' PID and the accumulated per-process count for "
+"that process will be written to the configured log file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:239
+msgid ""
+"Modifiers E<.Dv PMC_F_LOG_PROCEXIT> and E<.Dv PMC_F_LOG_PROCCSW> may be used "
+"in combination with modifier E<.Dv PMC_F_DESCENDANTS> to track the behavior "
+"of complex pipelines of processes.  PMCs with modifiers E<.Dv "
+"PMC_F_LOG_PROCEXIT> and E<.Dv PMC_F_LOG_PROCCSW> cannot be started until "
+"their owner process has configured a log file."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:239
+#, no-wrap
+msgid "Signals"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:243
+msgid "The E<.Nm> driver may deliver signals to processes that have allocated PMCs:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:244
+#, no-wrap
+msgid "Dv SIGIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:249
+msgid ""
+"A E<.Dv PMC_OP_PMCRW> operation was attempted on a process-private PMC that "
+"does not have attached target processes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:249
+#, no-wrap
+msgid "Dv SIGBUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:253
+msgid "The E<.Nm> driver is being unloaded from the kernel."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:254
+#, no-wrap
+msgid "PMC ROW DISPOSITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:261
+msgid ""
+"A PMC row is defined as the set of PMC resources at the same hardware "
+"address in the CPUs in a system.  Since process scope PMCs need to move "
+"between CPUs following their target threads, allocation of a process scope "
+"PMC reserves all PMCs in a PMC row for use only with process scope PMCs.  "
+"Accordingly a PMC row will be in one of the following dispositions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:262
+#, no-wrap
+msgid "Dv PMC_DISP_FREE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:265
+msgid ""
+"Hardware counters in this row are free and may be use to satisfy either of "
+"system scope or process scope allocation requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:265
+#, no-wrap
+msgid "Dv PMC_DISP_THREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:268
+msgid ""
+"Hardware counters in this row are in use by process scope PMCs and are only "
+"available for process scope allocation requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:268
+#, no-wrap
+msgid "Dv PMC_DISP_STANDALONE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:274
+msgid ""
+"Some hardware counters in this row have been administratively disabled or "
+"are in use by system scope PMCs.  Non-disabled hardware counters in such a "
+"row may be used for satisfying system scope allocation requests.  No process "
+"scope PMCs will use hardware counters in this row."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:275
+#, no-wrap
+msgid "PROGRAMMING API"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:282
+msgid ""
+"The recommended way for application programs to use the facilities of the "
+"E<.Nm> driver is using the API provided by the E<.Xr pmc 3> library."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:287
+msgid ""
+"The E<.Nm> driver operates using a system call number that is dynamically "
+"allotted to it when it is loaded into the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:291
+msgid "The E<.Nm> driver supports the following operations:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:292
+#, no-wrap
+msgid "Dv PMC_OP_CONFIGURELOG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:301
+msgid ""
+"Configure a log file for PMCs that require a log file.  The E<.Nm> driver "
+"will write log data to this file asynchronously.  If it encounters an error, "
+"logging will be stopped and the error code encountered will be saved for "
+"subsequent retrieval by a E<.Dv PMC_OP_FLUSHLOG> request."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:301
+#, no-wrap
+msgid "Dv PMC_OP_FLUSHLOG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:309
+msgid ""
+"Transfer buffered log data inside E<.Nm> to a configured output file.  This "
+"operation returns to the caller after the write operation has returned.  The "
+"returned error code reflects any pending error state inside E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:309
+#, no-wrap
+msgid "Dv PMC_OP_GETCPUINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:312
+msgid ""
+"Retrieve information about the highest possible CPU number for the system, "
+"and the number of hardware performance monitoring counters available per "
+"CPU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:312
+#, no-wrap
+msgid "Dv PMC_OP_GETDRIVERSTATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:316
+msgid "Retrieve module statistics (for analyzing the behavior of E<.Nm> itself)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:316
+#, no-wrap
+msgid "Dv PMC_OP_GETMODULEVERSION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:318
+msgid "Retrieve the version number of API."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:318
+#, no-wrap
+msgid "Dv PMC_OP_GETPMCINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:321
+msgid "Retrieve information about the current state of the PMCs on a given CPU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:321
+#, no-wrap
+msgid "Dv PMC_OP_PMCADMIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:329
+msgid ""
+"Set the administrative state (i.e., whether enabled or disabled) for the "
+"hardware PMCs managed by the E<.Nm> driver.  The invoking process needs to "
+"possess the E<.Dv PRIV_PMC_MANAGE> privilege."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:329
+#, no-wrap
+msgid "Dv PMC_OP_PMCALLOCATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:333
+msgid ""
+"Allocate and configure a PMC.  On successful allocation, a handle to the PMC "
+"(a 32 bit value)  is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:333
+#, no-wrap
+msgid "Dv PMC_OP_PMCATTACH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:337
+msgid ""
+"Attach a process mode PMC to a target process.  The PMC will be active "
+"whenever a thread in the target process is scheduled on a CPU."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:342
+msgid ""
+"If the E<.Dv PMC_F_DESCENDANTS> flag had been specified at PMC allocation "
+"time, then the PMC is attached to all current and future descendants of the "
+"target process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:342
+#, no-wrap
+msgid "Dv PMC_OP_PMCDETACH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:344
+msgid "Detach a PMC from its target process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:344
+#, no-wrap
+msgid "Dv PMC_OP_PMCRELEASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:346
+msgid "Release a PMC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:346
+#, no-wrap
+msgid "Dv PMC_OP_PMCRW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:349
+msgid ""
+"Read and write a PMC.  This operation is valid only for PMCs configured in "
+"counting modes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:349
+#, no-wrap
+msgid "Dv PMC_OP_SETCOUNT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:352
+msgid ""
+"Set the initial count (for counting mode PMCs) or the desired sampling rate "
+"(for sampling mode PMCs)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:352
+#, no-wrap
+msgid "Dv PMC_OP_PMCSTART"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:354
+msgid "Start a PMC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:354
+#, no-wrap
+msgid "Dv PMC_OP_PMCSTOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:356
+msgid "Stop a PMC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:356
+#, no-wrap
+msgid "Dv PMC_OP_WRITELOG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:358
+msgid "Insert a timestamped user record into the log file."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:359
+#, no-wrap
+msgid "i386 Specific API"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:368
+msgid ""
+"Some i386 family CPUs support the RDPMC instruction which allows a user "
+"process to read a PMC value without needing to invoke a E<.Dv PMC_OP_PMCRW> "
+"operation.  On such CPUs, the machine address associated with an allocated "
+"PMC is retrievable using the E<.Dv PMC_OP_PMCX86GETMSR> system call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:369 /usr/src/share/man/man4/hwpmc.4:388
+#, no-wrap
+msgid "Dv PMC_OP_PMCX86GETMSR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:372 /usr/src/share/man/man4/hwpmc.4:391
+msgid ""
+"Retrieve the MSR (machine specific register) number associated with the "
+"given PMC handle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:377 /usr/src/share/man/man4/hwpmc.4:396
+msgid ""
+"The PMC needs to be in process-private mode and allocated without the E<.Dv "
+"PMC_F_DESCENDANTS> modifier flag, and should be attached only to its owner "
+"process at the time of the call."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:378
+#, no-wrap
+msgid "amd64 Specific API"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:387
+msgid ""
+"AMD64 CPUs support the RDPMC instruction which allows a user process to read "
+"a PMC value without needing to invoke a E<.Dv PMC_OP_PMCRW> operation.  The "
+"machine address associated with an allocated PMC is retrievable using the "
+"E<.Dv PMC_OP_PMCX86GETMSR> system call."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:397
+#, no-wrap
+msgid "SYSCTL VARIABLES AND LOADER TUNABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:405
+msgid ""
+"The behavior of E<.Nm> is influenced by the following E<.Xr sysctl 8> and "
+"E<.Xr loader 8> tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:406
+#, no-wrap
+msgid "Va kern.hwpmc.callchaindepth Pq integer, read-only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:409
+msgid ""
+"The maximum number of call chain records to capture per sample.  The default "
+"is 8."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:409
+#, no-wrap
+msgid "Va kern.hwpmc.debugflags Pq string, read-write"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:417
+msgid ""
+"(Only available if the E<.Nm> driver was compiled with E<.Fl DDEBUG>.)  "
+"Control the verbosity of debug messages from the E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:417
+#, no-wrap
+msgid "Va kern.hwpmc.hashsize Pq integer, read-only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:421
+msgid ""
+"The number of rows in the hash tables used to keep track of owner and target "
+"processes.  The default is 16."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:421
+#, no-wrap
+msgid "Va kern.hwpmc.logbuffersize Pq integer, read-only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:426
+msgid ""
+"The size in kilobytes of each log buffer used by E<.Nm Ns 's> logging "
+"function.  The default buffer size is 4KB."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:426
+#, no-wrap
+msgid "Va kern.hwpmc.mtxpoolsize Pq integer, read-only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:429
+msgid "The size of the spin mutex pool used by the PMC driver.  The default is 32."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:429
+#, no-wrap
+msgid "Va kern.hwpmc.nbuffers Pq integer, read-only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:434
+msgid "The number of log buffers used by E<.Nm> for logging.  The default is 64."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:434
+#, no-wrap
+msgid "Va kern.hwpmc.nsamples Pq integer, read-only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:437
+msgid ""
+"The number of entries in the per-CPU ring buffer used during sampling.  The "
+"default is 512."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:437
+#, no-wrap
+msgid "Va security.bsd.unprivileged_syspmcs Pq boolean, read-write"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:441
+msgid ""
+"If set to non-zero, allow unprivileged processes to allocate system-wide "
+"PMCs.  The default value is 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:441
+#, no-wrap
+msgid "Va security.bsd.unprivileged_proc_debug Pq boolean, read-write"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:446
+msgid ""
+"If set to 0, the E<.Nm> driver will only allow privileged processes to "
+"attach PMCs to other processes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:453
+msgid ""
+"These variables may be set in the kernel environment using E<.Xr kenv 1> "
+"before E<.Nm> is loaded."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:453
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:454
+#, no-wrap
+msgid "SMP Symmetry"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:457
+msgid ""
+"The kernel driver requires all physical CPUs in an SMP system to have "
+"identical performance monitoring counter hardware."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:457
+#, no-wrap
+msgid "Sparse CPU Numbering"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:463
+msgid ""
+"On platforms that sparsely number CPUs and which support hot-plugging of "
+"CPUs, requests that specify non-existent or disabled CPUs will fail with an "
+"error.  Applications allocating system-scope PMCs need to be aware of the "
+"possibility of such transient failures."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:463
+#, no-wrap
+msgid "x86 TSC Handling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:471
+msgid ""
+"Historically, on the x86 architecture, E<.Fx> has permitted user processes "
+"running at a processor CPL of 3 to read the TSC using the RDTSC "
+"instruction.  The E<.Nm> driver preserves this behavior."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:471
+#, no-wrap
+msgid "Intel P4/HTT Handling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:480
+msgid ""
+"On CPUs with HTT support, Intel P4 PMCs are capable of qualifying only a "
+"subset of hardware events on a per-logical CPU basis.  Consequently, if HTT "
+"is enabled on a system with Intel Pentium P4 PMCs, then the E<.Nm> driver "
+"will reject allocation requests for process-private PMCs that request "
+"counting of hardware events that cannot be counted separately for each "
+"logical CPU."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/hwpmc.4:480
+#, no-wrap
+msgid "Intel Pentium-Pro Handling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:502
+msgid ""
+"Writing a value to the PMC MSRs found in Intel Pentium-Pro style PMCs (found "
+"in E<.Tn \"Intel Pentium Pro\">, E<.Tn \"Pentium II\">, E<.Tn \"Pentium "
+"III\">, E<.Tn \"Pentium M\"> and E<.Tn \"Celeron\"> processors) will "
+"replicate bit 31 of the value being written into the upper 8 bits of the "
+"MSR, bringing down the usable width of these PMCs to 31 bits.  For "
+"process-virtual PMCs, the E<.Nm> driver implements a workaround in software "
+"and makes the corrected 64 bit count available via the E<.Dv PMC_OP_RW> "
+"operation.  Processes that intend to use RDPMC instructions directly or that "
+"intend to write values larger than 2^31 into these PMCs with E<.Dv "
+"PMC_OP_RW> need to be aware of this hardware limitation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:502
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:504
+#, no-wrap
+msgid "hwpmc: [class/npmc/capabilities]..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:511
+msgid ""
+"Announce the presence of E<.Va npmc> PMCs of class E<.Va class>, with "
+"capabilities described by bit string E<.Va capabilities>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:511
+#, no-wrap
+msgid "hwpmc: kernel version (0x%x) does not match module version (0x%x)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:514
+msgid ""
+"The module loading process failed because a version mismatch was detected "
+"between the currently executing kernel and the module being loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:514
+#, no-wrap
+msgid "hwpmc: this kernel has not been compiled with 'options HWPMC_HOOKS'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:518
+msgid ""
+"The module loading process failed because the currently executing kernel was "
+"not configured with the required configuration option E<.Dv HWPMC_HOOKS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:518
+#, no-wrap
+msgid "hwpmc: tunable hashsize=%d must be greater than zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:521
+msgid "A negative value was supplied for tunable E<.Va kern.hwpmc.hashsize>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:521
+#, no-wrap
+msgid "hwpmc: tunable logbuffersize=%d must be greater than zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:524
+msgid "A negative value was supplied for tunable E<.Va kern.hwpmc.logbuffersize>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:524
+#, no-wrap
+msgid "hwpmc: tunable nlogbuffers=%d must be greater than zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:527
+msgid "A negative value was supplied for tunable E<.Va kern.hwpmc.nlogbuffers>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:527
+#, no-wrap
+msgid "hwpmc: tunable nsamples=%d out of range."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:531
+msgid ""
+"The value for tunable E<.Va kern.hwpmc.nsamples> was negative or greater "
+"than 65535."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:532
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:542
+msgid ""
+"The E<.Nm> driver is E<.Ud> The API and ABI documented in this manual page "
+"may change in the future.  The recommended method of accessing this driver "
+"is using the E<.Xr pmc 3> API."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:542
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:546
+msgid "A command issued to the E<.Nm> driver may fail with the following errors:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:547
+#, no-wrap
+msgid "Bq Er EAGAIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:551
+msgid ""
+"Helper process creation failed for a E<.Dv PMC_OP_CONFIGURELOG> request due "
+"to a temporary resource shortage in the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:551 /usr/src/share/man/man4/hwpmc.4:555 /usr/src/share/man/man4/hwpmc.4:560 /usr/src/share/man/man4/hwpmc.4:564 /usr/src/share/man/man4/hwpmc.4:569 /usr/src/share/man/man4/hwpmc.4:573
+#, no-wrap
+msgid "Bq Er EBUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:555
+msgid ""
+"A E<.Dv PMC_OP_CONFIGURELOG> operation was requested while an existing log "
+"was active."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:560
+msgid ""
+"A DISABLE operation was requested using the E<.Dv PMC_OP_PMCADMIN> request "
+"for a set of hardware resources currently in use for process-private PMCs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:564
+msgid ""
+"A E<.Dv PMC_OP_PMCADMIN> operation was requested on an active system mode "
+"PMC."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:569
+msgid ""
+"A E<.Dv PMC_OP_PMCATTACH> operation was requested for a target process that "
+"already had another PMC using the same hardware resources attached to it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:573
+msgid ""
+"A E<.Dv PMC_OP_PMCRW> request writing a new value was issued on a PMC that "
+"was active."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:577
+msgid "A E<.Dv PMC_OP_PMCSETCOUNT> request was issued on a PMC that was active."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:577 /usr/src/share/man/man4/hwpmc.4:586
+#, no-wrap
+msgid "Bq Er EDOOFUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:586
+msgid ""
+"A E<.Dv PMC_OP_PMCSTART> operation was requested without a log file being "
+"configured for a PMC allocated with E<.Dv PMC_F_LOG_PROCCSW> and E<.Dv "
+"PMC_F_LOG_PROCEXIT> modifiers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:591
+msgid ""
+"A E<.Dv PMC_OP_PMCSTART> operation was requested on a system-wide sampling "
+"PMC without a log file being configured."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:591
+#, no-wrap
+msgid "Bq Er EEXIST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:596
+msgid ""
+"A E<.Dv PMC_OP_PMCATTACH> request was reissued for a target process that "
+"already is the target of this PMC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:596
+#, no-wrap
+msgid "Bq Er EFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:598
+msgid "A bad address was passed in to the driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:598 /usr/src/share/man/man4/hwpmc.4:600 /usr/src/share/man/man4/hwpmc.4:604 /usr/src/share/man/man4/hwpmc.4:609 /usr/src/share/man/man4/hwpmc.4:613 /usr/src/share/man/man4/hwpmc.4:617 /usr/src/share/man/man4/hwpmc.4:621 /usr/src/share/man/man4/hwpmc.4:625 /usr/src/share/man/man4/hwpmc.4:629 /usr/src/share/man/man4/hwpmc.4:633 /usr/src/share/man/man4/hwpmc.4:637 /usr/src/share/man/man4/hwpmc.4:643 /usr/src/share/man/man4/hwpmc.4:649 /usr/src/share/man/man4/hwpmc.4:655 /usr/src/share/man/man4/hwpmc.4:661 /usr/src/share/man/man4/hwpmc.4:667 /usr/src/share/man/man4/hwpmc.4:675 /usr/src/share/man/man4/hwpmc.4:679 /usr/src/share/man/man4/hwpmc.4:685 /usr/src/share/man/man4/hwpmc.4:692
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:600
+msgid "An invalid PMC handle was specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:604
+msgid ""
+"An invalid CPU number was passed in for a E<.Dv PMC_OP_GETPMCINFO> "
+"operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:609
+msgid ""
+"A E<.Dv PMC_OP_CONFIGURELOG> request to de-configure a log file was issued "
+"without a log file being configured."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:613
+msgid ""
+"A E<.Dv PMC_OP_FLUSHLOG> request was issued without a log file being "
+"configured."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:617
+msgid "An invalid CPU number was passed in for a E<.Dv PMC_OP_PMCADMIN> operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:621
+msgid ""
+"An invalid operation request was passed in for a E<.Dv PMC_OP_PMCADMIN> "
+"operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:625
+msgid "An invalid PMC ID was passed in for a E<.Dv PMC_OP_PMCADMIN> operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:629
+msgid ""
+"A suitable PMC matching the parameters passed in to a E<.Dv "
+"PMC_OP_PMCALLOCATE> request could not be allocated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:633
+msgid ""
+"An invalid PMC mode was requested during a E<.Dv PMC_OP_PMCALLOCATE> "
+"request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:637
+msgid ""
+"An invalid CPU number was specified during a E<.Dv PMC_OP_PMCALLOCATE> "
+"request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:643
+msgid ""
+"A CPU other than E<.Dv PMC_CPU_ANY> was specified in a E<.Dv "
+"PMC_OP_PMCALLOCATE> request for a process-private PMC."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:649
+msgid ""
+"A CPU number of E<.Dv PMC_CPU_ANY> was specified in a E<.Dv "
+"PMC_OP_PMCALLOCATE> request for a system-wide PMC."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:655
+msgid ""
+"The E<.Ar pm_flags> argument to an E<.Dv PMC_OP_PMCALLOCATE> request "
+"contained unknown flags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:661
+msgid ""
+"(On Intel Pentium 4 CPUs with HTT support)  A E<.Dv PMC_OP_PMCALLOCATE> "
+"request for a process-private PMC was issued for an event that does not "
+"support counting on a per-logical CPU basis."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:667
+msgid ""
+"A PMC allocated for system-wide operation was specified with a E<.Dv "
+"PMC_OP_PMCATTACH> or E<.Dv PMC_OP_PMCDETACH> request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:675
+msgid ""
+"The E<.Ar pm_pid> argument to a E<.Dv PMC_OP_PMCATTACH> or E<.Dv "
+"PMC_OP_PMCDETACH> request specified an illegal process ID."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:679
+msgid ""
+"A E<.Dv PMC_OP_PMCDETACH> request was issued for a PMC not attached to the "
+"target process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:685
+msgid ""
+"Argument E<.Ar pm_flags> to a E<.Dv PMC_OP_PMCRW> request contained illegal "
+"flags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:692
+msgid ""
+"A E<.Dv PMC_OP_PMCX86GETMSR> operation was requested for a PMC not in "
+"process-virtual mode, or for a PMC that is not solely attached to its owner "
+"process, or for a PMC that was allocated with flag E<.Dv PMC_F_DESCENDANTS>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:697
+msgid ""
+"A E<.Dv PMC_OP_WRITELOG> request was issued for an owner process without a "
+"log file configured."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:697
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:699
+msgid "The system was not able to allocate kernel memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:699
+#, no-wrap
+msgid "Bq Er ENOSYS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:705
+msgid ""
+"(On i386 and amd64 architectures)  A E<.Dv PMC_OP_PMCX86GETMSR> operation "
+"was requested for hardware that does not support reading PMCs directly with "
+"the RDPMC instruction."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:705 /usr/src/share/man/man4/hwpmc.4:709 /usr/src/share/man/man4/hwpmc.4:714
+#, no-wrap
+msgid "Bq Er ENXIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:709
+msgid ""
+"A E<.Dv PMC_OP_GETPMCINFO> operation was requested for an absent or disabled "
+"CPU."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:714
+msgid ""
+"A E<.Dv PMC_OP_PMCALLOCATE> operation specified allocation of a system-wide "
+"PMC on an absent or disabled CPU."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:721
+msgid ""
+"A E<.Dv PMC_OP_PMCSTART> or E<.Dv PMC_OP_PMCSTOP> request was issued for a "
+"system-wide PMC that was allocated on a CPU that is currently absent or "
+"disabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:721 /usr/src/share/man/man4/hwpmc.4:726
+#, no-wrap
+msgid "Bq Er EOPNOTSUPP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:726
+msgid ""
+"A E<.Dv PMC_OP_PMCALLOCATE> request was issued for PMC capabilities not "
+"supported by the specified PMC class."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:729
+msgid ""
+"(i386 architectures)  A sampling mode PMC was requested on a CPU lacking an "
+"APIC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:729 /usr/src/share/man/man4/hwpmc.4:734 /usr/src/share/man/man4/hwpmc.4:739
+#, no-wrap
+msgid "Bq Er EPERM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:734
+msgid ""
+"A E<.Dv PMC_OP_PMCADMIN> request was issued by a process without super-user "
+"privilege or by a jailed super-user process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:739
+msgid ""
+"A E<.Dv PMC_OP_PMCATTACH> operation was issued for a target process that the "
+"current process does not have permission to attach to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:745
+msgid ""
+"(i386 and amd64 architectures)  A E<.Dv PMC_OP_PMCATTACH> operation was "
+"issued on a PMC whose MSR has been retrieved using E<.Dv "
+"PMC_OP_PMCX86GETMSR>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/hwpmc.4:745 /usr/src/share/man/man4/hwpmc.4:748 /usr/src/share/man/man4/hwpmc.4:751 /usr/src/share/man/man4/hwpmc.4:757
+#, no-wrap
+msgid "Bq Er ESRCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:748
+msgid "A process issued a PMC operation request without having allocated any PMCs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:751
+msgid ""
+"A process issued a PMC operation request after the PMC was detached from all "
+"of its target processes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:757
+msgid ""
+"A E<.Dv PMC_OP_PMCATTACH> or E<.Dv PMC_OP_PMCDETACH> request specified a "
+"non-existent process ID."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:762
+msgid ""
+"The target process for a E<.Dv PMC_OP_PMCDETACH> operation is not being "
+"monitored by E<.Nm>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:763
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:774
+msgid ""
+"E<.Xr kenv 1>, E<.Xr pmc 3>, E<.Xr pmclog 3>, E<.Xr kgmon 8>, E<.Xr kldload "
+"8>, E<.Xr pmccontrol 8>, E<.Xr pmcstat 8>, E<.Xr sysctl 8>, E<.Xr "
+"kproc_create 9>, E<.Xr p_candebug 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:774
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:779
+msgid "The E<.Nm> driver first appeared in E<.Fx 6.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:779
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:784
+msgid ""
+"The E<.Nm> driver was written by E<.An Joseph Koshy Aq Mt "
+"jkoshy@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:784
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:790
+msgid ""
+"The driver samples the state of the kernel's logical processor support at "
+"the time of initialization (i.e., at module load time).  On CPUs supporting "
+"logical processors, the driver could misbehave if logical processors are "
+"subsequently enabled or disabled while the driver is active."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:797
+msgid ""
+"On the i386 architecture, the driver requires that the local APIC on the CPU "
+"be enabled for sampling mode to be supported.  Many single-processor "
+"motherboards keep the APIC disabled in BIOS; on such systems E<.Nm> will not "
+"support sampling PMCs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hwpmc.4:797
+#, no-wrap
+msgid "SECURITY CONSIDERATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:801
+msgid ""
+"PMCs may be used to monitor the actual behavior of the system on hardware.  "
+"In situations where this constitutes an undesirable information leak, the "
+"following options are available:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:818
+msgid ""
+"Set the E<.Xr sysctl 8> tunable E<.Va security.bsd.unprivileged_syspmcs> to "
+"0.  This ensures that unprivileged processes cannot allocate system-wide "
+"PMCs and thus cannot observe the hardware behavior of the system as a "
+"whole.  This tunable may also be set at boot time using E<.Xr loader 8>, or "
+"with E<.Xr kenv 1> prior to loading the E<.Nm> driver into the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:827
+msgid ""
+"Set the E<.Xr sysctl 8> tunable E<.Va security.bsd.unprivileged_proc_debug> "
+"to 0.  This will ensure that an unprivileged process cannot attach a PMC to "
+"any process other than itself and thus cannot observe the hardware behavior "
+"of other processes with the same credentials."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hwpmc.4:832
+msgid ""
+"System administrators should note that on IA-32 platforms E<.Fx> makes the "
+"content of the IA-32 TSC counter available to all processes via the RDTSC "
+"instruction."
+msgstr ""

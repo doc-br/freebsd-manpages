@@ -1,0 +1,305 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/sppp.4:28
+#, no-wrap
+msgid "May 25, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/sppp.4:29
+#, no-wrap
+msgid "SPPP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:33
+msgid "E<.Nm sppp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/sppp.4:33
+#, no-wrap
+msgid "point to point protocol network layer for synchronous lines"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:36
+msgid "E<.Cd \"device sppp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:49
+msgid ""
+"The E<.Nm> network layer implements the state machine and the Link Control "
+"Protocol (LCP) of the E<.Em point to point protocol (PPP)> as described in "
+"RFC 1661.  Note that this layer does not provide network interfaces of its "
+"own, it is rather intended to be layered on top of drivers providing a "
+"synchronous point-to-point connection that wish to run a PPP stack over it.  "
+"The corresponding network interfaces have to be provided by these hardware "
+"drivers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:65
+msgid ""
+"The E<.Nm> layer provides three basic modes of operation.  The default mode, "
+"with no special flags to be set, is to create the PPP connection "
+"(administrative E<.Em Open> event to the LCP layer) as soon as the interface "
+"is taken up with the E<.Xr ifconfig 8> command.  Taking the interface down "
+"again will terminate the LCP layer and thus all other layers on top.  The "
+"link will also terminate itself as soon as no Network Control Protocol (NCP) "
+"is open anymore, indicating that the lower layers are no longer needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:87
+msgid ""
+"Setting the link-level flag E<.Em link0> with E<.Xr ifconfig 8> will cause "
+"the respective network interface to go into E<.Em passive> mode.  This "
+"means, the administrative E<.Em Open> event to the LCP layer will be delayed "
+"until after the lower layers signals an E<.Em Up> event (rise of E<.Dq "
+"carrier>).  This can be used by lower layers to support a dialin connection "
+"where the physical layer is not available immediately at startup, but only "
+"after some external event arrives.  Receipt of a E<.Em Down> event from the "
+"lower layer will not take the interface completely down in this case."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:107
+msgid ""
+"Finally, setting the flag E<.Em link1> will cause the interface to operate "
+"in E<.Em dial-on-demand> mode.  This is also only useful if the lower layer "
+"supports the notion of a carrier.  Upon configuring the respective "
+"interface, it will delay the administrative E<.Em Open> event to the LCP "
+"layer until either an outbound network packet arrives, or until the lower "
+"layer signals an E<.Em Up> event, indicating an inbound connection.  As with "
+"passive mode, receipt of a E<.Em Down> event (loss of carrier) will not "
+"automatically take the interface down, thus it remains available for further "
+"connections."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:123
+msgid ""
+"The E<.Nm> layer supports the E<.Em debug> interface flag that can be set "
+"with E<.Xr ifconfig 8>.  If this flag is set, the various control protocol "
+"packets being exchanged as well as the option negotiation between both ends "
+"of the link will be logged at level E<.Dv LOG_DEBUG>.  This can be helpful "
+"to examine configuration problems during the first attempts to set up a new "
+"configuration.  Without this flag being set, only the major phase "
+"transitions will be logged at level E<.Dv LOG_INFO>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:133
+msgid ""
+"It is possible to leave the local interface IP address open for negotiation "
+"by setting it to 0.0.0.0.  This requires that the remote peer can correctly "
+"supply a value for it based on the identity of the caller, or on the remote "
+"address supplied by this side.  Due to the way the IPCP option negotiation "
+"works, this address is being supplied late during the negotiation, which "
+"might cause the remote peer to make wrong assumptions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:144
+msgid ""
+"In a similar spirit the remote address can be set to the magical value E<.Li "
+"0.0.0. Ns Em *> which means that we do not care what address the remote side "
+"will use, as long as it is not 0.0.0.0.  This is useful if your ISP has "
+"several dial-in servers.  You can of course E<.Nm route Cm add Ar "
+"something_or_other 0.0.0. Ns Em *> and it will do exactly what you would "
+"want it to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:151
+msgid ""
+"The PAP and CHAP authentication protocols as described in RFC 1334, and RFC "
+"1994 resp., are also implemented.  Their parameters are being controlled by "
+"the E<.Xr spppcontrol 8> utility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:156
+msgid ""
+"VJ header compression is implemented, and enabled by default.  It can be "
+"disabled using E<.Xr spppcontrol 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:156
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sppp.4:158
+#, no-wrap
+msgid ""
+"E<lt>ifnameE<gt>E<lt>ifnumE<gt>: E<lt>protoE<gt> illegal E<lt>eventE<gt> in "
+"state E<lt>statenameE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:163
+msgid ""
+"An event happened that should not happen for the current state the "
+"respective control protocol is in.  See RFC 1661 for a description of the "
+"state automaton."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sppp.4:163
+#, no-wrap
+msgid "E<lt>ifnameE<gt>E<lt>ifnumE<gt>: loopback"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:167
+msgid ""
+"The state automaton detected a line loopback (that is, it was talking with "
+"itself).  The interface will be temporarily disabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sppp.4:167
+#, no-wrap
+msgid "E<lt>ifnameE<gt>E<lt>ifnumE<gt>: up"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:170
+msgid ""
+"The LCP layer is running again, after a line loopback had previously been "
+"detected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sppp.4:170
+#, no-wrap
+msgid "E<lt>ifnameE<gt>E<lt>ifnumE<gt>: down"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:174
+msgid ""
+"The keepalive facility detected the line being unresponsive.  Keepalive must "
+"be explicitly requested by the lower layers in order to take place."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:175
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:201
+msgid ""
+"E<.Xr inet 4>, E<.Xr intro 4>, E<.Xr ifconfig 8>, E<.Xr spppcontrol 8> "
+"E<.Rs> E<.%A W. Simpson, Editor> E<.%T \"The Point-to-Point Protocol "
+"(PPP)\"> E<.%O RFC 1661> E<.Re> E<.Rs> E<.%A G. McGregor> E<.%T \"The PPP "
+"Internet Protocol Control Protocol (IPCP)\"> E<.%O RFC 1332> E<.Re> E<.Rs> "
+"E<.%A B. Lloyd> E<.%A W. Simpson> E<.%T \"PPP Authentication Protocols\"> "
+"E<.%O RFC 1334> E<.Re> E<.Rs> E<.%A W. Simpson> E<.%T \"PPP Challenge "
+"Handshake Authentication Protocol (CHAP)\"> E<.%O RFC 1994> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:201
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:215
+msgid ""
+"E<.An -nosplit> The original implementation of E<.Nm> was written in 1994 at "
+"Cronyx Ltd., Moscow by E<.An Serge Vakulenko Aq Mt vak@cronyx.ru>.  E<.An "
+"J\\(:org Wunsch Aq Mt joerg_wunsch@uriah.heep.sax.de> rewrote a large part "
+"in 1997 in order to fully implement the state machine as described in RFC "
+"1661, so it could also be used for dialup lines.  He also wrote this man "
+"page.  Serge later on wrote a basic implementation for PAP and CHAP, which "
+"served as the base for the current implementation, done again by E<.An "
+"J\\(:org Wunsch>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sppp.4:215
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:217
+msgid "Many."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:225
+msgid ""
+"Currently, only the E<.Em IPCP> control protocol and E<.Xr ip 4> network "
+"protocol is supported.  More NCPs should be implemented, as well as other "
+"control protocols for authentication and link quality reporting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:229
+msgid ""
+"Negotiation loop avoidance is not fully implemented.  If the negotiation "
+"does not converge, this can cause an endless loop."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:234
+msgid ""
+"The various parameters that should be adjustable per RFC 1661 are currently "
+"hard-coded into the kernel, and should be made accessible through E<.Xr "
+"spppcontrol 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:237
+msgid "E<.Em Passive> mode has not been tested extensively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sppp.4:238
+msgid "Link-level compression protocols should be supported."
+msgstr ""

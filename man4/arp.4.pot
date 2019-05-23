@@ -1,0 +1,439 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/arp/arp.4:31
+#, no-wrap
+msgid "October 7, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/arp/arp.4:32
+#, no-wrap
+msgid "ARP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/arp/arp.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:36
+msgid "E<.Nm arp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/arp/arp.4:36
+#, no-wrap
+msgid "Address Resolution Protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/arp/arp.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:39
+msgid "E<.Cd \"device ether\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/arp/arp.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:47
+msgid ""
+"The Address Resolution Protocol (ARP) is used to dynamically map between "
+"Protocol Addresses (such as IP addresses) and Local Network Addresses (such "
+"as Ethernet addresses).  This implementation maps IP addresses to Ethernet, "
+"ARCnet, or Token Ring addresses.  It is used by all the Ethernet interface "
+"drivers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:67
+msgid ""
+"ARP caches Internet-Ethernet address mappings.  When an interface requests a "
+"mapping for an address not in the cache, ARP queues the message which "
+"requires the mapping and broadcasts a message on the associated network "
+"requesting the address mapping.  If a response is provided, the new mapping "
+"is cached and any pending message is transmitted.  ARP will queue at most "
+"one packet while waiting for a response to a mapping request; only the most "
+"recently ``transmitted'' packet is kept.  If the target host does not "
+"respond after several requests, the host is considered to be down allowing "
+"an error to be returned to transmission attempts.  Further demand for this "
+"mapping causes ARP request retransmissions, that are ratelimited to one "
+"packet per second.  The error is E<.Er EHOSTDOWN> for a non-responding "
+"destination host, and E<.Er EHOSTUNREACH> for a non-responding router."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:79
+msgid ""
+"The ARP cache is stored in the system routing table as dynamically-created "
+"host routes.  The route to a directly-attached Ethernet network is installed "
+"as a E<.Dq cloning> route (one with the E<.Li RTF_CLONING> flag set), "
+"causing routes to individual hosts on that network to be created on demand.  "
+"These routes time out periodically (normally 20 minutes after validated; "
+"entries are not validated when not in use)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:88
+msgid ""
+"ARP entries may be added, deleted or changed with the E<.Xr arp 8> utility.  "
+"Manually-added entries may be temporary or permanent, and may be E<.Dq "
+"published>, in which case the system will respond to ARP requests for that "
+"host as if it were the target of the request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:92
+msgid ""
+"In the past, ARP was used to negotiate the use of a trailer encapsulation.  "
+"This is no longer supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:95
+msgid ""
+"ARP watches passively for hosts impersonating the local host (i.e., a host "
+"which responds to an ARP mapping request for the local host's address)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:115
+msgid ""
+"Proxy ARP is a feature whereby the local host will respond to requests for "
+"addresses other than itself, with its own address.  Normally, proxy ARP in "
+"E<.Fx> is set up on a host-by-host basis using the E<.Xr arp 8> utility, by "
+"adding an entry for each host inside a given subnet for which proxying of "
+"ARP requests is desired.  However, the E<.Dq \"proxy all\"> feature causes "
+"the local host to act as a proxy for E<.Em all> hosts reachable through some "
+"other network interface, different from the one the request came in from.  "
+"It may be enabled by setting the E<.Xr sysctl 8> MIB variable E<.Va "
+"net.link.ether.inet.proxyall> to 1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/arp/arp.4:115
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:122
+msgid ""
+"The ARP protocol implements a number of configurable variables in E<.Va "
+"net.link.ether.inet> branch of the E<.Xr sysctl 3> MIB."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:123
+#, no-wrap
+msgid "Va allow_multicast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:128
+msgid ""
+"Install ARP entries with the multicast bit set in the hardware address.  "
+"Installing such entries is an RFC 1812 violation, but some proprietary load "
+"balancing techniques require routers to do so.  Turned off by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:128
+#, no-wrap
+msgid "Va garp_rexmit_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:139
+msgid ""
+"Retransmit gratuitous ARP (GARP) packets when an IPv4 address is added to an "
+"interface.  A GARP is always transmitted when an IPv4 address is added to an "
+"interface.  A non-zero value causes the GARP packet to be retransmitted the "
+"stated number of times.  The interval between retransmissions is doubled "
+"each time, so the retransmission intervals are: {1, 2, 4, 8, 16, ...} "
+"(seconds).  The default value of zero means only the initial GARP is sent; "
+"no additional GARP packets are retransmitted.  The maximum value is sixteen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:147
+msgid ""
+"The default behavior of a single GARP packet is usually sufficient.  "
+"However, a single GARP might be dropped or lost in some circumstances.  This "
+"is particularly harmful when a shared address is passed between cluster "
+"nodes.  Neighbors on the network link might then work with a stale ARP cache "
+"and send packets destined for that address to the node that previously owned "
+"the address, which might not respond."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:147
+#, no-wrap
+msgid "Va log_arp_movements"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:153
+msgid ""
+"Log movements of IP addresses from one hardware address to another.  See "
+"E<.Sx DIAGNOSTICS> below.  Turned on by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:153
+#, no-wrap
+msgid "Va log_arp_permanent_modify"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:159
+msgid ""
+"Log attempts by a remote host to modify a permanent ARP entry.  See E<.Sx "
+"DIAGNOSTICS> below.  Turned on by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:159
+#, no-wrap
+msgid "Va log_arp_wrong_iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:166
+msgid ""
+"Log attempts to insert an ARP entry on an interface when the IP network to "
+"which the address belongs is connected to another interface.  See E<.Sx "
+"DIAGNOSTICS> below.  Turned on by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:166
+#, no-wrap
+msgid "Va max_log_per_second"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:170
+msgid ""
+"Limit the number of remotely triggered logging events to a configured value "
+"per second.  Default is 1 log message per second."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:170
+#, no-wrap
+msgid "Va max_age"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:173
+msgid ""
+"How long an ARP entry is held in the cache until it needs to be refreshed.  "
+"Default is 1200 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:173
+#, no-wrap
+msgid "Va maxhold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:177
+msgid ""
+"How many packets to hold in the per-entry output queue while the entry is "
+"being resolved.  Default is one packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:177
+#, no-wrap
+msgid "Va maxtries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:181
+msgid ""
+"Number of retransmits before a host is considered down and an error is "
+"returned.  Default is 5 tries."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:181
+#, no-wrap
+msgid "Va proxyall"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:184
+msgid "Enables ARP proxying.  Turned off by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:184
+#, no-wrap
+msgid "Va wait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:187
+msgid "Lifetime of an incomplete ARP entry.  Default is 20 seconds."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/arp/arp.4:188
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:190
+#, no-wrap
+msgid "arp: %x:%x:%x:%x:%x:%x is using my IP address %d.%d.%d.%d on %s!"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:195
+msgid ""
+"ARP has discovered another host on the local network which responds to "
+"mapping requests for its own Internet address with a different Ethernet "
+"address, generally indicating that two hosts are attempting to use the same "
+"Internet address."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:195
+#, no-wrap
+msgid "arp: link address is broadcast for IP address %d.%d.%d.%d!"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:199
+msgid ""
+"ARP requested information for a host, and received an answer indicating that "
+"the host's ethernet address is the ethernet broadcast address.  This "
+"indicates a misconfigured or broken device."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:199
+#, no-wrap
+msgid "arp: %d.%d.%d.%d moved from %x:%x:%x:%x:%x:%x to %x:%x:%x:%x:%x:%x on %s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:208
+msgid ""
+"ARP had a cached value for the ethernet address of the referenced host, but "
+"received a reply indicating that the host is at a new address.  This can "
+"happen normally when host hardware addresses change, or when a mobile node "
+"arrives or leaves the local subnet.  It can also indicate a problem with "
+"proxy ARP.  This message can only be issued if the sysctl E<.Va "
+"net.link.ether.inet.log_arp_movements> is set to 1, which is the system's "
+"default behaviour."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:208
+#, no-wrap
+msgid "arpresolve: can't allocate llinfo for %d.%d.%d.%d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:214
+msgid ""
+"The route for the referenced host points to a device upon which ARP is "
+"required, but ARP was unable to allocate a routing table entry in which to "
+"store the host's MAC address.  This usually points to a misconfigured "
+"routing table.  It can also occur if the kernel cannot allocate memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:214
+#, no-wrap
+msgid "arp: %d.%d.%d.%d is on if0 but got reply from %x:%x:%x:%x:%x:%x on if1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:222
+msgid ""
+"Physical connections exist to the same logical IP network on both if0 and "
+"if1.  It can also occur if an entry already exists in the ARP cache for the "
+"IP address above, and the cable has been disconnected from if0, then "
+"reconnected to if1.  This message can only be issued if the sysctl E<.Va "
+"net.link.ether.inet.log_arp_wrong_iface> is set to 1, which is the system's "
+"default behaviour."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:222
+#, no-wrap
+msgid ""
+"arp: %x:%x:%x:%x:%x:%x attempts to modify permanent entry for %d.%d.%d.%d on "
+"%s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:228
+msgid ""
+"ARP has received an ARP reply that attempts to overwrite a permanent entry "
+"in the local ARP table.  This error will only be logged if the sysctl E<.Va "
+"net.link.ether.inet.log_arp_permanent_modify> is set to 1, which is the "
+"system's default behaviour."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/arp/arp.4:228
+#, no-wrap
+msgid "arp: %x:%x:%x:%x:%x:%x is multicast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:233
+msgid ""
+"Kernel refused to install an entry with multicast hardware address.  If you "
+"really want such addresses being installed, set the sysctl E<.Va "
+"net.link.ether.inet.allow_multicast> to a positive value."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/arp/arp.4:234
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/arp/arp.4:251
+msgid ""
+"E<.Xr inet 4>, E<.Xr route 4>, E<.Xr arp 8>, E<.Xr ifconfig 8>, E<.Xr route "
+"8>, E<.Xr sysctl 8> E<.Rs> E<.%A Plummer, D.> E<.%B \"An Ethernet Address "
+"Resolution Protocol\"> E<.%T RFC826> E<.Re> E<.Rs> E<.%A Leffler, S.J.> "
+"E<.%A Karels, M.J.> E<.%B \"Trailer Encapsulations\"> E<.%T RFC893> E<.Re>"
+msgstr ""

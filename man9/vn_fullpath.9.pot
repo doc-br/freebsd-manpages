@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vn_fullpath.9:30
+#, no-wrap
+msgid "November 23, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vn_fullpath.9:31
+#, no-wrap
+msgid "VN_FULLPATH 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vn_fullpath.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:35
+msgid "E<.Nm vn_fullpath>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vn_fullpath.9:35
+#, no-wrap
+msgid "convert a vnode reference to a full pathname, given a process context"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vn_fullpath.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vn_fullpath.9:37
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vn_fullpath.9:38
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:43
+msgid ""
+"E<.Ft int> E<.Fo vn_fullpath> E<.Fa \"struct thread *td\" \"struct vnode "
+"*vp\" \"char **retbuf\" \"char **freebuf\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vn_fullpath.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:56
+msgid ""
+"The E<.Fn vn_fullpath> function makes a E<.Dq \"best effort\"> attempt to "
+"generate a string pathname for the passed vnode; the resulting path, if any, "
+"will be relative to the root directory of the process associated with the "
+"passed thread pointer.  The E<.Fn vn_fullpath> function is implemented by "
+"inspecting the VFS name cache, and attempting to reconstruct a path from the "
+"process root to the object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:68
+msgid ""
+"This process is necessarily unreliable for several reasons: intermediate "
+"entries in the path may not be found in the cache; files may have more than "
+"one name (hard links), not all file systems use the name cache "
+"(specifically, most synthetic file systems do not); a single name may be "
+"used for more than one file (in the context of file systems covering other "
+"file systems); a file may have no name (if deleted but still open or "
+"referenced).  However, the resulting string may still be more useable to a "
+"user than a vnode pointer value, or a device number and inode number.  Code "
+"consuming the results of this function should anticipate (and properly "
+"handle) failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:70
+msgid "Its arguments are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vn_fullpath.9:71
+#, no-wrap
+msgid "Fa td"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:75
+msgid ""
+"The thread performing the call; this pointer will be dereferenced to find "
+"the process and its file descriptor structure, in order to identify the root "
+"vnode to use."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vn_fullpath.9:75
+#, no-wrap
+msgid "Fa vp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:78
+msgid "The vnode to search for.  No need to be locked by the caller."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vn_fullpath.9:78
+#, no-wrap
+msgid "Fa retbuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:85
+msgid ""
+"Pointer to a E<.Vt \"char *\"> that E<.Fn vn_fullpath> may (on success) "
+"point at a newly allocated buffer containing the resulting pathname."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vn_fullpath.9:85
+#, no-wrap
+msgid "Fa freebuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:93
+msgid ""
+"Pointer to a E<.Vt \"char *\"> that E<.Fn vn_fullpath> may (on success) "
+"point at a buffer to be freed, when the caller is done with E<.Fa retbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:119
+msgid ""
+"Typical consumers will declare two character pointers: E<.Va fullpath> and "
+"E<.Va freepath>; they will set E<.Va freepath> to E<.Dv NULL>, and E<.Va "
+"fullpath> to a name to use in the event that the call to E<.Fn vn_fullpath> "
+"fails.  After done with the value of E<.Va fullpath>, the caller will check "
+"if E<.Va freepath> is E<.Pf non- Dv NULL>, and if so, invoke E<.Xr free 9> "
+"with a pool type of E<.Dv M_TEMP>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vn_fullpath.9:119
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:122
+msgid ""
+"If the vnode is successfully converted to a pathname, 0 is returned; "
+"otherwise, an error number is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vn_fullpath.9:122
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:124
+msgid "E<.Xr free 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vn_fullpath.9:124
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vn_fullpath.9:126
+msgid ""
+"This manual page was written by E<.An Robert Watson Aq Mt "
+"rwatson@FreeBSD.org>."
+msgstr ""

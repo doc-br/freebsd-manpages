@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/unr.9:27
+#, no-wrap
+msgid "October 4, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/unr.9:28
+#, no-wrap
+msgid "UNR 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/unr.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:37
+msgid ""
+"E<.Nm new_unrhdr>, E<.Nm clear_unrhdr>, E<.Nm delete_unrhdr>, E<.Nm "
+"alloc_unr>, E<.Nm alloc_unr_specific>, E<.Nm free_unr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/unr.9:37
+#, no-wrap
+msgid "kernel unit number allocator"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/unr.9:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/unr.9:39
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:54
+msgid ""
+"E<.Ft \"struct unrhdr *\"> E<.Fn new_unrhdr \"int low\" \"int high\" "
+"\"struct mtx *mutex\"> E<.Ft void> E<.Fn clear_unrhdr \"struct unrhdr *uh\"> "
+"E<.Ft void> E<.Fn delete_unrhdr \"struct unrhdr *uh\"> E<.Ft int> E<.Fn "
+"alloc_unr \"struct unrhdr *uh\"> E<.Ft int> E<.Fn alloc_unrl \"struct unrhdr "
+"*uh\"> E<.Ft int> E<.Fn alloc_unr_specific \"struct unrhdr *uh\" \"u_int "
+"item\"> E<.Ft void> E<.Fn free_unr \"struct unrhdr *uh\" \"u_int item\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/unr.9:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:57
+msgid ""
+"The kernel unit number allocator is a generic facility, which allows to "
+"allocate unit numbers within a specified range."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:58
+#, no-wrap
+msgid "Fn new_unrhdr low high mutex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:76
+msgid ""
+"Initialize a new unit number allocator entity.  The E<.Fa low> and E<.Fa "
+"high> arguments specify minimum and maximum number of unit numbers.  There "
+"is no cost associated with the range of unit numbers, so unless the resource "
+"really is finite, E<.Dv INT_MAX> can be used.  If E<.Fa mutex> is not E<.Dv "
+"NULL>, it is used for locking when allocating and freeing units.  Otherwise, "
+"internal mutex is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:76
+#, no-wrap
+msgid "Fn clear_unrhdr uh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:80
+msgid ""
+"Clear all units from the specified unit number allocator entity.  This "
+"function resets the entity as if it were just initialized with E<.Fn "
+"new_unrhdr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:80
+#, no-wrap
+msgid "Fn delete_unrhdr uh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:86
+msgid ""
+"Delete specified unit number allocator entity.  This function frees the "
+"memory associated with the entity, it does not free any units.  To free all "
+"units use E<.Fn clear_unrhdr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:86
+#, no-wrap
+msgid "Fn alloc_unr uh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:94
+msgid ""
+"Return a new unit number.  The lowest free number is always allocated.  This "
+"function does not allocate memory and never sleeps, however it may block on "
+"a mutex.  If no free unit numbers are left, E<.Li \\-1> is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:94
+#, no-wrap
+msgid "Fn alloc_unrl uh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:98
+msgid ""
+"Same as E<.Fn alloc_unr> except that mutex is assumed to be already locked "
+"and thus is not used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:98
+#, no-wrap
+msgid "Fn alloc_unr_specific uh item"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:105
+msgid ""
+"Allocate a specific unit number.  This function allocates memory and thus "
+"may sleep.  The allocated unit number is returned on success.  If the "
+"specified number is already allocated or out of the range, E<.Li \\-1> is "
+"returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/unr.9:105
+#, no-wrap
+msgid "Fn free_unr uh item"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:109
+msgid ""
+"Free a previously allocated unit number.  This function may require "
+"allocating memory, and thus it can sleep.  There is no pre-locked variant."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/unr.9:110
+#, no-wrap
+msgid "CODE REFERENCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:113
+msgid "The above functions are implemented in E<.Pa sys/kern/subr_unit.c>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/unr.9:113
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:116
+msgid "Kernel unit number allocator first appeared in E<.Fx 6.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/unr.9:116
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/unr.9:121
+msgid ""
+"E<.An -nosplit> Kernel unit number allocator was written by E<.An "
+"Poul-Henning Kamp>.  This manpage was written by E<.An Gleb Smirnoff>."
+msgstr ""

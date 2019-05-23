@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/SYSINIT.9:27
+#, no-wrap
+msgid "December 1, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/SYSINIT.9:28
+#, no-wrap
+msgid "SYSINIT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:33
+msgid "E<.Nm SYSINIT>, E<.Nm SYSUNINIT>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/SYSINIT.9:33
+#, no-wrap
+msgid "a framework for dynamic kernel initialization"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/SYSINIT.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/SYSINIT.9:36
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:39
+msgid ""
+"E<.Fn SYSINIT \"uniquifier\" \"enum sysinit_sub_id subsystem\" \"enum "
+"sysinit_elem_order order\" \"sysinit_cfunc_t func\" \"const void *ident\"> "
+"E<.Fn SYSUNINIT \"uniquifier\" \"enum sysinit_sub_id subsystem\" \"enum "
+"sysinit_elem_order order\" \"sysinit_cfunc_t func\" \"const void *ident\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:47
+msgid ""
+"E<.Nm> is a mechanism for scheduling the execution of initialization and "
+"teardown routines.  This is similar to init and fini routines with the "
+"addition of explicit ordering metadata.  It allows runtime ordering of "
+"subsystem initialization in the kernel as well as kernel modules (KLDs)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:60
+msgid ""
+"The E<.Fn SYSINIT> macro creates a E<.Vt struct sysinit> and stores it in a "
+"startup linker set.  The E<.Vt struct sysinit> type as well as the subsystem "
+"identifier constants E<.Pq Dv SI_SUB_*> and initialization ordering "
+"constants E<.Pq Dv SI_ORDER_*> are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/SYSINIT.9:60
+#, no-wrap
+msgid "sys/kernel.h :"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:68
+#, no-wrap
+msgid ""
+"struct sysinit {\n"
+"\tenum sysinit_sub_id subsystem;\t/* subsystem identifier*/\n"
+"\tenum sysinit_elem_order\torder;\t/* init order within subsystem*/\n"
+"\tsysinit_cfunc_t func;\t\t/* function             */\n"
+"\tconst void\t*udata;\t\t/* multiplexer/argument */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:85
+msgid ""
+"The E<.Fn SYSINIT> macro takes a E<.Fa uniquifier> argument to identify the "
+"particular function dispatch data, the E<.Fa subsystem> type of startup "
+"interface, the subsystem element E<.Fa order> of initialization within the "
+"subsystem, the E<.Fa func> function to call, and the data specified in E<.Fa "
+"ident> argument to pass the function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:91
+msgid ""
+"The E<.Fn SYSUNINIT> macro behaves similarly to the E<.Fn SYSINIT> macro "
+"except that it adds the data to a shutdown linker set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:106
+msgid ""
+"The startup linker set for the kernel is scanned during boot to build a "
+"sorted list of initialization routines.  The initialization routines are "
+"then executed in the sorted order.  The E<.Fa subsystem> is used as the "
+"primary key and is sorted in ascending order.  The E<.Fa order> is used as "
+"the secondary key and is sorted in ascending order.  The relative order of "
+"two routines that have the same E<.Fa subsystem> and E<.Fa order> is "
+"undefined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:120
+msgid ""
+"The startup linker sets for modules that are loaded together with the kernel "
+"by the boot loader are scanned during the E<.Dv SI_SUB_KLD> subsystem "
+"initialization.  These modules' initialization routines are sorted and "
+"merged into the kernel's list of startup routines and are executed during "
+"boot along with the kernel's initialization routines.  Note that this has "
+"the effect that any initialization routines in a kernel module that are "
+"scheduled earlier than E<.Dv SI_SUB_KLD> are not executed until after E<.Dv "
+"SI_SUB_KLD> during boot."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:124
+msgid ""
+"The startup linker set for a kernel module loaded at runtime via E<.Xr "
+"kldload 2> is scanned, sorted, and executed when the module is loaded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:132
+msgid ""
+"The shutdown linker set for a kernel module is scanned, sorted, and executed "
+"when a kernel module is unloaded.  The teardown routines are sorted in the "
+"reverse order of the initialization routines.  The teardown routines of the "
+"kernel and any loaded modules are E<.Sy not> executed during shutdown."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:132
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:134
+msgid ""
+"This example shows the SYSINIT which displays the copyright notice during "
+"boot:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:142
+#, no-wrap
+msgid ""
+"static void\n"
+"print_caddr_t(void *data)\n"
+"{\n"
+"\tprintf(\"%s\", (char *)data);\n"
+"}\n"
+"SYSINIT(announce, SI_SUB_COPYRIGHT, SI_ORDER_FIRST, print_caddr_t,\n"
+"    copyright);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:143
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:150
+msgid ""
+"E<.Xr kld 4>, E<.Xr DECLARE_MODULE 9>, E<.Xr DEV_MODULE 9>, E<.Xr "
+"DRIVER_MODULE 9>, E<.Xr MTX_SYSINIT 9>, E<.Xr SYSCALL_MODULE 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:150
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:155
+msgid "The E<.Nm> framework first appeared in E<.Fx 2.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/SYSINIT.9:155
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:161
+msgid ""
+"E<.An -nosplit> The E<.Nm> framework was written by E<.An Terrence Lambert "
+"Aq Mt terry@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/SYSINIT.9:163
+msgid "This manual page was written by E<.An Hiten Pandya Aq Mt hmp@FreeBSD.org>."
+msgstr ""

@@ -1,0 +1,907 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/mandoc/eqn.7:18
+#, no-wrap
+msgid "$Mdocdate: September 4 2017 $"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/mandoc/eqn.7:19
+#, no-wrap
+msgid "EQN 7"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:21
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:23
+msgid "E<.Nm eqn>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/mandoc/eqn.7:23
+#, no-wrap
+msgid "eqn language reference for mandoc"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:24
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:46
+msgid ""
+"The E<.Nm eqn> language is an equation-formatting language.  It is used "
+"within E<.Xr mdoc 7> and E<.Xr man 7> E<.Ux> manual pages.  It describes the "
+"E<.Em structure> of an equation, not its mathematical meaning.  This manual "
+"describes the E<.Nm> language accepted by the E<.Xr mandoc 1> utility, which "
+"corresponds to the Second Edition E<.Nm> specification (see E<.Sx SEE ALSO> "
+"for references)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:58
+msgid ""
+"Equations within E<.Xr mdoc 7> or E<.Xr man 7> documents are enclosed by the "
+"standalone E<.Sq \\&.EQ> and E<.Sq \\&.EN> tags.  Equations are multi-line "
+"blocks consisting of formulas and control statements."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:58
+#, no-wrap
+msgid "EQUATION STRUCTURE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:69
+msgid ""
+"Each equation is bracketed by E<.Sq \\&.EQ> and E<.Sq \\&.EN> strings.  "
+"E<.Em Note>: these are not the same as E<.Xr roff 7> macros, and may only be "
+"invoked as E<.Sq \\&.EQ>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:72
+msgid ""
+"The equation grammar is as follows, where quoted strings are case-sensitive "
+"literals in the input:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:101
+#, no-wrap
+msgid ""
+"eqn     : box | eqn box\n"
+"box     : text\n"
+"        | \\(dq{\\(dq eqn \\(dq}\\(dq\n"
+"        | \\(dqdefine\\(dq text text\n"
+"        | \\(dqndefine\\(dq text text\n"
+"        | \\(dqtdefine\\(dq text text\n"
+"        | \\(dqgfont\\(dq text\n"
+"        | \\(dqgsize\\(dq text\n"
+"        | \\(dqset\\(dq text text\n"
+"        | \\(dqundef\\(dq text\n"
+"        | \\(dqsqrt\\(dq box\n"
+"        | box pos box\n"
+"        | box mark\n"
+"        | \\(dqmatrix\\(dq \\(dq{\\(dq [col \\(dq{\\(dq list \\(dq}\\(dq]* "
+"\\(dq}\\(dq\n"
+"        | pile \\(dq{\\(dq list \\(dq}\\(dq\n"
+"        | font box\n"
+"        | \\(dqsize\\(dq text box\n"
+"        | \\(dqleft\\(dq text eqn [\\(dqright\\(dq text]\n"
+"col     : \\(dqlcol\\(dq | \\(dqrcol\\(dq | \\(dqccol\\(dq | \\(dqcol\\(dq\n"
+"text    : [^space\\e\\(dq]+ | \\e\\(dq.*\\e\\(dq\n"
+"pile    : \\(dqlpile\\(dq | \\(dqcpile\\(dq | \\(dqrpile\\(dq | "
+"\\(dqpile\\(dq\n"
+"pos     : \\(dqover\\(dq | \\(dqsup\\(dq | \\(dqsub\\(dq | \\(dqto\\(dq | "
+"\\(dqfrom\\(dq\n"
+"mark\t: \\(dqdot\\(dq | \\(dqdotdot\\(dq | \\(dqhat\\(dq | \\(dqtilde\\(dq | "
+"\\(dqvec\\(dq\n"
+"        | \\(dqdyad\\(dq | \\(dqbar\\(dq | \\(dqunder\\(dq\n"
+"font    : \\(dqroman\\(dq | \\(dqitalic\\(dq | \\(dqbold\\(dq | "
+"\\(dqfat\\(dq\n"
+"list    : eqn\n"
+"        | list \\(dqabove\\(dq eqn\n"
+"space   : [\\e^~ \\et]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:113
+msgid ""
+"White-space consists of the space, tab, circumflex, and tilde characters.  "
+"It is required to delimit tokens consisting of alphabetic characters and it "
+"is ignored at other places.  Braces and quotes also delimit tokens.  If "
+"within a quoted string, these space characters are retained.  Quoted strings "
+"are also not scanned for keywords, glyph names, and expansion of "
+"definitions.  To print a literal quote character, it can be prepended with a "
+"backslash or expressed with the \\e(dq escape sequence."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:118
+msgid ""
+"Subequations can be enclosed in braces to pass them as arguments to "
+"operation keywords, overriding standard operation precedence.  Braces can be "
+"nested.  To set a brace verbatim, it needs to be enclosed in quotes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:134
+msgid ""
+"The following text terms are translated into a rendered glyph, if available: "
+"alpha, beta, chi, delta, epsilon, eta, gamma, iota, kappa, lambda, mu, nu, "
+"omega, omicron, phi, pi, psi, rho, sigma, tau, theta, upsilon, xi, zeta, "
+"DELTA, GAMMA, LAMBDA, OMEGA, PHI, PI, PSI, SIGMA, THETA, UPSILON, XI, inter "
+"(intersection), union (union), prod (product), int (integral), sum "
+"(summation), grad (gradient), del (vector differential), times (multiply), "
+"cdot (center-dot), nothing (zero-width space), approx (approximately "
+"equals), prime (prime), half (one-half), partial (partial differential), inf "
+"(infinity), E<gt>E<gt> (much greater), E<lt>E<lt> (much less), E<lt>\\- "
+"(left arrow), \\-E<gt> (right arrow), +\\- (plus-minus), != (not equal), == "
+"(equivalence), E<lt>= (less-than-equal), and E<gt>= (more-than-equal).  The "
+"character escape sequences documented in E<.Xr mandoc_char 7> can be used, "
+"too."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:136
+msgid "The following control statements are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:137
+#, no-wrap
+msgid "Cm define"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:140
+msgid "Replace all occurrences of a key with a value.  Its syntax is as follows:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:141
+#, no-wrap
+msgid "Cm define Ar key cvalc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:148
+msgid ""
+"The first character of the value string, E<.Ar c>, is used as the delimiter "
+"for the value E<.Ar val>.  This allows for arbitrary enclosure of terms (not "
+"just quotes), such as"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:149
+#, no-wrap
+msgid "Cm define Ar foo \\(aqbar baz\\(aq"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:150
+#, no-wrap
+msgid "Cm define Ar foo cbar bazc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:165
+msgid ""
+"It is an error to have an empty E<.Ar key> or E<.Ar val>.  Note that a "
+"quoted E<.Ar key> causes errors in some E<.Nm> implementations and should "
+"not be considered portable.  It is not expanded for replacements.  "
+"Definitions may refer to other definitions; these are evaluated recursively "
+"when text replacement occurs and not when the definition is created."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:168
+msgid ""
+"Definitions can create arbitrary strings, for example, the following is a "
+"legal construction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:171
+#, no-wrap
+msgid ""
+"define foo \\(aqdefine\\(aq\n"
+"foo bar \\(aqbaz\\(aq\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:181
+msgid ""
+"Self-referencing definitions will raise an error.  The E<.Cm ndefine> "
+"statement is a synonym for E<.Cm define>, while E<.Cm tdefine> is discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:181
+#, no-wrap
+msgid "Cm gfont"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:184
+msgid "Set the default font of subsequent output.  Its syntax is as follows:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:185
+#, no-wrap
+msgid "Cm gfont Ar font"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:188
+msgid "In mandoc, this value is discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:188
+#, no-wrap
+msgid "Cm gsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:191
+msgid "Set the default size of subsequent output.  Its syntax is as follows:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:192
+#, no-wrap
+msgid "Cm gsize Oo +|\\- Oc Ns Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:199
+msgid ""
+"The E<.Ar size> value should be an integer.  If prepended by a sign, the "
+"font size is changed relative to the current size."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:199
+#, no-wrap
+msgid "Cm set"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:203
+msgid ""
+"Set an equation mode.  In mandoc, both arguments are thrown away.  Its "
+"syntax is as follows:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:204
+#, no-wrap
+msgid "Cm set Ar key val"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:212
+msgid ""
+"The E<.Ar key> and E<.Ar val> are not expanded for replacements.  This "
+"statement is a GNU extension."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:212
+#, no-wrap
+msgid "Cm undef"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:215
+msgid "Unset a previously-defined key.  Its syntax is as follows:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:216
+#, no-wrap
+msgid "Cm define Ar key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:225
+msgid ""
+"Once invoked, the definition for E<.Ar key> is discarded.  The E<.Ar key> is "
+"not expanded for replacements.  This statement is a GNU extension."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:228
+msgid "Operation keywords have the following semantics:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:229
+#, no-wrap
+msgid "Cm above"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:232
+msgid "See E<.Cm pile>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:232
+#, no-wrap
+msgid "Cm bar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:234
+msgid "Draw a line over the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:234
+#, no-wrap
+msgid "Cm bold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:236
+msgid "Set the following box using bold font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:236
+#, no-wrap
+msgid "Cm ccol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:241
+msgid "Like E<.Cm cpile>, but for use in E<.Cm matrix>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:241
+#, no-wrap
+msgid "Cm cpile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:245
+msgid "Like E<.Cm pile>, but with slightly increased vertical spacing."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:245
+#, no-wrap
+msgid "Cm dot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:247
+msgid "Set a single dot over the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:247
+#, no-wrap
+msgid "Cm dotdot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:249
+msgid "Set two dots (dieresis) over the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:249
+#, no-wrap
+msgid "Cm dyad"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:251
+msgid "Set a dyad symbol (left-right arrow) over the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:251
+#, no-wrap
+msgid "Cm fat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:254
+msgid "A synonym for E<.Cm bold>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:254
+#, no-wrap
+msgid "Cm font"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:260
+msgid ""
+"Set the second argument using the font specified by the first argument; "
+"currently not recognized by the E<.Xr mandoc 1> E<.Nm> parser."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:260
+#, no-wrap
+msgid "Cm from"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:264
+msgid ""
+"Set the following box below the preceding box, using a slightly smaller "
+"font.  Used for sums, integrals, limits, and the like."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:264
+#, no-wrap
+msgid "Cm hat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:266
+msgid "Set a hat (circumflex) over the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:266
+#, no-wrap
+msgid "Cm italic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:268
+msgid "Set the following box using italic font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:268
+#, no-wrap
+msgid "Cm lcol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:273
+msgid "Like E<.Cm lpile>, but for use in E<.Cm matrix>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:273
+#, no-wrap
+msgid "Cm left"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:280
+msgid ""
+"Set the first argument as a big left delimiter before the second argument.  "
+"As an optional third argument, E<.Cm right> can follow.  In that case, the "
+"fourth argument is set as a big right delimiter after the second argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:280
+#, no-wrap
+msgid "Cm lpile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:284
+msgid "Like E<.Cm cpile>, but subequations are left-justified."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:284
+#, no-wrap
+msgid "Cm matrix"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:296
+msgid ""
+"Followed by a list of columns enclosed in braces.  All columns need to have "
+"the same number of subequations.  The columns are set as a matrix.  The "
+"difference compared to multiple subsequent E<.Cm pile> operators is that in "
+"a E<.Cm matrix>, corresponding subequations in all columns line up "
+"horizontally, while each E<.Cm pile> does vertical spacing independently."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:296
+#, no-wrap
+msgid "Cm over"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:299
+msgid ""
+"Set a fraction.  The preceding box is the numerator, the following box is "
+"the denominator."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:299
+#, no-wrap
+msgid "Cm pile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:306
+msgid ""
+"Followed by a list of subequations enclosed in braces, the subequations "
+"being separated by E<.Cm above> keywords.  Sets the subequations one above "
+"the other, each of them centered.  Typically used to represent vectors in "
+"coordinate representation."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:306
+#, no-wrap
+msgid "Cm rcol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:311
+msgid "Like E<.Cm rpile>, but for use in E<.Cm matrix>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:311
+#, no-wrap
+msgid "Cm right"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:319
+msgid ""
+"See E<.Cm left>; E<.Cm right> cannot be used without E<.Cm left>.  To set a "
+"big right delimiter without a big left delimiter, the following construction "
+"can be used:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:320
+#, no-wrap
+msgid "Cm left No \\(dq\\(dq Ar box Cm right Ar delimiter"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:321
+#, no-wrap
+msgid "Cm roman"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:323
+msgid "Set the following box using the default font."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:323
+#, no-wrap
+msgid "Cm rpile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:327
+msgid "Like E<.Cm cpile>, but subequations are right-justified."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:327
+#, no-wrap
+msgid "Cm size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:333
+msgid ""
+"Set the second argument with the font size specified by the first argument; "
+"currently ignored by E<.Xr mandoc 1>.  By prepending a plus or minus sign to "
+"the first argument, the font size can be selected relative to the current "
+"size."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:333
+#, no-wrap
+msgid "Cm sqrt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:335
+msgid "Set the square root of the following box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:335
+#, no-wrap
+msgid "Cm sub"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:337
+msgid "Set the following box as a subscript to the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:337
+#, no-wrap
+msgid "Cm sup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:344
+msgid ""
+"Set the following box as a superscript to the preceding box.  As a special "
+"case, if a E<.Cm sup> clause immediately follows a E<.Cm sub> clause as in"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:345
+#, no-wrap
+msgid "Ar mainbox Cm sub Ar subbox Cm sup Ar supbox"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:353
+msgid ""
+"both are set with respect to the same E<.Ar mainbox>, that is, E<.Ar supbox> "
+"is set above E<.Ar subbox>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:353
+#, no-wrap
+msgid "Cm tilde"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:355
+msgid "Set a tilde over the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:355
+#, no-wrap
+msgid "Cm to"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:364
+msgid ""
+"Set the following box above the preceding box, using a slightly smaller "
+"font.  Used for sums and integrals and the like.  As a special case, if a "
+"E<.Cm to> clause immediately follows a E<.Cm from> clause as in"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:365
+#, no-wrap
+msgid "Ar mainbox Cm from Ar frombox Cm to Ar tobox"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:369
+msgid "both are set below and above the same E<.Ar mainbox>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:369
+#, no-wrap
+msgid "Cm under"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:371
+msgid "Underline the preceding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/eqn.7:371
+#, no-wrap
+msgid "Cm vec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:373
+msgid "Set a vector symbol (right arrow) over the preceding box."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:382
+msgid ""
+"The binary operations E<.Cm from>, E<.Cm to>, E<.Cm sub>, and E<.Cm sup> "
+"group to the right, that is,"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:383
+#, no-wrap
+msgid "Ar mainbox Cm sup Ar supbox Cm sub Ar subbox"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:386
+msgid "is the same as"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:387
+#, no-wrap
+msgid "Ar mainbox Cm sup Brq Ar supbox Cm sub Ar subbox"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:390
+msgid "and different from"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/mandoc/eqn.7:391
+#, no-wrap
+msgid "Bro Ar mainbox Cm sup Ar supbox Brc Cm sub Ar subbox ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:396
+msgid "By contrast, E<.Cm over> groups to the left."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:399
+msgid ""
+"In the following list, earlier operations bind more tightly than later "
+"operations:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:410
+msgid ""
+"E<.Cm dyad>, E<.Cm vec>, E<.Cm under>, E<.Cm bar>, E<.Cm tilde>, E<.Cm hat>, "
+"E<.Cm dot>, E<.Cm dotdot>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:416
+msgid "E<.Cm fat>, E<.Cm roman>, E<.Cm italic>, E<.Cm bold>, E<.Cm size>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:419
+msgid "E<.Cm sub>, E<.Cm sup>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:421
+msgid "E<.Cm sqrt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:423
+msgid "E<.Cm over>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:426
+msgid "E<.Cm from>, E<.Cm to>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:427
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:433
+msgid ""
+"This section documents the compatibility of mandoc E<.Nm> and the troff "
+"E<.Nm> implementation (including GNU troff)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:440
+msgid ""
+"The text string E<.Sq \\e\\(dq> is interpreted as a literal quote in troff.  "
+"In mandoc, this is interpreted as a comment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:444
+msgid ""
+"In troff, The circumflex and tilde white-space symbols map to fixed-width "
+"spaces.  In mandoc, these characters are synonyms for the space character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:460
+msgid ""
+"The troff implementation of E<.Nm> allows for equation alignment with the "
+"E<.Cm mark> and E<.Cm lineup> tokens.  mandoc discards these tokens.  The "
+"E<.Cm back Ar n>, E<.Cm fwd Ar n>, E<.Cm up Ar n>, and E<.Cm down Ar n> "
+"commands are also ignored."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:461
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:488
+msgid ""
+"E<.Xr mandoc 1>, E<.Xr man 7>, E<.Xr mandoc_char 7>, E<.Xr mdoc 7>, E<.Xr "
+"roff 7> E<.Rs> E<.%A Brian W. Kernighan> E<.%A Lorinda L. Cherry> E<.%T "
+"System for Typesetting Mathematics> E<.%J Communications of the ACM> E<.%V "
+"18> E<.%P 151\\(en157> E<.%D March, 1975> E<.Re> E<.Rs> E<.%A Brian "
+"W. Kernighan> E<.%A Lorinda L. Cherry> E<.%T Typesetting Mathematics, User's "
+"Guide> E<.%D 1976> E<.Re> E<.Rs> E<.%A Brian W. Kernighan> E<.%A Lorinda "
+"L. Cherry> E<.%T Typesetting Mathematics, User's Guide (Second Edition)> "
+"E<.%D 1978> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:488
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:496
+msgid ""
+"The eqn utility, a preprocessor for troff, was originally written by Brian "
+"W. Kernighan and Lorinda L. Cherry in 1975.  The GNU reimplementation of "
+"eqn, part of the GNU troff package, was released in 1989 by James Clark.  "
+"The eqn component of E<.Xr mandoc 1> was added in 2011."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/eqn.7:496
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/eqn.7:500
+msgid ""
+"This E<.Nm> reference was written by E<.An Kristaps Dzonsons Aq Mt "
+"kristaps@bsd.lv>."
+msgstr ""

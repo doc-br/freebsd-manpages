@@ -1,0 +1,343 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/efirt.9:29
+#, no-wrap
+msgid "December 11, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/efirt.9:30
+#, no-wrap
+msgid "EFIRT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/efirt.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:43
+msgid ""
+"E<.Nm efirt>, E<.Nm efi_rt_ok>, E<.Nm efi_get_table>, E<.Nm efi_get_time>, "
+"E<.Nm efi_get_time_capabilities>, E<.Nm efi_reset_system>, E<.Nm "
+"efi_set_time>, E<.Nm efi_var_get>, E<.Nm efi_var_nextname>, E<.Nm "
+"efi_var_set>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/efirt.9:43
+#, no-wrap
+msgid "kernel access to UEFI runtime services"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/efirt.9:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:46
+msgid "E<.Cd \"options EFIRT\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/efirt.9:47
+#, no-wrap
+msgid "sys/efi.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:68
+msgid ""
+"E<.Ft int> E<.Fn efi_rt_ok \"void\"> E<.Ft int> E<.Fn efi_get_table \"struct "
+"uuid *uuid\" \"void **ptr\"> E<.Ft int> E<.Fn efi_get_time \"struct efi_tm "
+"*tm\"> E<.Ft int> E<.Fn efi_get_time_capabilities \"struct efi_tmcap "
+"*tmcap\"> E<.Ft int> E<.Fn efi_reset_system \"enum efi_reset type\"> E<.Ft "
+"int> E<.Fn efi_set_time \"struct efi_tm *tm\"> E<.Ft int> E<.Fn efi_var_get "
+"\"uint16_t *name\" \"struct uuid *vendor\" \"uint32_t *attrib\" \"size_t "
+"*datasize\" \"void *data\"> E<.Ft int> E<.Fn efi_var_nextname \"size_t "
+"*namesize\" \"uint16_t *name\" \"struct uuid *vendor\"> E<.Ft int> E<.Fn "
+"efi_var_set \"uint16_t *name\" \"struct uuid *vendor\" \"uint32_t *attrib\" "
+"\"size_t *datasize\" \"void *data\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/efirt.9:68
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:74
+msgid ""
+"All of the following calls will return E<.Dv ENXIO> if UEFI runtime services "
+"are not available.  E<.Nm> is currently only available on amd64 and arm64."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:80
+msgid ""
+"The E<.Fn efi_rt_ok> Returns 0 if UEFI runtime services are present and "
+"functional, or E<.Dv ENXIO> if not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:91
+msgid ""
+"The E<.Fn efi_get_table> function gets a table by uuid from the UEFI system "
+"table.  Returns 0 if the table was found and populates *ptr with the "
+"address.  Returns E<.Dv ENXIO> if the configuration table or system table "
+"are unset.  Returns E<.Dv ENOENT> if the requested table cannot be found."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:107
+msgid ""
+"The E<.Fn efi_get_time> function gets the current time from the RTC, if "
+"available.  Returns 0 and populates the E<.Vt struct efi_tm> on success.  "
+"Returns E<.Dv EINVAL> if the E<.Vt struct efi_tm> is E<.Dv NULL>, or E<.Dv "
+"EIO> if the time could not be retrieved due to a hardware error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:123
+msgid ""
+"The E<.Fn efi_get_time_capabilities> function gets the capabilities from the "
+"RTC.  Returns 0 and populates the E<.Vt struct efi_tmcap> on success.  "
+"Returns E<.Dv EINVAL> if the E<.Vt struct efi_tm> is E<.Dv NULL>, or E<.Dv "
+"EIO> if the time could not be retrieved due to a hardware error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:132
+msgid ""
+"The E<.Fn efi_reset_system> function requests a reset of the system.  The "
+"E<.Fa type> argument may be one of the E<.Vt enum efi_reset> values:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:133
+#, no-wrap
+msgid "Dv EFI_RESET_COLD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:135
+msgid "Perform a cold reset of the system, and reboot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:135
+#, no-wrap
+msgid "Dv EFI_RESET_WARM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:137
+msgid "Perform a warm reset of the system, and reboot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:137
+#, no-wrap
+msgid "Dv EFI_RESET_SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:139
+msgid "Power off the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:151
+msgid ""
+"The E<.Fn efi_set_time> function sets the time on the RTC to the time "
+"described by the E<.Vt struct efi_tm> passed in.  Returns 0 on success, "
+"E<.Dv EINVAL> if a time field is out of range, or E<.Dv EIO> if the time "
+"could not be set due to a hardware error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:165
+msgid ""
+"The E<.Fn efi_var_get> function fetches the variable identified by E<.Fa "
+"vendor> and E<.Fa name>.  Returns 0 and populates E<.Fa attrib>, E<.Fa "
+"datasize>, and E<.Fa data> on success.  Otherwise, one of the following "
+"errors are returned:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:166 /usr/src/share/man/man9/efirt.9:213 /usr/src/share/man/man9/efirt.9:256
+#, no-wrap
+msgid "Dv ENOENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:168
+msgid "The variable was not found."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:168 /usr/src/share/man/man9/efirt.9:215
+#, no-wrap
+msgid "Dv EOVERFLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:173 /usr/src/share/man/man9/efirt.9:220
+msgid ""
+"E<.Fa datasize> is not sufficient to hold the variable data.  E<.Fa "
+"namesize> is updated to reflect the size needed to complete the request."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:173 /usr/src/share/man/man9/efirt.9:220 /usr/src/share/man/man9/efirt.9:240
+#, no-wrap
+msgid "Dv EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:185
+msgid ""
+"One of E<.Fa name>, E<.Fa vendor>, or E<.Fa datasize> are NULL.  "
+"Alternatively, E<.Fa datasize> is large enough to hold the response but "
+"E<.Fa data> is NULL."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:185 /usr/src/share/man/man9/efirt.9:227 /usr/src/share/man/man9/efirt.9:250
+#, no-wrap
+msgid "Dv EIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:187 /usr/src/share/man/man9/efirt.9:229
+msgid "The variable could not be retrieved due to a hardware error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:187 /usr/src/share/man/man9/efirt.9:254
+#, no-wrap
+msgid "Dv EDOOFUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:189
+msgid "The variable could not be retireved due to an authentication failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:212
+msgid ""
+"The E<.Fn efi_var_nextname> function is used for enumeration of variables.  "
+"On the initial call to E<.Fn efi_var_nextname>, E<.Fa name> should be an "
+"empty string.  Subsequent calls should pass in the last E<.Fa name> and "
+"E<.Fa vendor> returned until E<.Dv ENOENT> is returned.  Returns 0 and "
+"populates E<.Fa namesize>, E<.Fa name>, and E<.Fa vendor> with the next "
+"variable's data.  Otherwise, returns one of the following errors:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:215
+msgid "The next variable was not found."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:227
+msgid "One of E<.Fa name>, E<.Fa vendor>, or E<.Fa datasize> are NULL."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:239
+msgid ""
+"The E<.Fn efi_var_set> function sets the variable described by E<.Fa name> "
+"and E<.Fa vendor>.  Returns 0 if the variable has been successfully.  "
+"Otherwise, returns one of the following errors:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:248
+msgid ""
+"Either E<.Fa attrib> was an invalid combination of attributes, E<.Fa "
+"datasize> exceeds the maximum allowed size, or E<.Fa name> is an empty "
+"Unicode stirng."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:248
+#, no-wrap
+msgid "Dv EAGAIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:250
+msgid "Not enough storage is available to hold the variable and its data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:252
+msgid "The variable could not be saved due to a hardware error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/efirt.9:252
+#, no-wrap
+msgid "Dv EROFS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:254
+msgid "The variable in question is read-only or may not be deleted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:256
+msgid "The variable could not be set due to an authentication failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:258
+msgid "The variable trying to be updated or deleted was not found."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/efirt.9:259
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:261
+msgid "E<.Xr efidev 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/efirt.9:261
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/efirt.9:263
+msgid "This manual page was written by E<.An Kyle Evans Aq Mt kevans@FreeBSD.org>."
+msgstr ""

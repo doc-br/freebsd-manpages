@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/module.9:31
+#, no-wrap
+msgid "February 12, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/module.9:32
+#, no-wrap
+msgid "MODULE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/module.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:36
+msgid "E<.Nm module>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/module.9:36
+#, no-wrap
+msgid "structure describing a kernel module"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/module.9:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:45
+msgid ""
+"Each module in the kernel is described by a E<.Vt module_t> structure.  The "
+"structure contains the name of the device, a unique ID number, a pointer to "
+"an event handler function and to an argument, which is given to the event "
+"handler, as well as some kernel internal data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:50
+msgid "The E<.Xr DECLARE_MODULE 9> macro registers the module with the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:56
+msgid ""
+"When the module is loaded, the event handler function is called with the "
+"E<.Fa what> argument set to E<.Dv MOD_LOAD>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:63
+msgid ""
+"On unload it is first called with E<.Fa what> set to E<.Dv MOD_QUIESCE>.  If "
+"the unload was not forced, a non-zero return will prevent the unload from "
+"happening."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:69
+msgid ""
+"If the unload continues E<.Fa what> is set to E<.Dv MOD_UNLOAD>.  If the "
+"module returns non-zero to this, the unload will not happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:80
+msgid ""
+"The difference between E<.Dv MOD_QUIESCE> and E<.Dv MOD_UNLOAD> is that the "
+"module should fail E<.Dv MOD_QUIESCE> if it is currently in use, whereas "
+"E<.Dv MOD_UNLOAD> should only fail if it is impossible to unload the module, "
+"for instance because there are memory references to the module which cannot "
+"be revoked."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:85
+msgid ""
+"When the system is shutting down, E<.Fa what> contains the value of E<.Dv "
+"MOD_SHUTDOWN>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:90
+msgid ""
+"The module should return E<.Er EOPNOTSUPP> for unsupported and unrecognized "
+"values of E<.Fa what>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/module.9:90
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:95
+#, no-wrap
+msgid ""
+"#include E<lt>sys/param.hE<gt>\n"
+"#include E<lt>sys/kernel.hE<gt>\n"
+"#include E<lt>sys/module.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:98
+#, no-wrap
+msgid ""
+"static int foo_handler(module_t mod, int /*modeventtype_t*/ what,\n"
+"                       void *arg);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:104
+#, no-wrap
+msgid ""
+"static moduledata_t mod_data= {\n"
+"        \"foo\",\n"
+"        foo_handler,\n"
+"\tNULL\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:107
+#, no-wrap
+msgid ""
+"MODULE_VERSION(foo, 1);\n"
+"MODULE_DEPEND(foo, bar, 1, 3, 4);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:109
+#, no-wrap
+msgid "DECLARE_MODULE(foo, mod_data, SI_SUB_EXEC, SI_ORDER_ANY);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/module.9:110
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:118
+msgid ""
+"E<.Xr DECLARE_MODULE 9>, E<.Xr DEV_MODULE 9>, E<.Xr DRIVER_MODULE 9>, E<.Xr "
+"MODULE_DEPEND 9>, E<.Xr MODULE_PNP_INFO 9>, E<.Xr MODULE_VERSION 9>, E<.Xr "
+"SYSCALL_MODULE 9>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:120
+msgid "E<.Pa /usr/share/examples/kld>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/module.9:120
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/module.9:122
+msgid ""
+"This manual page was written by E<.An Alexander Langer Aq Mt "
+"alex@FreeBSD.org>."
+msgstr ""

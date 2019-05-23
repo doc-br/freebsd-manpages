@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/efidev.4:29
+#, no-wrap
+msgid "August 12, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/efidev.4:30
+#, no-wrap
+msgid "EFIDEV 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:35
+msgid "E<.Nm efidev>, E<.Nm efirtc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/efidev.4:35
+#, no-wrap
+msgid "user-mode access to UEFI runtime services"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:39
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:41
+#, no-wrap
+msgid "E<.Cd \"options EFIRT\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:46
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:48
+#, no-wrap
+msgid "efirt_load=\"YES\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:56
+msgid ""
+"The driver may be disabled by setting the E<.Xr loader 8> tunable E<.Va "
+"efi.rt.disabled> to E<.Dq Li 1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:56
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:66
+msgid ""
+"The E<.Nm> device provides user-mode access to UEFI runtime services.  "
+"E<.Nm> also includes a driver to provide a time-of-day clock using the UEFI "
+"real time clock (RTC).  However, the RTC may not always be available, based "
+"on the UEFI firmware.  If the RTC is not available, it will not be "
+"registered as a time-of-day clock and the time related ioctls below will not "
+"be functional."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:69
+msgid "E<.Nm> provides the following ioctls defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/efidev.4:69
+#, no-wrap
+msgid "sys/efiio.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:71
+msgid "with supplemental structures and constants defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/efidev.4:71
+#, no-wrap
+msgid "sys/efi.h :"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:73
+#, no-wrap
+msgid "Dv EFIIOC_GET_TABLE Pq Vt \"struct efi_get_table_ioc\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:75
+msgid "Get a table by uuid from the UEFI system table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:80
+#, no-wrap
+msgid ""
+"struct efi_get_table_ioc {\n"
+"\tstruct uuid uuid;\n"
+"\tvoid *ptr;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:81
+#, no-wrap
+msgid "Dv EFIIOC_GET_TIME Pq Vt \"struct efi_tm\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:86
+msgid ""
+"Get the time from the RTC, if the RTC is available.  The E<.Vt struct "
+"efi_tm> passed is populated with the current time, unless an error occurs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:100
+#, no-wrap
+msgid ""
+"struct efi_tm {\n"
+"\tuint16_t\ttm_year;\n"
+"\tuint8_t\t\ttm_mon\n"
+"\tuint8_t\t\ttm_mday\n"
+"\tuint8_t\t\ttm_hour;\n"
+"\tuint8_t\t\ttm_min;\n"
+"\tuint8_t\t\ttm_sec;\n"
+"\tuint8_t\t\t __pad1;\n"
+"\tuint32_t\ttm_nsec;\n"
+"\tint16_t\t\ttm_tz;\n"
+"\tuint8_t\t\ttm_dst;\n"
+"\tuint8_t\t\t__pad2;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:101
+#, no-wrap
+msgid "Dv EFIIOC_SET_TIME Pq Vt \"struct efi_tm\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:103
+msgid "Sets the time stored by the RTC, if the RTC is available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:103
+#, no-wrap
+msgid "Dv EFIIOC_VAR_GET Pq Vt \"struct efi_var_ioc\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:113
+msgid ""
+"Gets data from the variable described by the vendor and name fields of the "
+"E<.Vt struct efi_var_ioc> into the E<.Fa data> field.  E<.Dv EFIIOC_VAR_GET "
+"Pq Vt \"struct efi_var_ioc\"> will also populate the E<.Fa attrib> field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:122
+#, no-wrap
+msgid ""
+"struct efi_var_ioc {\n"
+"\tefi_char\t*name;\n"
+"\tsize_t\t\t namesize;\n"
+"\tstruct uuid\t vendor;\n"
+"\tuint32_t\t attrib;\n"
+"\tvoid\t\t*data;\n"
+"\tsize_t\t\t datasize;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:123
+#, no-wrap
+msgid "Dv EFIIOC_VAR_NEXT Pq Vt \"struct efi_var_ioc\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:128
+msgid ""
+"Used for enumerating all UEFI variables.  The initial call should use an "
+"empty string for the name attribute.  Subsequent calls should supply the "
+"vendor uuid and name of the last variable returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:128
+#, no-wrap
+msgid "Dv EFIIOC_VAR_SET Pq Vt \"struct efi_var_ioc\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:132
+msgid ""
+"Sets data and attributes for the variable described by the name and vendor "
+"in the E<.Vt struct efi_var_ioc>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:133
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/efidev.4:135
+#, no-wrap
+msgid "Pa /dev/efi"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:137
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:140
+msgid "E<.Xr efivar 3>, E<.Xr efirt 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:140
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:145
+msgid "A E<.Nm> device first appeared in E<.Fx 11.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/efidev.4:145
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/efidev.4:147
+msgid "E<.Nm> is currently only available on amd64 and arm64."
+msgstr ""

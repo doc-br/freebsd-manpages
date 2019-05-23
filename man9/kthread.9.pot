@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/kthread.9:28
+#, no-wrap
+msgid "July 15, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/kthread.9:29
+#, no-wrap
+msgid "KTHREAD 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:39
+msgid ""
+"E<.Nm kthread_start>, E<.Nm kthread_shutdown>, E<.Nm kthread_add>, E<.Nm "
+"kthread_exit>, E<.Nm kthread_resume>, E<.Nm kthread_suspend>, E<.Nm "
+"kthread_suspend_check>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/kthread.9:39
+#, no-wrap
+msgid "kernel threads"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/kthread.9:41
+#, no-wrap
+msgid "sys/kthread.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:54
+msgid ""
+"E<.Ft void> E<.Fn kthread_start \"const void *udata\"> E<.Ft void> E<.Fn "
+"kthread_shutdown \"void *arg\" \"int howto\"> E<.Ft void> E<.Fn kthread_exit "
+"\"void\"> E<.Ft int> E<.Fn kthread_resume \"struct thread *td\"> E<.Ft int> "
+"E<.Fn kthread_suspend \"struct thread *td\" \"int timo\"> E<.Ft void> E<.Fn "
+"kthread_suspend_check \"void\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/kthread.9:54
+#, no-wrap
+msgid "sys/unistd.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:67
+msgid ""
+"E<.Ft int> E<.Fo kthread_add> E<.Fa \"void (*func)(void *)\" \"void *arg\" "
+"\"struct proc *procp\"> E<.Fa \"struct thread **newtdpp\" \"int flags\" "
+"\"int pages\"> E<.Fa \"const char *fmt\" ...> E<.Fc> E<.Ft int> E<.Fo "
+"kproc_kthread_add> E<.Fa \"void (*func)(void *)\" \"void *arg\"> E<.Fa "
+"\"struct proc **procptr\" \"struct thread **tdptr\"> E<.Fa \"int flags\" "
+"\"int pages\" \"char * procname\" \"const char *fmt\" \"...\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:67
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:88
+msgid ""
+"In E<.Fx 8.0>, the older family of E<.Fn kthread_* 9> functions was renamed "
+"to be the E<.Fn kproc_* 9> family of functions, as they were previously "
+"misnamed and actually produced kernel processes.  This new family of E<.Fn "
+"kthread_* 9> functions was added to produce E<.Em real> kernel threads.  See "
+"the E<.Xr kproc 9> man page for more information on the renamed calls.  Also "
+"note that the E<.Fn kproc_kthread_add 9> function appears in both pages as "
+"its functionality is split."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:105
+msgid ""
+"The function E<.Fn kthread_start> is used to start E<.Dq internal> daemons "
+"such as E<.Nm bufdaemon , pagedaemon , vmdaemon>, and the E<.Nm syncer> and "
+"is intended to be called from E<.Xr SYSINIT 9>.  The E<.Fa udata> argument "
+"is actually a pointer to a E<.Vt \"struct kthread_desc\"> which describes "
+"the kernel thread that should be created:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:111
+#, no-wrap
+msgid ""
+"struct kthread_desc {\n"
+"\tchar\t\t*arg0;\n"
+"\tvoid\t\t(*func)(void);\n"
+"\tstruct thread\t**global_threadpp;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:116
+msgid "The structure members are used by E<.Fn kthread_start> as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kthread.9:117
+#, no-wrap
+msgid "Va arg0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:123
+msgid ""
+"String to be used for the name of the thread.  This string will be copied "
+"into the E<.Va td_name> member of the new threads' E<.Vt \"struct thread\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kthread.9:123
+#, no-wrap
+msgid "Va func"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:125
+msgid "The main function for this kernel thread to run."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kthread.9:125
+#, no-wrap
+msgid "Va global_threadpp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:137
+msgid ""
+"A pointer to a E<.Vt \"struct thread\"> pointer that should be updated to "
+"point to the newly created thread's E<.Vt thread> structure.  If this "
+"variable is E<.Dv NULL>, then it is ignored.  The thread will be a subthread "
+"of E<.Va proc0> (PID 0)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:184
+msgid ""
+"The E<.Fn kthread_add> function is used to create a kernel thread.  The new "
+"thread runs in kernel mode only.  It is added to the process specified by "
+"the E<.Fa procp> argument, or if that is E<.Dv NULL>, to E<.Va proc0>.  The "
+"E<.Fa func> argument specifies the function that the thread should execute.  "
+"The E<.Fa arg> argument is an arbitrary pointer that is passed in as the "
+"only argument to E<.Fa func> when it is called by the new thread.  The E<.Fa "
+"newtdpp> pointer points to a E<.Vt \"struct thread\"> pointer that is to be "
+"updated to point to the newly created thread.  If this argument is E<.Dv "
+"NULL>, then it is ignored.  The E<.Fa flags> argument may be set to E<.Dv "
+"RFSTOPPED> to leave the thread in a stopped state.  The caller must call "
+"E<.Fn sched_add> to start the thread.  The E<.Fa pages> argument specifies "
+"the size of the new kernel thread's stack in pages.  If 0 is used, the "
+"default kernel stack size is allocated.  The rest of the arguments form a "
+"E<.Xr printf 9> argument list that is used to build the name of the new "
+"thread and is stored in the E<.Va td_name> member of the new thread's E<.Vt "
+"\"struct thread\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:194
+msgid ""
+"The E<.Fn kproc_kthread_add> function is much like the E<.Fn kthread_add> "
+"function above except that if the kproc does not already exist, it is "
+"created.  This function is better documented in the E<.Xr kproc 9> manual "
+"page."
+msgstr ""
+
+#.  XXX "int ecode" argument isn't documented.
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:201
+msgid ""
+"The E<.Fn kthread_exit> function is used to terminate kernel threads.  It "
+"should be called by the main function of the kernel thread rather than "
+"letting the main function return to its caller."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:230
+msgid ""
+"The E<.Fn kthread_resume>, E<.Fn kthread_suspend>, and E<.Fn "
+"kthread_suspend_check> functions are used to suspend and resume a kernel "
+"thread.  During the main loop of its execution, a kernel thread that wishes "
+"to allow itself to be suspended should call E<.Fn kthread_suspend_check> in "
+"order to check if the it has been asked to suspend.  If it has, it will "
+"E<.Xr msleep 9> until it is told to resume.  Once it has been told to resume "
+"it will return allowing execution of the kernel thread to continue.  The "
+"other two functions are used to notify a kernel thread of a suspend or "
+"resume request.  The E<.Fa td> argument points to the E<.Vt \"struct "
+"thread\"> of the kernel thread to suspend or resume.  For E<.Fn "
+"kthread_suspend>, the E<.Fa timo> argument specifies a timeout to wait for "
+"the kernel thread to acknowledge the suspend request and suspend itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:238
+msgid ""
+"The E<.Fn kthread_shutdown> function is meant to be registered as a shutdown "
+"event for kernel threads that need to be suspended voluntarily during system "
+"shutdown so as not to interfere with system shutdown activities.  The actual "
+"suspension of the kernel thread is done with E<.Fn kthread_suspend>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:238
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:245
+msgid ""
+"The E<.Fn kthread_add>, E<.Fn kthread_resume>, and E<.Fn kthread_suspend> "
+"functions return zero on success and non-zero on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:245
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:256
+msgid ""
+"This example demonstrates the use of a E<.Vt \"struct kthread_desc\"> and "
+"the functions E<.Fn kthread_start>, E<.Fn kthread_shutdown>, and E<.Fn "
+"kthread_suspend_check> to run the E<.Nm bufdaemon> process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:258
+#, no-wrap
+msgid "static struct thread *bufdaemonthread;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:266
+#, no-wrap
+msgid ""
+"static struct kthread_desc buf_kp = {\n"
+"\t\"bufdaemon\",\n"
+"\tbuf_daemon,\n"
+"\t&bufdaemonthread\n"
+"};\n"
+"SYSINIT(bufdaemon, SI_SUB_KTHREAD_BUF, SI_ORDER_FIRST, kthread_start,\n"
+"    &buf_kp)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:282
+#, no-wrap
+msgid ""
+"static void\n"
+"buf_daemon()\n"
+"{\n"
+"\t...\n"
+"\t/*\n"
+"\t * This process needs to be suspended prior to shutdown sync.\n"
+"\t */\n"
+"\tEVENTHANDLER_REGISTER(shutdown_pre_sync, kthread_shutdown,\n"
+"\t    bufdaemonthread, SHUTDOWN_PRI_LAST);\n"
+"\t...\n"
+"\tfor (;;) {\n"
+"\t\tkthread_suspend_check();\n"
+"\t\t...\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:283
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:289
+msgid "The E<.Fn kthread_resume> and E<.Fn kthread_suspend> functions will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kthread.9:290
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:294
+msgid "The E<.Fa td> argument does not reference a kernel thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:299
+msgid "The E<.Fn kthread_add> function will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kthread.9:300
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:302
+msgid "Memory for a thread's stack could not be allocated."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:303
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:307
+msgid "E<.Xr kproc 9>, E<.Xr SYSINIT 9>, E<.Xr wakeup 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kthread.9:307
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kthread.9:349
+msgid ""
+"The E<.Fn kthread_start> function first appeared in E<.Fx 2.2> where it "
+"created a whole process.  It was converted to create threads in E<.Fx 8.0>.  "
+"The E<.Fn kthread_shutdown>, E<.Fn kthread_exit>, E<.Fn kthread_resume>, "
+"E<.Fn kthread_suspend>, and E<.Fn kthread_suspend_check> functions were "
+"introduced in E<.Fx 4.0> and were converted to threads in E<.Fx 8.0>.  The "
+"E<.Fn kthread_create> call was renamed to E<.Fn kthread_add> in E<.Fx 8.0>.  "
+"The old functionality of creating a kernel process was renamed to E<.Xr "
+"kproc_create 9>.  Prior to E<.Fx 5.0>, the E<.Fn kthread_shutdown>, E<.Fn "
+"kthread_resume>, E<.Fn kthread_suspend>, and E<.Fn kthread_suspend_check> "
+"functions were named E<.Fn shutdown_kproc>, E<.Fn resume_kproc>, E<.Fn "
+"shutdown_kproc>, and E<.Fn kproc_suspend_loop>, respectively."
+msgstr ""

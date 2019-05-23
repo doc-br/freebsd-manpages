@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/tmpfs.5:56
+#, no-wrap
+msgid "September 8, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/tmpfs.5:57
+#, no-wrap
+msgid "TMPFS 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:59
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:61
+msgid "E<.Nm tmpfs>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/tmpfs.5:61
+#, no-wrap
+msgid "in-memory file system"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:62
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:66
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:68
+#, no-wrap
+msgid "E<.Cd \"options TMPFS\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:73
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:75
+#, no-wrap
+msgid "tmpfs_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:76
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:89
+msgid ""
+"The E<.Nm> driver implements an in-memory, or E<.Tn tmpfs> file system.  The "
+"filesystem stores both file metadata and data in main memory.  This allows "
+"very fast and low latency accesses to the data.  The data is volatile.  An "
+"umount or system reboot invalidates it.  These properties make the "
+"filesystem's mounts suitable for fast scratch storage, like E<.Pa /tmp>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:98
+msgid ""
+"If the system becomes low on memory and swap is configured (see E<.Xr swapon "
+"8 ),> the system can transfer file data to swap space, freeing memory for "
+"other needs.  Metadata, including the directory content, is never swapped "
+"out by the current implementation.  Keep this in mind when planning the "
+"mount limits, especially when expecting to place many small files on a tmpfs "
+"mount."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:107
+msgid ""
+"When E<.Xr mmap 2> is used on a file from a tmpfs mount, the swap VM object "
+"managing the file pages is used to implement mapping and avoid "
+"double-copying of the file data.  This quirk causes process inspection "
+"tools, like E<.Xr procstat 1>, to report anonymous memory mappings instead "
+"of file mappings."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:107
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:112
+msgid "The following options are available when mounting E<.Nm> file systems:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:113
+#, no-wrap
+msgid "Cm gid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:116
+msgid ""
+"Specifies the group ID of the root inode of the file system.  Defaults to "
+"the mount point's GID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:116
+#, no-wrap
+msgid "Cm uid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:119
+msgid ""
+"Specifies the user ID of the root inode of the file system.  Defaults to the "
+"mount point's UID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:119
+#, no-wrap
+msgid "Cm mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:122
+msgid ""
+"Specifies the mode (in octal notation) of the root inode of the file "
+"system.  Defaults to the mount point's mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:122
+#, no-wrap
+msgid "Cm nonc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:126
+msgid ""
+"Do not use namecache to resolve names to files for the created mount.  This "
+"saves memory, but currently might impair scalability for highly used mounts "
+"on large machines."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:126
+#, no-wrap
+msgid "Cm inodes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:132
+msgid ""
+"Specifies the maximum number of nodes available to the file system.  If not "
+"specified, the file system chooses a reasonable maximum based on the file "
+"system size, which can be limited with the E<.Cm size> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:132
+#, no-wrap
+msgid "Cm size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:139
+msgid ""
+"Specifies the total file system size in bytes, unless suffixed with one of "
+"k, m, g, t, or p, which denote byte, kilobyte, megabyte, gigabyte, terabyte "
+"and petabyte respectively.  If zero (the default) or a value larger than "
+"SIZE_MAX - PAGE_SIZE is given, the available amount of memory (including "
+"main memory and swap space) will be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/tmpfs.5:139
+#, no-wrap
+msgid "Cm maxfilesize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:142
+msgid ""
+"Specifies the maximum file size in bytes.  Defaults to the maximum possible "
+"value."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:143
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:147
+msgid "To mount a E<.Nm> memory file system:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/tmpfs.5:148
+#, no-wrap
+msgid "mount -t tmpfs tmpfs /tmp"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:149
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:159
+msgid ""
+"E<.Xr procstat 1>, E<.Xr mmap 2>, E<.Xr nmount 2>, E<.Xr unmount 2>, E<.Xr "
+"fstab 5>, E<.Xr mdmfs 8>, E<.Xr mount 8>, E<.Xr swapinfo 8>, E<.Xr swapon 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:159
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:164
+msgid "The E<.Nm> driver first appeared in E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/tmpfs.5:164
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:171
+msgid ""
+"E<.An -nosplit> The E<.Nm> kernel implementation was written by E<.An Julio "
+"M. Merino Vidal Aq Mt jmmv@NetBSD.org> as a Google Summer of Code project."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:177
+msgid "E<.An Rohit Jalan> and others ported it from E<.Nx> to E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/tmpfs.5:179
+msgid "This manual page was written by E<.An Xin LI Aq Mt delphij@FreeBSD.org>."
+msgstr ""

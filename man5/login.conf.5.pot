@@ -1,0 +1,1142 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/lib/libutil/login.conf.5:22
+#, no-wrap
+msgid "July 8, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/lib/libutil/login.conf.5:23
+#, no-wrap
+msgid "LOGIN.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:25
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:27
+msgid "E<.Nm login.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/lib/libutil/login.conf.5:27
+#, no-wrap
+msgid "login class capability database"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:28
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:31
+msgid "E<.Pa /etc/login.conf>, E<.Pa ~/.login_conf>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:31
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:44
+msgid ""
+"E<.Nm> contains various attributes and capabilities of login classes.  A "
+"login class (an optional annotation against each record in the user account "
+"database, E<.Pa /etc/master.passwd>)  determines session accounting, "
+"resource limits and user environment settings.  It is used by various "
+"programs in the system to set up a user's login environment and to enforce "
+"policy, accounting and administrative restrictions.  It also provides the "
+"means by which users are able to be authenticated to the system and the "
+"types of authentication available.  Attributes in addition to the ones "
+"described here are available with third-party packages."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:52
+msgid ""
+"A special record \"default\" in the system user class capability database "
+"E<.Pa /etc/login.conf> is used automatically for any non-root user without a "
+"valid login class in E<.Pa /etc/master.passwd>.  A user with a uid of 0 "
+"without a valid login class will use the record \"root\" if it exists, or "
+"\"default\" if not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:63
+msgid ""
+"Users may individually create a file called E<.Pa .login_conf> in their home "
+"directory using the same format, consisting of a single entry with a record "
+"id of \"me\".  If present, this file is used by E<.Xr login 1> to set "
+"user-defined environment settings which override those specified in the "
+"system login capabilities database.  Only a subset of login capabilities may "
+"be overridden, typically those which do not involve authentication, resource "
+"limits and accounting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:74
+msgid ""
+"Records in a class capabilities database consist of a number of "
+"colon-separated fields.  The first entry for each record gives one or more "
+"names that a record is to be known by, each separated by a '|' character.  "
+"The first name is the most common abbreviation.  The last name given should "
+"be a long name that is more descriptive of the capability entry, and all "
+"others are synonyms.  All names but the last should be in lower case and "
+"contain no blanks; the last name may contain upper case characters and "
+"blanks for readability."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:81
+msgid ""
+"Note that since a colon E<.Pq Ql :\\&> is used to separate capability "
+"entries, a E<.Ql \\ec> escape sequence must be used to embed a literal colon "
+"in the value or name of a capability."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:100
+msgid ""
+"The default E<.Pa /etc/login.conf> shipped with E<.Fx> is an out of the box "
+"configuration.  Whenever changes to this, or the user's E<.Pa "
+"~/.login_conf>, file are made, the modifications will not be picked up until "
+"E<.Xr cap_mkdb 1> is used to compile the file into a database.  This "
+"database file will have a E<.Pa .db> extension and is accessed through E<.Xr "
+"cgetent 3>.  See E<.Xr getcap 3> for a more in-depth description of the "
+"format of a capability database."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:100
+#, no-wrap
+msgid "CAPABILITIES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:110
+msgid ""
+"Fields within each record in the database follow the E<.Xr getcap 3> "
+"conventions for boolean, type string E<.Ql \\&=> and type numeric E<.Ql "
+"\\&#>, although type numeric is deprecated in favour of the string format "
+"and either form is accepted for a numeric datum.  Values fall into the "
+"following categories:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:111
+#, no-wrap
+msgid "bool"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:114
+msgid ""
+"If the name is present, then the boolean value is true; otherwise, it is "
+"false"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:114
+#, no-wrap
+msgid "file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:116
+msgid "Path name to a data file"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:116
+#, no-wrap
+msgid "program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:118
+msgid "Path name to an executable file"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:118
+#, no-wrap
+msgid "list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:120
+msgid "A list of values (or pairs of values) separated by commas or spaces"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:120
+#, no-wrap
+msgid "path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:124
+msgid ""
+"A space or comma separated list of path names, following the usual csh "
+"conventions (leading tilde with and without username being expanded to home "
+"directories etc.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:124
+#, no-wrap
+msgid "number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:134
+msgid ""
+"A numeric value, either decimal (default), hexadecimal (with leading 0x), or "
+"octal (with a leading 0).  With a numeric type, only one numeric value is "
+"allowed.  Numeric types may also be specified in string format (i.e., the "
+"capability tag being delimited from the value by '=' instead of '#').  "
+"Whichever method is used, then all records in the database must use the same "
+"method to allow values to be correctly overridden in interpolated records.  "
+"A numeric value may be infinite."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:134
+#, no-wrap
+msgid "size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:138
+msgid ""
+"A number which expresses a size.  The default interpretation of a value is "
+"the number of bytes, but a suffix may specify alternate units:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:139
+#, no-wrap
+msgid "b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:141
+msgid "explicitly selects 512-byte blocks"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:141
+#, no-wrap
+msgid "k"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:143
+msgid "selects kilobytes (1024 bytes)"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:143 /usr/src/lib/libutil/login.conf.5:165
+#, no-wrap
+msgid "m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:145
+msgid "specifies a multiplier of 1 megabyte (1048576 bytes),"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:145
+#, no-wrap
+msgid "g"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:147
+msgid "specifies units of gigabytes, and"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:147
+#, no-wrap
+msgid "t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:149
+msgid "represents terabytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:153
+msgid ""
+"A size value is a numeric quantity and case of the suffix is not "
+"significant.  Concatenated values are added together.  A size value may be "
+"infinite."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:153
+#, no-wrap
+msgid "time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:156
+msgid ""
+"A period of time, by default in seconds.  A prefix may specify a different "
+"unit:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:157
+#, no-wrap
+msgid "y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:159
+msgid "indicates the number of 365 day years,"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:159
+#, no-wrap
+msgid "w"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:161
+msgid "indicates the number of weeks,"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:161
+#, no-wrap
+msgid "d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:163
+msgid "the number of days,"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:163
+#, no-wrap
+msgid "h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:165
+msgid "the number of hours,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:167
+msgid "the number of minutes, and"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:167
+#, no-wrap
+msgid "s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:169
+msgid "the number of seconds."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:174
+msgid ""
+"Concatenated values are added together.  For example, 2 hours and 40 minutes "
+"may be written either as 9600s, 160m or 2h40m.  A time value may be "
+"infinite."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:182
+msgid ""
+"E<.Dq infinity>, E<.Dq inf>, E<.Dq unlimited>, E<.Dq unlimit,> and -1 are "
+"considered infinite values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:186
+msgid ""
+"The usual convention to interpolate capability entries using the special "
+"E<.Em tc=value> notation may be used."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:186
+#, no-wrap
+msgid "RESOURCE LIMITS"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:188 /usr/src/lib/libutil/login.conf.5:214 /usr/src/lib/libutil/login.conf.5:262 /usr/src/lib/libutil/login.conf.5:403
+#, no-wrap
+msgid "Sy \"Name\tType\tNotes\tDescription\""
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:189
+#, no-wrap
+msgid "coredumpsize\tsize\t\tMaximum coredump size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:190
+#, no-wrap
+msgid "cputime\ttime\t\tCPU usage limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:191
+#, no-wrap
+msgid "datasize\tsize\t\tMaximum data size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:192
+#, no-wrap
+msgid "filesize\tsize\t\tMaximum file size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:193
+#, no-wrap
+msgid "maxproc\tnumber\t\tMaximum number of processes."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:194
+#, no-wrap
+msgid "memorylocked\tsize\t\tMaximum locked in core memory size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:195
+#, no-wrap
+msgid "memoryuse\tsize\t\tMaximum of core memory use size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:196
+#, no-wrap
+msgid "openfiles\tnumber\t\tMaximum number of open files per process."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:197
+#, no-wrap
+msgid "sbsize\tsize\t\tMaximum permitted socketbuffer size."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:198
+#, no-wrap
+msgid "vmemoryuse\tsize\t\tMaximum permitted total VM usage per process."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:199
+#, no-wrap
+msgid "stacksize\tsize\t\tMaximum stack size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:200
+#, no-wrap
+msgid "pseudoterminals\tnumber\t\tMaximum number of pseudo-terminals."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:201
+#, no-wrap
+msgid "swapuse\tsize\t\tMaximum swap space size limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:202
+#, no-wrap
+msgid "umtxp\tnumber\t\tMaximum number of process-shared pthread locks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:212
+msgid ""
+"These resource limit entries actually specify both the maximum and current "
+"limits (see E<.Xr getrlimit 2>).  The current (soft) limit is the one "
+"normally used, although the user is permitted to increase the current limit "
+"to the maximum (hard) limit.  The maximum and current limits may be "
+"specified individually by appending a -max or -cur to the capability name."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:212
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:215
+#, no-wrap
+msgid "charset\tstring\t\tSet $MM_CHARSET environment variable to the specified"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:217
+msgid "value."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:217
+#, no-wrap
+msgid "cpumask\tstring\t\tList of cpus to bind the user to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:227
+msgid ""
+"The syntax is the same as for the E<.Fl l> argument of E<.Xr cpuset 1> or "
+"the word E<.Ql default>.  If set to E<.Ql default> no action is taken."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:227
+#, no-wrap
+msgid "hushlogin\tbool\tfalse\tSame as having a ~/.hushlogin file."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:228
+#, no-wrap
+msgid "ignorenologin\tbool\tfalse\tLogin not prevented by nologin."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:229
+#, no-wrap
+msgid "ftp-chroot\tbool\tfalse\tLimit FTP access with"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:237
+msgid ""
+"E<.Xr chroot 2> to the E<.Ev HOME> directory of the user.  See E<.Xr ftpd 8> "
+"for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:237
+#, no-wrap
+msgid "label\tstring\t\tDefault MAC policy; see"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:239
+msgid "E<.Xr maclabel 7>."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:239
+#, no-wrap
+msgid "lang\tstring\t\tSet $LANG environment variable to the specified value."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:240
+#, no-wrap
+msgid "manpath\tpath\t\tDefault search path for manpages."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:241
+#, no-wrap
+msgid "nocheckmail\tbool\tfalse\tDisplay mail status at login."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:242
+#, no-wrap
+msgid "nologin\tfile\t\tIf the file exists it will be displayed and"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:244
+msgid "the login session will be terminated."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:244
+#, no-wrap
+msgid "path\tpath\t/bin /usr/bin\tDefault search path."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:245
+#, no-wrap
+msgid "priority\tnumber\t\tInitial priority (nice) level."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:246
+#, no-wrap
+msgid "requirehome \tbool\tfalse\tRequire a valid home directory to login."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:247
+#, no-wrap
+msgid "setenv\tlist\t\tA comma-separated list of environment variables and"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:249
+msgid "values to which they are to be set."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:249
+#, no-wrap
+msgid "shell\tprog\t\tSession shell to execute rather than the"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:253
+msgid ""
+"shell specified in the passwd file.  The SHELL environment variable will "
+"contain the shell specified in the password file."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:253
+#, no-wrap
+msgid "term\tstring\t\tDefault terminal type if not able to determine"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:255
+msgid "from other means."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:255
+#, no-wrap
+msgid "timezone\tstring\t\tDefault value of $TZ environment variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:256
+#, no-wrap
+msgid "umask\tnumber\t022\tInitial umask. Should always have a leading 0 to"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:258
+msgid "ensure octal interpretation."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:258
+#, no-wrap
+msgid "welcome\tfile\t/etc/motd\tFile containing welcome message."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:260
+#, no-wrap
+msgid "AUTHENTICATION"
+msgstr ""
+
+#.  .It "approve	program 	Program to approve login.
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:264
+#, no-wrap
+msgid "copyright\tfile\t\tFile containing additional copyright information"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:265
+#, no-wrap
+msgid "host.allow\tlist\t\tList of remote host wildcards from which users in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:267
+msgid "the class may access."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:267
+#, no-wrap
+msgid "host.deny\tlist\t\tList of remote host wildcards from which users"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:269
+msgid "in the class may not access."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:269
+#, no-wrap
+msgid "login_prompt\tstring\t\tThe login prompt given by"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:271 /usr/src/lib/libutil/login.conf.5:289
+msgid "E<.Xr login 1>"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:271
+#, no-wrap
+msgid "login-backoff\tnumber\t3\tThe number of login attempts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:277
+msgid ""
+"allowed before the backoff delay is inserted after each subsequent attempt.  "
+"The backoff delay is the number of tries above E<.Em login-backoff> "
+"multiplied by 5 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:277
+#, no-wrap
+msgid "login-retries\tnumber\t10\tThe number of login attempts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:279
+msgid "allowed before the login fails."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:279
+#, no-wrap
+msgid "passwd_format\tstring\tsha512\tThe encryption format that new or"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:287
+msgid ""
+"changed passwords will use.  Valid values include \"des\", \"md5\", \"blf\", "
+"\"sha256\" and \"sha512\"; see E<.Xr crypt 3> for details.  NIS clients "
+"using a E<.No non- Ns Fx> NIS server should probably use \"des\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:287
+#, no-wrap
+msgid "passwd_prompt\tstring\t\tThe password prompt presented by"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:289
+#, no-wrap
+msgid "times.allow \tlist\t\tList of time periods during which"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:291
+msgid "logins are allowed."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:291
+#, no-wrap
+msgid "times.deny\tlist\t\tList of time periods during which logins are"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:293
+msgid "disallowed."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:293
+#, no-wrap
+msgid "ttys.allow\tlist\t\tList of ttys and ttygroups which users"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:295
+msgid "in the class may use for access."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:295
+#, no-wrap
+msgid "ttys.deny\tlist\t\tList of ttys and ttygroups which users"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:297
+msgid "in the class may not use for access."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:297
+#, no-wrap
+msgid "warnexpire\ttime\t\tAdvance notice for pending account expiry."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:298
+#, no-wrap
+msgid "warnpassword\ttime\t\tAdvance notice for pending password expiry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:306
+msgid ""
+"These fields are intended to be used by E<.Xr passwd 1> and other programs "
+"in the login authentication system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:315
+msgid ""
+"Capabilities that set environment variables are scanned for both E<.Ql \\&~> "
+"and E<.Ql \\&$> characters, which are substituted for a user's home "
+"directory and name respectively.  To pass these characters literally into "
+"the environment variable, escape the character by preceding it with a "
+"backslash '\\e'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:335
+msgid ""
+"The E<.Em host.allow> and E<.Em host.deny> entries are comma separated lists "
+"used for checking remote access to the system, and consist of a list of "
+"hostnames and/or IP addresses against which remote network logins are "
+"checked.  Items in these lists may contain wildcards in the form used by "
+"shell programs for wildcard matching (See E<.Xr fnmatch 3> for details on "
+"the implementation).  The check on hosts is made against both the remote "
+"system's Internet address and hostname (if available).  If both lists are "
+"empty or not specified, then logins from any remote host are allowed.  If "
+"host.allow contains one or more hosts, then only remote systems matching any "
+"of the items in that list are allowed to log in.  If host.deny contains one "
+"or more hosts, then a login from any matching hosts will be disallowed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:357
+msgid ""
+"The E<.Em times.allow> and E<.Em times.deny> entries consist of a "
+"comma-separated list of time periods during which the users in a class are "
+"allowed to be logged in.  These are expressed as one or more day codes "
+"followed by a start and end times expressed in 24 hour format, separated by "
+"a hyphen or dash.  For example, MoThSa0200-1300 translates to Monday, "
+"Thursday and Saturday between the hours of 2 am and 1 p.m..  If both of "
+"these time lists are empty, users in the class are allowed access at any "
+"time.  If E<.Em times.allow> is specified, then logins are only allowed "
+"during the periods given.  If E<.Em times.deny> is specified, then logins "
+"are denied during the periods given, regardless of whether one of the "
+"periods specified in E<.Em times.allow> applies."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:363
+msgid ""
+"Note that E<.Xr login 1> enforces only that the actual login falls within "
+"periods allowed by these entries.  Further enforcement over the life of a "
+"session requires a separate daemon to monitor transitions from an allowed "
+"period to a non-allowed one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:387
+msgid ""
+"The E<.Em ttys.allow> and E<.Em ttys.deny> entries contain a comma-separated "
+"list of tty devices (without the /dev/ prefix)  that a user in a class may "
+"use to access the system, and/or a list of ttygroups (See E<.Xr getttyent 3> "
+"and E<.Xr ttys 5> for information on ttygroups).  If neither entry exists, "
+"then the choice of login device used by the user is unrestricted.  If only "
+"E<.Em ttys.allow> is specified, then the user is restricted only to ttys in "
+"the given group or device list.  If only E<.Em ttys.deny> is specified, then "
+"the user is prevented from using the specified devices or devices in the "
+"group.  If both lists are given and are non-empty, the user is restricted to "
+"those devices allowed by ttys.allow that are not available by ttys.deny."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:398
+msgid ""
+"The E<.Em minpasswordlen> and E<.Em minpasswordcase> facilities for "
+"enforcing restrictions on password quality, which used to be supported by "
+"E<.Nm>, have been superseded by the E<.Xr pam_passwdqc 8> PAM module."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:398
+#, no-wrap
+msgid "RESERVED CAPABILITIES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:402
+msgid ""
+"The following capabilities are reserved for the purposes indicated and may "
+"be supported by third-party software.  They are not implemented in the base "
+"system."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:404
+#, no-wrap
+msgid "accounted\tbool\tfalse\tEnable session time accounting for all users"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:406
+msgid "in this class."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:406
+#, no-wrap
+msgid "auth\tlist\tpasswd\tAllowed authentication styles."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:408
+msgid "The first item is the default style."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:408
+#, no-wrap
+msgid "auth- Ns Ar type Ta \"list\t\tAllowed authentication styles for the\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:411
+msgid "authentication E<.Ar type>."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:411
+#, no-wrap
+msgid "autodelete\ttime\t\tTime after expiry when account is auto-deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:412
+#, no-wrap
+msgid "bootfull\tbool\tfalse\tEnable 'boot only if ttygroup is full' strategy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:414
+msgid "when terminating sessions."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:414
+#, no-wrap
+msgid "daytime\ttime\t\tMaximum login time per day."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:415
+#, no-wrap
+msgid "expireperiod\ttime\t\tTime for expiry allocation."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:416
+#, no-wrap
+msgid "graceexpire \ttime\t\tGrace days for expired account."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:417
+#, no-wrap
+msgid "gracetime\ttime\t\tAdditional grace login time allowed."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:418
+#, no-wrap
+msgid "host.accounted\tlist\t\tList of remote host wildcards from which"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:420
+msgid "login sessions will be accounted."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:420
+#, no-wrap
+msgid "host.exempt \tlist\t\tList of remote host wildcards from which"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:422
+msgid "login session accounting is exempted."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:422
+#, no-wrap
+msgid "idletime\ttime\t\tMaximum idle time before logout."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:423
+#, no-wrap
+msgid "minpasswordlen\tnumber\t6\tThe minimum length a local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:425
+msgid "password may be."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:425
+#, no-wrap
+msgid "mixpasswordcase\tbool\ttrue\tWhether"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:428
+msgid "E<.Xr passwd 1> will warn the user if an all lower case password is entered."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:428
+#, no-wrap
+msgid "monthtime \ttime\t\tMaximum login time per month."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:429
+#, no-wrap
+msgid "passwordtime\ttime\t\tUsed by"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:432
+msgid "E<.Xr passwd 1> to set next password expiry date."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:432
+#, no-wrap
+msgid "refreshtime \ttime\t\tNew time allowed on account refresh."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:433
+#, no-wrap
+msgid "refreshperiod\tstr\t\tHow often account time is refreshed."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:434
+#, no-wrap
+msgid "sessiontime \ttime\t\tMaximum login time per session."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:435
+#, no-wrap
+msgid "sessionlimit\tnumber\t\tMaximum number of concurrent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:437
+msgid "login sessions on ttys in any group."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:437
+#, no-wrap
+msgid "ttys.accounted\tlist\t\tList of ttys and ttygroups for which"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:439
+msgid "login accounting is active."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:439
+#, no-wrap
+msgid "ttys.exempt\tlist\t\tList of ttys and ttygroups for which login accounting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:441
+msgid "is exempt."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:441
+#, no-wrap
+msgid "warntime\ttime\t\tAdvance notice for pending out-of-time."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libutil/login.conf.5:442
+#, no-wrap
+msgid "weektime\ttime\t\tMaximum login time per week."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:460
+msgid ""
+"The E<.Em ttys.accounted> and E<.Em ttys.exempt> fields operate in a similar "
+"manner to E<.Em ttys.allow> and E<.Em ttys.deny> as explained above.  "
+"Similarly with the E<.Em host.accounted> and E<.Em host.exempt> lists."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libutil/login.conf.5:460
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libutil/login.conf.5:472
+msgid ""
+"E<.Xr cap_mkdb 1>, E<.Xr login 1>, E<.Xr chroot 2>, E<.Xr getcap 3>, E<.Xr "
+"getttyent 3>, E<.Xr login_cap 3>, E<.Xr login_class 3>, E<.Xr pam 3>, E<.Xr "
+"passwd 5>, E<.Xr ttys 5>, E<.Xr ftpd 8>, E<.Xr pam_passwdqc 8>"
+msgstr ""

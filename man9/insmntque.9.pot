@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/insmntque.9:29
+#, no-wrap
+msgid "September 8, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/insmntque.9:30
+#, no-wrap
+msgid "INSMNTQUE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/insmntque.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:35
+msgid "E<.Nm insmntque>, E<.Nm insmntque1>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/insmntque.9:35
+#, no-wrap
+msgid "associate a vnode with a mount"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/insmntque.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/insmntque.9:37
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/insmntque.9:38
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:43
+msgid ""
+"E<.Ft int> E<.Fn insmntque \"struct vnode *vp\" \"struct mount *mp\"> E<.Ft "
+"int> E<.Fn insmntque1 \"struct vnode *vp\" \"struct mount *mp\" \"void "
+"(*dtr)(struct vnode *, void *)\" \"void *dtr_arg\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/insmntque.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:50
+msgid ""
+"The E<.Fn insmntque> function associates a vnode with a mount.  This "
+"includes updating E<.Va v_mount> for the vnode, and inserting the vnode into "
+"the mount's vnode list."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:54
+msgid ""
+"The mount reference count is incremented for each vnode added to the mount, "
+"and that reference is decremented by E<.Xr vgone 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:57
+msgid ""
+"The mount's interlock is held while the vnode is inserted.  For MP-safe file "
+"systems, the vnode must be exclusively locked."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:77
+msgid ""
+"On failure, E<.Fn insmntque> calls E<.Xr vgone 9> on the supplied vnode, and "
+"then drops the vnode lock and reference.  If more elaborated cleanup after "
+"E<.Fn insmntque> failure is needed, the E<.Fn insmntque1> function may be "
+"used instead.  The E<.Fa dtr> argument is a pointer to a function that is "
+"called on failure.  This function may perform any custom cleanup.  The vnode "
+"pointer is supplied as the first argument to E<.Fa dtr>.  The E<.Fa dtr_arg> "
+"argument is the second, supplying any additional context needed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/insmntque.9:77
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:91
+msgid ""
+"The E<.Fn insmntque> function will always return 0, unless the file system "
+"is currently being unmounted in which case it may return E<.Dv EBUSY>.  "
+"Also, E<.Fn insmntque> may be forced to insert the vnode into the mount's "
+"vnode list by setting the E<.Va VV_FORCEINSMQ> flag in the vnode E<.Va "
+"v_flag>, even if the file system is being unmounted."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/insmntque.9:91
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:93
+msgid "E<.Xr vgone 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/insmntque.9:93
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/insmntque.9:95
+msgid "This manual page was written by E<.An Chad David Aq Mt davidc@acns.ab.ca>."
+msgstr ""

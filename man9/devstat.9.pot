@@ -1,0 +1,838 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/devstat.9:30
+#, no-wrap
+msgid "August 22, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/devstat.9:31
+#, no-wrap
+msgid "DEVSTAT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:42
+msgid ""
+"E<.Nm devstat>, E<.Nm devstat_add_entry>, E<.Nm devstat_end_transaction>, "
+"E<.Nm devstat_end_transaction_bio>, E<.Nm devstat_end_transaction_bio_bt>, "
+"E<.Nm devstat_remove_entry>, E<.Nm devstat_start_transaction>, E<.Nm "
+"devstat_start_transaction_bio>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/devstat.9:42
+#, no-wrap
+msgid "kernel interface for keeping device statistics"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/devstat.9:44
+#, no-wrap
+msgid "sys/devicestat.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:88
+msgid ""
+"E<.Ft void> E<.Fo devstat_add_entry> E<.Fa \"struct devstat *ds\"> E<.Fa "
+"\"const char *dev_name\"> E<.Fa \"int unit_number\"> E<.Fa \"uint32_t "
+"block_size\"> E<.Fa \"devstat_support_flags flags\"> E<.Fa "
+"\"devstat_type_flags device_type\"> E<.Fa \"devstat_priority priority\"> "
+"E<.Fc> E<.Ft void> E<.Fn devstat_remove_entry \"struct devstat *ds\"> E<.Ft "
+"void> E<.Fo devstat_start_transaction> E<.Fa \"struct devstat *ds\"> E<.Fa "
+"\"const struct bintime *now\"> E<.Fc> E<.Ft void> E<.Fo "
+"devstat_start_transaction_bio> E<.Fa \"struct devstat *ds\"> E<.Fa \"struct "
+"bio *bp\"> E<.Fc> E<.Ft void> E<.Fo devstat_end_transaction> E<.Fa \"struct "
+"devstat *ds\"> E<.Fa \"uint32_t bytes\"> E<.Fa \"devstat_tag_type "
+"tag_type\"> E<.Fa \"devstat_trans_flags flags\"> E<.Fa \"const struct "
+"bintime *now\"> E<.Fa \"const struct bintime *then\"> E<.Fc> E<.Ft void> "
+"E<.Fo devstat_end_transaction_bio> E<.Fa \"struct devstat *ds\"> E<.Fa "
+"\"const struct bio *bp\"> E<.Fc> E<.Fc> E<.Ft void> E<.Fo "
+"devstat_end_transaction_bio_bt> E<.Fa \"struct devstat *ds\"> E<.Fa \"const "
+"struct bio *bp\"> E<.Fa \"const struct bintime *now\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:88
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:98
+msgid ""
+"The devstat subsystem is an interface for recording device statistics, as "
+"its name implies.  The idea is to keep reasonably detailed statistics while "
+"utilizing a minimum amount of CPU time to record them.  Thus, no statistical "
+"calculations are actually performed in the kernel portion of the E<.Nm> "
+"code.  Instead, that is left for user programs to handle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:105
+msgid ""
+"The historical and antiquated E<.Nm> model assumed a single active IO "
+"operation per device, which is not accurate for most disk-like drivers in "
+"the 2000s and beyond.  New consumers of the interface should almost "
+"certainly use only the \"bio\" variants of the start and end transacation "
+"routines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:114
+msgid ""
+"E<.Fn devstat_add_entry> registers a device with the E<.Nm> subsystem.  The "
+"caller is expected to have already allocated B<and zeroed> the devstat "
+"structure before calling this function.  E<.Fn devstat_add_entry> takes "
+"several arguments:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:115 /usr/src/share/man/man9/devstat.9:197
+#, no-wrap
+msgid "ds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:119
+msgid "The E<.Va devstat> structure, allocated and zeroed by the client."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:119
+#, no-wrap
+msgid "dev_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:121
+msgid "The device name, e.g., da, cd, sa."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:121 /usr/src/share/man/man9/devstat.9:311
+#, no-wrap
+msgid "unit_number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:123
+msgid "Device unit number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:123 /usr/src/share/man/man9/devstat.9:359
+#, no-wrap
+msgid "block_size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:130
+msgid ""
+"Block size of the device, if supported.  If the device does not support a "
+"block size, or if the blocksize is unknown at the time the device is added "
+"to the E<.Nm> list, it should be set to 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:130 /usr/src/share/man/man9/devstat.9:206 /usr/src/share/man/man9/devstat.9:369
+#, no-wrap
+msgid "flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:133
+msgid ""
+"Flags indicating operations supported or not supported by the device.  See "
+"below for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:133 /usr/src/share/man/man9/devstat.9:374
+#, no-wrap
+msgid "device_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:139
+msgid ""
+"The device type.  This is broken into three sections: base device type "
+"(e.g., direct access, CDROM, sequential access), interface type (IDE, SCSI "
+"or other) and a pass-through flag to indicate pas-through devices.  See "
+"below for a complete list of types."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:139 /usr/src/share/man/man9/devstat.9:381
+#, no-wrap
+msgid "priority"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:149
+msgid ""
+"The device priority.  The priority is used to determine how devices are "
+"sorted within E<.Nm devstat Ns 's> list of devices.  Devices are sorted "
+"first by priority (highest to lowest), and then by attach order.  See below "
+"for a complete list of available priorities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:160
+msgid ""
+"E<.Fn devstat_remove_entry> removes a device from the E<.Nm> subsystem.  It "
+"takes the devstat structure for the device in question as an argument.  The "
+"E<.Nm> generation number is incremented and the number of devices is "
+"decremented."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:182
+msgid ""
+"E<.Fn devstat_start_transaction> registers the start of a transaction with "
+"the E<.Nm> subsystem.  Optionally, if the caller already has a E<.Fn "
+"binuptime> value available, it may be passed in E<.Fa *now>.  Usually the "
+"caller can just pass E<.Dv NULL> for E<.Fa now>, and the routine will gather "
+"the current E<.Fn binuptime> itself.  The busy count is incremented with "
+"each transaction start.  When a device goes from idle to busy, the system "
+"uptime is recorded in the E<.Va busy_from> field of the E<.Va devstat> "
+"structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:190
+msgid ""
+"E<.Fn devstat_start_transaction_bio> records the E<.Fn binuptime> in the "
+"provided bio's E<.Fa bio_t0> and then invokes E<.Fn "
+"devstat_start_transaction>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:196
+msgid ""
+"E<.Fn devstat_end_transaction> registers the end of a transaction with the "
+"E<.Nm> subsystem.  It takes six arguments:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:201
+msgid "The E<.Va devstat> structure for the device in question."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:201
+#, no-wrap
+msgid "bytes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:203
+msgid "The number of bytes transferred in this transaction."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:203
+#, no-wrap
+msgid "tag_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:206
+msgid "Transaction tag type.  See below for tag types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:209
+msgid ""
+"Transaction flags indicating whether the transaction was a read, write, or "
+"whether no data was transferred."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:209
+#, no-wrap
+msgid "now"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:214
+msgid "The E<.Fn binuptime> at the end of the transaction, or E<.Dv NULL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:214
+#, no-wrap
+msgid "then"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:219
+msgid "The E<.Fn binuptime> at the beginning of the transaction, or E<.Dv NULL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:235
+msgid ""
+"If E<.Fa now> is E<.Dv NULL>, it collects the current time from E<.Fn "
+"binuptime>.  If E<.Fa then> is E<.Dv NULL>, the operation is not tracked in "
+"the E<.Va devstat> E<.Fa duration> table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:243
+msgid ""
+"E<.Fn devstat_end_transaction_bio> is a thin wrapper for E<.Fn "
+"devstat_end_transaction_bio_bt> with a E<.Dv NULL> E<.Fa now> parameter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:258
+msgid ""
+"E<.Fn devstat_end_transaction_bio_bt> is a wrapper for E<.Fn "
+"devstat_end_transaction> which pulls all needed information from a E<.Va "
+"\"struct bio\"> prepared by E<.Fn devstat_start_transaction_bio>.  The bio "
+"must be ready for E<.Fn biodone> (i.e., E<.Fa bio_bcount> and E<.Fa "
+"bio_resid> must be correctly initialized)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:262
+msgid "The E<.Va devstat> structure is composed of the following fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:263
+#, no-wrap
+msgid "sequence0 ,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:264
+#, no-wrap
+msgid "sequence1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:267
+msgid ""
+"An implementation detail used to gather consistent snapshots of device "
+"statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:267
+#, no-wrap
+msgid "start_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:269
+msgid "Number of operations started."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:269
+#, no-wrap
+msgid "end_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:284
+msgid ""
+"Number of operations completed.  The E<.Dq busy_count> can be calculated by "
+"subtracting E<.Fa end_count> from E<.Fa start_count>.  E<.Fa ( sequence0> "
+"and E<.Fa sequence1> are used to get a consistent snapshot.)  This is the "
+"current number of outstanding transactions for the device.  This should "
+"never go below zero, and on an idle device it should be zero.  If either one "
+"of these conditions is not true, it indicates a problem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:287
+msgid ""
+"There should be one and only one transaction start event and one transaction "
+"end event for each transaction."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:287
+#, no-wrap
+msgid "dev_links"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:296
+msgid ""
+"Each E<.Va devstat> structure is placed in a linked list when it is "
+"registered.  The E<.Va dev_links> field contains a pointer to the next entry "
+"in the list of E<.Va devstat> structures."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:296
+#, no-wrap
+msgid "device_number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:303
+msgid ""
+"The device number is a unique identifier for each device.  The device number "
+"is incremented for each new device that is registered.  The device number is "
+"currently only a 32-bit integer, but it could be enlarged if someone has a "
+"system with more than four billion device arrival events."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:303
+#, no-wrap
+msgid "device_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:311
+msgid ""
+"The device name is a text string given by the registering driver to identify "
+"itself.  (e.g., E<.Dq da>, E<.Dq cd>, E<.Dq sa>, etc.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:314
+msgid ""
+"The unit number identifies the particular instance of the peripheral driver "
+"in question."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:314
+#, no-wrap
+msgid "bytes[4]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:324
+msgid ""
+"This array contains the number of bytes that have been read (index E<.Dv "
+"DEVSTAT_READ>), written (index E<.Dv DEVSTAT_WRITE>), freed or erased (index "
+"E<.Dv DEVSTAT_FREE>), or other (index E<.Dv DEVSTAT_NO_DATA>).  All values "
+"are unsigned 64-bit integers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:324
+#, no-wrap
+msgid "operations[4]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:340
+msgid ""
+"This array contains the number of operations of a given type that have been "
+"performed.  The indices are identical to those for E<.Fa bytes> above.  "
+"E<.Dv DEVSTAT_NO_DATA> or \"other\" represents the number of transactions to "
+"the device which are neither reads, writes, nor frees.  For instance, E<.Tn "
+"SCSI> drivers often send a test unit ready command to E<.Tn SCSI> devices.  "
+"The test unit ready command does not read or write any data.  It merely "
+"causes the device to return its status."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:340
+#, no-wrap
+msgid "duration[4]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:351
+msgid ""
+"This array contains the total bintime corresponding to completed operations "
+"of a given type.  The indices are identical to those for E<.Fa bytes> "
+"above.  (Operations that complete using the historical E<.Fn "
+"devstat_end_transaction> API and do not provide a non-NULL E<.Fa then> are "
+"not accounted for.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:351
+#, no-wrap
+msgid "busy_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:355
+msgid ""
+"This is the amount of time that the device busy count has been greater than "
+"zero.  This is only updated when the busy count returns to zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:355
+#, no-wrap
+msgid "creation_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:359
+msgid ""
+"This is the time, as reported by E<.Fn getmicrotime> that the device was "
+"registered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:361
+msgid "This is the block size of the device, if the device has a block size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:361
+#, no-wrap
+msgid "tag_types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:365
+msgid ""
+"This is an array of counters to record the number of various tag types that "
+"are sent to a device.  See below for a list of tag types."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:365
+#, no-wrap
+msgid "busy_from"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:369
+msgid ""
+"If the device is not busy, this was the time that a transaction last "
+"completed.  If the device is busy, this the most recent of either the time "
+"that the device became busy, or the time that the last transaction "
+"completed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:374
+msgid ""
+"These flags indicate which statistics measurements are supported by a "
+"particular device.  These flags are primarily intended to serve as an aid to "
+"userland programs that decipher the statistics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:381
+msgid ""
+"This is the device type.  It consists of three parts: the device type (e.g., "
+"direct access, CDROM, sequential access, etc.), the interface (IDE, SCSI or "
+"other) and whether or not the device in question is a pass-through driver.  "
+"See below for a complete list of device types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:389
+msgid ""
+"This is the priority.  This is the first parameter used to determine where "
+"to insert a device in the E<.Nm> list.  The second parameter is attach "
+"order.  See below for a list of available priorities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:404
+msgid ""
+"Each device is given a device type.  Pass-through devices have the same "
+"underlying device type and interface as the device they provide an interface "
+"for, but they also have the pass-through flag set.  The base device types "
+"are identical to the E<.Tn SCSI> device type numbers, so with E<.Tn SCSI> "
+"peripherals, the device type returned from an inquiry is usually ORed with "
+"the E<.Tn SCSI> interface type and the pass-through flag if appropriate.  "
+"The device type flags are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:428
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tDEVSTAT_TYPE_DIRECT\t= 0x000,\n"
+"\tDEVSTAT_TYPE_SEQUENTIAL\t= 0x001,\n"
+"\tDEVSTAT_TYPE_PRINTER\t= 0x002,\n"
+"\tDEVSTAT_TYPE_PROCESSOR\t= 0x003,\n"
+"\tDEVSTAT_TYPE_WORM\t= 0x004,\n"
+"\tDEVSTAT_TYPE_CDROM\t= 0x005,\n"
+"\tDEVSTAT_TYPE_SCANNER\t= 0x006,\n"
+"\tDEVSTAT_TYPE_OPTICAL\t= 0x007,\n"
+"\tDEVSTAT_TYPE_CHANGER\t= 0x008,\n"
+"\tDEVSTAT_TYPE_COMM\t= 0x009,\n"
+"\tDEVSTAT_TYPE_ASC0\t= 0x00a,\n"
+"\tDEVSTAT_TYPE_ASC1\t= 0x00b,\n"
+"\tDEVSTAT_TYPE_STORARRAY\t= 0x00c,\n"
+"\tDEVSTAT_TYPE_ENCLOSURE\t= 0x00d,\n"
+"\tDEVSTAT_TYPE_FLOPPY\t= 0x00e,\n"
+"\tDEVSTAT_TYPE_MASK\t= 0x00f,\n"
+"\tDEVSTAT_TYPE_IF_SCSI\t= 0x010,\n"
+"\tDEVSTAT_TYPE_IF_IDE\t= 0x020,\n"
+"\tDEVSTAT_TYPE_IF_OTHER\t= 0x030,\n"
+"\tDEVSTAT_TYPE_IF_MASK\t= 0x0f0,\n"
+"\tDEVSTAT_TYPE_PASS\t= 0x100\n"
+"} devstat_type_flags;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:435
+msgid ""
+"Devices have a priority associated with them, which controls roughly where "
+"they are placed in the E<.Nm> list.  The priorities are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:448
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tDEVSTAT_PRIORITY_MIN\t= 0x000,\n"
+"\tDEVSTAT_PRIORITY_OTHER\t= 0x020,\n"
+"\tDEVSTAT_PRIORITY_PASS\t= 0x030,\n"
+"\tDEVSTAT_PRIORITY_FD\t= 0x040,\n"
+"\tDEVSTAT_PRIORITY_WFD\t= 0x050,\n"
+"\tDEVSTAT_PRIORITY_TAPE\t= 0x060,\n"
+"\tDEVSTAT_PRIORITY_CD\t= 0x090,\n"
+"\tDEVSTAT_PRIORITY_DISK\t= 0x110,\n"
+"\tDEVSTAT_PRIORITY_ARRAY\t= 0x120,\n"
+"\tDEVSTAT_PRIORITY_MAX\t= 0xfff\n"
+"} devstat_priority;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:455
+msgid ""
+"Each device has associated with it flags to indicate what operations are "
+"supported or not supported.  The E<.Va devstat_support_flags> values are as "
+"follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:456
+#, no-wrap
+msgid "DEVSTAT_ALL_SUPPORTED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:458
+msgid "Every statistic type is supported by the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:458
+#, no-wrap
+msgid "DEVSTAT_NO_BLOCKSIZE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:460
+msgid "This device does not have a blocksize."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:460
+#, no-wrap
+msgid "DEVSTAT_NO_ORDERED_TAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:462
+msgid "This device does not support ordered tags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:462
+#, no-wrap
+msgid "DEVSTAT_BS_UNAVAILABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:466
+msgid ""
+"This device supports a blocksize, but it is currently unavailable.  This "
+"flag is most often used with removable media drives."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:474
+msgid ""
+"Transactions to a device fall into one of three categories, which are "
+"represented in the E<.Va flags> passed into E<.Fn devstat_end_transaction>.  "
+"The transaction types are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:481
+#, no-wrap
+msgid ""
+"typedef enum {\n"
+"\tDEVSTAT_NO_DATA\t= 0x00,\n"
+"\tDEVSTAT_READ\t= 0x01,\n"
+"\tDEVSTAT_WRITE\t= 0x02,\n"
+"\tDEVSTAT_FREE\t= 0x03\n"
+"} devstat_trans_flags;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:487
+msgid ""
+"There are four possible values for the E<.Va tag_type> argument to E<.Fn "
+"devstat_end_transaction>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:488
+#, no-wrap
+msgid "DEVSTAT_TAG_SIMPLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:490
+msgid "The transaction had a simple tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:490
+#, no-wrap
+msgid "DEVSTAT_TAG_HEAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:492
+msgid "The transaction had a head of queue tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:492
+#, no-wrap
+msgid "DEVSTAT_TAG_ORDERED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:494
+msgid "The transaction had an ordered tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/devstat.9:494
+#, no-wrap
+msgid "DEVSTAT_TAG_NONE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:496
+msgid "The device does not support tags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:505
+msgid ""
+"The tag type values correspond to the lower four bits of the E<.Tn SCSI> tag "
+"definitions.  In CAM, for instance, the E<.Va tag_action> from the CCB is "
+"ORed with 0xf to determine the tag type to pass in to E<.Fn "
+"devstat_end_transaction>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:509
+msgid "There is a macro, E<.Dv DEVSTAT_VERSION> that is defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/devstat.9:509
+#, no-wrap
+msgid "sys/devicestat.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:522
+msgid ""
+"This is the current version of the E<.Nm> subsystem, and it should be "
+"incremented each time a change is made that would require recompilation of "
+"userland programs that access E<.Nm> statistics.  Userland programs use this "
+"version, via the E<.Va kern.devstat.version> E<.Nm sysctl> variable to "
+"determine whether they are in sync with the kernel E<.Nm> structures."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:522
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:528
+msgid ""
+"E<.Xr systat 1>, E<.Xr devstat 3>, E<.Xr iostat 8>, E<.Xr rpc.rstatd 8>, "
+"E<.Xr vmstat 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:528
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:533
+msgid "The E<.Nm> statistics system appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:533
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:535
+msgid "E<.An Kenneth Merry Aq Mt ken@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/devstat.9:535
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/devstat.9:544
+msgid ""
+"There may be a need for E<.Fn spl> protection around some of the E<.Nm> list "
+"manipulation code to ensure, for example, that the list of devices is not "
+"changed while someone is fetching the E<.Va kern.devstat.all> E<.Nm sysctl> "
+"variable."
+msgstr ""

@@ -1,0 +1,845 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man8/rc.8:34
+#, no-wrap
+msgid "December 29, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man8/rc.8:35
+#, no-wrap
+msgid "RC 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:39
+msgid "E<.Nm rc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man8/rc.8:39
+#, no-wrap
+msgid "command scripts for auto-reboot and daemon startup"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:50
+msgid ""
+"E<.Nm> E<.Nm rc.conf> E<.Nm rc.conf.local> E<.Nm rc.d/> E<.Nm rc.firewall> "
+"E<.Nm rc.local> E<.Nm rc.resume> E<.Nm rc.shutdown> E<.Nm rc.subr>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:86
+msgid ""
+"The E<.Nm> utility is the command script which controls the automatic boot "
+"process after being called by E<.Xr init 8>.  The E<.Nm rc.local> script "
+"contains commands which are pertinent only to a specific site.  Typically, "
+"the E<.Pa /usr/local/etc/rc.d/> mechanism is used instead of E<.Nm rc.local> "
+"these days but if you want to use E<.Nm rc.local>, it is still supported.  "
+"In this case, it should source E<.Pa /etc/rc.conf> and contain additional "
+"custom startup code for your system.  The best way to handle E<.Nm "
+"rc.local>, however, is to separate it out into E<.Nm rc.d/> style scripts "
+"and place them under E<.Pa /usr/local/etc/rc.d/>.  The E<.Nm rc.conf> file "
+"contains the global system configuration information referenced by the "
+"startup scripts, while E<.Nm rc.conf.local> contains the local system "
+"configuration.  See E<.Xr rc.conf 5> for more information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:91
+msgid ""
+"The E<.Nm rc.d/> directories contain scripts which will be automatically "
+"executed at boot time and shutdown time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:94
+msgid ""
+"The sysrc(8) command provides a scripting interface to modify system config "
+"files."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man8/rc.8:94
+#, no-wrap
+msgid "Operation of Nm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:110
+msgid ""
+"If autobooting, set E<.Va autoboot Ns = Ns Li yes> and enable a flag E<.Pq "
+"Va rc_fast Ns = Ns Li yes>, which prevents the E<.Nm rc.d/> scripts from "
+"performing the check for already running processes (thus speeding up the "
+"boot process).  This E<.Va rc_fast Ns = Ns Li yes> speedup will not occur "
+"when E<.Nm> is started up after exiting the single-user shell."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:115
+msgid ""
+"Determine whether the system is booting diskless, and if so run the E<.Pa "
+"/etc/rc.initdiskless> script."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:121 /usr/src/share/man/man8/rc.8:192
+msgid ""
+"Source E<.Pa /etc/rc.subr> to load various E<.Xr rc.subr 8> shell functions "
+"to use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:123 /usr/src/share/man/man8/rc.8:194
+msgid "Load the configuration files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:131
+msgid ""
+"Determine if booting in a jail, and add E<.Dq Li nojail> (no jails allowed) "
+"or E<.Dq Li nojailvnet> (only allow vnet-enabled jails) to the list of "
+"KEYWORDS to skip in E<.Xr rcorder 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:138
+msgid ""
+"If the file E<.Va ${firstboot_sentinel}> does not exist, add E<.Dq Li "
+"firstboot> to the list of KEYWORDS to skip in E<.Xr rcorder 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:149
+msgid ""
+"Invoke E<.Xr rcorder 8> to order the files in E<.Pa /etc/rc.d/> that do not "
+"have a E<.Dq Li nostart> KEYWORD (refer to E<.Xr rcorder 8 Ns 's> E<.Fl s> "
+"flag)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:162
+msgid ""
+"Call each script in turn using E<.Fn run_rc_script> (from E<.Xr rc.subr 8>), "
+"which sets E<.Va $1> to E<.Dq Li start>, and sources the script in a "
+"subshell.  Stop processing when the script that is the value of the E<.Va "
+"$early_late_divider> has been run."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:167
+msgid ""
+"Check again to see if the file E<.Va ${firstboot_sentinel}> exists (in case "
+"it is located on a newly mounted file system)  and adjust the list of "
+"KEYWORDs to skip appropriately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:176
+msgid ""
+"Re-run E<.Xr rcorder 8>, this time including the scripts in the E<.Va "
+"$local_startup> directories.  Ignore everything up to the E<.Va "
+"$early_late_divider>, then start executing the scripts as described above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:183
+msgid ""
+"If the file E<.Va ${firstboot_sentinel}> exists, delete it.  If the file "
+"E<.Va ${firstboot_sentinel}-reboot> also exists (because it was created by a "
+"script), then delete it and reboot."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man8/rc.8:184
+#, no-wrap
+msgid "Operation of Nm rc.shutdown"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:209
+msgid ""
+"Invoke E<.Xr rcorder 8> to order the files in E<.Pa /etc/rc.d/> and the "
+"E<.Va $local_startup> directories that have a E<.Dq Li shutdown> KEYWORD "
+"(refer to E<.Xr rcorder 8 Ns 's> E<.Fl k> flag), reverse that order, and "
+"assign the result to a variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:219
+msgid ""
+"Call each script in turn using E<.Fn run_rc_script> (from E<.Xr rc.subr 8>), "
+"which sets E<.Va $1> to E<.Dq Li stop>, and sources the script in a "
+"subshell."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man8/rc.8:220
+#, no-wrap
+msgid "Contents of Nm rc.d/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:226
+msgid ""
+"E<.Nm rc.d/> is located in E<.Pa /etc/rc.d/>.  The following file naming "
+"conventions are currently used in E<.Nm rc.d/>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:227
+#, no-wrap
+msgid "Pa ALLUPPERCASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:232
+msgid ""
+"Scripts that are E<.Dq placeholders> to ensure that certain operations are "
+"performed before others.  In order of startup, these are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:233
+#, no-wrap
+msgid "Pa NETWORKING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:236
+msgid ""
+"Ensure basic network services are running, including general network "
+"configuration."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:236
+#, no-wrap
+msgid "Pa SERVERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:243
+msgid ""
+"Ensure basic services exist for services that start early (such as E<.Pa "
+"nisdomain>), because they are required by E<.Pa DAEMON> below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:243
+#, no-wrap
+msgid "Pa DAEMON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:248
+msgid ""
+"Check-point before all general purpose daemons such as E<.Pa lpd> and E<.Pa "
+"ntpd>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:248
+#, no-wrap
+msgid "Pa LOGIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:257
+msgid ""
+"Check-point before user login services E<.Pa ( inetd> and E<.Pa sshd>), as "
+"well as services which might run commands as users E<.Pa ( cron> and E<.Pa "
+"sendmail>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:258
+#, no-wrap
+msgid "Pa bar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:265
+msgid ""
+"Scripts that are sourced in a subshell.  The boot does not stop if such a "
+"script terminates with a non-zero status, but a script can stop the boot if "
+"necessary by invoking the E<.Fn stop_boot> function (from E<.Xr rc.subr 8>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:276
+msgid ""
+"Each script should contain E<.Xr rcorder 8> keywords, especially an "
+"appropriate E<.Dq Li PROVIDE> entry, and if necessary E<.Dq Li REQUIRE> and "
+"E<.Dq Li BEFORE> keywords."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:281
+msgid ""
+"Each script is expected to support at least the following arguments, which "
+"are automatically supported if it uses the E<.Fn run_rc_command> function:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:282
+#, no-wrap
+msgid "Cm start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:297
+msgid ""
+"Start the service.  This should check that the service is to be started as "
+"specified by E<.Xr rc.conf 5>.  Also checks if the service is already "
+"running and refuses to start if it is.  This latter check is not performed "
+"by standard E<.Fx> scripts if the system is starting directly to multi-user "
+"mode, to speed up the boot process.  If E<.Cm forcestart> is given, ignore "
+"the E<.Xr rc.conf 5> check and start anyway."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:297
+#, no-wrap
+msgid "Cm stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:307
+msgid ""
+"If the service is to be started as specified by E<.Xr rc.conf 5>, stop the "
+"service.  This should check that the service is running and complain if it "
+"is not.  If E<.Cm forcestop> is given, ignore the E<.Xr rc.conf 5> check and "
+"attempt to stop."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:307
+#, no-wrap
+msgid "Cm restart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:312
+msgid "Perform a E<.Cm stop> then a E<.Cm start>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:312
+#, no-wrap
+msgid "Cm status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:317
+msgid ""
+"If the script starts a process (rather than performing a one-off operation), "
+"show the status of the process.  Otherwise it is not necessary to support "
+"this argument.  Defaults to displaying the process ID of the program (if "
+"running)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:317
+#, no-wrap
+msgid "Cm enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:320
+msgid "Enable the service in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:320
+#, no-wrap
+msgid "Cm disable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:323
+msgid "Disable the service in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:323
+#, no-wrap
+msgid "Cm delete"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:332
+msgid ""
+"Remove the service from E<.Xr rc.conf 5>.  If E<.Ql Li service_delete_empty> "
+"is set to E<.Dq Li YES>, E<.Pa /etc/rc.conf.d/$servicename> will be deleted "
+"if empty after modification."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:332
+#, no-wrap
+msgid "Cm describe"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:334
+msgid "Print a short description of what the script does."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:334
+#, no-wrap
+msgid "Cm extracommands"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:336
+msgid "Print the script's non-standard commands."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:336
+#, no-wrap
+msgid "Cm poll"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:340
+msgid ""
+"If the script starts a process (rather than performing a one-off operation), "
+"wait for the command to exit.  Otherwise it is not necessary to support this "
+"argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:340
+#, no-wrap
+msgid "Cm enabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:343
+msgid ""
+"Return 0 if the service is enabled and 1 if it is not.  This command does "
+"not print anything."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:343
+#, no-wrap
+msgid "Cm rcvar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:347
+msgid ""
+"Display which E<.Xr rc.conf 5> variables are used to control the startup of "
+"the service (if any)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:356
+msgid ""
+"If a script must implement additional commands it can list them in the E<.Va "
+"extra_commands> variable, and define their actions in a variable constructed "
+"from the command name (see the E<.Sx EXAMPLES> section)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:359
+msgid ""
+"The following key points apply to old-style scripts in E<.Pa "
+"/usr/local/etc/rc.d/>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:368
+msgid ""
+"Scripts are only executed if their E<.Xr basename 1> matches the shell "
+"globbing pattern E<.Pa *.sh>, and they are executable.  Any other files or "
+"directories present within the directory are silently ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:381
+msgid ""
+"When a script is executed at boot time, it is passed the string E<.Dq Li "
+"start> as its first and only argument.  At shutdown time, it is passed the "
+"string E<.Dq Li stop> as its first and only argument.  All E<.Nm rc.d/> "
+"scripts are expected to handle these arguments appropriately.  If no action "
+"needs to be taken at a given time (either boot time or shutdown time), the "
+"script should exit successfully and without producing an error message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:390
+msgid ""
+"The scripts within each directory are executed in lexicographical order.  If "
+"a specific order is required, numbers may be used as a prefix to the "
+"existing filenames, so for example E<.Pa 100.foo> would be executed before "
+"E<.Pa 200.bar>; without the numeric prefixes the opposite would be true."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:397
+msgid ""
+"The output from each script is traditionally a space character, followed by "
+"the name of the software package being started or shut down, E<.Em without> "
+"a trailing newline character (see the E<.Sx EXAMPLES> section)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:398
+#, no-wrap
+msgid "SCRIPTS OF INTEREST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:424
+msgid ""
+"When an automatic reboot is in progress, E<.Nm> is invoked with the argument "
+"E<.Cm autoboot>.  One of the scripts run from E<.Pa /etc/rc.d/> is E<.Pa "
+"/etc/rc.d/fsck>.  This script runs E<.Xr fsck 8> with option E<.Fl p> and "
+"E<.Fl F> to E<.Dq preen> all the disks of minor inconsistencies resulting "
+"from the last system shutdown.  If this fails, then checks/repairs of "
+"serious inconsistencies caused by hardware or software failure will be "
+"performed in the background at the end of the booting process.  If E<.Cm "
+"autoboot> is not set, when going from single-user to multi-user mode for "
+"example, the script does not do anything."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:436
+msgid ""
+"The E<.Pa /etc/rc.d/local> script can execute scripts from multiple E<.Nm "
+"rc.d/> directories.  The default location includes E<.Pa "
+"/usr/local/etc/rc.d/>, but these may be overridden with the E<.Va "
+"local_startup> E<.Xr rc.conf 5> variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:440
+msgid ""
+"The E<.Pa /etc/rc.d/serial> script is used to set any special configurations "
+"for serial devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:446
+msgid ""
+"The E<.Nm rc.firewall> script is used to configure rules for the kernel "
+"based firewall service.  It has several possible options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:448
+#, no-wrap
+msgid "Cm open"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:450
+msgid "will allow anyone in"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:450
+#, no-wrap
+msgid "Cm client"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:452
+msgid "will try to protect just this machine"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:452
+#, no-wrap
+msgid "Cm simple"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:454
+msgid "will try to protect a whole network"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:454
+#, no-wrap
+msgid "Cm closed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:458
+msgid "totally disables IP services except via E<.Pa lo0> interface"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:458
+#, no-wrap
+msgid "Cm UNKNOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:460
+msgid "disables the loading of firewall rules"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:460
+#, no-wrap
+msgid "Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:462
+msgid "will load the rules in the given filename (full path required)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:467
+msgid ""
+"Most daemons, including network related daemons, have their own script in "
+"E<.Pa /etc/rc.d/>, which can be used to start, stop, and check the status of "
+"the service."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:472
+msgid ""
+"Any architecture specific scripts, such as E<.Pa /etc/rc.d/apm> for example, "
+"specifically check that they are on that architecture before starting the "
+"daemon."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:475
+msgid "Following tradition, all startup files reside in E<.Pa /etc>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:475
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:477
+#, no-wrap
+msgid "Pa /etc/rc"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:478
+#, no-wrap
+msgid "Pa /etc/rc.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:479
+#, no-wrap
+msgid "Pa /etc/rc.conf.local"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:480
+#, no-wrap
+msgid "Pa /etc/rc.d/"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:481
+#, no-wrap
+msgid "Pa /etc/rc.firewall"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:482
+#, no-wrap
+msgid "Pa /etc/rc.local"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:483
+#, no-wrap
+msgid "Pa /etc/rc.shutdown"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:484
+#, no-wrap
+msgid "Pa /etc/rc.subr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/rc.8:485
+#, no-wrap
+msgid "Pa /var/run/dmesg.boot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:493
+msgid ""
+"E<.Xr dmesg 8> results soon after the E<.Nm> process begins.  Useful when "
+"E<.Xr dmesg 8> buffer in the kernel no longer has this information."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:494
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:499
+msgid ""
+"The following is a minimal E<.Nm rc.d/> style script.  Most scripts require "
+"little more than the following."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:502 /usr/src/share/man/man8/rc.8:522
+#, no-wrap
+msgid ""
+"#!/bin/sh\n"
+"#\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:505
+#, no-wrap
+msgid ""
+"# PROVIDE: foo\n"
+"# REQUIRE: bar_service_required_to_precede_foo\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:507 /usr/src/share/man/man8/rc.8:528
+#, no-wrap
+msgid "\\&. /etc/rc.subr\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:511
+#, no-wrap
+msgid ""
+"name=\"foo\"\n"
+"rcvar=foo_enable\n"
+"command=\"/usr/local/bin/foo\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:514 /usr/src/share/man/man8/rc.8:543
+#, no-wrap
+msgid ""
+"load_rc_config $name\n"
+"run_rc_command \"$1\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:519
+msgid ""
+"Certain scripts may want to provide enhanced functionality.  The user may "
+"access this functionality through additional commands.  The script may list "
+"and define as many commands at it needs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:526
+#, no-wrap
+msgid ""
+"# PROVIDE: foo\n"
+"# REQUIRE: bar_service_required_to_precede_foo\n"
+"# BEFORE:  baz_service_requiring_foo_to_precede_it\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:535
+#, no-wrap
+msgid ""
+"name=\"foo\"\n"
+"rcvar=foo_enable\n"
+"command=\"/usr/local/bin/foo\"\n"
+"extra_commands=\"nop hello\"\n"
+"hello_cmd=\"echo Hello World.\"\n"
+"nop_cmd=\"do_nop\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:540
+#, no-wrap
+msgid ""
+"do_nop()\n"
+"{\n"
+"\techo \"I do nothing.\"\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:550
+msgid ""
+"As all processes are killed by E<.Xr init 8> at shutdown, the explicit E<.Xr "
+"kill 1> is unnecessary, but is often included."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:550
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:560
+msgid ""
+"E<.Xr kill 1>, E<.Xr rc.conf 5>, E<.Xr init 8>, E<.Xr rc.resume 8>, E<.Xr "
+"rc.subr 8>, E<.Xr rcorder 8>, E<.Xr reboot 8>, E<.Xr savecore 8>, E<.Xr "
+"sysrc 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/rc.8:560
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/rc.8:564
+msgid "The E<.Nm> utility appeared in E<.Bx 4.0>."
+msgstr ""

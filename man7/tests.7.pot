@@ -1,0 +1,432 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-17 19:10-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: tests.7:29
+#, no-wrap
+msgid "August 21, 2017"
+msgstr ""
+
+#. type: Dt
+#: tests.7:30
+#, no-wrap
+msgid "TESTS 7"
+msgstr ""
+
+#. type: Sh
+#: tests.7:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:34
+msgid "E<.Nm tests>"
+msgstr ""
+
+#. type: Nd
+#: tests.7:34
+#, no-wrap
+msgid "introduction to the"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:37
+msgid "E<.Fx> Test Suite"
+msgstr ""
+
+#. type: Sh
+#: tests.7:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:52
+msgid ""
+"The E<.Fx> Test Suite provides a collection of automated tests for two major "
+"purposes.  On one hand, the test suite aids E<.Em developers> to detect bugs "
+"and regressions when they modify the source tree.  On the other hand, it "
+"allows E<.Em end users> (and, in particular, system administrators) to "
+"verify that fresh installations of the E<.Fx> operating system behave "
+"correctly on their hardware platform and also to ensure that the system does "
+"not suffer from regressions during regular operation and maintenance."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:58
+msgid "The E<.Fx> Test Suite can be found in the E<.Pa /usr/tests> hierarchy."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:61
+msgid ""
+"This manual page describes how to run the test suite and how to configure "
+"some of its optional features."
+msgstr ""
+
+#. type: Ss
+#: tests.7:61
+#, no-wrap
+msgid "Installing the test suite"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:65
+msgid "The test suite is installed by default as of E<.Fx> 11.0-RELEASE."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:79
+msgid ""
+"If the E<.Pa /usr/tests> directory is missing, then you will have to enable "
+"the build of the test suite, rebuild your system and install the results.  "
+"You can do so by setting E<.Sq WITH_TESTS=yes> in your E<.Pa /etc/src.conf> "
+"file (see E<.Xr src.conf 5> for details)  and rebuilding the system as "
+"described in E<.Xr build 7>."
+msgstr ""
+
+#. type: Ss
+#: tests.7:79
+#, no-wrap
+msgid "When to run the tests?"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:82
+msgid ""
+"Before diving into the details of how to run the test suite, here are some "
+"scenarios in which you should run it:"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:87
+msgid ""
+"After a fresh installation of E<.Fx> to ensure that the system works "
+"correctly on your hardware platform."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:93
+msgid ""
+"After an upgrade of E<.Fx> to a different version to ensure that the new "
+"code works well on your hardware platform and that the upgrade did not "
+"introduce regressions in your configuration."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:95
+msgid "After modifying the source tree to detect any new bugs and/or regressions."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:101
+msgid ""
+"Periodically, maybe from a E<.Xr cron 8> job, to ensure that any changes to "
+"the system (such as the installation of third-party packages or manual "
+"modifications to configuration files) do not introduce unexpected failures."
+msgstr ""
+
+#. type: Ss
+#: tests.7:102
+#, no-wrap
+msgid "Running the tests"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:108
+msgid ""
+"First, you will need to install the E<.Sq devel/kyua> package from E<.Xr "
+"ports 7>.  Then use the following command to run the whole test suite:"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:110
+#, no-wrap
+msgid "$ kyua test -k /usr/tests/Kyuafile\n"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:120
+msgid ""
+"The above will iterate through all test programs in E<.Pa /usr/tests> "
+"recursively, execute them, store their results and debugging data in Kyua's "
+"database (by default in E<.Pa ~/.kyua/store.db>), and print a summary of the "
+"results.  This summary includes a brief count of all total tests run and how "
+"many of them failed."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:128
+msgid ""
+"It is possible to restrict which tests to run by providing their names in "
+"the command line.  For example, this would execute the tests for the E<.Xr "
+"cp 1> and E<.Xr cut 1> utilities:"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:130
+#, no-wrap
+msgid "$ kyua test -k /usr/tests/Kyuafile bin/cp usr.bin/cut\n"
+msgstr ""
+
+#. type: Ss
+#: tests.7:131
+#, no-wrap
+msgid "Obtaining reports of the tests execution"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:136
+msgid ""
+"Additional information about the test results can be retrieved by using "
+"Kyua's various reporting commands.  For example, the following would print a "
+"plain-text report of the executed tests and show which ones failed:"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:138
+#, no-wrap
+msgid "$ kyua report\n"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:142
+msgid ""
+"This example would generate an HTML report ready to be published on a web "
+"server:"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:144
+#, no-wrap
+msgid "$ kyua report-html --output ~/public_html/tests\n"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:149
+msgid ""
+"For further details on the command-line interface of Kyua, please refer to "
+"its manual page E<.Xr kyua 1>."
+msgstr ""
+
+#. type: Ss
+#: tests.7:149
+#, no-wrap
+msgid "Configuring the tests"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:156
+msgid ""
+"Some test cases in the E<.Fx> Test Suite require manual configuration by the "
+"administrator before they can be run.  Unless certain properties are "
+"defined, the tests that require them will be skipped."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:162
+msgid ""
+"Test suites are configured by defining their configuration variables in "
+"E<.Pa /usr/local/etc/kyua/kyua.conf>.  The format of this file is detailed "
+"in E<.Xr kyua.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:166
+msgid ""
+"The following configuration variables are available in the E<.Fx> Test "
+"Suite:"
+msgstr ""
+
+#. type: It
+#: tests.7:167
+#, no-wrap
+msgid "allow_devfs_side_effects"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:176
+msgid ""
+"If defined, enables tests that may destroy and recreate semipermanent device "
+"nodes, like disk devices.  Without this variable, tests may still create and "
+"destroy devices nodes that are normally transient, like /dev/tap* and "
+"/dev/pts*, as long as they clean them up afterwards.  However, tests that "
+"require this variable have a relaxed cleanup requirement; they must recreate "
+"any devices that they destroyed, but not necessarily with the same devnames."
+msgstr ""
+
+#. type: It
+#: tests.7:176
+#, no-wrap
+msgid "allow_sysctl_side_effects"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:181
+msgid ""
+"Enables tests that change globally significant E<.Xr sysctl 8> variables.  "
+"The tests will undo any changes in their cleanup phases."
+msgstr ""
+
+#. type: It
+#: tests.7:181
+#, no-wrap
+msgid "disks"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:185
+msgid ""
+"Must be set to a space delimited list of disk device nodes.  Tests that need "
+"destructive access to disks must use these devices.  Tests are not required "
+"to preserve any data present on these disks."
+msgstr ""
+
+#. type: It
+#: tests.7:185
+#, no-wrap
+msgid "fibs"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:189
+msgid ""
+"Must be set to a space delimited list of FIBs (routing tables).  Tests that "
+"need to modify a routing table may use any of these.  Tests will cleanup any "
+"new routes that they create."
+msgstr ""
+
+#. type: Ss
+#: tests.7:190
+#, no-wrap
+msgid "What to do if something fails?"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:199
+msgid ""
+"If there is E<.Em any failure> during the execution of the test suite, "
+"please consider reporting it to the E<.Fx> developers so that the failure "
+"can be analyzed and fixed.  To do so, either send a message to the "
+"appropriate mailing list or file a problem report.  For more details please "
+"refer to:"
+msgstr ""
+
+#. type: Sh
+#: tests.7:205
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: tests.7:207
+#, no-wrap
+msgid "Pa /usr/local/etc/kyua/kyua.conf"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:210
+msgid "System-wide configuration file for E<.Xr kyua 1>."
+msgstr ""
+
+#. type: It
+#: tests.7:210
+#, no-wrap
+msgid "Pa ~/.kyua/kyua.conf"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:214
+msgid ""
+"User-specific configuration file for E<.Xr kyua 1>; overrides the system "
+"file."
+msgstr ""
+
+#. type: It
+#: tests.7:214
+#, no-wrap
+msgid "Pa ~/.kyua/store.db"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:216
+msgid "Default result database used by Kyua."
+msgstr ""
+
+#. type: It
+#: tests.7:216
+#, no-wrap
+msgid "Pa /usr/tests/"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:220
+msgid "Location of the E<.Fx> Test Suite."
+msgstr ""
+
+#. type: It
+#: tests.7:220
+#, no-wrap
+msgid "Pa /usr/tests/Kyuafile"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:222
+msgid "Top-level test suite definition file."
+msgstr ""
+
+#. type: Sh
+#: tests.7:223
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:226
+msgid "E<.Xr kyua 1>, E<.Xr build 7>"
+msgstr ""
+
+#. type: Sh
+#: tests.7:226
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:231
+msgid "The E<.Fx> Test Suite first appeared in E<.Fx 10.1>."
+msgstr ""
+
+#. type: Plain text
+#: tests.7:238
+msgid ""
+"The E<.Nm> manual page first appeared in E<.Nx 6.0> and was later ported to "
+"E<.Fx 10.1>."
+msgstr ""
+
+#. type: Sh
+#: tests.7:238
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: tests.7:239
+msgid "E<.An Julio Merino Aq Mt jmmv@FreeBSD.org>"
+msgstr ""

@@ -1,0 +1,625 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_ccatm.4:34
+#, no-wrap
+msgid "March 10, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_ccatm.4:35
+#, no-wrap
+msgid "NG_CCATM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:39
+msgid "E<.Nm ng_ccatm>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_ccatm.4:39
+#, no-wrap
+msgid "ATM Call Control netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:41
+#, no-wrap
+msgid "netnatm/unimsg.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:42
+#, no-wrap
+msgid "netnatm/msg/unistruct.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:43
+#, no-wrap
+msgid "netnatm/sig/unidef.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:44
+#, no-wrap
+msgid "netnatm/api/unisap.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:45
+#, no-wrap
+msgid "netnatm/api/atmapi.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:46
+#, no-wrap
+msgid "netnatm/api/ccatm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:47
+#, no-wrap
+msgid "netgraph.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:48
+#, no-wrap
+msgid "netgraph/ng_uni.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:49
+#, no-wrap
+msgid "netgraph/ng_ccatm.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:63
+msgid ""
+"The E<.Nm> node implements the API specified by the ATM Forum for access to "
+"ATM services (see ATM-Forum document E<.Pa af-saa-0108>).  This document "
+"specifies the semantics of the API, not the exact language binding.  For "
+"this reason, it is expected that this implementation is neither compile-time "
+"nor binary compatible with other implementations of this API.  It should, "
+"however, be fairly straightforward to convert between different API "
+"implementations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:70
+msgid ""
+"This node is usually stacked on top of one or more UNI nodes (see E<.Xr "
+"ng_uni 4>).  Each of these hooks appears as a E<.Dq port> to the user of the "
+"node.  It also has one hook connected to the ILMI daemon for management "
+"purposes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:74
+msgid ""
+"The node is removed when it receives a E<.Dv NGM_SHUTDOWN> messages or when "
+"all hooks are disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:74
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:78
+msgid ""
+"The node understands a number of hooks with predefined names and an "
+"unlimited number of hooks for user connections.  The predefined names are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:79
+#, no-wrap
+msgid "Va uni Ns Ar NNN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:92
+msgid ""
+"These hooks stack the E<.Nm> node on top of a UNI stack.  The node expects "
+"the interface on these hooks to conform to the upper interface specified in "
+"E<.Xr ng_uni 4>.  These hooks are forced into queuing mode, so that there "
+"are no circular calls from call control to UNI and UNI back to call "
+"control.  The E<.Ar NNN> in the hook name is the decimal port number and "
+"should not be zero.  The port number is a 32-bit unsigned integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:92
+#, no-wrap
+msgid "Va manage"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:96
+msgid ""
+"This hook should be connected to the ILMI daemon.  No data is ever sent on "
+"this hook and all received data is discarded.  The hook is used to send "
+"control messages along."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:96
+#, no-wrap
+msgid "Va dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:104
+msgid ""
+"On receipt of a E<.Dv NGM_CCATM_DUMP> command a textual description of the "
+"current state of the node is sent out of this hook.  This text is sent as "
+"one large message consisting of more than one E<.Vt mbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:109
+msgid ""
+"All other hook names are taken to be user hooks and correspond to an ATM "
+"endpoint as specified in the ATM Forum document.  The interface on these "
+"hooks is defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_ccatm.4:109
+#, no-wrap
+msgid "atmapi.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:111
+msgid "and uses a structure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:116
+#, no-wrap
+msgid ""
+"struct ccatm_op {\n"
+"\tuint32_t\top;\t/* request code */\n"
+"\tu_char\t\tdata[];\t/* optional data */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:120
+msgid ""
+"This structure is followed directly by the data for the operation.  The "
+"opcode is one of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:145
+#, no-wrap
+msgid ""
+"enum atmop {\n"
+"\tATMOP_RESP,\n"
+"\tATMOP_ABORT_CONNECTION,\n"
+"\tATMOP_ACCEPT_INCOMING_CALL,\n"
+"\tATMOP_ADD_PARTY,\n"
+"\tATMOP_ADD_PARTY_REJECT,\n"
+"\tATMOP_ADD_PARTY_SUCCESS,\n"
+"\tATMOP_ARRIVAL_OF_INCOMING_CALL,\n"
+"\tATMOP_CALL_RELEASE,\n"
+"\tATMOP_CONNECT_OUTGOING_CALL,\n"
+"\tATMOP_DROP_PARTY,\n"
+"\tATMOP_GET_LOCAL_PORT_INFO,\n"
+"\tATMOP_P2MP_CALL_ACTIVE,\n"
+"\tATMOP_P2P_CALL_ACTIVE,\n"
+"\tATMOP_PREPARE_INCOMING_CALL,\n"
+"\tATMOP_PREPARE_OUTGOING_CALL,\n"
+"\tATMOP_QUERY_CONNECTION_ATTRIBUTES,\n"
+"\tATMOP_REJECT_INCOMING_CALL,\n"
+"\tATMOP_SET_CONNECTION_ATTRIBUTES,\n"
+"\tATMOP_WAIT_ON_INCOMING_CALL,\n"
+"\tATMOP_SET_CONNECTION_ATTRIBUTES_X,\n"
+"\tATMOP_QUERY_CONNECTION_ATTRIBUTES_X,\n"
+"\tATMOP_QUERY_STATE\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:149
+msgid ""
+"These codes correspond directly to the operations specified in the ATM Forum "
+"document with the following exceptions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:150
+#, no-wrap
+msgid "Dv ATMOP_RESP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:157
+msgid ""
+"As discussed in E<.Xr ng_uni 4>, this is used to E<.Dq synchronify> the "
+"interface.  The argument is a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:162
+#, no-wrap
+msgid ""
+"struct atm_resp {\n"
+"\tint32_t\t\tresp;\n"
+"\tuint32_t\tdata;\t\t/* type of attached data */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:174
+msgid ""
+"If the response code E<.Va resp> is zero, the node has accepted the user "
+"request.  If something goes wrong, E<.Va resp> contains an error code.  For "
+"requests that return data, E<.Va data> contains a code describing the type "
+"of data and the data itself starts immediately after the structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:174
+#, no-wrap
+msgid "Dv ATMOP_QUERY_CONNECTION_ATTRIBUTES_X"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:179
+msgid ""
+"This is the same as E<.Dv ATMOP_QUERY_CONNECTION_ATTRIBUTES> except that it "
+"allows to query several attributes within one request."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:179
+#, no-wrap
+msgid "Dv ATMOP_SET_CONNECTION_ATTRIBUTES_X"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:186
+msgid ""
+"This is the same as E<.Dv ATMOP_SET_CONNECTION_ATTRIBUTES> except that it "
+"allows to set several attributes within one request.  The list of attributes "
+"is followed directly by the attributes in the same order as they appear in "
+"the list."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:191
+msgid ""
+"If a user hook is disconnected, an active connection on that hook is "
+"released.  Incoming connections waiting to be accepted are reoffered to "
+"other listening hooks or rejected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:191
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:194
+msgid ""
+"Besides the generic messages the node understands the following special "
+"messages:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:195
+#, no-wrap
+msgid "Dv NGM_CCATM_DUMP Pq Ic dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:199
+msgid ""
+"This causes the internal state of the node to be dumped in ASCII to the "
+"E<.Va dump> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:199
+#, no-wrap
+msgid "Dv NGM_CCATM_STOP Pq Ic stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:204
+msgid ""
+"This message causes all connections on that port to be aborted (not "
+"released!\\&)  and all ATM endpoints which are bound to that port to be "
+"closed.  It stops processing of all messages from the UNI stack on that port "
+"UNI stack.  The argument is a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:208
+#, no-wrap
+msgid ""
+"struct ngm_ccatm_port {\n"
+"\tuint32_t\tport;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:209
+#, no-wrap
+msgid "Dv NGM_CCATM_START Pq Ic start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:214
+msgid ""
+"Start processing on the port.  The argument is a E<.Vt ngm_ccatm_port> "
+"structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:214
+#, no-wrap
+msgid "Dv NGM_CCATM_CLEAR Pq Ic clear"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:219
+msgid ""
+"This message takes a E<.Vt ngm_ccatm_port> structure and clears all prefixes "
+"and addresses on that port.  If the port number is zero, all ports are "
+"cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:219
+#, no-wrap
+msgid "Dv NGM_CCATM_GET_ADDRESSES Pq Ic get_addresses"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:226
+msgid ""
+"Get the list of all registered addresses on the given port.  The argument is "
+"a E<.Vt ngm_ccatm_port> structure and the result is a E<.Vt "
+"ngm_ccatm_get_addresses> structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:235
+#, no-wrap
+msgid ""
+"struct ngm_ccatm_get_addresses {\n"
+"\tuint32_t\tcount;\n"
+"\tstruct ngm_ccatm_address_req addr[0];\n"
+"};\n"
+"struct ngm_ccatm_address_req {\n"
+"\tuint32_t\tport;\n"
+"\tstruct uni_addr\taddr;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:245
+msgid ""
+"If the E<.Va port> field is zero in the request, all addresses on all ports "
+"are returned.  If it is not zero, only the addresses on that port are "
+"reported.  The number of addresses is returned in the E<.Va count> field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:245
+#, no-wrap
+msgid "Dv NGM_CCATM_ADDRESS_REGISTERED Pq Ic address_reg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:253
+msgid ""
+"This message is used by ILMI to inform the E<.Nm> node that a previous "
+"address registration request was successful.  This causes the node to "
+"activate that address.  The argument to the message is a E<.Vt "
+"ngm_ccatm_address_req> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:253
+#, no-wrap
+msgid "Dv NGM_CCATM_ADDRESS_UNREGISTERED Pq Ic address_unreg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:261
+msgid ""
+"This message is used by ILMI to inform the E<.Nm> node that an address has "
+"been unregistered.  The node clears that address from its tables.  The "
+"argument is a E<.Vt ngm_ccatm_address_req> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:261
+#, no-wrap
+msgid "Dv NGM_CCATM_SET_PORT_PARAM Pq Ic set_port_param"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:264
+msgid "This request sets the parameters on the given port.  The argument is a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:276
+#, no-wrap
+msgid ""
+"struct ngm_ccatm_atm_port {\n"
+"\tuint32_t port;\t\t/* port for which to set parameters */\n"
+"\tuint32_t pcr;\t\t/* port peak cell rate */\n"
+"\tuint32_t max_vpi_bits;\n"
+"\tuint32_t max_vci_bits;\n"
+"\tuint32_t max_svpc_vpi;\n"
+"\tuint32_t max_svcc_vpi;\n"
+"\tuint32_t min_svcc_vci;\n"
+"\tuint8_t\t esi[6];\n"
+"\tuint32_t num_addr;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:283
+msgid ""
+"This should be used only by ILMI and when that port is stopped and the "
+"address and prefix tables of that port are empty.  The E<.Va num_addr> field "
+"is ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:283
+#, no-wrap
+msgid "Dv NGM_CCATM_GET_PORT_PARAM Pq Ic get_port_param"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:289
+msgid ""
+"Retrieve the parameters of the given port.  The argument is a E<.Vt "
+"ngm_ccatm_port> and the result a E<.Vt ngm_ccatm_atm_port>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:289
+#, no-wrap
+msgid "Dv NGM_CCATM_GET_PORTLIST Pq Ic get_portlist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:292
+msgid "Get a list of all available ports on that node.  This is returned as a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:297
+#, no-wrap
+msgid ""
+"struct ngm_ccatm_portlist {\n"
+"\tuint32_t\tnports;\n"
+"\tuint32_t\tports[];\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:298
+#, no-wrap
+msgid "Dv NGM_CCATM_GETSTATE Pq Ic getstate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:304
+msgid ""
+"Return the state of a port.  The argument is a E<.Vt \"struct "
+"ngm_ccatm_port\"> and the return values as a E<.Vt uint32_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:304
+#, no-wrap
+msgid "Dv NGM_CCATM_SETLOG Pq Ic setlog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:311
+msgid ""
+"This requests sets a new logging level and returns the previous one.  The "
+"argument is either a E<.Vt uint32_t> in which case it specifies the new "
+"logging level, or may be empty in which case just the old level is returned "
+"as a E<.Vt uint32_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:311
+#, no-wrap
+msgid "Dv NGM_CCATM_RESET Pq Ic reset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:315
+msgid ""
+"Reset the node.  This is allowed only if the number of user hooks and "
+"connected UNI stacks is zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_ccatm.4:315
+#, no-wrap
+msgid "Dv NGM_CCATM_GET_EXSTAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:317
+msgid "Return extended status information from the node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:318
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:322
+msgid "E<.Xr netgraph 4>, E<.Xr ng_uni 4>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_ccatm.4:322
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_ccatm.4:323
+msgid "E<.An Harti Brandt Aq Mt harti@FreeBSD.org>"
+msgstr ""

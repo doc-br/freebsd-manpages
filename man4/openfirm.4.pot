@@ -1,0 +1,400 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:63
+#, no-wrap
+msgid "September 1, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:64
+#, no-wrap
+msgid "OPENFIRM 4 sparc64"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:66
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:68
+msgid "E<.Nm openfirm>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:68
+#, no-wrap
+msgid "Open Firmware interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:69
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:70
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:71
+#, no-wrap
+msgid "sys/ioctl.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:72
+#, no-wrap
+msgid "dev/ofw/openfirmio.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:73
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:95
+msgid ""
+"The E<.Pa /dev/openfirm> device is an interface to the E<.Tn Open Firmware> "
+"device tree.  This interface is similar to the E<.Tn SunOS /> E<.Tn Solaris> "
+"compatible E<.Xr openprom 4> interface and highly stylized.  It uses E<.Xr "
+"ioctl 2> calls for all operations.  These calls refer to the nodes in the "
+"E<.Tn Open Firmware> device tree.  The nodes are represented by package "
+"handles, which are simply integer values describing data areas.  "
+"Occasionally a package handle of 0 may be used or returned instead, as "
+"described below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:104
+msgid ""
+"The calls that only take and/or return the package handle of a node use a "
+"pointer to a E<.Vt phandle_t> for this purpose.  The others use a pointer to "
+"a E<.Vt \"struct ofiocdesc\"> descriptor, which has the following "
+"definition:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:112
+#, no-wrap
+msgid ""
+"struct ofiocdesc {\n"
+"\tphandle_t\tof_nodeid;\n"
+"\tint\t\tof_namelen;\n"
+"\tconst char\t*of_name;\n"
+"\tint\t\tof_buflen;\n"
+"\tchar\t\t*of_buf;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:146
+msgid ""
+"The E<.Va of_nodeid> member is the package handle of the node that is passed "
+"in or returned.  Strings are passed in via the E<.Va of_name> member of "
+"E<.Va of_namelen> length.  The maximum accepted length of E<.Va of_name> is "
+"E<.Dv OFIOCMAXNAME>.  The E<.Va of_buf> member is used to return strings "
+"except for the E<.Dv OFIOCSET> call where it is also used to pass in a "
+"string.  In the latter case the maximum accepted length of E<.Va of_buf> is "
+"E<.Dv OFIOCMAXVALUE>.  Generally, E<.Va of_buf> works in a value-result "
+"fashion.  At entry to the E<.Xr ioctl 2> call, E<.Va of_buflen> is expected "
+"to reflect the buffer size.  On return, E<.Va of_buflen> is updated to "
+"reflect the buffer contents."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:150
+msgid "The following E<.Xr ioctl 2> calls are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:151
+#, no-wrap
+msgid "Dv OFIOCGETOPTNODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:157
+msgid ""
+"Uses a E<.Vt phandle_t>.  Takes nothing and returns the package handle of "
+"the E<.Pa /options> node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:157
+#, no-wrap
+msgid "Dv OFIOCGETNEXT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:166
+msgid ""
+"Uses a E<.Vt phandle_t>.  Takes the package handle of a node and returns the "
+"package handle of the next node in the E<.Tn Open Firmware> device tree.  "
+"The node following the last node has a package handle of 0.  The node "
+"following the node with the package handle of 0 is the first node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:166
+#, no-wrap
+msgid "Dv OFIOCGETCHILD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:176
+msgid ""
+"Uses a E<.Vt phandle_t>.  Takes the package handle of a node and returns the "
+"package handle of the first child of that node.  This child may have "
+"siblings.  These can be determined by using E<.Dv OFIOCGETNEXT>.  If the "
+"node does not have a child, a package handle of 0 is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:176
+#, no-wrap
+msgid "Dv OFIOCGET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:185
+msgid ""
+"Uses a E<.Vt \"struct ofiocdesc\">.  Takes the package handle of a node and "
+"the name of a property.  Returns the property value and its length.  If no "
+"such property is associated with that node, the length of the value is set "
+"to \\-1.  If the named property exists but has no value, the length of the "
+"value is set to 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:185
+#, no-wrap
+msgid "Dv OFIOCGETPROPLEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:195
+msgid ""
+"Uses a E<.Vt \"struct ofiocdesc\">.  Takes the package handle of a node and "
+"the name of a property.  Returns the length of the property value.  This "
+"call is the same as E<.Dv OFIOCGET> except that only the length of the "
+"property value is returned.  It can be used to determine whether a node has "
+"a particular property or whether a property has a value without the need to "
+"provide memory for storing the value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:195
+#, no-wrap
+msgid "Dv OFIOCSET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:212
+msgid ""
+"Uses a E<.Vt \"struct ofiocdesc\">.  Takes the package handle of a node, the "
+"name of a property and a property value.  Returns the property value and the "
+"length that actually have been written.  The E<.Tn Open Firmware> may choose "
+"to truncate the value if it is too long or write a valid value instead if "
+"the given value is invalid for the particular property.  Therefore the "
+"returned value should be checked.  The E<.Tn Open Firmware> may also "
+"completely refuse to write the given value to the property.  In this case "
+"E<.Er EINVAL> is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:212
+#, no-wrap
+msgid "Dv OFIOCNEXTPROP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:220
+msgid ""
+"Uses a E<.Vt \"struct ofiocdesc\">.  Takes the package handle of a node and "
+"the name of a property.  Returns the name and the length of the next "
+"property of the node.  If the property referenced by the given name is the "
+"last property of the node, E<.Er ENOENT> is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:220
+#, no-wrap
+msgid "Dv OFIOCFINDDEVICE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:228
+msgid ""
+"Uses a E<.Vt \"struct ofiocdesc\">.  Takes the name or alias name of a "
+"device node.  Returns package handle of the node.  If no matching node is "
+"found, E<.Er ENOENT> is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:229
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:231
+#, no-wrap
+msgid "Pa /dev/openfirm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:233
+msgid "Open Firmware interface node"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:234
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:236
+msgid "The following may result in rejection of an operation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:237
+#, no-wrap
+msgid "Bq Er EBADF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:240
+msgid ""
+"The requested operation requires permissions not specified at the call to "
+"E<.Fn open>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:240
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:243
+msgid ""
+"The given package handle is not 0 and does not correspond to any valid node, "
+"or the given package handle is 0 where 0 is not allowed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:243
+#, no-wrap
+msgid "Bq Er ENAMETOOLONG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:249
+msgid ""
+"The given name or value exceeds the maximum allowed length of E<.Dv "
+"OFIOCMAXNAME> and E<.Dv OFIOCMAXVALUE> bytes respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:249
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:253
+msgid ""
+"The kernel could not allocate memory to copy in data from user-space or to "
+"retrieve data from the E<.Tn Open Firmware>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:254
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:266
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr openprom 4>, E<.Xr eeprom 8>, E<.Xr ofwdump 8> E<.Rs> "
+"E<.%Q \"IEEE Standards Organization\"> E<.%B \"IEEE Std 1275-1994:\"> E<.%B "
+"\"IEEE Standard for Boot Firmware (Initialization Configuration) "
+"Firmware:\"> E<.%B Core Requirements and Practices\"> E<.%O ISBN "
+"1-55937-426-8> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:266
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:275
+msgid ""
+"The E<.Nm> interface first appeared in E<.Nx 1.6>.  The first E<.Fx> version "
+"to include it was E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:275
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:282
+msgid ""
+"The E<.Nm> interface was ported to E<.Fx> by E<.An Thomas Moestl Aq Mt "
+"tmm@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:282
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:288
+msgid ""
+"Due to limitations within E<.Tn Open Firmware> itself, these functions run "
+"at elevated priority and may adversely affect system performance."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.sparc64/openfirm.4:300
+msgid ""
+"For at least the E<.Pa /options> node the property value passed in to the "
+"E<.Dv OFIOCSET> call has to be null-terminated and the value length passed "
+"in has to include the terminating E<.Ql \\e0>.  However, as with the E<.Dv "
+"OFIOCGET> call, the returned value length does not include the terminating "
+"E<.Ql \\e0>."
+msgstr ""

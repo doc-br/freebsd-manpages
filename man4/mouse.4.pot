@@ -1,0 +1,652 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mouse.4:29
+#, no-wrap
+msgid "December 3, 1997"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mouse.4:30
+#, no-wrap
+msgid "MOUSE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:34
+msgid "E<.Nm mouse>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mouse.4:34
+#, no-wrap
+msgid "mouse and pointing device drivers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mouse.4:36
+#, no-wrap
+msgid "sys/mouse.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:50
+msgid ""
+"The mouse drivers E<.Xr psm 4>, E<.Xr ums 4> and E<.Xr sysmouse 4> provide "
+"user programs with movement and button state information of the mouse.  "
+"Currently there are specific device drivers for bus, InPort, PS/2, and USB "
+"mice.  The serial mouse is not directly supported by a dedicated driver, but "
+"it is accessible via the serial device driver or via E<.Xr moused 8> and "
+"E<.Xr sysmouse 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:59
+msgid ""
+"The user program simply opens a mouse device with a E<.Xr open 2> call and "
+"reads mouse data from the device via E<.Xr read 2>.  Movement and button "
+"states are usually encoded in fixed-length data packets.  Some mouse devices "
+"may send data in variable length of packets.  Actual protocol (data format) "
+"used by each driver differs widely."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:62
+msgid ""
+"The mouse drivers may have ``non-blocking'' attribute which will make the "
+"driver return immediately if mouse data is not available."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:75
+msgid ""
+"Mouse device drivers often offer several levels of operation.  The current "
+"operation level can be examined and changed via E<.Xr ioctl 2> commands.  "
+"The level zero is the lowest level at which the driver offers the basic "
+"service to user programs.  Most drivers provide horizontal and vertical "
+"movement of the mouse and state of up to three buttons at this level.  At "
+"the level one, if supported by the driver, mouse data is encoded in the "
+"standard format E<.Dv MOUSE_PROTO_SYSMOUSE> as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:77
+#, no-wrap
+msgid "Byte 1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:79
+#, no-wrap
+msgid "bit 7"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:81
+msgid "Always one."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:81
+#, no-wrap
+msgid "bit 6..3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:83
+msgid "Always zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:83
+#, no-wrap
+msgid "bit 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:85
+msgid "Left button status; cleared if pressed, otherwise set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:85
+#, no-wrap
+msgid "bit 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:89
+msgid ""
+"Middle button status; cleared if pressed, otherwise set.  Always one, if the "
+"device does not have the middle button."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:89
+#, no-wrap
+msgid "bit 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:91
+msgid "Right button status; cleared if pressed, otherwise set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:92
+#, no-wrap
+msgid "Byte 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:95
+msgid ""
+"The first half of horizontal movement count in two's complement; -128 "
+"through 127."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:95
+#, no-wrap
+msgid "Byte 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:98
+msgid ""
+"The first half of vertical movement count in two's complement; -128 through "
+"127."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:98
+#, no-wrap
+msgid "Byte 4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:103
+msgid ""
+"The second half of the horizontal movement count in two's complement; -128 "
+"through 127.  To obtain the full horizontal movement count, add the byte 2 "
+"and 4."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:103
+#, no-wrap
+msgid "Byte 5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:108
+msgid ""
+"The second half of the vertical movement count in two's complement; -128 "
+"through 127.  To obtain the full vertical movement count, add the byte 3 and "
+"5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:108
+#, no-wrap
+msgid "Byte 6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:112
+msgid ""
+"The bit 7 is always zero.  The lower 7 bits encode the first half of Z axis "
+"movement count in two's complement; -64 through 63."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:112
+#, no-wrap
+msgid "Byte 7"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:117
+msgid ""
+"The bit 7 is always zero.  The lower 7 bits encode the second half of the Z "
+"axis movement count in two's complement; -64 through 63.  To obtain the full "
+"Z axis movement count, add the byte 6 and 7."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:117
+#, no-wrap
+msgid "Byte 8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:124
+msgid ""
+"The bit 7 is always zero.  The bits 0 through 6 reflect the state of the "
+"buttons 4 through 10.  If a button is pressed, the corresponding bit is "
+"cleared.  Otherwise the bit is set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:134
+msgid ""
+"The first 5 bytes of this format is compatible with the MouseSystems "
+"format.  The additional 3 bytes have their MSBs always set to zero.  Thus, "
+"if the user program can interpret the MouseSystems data format and tries to "
+"find the first byte of the format by detecting the bit pattern 10000xxxb, it "
+"will discard the additional bytes, thus, be able to decode x, y and states "
+"of 3 buttons correctly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:137
+msgid ""
+"Device drivers may offer operation levels higher than one.  Refer to manual "
+"pages of individual drivers for details."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:137
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:146
+msgid ""
+"The following E<.Xr ioctl 2> commands are defined for the mouse drivers.  "
+"The degree of support varies from one driver to another.  This section gives "
+"general description of the commands.  Refer to manual pages of individual "
+"drivers for specific details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:148
+#, no-wrap
+msgid "Dv MOUSE_GETLEVEL Ar int *level"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:149
+#, no-wrap
+msgid "Dv MOUSE_SETLEVEL Ar int *level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:151
+msgid "These commands manipulate the operation level of the mouse driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:152
+#, no-wrap
+msgid "Dv MOUSE_GETHWINFO Ar mousehw_t *hw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:159
+msgid ""
+"Returns the hardware information of the attached device in the following "
+"Except for the E<.Dv iftype> field, the device driver may not always fill "
+"the structure with correct values.  Consult manual pages of individual "
+"drivers for details of support."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:167
+#, no-wrap
+msgid ""
+"typedef struct mousehw {\n"
+"    int buttons;    /* number of buttons */\n"
+"    int iftype;     /* I/F type */\n"
+"    int type;       /* mouse/track ball/pad... */\n"
+"    int model;      /* I/F dependent model ID */\n"
+"    int hwid;       /* I/F dependent hardware ID */\n"
+"} mousehw_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:175
+msgid ""
+"The E<.Dv buttons> field holds the number of buttons detected by the "
+"driver.  The driver may put an arbitrary value, such as two, in this field, "
+"if it cannot determine the exact number."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:187
+msgid ""
+"The E<.Dv iftype> is the type of interface: E<.Dv MOUSE_IF_SERIAL>, E<.Dv "
+"MOUSE_IF_BUS>, E<.Dv MOUSE_IF_INPORT>, E<.Dv MOUSE_IF_PS2>, E<.Dv "
+"MOUSE_IF_USB>, E<.Dv MOUSE_IF_SYSMOUSE> or E<.Dv MOUSE_IF_UNKNOWN>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:197
+msgid ""
+"The E<.Dv type> tells the device type: E<.Dv MOUSE_MOUSE>, E<.Dv "
+"MOUSE_TRACKBALL>, E<.Dv MOUSE_STICK>, E<.Dv MOUSE_PAD>, or E<.Dv "
+"MOUSE_UNKNOWN>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:205
+msgid ""
+"The E<.Dv model> may be E<.Dv MOUSE_MODEL_GENERIC> or one of E<.Dv "
+"MOUSE_MODEL_XXX> constants."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:212
+msgid ""
+"The E<.Dv hwid> is the ID value returned by the pointing device.  It depend "
+"on the interface type; refer to the manual page of specific mouse drivers "
+"for possible values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:213
+#, no-wrap
+msgid "Dv MOUSE_GETMODE Ar mousemode_t *mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:215
+msgid "The command reports the current operation parameters of the mouse driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:225
+#, no-wrap
+msgid ""
+"typedef struct mousemode {\n"
+"    int protocol;    /* MOUSE_PROTO_XXX */\n"
+"    int rate;        /* report rate (per sec) */\n"
+"    int resolution;  /* MOUSE_RES_XXX, -1 if unknown */\n"
+"    int accelfactor; /* acceleration factor */\n"
+"    int level;       /* driver operation level */\n"
+"    int packetsize;  /* the length of the data packet */\n"
+"    unsigned char syncmask[2]; /* sync. bits */\n"
+"} mousemode_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:234
+msgid ""
+"The E<.Dv protocol> field tells the format in which the device status is "
+"returned when the mouse data is read by the user program.  It is one of "
+"E<.Dv MOUSE_PROTO_XXX> constants."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:240
+msgid ""
+"The E<.Dv rate> field is the status report rate (reports/sec) at which the "
+"device will send movement reports to the host computer.  -1 if unknown or "
+"not applicable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:247
+msgid ""
+"The E<.Dv resolution> field holds a value specifying resolution of the "
+"pointing device.  It is a positive value or one of E<.Dv MOUSE_RES_XXX> "
+"constants."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:253
+msgid ""
+"The E<.Dv accelfactor> field holds a value to control acceleration feature.  "
+"It must be zero or greater.  If it is zero, acceleration is disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:260
+msgid ""
+"The E<.Dv packetsize> field tells the length of the fixed-size data packet "
+"or the length of the fixed part of the variable-length packet.  The size "
+"depends on the interface type, the device type and model, the protocol and "
+"the operation level of the driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:272
+msgid ""
+"The array E<.Dv syncmask> holds a bit mask and pattern to detect the first "
+"byte of the data packet.  E<.Dv syncmask[0]> is the bit mask to be ANDed "
+"with a byte.  If the result is equal to E<.Dv syncmask[1]>, the byte is "
+"likely to be the first byte of the data packet.  Note that this method of "
+"detecting the first byte is not 100% reliable, thus, should be taken only as "
+"an advisory measure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:273
+#, no-wrap
+msgid "Dv MOUSE_SETMODE Ar mousemode_t *mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:286
+msgid ""
+"The command changes the current operation parameters of the mouse driver as "
+"specified in E<.Ar mode>.  Only E<.Dv rate>, E<.Dv resolution>, E<.Dv level> "
+"and E<.Dv accelfactor> may be modifiable.  Setting values in the other field "
+"does not generate error and has no effect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:294
+msgid ""
+"If you do not want to change the current setting of a field, put -1 there.  "
+"You may also put zero in E<.Dv resolution> and E<.Dv rate>, and the default "
+"value for the fields will be selected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:295
+#, no-wrap
+msgid "Dv MOUSE_READDATA Ar mousedata_t *data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:297
+msgid "The command reads the raw data from the device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:302
+#, no-wrap
+msgid ""
+"typedef struct mousedata {\n"
+"    int len;        /* # of data in the buffer */\n"
+"    int buf[16];    /* data buffer */\n"
+"} mousedata_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:308
+msgid ""
+"The calling process must fill the E<.Dv len> field with the number of bytes "
+"to be read into the buffer.  This command may not be supported by all "
+"drivers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:309
+#, no-wrap
+msgid "Dv MOUSE_READSTATE Ar mousedata_t *state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:313
+msgid ""
+"The command reads the raw state data from the device.  It uses the same "
+"structure as above.  This command may not be supported by all drivers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:314
+#, no-wrap
+msgid "Dv MOUSE_GETSTATUS Ar mousestatus_t *status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:317
+msgid ""
+"The command returns the current state of buttons and movement counts in the "
+"following structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:326
+#, no-wrap
+msgid ""
+"typedef struct mousestatus {\n"
+"    int flags;      /* state change flags */\n"
+"    int button;     /* button status */\n"
+"    int obutton;    /* previous button status */\n"
+"    int dx;         /* x movement */\n"
+"    int dy;         /* y movement */\n"
+"    int dz;         /* z movement */\n"
+"} mousestatus_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:340
+msgid ""
+"The E<.Dv button> and E<.Dv obutton> fields hold the current and the "
+"previous state of the mouse buttons.  When a button is pressed, the "
+"corresponding bit is set.  The mouse drivers may support up to 31 buttons "
+"with the bit 0 through 31.  Few button bits are defined as E<.Dv "
+"MOUSE_BUTTON1DOWN> through E<.Dv MOUSE_BUTTON8DOWN>.  The first three "
+"buttons correspond to left, middle and right buttons."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:351
+msgid ""
+"If the state of the button has changed since the last E<.Dv MOUSE_GETSTATUS> "
+"call, the corresponding bit in the E<.Dv flags> field will be set.  If the "
+"mouse has moved since the last call, the E<.Dv MOUSE_POSCHANGED> bit in the "
+"E<.Dv flags> field will also be set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:357
+msgid ""
+"The other fields hold movement counts since the last E<.Dv MOUSE_GETSTATUS> "
+"call.  The internal counters will be reset after every call to this command."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:358
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:360
+#, no-wrap
+msgid "Pa /dev/cuau%d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:362
+msgid "serial ports"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:362
+#, no-wrap
+msgid "Pa /dev/psm%d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:364
+msgid "PS/2 mouse device"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:364
+#, no-wrap
+msgid "Pa /dev/sysmouse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:366
+msgid "virtual mouse device"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mouse.4:366
+#, no-wrap
+msgid "Pa /dev/ums%d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:368
+msgid "USB mouse device"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:369
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. .Sh HISTORY
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:376
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr psm 4>, E<.Xr sysmouse 4>, E<.Xr ums 4>, E<.Xr moused "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mouse.4:376
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mouse.4:378
+msgid ""
+"This manual page was written by E<.An Kazutaka Yokota Aq Mt "
+"yokota@FreeBSD.org>."
+msgstr ""

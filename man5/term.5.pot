@@ -1,0 +1,510 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/ncurses/man/term.5:30
+#, no-wrap
+msgid "term"
+msgstr ""
+
+#. type: ds n
+#: /usr/src/contrib/ncurses/man/term.5:31
+#, no-wrap
+msgid "5"
+msgstr ""
+
+#. type: ds d
+#: /usr/src/contrib/ncurses/man/term.5:32
+#, no-wrap
+msgid "@TERMINFO@"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:35
+msgid "term - format of compiled term file."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:37
+msgid "B<term>"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/ncurses/man/term.5:38
+#, no-wrap
+msgid "STORAGE LOCATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:41
+msgid ""
+"Compiled terminfo descriptions are placed under the directory B<\\*d>.  Two "
+"configurations are supported (when building the ncurses libraries):"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:41
+#, no-wrap
+msgid "B<directory tree>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:55
+msgid ""
+"A two-level scheme is used to avoid a linear search of a huge \\s-1UNIX\\s+1 "
+"system directory: B<\\*d/c/name> where I<name> is the name of the terminal, "
+"and I<c> is the first character of I<name>.  Thus, I<act4> can be found in "
+"the file B<\\*d/a/act4>.  Synonyms for the same terminal are implemented by "
+"multiple links to the same compiled file."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:55
+#, no-wrap
+msgid "B<hashed database>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:61
+msgid ""
+"Using Berkeley database, two types of records are stored: the terminfo data "
+"in the same format as stored in a directory tree with the terminfo's primary "
+"name as a key, and records containing only aliases pointing to the primary "
+"name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:66
+msgid ""
+"If built to write hashed databases, ncurses can still read terminfo "
+"databases organized as a directory tree, but cannot write entries into the "
+"directory tree.  It can write (or rewrite) entries in the hashed database."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:71
+msgid ""
+"ncurses distinguishes the two cases in the TERMINFO and TERMINFO_DIRS "
+"environment variable by assuming a directory tree for entries that "
+"correspond to an existing directory, and hashed database otherwise."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/ncurses/man/term.5:71
+#, no-wrap
+msgid "STORAGE FORMAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:75
+msgid ""
+"The format has been chosen so that it will be the same on all hardware.  An "
+"8 or more bit byte is assumed, but no assumptions about byte ordering or "
+"sign extension are made."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:88
+msgid ""
+"The compiled file is created with the B<@TIC@> program, and read by the "
+"routine I<setupterm>.  The file is divided into six parts: the header, "
+"terminal names, boolean flags, numbers, strings, and string table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:93
+msgid ""
+"The header section begins the file.  This section contains six short "
+"integers in the format described below.  These integers are"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:94
+#, no-wrap
+msgid "(1) the magic number (octal 0432);"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:96
+#, no-wrap
+msgid "(2) the size, in bytes, of the names section;"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:98
+#, no-wrap
+msgid "(3) the number of bytes in the boolean section;"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:100
+#, no-wrap
+msgid "(4) the number of short integers in the numbers section;"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:102
+#, no-wrap
+msgid "(5) the number of offsets (short integers) in the strings section;"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:104
+#, no-wrap
+msgid "(6) the size, in bytes, of the string table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:119
+msgid ""
+"Short integers are stored in two 8-bit bytes.  The first byte contains the "
+"least significant 8 bits of the value, and the second byte contains the most "
+"significant 8 bits.  (Thus, the value represented is 256*second+first.)  The "
+"value -1 is represented by the two bytes 0377, 0377; other negative values "
+"are illegal. This value generally means that the corresponding capability is "
+"missing from this terminal.  Note that this format corresponds to the "
+"hardware of the \\s-1VAX\\s+1 and \\s-1PDP\\s+1-11 (that is, little-endian "
+"machines).  Machines where this does not correspond to the hardware must "
+"read the integers as two bytes and compute the little-endian value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:125
+msgid ""
+"The terminal names section comes next.  It contains the first line of the "
+"terminfo description, listing the various names for the terminal, separated "
+"by the `|' character.  The section is terminated with an \\s-1ASCII NUL\\s+1 "
+"character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:129
+msgid ""
+"The boolean flags have one byte for each flag.  This byte is either 0 or 1 "
+"as the flag is present or absent.  The capabilities are in the same order as "
+"the file E<lt>term.hE<gt>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:137
+msgid ""
+"Between the boolean section and the number section, a null byte will be "
+"inserted, if necessary, to ensure that the number section begins on an even "
+"byte (this is a relic of the PDP-11's word-addressed architecture, "
+"originally designed in to avoid IOT traps induced by addressing a word on an "
+"odd byte boundary).  All short integers are aligned on a short word "
+"boundary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:142
+msgid ""
+"The numbers section is similar to the flags section.  Each capability takes "
+"up two bytes, and is stored as a little-endian short integer.  If the value "
+"represented is -1, the capability is taken to be missing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:152
+msgid ""
+"The strings section is also similar.  Each capability is stored as a short "
+"integer, in the format above.  A value of -1 means the capability is "
+"missing.  Otherwise, the value is taken as an offset from the beginning of "
+"the string table.  Special characters in ^X or \\ec notation are stored in "
+"their interpreted form, not the printing representation.  Padding "
+"information $E<lt>nnE<gt> and parameter information %x are stored intact in "
+"uninterpreted form."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:157
+msgid ""
+"The final section is the string table.  It contains all the values of string "
+"capabilities referenced in the string section.  Each string is null "
+"terminated."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/ncurses/man/term.5:157
+#, no-wrap
+msgid "EXTENDED STORAGE FORMAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:162
+msgid ""
+"The previous section describes the conventional terminfo binary format.  "
+"With some minor variations of the offsets (see PORTABILITY), the same binary "
+"format is used in all modern UNIX systems.  Each system uses a predefined "
+"set of boolean, number or string capabilities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:170
+msgid ""
+"The ncurses libraries and applications support extended terminfo binary "
+"format, allowing users to define capabilities which are loaded at runtime.  "
+"This extension is made possible by using the fact that the other "
+"implementations stop reading the terminfo data when they have reached the "
+"end of the size given in the header.  ncurses checks the size, and if it "
+"exceeds that due to the predefined data, continues to parse according to its "
+"own scheme."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:172
+msgid "First, it reads the extended header (5 short integers):"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:173
+#, no-wrap
+msgid "(1)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:176
+msgid "count of extended boolean capabilities"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:176
+#, no-wrap
+msgid "(2)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:179
+msgid "count of extended numeric capabilities"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:179
+#, no-wrap
+msgid "(3)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:182
+msgid "count of extended string capabilities"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:182
+#, no-wrap
+msgid "(4)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:185
+msgid "size of the extended string table in bytes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ncurses/man/term.5:185
+#, no-wrap
+msgid "(5)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:188
+msgid "last offset of the extended string table in bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:192
+msgid ""
+"Using the counts and sizes, ncurses allocates arrays and reads data for the "
+"extended capabilties in the same order as the header information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:197
+msgid ""
+"The extended string table contains values for string capabilities.  After "
+"the end of these values, it contains the names for each of the extended "
+"capabilities in order, e.g., booleans, then numbers and finally strings."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:198
+#, no-wrap
+msgid "PORTABILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:216
+msgid ""
+"Note that it is possible for I<setupterm> to expect a different set of "
+"capabilities than are actually present in the file.  Either the database may "
+"have been updated since I<setupterm> has been recompiled (resulting in extra "
+"unrecognized entries in the file)  or the program may have been recompiled "
+"more recently than the database was updated (resulting in missing entries).  "
+"The routine I<setupterm> must be prepared for both possibilities - this is "
+"why the numbers and sizes are included.  Also, new capabilities must always "
+"be added at the end of the lists of boolean, number, and string "
+"capabilities."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:225
+msgid ""
+"Despite the consistent use of little-endian for numbers and the otherwise "
+"self-describing format, it is not wise to count on portability of binary "
+"terminfo entries between commercial UNIX versions.  The problem is that "
+"there are at least three versions of terminfo (under HP-UX, AIX, and OSF/1) "
+"which diverged from System V terminfo after SVr1, and have added extension "
+"capabilities to the string table that (in the binary format) collide with "
+"System V and XSI Curses extensions.  See B<terminfo>(\\*n) for detailed "
+"discussion of terminfo source compatibility issues."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:225
+#, no-wrap
+msgid "EXAMPLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:228
+msgid ""
+"As an example, here is a hex dump of the description for the Lear-Siegler "
+"ADM-3, a popular though rather stupid early terminal:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:236
+#, no-wrap
+msgid ""
+"adm3a|lsi adm3a,\n"
+"        am,\n"
+"        cols#80, lines#24,\n"
+"        bel=^G, clear=\\032$E<lt>1E<gt>, cr=^M, cub1=^H, cud1=^J,\n"
+"        cuf1=^L, cup=\\eE=%p1%{32}%+%c%p2%{32}%+%c, cuu1=^K,\n"
+"        home=^^, ind=^J,\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:260
+#, no-wrap
+msgid ""
+"CW<\\s-20000  1a 01 10 00 02 00 03 00  82 00 31 00 61 64 6d 33  "
+"........ ..1.adm3\n"
+"0010  61 7c 6c 73 69 20 61 64  6d 33 61 00 00 01 50 00  a|lsi ad m3a...P.\n"
+"0020  ff ff 18 00 ff ff 00 00  02 00 ff ff ff ff 04 00  ........ ........\n"
+"0030  ff ff ff ff ff ff ff ff  0a 00 25 00 27 00 ff ff  ........ ..%.'...\n"
+"0040  29 00 ff ff ff ff 2b 00  ff ff 2d 00 ff ff ff ff  ).....+. ..-.....\n"
+"0050  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0060  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0070  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0080  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0090  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"00a0  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"00b0  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"00c0  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"00d0  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"00e0  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"00f0  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0100  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0110  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  ........ ........\n"
+"0120  ff ff ff ff ff ff 2f 00  07 00 0d 00 1a 24 3c 31  "
+"....../. .....$E<lt>1\n"
+"0130  3e 00 1b 3d 25 70 31 25  7b 33 32 7d 25 2b 25 63  E<gt>..=%p1% "
+"{32}%+%c\n"
+"0140  25 70 32 25 7b 33 32 7d  25 2b 25 63 00 0a 00 1e  %p2%{32} %+%c....\n"
+"0150  00 08 00 0c 00 0b 00 0a  00                       ........ .\\s+2>\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:263
+#, no-wrap
+msgid "LIMITS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:266
+msgid ""
+"Some limitations: total compiled entries cannot exceed 4096 bytes.  The name "
+"field cannot exceed 128 bytes."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:266
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:268
+msgid "\\*d/*/*\tcompiled terminal capability data base"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:268
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:270
+msgid "B<curses>(3X), B<terminfo>(\\*n)."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ncurses/man/term.5:270
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:272
+msgid "Thomas E. Dickey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:274
+msgid "extended terminfo format for ncurses 5.0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:276
+msgid "hashed database support for ncurses 5.6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ncurses/man/term.5:277
+msgid "Eric S. Raymond"
+msgstr ""

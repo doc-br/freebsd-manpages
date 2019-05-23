@@ -1,0 +1,432 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/unix.4:31
+#, no-wrap
+msgid "August 19, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/unix.4:32
+#, no-wrap
+msgid "UNIX 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:36
+msgid "E<.Nm unix>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/unix.4:36
+#, no-wrap
+msgid "UNIX-domain protocol family"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/unix.4:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/unix.4:39 /usr/src/share/man/man4/unix.4:62
+#, no-wrap
+msgid "sys/un.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:57
+msgid ""
+"The E<.Ux Ns -domain> protocol family is a collection of protocols that "
+"provides local (on-machine) interprocess communication through the normal "
+"E<.Xr socket 2> mechanisms.  The E<.Ux Ns -domain> family supports the E<.Dv "
+"SOCK_STREAM>, E<.Dv SOCK_SEQPACKET>, and E<.Dv SOCK_DGRAM> socket types and "
+"uses file system pathnames for addressing."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:57
+#, no-wrap
+msgid "ADDRESSING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:62
+msgid ""
+"E<.Ux Ns -domain> addresses are variable-length file system pathnames of at "
+"most 104 characters.  The include file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:64
+msgid "defines this address:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:70
+#, no-wrap
+msgid ""
+"struct sockaddr_un {\n"
+"\tu_char\tsun_len;\n"
+"\tu_char\tsun_family;\n"
+"\tchar\tsun_path[104];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:82
+msgid ""
+"Binding a name to a E<.Ux Ns -domain> socket with E<.Xr bind 2> causes a "
+"socket file to be created in the file system.  This file is E<.Em not> "
+"removed when the socket is closed \\(em E<.Xr unlink 2> must be used to "
+"remove the file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:92
+msgid ""
+"The length of E<.Ux Ns -domain> address, required by E<.Xr bind 2> and E<.Xr "
+"connect 2>, can be calculated by the macro E<.Fn SUN_LEN> defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/unix.4:92
+#, no-wrap
+msgid "sys/un.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:104
+msgid ""
+"The E<.Va sun_path> field must be terminated by a E<.Dv NUL> character to be "
+"used with E<.Fn SUN_LEN>, but the terminating E<.Dv NUL> is E<.Em not> part "
+"of the address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:122
+msgid ""
+"The E<.Ux Ns -domain> protocol family does not support broadcast addressing "
+"or any form of E<.Dq wildcard> matching on incoming messages.  All addresses "
+"are absolute- or relative-pathnames of other E<.Ux Ns -domain> sockets.  "
+"Normal file system access-control mechanisms are also applied when "
+"referencing pathnames; e.g., the destination of a E<.Xr connect 2> or E<.Xr "
+"sendto 2> must be writable."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:122
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:138
+msgid ""
+"The E<.Ux Ns -domain> sockets support the communication of E<.Ux> file "
+"descriptors and process credentials through the use of the E<.Va "
+"msg_control> field in the E<.Fa msg> argument to E<.Xr sendmsg 2> and E<.Xr "
+"recvmsg 2>.  The items to be passed are described using a E<.Vt \"struct "
+"cmsghdr\"> that is defined in the include file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/unix.4:138
+#, no-wrap
+msgid "sys/socket.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:148
+msgid ""
+"To send file descriptors, the type of the message is E<.Dv SCM_RIGHTS>, and "
+"the data portion of the messages is an array of integers representing the "
+"file descriptors to be passed.  The number of descriptors being passed is "
+"defined by the length field of the message; the length field is the sum of "
+"the size of the header plus the size of the array of file descriptors."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:163
+msgid ""
+"The received descriptor is a E<.Em duplicate> of the sender's descriptor, as "
+"if it were created via E<.Li dup(fd)> or E<.Li fcntl(fd, F_DUPFD_CLOEXEC, "
+"0)> depending on whether E<.Dv MSG_CMSG_CLOEXEC> is passed in the E<.Xr "
+"recvmsg 2> call.  Descriptors that are awaiting delivery, or that are "
+"purposely not received, are automatically closed by the system when the "
+"destination socket is closed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:170
+msgid ""
+"Credentials of the sending process can be transmitted explicitly using a "
+"control message of type E<.Dv SCM_CREDS> with a data portion of type E<.Vt "
+"\"struct cmsgcred\">, defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/unix.4:170 /usr/src/share/man/man4/unix.4:229
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:172 /usr/src/share/man/man4/unix.4:231 /usr/src/share/man/man4/unix.4:307
+msgid "as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:181
+#, no-wrap
+msgid ""
+"struct cmsgcred {\n"
+"  pid_t\tcmcred_pid;\t\t/* PID of sending process */\n"
+"  uid_t\tcmcred_uid;\t\t/* real UID of sending process */\n"
+"  uid_t\tcmcred_euid;\t\t/* effective UID of sending process */\n"
+"  gid_t\tcmcred_gid;\t\t/* real GID of sending process */\n"
+"  short\tcmcred_ngroups;\t\t/* number of groups */\n"
+"  gid_t\tcmcred_groups[CMGROUP_MAX];\t/* groups */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:184
+msgid ""
+"The sender should pass a zeroed buffer which will be filled in by the "
+"system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:188
+msgid "The group list is truncated to at most E<.Dv CMGROUP_MAX> GIDs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:196
+msgid ""
+"The process ID E<.Fa cmcred_pid> should not be looked up (such as via the "
+"E<.Dv KERN_PROC_PID> sysctl) for making security decisions.  The sending "
+"process could have exited and its process ID already been reused for a new "
+"process."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:196
+#, no-wrap
+msgid "SOCKET OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:202
+msgid ""
+"E<.Tn UNIX> domain sockets support a number of socket options which can be "
+"set with E<.Xr setsockopt 2> and tested with E<.Xr getsockopt 2>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/unix.4:203
+#, no-wrap
+msgid "Dv LOCAL_CREDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:229
+msgid ""
+"This option may be enabled on E<.Dv SOCK_DGRAM>, E<.Dv SOCK_SEQPACKET>, or a "
+"E<.Dv SOCK_STREAM> socket.  This option provides a mechanism for the "
+"receiver to receive the credentials of the process calling E<.Xr write 2>, "
+"E<.Xr send 2>, E<.Xr sendto 2> or E<.Xr sendmsg 2> as a E<.Xr recvmsg 2> "
+"control message.  The E<.Va msg_control> field in the E<.Vt msghdr> "
+"structure points to a buffer that contains a E<.Vt cmsghdr> structure "
+"followed by a variable length E<.Vt sockcred> structure, defined in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:240
+#, no-wrap
+msgid ""
+"struct sockcred {\n"
+"  uid_t\tsc_uid;\t\t/* real user id */\n"
+"  uid_t\tsc_euid;\t/* effective user id */\n"
+"  gid_t\tsc_gid;\t\t/* real group id */\n"
+"  gid_t\tsc_egid;\t/* effective group id */\n"
+"  int\tsc_ngroups;\t/* number of supplemental groups */\n"
+"  gid_t\tsc_groups[1];\t/* variable length */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:245
+msgid ""
+"The current implementation truncates the group list to at most E<.Dv "
+"CMGROUP_MAX> groups."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:255
+msgid ""
+"The E<.Fn SOCKCREDSIZE> macro computes the size of the E<.Vt sockcred> "
+"structure for a specified number of groups.  The E<.Vt cmsghdr> fields have "
+"the following values:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:259
+#, no-wrap
+msgid ""
+"cmsg_len = CMSG_LEN(SOCKCREDSIZE(ngroups))\n"
+"cmsg_level = SOL_SOCKET\n"
+"cmsg_type = SCM_CREDS\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:267
+msgid ""
+"On E<.Dv SOCK_STREAM> and E<.Dv SOCK_SEQPACKET> sockets credentials are "
+"passed only on the first read from a socket, then the system clears the "
+"option on the socket."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:280
+msgid ""
+"This option and the above explicit E<.Vt \"struct cmsgcred\"> both use the "
+"same value E<.Dv SCM_CREDS> but incompatible control messages.  If this "
+"option is enabled and the sender attached a E<.Dv SCM_CREDS> control message "
+"with a E<.Vt \"struct cmsgcred\">, it will be discarded and a E<.Vt \"struct "
+"sockcred\"> will be included."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:288
+msgid ""
+"Many setuid programs will E<.Xr write 2> data at least partially controlled "
+"by the invoker, such as error messages.  Therefore, a message accompanied by "
+"a particular E<.Fa sc_euid> value should not be trusted as being from that "
+"user."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/unix.4:288
+#, no-wrap
+msgid "Dv LOCAL_CONNWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:296
+msgid ""
+"Used with E<.Dv SOCK_STREAM> sockets, this option causes the E<.Xr connect "
+"2> function to block until E<.Xr accept 2> has been called on the listening "
+"socket."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/unix.4:296
+#, no-wrap
+msgid "Dv LOCAL_PEERCRED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:305
+msgid ""
+"Requested via E<.Xr getsockopt 2> on a E<.Dv SOCK_STREAM> socket returns "
+"credentials of the remote side.  These will arrive in the form of a filled "
+"in E<.Vt xucred> structure, defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/unix.4:305
+#, no-wrap
+msgid "sys/ucred.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:314
+#, no-wrap
+msgid ""
+"struct xucred {\n"
+"  u_int\tcr_version;\t\t/* structure layout version */\n"
+"  uid_t\tcr_uid;\t\t\t/* effective user id */\n"
+"  short\tcr_ngroups;\t\t/* number of groups */\n"
+"  gid_t\tcr_groups[XU_NGROUPS];\t/* groups */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:320
+msgid ""
+"The E<.Vt cr_version> fields should be checked against E<.Dv XUCRED_VERSION> "
+"define."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:336
+msgid ""
+"The credentials presented to the server (the E<.Xr listen 2> caller) are "
+"those of the client when it called E<.Xr connect 2>; the credentials "
+"presented to the client (the E<.Xr connect 2> caller) are those of the "
+"server when it called E<.Xr listen 2>.  This mechanism is reliable; there is "
+"no way for either party to influence the credentials presented to its peer "
+"except by calling the appropriate system call (e.g., E<.Xr connect 2> or "
+"E<.Xr listen 2>)  under different effective credentials."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:342
+msgid ""
+"To reliably obtain peer credentials on a E<.Dv SOCK_DGRAM> socket refer to "
+"the E<.Dv LOCAL_CREDS> socket option."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/unix.4:343
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/unix.4:364
+msgid ""
+"E<.Xr connect 2>, E<.Xr dup 2>, E<.Xr fcntl 2>, E<.Xr getsockopt 2>, E<.Xr "
+"listen 2>, E<.Xr recvmsg 2>, E<.Xr sendto 2>, E<.Xr setsockopt 2>, E<.Xr "
+"socket 2>, E<.Xr CMSG_DATA 3>, E<.Xr intro 4> E<.Rs> E<.%T \"An Introductory "
+"4.3 BSD Interprocess Communication Tutorial\"> E<.%B PS1> E<.%N 7> E<.Re> "
+"E<.Rs> E<.%T \"An Advanced 4.3 BSD Interprocess Communication Tutorial\"> "
+"E<.%B PS1> E<.%N 8> E<.Re>"
+msgstr ""

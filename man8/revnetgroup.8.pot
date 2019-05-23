@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:33
+#, no-wrap
+msgid "October 24, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:34
+#, no-wrap
+msgid "REVNETGROUP 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:38
+msgid "E<.Nm revnetgroup>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:38
+#, no-wrap
+msgid "generate reverse netgroup data"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:43
+msgid "E<.Nm> E<.Fl u | h> E<.Op Fl f Ar netgroup_file>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:65
+msgid ""
+"The E<.Nm> utility processes the contents of a file in E<.Xr netgroup 5> "
+"format into what is called E<.Pa reverse netgroup> form.  That is, where the "
+"original file shows netgroup memberships in terms of which members reside in "
+"a particular group, the reverse netgroup format specifies what groups are "
+"associated with a particular member.  This information is used to generate "
+"the E<.Pa netgroup.byuser> and E<.Pa netgroup.byhost> E<.Tn NIS> maps.  "
+"These reverse netgroup maps are used to help speed up netgroup lookups, "
+"particularly for the E<.Fn innetgr> library function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:82
+msgid ""
+"For example, the standard E<.Pa /etc/netgroup> file may list a netgroup and "
+"a list of its members.  Here, the netgroup is considered the E<.Em key> and "
+"the member names are the E<.Em data>.  By contrast, the reverse E<.Pa "
+"netgroup.byuser> database lists each unique member as the key and the "
+"netgroups to which the members belong become the data.  Separate databases "
+"are created to hold information pertaining to users and hosts; this allows "
+"netgroup username lookups and netgroup hostname lookups to be performed "
+"using independent keyspaces."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:92
+msgid ""
+"By constructing these reverse netgroup databases (and the corresponding "
+"E<.Tn NIS> maps) in advance, the E<.Xr getnetgrent 3> library functions are "
+"spared from having to work out the dependencies themselves on the fly.  This "
+"is important on networks with large numbers of users and hosts, since it can "
+"take a considerable amount of time to process very large netgroup databases."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:102
+msgid ""
+"The E<.Nm> utility prints its results on the standard output.  It is usually "
+"called only by E<.Pa /var/yp/Makefile> when rebuilding the E<.Tn NIS> "
+"netgroup maps."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:102
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:106
+msgid "The E<.Nm> utility supports the following options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:107
+#, no-wrap
+msgid "Fl u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:112
+msgid ""
+"Generate E<.Pa netgroup.byuser> output; only username information in the "
+"original netgroup file is processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:112
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:122
+msgid ""
+"Generate E<.Pa netgroup.byhost> output; only hostname information in the "
+"original netgroup file is processed.  (Note at least one of the E<.Fl u> or "
+"E<.Fl h> flags must be specified.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:122
+#, no-wrap
+msgid "Op Fl f Ar netgroup_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:135
+msgid ""
+"The E<.Nm> utility uses E<.Pa /etc/netgroup> as its default input file.  The "
+"E<.Fl f> flag allows the user to specify an alternate input file.  "
+"Specifying ``-'' as the input file causes E<.Nm> to read from the standard "
+"input."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:136
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:138
+#, no-wrap
+msgid "Pa /var/yp/Makefile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:146
+msgid ""
+"the Makefile that calls E<.Nm yp_mkdb> and E<.Nm> to build the E<.Tn NIS> "
+"databases"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:146
+#, no-wrap
+msgid "Pa /etc/netgroup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:152
+msgid ""
+"the default netgroup database file.  This file is most often found only on "
+"the E<.Tn NIS> master server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:153
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:158
+msgid "E<.Xr getnetgrent 3>, E<.Xr netgroup 5>, E<.Xr yp 8>, E<.Xr yp_mkdb 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:158
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/revnetgroup/revnetgroup.8:159
+msgid "E<.An Bill Paul Aq Mt wpaul@ctr.columbia.edu>"
+msgstr ""

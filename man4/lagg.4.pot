@@ -1,0 +1,361 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/lagg.4:19
+#, no-wrap
+msgid "November 18, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/lagg.4:20
+#, no-wrap
+msgid "LAGG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:22
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:24
+msgid "E<.Nm lagg>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/lagg.4:24
+#, no-wrap
+msgid "link aggregation and link failover interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:25
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:29
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:31
+#, no-wrap
+msgid "E<.Cd \"device lagg\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:36
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:38
+#, no-wrap
+msgid "if_lagg_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:45
+msgid ""
+"The E<.Nm> interface allows aggregation of multiple network interfaces as "
+"one virtual E<.Nm> interface for the purpose of providing fault-tolerance "
+"and high-speed links."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:60
+msgid ""
+"A E<.Nm> interface can be created using the E<.Ic ifconfig lagg Ns Ar N Ic "
+"create> command.  It can use different link aggregation protocols specified "
+"using the E<.Ic laggproto Ar proto> option.  Child interfaces can be added "
+"using the E<.Ic laggport Ar child-iface> option and removed using the E<.Ic "
+"-laggport Ar child-iface> option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:74
+msgid ""
+"The driver currently supports the aggregation protocols E<.Ic failover> (the "
+"default), E<.Ic lacp>, E<.Ic loadbalance>, E<.Ic roundrobin>, E<.Ic "
+"broadcast>, and E<.Ic none>.  The protocols determine which ports are used "
+"for outgoing traffic and whether a specific port accepts incoming traffic.  "
+"The interface link state is used to validate if the port is active or not."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lagg.4:75
+#, no-wrap
+msgid "Ic failover"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:81
+msgid ""
+"Sends traffic only through the active port.  If the master port becomes "
+"unavailable, the next active port is used.  The first interface added is the "
+"master port; any interfaces added after that are used as failover devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:89
+msgid ""
+"By default, received traffic is only accepted when they are received through "
+"the active port.  This constraint can be relaxed by setting the E<.Va "
+"net.link.lagg.failover_rx_all> E<.Xr sysctl 8> variable to a nonzero value, "
+"which is useful for certain bridged network setups."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lagg.4:89
+#, no-wrap
+msgid "Ic lacp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:99
+msgid ""
+"Supports the IEEE 802.1AX (formerly 802.3ad) Link Aggregation Control "
+"Protocol (LACP) and the Marker Protocol.  LACP will negotiate a set of "
+"aggregable links with the peer in to one or more Link Aggregated Groups.  "
+"Each LAG is composed of ports of the same speed, set to full-duplex "
+"operation.  The traffic will be balanced across the ports in the LAG with "
+"the greatest total speed, in most cases there will only be one LAG which "
+"contains all ports.  In the event of changes in physical connectivity, Link "
+"Aggregation will quickly converge to a new configuration."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lagg.4:99
+#, no-wrap
+msgid "Ic loadbalance"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:107
+msgid ""
+"Balances outgoing traffic across the active ports based on hashed protocol "
+"header information and accepts incoming traffic from any active port.  This "
+"is a static setup and does not negotiate aggregation with the peer or "
+"exchange frames to monitor the link.  The hash includes the Ethernet source "
+"and destination address, and, if available, the VLAN tag, and the IP source "
+"and destination address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lagg.4:107
+#, no-wrap
+msgid "Ic roundrobin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:116
+msgid ""
+"Distributes outgoing traffic using a round-robin scheduler through all "
+"active ports and accepts incoming traffic from any active port.  Using E<.Ic "
+"roundrobin> mode can cause unordered packet arrival at the client.  "
+"Throughput might be limited as the client performs CPU-intensive packet "
+"reordering."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lagg.4:116
+#, no-wrap
+msgid "Ic broadcast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:119
+msgid ""
+"Sends frames to all ports of the LAG and receives frames on any port of the "
+"LAG."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/lagg.4:119
+#, no-wrap
+msgid "Ic none"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:124
+msgid ""
+"This protocol is intended to do nothing: it disables any traffic without "
+"disabling the E<.Nm> interface itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:137
+msgid ""
+"Each E<.Nm> interface is created at runtime using interface cloning.  This "
+"is most easily done with the E<.Xr ifconfig 8> E<.Cm create> command or "
+"using the E<.Va cloned_interfaces> variable in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:140
+msgid ""
+"The MTU of the first interface to be added is used as the lagg MTU.  All "
+"additional interfaces are required to have exactly the same value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:155
+msgid ""
+"The E<.Ic loadbalance> and E<.Ic lacp> modes will use the RSS hash from the "
+"network card if available to avoid computing one, this may give poor traffic "
+"distribution if the hash is invalid or uses less of the protocol header "
+"information.  Local hash computation can be forced per interface by setting "
+"the E<.Cm -use_flowid> E<.Xr ifconfig 8> flag.  The default for new "
+"interfaces is set via the E<.Va net.link.lagg.default_use_flowid> E<.Xr "
+"sysctl 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:155
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:159
+msgid ""
+"Create a link aggregation using LACP with two E<.Xr bge 4> Gigabit Ethernet "
+"interfaces:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:165
+#, no-wrap
+msgid ""
+"# ifconfig bge0 up\n"
+"# ifconfig bge1 up\n"
+"# ifconfig lagg0 create\n"
+"# ifconfig lagg0 laggproto lacp laggport bge0 laggport bge1 \\e\n"
+"\t192.168.1.1 netmask 255.255.255.0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:171
+msgid ""
+"Create a link aggregation using ROUNDROBIN with two E<.Xr bge 4> Gigabit "
+"Ethernet interfaces and set the limit of 500 packets per interface:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:178
+#, no-wrap
+msgid ""
+"# ifconfig bge0 up\n"
+"# ifconfig bge1 up\n"
+"# ifconfig lagg0 create\n"
+"# ifconfig lagg0 laggproto roundrobin laggport bge0 laggport bge1 \\e\n"
+"\t192.168.1.1 netmask 255.255.255.0\n"
+"# ifconfig lagg0 rr_limit 500\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:184
+msgid ""
+"The following example uses an active failover interface to set up roaming "
+"between wired and wireless networks using two network devices.  Whenever the "
+"wired master interface is unplugged, the wireless failover device will be "
+"used:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:191
+#, no-wrap
+msgid ""
+"# ifconfig em0 up\n"
+"# ifconfig ath0 ether 00:11:22:33:44:55\n"
+"# ifconfig create wlan0 wlandev ath0 ssid my_net up\n"
+"# ifconfig lagg0 create\n"
+"# ifconfig lagg0 laggproto failover laggport em0 laggport wlan0 \\e\n"
+"\t192.168.1.1 netmask 255.255.255.0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:195
+msgid ""
+"(Note the mac address of the wireless device is forced to match the wired "
+"device as a workaround.)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:195
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:199
+msgid "E<.Xr ng_one2many 4>, E<.Xr ifconfig 8>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:199
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:204
+msgid "The E<.Nm> device first appeared in E<.Fx 6.3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:204
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:216
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written under the name E<.Nm trunk> by "
+"E<.An Reyk Floeter Aq Mt reyk@openbsd.org>.  The LACP implementation was "
+"written by E<.An YAMAMOTO Takashi> for E<.Nx>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/lagg.4:216
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/lagg.4:220
+msgid ""
+"There is no way to configure LACP administrative variables, including system "
+"and port priorities.  The current implementation always performs active-mode "
+"LACP and uses 0x8000 as system and port priorities."
+msgstr ""

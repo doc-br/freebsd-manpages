@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/uhid.4:32
+#, no-wrap
+msgid "July 1, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/uhid.4:33
+#, no-wrap
+msgid "UHID 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:37
+msgid "E<.Nm uhid>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/uhid.4:37
+#, no-wrap
+msgid "USB generic HID support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:42
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:44
+#, no-wrap
+msgid "E<.Cd \"device uhid\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:49
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:51
+#, no-wrap
+msgid "uhid_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:57
+msgid ""
+"The E<.Nm> driver provides support for all HID (Human Interface Device) "
+"interfaces in USB devices that do not have a special driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:61
+msgid "The device handles the following E<.Xr ioctl 2> calls:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:62
+#, no-wrap
+msgid "Dv USB_GET_REPORT_ID Pq Vt int"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:64
+msgid "Get the report identifier used by this HID report."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:64
+#, no-wrap
+msgid "Dv USB_GET_REPORT_DESC Pq Vt \"struct usb_gen_descriptor\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:79
+msgid ""
+"Get the HID report descriptor.  Copies a maximum of E<.Va ugd_maxlen> bytes "
+"of the report descriptor data into the memory specified by E<.Va ugd_data>.  "
+"Upon return E<.Va ugd_actlen> is set to the number of bytes copied.  Using "
+"this descriptor the exact layout and meaning of data to/from the device can "
+"be found.  The report descriptor is delivered without any processing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:87
+#, no-wrap
+msgid ""
+"struct usb_gen_descriptor {\n"
+"\tvoid   *ugd_data;\n"
+"\tuint16_t ugd_maxlen;\n"
+"\tuint16_t ugd_actlen;\n"
+"\tuint8_t\tugd_report_type;\n"
+"\t...\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:88
+#, no-wrap
+msgid "Dv USB_SET_IMMED Pq Vt int"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:99
+msgid ""
+"Sets the device in a mode where each E<.Xr read 2> will return the current "
+"value of the input report.  Normally a E<.Xr read 2> will only return the "
+"data that the device reports on its interrupt pipe.  This call may fail if "
+"the device does not support this feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:99
+#, no-wrap
+msgid "Dv USB_GET_REPORT Pq Vt \"struct usb_gen_descriptor\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:118
+msgid ""
+"Get a report from the device without waiting for data on the interrupt "
+"pipe.  Copies a maximum of E<.Va ugd_maxlen> bytes of the report data into "
+"the memory specified by E<.Va ugd_data>.  Upon return E<.Va ugd_actlen> is "
+"set to the number of bytes copied.  The E<.Va ugd_report_type> field "
+"indicates which report is requested.  It should be E<.Dv UHID_INPUT_REPORT>, "
+"E<.Dv UHID_OUTPUT_REPORT>, or E<.Dv UHID_FEATURE_REPORT>.  This call may "
+"fail if the device does not support this feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:118
+#, no-wrap
+msgid "Dv USB_SET_REPORT Pq Vt \"struct usb_gen_descriptor\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:134
+msgid ""
+"Set a report in the device.  The E<.Va ugd_report_type> field indicates "
+"which report is to be set.  It should be E<.Dv UHID_INPUT_REPORT>, E<.Dv "
+"UHID_OUTPUT_REPORT>, or E<.Dv UHID_FEATURE_REPORT>.  The value of the report "
+"is specified by the E<.Va ugd_data> and the E<.Va ugd_maxlen> fields.  This "
+"call may fail if the device does not support this feature."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:141
+msgid ""
+"Use E<.Xr read 2> to get data from the device.  Data should be read in "
+"chunks of the size prescribed by the report descriptor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:147
+msgid ""
+"Use E<.Xr write 2> to send data to the device.  Data should be written in "
+"chunks of the size prescribed by the report descriptor."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:147
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:153
+msgid ""
+"The following variables are available as both E<.Xr sysctl 8> variables and "
+"E<.Xr loader 8> tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:154
+#, no-wrap
+msgid "Va hw.usb.uhid.debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:158
+msgid ""
+"Debug output level, where 0 is debugging disabled and larger values increase "
+"debug message verbosity.  Default is 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:159
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/uhid.4:161
+#, no-wrap
+msgid "Pa /dev/uhid?"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:163
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:166
+msgid "E<.Xr usbhidctl 1>, E<.Xr usb 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/uhid.4:166
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/uhid.4:176
+msgid ""
+"The E<.Nm> driver appeared in E<.Nx 1.4>.  This manual page was adopted from "
+"E<.Nx> by E<.An Tom Rhodes Aq Mt trhodes@FreeBSD.org> in April 2002."
+msgstr ""

@@ -1,0 +1,1585 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/sctp.4:29
+#, no-wrap
+msgid "October 10, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/sctp.4:30
+#, no-wrap
+msgid "SCTP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sctp.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:34
+msgid "E<.Nm sctp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/sctp.4:34
+#, no-wrap
+msgid "Internet Stream Control Transmission Protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sctp.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/sctp.4:36
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/sctp.4:37
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/sctp.4:38
+#, no-wrap
+msgid "netinet/sctp.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:43
+msgid ""
+"E<.Ft int> E<.Fn socket AF_INET SOCK_STREAM IPPROTO_SCTP> E<.Ft int> E<.Fn "
+"socket AF_INET SOCK_SEQPACKET IPPROTO_SCTP>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sctp.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:63
+msgid ""
+"The E<.Tn SCTP> protocol provides reliable, flow-controlled, two-way "
+"transmission of data.  It is a message oriented protocol and can support the "
+"E<.Dv SOCK_STREAM> and E<.Dv SOCK_SEQPACKET> abstractions.  E<.Tn SCTP> uses "
+"the standard Internet address format and, in addition, provides a per-host "
+"collection of E<.Dq \"port addresses\">.  Thus, each address is composed of "
+"an Internet address specifying the host and network, with a specific E<.Tn "
+"SCTP> port on the host identifying the peer entity."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:92
+msgid ""
+"There are two models of programming in SCTP.  The first uses the E<.Dv "
+"SOCK_STREAM> abstraction.  In this abstraction sockets utilizing the E<.Tn "
+"SCTP> protocol are either E<.Dq active> or E<.Dq passive>.  Active sockets "
+"initiate connections to passive sockets.  By default, E<.Tn SCTP> sockets "
+"are created active; to create a passive socket, the E<.Xr listen 2> system "
+"call must be used after binding the socket with the E<.Xr bind 2> or E<.Xr "
+"sctp_bindx 3> system calls.  Only passive sockets may use the E<.Xr accept "
+"2> call to accept incoming connections.  Only active sockets may use the "
+"E<.Xr connect 2> call to initiate connections."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:112
+msgid ""
+"The other abstraction E<.Dv SOCK_SEQPACKET> provides a E<.Dq connectionless> "
+"mode of operation in that the user may send to an address (using any of the "
+"valid send calls that carry a socket address) and an association will be "
+"setup implicitly by the underlying E<.Tn SCTP> transport stack.  This "
+"abstraction is the only one capable of sending data on the third leg of the "
+"four-way handshake.  A user must still call E<.Xr listen 2> to allow the "
+"socket to accept connections.  Calling E<.Xr listen 2> however does not "
+"restrict the user from still initiating implicit connections to other peers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:125
+msgid ""
+"The E<.Tn SCTP> protocol directly supports multi-homing.  So when binding a "
+"socket with the E<.Dq wildcard> address E<.Dv INADDR_ANY>, the E<.Tn SCTP> "
+"stack will inform the peer about all of the local addresses that are deemed "
+"in scope of the peer.  The peer will then possibly have multiple paths to "
+"reach the local host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:138
+msgid ""
+"The E<.Tn SCTP> transport protocol is also multi-streamed.  Multi-streaming "
+"refers to the ability to send sub-ordered flows of messages.  A user "
+"performs this by specifying a specific stream in one of the extended send "
+"calls such as the E<.Xr sctp_send 3> function call.  Sending messages on "
+"different streams will allow parallel delivery of data i.e., a message loss "
+"in stream 1 will not block the delivery of messages sent in stream 2."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:144
+msgid ""
+"The E<.Tn SCTP> transport protocol also provides a unordered service as "
+"well.  The unordered service allows a message to be sent and delivered with "
+"no regard to the ordering of any other message."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/sctp.4:144
+#, no-wrap
+msgid "Extensions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:148
+msgid ""
+"The FreeBSD implementation of E<.Tn SCTP> also supports the following "
+"extensions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:149
+#, no-wrap
+msgid "sctp partial reliability"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:152
+msgid ""
+"This extension allows one to have message be skipped and not delivered based "
+"on some user specified parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:152
+#, no-wrap
+msgid "sctp dynamic addressing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:155
+msgid ""
+"This extension allows addresses to be added and deleted dynamically from an "
+"existing association."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:155
+#, no-wrap
+msgid "sctp authentication"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:162
+msgid ""
+"This extension allows the user to authenticate specific peer chunks "
+"(including data) to validate that the peer who sent the message is in fact "
+"the peer who setup the association.  A shared key option is also provided "
+"for so that two stacks can pre-share keys."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:162
+#, no-wrap
+msgid "packet drop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:167
+msgid ""
+"Some routers support a special satellite protocol that will report losses "
+"due to corruption.  This allows retransmissions without subsequent loss in "
+"bandwidth utilization."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:167
+#, no-wrap
+msgid "stream reset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:170
+msgid ""
+"This extension allows a user on either side to reset the stream sequence "
+"numbers used by any or all streams."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/sctp.4:171
+#, no-wrap
+msgid "Socket Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:179
+msgid ""
+"E<.Tn SCTP> supports a number of socket options which can be set with E<.Xr "
+"setsockopt 2> and tested with E<.Xr getsockopt 2> or E<.Xr sctp_opt_info 3>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:180
+#, no-wrap
+msgid "Dv SCTP_NODELAY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:192
+msgid ""
+"Under most circumstances, E<.Tn SCTP> sends data when it is presented; when "
+"outstanding data has not yet been acknowledged, it gathers small amounts of "
+"output to be sent in a single packet once an acknowledgement is received.  "
+"For some clients, such as window systems that send a stream of mouse events "
+"which receive no replies, this packetization may cause significant delays.  "
+"The boolean option E<.Dv SCTP_NODELAY> defeats this algorithm."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:192
+#, no-wrap
+msgid "Dv SCTP_RTOINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:196
+msgid ""
+"This option returns specific information about an associations E<.Dq "
+"\"Retransmission Time Out\">.  It can also be used to change the default "
+"values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:196
+#, no-wrap
+msgid "Dv SCTP_ASSOCINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:199
+msgid "This option returns specific information about the requested association."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:199
+#, no-wrap
+msgid "Dv SCTP_INITMSG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:205
+msgid ""
+"This option allows you to get or set the default sending parameters when an "
+"association is implicitly setup.  It allows you to change such things as the "
+"maximum number of streams allowed inbound and the number of streams "
+"requested of the peer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:205
+#, no-wrap
+msgid "Dv SCTP_AUTOCLOSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:216
+msgid ""
+"For the one-to-many model E<.Dv ( SOCK_SEQPACKET>)  associations are setup "
+"implicitly.  This option allows the user to specify a default number of idle "
+"seconds to allow the association be maintained.  After the idle timer (where "
+"no user message have been sent or have been received from the peer) the "
+"association will be gracefully closed.  The default for this value is 0, or "
+"unlimited (i.e., no automatic close)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:216
+#, no-wrap
+msgid "Dv SCTP_SET_PEER_PRIMARY_ADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:224
+msgid ""
+"The dynamic address extension allows a peer to also request a particular "
+"address of its be made into the primary address.  This option allows the "
+"caller to make such a request to a peer.  Note that if the peer does not "
+"also support the dynamic address extension, this call will fail.  Note the "
+"caller must provide a valid local address that the peer has been told about "
+"during association setup or dynamically."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:224
+#, no-wrap
+msgid "Dv SCTP_PRIMARY_ADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:228
+msgid ""
+"This option allows the setting of the primary address that the caller wishes "
+"to send to.  The caller provides the address of a peer that is to be made "
+"primary."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:228
+#, no-wrap
+msgid "Dv SCTP_ADAPTATION_LAYER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:232
+msgid ""
+"The dynamic address extension also allows a user to pass a 32 bit opaque "
+"value upon association setup.  This option allows a user to set or get this "
+"value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:232
+#, no-wrap
+msgid "Dv SCTP_DISABLE_FRAGMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:241
+msgid ""
+"By default E<.Tn SCTP> will fragment user messages into multiple pieces that "
+"will fit on the network and then later, upon reception, reassemble the "
+"pieces into a single user message.  If this option is enabled instead, any "
+"send that exceeds the path maximum transfer unit (P-MTU) will fail and the "
+"message will NOT be sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:241
+#, no-wrap
+msgid "Dv SCTP_PEER_ADDR_PARAMS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:244
+msgid ""
+"This option will allow a user to set or get specific peer address "
+"parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:244
+#, no-wrap
+msgid "Dv SCTP_DEFAULT_SEND_PARAM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:255
+msgid ""
+"When a user does not use one of the extended send calls (e.g., E<.Xr "
+"sctp_sendmsg 3>)  a set of default values apply to each send.  These values "
+"include things like the stream number to send to as well as the per-protocol "
+"id.  This option lets a caller both get and set these values.  If the user "
+"changes these default values, then these new values will be used as the "
+"default whenever no information is provided by the sender (i.e., the "
+"non-extended API is used)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:255
+#, no-wrap
+msgid "Dv SCTP_EVENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:267
+msgid ""
+"E<.Tn SCTP> has non-data events that it can communicate to its application.  "
+"By default these are all disabled since they arrive in the data path with a "
+"special flag E<.Dv MSG_NOTIFICATION> set upon the received message.  This "
+"option lets a caller both get what events are current being received as well "
+"as set different events that they may be interested in receiving."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:267
+#, no-wrap
+msgid "Dv SCTP_I_WANT_MAPPED_V4_ADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:280
+msgid ""
+"E<.Tn SCTP> supports both IPV4 and IPV6.  An association may span both IPV4 "
+"and IPV6 addresses since E<.Tn SCTP> is multi-homed.  By default, when "
+"opening an IPV6 socket, when data arrives on the socket from a peer's V4 "
+"address the V4 address will be presented with an address family of AF_INET.  "
+"If this is undesirable, then this option can be enabled which will then "
+"convert all V4 addresses into mapped V6 representations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:280
+#, no-wrap
+msgid "Dv SCTP_MAXSEG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:289
+msgid ""
+"By default E<.Tn SCTP> chooses its message fragmentation point based upon "
+"the smallest P-MTU of the peer.  This option lets the caller set it to a "
+"smaller value.  Note that while the user can change this value, if the P-MTU "
+"is smaller than the value set by the user, then the P-MTU value will "
+"override any user setting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:289
+#, no-wrap
+msgid "Dv SCTP_DELAYED_ACK_TIME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:295
+msgid ""
+"This option lets the user both set and get the delayed ack time (in "
+"milliseconds) that E<.Tn SCTP> is using.  The default is 200 milliseconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:295
+#, no-wrap
+msgid "Dv SCTP_PARTIAL_DELIVERY_POINT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:305
+msgid ""
+"E<.Tn SCTP> at times may need to start delivery of a very large message "
+"before the entire message has arrived.  By default SCTP waits until the "
+"incoming message is larger than one fourth of the receive buffer.  This "
+"option allows the stacks value to be overridden with a smaller value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:305
+#, no-wrap
+msgid "Dv SCTP_FRAGMENT_INTERLEAVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:320
+msgid ""
+"E<.Tn SCTP> at times will start partial delivery (as mentioned above).  In "
+"the normal case successive reads will continue to return the rest of the "
+"message, blocking if needed, until all of that message is read.  However "
+"this means other messages may have arrived and be ready for delivery and be "
+"blocked behind the message being partially delivered.  If this option is "
+"enabled, when a partial delivery message has no more data to be received, "
+"then a subsequent read may return a different message that is ready for "
+"delivery.  By default this option is off since the user must be using the "
+"extended API's to be able to tell the difference between messages (via the "
+"stream and stream sequence number)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:320
+#, no-wrap
+msgid "Dv SCTP_AUTH_CHUNK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:329
+msgid ""
+"By default only the dynamic addressing chunks are authenticated.  This "
+"option lets a user request an additional chunk be authenticated as well.  "
+"Note that successive calls to this option will work and continue to add more "
+"chunks that require authentication.  Note that this option only effects "
+"future associations and not existing ones."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:329
+#, no-wrap
+msgid "Dv SCTP_AUTH_KEY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:333
+msgid ""
+"This option allows a user to specify a shared key that can be later used to "
+"authenticate a peer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:333
+#, no-wrap
+msgid "Dv SCTP_HMAC_IDENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:339
+msgid ""
+"This option will let you get or set the list of HMAC algorithms used to "
+"authenticate peers.  Note that the HMAC values are in priority order where "
+"the first HMAC identifier is the most preferred and the last is the least "
+"preferred."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:339
+#, no-wrap
+msgid "Dv SCTP_AUTH_ACTIVE_KEY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:344
+msgid ""
+"This option allows you to make a key active for the generation of "
+"authentication information.  Note that the peer must have the same key or "
+"else the data will be discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:344
+#, no-wrap
+msgid "Dv SCTP_AUTH_DELETE_KEY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:346
+msgid "This option allows you to delete an old key."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:346
+#, no-wrap
+msgid "Dv SCTP_USE_EXT_RECVINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:354
+msgid ""
+"The sockets api document allows an extended send/receive information "
+"structure to be used.  The extended structure includes additional fields "
+"related to the next message to be received (after the current receive "
+"completes) if such information is known.  By default the system will not "
+"pass this information.  This option allows the user to request this "
+"information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:354
+#, no-wrap
+msgid "Dv SCTP_AUTO_ASCONF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:362
+msgid ""
+"By default when bound to all address and the system administrator has "
+"enables automatic dynamic addresses, the E<.Tn SCTP> stack will "
+"automatically generate address changes into add and delete requests to any "
+"peers by setting this option to true.  This option allows an endpoint to "
+"disable that behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:362
+#, no-wrap
+msgid "Dv SCTP_MAXBURST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:369
+msgid ""
+"By default E<.Tn SCTP> implements micro-burst control so that as the "
+"congestion window opens up no large burst of packets can be generated.  The "
+"default burst limit is four.  This option lets the user change this value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:369
+#, no-wrap
+msgid "Dv SCTP_CONTEXT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:375
+msgid ""
+"Many sctp extended calls have a context field.  The context field is a 32 "
+"bit opaque value that will be returned in send failures.  This option lets "
+"the caller set the default context value to use when none is provided by the "
+"user."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:375
+#, no-wrap
+msgid "Dv SCTP_EXPLICIT_EOR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:392
+msgid ""
+"By default, a single send is a complete message.  E<.Tn SCTP> generates an "
+"implied record boundary.  If this option is enabled, then all sends are part "
+"of the same message until the user indicates an end of record with the "
+"special flag E<.Dv SCTP_EOR> passed in the sctp_sndrcvinfo flags field.  "
+"This effectively makes all sends part of the same message until the user "
+"specifies differently.  This means that a caller must NOT change the stream "
+"number until after the E<.Dv SCTP_EOR> is passed to E<.Tn SCTP> else an "
+"error will be returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:392
+#, no-wrap
+msgid "Dv SCTP_STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:395
+msgid ""
+"This option is a read-only option that returns various status information "
+"about the specified association."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:395
+#, no-wrap
+msgid "Dv SCTP_GET_PEER_ADDR_INFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:398
+msgid "This read-only option returns information about a peer address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:398
+#, no-wrap
+msgid "Dv SCTP_PEER_AUTH_CHUNKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:401
+msgid ""
+"This read-only option returns a list of the chunks the peer requires to be "
+"authenticated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:401
+#, no-wrap
+msgid "Dv SCTP_LOCAL_AUTH_CHUNKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:404
+msgid ""
+"This read-only option returns a list of the locally required chunks that "
+"must be authenticated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:404
+#, no-wrap
+msgid "Dv SCTP_RESET_STREAMS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:411
+msgid ""
+"This socket option is used to cause a stream sequence number or all stream "
+"sequence numbers to be reset.  Note that the peer E<.Tn SCTP> endpoint must "
+"also support the stream reset extension as well."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/sctp.4:412
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:420
+msgid ""
+"The E<.Tn SCTP> protocol implements a number of variables in the E<.Va "
+"net.inet.sctp> branch of the E<.Xr sysctl 3> MIB."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:421
+#, no-wrap
+msgid "Sy Congestion Control"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:423
+#, no-wrap
+msgid "Va default_cc_module"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:431
+msgid ""
+"Default congestion control module.  Default value is 0.  The minimum is 0, "
+"and the maximum is 3.  A value of 0 enables the default congestion control "
+"algorithm.  A value of 1 enables the High Speed congestion control "
+"algorithm.  A value of 2 enables the HTCP congestion control algorithm.  A "
+"value of 3 enables the data center congestion control (DCCC) algorithm."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:431
+#, no-wrap
+msgid "Va initial_cwnd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:433
+msgid "Defines the initial congestion window size in MTUs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:433
+#, no-wrap
+msgid "Va cwnd_maxburst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:436
+msgid ""
+"Use congestion control instead of 'blind' logic to limit maximum burst when "
+"sending.  Default value is 1. May be set to 0 or 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:436
+#, no-wrap
+msgid "Va ecn_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:439
+msgid ""
+"Enable Explicit Congestion Notification (ECN).  Default value is 1. May be "
+"set to 0 or 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:439
+#, no-wrap
+msgid "Va rttvar_steady_step"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:443
+msgid ""
+"Number of identical bandwidth measurements DCCC takes to try step down the "
+"congestion window.  Default value is 20.  The minimum is 0, and the maximum "
+"is 65535."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:443
+#, no-wrap
+msgid "Va rttvar_eqret"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:447
+msgid ""
+"Whether DCCC reduces the congestion window size when round-trip time and "
+"bandwidth remain unchanged.  Default value is 0.  May be set to 0 or 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:447
+#, no-wrap
+msgid "Va rttvar_bw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:451
+msgid ""
+"Shift amount DCCC uses for bandwidth smoothing on round-trip-time "
+"calculation.  Default value is 4.  The minimum is 0, and the maximum is 32."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:451
+#, no-wrap
+msgid "Va rttvar_rtt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:455
+msgid ""
+"Shift amount DCCC uses for round-trip-time smoothing on round-trip-time "
+"calculation.  Default value is 5.  The minimum is 0, and the maximum is 32."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:455
+#, no-wrap
+msgid "Va use_dcccecn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:459
+msgid "Enable ECN when using DCCC.  Default value is 1.  May be set to 0 or 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:460
+#, no-wrap
+msgid "Sy Misc"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:462
+#, no-wrap
+msgid "Va getcred"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:464
+msgid "Get the ucred of a SCTP connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:464
+#, no-wrap
+msgid "Va assoclist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:466
+msgid "List of active SCTP associations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:466
+#, no-wrap
+msgid "Va stats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:468
+msgid "SCTP statistics (struct sctp_stat)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:468
+#, no-wrap
+msgid "Va diag_info_code"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:470
+msgid "Diagnostic information error cause code."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:470
+#, no-wrap
+msgid "Va blackhole"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:475
+msgid "Enable SCTP blackholing.  See E<.Xr blackhole 4> for more details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:475
+#, no-wrap
+msgid "Va buffer_splitting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:477
+msgid "Enable send/receive buffer splitting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:477
+#, no-wrap
+msgid "Va vtag_time_wait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:479
+msgid "Vtag wait time in seconds, 0 to disable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:479
+#, no-wrap
+msgid "Va nat_friendly_init"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:481
+msgid "Enable sending of the NAT-friendly SCTP option on INITs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:481
+#, no-wrap
+msgid "Va enable_sack_immediately"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:483
+msgid "Enable sending of the SACK-IMMEDIATELY bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:483
+#, no-wrap
+msgid "Va udp_tunneling_port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:485
+msgid "Set the SCTP/UDP tunneling port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:485
+#, no-wrap
+msgid "Va mobility_fasthandoff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:487
+msgid "Enable SCTP fast handoff."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:487
+#, no-wrap
+msgid "Va mobility_base"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:489
+msgid "Enable SCTP base mobility"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:489
+#, no-wrap
+msgid "Va default_frag_interleave"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:491
+msgid "Default fragment interleave level."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:491
+#, no-wrap
+msgid "Va default_ss_module"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:493
+msgid "Default stream scheduling module."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:493
+#, no-wrap
+msgid "Va log_level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:495
+msgid "Ltrace/KTR trace logging level."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:495
+#, no-wrap
+msgid "Va max_retran_chunk"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:497
+msgid "Number of retransmissions of a DATA chunk before an association is aborted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:497
+#, no-wrap
+msgid "Va min_residual"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:499
+msgid "Minimum residual data chunk in second part of split."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:499
+#, no-wrap
+msgid "Va strict_data_order"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:501
+msgid "Enforce strict data ordering, abort if control inside data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:501
+#, no-wrap
+msgid "Va abort_at_limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:503
+msgid "Abort when one-to-one hits qlimit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:503
+#, no-wrap
+msgid "Va hb_max_burst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:505
+msgid "Confirmation heartbeat max burst."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:505
+#, no-wrap
+msgid "Va do_sctp_drain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:508
+msgid ""
+"Flush chunks in receive queues with TSN higher than the cumulative TSN if "
+"the system is low on mbufs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:508
+#, no-wrap
+msgid "Va max_chained_mbufs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:510
+msgid "Default max number of small mbufs on a chain."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:510
+#, no-wrap
+msgid "Va abc_l_var"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:512
+msgid "SCTP ABC max increase per SACK (L)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:512
+#, no-wrap
+msgid "Va nat_friendly"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:514
+msgid "SCTP NAT friendly operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:514
+#, no-wrap
+msgid "Va cmt_use_dac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:516
+msgid "CMT DAC on/off flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:516
+#, no-wrap
+msgid "Va cmt_on_off"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:518
+msgid "CMT settings."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:518
+#, no-wrap
+msgid "Va outgoing_streams"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:520
+msgid "Default number of outgoing streams."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:520
+#, no-wrap
+msgid "Va incoming_streams"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:522
+msgid "Default number of incoming streams."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:522
+#, no-wrap
+msgid "Va add_more_on_output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:524
+msgid "When space-wise is it worthwhile to try to add more to a socket send buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:524
+#, no-wrap
+msgid "Va path_pf_threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:526
+msgid "Default potentially failed threshold."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:526
+#, no-wrap
+msgid "Va path_rtx_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:528
+msgid "Default maximum of retransmissions per path."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:528
+#, no-wrap
+msgid "Va assoc_rtx_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:530
+msgid "Default maximum number of retransmissions per association."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:530
+#, no-wrap
+msgid "Va init_rtx_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:532
+msgid "Default maximum number of retransmissions for INIT chunks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:532
+#, no-wrap
+msgid "Va valid_cookie_life"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:534
+msgid "Default cookie lifetime in seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:534
+#, no-wrap
+msgid "Va init_rto_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:536
+msgid "Default maximum retransmission timeout during association setup in ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:536
+#, no-wrap
+msgid "Va rto_initial"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:538
+msgid "Default initial retransmission timeout in ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:538
+#, no-wrap
+msgid "Va rto_min"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:540
+msgid "Default minimum retransmission timeout in ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:540
+#, no-wrap
+msgid "Va rto_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:542
+msgid "Default maximum retransmission timeout in ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:542
+#, no-wrap
+msgid "Va secret_lifetime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:544
+msgid "Default secret lifetime in seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:544
+#, no-wrap
+msgid "Va shutdown_guard_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:546
+msgid "Shutdown guard timer in seconds (0 means 5 times RTO.Max)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:546
+#, no-wrap
+msgid "Va pmtu_raise_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:548
+msgid "Default PMTU raise timer in seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:548
+#, no-wrap
+msgid "Va heartbeat_interval"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:550
+msgid "Default heartbeat interval in ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:550
+#, no-wrap
+msgid "Va asoc_resource"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:552
+msgid "Max number of cached resources in an association."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:552
+#, no-wrap
+msgid "Va sys_resource"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:554
+msgid "Max number of cached resources in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:554
+#, no-wrap
+msgid "Va sack_freq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:556
+msgid "Default SACK frequency."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:556
+#, no-wrap
+msgid "Va delayed_sack_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:558
+msgid "Default delayed SACK timer in ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:558
+#, no-wrap
+msgid "Va chunkscale"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:560
+msgid "Tunable for scaling of number of chunks and messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:560
+#, no-wrap
+msgid "Va min_split_point"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:562
+msgid "Minimum size when splitting a chunk."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:562
+#, no-wrap
+msgid "Va pcbhashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:564
+msgid "Tunable for PCB hash table sizes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:564
+#, no-wrap
+msgid "Va tcbhashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:566
+msgid "Tunable for TCB hash table sizes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:566
+#, no-wrap
+msgid "Va maxchunks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:568
+msgid "Default max chunks on queue per association."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:568
+#, no-wrap
+msgid "Va fr_maxburst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:570
+msgid "Default max burst for SCTP endpoints when fast retransmitting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:570
+#, no-wrap
+msgid "Va maxburst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:572
+msgid "Default max burst for SCTP endpoints."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:572
+#, no-wrap
+msgid "Va peer_chkoh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:574
+msgid "Amount to debit peers rwnd per chunk sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:574
+#, no-wrap
+msgid "Va strict_sacks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:576
+msgid "Enable SCTP Strict SACK checking."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:576
+#, no-wrap
+msgid "Va pktdrop_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:578
+msgid "Enable SCTP PKTDROP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:578
+#, no-wrap
+msgid "Va nrsack_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:580
+msgid "Enable SCTP NR-SACK."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:580
+#, no-wrap
+msgid "Va reconfig_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:582
+msgid "Enable SCTP RE-CONFIG."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:582
+#, no-wrap
+msgid "Va asconf_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:584
+msgid "Enable SCTP ASCONF."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:584
+#, no-wrap
+msgid "Va auth_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:586
+msgid "Enable SCTP AUTH."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:586
+#, no-wrap
+msgid "Va pr_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:588
+msgid "Enable PR-SCTP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:588
+#, no-wrap
+msgid "Va auto_asconf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:590
+msgid "Enable SCTP Auto-ASCONF."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:590
+#, no-wrap
+msgid "Va recvspace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:592
+msgid "Maximum incoming SCTP buffer size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sctp.4:592
+#, no-wrap
+msgid "Va sendspace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:594
+msgid "Maximum outgoing SCTP buffer size."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sctp.4:596
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sctp.4:606
+msgid ""
+"E<.Xr accept 2>, E<.Xr bind 2>, E<.Xr connect 2>, E<.Xr listen 2>, E<.Xr "
+"sctp_bindx 3>, E<.Xr sctp_connectx 3>, E<.Xr sctp_opt_info 3>, E<.Xr "
+"sctp_recvmsg 3>, E<.Xr sctp_sendmsg 3>, E<.Xr blackhole 4>"
+msgstr ""

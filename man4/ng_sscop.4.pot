@@ -1,0 +1,778 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_sscop.4:33
+#, no-wrap
+msgid "October 24, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_sscop.4:34
+#, no-wrap
+msgid "NG_SSCOP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:38
+msgid "E<.Nm ng_sscop>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_sscop.4:38
+#, no-wrap
+msgid "netgraph SSCOP node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_sscop.4:40
+#, no-wrap
+msgid "netnatm/saal/sscopdef.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_sscop.4:41
+#, no-wrap
+msgid "netgraph/atm/ng_sscop.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:53
+msgid ""
+"The E<.Nm sscop> netgraph node type implements the ITU-T standard Q.2110.  "
+"This standard describes the so called Service Specific Connection Oriented "
+"Protocol (SSCOP) that is used to carry signalling messages over the private "
+"and public UNIs and the public NNI.  This protocol is a transport protocol "
+"with selective acknowledgements, and can be tailored to the environment.  "
+"This implementation is a full implementation of that standard."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:60
+msgid ""
+"After creation of the node, the SSCOP instance must be created by sending an "
+"E<.Dq enable> message to the node.  If the node is enabled, the SSCOP "
+"parameters can be retrieved and modified and the protocol can be started."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:64
+msgid ""
+"The node is shut down either by a E<.Dv NGM_SHUTDOWN> message, or when all "
+"hooks are disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:64
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:68
+msgid "Each E<.Nm sscop> node has three hooks with fixed names:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:69
+#, no-wrap
+msgid "Va lower"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:89
+msgid ""
+"This hook must be connected to a node that ensures transport of packets to "
+"and from the remote peer node.  Normally this is a E<.Xr ng_atm 4> node with "
+"an AAL5 hook, but the E<.Nm sscop> node is able to work on any "
+"packet-transporting layer, like, for example, IP or UDP.  The node handles "
+"flow control messages received on this hook: if it receives a E<.Dv "
+"NGM_HIGH_WATER_PASSED> message, it declares the E<.Dq \"lower layer busy\"> "
+"state.  If a E<.Dv NGM_LOW_WATER_PASSED> message is received, the busy state "
+"is cleared.  Note that the node does not look at the message contents of "
+"these flow control messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:89
+#, no-wrap
+msgid "Va upper"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:92
+msgid ""
+"This is the interface to the SSCOP user.  This interface uses the following "
+"message format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:98
+#, no-wrap
+msgid ""
+"struct sscop_arg {\n"
+"\tuint32_t sig;\n"
+"\tuint32_t arg;\t/* opt. sequence number or clear-buff */\n"
+"\tu_char\t data[];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:104
+msgid "The E<.Va sig> field is one of the signals defined in the standard:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:110
+#, no-wrap
+msgid ""
+"enum sscop_aasig {\n"
+"    SSCOP_ESTABLISH_request,\t/* E<lt>- UU, BR */\n"
+"    SSCOP_ESTABLISH_indication,\t/* -E<gt> UU */\n"
+"    SSCOP_ESTABLISH_response,\t/* E<lt>- UU, BR */\n"
+"    SSCOP_ESTABLISH_confirm,\t/* -E<gt> UU */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:114
+#, no-wrap
+msgid ""
+"    SSCOP_RELEASE_request,\t/* E<lt>- UU */\n"
+"    SSCOP_RELEASE_indication,\t/* -E<gt> UU, SRC */\n"
+"    SSCOP_RELEASE_confirm,\t/* -E<gt> */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:117
+#, no-wrap
+msgid ""
+"    SSCOP_DATA_request,\t\t/* E<lt>- MU */\n"
+"    SSCOP_DATA_indication,\t/* -E<gt> MU, SN */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:120
+#, no-wrap
+msgid ""
+"    SSCOP_UDATA_request,\t/* E<lt>- MU */\n"
+"    SSCOP_UDATA_indication,\t/* -E<gt> MU */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:123
+#, no-wrap
+msgid ""
+"    SSCOP_RECOVER_indication,\t/* -E<gt> */\n"
+"    SSCOP_RECOVER_response,\t/* E<lt>- */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:128
+#, no-wrap
+msgid ""
+"    SSCOP_RESYNC_request,\t/* E<lt>- UU */\n"
+"    SSCOP_RESYNC_indication,\t/* -E<gt> UU */\n"
+"    SSCOP_RESYNC_response,\t/* E<lt>- */\n"
+"    SSCOP_RESYNC_confirm,\t/* -E<gt> */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:133
+#, no-wrap
+msgid ""
+"    SSCOP_RETRIEVE_request,\t/* E<lt>- RN */\n"
+"    SSCOP_RETRIEVE_indication,\t/* -E<gt> MU */\n"
+"    SSCOP_RETRIEVE_COMPL_indication,/* -E<gt> */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:147
+msgid ""
+"The arrows in the comment show the direction of the signal, whether it is a "
+"signal that comes out of the node E<.Pq Ql -E<gt>>, or is sent by the node "
+"user to the node E<.Pq Ql E<lt>->.  The E<.Va arg> field contains the "
+"argument to some of the signals: it is either a PDU sequence number, or the "
+"E<.Dv CLEAR-BUFFER> flag.  There are a number of special sequence numbers "
+"for some operations:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:149
+#, no-wrap
+msgid "Dv SSCOP_MAXSEQNO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:151
+msgid "maximum legal sequence number"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:151
+#, no-wrap
+msgid "Dv SSCOP_RETRIEVE_UNKNOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:153
+msgid "retrieve transmission queue"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:153
+#, no-wrap
+msgid "Dv SSCOP_RETRIEVE_TOTAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:155
+msgid "retrieve transmission buffer and queue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:160
+msgid ""
+"For signals that carry user data (as, for example, E<.Dv "
+"SSCOP_DATA_request>)  these two fields are followed by the variable sized "
+"user data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:169
+msgid ""
+"If the E<.Va upper> hook is disconnected and the SSCOP instance is not in "
+"the idle state, and the E<.Va lower> hook is still connected, an E<.Dv "
+"SSCOP_RELEASE_request> is executed to release the SSCOP connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:169
+#, no-wrap
+msgid "Va manage"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:172
+msgid ""
+"This is the management interface defined in the standard.  The data "
+"structure used here is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:177
+#, no-wrap
+msgid ""
+"struct sscop_marg {\n"
+"\tuint32_t sig;\n"
+"\tu_char\t data[];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:182
+msgid "Here E<.Va sig> is one of"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:188
+#, no-wrap
+msgid ""
+"enum sscop_maasig {\n"
+"    SSCOP_MDATA_request,\t/* E<lt>- MU */\n"
+"    SSCOP_MDATA_indication,\t/* -E<gt> MU */\n"
+"    SSCOP_MERROR_indication,\t/* -E<gt> CODE, CNT */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:195
+msgid ""
+"The E<.Dv SSCOP_MDATA> signals are followed by the actual management data, "
+"where the E<.Dv SSCOP_MERROR> signal has the form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:201
+#, no-wrap
+msgid ""
+"struct sscop_merr {\n"
+"\tuint32_t sig;\n"
+"\tuint32_t err;\t/* error code */\n"
+"\tuint32_t cnt;\t/* error count */\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:203
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:207
+msgid ""
+"The E<.Nm sscop> node understands the generic control messages, plus the "
+"following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:208
+#, no-wrap
+msgid "Dv NGM_SSCOP_SETPARAM Pq Ic setparam"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:211
+msgid ""
+"Sets operational parameters of the SSCOP instance and takes the following "
+"structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:216
+#, no-wrap
+msgid ""
+"struct ng_sscop_setparam {\n"
+"\tuint32_t\t\tmask;\n"
+"\tstruct sscop_param\tparam;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:226
+msgid ""
+"The sub-structure E<.Va param> contains the parameters to set, and the E<.Va "
+"mask> field contains a bit mask, telling which of the parameters to set, and "
+"which to ignore.  If a bit is set, the corresponding parameter is set.  The "
+"parameters are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:241
+#, no-wrap
+msgid ""
+"struct sscop_param {\n"
+"\tuint32_t timer_cc;\t/* timer_cc in msec */\n"
+"\tuint32_t timer_poll;\t/* timer_poll im msec */\n"
+"\tuint32_t timer_keep_alive;/* timer_keep_alive in msec */\n"
+"\tuint32_t timer_no_response;/*timer_no_response in msec */\n"
+"\tuint32_t timer_idle;\t/* timer_idle in msec */\n"
+"\tuint32_t maxk;\t\t/* maximum user data in bytes */\n"
+"\tuint32_t maxj;\t\t/* maximum u-u info in bytes */\n"
+"\tuint32_t maxcc;\t\t/* max. retransmissions for control packets */\n"
+"\tuint32_t maxpd;\t\t/* max. vt(pd) before sending poll */\n"
+"\tuint32_t maxstat;\t/* max. number of elements in stat list */\n"
+"\tuint32_t mr;\t\t/* initial window */\n"
+"\tuint32_t flags;\t\t/* flags */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:246
+msgid ""
+"The E<.Va flags> field contains the following flags influencing SSCOP "
+"operation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:248
+#, no-wrap
+msgid "Dv SSCOP_ROBUST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:250
+msgid "enable atmf/97-0216 robustness enhancement"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:250
+#, no-wrap
+msgid "Dv SSCOP_POLLREX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:252
+msgid "send POLL after each retransmission"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:255
+msgid "The bitmap has the following bits:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:257
+#, no-wrap
+msgid "Dv SSCOP_SET_TCC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:260
+msgid "set E<.Va timer_cc>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:260
+#, no-wrap
+msgid "Dv SSCOP_SET_TPOLL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:263
+msgid "set E<.Va timer_poll>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:263
+#, no-wrap
+msgid "Dv SSCOP_SET_TKA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:266
+msgid "set E<.Va timer_keep_alive>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:266
+#, no-wrap
+msgid "Dv SSCOP_SET_TNR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:269
+msgid "set E<.Va timer_no_response>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:269
+#, no-wrap
+msgid "Dv SSCOP_SET_TIDLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:272
+msgid "set E<.Va timer_idle>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:272
+#, no-wrap
+msgid "Dv SSCOP_SET_MAXK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:275
+msgid "set E<.Va maxk>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:275
+#, no-wrap
+msgid "Dv SSCOP_SET_MAXJ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:278
+msgid "set E<.Va maxj>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:278
+#, no-wrap
+msgid "Dv SSCOP_SET_MAXCC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:281
+msgid "set E<.Va maxcc>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:281
+#, no-wrap
+msgid "Dv SSCOP_SET_MAXPD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:284
+msgid "set E<.Va maxpd>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:284
+#, no-wrap
+msgid "Dv SSCOP_SET_MAXSTAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:287
+msgid "set E<.Va maxstat>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:287
+#, no-wrap
+msgid "Dv SSCOP_SET_MR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:289
+msgid "set the initial window"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:289
+#, no-wrap
+msgid "Dv SSCOP_SET_ROBUST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:292
+msgid "set or clear E<.Dv SSCOP_ROBUST>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:292
+#, no-wrap
+msgid "Dv SSCOP_SET_POLLREX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:295
+msgid "set or clear E<.Dv SSCOP_POLLREX>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:300
+msgid ""
+"The node responds to the E<.Dv NGM_SSCOP_SETPARAM> message with the "
+"following response:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:305
+#, no-wrap
+msgid ""
+"struct ng_sscop_setparam_resp {\n"
+"\tuint32_t mask;\n"
+"\tint32_t\t error;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:315
+msgid ""
+"Here E<.Va mask> contains a bitmask of the parameters that the user "
+"requested to set, but that could not be set and E<.Va error> is an E<.Xr "
+"errno 2> code describing why the parameter could not be set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:315
+#, no-wrap
+msgid "Dv NGM_SSCOP_GETPARAM Pq Ic getparam"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:320
+msgid ""
+"This message returns the current operational parameters of the SSCOP "
+"instance in a E<.Vt sscop_param> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:320
+#, no-wrap
+msgid "Dv NGM_SSCOP_ENABLE Pq Ic enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:324
+msgid ""
+"This message creates the actual SSCOP instance and initializes it.  Until "
+"this is done, parameters may neither be retrieved nor set, and all messages "
+"received on any hook are discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:324
+#, no-wrap
+msgid "Dv NGM_SSCOP_DISABLE Pq Ic disable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:328
+msgid ""
+"Destroy the SSCOP instance.  After this, all messages on any hooks are "
+"discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:328
+#, no-wrap
+msgid "Dv NGM_SSCOP_SETDEBUG Pq Ic setdebug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:332
+msgid "Set debugging flags.  The argument is a E<.Vt uint32_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:332
+#, no-wrap
+msgid "Dv NGM_SSCOP_GETDEBUG Pq Ic getdebug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:336
+msgid ""
+"Retrieve the actual debugging flags.  Needs no arguments and responds with a "
+"E<.Vt uint32_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:336
+#, no-wrap
+msgid "Dv NGM_SSCOP_GETSTATE Pq Ic getstate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:340
+msgid ""
+"Responds with the current state of the SSCOP instance in a E<.Vt uint32_t>.  "
+"If the node is not enabled, the retrieved state is 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:341
+#, no-wrap
+msgid "FLOW CONTROL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:351
+msgid ""
+"Flow control works on the upper and on the lower layer interface.  At the "
+"lower layer interface, the two messages, E<.Dv NGM_HIGH_WATER_PASSED> and "
+"E<.Dv NGM_LOW_WATER_PASSED>, are used to declare or clear the E<.Dq \"lower "
+"layer busy\"> state of the protocol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:355
+msgid ""
+"At the upper layer interface, the E<.Nm sscop> node handles three types of "
+"flow control messages:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:356
+#, no-wrap
+msgid "Dv NGM_HIGH_WATER_PASSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:365
+msgid ""
+"If this message is received, the SSCOP stops moving the receive window.  "
+"Each time a data message is handed over to the upper layer, the receive "
+"window is moved by one message.  Stopping these updates means that the "
+"window will start to close and if the peer has sent all messages allowed by "
+"the current window, it stops transmission.  This means that the upper layer "
+"must be able to still receive a full window amount of messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:365
+#, no-wrap
+msgid "Dv NGM_LOW_WATER_PASSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:376
+msgid ""
+"This will re-enable the automatic window updates, and if the space indicated "
+"in the message is larger than the current window, the window will be opened "
+"by that amount.  The space is computed as the difference of the E<.Va "
+"max_queuelen_packets> and E<.Va current> members of the E<.Vt "
+"ngm_queue_state> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscop.4:376
+#, no-wrap
+msgid "Dv NGM_SYNC_QUEUE_STATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:396
+msgid ""
+"If the upper layer buffer filling state, as indicated by E<.Va current>, is "
+"equal to or greater than E<.Va high_watermark> then the message is ignored.  "
+"If this is not the case, the amount of receiver space is computed as the "
+"difference of E<.Va max_queuelen_packets> and E<.Va current> if automatic "
+"window updates are currently allowed, and as the difference of E<.Va "
+"high_water_mark> and E<.Va current> if window updates are disabled.  If the "
+"resulting value is larger than the current window, the current window is "
+"opened up to this value.  Automatic window updates are enabled if they were "
+"disabled."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:397
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:402
+msgid "E<.Xr netgraph 4>, E<.Xr ng_atm 4>, E<.Xr ng_sscfu 4>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscop.4:402
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscop.4:403
+msgid "E<.An Harti Brandt Aq Mt harti@FreeBSD.org>"
+msgstr ""

@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_bridge.4:37
+#, no-wrap
+msgid "May 5, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_bridge.4:38
+#, no-wrap
+msgid "NG_BRIDGE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:42
+msgid "E<.Nm ng_bridge>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_bridge.4:42
+#, no-wrap
+msgid "Ethernet bridging netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_bridge.4:44
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_bridge.4:45
+#, no-wrap
+msgid "netgraph/ng_bridge.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:58
+msgid ""
+"The E<.Nm bridge> node type performs Ethernet bridging over one or more "
+"links.  Each link (represented by a connected hook) is used to transmit and "
+"receive raw Ethernet frames.  As packets are received, the node learns which "
+"link each host resides on.  Packets unicast to a known host are directed out "
+"the appropriate link only, and other links are spared the traffic.  This "
+"behavior is in contrast to a hub, which always forwards every received "
+"packet to every other link."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:58
+#, no-wrap
+msgid "LOOP DETECTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:71
+msgid ""
+"The E<.Nm bridge> node incorporates a simple loop detection algorithm.  A "
+"loop is when two ports are connected to the same physical medium.  Loops are "
+"important to avoid because of packet storms, which severely degrade "
+"performance.  A packet storm results when the same packet is sent and "
+"received over and over again.  If a host is detected on link A, and is then "
+"detected on link B within a certain time period after first being detected "
+"on link A, then link B is considered to be a looped back link.  The time "
+"period is called the minimum stable time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:74
+msgid ""
+"A looped back link will be temporarily muted, i.e., all traffic received on "
+"that link is ignored."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:74
+#, no-wrap
+msgid "IPFW PROCESSING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:78
+msgid ""
+"Processing of IP packets via the E<.Xr ipfirewall 4> mechanism on a per-link "
+"basis is not yet implemented."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:78
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:97
+msgid ""
+"This node type supports up to E<.Dv NG_BRIDGE_MAX_LINKS> hooks.  Each "
+"connected hook represents a bridged link.  The hooks are named E<.Dv link0>, "
+"E<.Dv link1>, etc.  Typically these hooks are connected to the E<.Dv lower> "
+"hooks of one or more E<.Xr ng_ether 4> nodes.  To connect the host machine "
+"to a bridged network, simply connect the E<.Dv upper> hook of an E<.Xr "
+"ng_ether 4> node to the bridge node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:97
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:100
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:101
+#, no-wrap
+msgid "Dv NGM_BRIDGE_SET_CONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:106
+msgid ""
+"Set the node configuration.  This command takes a E<.Dv \"struct "
+"ng_bridge_config\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:115
+#, no-wrap
+msgid ""
+"/* Node configuration structure */\n"
+"struct ng_bridge_config {\n"
+"  u_char      ipfw[NG_BRIDGE_MAX_LINKS]; /* enable ipfw */\n"
+"  u_char      debugLevel;           /* debug level */\n"
+"  uint32_t    loopTimeout;          /* link loopback mute time */\n"
+"  uint32_t    maxStaleness;         /* max host age before nuking */\n"
+"  uint32_t    minStableAge;         /* min time for a stable host */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:127
+msgid ""
+"The E<.Dv ipfw> array enables E<.Xr ipfirewall 4> processing of IP packets "
+"received on the corresponding links.  The E<.Dv debugLevel> field sets the "
+"debug level on the node.  At level of 2 or greater, detected loops are "
+"logged.  The default level is 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:142
+msgid ""
+"The E<.Dv loopTimeout> determines how long (in seconds) a looped link is "
+"muted.  The default is 60 seconds.  The E<.Dv maxStaleness> parameter "
+"determines how long a period of inactivity before a host's entry is "
+"forgotten.  The default is 15 minutes.  The E<.Dv minStableAge> determines "
+"how quickly a host must jump from one link to another before we declare a "
+"loopback condition.  The default is one second."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:142
+#, no-wrap
+msgid "Dv NGM_BRIDGE_GET_CONFIG Pq Ic getconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:145
+msgid "Returns the current configuration as a E<.Dv \"struct ng_bridge_config\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:145
+#, no-wrap
+msgid "Dv NGM_BRIDGE_RESET Pq Ic reset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:148
+msgid ""
+"Causes the node to forget all hosts and unmute all links.  The node "
+"configuration is not changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:148
+#, no-wrap
+msgid "Dv NGM_BRIDGE_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:154
+msgid ""
+"This command takes a four byte link number as an argument and returns a "
+"E<.Dv \"struct ng_bridge_link_stats\"> containing statistics for the "
+"corresponding link, which must be currently connected:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:172
+#, no-wrap
+msgid ""
+"/* Statistics structure (one for each link) */\n"
+"struct ng_bridge_link_stats {\n"
+"  uint64_t   recvOctets;     /* total octets rec'd on link */\n"
+"  uint64_t   recvPackets;    /* total pkts rec'd on link */\n"
+"  uint64_t   recvMulticasts; /* multicast pkts rec'd on link */\n"
+"  uint64_t   recvBroadcasts; /* broadcast pkts rec'd on link */\n"
+"  uint64_t   recvUnknown;    /* pkts rec'd with unknown dest addr */\n"
+"  uint64_t   recvRunts;      /* pkts rec'd less than 14 bytes */\n"
+"  uint64_t   recvInvalid;    /* pkts rec'd with bogus source addr */\n"
+"  uint64_t   xmitOctets;     /* total octets xmit'd on link */\n"
+"  uint64_t   xmitPackets;    /* total pkts xmit'd on link */\n"
+"  uint64_t   xmitMulticasts; /* multicast pkts xmit'd on link */\n"
+"  uint64_t   xmitBroadcasts; /* broadcast pkts xmit'd on link */\n"
+"  uint64_t   loopDrops;      /* pkts dropped due to loopback */\n"
+"  uint64_t   loopDetects;    /* number of loop detections */\n"
+"  uint64_t   memoryFailures; /* times couldn't get mem or mbuf */\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:173
+#, no-wrap
+msgid "Dv NGM_BRIDGE_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:176
+msgid ""
+"This command takes a four byte link number as an argument and clears the "
+"statistics for that link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:176
+#, no-wrap
+msgid "Dv NGM_BRIDGE_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:180
+msgid ""
+"Same as E<.Dv NGM_BRIDGE_GET_STATS>, but also atomically clears the "
+"statistics as well."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:180
+#, no-wrap
+msgid "Dv NGM_BRIDGE_GET_TABLE Pq Ic gettable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:183
+msgid ""
+"Returns the current host mapping table used to direct packets, in a E<.Dv "
+"\"struct ng_bridge_host_ary\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:183
+#, no-wrap
+msgid "Dv NGM_BRIDGE_SET_PERSISTENT Pq Ic setpersistent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:185
+msgid "This command sets the persistent flag on the node, and takes no arguments."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:186
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:194
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected.  Setting the persistent flag via a "
+"E<.Dv NGM_BRIDGE_SET_PERSISTENT> control message disables automatic node "
+"shutdown when the last hook gets disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:194
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bridge.4:196
+#, no-wrap
+msgid "Pa /usr/share/examples/netgraph/ether.bridge"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:198
+msgid "Example script showing how to set up a bridging network"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:199
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:206
+msgid ""
+"E<.Xr if_bridge 4>, E<.Xr netgraph 4>, E<.Xr ng_ether 4>, E<.Xr ng_hub 4>, "
+"E<.Xr ng_one2many 4>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:206
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:211
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bridge.4:211
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bridge.4:212
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""

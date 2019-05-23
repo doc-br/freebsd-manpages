@@ -1,0 +1,423 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/spkr.4:4
+#, no-wrap
+msgid "November 10, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/spkr.4:5
+#, no-wrap
+msgid "SPKR 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:7
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:10
+msgid "E<.Nm speaker>, E<.Nm spkr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/spkr.4:10
+#, no-wrap
+msgid "console speaker device driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:11
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:13
+msgid "E<.Cd device speaker>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/spkr.4:13
+#, no-wrap
+msgid "dev/speaker/speaker.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:14
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:20
+msgid ""
+"The speaker device driver allows applications to control the PC console "
+"speaker on an E<.Tn IBM-PC Ns --compatible> machine running E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:38
+msgid ""
+"Only one process may have this device open at any given time; E<.Xr open 2> "
+"and E<.Xr close 2> are used to lock and relinquish it.  An attempt to open "
+"when another process has the device locked will return -1 with an E<.Er "
+"EBUSY> error indication.  Writes to the device are interpreted as `play "
+"strings' in a simple ASCII melody notation.  An E<.Xr ioctl 2> request for "
+"tone generation at arbitrary frequencies is also supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:43
+msgid ""
+"Sound-generation does not monopolize the processor; in fact, the driver "
+"spends most of its time sleeping while the PC hardware is emitting tones.  "
+"Other processes may emit beeps while the driver is running."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:50
+msgid ""
+"Applications may call E<.Xr ioctl 2> on a speaker file descriptor to control "
+"the speaker driver directly; definitions for the E<.Xr ioctl 2> interface "
+"are in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/spkr.4:50
+#, no-wrap
+msgid "dev/speaker/speaker.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:56
+msgid ""
+"The E<.Li tone_t> structure used in these calls has two fields, specifying a "
+"frequency (in Hz) and a duration (in 1/100ths of a second).  A frequency of "
+"zero is interpreted as a rest."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:68
+msgid ""
+"At present there are two such E<.Xr ioctl 2> calls.  E<.Dv SPKRTONE> accepts "
+"a pointer to a single tone structure as third argument and plays it.  E<.Dv "
+"SPKRTUNE> accepts a pointer to the first of an array of tone structures and "
+"plays them in continuous sequence; this array must be terminated by a final "
+"member with a zero duration."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:81
+msgid ""
+"The play-string language is modeled on the PLAY statement conventions of "
+"E<.Tn IBM> Advanced BASIC 2.0.  The E<.Li MB>, E<.Li MF>, and E<.Li X> "
+"primitives of PLAY are not useful in a timesharing environment and are "
+"omitted.  The `octave-tracking' feature and the slur mark are new."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:87
+msgid ""
+"There are 84 accessible notes numbered 1-84 in 7 octaves, each running from "
+"C to B, numbered 0-6; the scale is equal-tempered A440 and octave 3 starts "
+"with middle C.  By default, the play function emits half-second notes with "
+"the last 1/16th second being `rest time'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:91
+msgid ""
+"Play strings are interpreted left to right as a series of play command "
+"groups; letter case is ignored.  Play command groups are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:92
+#, no-wrap
+msgid "Li CDEFGAB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:103
+msgid ""
+"Letters A through G cause the corresponding note to be played in the current "
+"octave.  A note letter may optionally be followed by an E<.Dq Em "
+"\"accidental sign\">, one of # + or -; the first two of these cause it to be "
+"sharped one half-tone, the last causes it to be flatted one half-tone.  It "
+"may also be followed by a time value number and by sustain dots (see "
+"below).  Time values are interpreted as for the L command below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:103
+#, no-wrap
+msgid "Ns Li O Sy n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:124
+msgid ""
+"If E<.Sy n> is numeric, this sets the current octave.  E<.Sy n> may also be "
+"one of E<.Li L> or E<.Li N> to enable or disable octave-tracking (it is "
+"disabled by default).  When octave-tracking is on, interpretation of a pair "
+"of letter notes will change octaves if necessary in order to make the "
+"smallest possible jump between notes.  Thus ``olbc'' will be played as "
+"``olbE<gt>c'', and ``olcb'' as ``olcE<lt>b''.  Octave locking is disabled "
+"for one letter note following E<gt>, E<lt> and O[0123456].  (The "
+"octave-locking feature is not supported in E<.Tn IBM> BASIC.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:124
+#, no-wrap
+msgid "Li E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:126
+msgid "Bump the current octave up one."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:126
+#, no-wrap
+msgid "Li E<lt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:128
+msgid "Drop the current octave down one."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:128
+#, no-wrap
+msgid "Ns Li N Sy n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:134
+msgid ""
+"Play note E<.Sy n>, E<.Sy n> being 1 to 84 or 0 for a rest of current time "
+"value.  May be followed by sustain dots."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:134
+#, no-wrap
+msgid "Ns Li L Sy n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:147
+msgid ""
+"Sets the current time value for notes.  The default is E<.Li L4>, quarter or "
+"crotchet notes.  The lowest possible value is 1; values up to 64 are "
+"accepted.  E<.Li L1> sets whole notes, E<.Li L2> sets half notes, E<.Li L4> "
+"sets quarter notes, etc."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:147
+#, no-wrap
+msgid "Ns Li P Sy n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:156
+msgid ""
+"Pause (rest), with E<.Sy n> interpreted as for E<.Li L Sy n>.  May be "
+"followed by sustain dots.  May also be written E<.Li ~>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:156
+#, no-wrap
+msgid "Ns Li T Sy n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:160
+msgid ""
+"Sets the number of quarter notes per minute; default is 120.  Musical names "
+"for common tempi are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:178
+#, no-wrap
+msgid ""
+"        \tTempo    \tBeats Per Minute\n"
+"very slow\tLarghissimo\n"
+"        \tLargo    \t40-60\n"
+"         \tLarghetto    \t60-66\n"
+"        \tGrave\n"
+"        \tLento\n"
+"        \tAdagio       \t66-76\n"
+"slow    \tAdagietto\n"
+"        \tAndante   \t76-108\n"
+"medium   \tAndantino\n"
+"        \tModerato\t108-120\n"
+"fast    \tAllegretto\n"
+"        \tAllegro   \t120-168\n"
+"        \tVivace\n"
+"        \tVeloce\n"
+"        \tPresto    \t168-208\n"
+"very fast\tPrestissimo\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:179
+#, no-wrap
+msgid "Li M[LNS]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:190
+msgid ""
+"Set articulation.  E<.Li MN> E<.Li ( N> for normal) is the default; the last "
+"1/8th of the note's value is rest time.  You can set E<.Li ML> for legato "
+"(no rest space) or E<.Li MS> for staccato (1/4 rest space)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:202
+msgid ""
+"Notes (that is, E<.Li CDEFGAB> or E<.Li N> command character groups) may be "
+"followed by sustain dots.  Each dot causes the note's value to be lengthened "
+"by one-half for each one.  Thus, a note dotted once is held for 3/2 of its "
+"undotted value; dotted twice, it is held 9/4, and three times would give "
+"27/8."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:209
+msgid ""
+"A note and its sustain dots may also be followed by a slur mark "
+"(underscore).  This causes the normal micro-rest after the note to be filled "
+"in, slurring it to the next one.  (The slur feature is not supported in "
+"E<.Tn IBM> BASIC.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:212
+msgid ""
+"Whitespace in play strings is simply skipped and may be used to separate "
+"melody sections."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:212
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spkr.4:214
+#, no-wrap
+msgid "Pa /dev/speaker"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:216
+msgid "speaker device file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:217
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:219
+msgid "E<.Xr spkrtest 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:219
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:224
+msgid "The E<.Nm> device appeared in E<.Fx 1.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:224
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:227
+msgid "E<.An Eric S. Raymond Aq Mt esr@snark.thyrsus.com>, June 1990"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:227
+#, no-wrap
+msgid "PORTED BY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:229
+msgid "E<.An Andrew A. Chernov Aq Mt ache@astral.msk.su>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spkr.4:229
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:234
+msgid ""
+"Due to roundoff in the pitch tables and slop in the tone-generation and "
+"timer hardware (neither of which was designed for precision), neither pitch "
+"accuracy nor timings will be mathematically exact.  There is no volume "
+"control."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:246
+msgid ""
+"The action of two or more sustain dots does not reflect standard musical "
+"notation, in which each dot adds half the value of the previous dot "
+"modifier, not half the value of the note as modified.  Thus, a note dotted "
+"once is held for 3/2 of its undotted value; dotted twice, it is held 7/4, "
+"and three times would give 15/8.  The multiply-by-3/2 interpretation, "
+"however, is specified in the E<.Tn IBM> BASIC manual and has been retained "
+"for compatibility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spkr.4:249
+msgid ""
+"In play strings which are very long (longer than your system's physical I/O "
+"blocks) note suffixes or numbers may occasionally be parsed incorrectly due "
+"to crossing a block boundary."
+msgstr ""

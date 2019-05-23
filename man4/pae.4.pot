@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/man4.i386/pae.4:34
+#, no-wrap
+msgid "April 8, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/man4.i386/pae.4:35
+#, no-wrap
+msgid "PAE 4 i386"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:39
+msgid "E<.Nm PAE>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/man4.i386/pae.4:39
+#, no-wrap
+msgid "Physical Address Extensions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:42
+msgid "E<.Cd \"options PAE\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:59
+msgid ""
+"The E<.Dv PAE> option provides support for the physical address extensions "
+"capability of the E<.Tn Intel> E<.Tn Pentium Pro> and above CPUs, and allows "
+"for up to 64 gigabytes of memory to be used in systems capable of supporting "
+"it.  With the E<.Dv PAE> option, memory above 4 gigabytes is simply added to "
+"the general page pool.  The system makes no distinction between memory above "
+"or below 4 gigabytes, and no specific facility is provided for a process or "
+"the kernel to access more memory than they would otherwise be able to "
+"access, through a sliding window or otherwise."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:59
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:64
+msgid "E<.Xr smp 4>, E<.Xr tuning 7>, E<.Xr config 8>, E<.Xr bus_dma 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:64
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:71
+msgid "The E<.Dv PAE> option first appeared in E<.Fx 4.9> and E<.Fx 5.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:71
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:73
+msgid "E<.An Jake Burkholder Aq Mt jake@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/pae.4:73
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:79
+msgid ""
+"Since KLD modules are not compiled with the same options headers that the "
+"kernel is compiled with, they must not be loaded into a kernel compiled with "
+"the E<.Dv PAE> option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:104
+msgid ""
+"Many devices or their device drivers are not capable of direct memory access "
+"to physical addresses above 4 gigabytes.  In order to make use of direct "
+"memory access IO in a system with more than 4 gigabytes of memory when the "
+"E<.Dv PAE> option is used, these drivers must use a facility for remapping "
+"or substituting physical memory which is not accessible to the device.  One "
+"such facility is provided by the E<.Nm busdma> interface.  Device drivers "
+"which do not account for such devices will not work reliably in a system "
+"with more than 4 gigabytes of memory when the E<.Dv PAE> option is used, and "
+"may cause data corruption.  The E<.Pa PAE> kernel configuration file "
+"includes the E<.Dv PAE> option, and explicitly excludes all device drivers "
+"which are known to not work or have not been tested in a system with the "
+"E<.Dv PAE> option and more than 4 gigabytes of memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/pae.4:127
+msgid ""
+"Many parameters which determine how memory is used in the kernel are based "
+"on the amount of physical memory.  The formulas used to determine the values "
+"of these parameters for specific memory configurations may not take into "
+"account the fact there may be more than 4 gigabytes of memory, and may not "
+"scale well to these memory configurations.  In particular, it may be "
+"necessary to increase the amount of virtual address space available to the "
+"kernel, or to reduce the amount of a specific resource that is heavily used, "
+"in order to avoid running out of virtual address space.  The E<.Dv "
+"KVA_PAGES> option may be used to increase the kernel virtual address space, "
+"and the E<.Va kern.maxvnodes> E<.Xr sysctl 8> may be used to decrease the "
+"number of vnodes allowed, an example of a resource that the kernel is likely "
+"to overallocate in large memory configurations.  For optimal performance and "
+"stability it may be necessary to consult the E<.Xr tuning 7> manual page, "
+"and make adjustments to the parameters documented there."
+msgstr ""

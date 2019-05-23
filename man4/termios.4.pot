@@ -1,0 +1,2073 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/termios.4:31
+#, no-wrap
+msgid "December 26, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/termios.4:32
+#, no-wrap
+msgid "TERMIOS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/termios.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:36
+msgid "E<.Nm termios>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/termios.4:36
+#, no-wrap
+msgid "general terminal line discipline"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/termios.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/termios.4:38
+#, no-wrap
+msgid "termios.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/termios.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:42
+msgid ""
+"This describes a general terminal line discipline that is supported on tty "
+"asynchronous communication ports."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:42
+#, no-wrap
+msgid "Opening a Terminal Device File"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:66
+msgid ""
+"When a terminal file is opened, it normally causes the process to wait until "
+"a connection is established.  For most hardware, the presence of a "
+"connection is indicated by the assertion of the hardware E<.Dv CARRIER> "
+"line.  If the termios structure associated with the terminal file has the "
+"E<.Dv CLOCAL> flag set in the cflag, or if the E<.Dv O_NONBLOCK> flag is set "
+"in the E<.Xr open 2> call, then the open will succeed even without a "
+"connection being present.  In practice, applications seldom open these "
+"files; they are opened by special programs, such as E<.Xr getty 8> or E<.Xr "
+"rlogind 8>, and become an application's standard input, output, and error "
+"files."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:66
+#, no-wrap
+msgid "Job Control in a Nutshell"
+msgstr ""
+
+#.  .Gw "job control" ;
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:92
+msgid ""
+"Every process is associated with a particular process group and session.  "
+"The grouping is hierarchical: every member of a particular process group is "
+"a member of the same session.  This structuring is used in managing groups "
+"of related processes for purposes of E<.Em \"job control\">; that is, the "
+"ability from the keyboard (or from program control) to simultaneously stop "
+"or restart a complex command (a command composed of one or more related "
+"processes).  The grouping into process groups allows delivering of signals "
+"that stop or start the group as a whole, along with arbitrating which "
+"process group has access to the single controlling terminal.  The grouping "
+"at a higher layer into sessions is to restrict the job control related "
+"signals and system calls to within processes resulting from a particular "
+"instance of a E<.Dq login>.  Typically, a session is created when a user "
+"logs in, and the login terminal is setup to be the controlling terminal; all "
+"processes spawned from that login shell are in the same session, and inherit "
+"the controlling terminal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:131
+msgid ""
+"A job control shell operating interactively (that is, reading commands from "
+"a terminal)  normally groups related processes together by placing them into "
+"the same process group.  A set of processes in the same process group is "
+"collectively referred to as a E<.Dq job>.  When the foreground process group "
+"of the terminal is the same as the process group of a particular job, that "
+"job is said to be in the E<.Dq foreground>.  When the process group of the "
+"terminal is different from the process group of a job (but is still the "
+"controlling terminal), that job is said to be in the E<.Dq background>.  "
+"Normally the shell reads a command and starts the job that implements that "
+"command.  If the command is to be started in the foreground (typical), it "
+"sets the process group of the terminal to the process group of the started "
+"job, waits for the job to complete, and then sets the process group of the "
+"terminal back to its own process group (it puts itself into the "
+"foreground).  If the job is to be started in the background (as denoted by "
+"the shell operator \"&\"), it never changes the process group of the "
+"terminal and does not wait for the job to complete (that is, it immediately "
+"attempts to read the next command).  If the job is started in the "
+"foreground, the user may type a key (usually E<.Ql \\&^Z>)  which generates "
+"the terminal stop signal E<.Pq Dv SIGTSTP> and has the effect of stopping "
+"the entire job.  The shell will notice that the job stopped, and will resume "
+"running after placing itself in the foreground.  The shell also has commands "
+"for placing stopped jobs in the background, and for placing stopped or "
+"background jobs into the foreground."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:131
+#, no-wrap
+msgid "Orphaned Process Groups"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:142
+msgid ""
+"An orphaned process group is a process group that has no process whose "
+"parent is in a different process group, yet is in the same session.  "
+"Conceptually it means a process group that does not have a parent that could "
+"do anything if it were to be stopped.  For example, the initial login shell "
+"is typically in an orphaned process group.  Orphaned process groups are "
+"immune to keyboard generated stop signals and job control signals resulting "
+"from reads or writes to the controlling terminal."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:142
+#, no-wrap
+msgid "The Controlling Terminal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:158
+msgid ""
+"A terminal may belong to a process as its controlling terminal.  Each "
+"process of a session that has a controlling terminal has the same "
+"controlling terminal.  A terminal may be the controlling terminal for at "
+"most one session.  The controlling terminal for a session is allocated by "
+"the session leader by issuing the E<.Dv TIOCSCTTY> ioctl.  A controlling "
+"terminal is never acquired by merely opening a terminal device file.  When a "
+"controlling terminal becomes associated with a session, its foreground "
+"process group is set to the process group of the session leader."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:172
+msgid ""
+"The controlling terminal is inherited by a child process during a E<.Xr fork "
+"2> function call.  A process relinquishes its controlling terminal when it "
+"creates a new session with the E<.Xr setsid 2> function; other processes "
+"remaining in the old session that had this terminal as their controlling "
+"terminal continue to have it.  A process does not relinquish its controlling "
+"terminal simply by closing all of its file descriptors associated with the "
+"controlling terminal if other processes continue to have it open."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:179
+msgid ""
+"When a controlling process terminates, the controlling terminal is "
+"disassociated from the current session, allowing it to be acquired by a new "
+"session leader.  Subsequent access to the terminal by other processes in the "
+"earlier session will be denied, with attempts to access the terminal treated "
+"as if modem disconnect had been sensed."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:179
+#, no-wrap
+msgid "Terminal Access Control"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:205
+msgid ""
+"If a process is in the foreground process group of its controlling terminal, "
+"read operations are allowed.  Any attempts by a process in a background "
+"process group to read from its controlling terminal causes a E<.Dv SIGTTIN> "
+"signal to be sent to the process's group unless one of the following special "
+"cases apply: if the reading process is ignoring or blocking the E<.Dv "
+"SIGTTIN> signal, or if the process group of the reading process is orphaned, "
+"the E<.Xr read 2> returns -1 with E<.Va errno> set to E<.Er EIO> and no "
+"signal is sent.  The default action of the E<.Dv SIGTTIN> signal is to stop "
+"the process to which it is sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:233
+msgid ""
+"If a process is in the foreground process group of its controlling terminal, "
+"write operations are allowed.  Attempts by a process in a background process "
+"group to write to its controlling terminal will cause the process group to "
+"be sent a E<.Dv SIGTTOU> signal unless one of the following special cases "
+"apply: if E<.Dv TOSTOP> is not set, or if E<.Dv TOSTOP> is set and the "
+"process is ignoring or blocking the E<.Dv SIGTTOU> signal, the process is "
+"allowed to write to the terminal and the E<.Dv SIGTTOU> signal is not sent.  "
+"If E<.Dv TOSTOP> is set, and the process group of the writing process is "
+"orphaned, and the writing process is not ignoring or blocking E<.Dv "
+"SIGTTOU>, the E<.Xr write 2> returns -1 with errno set to E<.Er EIO> and no "
+"signal is sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:241
+msgid ""
+"Certain calls that set terminal parameters are treated in the same fashion "
+"as write, except that E<.Dv TOSTOP> is ignored; that is, the effect is "
+"identical to that of terminal writes when E<.Dv TOSTOP> is set."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:241
+#, no-wrap
+msgid "Input Processing and Reading Data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:263
+msgid ""
+"A terminal device associated with a terminal device file may operate in "
+"full-duplex mode, so that data may arrive even while output is occurring.  "
+"Each terminal device file has associated with it an input queue, into which "
+"incoming data is stored by the system before being read by a process.  The "
+"system imposes a limit, E<.Pf \\&{ Dv MAX_INPUT Ns \\&}>, on the number of "
+"bytes that may be stored in the input queue.  The behavior of the system "
+"when this limit is exceeded depends on the setting of the E<.Dv IMAXBEL> "
+"flag in the termios E<.Fa c_iflag>.  If this flag is set, the terminal is "
+"sent an E<.Tn ASCII> E<.Dv BEL> character each time a character is received "
+"while the input queue is full.  Otherwise, the input queue is flushed upon "
+"receiving the character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:277
+msgid ""
+"Two general kinds of input processing are available, determined by whether "
+"the terminal device file is in canonical mode or noncanonical mode.  "
+"Additionally, input characters are processed according to the E<.Fa c_iflag> "
+"and E<.Fa c_lflag> fields.  Such processing can include echoing, which in "
+"general means transmitting input characters immediately back to the terminal "
+"when they are received from the terminal.  This is useful for terminals that "
+"can operate in full-duplex mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:281
+msgid ""
+"The manner in which data is provided to a process reading from a terminal "
+"device file is dependent on whether the terminal device file is in canonical "
+"or noncanonical mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:296
+msgid ""
+"Another dependency is whether the E<.Dv O_NONBLOCK> flag is set by E<.Xr "
+"open 2> or E<.Xr fcntl 2>.  If the E<.Dv O_NONBLOCK> flag is clear, then the "
+"read request is blocked until data is available or a signal has been "
+"received.  If the E<.Dv O_NONBLOCK> flag is set, then the read request is "
+"completed, without blocking, in one of three ways:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:301
+msgid ""
+"If there is enough data available to satisfy the entire request, and the "
+"read completes successfully the number of bytes read is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:305
+msgid ""
+"If there is not enough data available to satisfy the entire request, and the "
+"read completes successfully, having read as much data as possible, the "
+"number of bytes read is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:309
+msgid ""
+"If there is no data available, the read returns -1, with errno set to E<.Er "
+"EAGAIN>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:313
+msgid ""
+"When data is available depends on whether the input processing mode is "
+"canonical or noncanonical."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:313
+#, no-wrap
+msgid "Canonical Mode Input Processing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:338
+msgid ""
+"In canonical mode input processing, terminal input is processed in units of "
+"lines.  A line is delimited by a newline E<.Ql \\&\\en> character, an "
+"end-of-file E<.Pq Dv EOF> character, or an end-of-line E<.Pq Dv EOL> "
+"character.  See the E<.Sx \"Special Characters\"> section for more "
+"information on E<.Dv EOF> and E<.Dv EOL>.  This means that a read request "
+"will not return until an entire line has been typed, or a signal has been "
+"received.  Also, no matter how many bytes are requested in the read call, at "
+"most one line is returned.  It is not, however, necessary to read a whole "
+"line at once; any number of bytes, even one, may be requested in a read "
+"without losing information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:346
+msgid ""
+"E<.Pf \\&{ Dv MAX_CANON Ns \\&}> is a limit on the number of bytes in a "
+"line.  The behavior of the system when this limit is exceeded is the same as "
+"when the input queue limit E<.Pf \\&{ Dv MAX_INPUT Ns \\&}>, is exceeded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:383
+msgid ""
+"Erase and kill processing occur when either of two special characters, the "
+"E<.Dv ERASE> and E<.Dv KILL> characters (see the E<.Sx \"Special "
+"Characters\"> section), is received.  This processing affects data in the "
+"input queue that has not yet been delimited by a newline E<.Dv NL>, E<.Dv "
+"EOF>, or E<.Dv EOL> character.  This un-delimited data makes up the current "
+"line.  The E<.Dv ERASE> character deletes the last character in the current "
+"line, if there is any.  The E<.Dv KILL> character deletes all data in the "
+"current line, if there is any.  The E<.Dv ERASE> and E<.Dv KILL> characters "
+"have no effect if there is no data in the current line.  The E<.Dv ERASE> "
+"and E<.Dv KILL> characters themselves are not placed in the input queue."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:383
+#, no-wrap
+msgid "Noncanonical Mode Input Processing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:394
+msgid ""
+"In noncanonical mode input processing, input bytes are not assembled into "
+"lines, and erase and kill processing does not occur.  The values of the "
+"E<.Dv VMIN> and E<.Dv VTIME> members of the E<.Fa c_cc> array are used to "
+"determine how to process the bytes received."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:416
+msgid ""
+"E<.Dv MIN> represents the minimum number of bytes that should be received "
+"when the E<.Xr read 2> function successfully returns.  E<.Dv TIME> is a "
+"timer of 0.1 second granularity that is used to time out bursty and short "
+"term data transmissions.  If E<.Dv MIN> is greater than E<.Dv \\&{ Dv "
+"MAX_INPUT Ns \\&}>, the response to the request is undefined.  The four "
+"possible values for E<.Dv MIN> and E<.Dv TIME> and their interactions are "
+"described below."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:416
+#, no-wrap
+msgid "Case A: MIN E<gt> 0, TIME E<gt> 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:458
+msgid ""
+"In this case E<.Dv TIME> serves as an inter-byte timer and is activated "
+"after the first byte is received.  Since it is an inter-byte timer, it is "
+"reset after a byte is received.  The interaction between E<.Dv MIN> and "
+"E<.Dv TIME> is as follows: as soon as one byte is received, the inter-byte "
+"timer is started.  If E<.Dv MIN> bytes are received before the inter-byte "
+"timer expires (remember that the timer is reset upon receipt of each byte), "
+"the read is satisfied.  If the timer expires before E<.Dv MIN> bytes are "
+"received, the characters received to that point are returned to the user.  "
+"Note that if E<.Dv TIME> expires at least one byte is returned because the "
+"timer would not have been enabled unless a byte was received.  In this case "
+"E<.Pf \\&( Dv MIN> E<gt> 0, E<.Dv TIME> E<gt> 0) the read blocks until the "
+"E<.Dv MIN> and E<.Dv TIME> mechanisms are activated by the receipt of the "
+"first byte, or a signal is received.  If data is in the buffer at the time "
+"of the E<.Fn read>, the result is as if data had been received immediately "
+"after the E<.Fn read>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:458
+#, no-wrap
+msgid "Case B: MIN E<gt> 0, TIME = 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:475
+msgid ""
+"In this case, since the value of E<.Dv TIME> is zero, the timer plays no "
+"role and only E<.Dv MIN> is significant.  A pending read is not satisfied "
+"until E<.Dv MIN> bytes are received (i.e., the pending read blocks until "
+"E<.Dv MIN> bytes are received), or a signal is received.  A program that "
+"uses this case to read record-based terminal E<.Dv I/O> may block "
+"indefinitely in the read operation."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:475
+#, no-wrap
+msgid "Case C: MIN = 0, TIME E<gt> 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:497
+msgid ""
+"In this case, since E<.Dv MIN> = 0, E<.Dv TIME> no longer represents an "
+"inter-byte timer.  It now serves as a read timer that is activated as soon "
+"as the read function is processed.  A read is satisfied as soon as a single "
+"byte is received or the read timer expires.  Note that in this case if the "
+"timer expires, no bytes are returned.  If the timer does not expire, the "
+"only way the read can be satisfied is if a byte is received.  In this case "
+"the read will not block indefinitely waiting for a byte; if no byte is "
+"received within E<.Dv TIME Ns *0.1> seconds after the read is initiated, the "
+"read returns a value of zero, having read no data.  If data is in the buffer "
+"at the time of the read, the timer is started as if data had been received "
+"immediately after the read."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:497
+#, no-wrap
+msgid "Case D: MIN = 0, TIME = 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:503
+msgid ""
+"The minimum of either the number of bytes requested or the number of bytes "
+"currently available is returned without waiting for more bytes to be input.  "
+"If no characters are available, read returns a value of zero, having read no "
+"data."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:503
+#, no-wrap
+msgid "Writing Data and Output Processing"
+msgstr ""
+
+#.  See also .Sx "6.4.2" for the effects of
+#.  .Dv O_NONBLOCK
+#.  on write.
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:519
+msgid ""
+"When a process writes one or more bytes to a terminal device file, they are "
+"processed according to the E<.Fa c_oflag> field (see the E<.Sx \"Output "
+"Modes\"> section).  The implementation may provide a buffering mechanism; as "
+"such, when a call to E<.Fn write> completes, all of the bytes written have "
+"been scheduled for transmission to the device, but the transmission will not "
+"necessarily have been completed."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:519
+#, no-wrap
+msgid "Special Characters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:522
+msgid ""
+"Certain characters have special functions on input or output or both.  These "
+"functions are summarized as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:523
+#, no-wrap
+msgid "Dv INTR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:540
+msgid ""
+"Special character on input and is recognized if the E<.Dv ISIG> flag (see "
+"the E<.Sx \"Local Modes\"> section) is enabled.  Generates a E<.Dv SIGINT> "
+"signal which is sent to all processes in the foreground process group for "
+"which the terminal is the controlling terminal.  If E<.Dv ISIG> is set, the "
+"E<.Dv INTR> character is discarded when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:540
+#, no-wrap
+msgid "Dv QUIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:555
+msgid ""
+"Special character on input and is recognized if the E<.Dv ISIG> flag is "
+"enabled.  Generates a E<.Dv SIGQUIT> signal which is sent to all processes "
+"in the foreground process group for which the terminal is the controlling "
+"terminal.  If E<.Dv ISIG> is set, the E<.Dv QUIT> character is discarded "
+"when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:555
+#, no-wrap
+msgid "Dv ERASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:575
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  Erases the last character in the current line; see E<.Sx \"Canonical "
+"Mode Input Processing\">.  It does not erase beyond the start of a line, as "
+"delimited by an E<.Dv NL>, E<.Dv EOF>, or E<.Dv EOL> character.  If E<.Dv "
+"ICANON> is set, the E<.Dv ERASE> character is discarded when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:575
+#, no-wrap
+msgid "Dv KILL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:591
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  Deletes the entire line, as delimited by a E<.Dv NL>, E<.Dv EOF>, or "
+"E<.Dv EOL> character.  If E<.Dv ICANON> is set, the E<.Dv KILL> character is "
+"discarded when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:591
+#, no-wrap
+msgid "Dv EOF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:612
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  When received, all the bytes waiting to be read are immediately passed "
+"to the process, without waiting for a newline, and the E<.Dv EOF> is "
+"discarded.  Thus, if there are no bytes waiting (that is, the E<.Dv EOF> "
+"occurred at the beginning of a line), a byte count of zero is returned from "
+"the E<.Fn read>, representing an end-of-file indication.  If E<.Dv ICANON> "
+"is set, the E<.Dv EOF> character is discarded when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:612
+#, no-wrap
+msgid "Dv NL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:618
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  It is the line delimiter E<.Ql \\&\\en>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:618
+#, no-wrap
+msgid "Dv EOL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:624
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  Is an additional line delimiter, like E<.Dv NL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:624
+#, no-wrap
+msgid "Dv SUSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:637
+msgid ""
+"If the E<.Dv ISIG> flag is enabled, receipt of the E<.Dv SUSP> character "
+"causes a E<.Dv SIGTSTP> signal to be sent to all processes in the foreground "
+"process group for which the terminal is the controlling terminal, and the "
+"E<.Dv SUSP> character is discarded when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:637
+#, no-wrap
+msgid "Dv STOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:654
+msgid ""
+"Special character on both input and output and is recognized if the E<.Dv "
+"IXON> (output control) or E<.Dv IXOFF> (input control) flag is set.  Can be "
+"used to temporarily suspend output.  It is useful with fast terminals to "
+"prevent output from disappearing before it can be read.  If E<.Dv IXON> is "
+"set, the E<.Dv STOP> character is discarded when processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:654
+#, no-wrap
+msgid "Dv START"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:670
+msgid ""
+"Special character on both input and output and is recognized if the E<.Dv "
+"IXON> (output control) or E<.Dv IXOFF> (input control) flag is set.  Can be "
+"used to resume output that has been suspended by a E<.Dv STOP> character.  "
+"If E<.Dv IXON> is set, the E<.Dv START> character is discarded when "
+"processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:670
+#, no-wrap
+msgid "Dv CR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:690
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set; it is the E<.Ql \\&\\er>, as denoted in the E<.Tn \\&C> Standard {2}.  "
+"When E<.Dv ICANON> and E<.Dv ICRNL> are set and E<.Dv IGNCR> is not set, "
+"this character is translated into a E<.Dv NL>, and has the same effect as a "
+"E<.Dv NL> character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:696
+msgid ""
+"The following special characters are extensions defined by this system and "
+"are not a part of E<.St -p1003.1> termios."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:697
+#, no-wrap
+msgid "Dv EOL2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:703
+msgid "Secondary E<.Dv EOL> character.  Same function as E<.Dv EOL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:703
+#, no-wrap
+msgid "Dv WERASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:723
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  Erases the last word in the current line according to one of two "
+"algorithms.  If the E<.Dv ALTWERASE> flag is not set, first any preceding "
+"whitespace is erased, and then the maximal sequence of non-whitespace "
+"characters.  If E<.Dv ALTWERASE> is set, first any preceding whitespace is "
+"erased, and then the maximal sequence of alphabetic/underscores or non "
+"alphabetic/underscores.  As a special case in this second algorithm, the "
+"first previous non-whitespace character is skipped in determining whether "
+"the preceding word is a sequence of alphabetic/underscores.  This sounds "
+"confusing but turns out to be quite practical."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:723
+#, no-wrap
+msgid "Dv REPRINT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:728
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  Causes the current input edit line to be retyped."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:728
+#, no-wrap
+msgid "Dv DSUSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:739
+msgid ""
+"Has similar actions to the E<.Dv SUSP> character, except that the E<.Dv "
+"SIGTSTP> signal is delivered when one of the processes in the foreground "
+"process group issues a E<.Fn read> to the controlling terminal."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:739
+#, no-wrap
+msgid "Dv LNEXT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:744
+msgid ""
+"Special character on input and is recognized if the E<.Dv IEXTEN> flag is "
+"set.  Receipt of this character causes the next character to be taken "
+"literally."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:744
+#, no-wrap
+msgid "Dv DISCARD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:749
+msgid ""
+"Special character on input and is recognized if the E<.Dv IEXTEN> flag is "
+"set.  Receipt of this character toggles the flushing of terminal output."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:749
+#, no-wrap
+msgid "Dv STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:766
+msgid ""
+"Special character on input and is recognized if the E<.Dv ICANON> flag is "
+"set.  Receipt of this character causes a E<.Dv SIGINFO> signal to be sent to "
+"the foreground process group of the terminal.  Also, if the E<.Dv "
+"NOKERNINFO> flag is not set, it causes the kernel to write a status message "
+"to the terminal that displays the current load average, the name of the "
+"command in the foreground, its process ID, the symbolic wait channel, the "
+"number of user and system seconds used, the percentage of cpu the process is "
+"getting, and the resident set size of the process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:776
+msgid ""
+"The E<.Dv NL> and E<.Dv CR> characters cannot be changed.  The values for "
+"all the remaining characters can be set and are described later in the "
+"document under Special Control Characters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:783
+msgid ""
+"Special character functions associated with changeable special control "
+"characters can be disabled individually by setting their value to E<.Dv "
+"{_POSIX_VDISABLE}>; see E<.Sx \"Special Control Characters\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:786
+msgid ""
+"If two or more special characters have the same value, the function "
+"performed when that character is received is undefined."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:786
+#, no-wrap
+msgid "Modem Disconnect"
+msgstr ""
+
+#.  If the
+#.  .Er EIO
+#.  condition specified in 6.1.1.4 that applies
+#.  when the implementation supports job control also exists, it is
+#.  unspecified whether the
+#.  .Dv EOF
+#.  condition or the
+#.  .Pf [ Dv EIO
+#.  ] is returned.
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:823
+msgid ""
+"If a modem disconnect is detected by the terminal interface for a "
+"controlling terminal, and if E<.Dv CLOCAL> is not set in the E<.Fa c_cflag> "
+"field for the terminal, the E<.Dv SIGHUP> signal is sent to the controlling "
+"process associated with the terminal.  Unless other arrangements have been "
+"made, this causes the controlling process to terminate.  Any subsequent call "
+"to the E<.Fn read> function returns the value zero, indicating end of file.  "
+"Thus, processes that read a terminal file and test for end-of-file can "
+"terminate appropriately after a disconnect.  Any subsequent E<.Fn write> to "
+"the terminal device returns -1, with E<.Va errno> set to E<.Er EIO>, until "
+"the device is closed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/termios.4:823
+#, no-wrap
+msgid "General Terminal Interface"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:824
+#, no-wrap
+msgid "Closing a Terminal Device File"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:831
+msgid ""
+"The last process to close a terminal device file causes any output to be "
+"sent to the device and any input to be discarded.  Then, if E<.Dv HUPCL> is "
+"set in the control modes, and the communications port supports a disconnect "
+"function, the terminal device performs a disconnect."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:831
+#, no-wrap
+msgid "Parameters That Can Be Set"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:836
+msgid ""
+"Routines that need to control certain terminal E<.Tn I/O> characteristics do "
+"so by using the termios structure as defined in the header"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/termios.4:836
+#, no-wrap
+msgid "termios.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:849
+msgid ""
+"This structure contains minimally four scalar elements of bit flags and one "
+"array of special characters.  The scalar flag elements are named: E<.Fa "
+"c_iflag>, E<.Fa c_oflag>, E<.Fa c_cflag>, and E<.Fa c_lflag>.  The character "
+"array is named E<.Fa c_cc>, and its maximum index is E<.Dv NCCS>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:849
+#, no-wrap
+msgid "Input Modes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:855
+msgid ""
+"Values of the E<.Fa c_iflag> field describe the basic terminal input "
+"control, and are composed of following masks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:857
+#, no-wrap
+msgid "Dv IGNBRK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:859
+msgid "/* ignore BREAK condition */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:859
+#, no-wrap
+msgid "Dv BRKINT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:861
+msgid "/* map BREAK to SIGINTR */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:861
+#, no-wrap
+msgid "Dv IGNPAR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:863
+msgid "/* ignore (discard) parity errors */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:863
+#, no-wrap
+msgid "Dv PARMRK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:865
+msgid "/* mark parity and framing errors */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:865
+#, no-wrap
+msgid "Dv INPCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:867
+msgid "/* enable checking of parity errors */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:867
+#, no-wrap
+msgid "Dv ISTRIP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:869
+msgid "/* strip 8th bit off chars */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:869
+#, no-wrap
+msgid "Dv INLCR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:871
+msgid "/* map NL into CR */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:871
+#, no-wrap
+msgid "Dv IGNCR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:873
+msgid "/* ignore CR */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:873
+#, no-wrap
+msgid "Dv ICRNL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:875
+msgid "/* map CR to NL (ala CRMOD) */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:875
+#, no-wrap
+msgid "Dv IXON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:877
+msgid "/* enable output flow control */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:877
+#, no-wrap
+msgid "Dv IXOFF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:879
+msgid "/* enable input flow control */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:879
+#, no-wrap
+msgid "Dv IXANY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:881
+msgid "/* any char will restart after stop */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:881
+#, no-wrap
+msgid "Dv IMAXBEL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:883
+msgid "/* ring bell on input queue full */"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:894
+msgid ""
+"In the context of asynchronous serial data transmission, a break condition "
+"is defined as a sequence of zero-valued bits that continues for more than "
+"the time to send one byte.  The entire sequence of zero-valued bits is "
+"interpreted as a single break condition, even if it continues for a time "
+"equivalent to more than one byte.  In contexts other than asynchronous "
+"serial data transmission the definition of a break condition is "
+"implementation defined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:921
+msgid ""
+"If E<.Dv IGNBRK> is set, a break condition detected on input is ignored, "
+"that is, not put on the input queue and therefore not read by any process.  "
+"If E<.Dv IGNBRK> is not set and E<.Dv BRKINT> is set, the break condition "
+"flushes the input and output queues and if the terminal is the controlling "
+"terminal of a foreground process group, the break condition generates a "
+"single E<.Dv SIGINT> signal to that foreground process group.  If neither "
+"E<.Dv IGNBRK> nor E<.Dv BRKINT> is set, a break condition is read as a "
+"single E<.Ql \\&\\e0>, or if E<.Dv PARMRK> is set, as E<.Ql \\&\\e377>, "
+"E<.Ql \\&\\e0>, E<.Ql \\&\\e0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:926
+msgid ""
+"If E<.Dv IGNPAR> is set, a byte with a framing or parity error (other than "
+"break) is ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:958
+msgid ""
+"If E<.Dv PARMRK> is set, and E<.Dv IGNPAR> is not set, a byte with a framing "
+"or parity error (other than break) is given to the application as the "
+"three-character sequence E<.Ql \\&\\e377>, E<.Ql \\&\\e0>, X, where E<.Ql "
+"\\&\\e377>, E<.Ql \\&\\e0> is a two-character flag preceding each sequence "
+"and X is the data of the character received in error.  To avoid ambiguity in "
+"this case, if E<.Dv ISTRIP> is not set, a valid character of E<.Ql "
+"\\&\\e377> is given to the application as E<.Ql \\&\\e377>, E<.Ql "
+"\\&\\e377>.  If neither E<.Dv PARMRK> nor E<.Dv IGNPAR> is set, a framing or "
+"parity error (other than break) is given to the application as a single "
+"character E<.Ql \\&\\e0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:975
+msgid ""
+"If E<.Dv INPCK> is set, input parity checking is enabled.  If E<.Dv INPCK> "
+"is not set, input parity checking is disabled, allowing output parity "
+"generation without input parity errors.  Note that whether input parity "
+"checking is enabled or disabled is independent of whether parity detection "
+"is enabled or disabled (see E<.Sx \"Control Modes\">).  If parity detection "
+"is enabled but input parity checking is disabled, the hardware to which the "
+"terminal is connected recognizes the parity bit, but the terminal special "
+"file does not check whether this bit is set correctly or not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:980
+msgid ""
+"If E<.Dv ISTRIP> is set, valid input bytes are first stripped to seven bits, "
+"otherwise all eight bits are processed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1004
+msgid ""
+"If E<.Dv INLCR> is set, a received E<.Dv NL> character is translated into a "
+"E<.Dv CR> character.  If E<.Dv IGNCR> is set, a received E<.Dv CR> character "
+"is ignored (not read).  If E<.Dv IGNCR> is not set and E<.Dv ICRNL> is set, "
+"a received E<.Dv CR> character is translated into a E<.Dv NL> character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1034
+msgid ""
+"If E<.Dv IXON> is set, start/stop output control is enabled.  A received "
+"E<.Dv STOP> character suspends output and a received E<.Dv START> character "
+"restarts output.  If E<.Dv IXANY> is also set, then any character may "
+"restart output.  When E<.Dv IXON> is set, E<.Dv START> and E<.Dv STOP> "
+"characters are not read, but merely perform flow control functions.  When "
+"E<.Dv IXON> is not set, the E<.Dv START> and E<.Dv STOP> characters are "
+"read."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1055
+msgid ""
+"If E<.Dv IXOFF> is set, start/stop input control is enabled.  The system "
+"shall transmit one or more E<.Dv STOP> characters, which are intended to "
+"cause the terminal device to stop transmitting data, as needed to prevent "
+"the input queue from overflowing and causing the undefined behavior "
+"described in E<.Sx \"Input Processing and Reading Data\">, and shall "
+"transmit one or more E<.Dv START> characters, which are intended to cause "
+"the terminal device to resume transmitting data, as soon as the device can "
+"continue transmitting data without risk of overflowing the input queue.  The "
+"precise conditions under which E<.Dv STOP> and E<.Dv START> characters are "
+"transmitted are implementation defined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1063
+msgid ""
+"If E<.Dv IMAXBEL> is set and the input queue is full, subsequent input shall "
+"cause an E<.Tn ASCII> E<.Dv BEL> character to be transmitted to the output "
+"queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1067
+msgid "The initial input control value after E<.Fn open> is implementation defined."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:1067
+#, no-wrap
+msgid "Output Modes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1072
+msgid ""
+"Values of the E<.Fa c_oflag> field describe the basic terminal output "
+"control, and are composed of the following masks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1074
+#, no-wrap
+msgid "Dv OPOST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1076
+msgid "/* enable following output processing */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1076
+#, no-wrap
+msgid "Dv ONLCR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1080
+msgid "/* map NL to CR-NL (ala E<.Dv CRMOD>)  */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1080
+#, no-wrap
+msgid "Dv OCRNL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1082
+msgid "/* map CR to NL */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1082
+#, no-wrap
+msgid "Dv TABDLY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1084
+msgid "/* tab delay mask */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1084
+#, no-wrap
+msgid "Dv TAB0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1086
+msgid "/* no tab delay and expansion */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1086
+#, no-wrap
+msgid "Dv TAB3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1088
+msgid "/* expand tabs to spaces */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1088
+#, no-wrap
+msgid "Dv ONOEOT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1093
+msgid "/* discard E<.Dv EOT Ns 's> E<.Ql \\&^D> on output) */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1093
+#, no-wrap
+msgid "Dv ONOCR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1095
+msgid "/* do not transmit CRs on column 0 */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1095
+#, no-wrap
+msgid "Dv ONLRET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1097
+msgid "/* on the terminal NL performs the CR function */"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1103
+msgid ""
+"If E<.Dv OPOST> is set, the remaining flag masks are interpreted as follows; "
+"otherwise characters are transmitted without change."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1107
+msgid ""
+"If E<.Dv ONLCR> is set, newlines are translated to carriage return, "
+"linefeeds."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1111
+msgid "If E<.Dv OCRNL> is set, carriage returns are translated to newlines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1128
+msgid ""
+"The E<.Dv TABDLY> bits specify the tab delay.  The E<.Fa c_oflag> is masked "
+"with E<.Dv TABDLY> and compared with the values E<.Dv TAB0> or E<.Dv TAB3>.  "
+"If E<.Dv TAB3> is set, tabs are expanded to the appropriate number of spaces "
+"(assuming 8 column tab stops)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1135
+msgid ""
+"If E<.Dv ONOEOT> is set, E<.Tn ASCII> E<.Dv EOT Ns 's> are discarded on "
+"output."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1139
+msgid ""
+"If E<.Dv ONOCR> is set, no CR character is transmitted when at column 0 "
+"(first position)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1144
+msgid ""
+"If E<.Dv ONLRET> is set, the NL character is assumed to do the "
+"carriage-return function; the column pointer will be set to 0."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:1144
+#, no-wrap
+msgid "Control Modes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1152
+msgid ""
+"Values of the E<.Fa c_cflag> field describe the basic terminal hardware "
+"control, and are composed of the following masks.  Not all values specified "
+"are supported by all hardware."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1154
+#, no-wrap
+msgid "Dv CSIZE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1156
+msgid "/* character size mask */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1156
+#, no-wrap
+msgid "Dv CS5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1158
+msgid "/* 5 bits (pseudo) */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1158
+#, no-wrap
+msgid "Dv CS6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1160
+msgid "/* 6 bits */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1160
+#, no-wrap
+msgid "Dv CS7"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1162
+msgid "/* 7 bits */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1162
+#, no-wrap
+msgid "Dv CS8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1164
+msgid "/* 8 bits */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1164
+#, no-wrap
+msgid "Dv CSTOPB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1166
+msgid "/* send 2 stop bits */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1166
+#, no-wrap
+msgid "Dv CREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1168
+msgid "/* enable receiver */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1168
+#, no-wrap
+msgid "Dv PARENB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1170
+msgid "/* parity enable */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1170
+#, no-wrap
+msgid "Dv PARODD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1172
+msgid "/* odd parity, else even */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1172
+#, no-wrap
+msgid "Dv HUPCL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1174
+msgid "/* hang up on last close */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1174
+#, no-wrap
+msgid "Dv CLOCAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1176
+msgid "/* ignore modem status lines */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1176
+#, no-wrap
+msgid "Dv CCTS_OFLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1180
+msgid "/* E<.Dv CTS> flow control of output */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1180
+#, no-wrap
+msgid "Dv CRTSCTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1184
+msgid "/* same as E<.Dv CCTS_OFLOW> */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1184
+#, no-wrap
+msgid "Dv CRTS_IFLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1186
+msgid "/* RTS flow control of input */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1186
+#, no-wrap
+msgid "Dv MDMBUF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1188
+msgid "/* flow control output via Carrier */"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1210
+msgid ""
+"The E<.Dv CSIZE> bits specify the byte size in bits for both transmission "
+"and reception.  The E<.Fa c_cflag> is masked with E<.Dv CSIZE> and compared "
+"with the values E<.Dv CS5>, E<.Dv CS6>, E<.Dv CS7>, or E<.Dv CS8>.  This "
+"size does not include the parity bit, if any.  If E<.Dv CSTOPB> is set, two "
+"stop bits are used, otherwise one stop bit.  For example, at 110 baud, two "
+"stop bits are normally used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1220
+msgid ""
+"If E<.Dv CREAD> is set, the receiver is enabled.  Otherwise, no character is "
+"received.  Not all hardware supports this bit.  In fact, this flag is pretty "
+"silly and if it were not part of the E<.Nm> specification it would be "
+"omitted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1229
+msgid ""
+"If E<.Dv PARENB> is set, parity generation and detection are enabled and a "
+"parity bit is added to each character.  If parity is enabled, E<.Dv PARODD> "
+"specifies odd parity if set, otherwise even parity is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1236
+msgid ""
+"If E<.Dv HUPCL> is set, the modem control lines for the port are lowered "
+"when the last process with the port open closes the port or the process "
+"terminates.  The modem connection is broken."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1245
+msgid ""
+"If E<.Dv CLOCAL> is set, a connection does not depend on the state of the "
+"modem status lines.  If E<.Dv CLOCAL> is clear, the modem status lines are "
+"monitored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1259
+msgid ""
+"Under normal circumstances, a call to the E<.Fn open> function waits for the "
+"modem connection to complete.  However, if the E<.Dv O_NONBLOCK> flag is set "
+"or if E<.Dv CLOCAL> has been set, the E<.Fn open> function returns "
+"immediately without waiting for the connection."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1264
+msgid "The E<.Dv CCTS_OFLOW> E<.Pf ( Dv CRTSCTS>)  flag is currently unused."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1269
+msgid ""
+"If E<.Dv MDMBUF> is set then output flow control is controlled by the state "
+"of Carrier Detect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1276
+msgid ""
+"If the object for which the control modes are set is not an asynchronous "
+"serial connection, some of the modes may be ignored; for example, if an "
+"attempt is made to set the baud rate on a network connection to a terminal "
+"on another host, the baud rate may or may not be set on the connection "
+"between that terminal and the machine it is directly connected to."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:1276
+#, no-wrap
+msgid "Local Modes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1282
+msgid ""
+"Values of the E<.Fa c_lflag> field describe the control of various "
+"functions, and are composed of the following masks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1284
+#, no-wrap
+msgid "Dv ECHOKE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1286
+msgid "/* visual erase for line kill */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1286
+#, no-wrap
+msgid "Dv ECHOE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1288
+msgid "/* visually erase chars */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1288
+#, no-wrap
+msgid "Dv ECHO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1290
+msgid "/* enable echoing */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1290
+#, no-wrap
+msgid "Dv ECHONL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1296
+msgid "/* echo E<.Dv NL> even if E<.Dv ECHO> is off */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1296
+#, no-wrap
+msgid "Dv ECHOPRT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1298
+msgid "/* visual erase mode for hardcopy */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1298
+#, no-wrap
+msgid "Dv ECHOCTL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1300
+msgid "/* echo control chars as ^(Char) */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1300
+#, no-wrap
+msgid "Dv ISIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1306
+msgid "/* enable signals E<.Dv INTR>, E<.Dv QUIT>, E<.Dv [D]SUSP> */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1306
+#, no-wrap
+msgid "Dv ICANON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1308
+msgid "/* canonicalize input lines */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1308
+#, no-wrap
+msgid "Dv ALTWERASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1312
+msgid "/* use alternate E<.Dv WERASE> algorithm */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1312
+#, no-wrap
+msgid "Dv IEXTEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1318
+msgid "/* enable E<.Dv DISCARD> and E<.Dv LNEXT> */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1318
+#, no-wrap
+msgid "Dv EXTPROC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1320
+msgid "/* external processing */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1320
+#, no-wrap
+msgid "Dv TOSTOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1322
+msgid "/* stop background jobs from output */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1322
+#, no-wrap
+msgid "Dv FLUSHO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1324
+msgid "/* output being flushed (state) */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1324
+#, no-wrap
+msgid "Dv NOKERNINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1328
+msgid "/* no kernel output from E<.Dv VSTATUS> */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1328
+#, no-wrap
+msgid "Dv PENDIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1330
+msgid "/* XXX retype pending input (state) */"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1330
+#, no-wrap
+msgid "Dv NOFLSH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1332
+msgid "/* don't flush after interrupt */"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1340
+msgid ""
+"If E<.Dv ECHO> is set, input characters are echoed back to the terminal.  If "
+"E<.Dv ECHO> is not set, input characters are not echoed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1352
+msgid ""
+"If E<.Dv ECHOE> and E<.Dv ICANON> are set, the E<.Dv ERASE> character causes "
+"the terminal to erase the last character in the current line from the "
+"display, if possible.  If there is no character to erase, an implementation "
+"may echo an indication that this was the case or do nothing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1365
+msgid ""
+"If E<.Dv ECHOK> and E<.Dv ICANON> are set, the E<.Dv KILL> character causes "
+"the current line to be discarded and the system echoes the E<.Ql \\&\\en> "
+"character after the E<.Dv KILL> character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1376
+msgid ""
+"If E<.Dv ECHOKE> and E<.Dv ICANON> are set, the E<.Dv KILL> character causes "
+"the current line to be discarded and the system causes the terminal to erase "
+"the line from the display."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1386
+msgid ""
+"If E<.Dv ECHOPRT> and E<.Dv ICANON> are set, the system assumes that the "
+"display is a printing device and prints a backslash and the erased "
+"characters when processing E<.Dv ERASE> characters, followed by a forward "
+"slash."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1391
+msgid ""
+"If E<.Dv ECHOCTL> is set, the system echoes control characters in a visible "
+"fashion using a caret followed by the control character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1399
+msgid ""
+"If E<.Dv ALTWERASE> is set, the system uses an alternative algorithm for "
+"determining what constitutes a word when processing E<.Dv WERASE> characters "
+"(see E<.Dv WERASE>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1409
+msgid ""
+"If E<.Dv ECHONL> and E<.Dv ICANON> are set, the E<.Ql \\&\\en> character "
+"echoes even if E<.Dv ECHO> is not set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1422
+msgid ""
+"If E<.Dv ICANON> is set, canonical processing is enabled.  This enables the "
+"erase and kill edit functions, and the assembly of input characters into "
+"lines delimited by E<.Dv NL>, E<.Dv EOF>, and E<.Dv EOL>, as described in "
+"E<.Sx \"Canonical Mode Input Processing\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1438
+msgid ""
+"If E<.Dv ICANON> is not set, read requests are satisfied directly from the "
+"input queue.  A read is not satisfied until at least E<.Dv MIN> bytes have "
+"been received or the timeout value E<.Dv TIME> expired between bytes.  The "
+"time value represents tenths of seconds.  See E<.Sx \"Noncanonical Mode "
+"Input Processing\"> for more details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1459
+msgid ""
+"If E<.Dv ISIG> is set, each input character is checked against the special "
+"control characters E<.Dv INTR>, E<.Dv QUIT>, and E<.Dv SUSP> (job control "
+"only).  If an input character matches one of these control characters, the "
+"function associated with that character is performed.  If E<.Dv ISIG> is not "
+"set, no checking is done.  Thus these special input functions are possible "
+"only if E<.Dv ISIG> is set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1484
+msgid ""
+"If E<.Dv IEXTEN> is set, implementation-defined functions are recognized "
+"from the input data.  How E<.Dv IEXTEN> being set interacts with E<.Dv "
+"ICANON>, E<.Dv ISIG>, E<.Dv IXON>, or E<.Dv IXOFF> is implementation "
+"defined.  If E<.Dv IEXTEN> is not set, then implementation-defined functions "
+"are not recognized, and the corresponding input characters are not processed "
+"as described for E<.Dv ICANON>, E<.Dv ISIG>, E<.Dv IXON>, and E<.Dv IXOFF>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1495
+msgid ""
+"If E<.Dv NOFLSH> is set, the normal flush of the input and output queues "
+"associated with the E<.Dv INTR>, E<.Dv QUIT>, and E<.Dv SUSP> characters are "
+"not be done."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1512
+msgid ""
+"If E<.Dv TOSTOP> is set, the signal E<.Dv SIGTTOU> is sent to the process "
+"group of a process that tries to write to its controlling terminal if it is "
+"not in the foreground process group for that terminal.  This signal, by "
+"default, stops the members of the process group.  Otherwise, the output "
+"generated by that process is output to the current output stream.  Processes "
+"that are blocking or ignoring E<.Dv SIGTTOU> signals are excepted and "
+"allowed to produce output and the E<.Dv SIGTTOU> signal is not sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1520
+msgid ""
+"If E<.Dv NOKERNINFO> is set, the kernel does not produce a status message "
+"when processing E<.Dv STATUS> characters (see E<.Dv STATUS>)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/termios.4:1520
+#, no-wrap
+msgid "Special Control Characters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1527
+msgid ""
+"The special control characters values are defined by the array E<.Fa c_cc>.  "
+"This table lists the array index, the corresponding special character, and "
+"the system default value.  For an accurate list of the system defaults, "
+"consult the header file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/termios.4:1527 /usr/src/share/man/man4/termios.4:1576
+#, no-wrap
+msgid "sys/ttydefaults.h ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1530
+#, no-wrap
+msgid "Em \"Index Name\tSpecial Character\tDefault Value\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1531
+#, no-wrap
+msgid "Dv VEOF Ta EOF Ta \\&^D"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1532
+#, no-wrap
+msgid "Dv VEOL Ta EOL Ta _POSIX_VDISABLE"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1533
+#, no-wrap
+msgid "Dv VEOL2 Ta EOL2 Ta _POSIX_VDISABLE"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1534
+#, no-wrap
+msgid "Dv VERASE Ta ERASE Ta \\&^? Ql \\&\\e177"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1535
+#, no-wrap
+msgid "Dv VWERASE Ta WERASE Ta \\&^W"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1536
+#, no-wrap
+msgid "Dv VKILL Ta KILL Ta \\&^U"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1537
+#, no-wrap
+msgid "Dv VREPRINT Ta REPRINT Ta \\&^R"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1538
+#, no-wrap
+msgid "Dv VINTR Ta INTR Ta \\&^C"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1539
+#, no-wrap
+msgid "Dv VQUIT Ta QUIT Ta \\&^\\e\\e Ql \\&\\e34"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1540
+#, no-wrap
+msgid "Dv VSUSP Ta SUSP Ta \\&^Z"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1541
+#, no-wrap
+msgid "Dv VDSUSP Ta DSUSP Ta \\&^Y"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1542
+#, no-wrap
+msgid "Dv VSTART Ta START Ta \\&^Q"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1543
+#, no-wrap
+msgid "Dv VSTOP Ta STOP Ta \\&^S"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1544
+#, no-wrap
+msgid "Dv VLNEXT Ta LNEXT Ta \\&^V"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1545
+#, no-wrap
+msgid "Dv VDISCARD Ta DISCARD Ta \\&^O"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1546
+#, no-wrap
+msgid "Dv VMIN Ta --- Ta \\&1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1547
+#, no-wrap
+msgid "Dv VTIME Ta --- Ta \\&0"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/termios.4:1548
+#, no-wrap
+msgid "Dv VSTATUS Ta STATUS Ta \\&^T"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1570
+msgid ""
+"If the value of one of the changeable special control characters (see E<.Sx "
+"\"Special Characters\">)  is E<.Dv {_POSIX_VDISABLE}>, that function is "
+"disabled; that is, no input data is recognized as the disabled special "
+"character.  If E<.Dv ICANON> is not set, the value of E<.Dv "
+"{_POSIX_VDISABLE}> has no special meaning for the E<.Dv VMIN> and E<.Dv "
+"VTIME> entries of the E<.Fa c_cc> array."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1576
+msgid ""
+"The initial values of the flags and control characters after E<.Fn open> is "
+"set according to the values in the header"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/termios.4:1577
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/termios.4:1583
+msgid ""
+"E<.Xr stty 1>, E<.Xr tcgetsid 3>, E<.Xr tcsendbreak 3>, E<.Xr tcsetattr 3>, "
+"E<.Xr tcsetsid 3>, E<.Xr tty 4>"
+msgstr ""

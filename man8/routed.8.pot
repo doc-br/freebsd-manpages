@@ -1,0 +1,1087 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/routed/routed.8:33
+#, no-wrap
+msgid "August 26, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/routed/routed.8:34
+#, no-wrap
+msgid "ROUTED 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:39
+msgid "E<.Nm routed>, E<.Nm rdisc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/routed/routed.8:39
+#, no-wrap
+msgid "network RIP and router discovery routing daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:49
+msgid ""
+"E<.Nm> E<.Op Fl isqdghmpAtv> E<.Op Fl T Ar tracefile> E<.Oo> E<.Fl F> E<.Ar "
+"net Ns Op /mask Ns Op ,metric> E<.Oc> E<.Op Fl P Ar parms>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:61
+msgid ""
+"The E<.Nm> utility is a daemon invoked at boot time to manage the network "
+"routing tables.  It uses Routing Information Protocol, RIPv1 (RFC\\ 1058), "
+"RIPv2 (RFC\\ 1723), and Internet Router Discovery Protocol (RFC 1256)  to "
+"maintain the kernel routing table.  The RIPv1 protocol is based on the "
+"reference E<.Bx 4.3> daemon."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:76
+msgid ""
+"It listens on the E<.Xr udp 4> socket for the E<.Xr route 8> service (see "
+"E<.Xr services 5>)  for Routing Information Protocol packets.  It also sends "
+"and receives multicast Router Discovery ICMP messages.  If the host is a "
+"router, E<.Nm> periodically supplies copies of its routing tables to any "
+"directly connected hosts and networks.  It also advertises or solicits "
+"default routes using Router Discovery ICMP messages."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:93
+msgid ""
+"When started (or when a network interface is later turned on), E<.Nm> uses "
+"an AF_ROUTE address family facility to find those directly connected "
+"interfaces configured into the system and marked \"up\".  It adds necessary "
+"routes for the interfaces to the kernel routing table.  Soon after being "
+"first started, and provided there is at least one interface on which RIP has "
+"not been disabled, E<.Nm> deletes all pre-existing non-static routes in "
+"kernel table.  Static routes in the kernel table are preserved and included "
+"in RIP responses if they have a valid RIP -hopcount (see E<.Xr route 8>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:103
+msgid ""
+"If more than one interface is present (not counting the loopback interface), "
+"it is assumed that the host should forward packets among the connected "
+"networks.  After transmitting a RIP E<.Em request> and Router Discovery "
+"Advertisements or Solicitations on a new interface, the daemon enters a "
+"loop, listening for RIP request and response and Router Discovery packets "
+"from other hosts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:127
+msgid ""
+"When a E<.Em request> packet is received, E<.Nm> formulates a reply based on "
+"the information maintained in its internal tables.  The E<.Em response> "
+"packet generated contains a list of known routes, each marked with a \"hop "
+"count\" metric (a count of 16 or greater is considered \"infinite\").  The "
+"advertised metric for a route reflects the metrics associated with "
+"interfaces (see E<.Xr ifconfig 8>)  though which it is received and sent, so "
+"setting the metric on an interface is an effective way to steer traffic.  "
+"See also E<.Cm adj_inmetric> and E<.Cm adj_outmetric> parameters below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:135
+msgid ""
+"Responses do not include routes with a first hop on the requesting network "
+"to implement in part E<.Em split-horizon>.  Requests from query programs "
+"such as E<.Xr rtquery 8> are answered with the complete table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:145
+msgid ""
+"The routing table maintained by the daemon includes space for several "
+"gateways for each destination to speed recovery from a failing router.  RIP "
+"E<.Em response> packets received are used to update the routing tables "
+"provided they are from one of the several currently recognized gateways or "
+"advertise a better metric than at least one of the existing gateways."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:156
+msgid ""
+"When an update is applied, E<.Nm> records the change in its own tables and "
+"updates the kernel routing table if the best route to the destination "
+"changes.  The change in the kernel routing table is reflected in the next "
+"batch of E<.Em response> packets sent.  If the next response is not "
+"scheduled for a while, a E<.Em flash update> response containing only "
+"recently changed routes is sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:167
+msgid ""
+"In addition to processing incoming packets, E<.Nm> also periodically checks "
+"the routing table entries.  If an entry has not been updated for 3 minutes, "
+"the entry's metric is set to infinity and marked for deletion.  Deletions "
+"are delayed until the route has been advertised with an infinite metric to "
+"ensure the invalidation is propagated throughout the local internet.  This "
+"is a form of E<.Em poison reverse>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:178
+msgid ""
+"Routes in the kernel table that are added or changed as a result of ICMP "
+"Redirect messages are deleted after a while to minimize E<.Em black-holes>.  "
+"When a TCP connection suffers a timeout, the kernel tells E<.Nm>, which "
+"deletes all redirected routes through the gateway involved, advances the age "
+"of all RIP routes through the gateway to allow an alternate to be chosen, "
+"and advances of the age of any relevant Router Discovery Protocol default "
+"routes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:188
+msgid ""
+"Hosts acting as internetwork routers gratuitously supply their routing "
+"tables every 30 seconds to all directly connected hosts and networks.  These "
+"RIP responses are sent to the broadcast address on nets that support "
+"broadcasting, to the destination address on point-to-point links, and to the "
+"router's own address on other networks.  If RIPv2 is enabled, multicast "
+"packets are sent on interfaces that support multicasting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:195
+msgid ""
+"If no response is received on a remote interface, if there are errors while "
+"sending responses, or if there are more errors than input or output (see "
+"E<.Xr netstat 1>), then the cable or some other part of the interface is "
+"assumed to be disconnected or broken, and routes are adjusted appropriately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:212
+msgid ""
+"The E<.Em Internet Router Discovery Protocol> is handled similarly.  When "
+"the daemon is supplying RIP routes, it also listens for Router Discovery "
+"Solicitations and sends Advertisements.  When it is quiet and listening to "
+"other RIP routers, it sends Solicitations and listens for Advertisements.  "
+"If it receives a good Advertisement and it is not multi-homed, it stops "
+"listening for broadcast or multicast RIP responses.  It tracks several "
+"advertising routers to speed recovery when the currently chosen router "
+"dies.  If all discovered routers disappear, the daemon resumes listening to "
+"RIP responses.  It continues listening to RIP while using Router Discovery "
+"if multi-homed to ensure all interfaces are used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:226
+msgid ""
+"The Router Discovery standard requires that advertisements have a default "
+"\"lifetime\" of 30 minutes.  That means should something happen, a client "
+"can be without a good route for 30 minutes.  It is a good idea to reduce the "
+"default to 45 seconds using E<.Fl P Cm rdisc_interval=45> on the command "
+"line or E<.Cm rdisc_interval=45> in the E<.Pa /etc/gateways> file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:238
+msgid ""
+"While using Router Discovery (which happens by default when the system has a "
+"single network interface and a Router Discover Advertisement is received), "
+"there is a single default route and a variable number of redirected host "
+"routes in the kernel table.  On a host with more than one network interface, "
+"this default route will be via only one of the interfaces.  Thus, "
+"multi-homed hosts running with E<.Fl q> might need E<.Cm no_rdisc> described "
+"below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:243
+msgid ""
+"See the E<.Cm pm_rdisc> facility described below to support \"legacy\" "
+"systems that can handle neither RIPv2 nor Router Discovery."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:250
+msgid ""
+"By default, neither Router Discovery advertisements nor solicitations are "
+"sent over point to point links (e.g.\\& PPP).  The netmask associated with "
+"point-to-point links (such as SLIP or PPP, with the IFF_POINTOPOINT flag) is "
+"used by E<.Nm> to infer the netmask used by the remote system when RIPv1 is "
+"used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:252
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:253
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:264
+msgid ""
+"allow E<.Nm> to accept a RIP request from non-router node.  When specified "
+"once, E<.Nm> replies to a route information query from neighbor nodes.  When "
+"specified twice, it replies to a query from remote nodes in addition.  E<.Xr "
+"rtquery 8> utility can be used to send a request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:267
+msgid ""
+"This feature is disabled by default because of a risk of reflection attack "
+"though it is useful for debugging purpose."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:267
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:274
+msgid ""
+"force E<.Nm> to supply routing information.  This is the default if multiple "
+"network interfaces are present on which RIP or Router Discovery have not "
+"been disabled, and if the kernel switch ipforwarding=1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:274
+#, no-wrap
+msgid "Fl q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:281
+msgid ""
+"is the opposite of the E<.Fl s> option.  This is the default when only one "
+"interface is present.  With this explicit option, the daemon is always in "
+"\"quiet-mode\" for RIP and does not supply routing information to other "
+"computers."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:281
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:284
+msgid "do not run in the background.  This option is meant for interactive use."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:284
+#, no-wrap
+msgid "Fl g"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:308
+msgid ""
+"used on internetwork routers to offer a route to the \"default\" "
+"destination.  It is equivalent to E<.Fl F> E<.Cm 0/0,1> and is present "
+"mostly for historical reasons.  A better choice is E<.Fl P Cm pm_rdisc> on "
+"the command line or E<.Cm pm_rdisc> in the E<.Pa /etc/gateways> file, since "
+"a larger metric will be used, reducing the spread of the potentially "
+"dangerous default route.  This is typically used on a gateway to the "
+"Internet, or on a gateway that uses another routing protocol whose routes "
+"are not reported to other local routers.  Notice that because a metric of 1 "
+"is used, this feature is dangerous.  It is more commonly accidentally used "
+"to create chaos with a routing loop than to solve problems."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:308
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:314
+msgid ""
+"cause host or point-to-point routes to not be advertised, provided there is "
+"a network route going the same direction.  That is a limited kind of "
+"aggregation.  This option is useful on gateways to Ethernets that have other "
+"gateway machines connected with point-to-point links such as SLIP."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:314
+#, no-wrap
+msgid "Fl m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:328
+msgid ""
+"cause the machine to advertise a host or point-to-point route to its primary "
+"interface.  It is useful on multi-homed machines such as NFS servers.  This "
+"option should not be used except when the cost of the host routes it "
+"generates is justified by the popularity of the server.  It is effective "
+"only when the machine is supplying routing information, because there is "
+"more than one interface.  The E<.Fl m> option overrides the E<.Fl q> option "
+"to the limited extent of advertising the host route."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:328
+#, no-wrap
+msgid "Fl A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:335
+msgid ""
+"do not ignore RIPv2 authentication if we do not care about RIPv2 "
+"authentication.  This option is required for conformance with RFC 1723.  "
+"However, it makes no sense and breaks using RIP as a discovery protocol to "
+"ignore all RIPv2 packets that carry authentication when this machine does "
+"not care about authentication."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:335
+#, no-wrap
+msgid "Fl t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:348
+msgid ""
+"increase the debugging level, which causes more information to be logged on "
+"the tracefile specified with E<.Fl T> or standard out.  The debugging level "
+"can be increased or decreased with the E<.Em SIGUSR1> or E<.Em SIGUSR2> "
+"signals or with the E<.Xr rtquery 8> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:348
+#, no-wrap
+msgid "Fl T Ar tracefile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:354
+msgid ""
+"increases the debugging level to at least 1 and causes debugging information "
+"to be appended to the trace file.  Note that because of security concerns, "
+"it is wisest to not run E<.Nm> routinely with tracing directed to a file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:354
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:356
+msgid "display and logs the version of daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:356
+#, no-wrap
+msgid "Fl F Ar net[/mask][,metric]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:374
+msgid ""
+"minimize routes in transmissions via interfaces with addresses that match "
+"E<.Em net/mask>, and synthesizes a default route to this machine with the "
+"E<.Em metric>.  The intent is to reduce RIP traffic on slow, point-to-point "
+"links such as PPP links by replacing many large UDP packets of RIP "
+"information with a single, small packet containing a \"fake\" default "
+"route.  If E<.Em metric> is absent, a value of 14 is assumed to limit the "
+"spread of the \"fake\" default route.  This is a dangerous feature that when "
+"used carelessly can cause routing loops.  Notice also that more than one "
+"interface can match the specified network number and mask.  See also E<.Fl "
+"g>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:374
+#, no-wrap
+msgid "Fl P Ar parms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:381
+msgid ""
+"is equivalent to adding the parameter line E<.Em parms> to the E<.Pa "
+"/etc/gateways> file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:391
+msgid ""
+"Any other argument supplied is interpreted as the name of a file in which "
+"the actions of E<.Nm> should be logged.  It is better to use E<.Fl T> "
+"instead of appending the name of the trace file to the command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:418
+msgid ""
+"The E<.Nm> utility also supports the notion of \"distant\" E<.Em passive> or "
+"E<.Em active> gateways.  When E<.Nm> is started, it reads the file E<.Pa "
+"/etc/gateways> to find such distant gateways which may not be located using "
+"only information from a routing socket, to discover if some of the local "
+"gateways are E<.Em passive>, and to obtain other parameters.  Gateways "
+"specified in this manner should be marked passive if they are not expected "
+"to exchange routing information, while gateways marked active should be "
+"willing to exchange RIP packets.  Routes through E<.Em passive> gateways are "
+"installed in the kernel's routing tables once upon startup and are not "
+"included in transmitted RIP responses."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:428
+msgid ""
+"Distant active gateways are treated like network interfaces.  RIP responses "
+"are sent to the distant E<.Em active> gateway.  If no responses are "
+"received, the associated route is deleted from the kernel table and RIP "
+"responses advertised via other interfaces.  If the distant gateway resumes "
+"sending RIP responses, the associated route is restored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:438
+msgid ""
+"Such gateways can be useful on media that do not support broadcasts or "
+"multicasts but otherwise act like classic shared media like Ethernets such "
+"as some ATM networks.  One can list all RIP routers reachable on the HIPPI "
+"or ATM network in E<.Pa /etc/gateways> with a series of \"host\" lines.  "
+"Note that it is usually desirable to use RIPv2 in such situations to avoid "
+"generating lists of inferred host routes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:451
+msgid ""
+"Gateways marked E<.Em external> are also passive, but are not placed in the "
+"kernel routing table nor are they included in routing updates.  The function "
+"of external entries is to indicate that another routing process will install "
+"such a route if necessary, and that other routes to that destination should "
+"not be installed by E<.Nm>.  Such entries are only required when both "
+"routers may learn of routes to the same destination."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:457
+msgid ""
+"The E<.Pa /etc/gateways> file is comprised of a series of lines, each in one "
+"of the following two formats or consist of parameters described later.  "
+"Blank lines and lines starting with '#' are comments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:467
+#, no-wrap
+msgid ""
+"E<.Cm net>\n"
+"E<.Ar Nname[/mask]>\n"
+"E<.Cm gateway>\n"
+"E<.Ar Gname>\n"
+"E<.Cm metric>\n"
+"E<.Ar value>\n"
+"E<.Pf E<lt> Cm passive No \\&|>\n"
+"E<.Cm active No \\&|>\n"
+"E<.Cm extern Ns E<gt>>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:478
+#, no-wrap
+msgid ""
+"E<.Cm host>\n"
+"E<.Ar Hname>\n"
+"E<.Cm gateway>\n"
+"E<.Ar Gname>\n"
+"E<.Cm metric>\n"
+"E<.Ar value>\n"
+"E<.Pf E<lt> Cm passive No \\&|>\n"
+"E<.Cm active No \\&|>\n"
+"E<.Cm extern Ns E<gt>>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:495
+msgid ""
+"E<.Ar Nname> or E<.Ar Hname> is the name of the destination network or "
+"host.  It may be a symbolic network name or an Internet address specified in "
+"\"dot\" notation (see E<.Xr inet 3>).  (If it is a name, then it must either "
+"be defined in E<.Pa /etc/networks> or E<.Pa /etc/hosts>, or E<.Xr named 8>, "
+"must have been started before E<.Nm>.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:500
+msgid ""
+"E<.Ar Mask> is an optional number between 1 and 32 indicating the netmask "
+"associated with E<.Ar Nname>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:504
+msgid ""
+"E<.Ar Gname> is the name or address of the gateway to which RIP responses "
+"should be forwarded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:507
+msgid "E<.Ar Value> is the hop count to the destination host or network."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:511
+msgid "E<.Cm Host Ar hname> is equivalent to E<.Cm net Ar nname/32>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:525
+msgid ""
+"One of the keywords E<.Cm passive>, E<.Cm active> or E<.Cm external> must be "
+"present to indicate whether the gateway should be treated as E<.Cm passive> "
+"or E<.Cm active> (as described above), or whether the gateway is E<.Cm "
+"external> to the scope of the RIP protocol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:534
+msgid ""
+"As can be seen when debugging is turned on with E<.Fl t>, such lines create "
+"pseudo-interfaces.  To set parameters for remote or external interfaces, a "
+"line starting with E<.Cm if=alias(Hname)>, E<.Cm if=remote(Hname)>, etc.\\& "
+"should be used."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/sbin/routed/routed.8:534
+#, no-wrap
+msgid "Parameters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:538
+msgid ""
+"Lines that start with neither \"net\" nor \"host\" must consist of one or "
+"more of the following parameter settings, separated by commas or blanks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:539
+#, no-wrap
+msgid "Cm if Ns = Ns Ar ifname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:543
+msgid ""
+"indicates that the other parameters on the line apply to the interface name "
+"E<.Ar ifname>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:543
+#, no-wrap
+msgid "Cm subnet Ns = Ns Ar nname Ns Oo / Ns Ar mask Oc Ns Op , Ns Ar metric"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:553
+msgid ""
+"advertises a route to network E<.Ar nname> with mask E<.Ar mask> and the "
+"supplied metric (default 1).  This is useful for filling \"holes\" in CIDR "
+"allocations.  This parameter must appear by itself on a line.  The network "
+"number must specify a full, 32-bit value, as in 192.0.2.0 instead of "
+"192.0.2."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:556
+msgid "Do not use this feature unless necessary.  It is dangerous."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:556
+#, no-wrap
+msgid "Cm ripv1_mask Ns = Ns Ar nname Ns / Ns Ar mask1 , Ns Ar mask2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:569
+msgid ""
+"specifies that netmask of the network of which E<.Ar nname Ns / Ns Ar mask1> "
+"is a subnet should be E<.Ar mask2>.  For example, E<.Dq Li "
+"ripv1_mask=192.0.2.16/28,27> marks 192.0.2.16/28 as a subnet of 192.0.2.0/27 "
+"instead of 192.0.2.0/24.  It is better to turn on RIPv2 instead of using "
+"this facility, for example with E<.Cm ripv2_out>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:569
+#, no-wrap
+msgid "Cm passwd Ns = Ns Ar XXX[|KeyID[start|stop]]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:595
+msgid ""
+"specifies a RIPv2 cleartext password that will be included on all RIPv2 "
+"responses sent, and checked on all RIPv2 responses received.  Any blanks, "
+"tab characters, commas, or '#', '|', or NULL characters in the password must "
+"be escaped with a backslash (\\e).  The common escape sequences \\en, \\er, "
+"\\et, \\eb, and \\exxx have their usual meanings.  The E<.Cm KeyID> must be "
+"unique but is ignored for cleartext passwords.  If present, E<.Cm start> and "
+"E<.Cm stop> are timestamps in the form year/month/day@hour:minute.  They "
+"specify when the password is valid.  The valid password with the most future "
+"is used on output packets, unless all passwords have expired, in which case "
+"the password that expired most recently is used, or unless no passwords are "
+"valid yet, in which case no password is output.  Incoming packets can carry "
+"any password that is valid, will be valid within the next 24 hours, or that "
+"was valid within the preceding 24 hours.  To protect the secrets, the passwd "
+"settings are valid only in the E<.Pa /etc/gateways> file and only when that "
+"file is readable only by UID 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:595
+#, no-wrap
+msgid "Cm md5_passwd Ns \\&= Ns Ar XXX|KeyID[start|stop]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:601
+msgid ""
+"specifies a RIPv2 MD5 password.  Except that a E<.Cm KeyID> is required, "
+"this keyword is similar to E<.Cm passwd>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:601
+#, no-wrap
+msgid "Cm no_ag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:603
+msgid "turns off aggregation of subnets in RIPv1 and RIPv2 responses."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:603
+#, no-wrap
+msgid "Cm no_super_ag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:605
+msgid "turns off aggregation of networks into supernets in RIPv2 responses."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:605
+#, no-wrap
+msgid "Cm passive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:608
+msgid ""
+"marks the interface to not be advertised in updates sent via other "
+"interfaces, and turns off all RIP and router discovery through the "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:608
+#, no-wrap
+msgid "Cm no_rip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:613
+msgid ""
+"disables all RIP processing on the specified interface.  If no interfaces "
+"are allowed to process RIP packets, E<.Nm> acts purely as a router discovery "
+"daemon."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:622
+msgid ""
+"Note that turning off RIP without explicitly turning on router discovery "
+"advertisements with E<.Cm rdisc_adv> or E<.Fl s> causes E<.Nm> to act as a "
+"client router discovery daemon, not advertising."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:622
+#, no-wrap
+msgid "Cm no_rip_mcast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:624
+msgid "causes RIPv2 packets to be broadcast instead of multicast."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:624
+#, no-wrap
+msgid "Cm no_rip_out"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:626
+msgid "causes no RIP updates to be sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:626
+#, no-wrap
+msgid "Cm no_ripv1_in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:628
+msgid "causes RIPv1 received responses to be ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:628
+#, no-wrap
+msgid "Cm no_ripv2_in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:630
+msgid "causes RIPv2 received responses to be ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:630
+#, no-wrap
+msgid "Cm ripv2_out"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:633
+msgid ""
+"turns on RIPv2 output and causes RIPv2 advertisements to be multicast when "
+"possible."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:633
+#, no-wrap
+msgid "Cm ripv2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:639
+msgid ""
+"is equivalent to E<.Cm no_ripv1_in> and E<.Cm no_ripv1_out>.  This enables "
+"RIPv2."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:639
+#, no-wrap
+msgid "Cm no_rdisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:641
+msgid "disables the Internet Router Discovery Protocol."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:641
+#, no-wrap
+msgid "Cm no_solicit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:643
+msgid "disables the transmission of Router Discovery Solicitations."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:643
+#, no-wrap
+msgid "Cm send_solicit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:647
+msgid ""
+"specifies that Router Discovery solicitations should be sent, even on "
+"point-to-point links, which by default only listen to Router Discovery "
+"messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:647
+#, no-wrap
+msgid "Cm no_rdisc_adv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:649
+msgid "disables the transmission of Router Discovery Advertisements."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:649
+#, no-wrap
+msgid "Cm rdisc_adv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:653
+msgid ""
+"specifies that Router Discovery Advertisements should be sent, even on "
+"point-to-point links, which by default only listen to Router Discovery "
+"messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:653
+#, no-wrap
+msgid "Cm bcast_rdisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:656
+msgid ""
+"specifies that Router Discovery packets should be broadcast instead of "
+"multicast."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:656
+#, no-wrap
+msgid "Cm rdisc_pref Ns \\&= Ns Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:663
+msgid ""
+"sets the preference in Router Discovery Advertisements to the optionally "
+"signed integer E<.Ar N>.  The default preference is 0.  Default routes with "
+"smaller or more negative preferences are preferred by clients."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:663
+#, no-wrap
+msgid "Cm rdisc_interval Ns \\&= Ns Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:666
+msgid ""
+"sets the nominal interval with which Router Discovery Advertisements are "
+"transmitted to N seconds and their lifetime to 3*N."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:666
+#, no-wrap
+msgid "Cm fake_default Ns \\&= Ns Ar metric"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:670
+msgid ""
+"has an identical effect to E<.Fl F Ar net[/mask][=metric]> with the network "
+"and mask coming from the specified interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:670
+#, no-wrap
+msgid "Cm pm_rdisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:680
+msgid ""
+"is similar to E<.Cm fake_default>.  When RIPv2 routes are multicast, so that "
+"RIPv1 listeners cannot receive them, this feature causes a RIPv1 default "
+"route to be broadcast to RIPv1 listeners.  Unless modified with E<.Cm "
+"fake_default>, the default route is broadcast with a metric of 14.  That "
+"serves as a \"poor man's router discovery\" protocol."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:680
+#, no-wrap
+msgid "Cm adj_inmetric Ns \\&= Ns Ar delta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:688
+msgid ""
+"adjusts the hop count or metric of received RIP routes by E<.Ar delta>.  The "
+"metric of every received RIP route is increased by the sum of two values "
+"associated with the interface.  One is the adj_inmetric value and the other "
+"is the interface metric set with E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:688
+#, no-wrap
+msgid "Cm adj_outmetric Ns \\&= Ns Ar delta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:708
+msgid ""
+"adjusts the hop count or metric of advertised RIP routes by E<.Ar delta>.  "
+"The metric of every received RIP route is increased by the metric associated "
+"with the interface by which it was received, or by 1 if the interface does "
+"not have a non-zero metric.  The metric of the received route is then "
+"increased by the adj_outmetric associated with the interface.  Every "
+"advertised route is increased by a total of four values, the metric set for "
+"the interface by which it was received with E<.Xr ifconfig 8>, the E<.Cm "
+"adj_inmetric Ar delta> of the receiving interface, the metric set for the "
+"interface by which it is transmitted with E<.Xr ifconfig 8>, and the E<.Cm "
+"adj_outmetric Ar delta> of the transmitting interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:708
+#, no-wrap
+msgid "Cm trust_gateway Ns \\&= Ns Ar rname[|net1/mask1|net2/mask2|...]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:716
+msgid ""
+"causes RIP packets from router E<.Ar rname> and other routers named in other "
+"E<.Cm trust_gateway> keywords to be accepted, and packets from other routers "
+"to be ignored.  If networks are specified, then routes to other networks "
+"will be ignored from that router."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:716
+#, no-wrap
+msgid "Cm redirect_ok"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:721
+msgid ""
+"allows the kernel to listen ICMP Redirect messages when the system is acting "
+"as a router and forwarding packets.  Otherwise, ICMP Redirect messages are "
+"overridden and deleted when the system is acting as a router."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:722
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/routed/routed.8:724
+#, no-wrap
+msgid "Pa /etc/gateways"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:726
+msgid "for distant gateways"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:727
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:736
+msgid ""
+"E<.Xr icmp 4>, E<.Xr udp 4>, E<.Xr rtquery 8> E<.Rs> E<.%T Internet "
+"Transport Protocols> E<.%R XSIS 028112> E<.%Q Xerox System Integration "
+"Standard> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:736
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#.   LocalWords:  loopback ICMP rtquery ifconfig multicasting Solicitations RIPv
+#.   LocalWords:  netstat rdisc
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:743
+msgid "The E<.Nm> utility appeared in E<.Bx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/routed/routed.8:743
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/routed/routed.8:745
+msgid ""
+"It does not always detect unidirectional failures in network interfaces, for "
+"example, when the output side fails."
+msgstr ""

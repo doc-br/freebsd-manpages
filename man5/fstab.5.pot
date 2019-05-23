@@ -1,0 +1,406 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/fstab.5:31
+#, no-wrap
+msgid "April 14, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/fstab.5:32
+#, no-wrap
+msgid "FSTAB 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:36
+msgid "E<.Nm fstab>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/fstab.5:36
+#, no-wrap
+msgid "static information about the file systems"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/fstab.5:38
+#, no-wrap
+msgid "fstab.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:60
+msgid ""
+"The file E<.Nm> contains descriptive information about the various file "
+"systems.  E<.Nm> is only read by programs, and not written; it is the duty "
+"of the system administrator to properly create and maintain this file.  Each "
+"file system is described on a separate line; fields on each line are "
+"separated by tabs or spaces.  The order of records in E<.Nm> is important "
+"because E<.Xr fsck 8>, E<.Xr mount 8>, and E<.Xr umount 8> sequentially "
+"iterate through E<.Nm> doing their thing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:70
+msgid ""
+"The first field, E<.Pq Fa fs_spec>, describes the special device or remote "
+"file system to be mounted.  The contents are decoded by the E<.Xr strunvis "
+"3> function.  This allows using spaces or tabs in the device name which "
+"would be interpreted as field separators otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:79
+msgid ""
+"The second field, E<.Pq Fa fs_file>, describes the mount point for the file "
+"system.  For swap partitions, this field should be specified as E<.Dq "
+"none>.  The contents are decoded by the E<.Xr strunvis 3> function, as "
+"above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:91
+msgid ""
+"The third field, E<.Pq Fa fs_vfstype>, describes the type of the file "
+"system.  The system can support various file system types.  Only the root, "
+"/usr, and /tmp file systems need be statically compiled into the kernel; "
+"everything else will be automatically loaded at mount time.  (Exception: the "
+"FFS cannot currently be demand-loaded.)  Some people still prefer to "
+"statically compile other file systems as well."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:121
+msgid ""
+"The fourth field, E<.Pq Fa fs_mntops>, describes the mount options "
+"associated with the file system.  It is formatted as a comma separated list "
+"of options.  It contains at least the type of mount (see E<.Fa fs_type> "
+"below) plus any additional options appropriate to the file system type.  See "
+"the options flag E<.Pq Fl o> in the E<.Xr mount 8> page and the file system "
+"specific page, such as E<.Xr mount_nfs 8>, for additional options that may "
+"be specified.  All options that can be given to the file system specific "
+"mount commands can be used in E<.Nm> as well.  They just need to be "
+"formatted a bit differently.  The arguments of the E<.Fl o> option can be "
+"used without the preceding E<.Fl o> flag.  Other options need both the file "
+"system specific flag and its argument, separated by an equal sign.  For "
+"example, mounting an E<.Xr msdosfs 5> filesystem, the options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:123
+#, no-wrap
+msgid "-o sync -o noatime -m 644 -M 755 -u foo -g bar\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:126
+msgid "should be written as"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:128
+#, no-wrap
+msgid "sync,noatime,-m=644,-M=755,-u=foo,-g=bar\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:132
+msgid "in the option field of E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:155
+msgid ""
+"If the options E<.Dq userquota> and/or E<.Dq groupquota> are specified, the "
+"file system is automatically processed by the E<.Xr quotacheck 8> command, "
+"and user and/or group disk quotas are enabled with E<.Xr quotaon 8>.  By "
+"default, file system quotas are maintained in files named E<.Pa quota.user> "
+"and E<.Pa quota.group> which are located at the root of the associated file "
+"system.  These defaults may be overridden by putting an equal sign and an "
+"alternative absolute pathname following the quota option.  Thus, if the user "
+"quota file for E<.Pa /tmp> is stored in E<.Pa /var/quotas/tmp.user>, this "
+"location can be specified as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:157
+#, no-wrap
+msgid "userquota=/var/quotas/tmp.user\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:167
+msgid ""
+"If the option E<.Dq failok> is specified, the system will ignore any error "
+"which happens during the mount of that filesystem, which would otherwise "
+"cause the system to drop into single user mode.  This option is implemented "
+"by the E<.Xr mount 8> command and will not be passed to the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:183
+msgid ""
+"If the option E<.Dq noauto> is specified, the file system will not be "
+"automatically mounted at system startup.  Note that, for network file "
+"systems of third party types (i.e., types supported by additional software "
+"not included in the base system)  to be automatically mounted at system "
+"startup, the E<.Va extra_netfs_types> E<.Xr rc.conf 5> variable must be used "
+"to extend the E<.Xr rc 8> startup script's list of network file system "
+"types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:192
+msgid ""
+"If the option E<.Dq late> is specified, the file system will be "
+"automatically mounted at a stage of system startup after remote mount points "
+"are mounted.  For more detail about this option, see the E<.Xr mount 8> "
+"manual page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:210
+msgid ""
+"The type of the mount is extracted from the E<.Fa fs_mntops> field and "
+"stored separately in the E<.Fa fs_type> field (it is not deleted from the "
+"E<.Fa fs_mntops> field).  If E<.Fa fs_type> is E<.Dq rw> or E<.Dq ro> then "
+"the file system whose name is given in the E<.Fa fs_file> field is normally "
+"mounted read-write or read-only on the specified special file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:262
+msgid ""
+"If E<.Fa fs_type> is E<.Dq sw> then the special file is made available as a "
+"piece of swap space by the E<.Xr swapon 8> command at the end of the system "
+"reboot procedure.  For vnode-backed swap spaces, E<.Dq file> is supported in "
+"the E<.Fa fs_mntops> field.  When E<.Fa fs_spec> is an E<.Xr md 4> device "
+"file E<.Pq Do md Dc or Do md[0-9]* Dc> and E<.Dq file> is specified in E<.Fa "
+"fs_mntopts>, an E<.Xr md 4> device is created with the specified file used "
+"as backing store, and then the new device is used as swap space.  Swap "
+"entries on E<.Pa .eli> devices will cause automatic creation of encrypted "
+"devices.  The E<.Dq ealgo>, E<.Dq aalgo>, E<.Dq keylen>, E<.Dq notrim>, and "
+"E<.Dq sectorsize> options may be passed to control those E<.Xr geli 8> "
+"parameters.  The fields other than E<.Fa fs_spec> and E<.Fa fs_type> are "
+"unused.  If E<.Fa fs_type> is specified as E<.Dq xx> the entry is ignored.  "
+"This is useful to show disk partitions which are currently unused."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:273
+msgid ""
+"The fifth field, E<.Pq Fa fs_freq>, is used for these file systems by the "
+"E<.Xr dump 8> command to determine which file systems need to be dumped.  If "
+"the fifth field is not present, a value of zero is returned and E<.Nm dump> "
+"will assume that the file system does not need to be dumped.  If the fifth "
+"field is greater than 0, then it specifies the number of days between dumps "
+"for this file system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:286
+msgid ""
+"The sixth field, E<.Pq Fa fs_passno>, is used by the E<.Xr fsck 8> and E<.Xr "
+"quotacheck 8> programs to determine the order in which file system and quota "
+"checks are done at reboot time.  The E<.Fa fs_passno> field can be any value "
+"between 0 and E<.Ql INT_MAX Ns -1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:298
+msgid ""
+"The root file system should be specified with a E<.Fa fs_passno> of 1, and "
+"other file systems should have a E<.Fa fs_passno> of 2 or greater.  A file "
+"system with a E<.Fa fs_passno> value of 1 is always checked sequentially and "
+"be completed before another file system is processed, and it will be "
+"processed before all file systems with a larger E<.Fa fs_passno>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:308
+msgid ""
+"For any given value of E<.Fa fs_passno>, file systems within a drive will be "
+"checked sequentially, but file systems on different drives will be checked "
+"at the same time to utilize parallelism available in the hardware.  Once all "
+"file system checks are complete for the current E<.Fa fs_passno>, the same "
+"process will start over for the next E<.Fa fs_passno>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:315
+msgid ""
+"If the sixth field is not present or is zero, a value of zero is returned "
+"and E<.Xr fsck 8> and E<.Xr quotacheck 8> will assume that the file system "
+"does not need to be checked."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:344
+msgid ""
+"The E<.Fa fs_passno> field can be used to implement finer control when the "
+"system utilities may determine that the file system resides on a different "
+"physical device, when it actually does not, as with a E<.Xr ccd 4> device.  "
+"All file systems with a lower E<.Fa fs_passno> value will be completed "
+"before starting on file systems with a higher E<.Fa fs_passno> value.  "
+"E.g. all file systems with a E<.Fa fs_passno> of 2 will be completed before "
+"any file systems with a E<.Fa fs_passno> of 3 or greater are started.  Gaps "
+"are allowed between the different E<.Fa fs_passno> values.  E.g. file "
+"systems listed in E<.Pa /etc/fstab> may have E<.Fa fs_passno> values such as "
+"0, 1, 2, 15, 100, 200, 300, and may appear in any order within E<.Pa "
+"/etc/fstab>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:350
+#, no-wrap
+msgid ""
+"#define\tFSTAB_RW\t\"rw\"\t/* read/write device */\n"
+"#define\tFSTAB_RQ\t\"rq\"\t/* read/write with quotas */\n"
+"#define\tFSTAB_RO\t\"ro\"\t/* read-only device */\n"
+"#define\tFSTAB_SW\t\"sw\"\t/* swap device */\n"
+"#define\tFSTAB_XX\t\"xx\"\t/* ignore totally */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:360
+#, no-wrap
+msgid ""
+"struct fstab {\n"
+"\tchar\t*fs_spec;\t/* block special device name */\n"
+"\tchar\t*fs_file;\t/* file system path prefix */\n"
+"\tchar\t*fs_vfstype;\t/* File system type, ufs, nfs */\n"
+"\tchar\t*fs_mntops;\t/* Mount options ala -o */\n"
+"\tchar\t*fs_type;\t/* FSTAB_* from fs_mntops */\n"
+"\tint\tfs_freq;\t/* dump frequency, in days */\n"
+"\tint\tfs_passno;\t/* pass number on parallel fsck */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:370
+msgid ""
+"The proper way to read records from E<.Pa fstab> is to use the routines "
+"E<.Xr getfsent 3>, E<.Xr getfsspec 3>, E<.Xr getfstype 3>, and E<.Xr "
+"getfsfile 3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:370
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/fstab.5:372
+#, no-wrap
+msgid "Pa /etc/fstab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:377
+msgid "The file E<.Nm> resides in E<.Pa /etc>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:378
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:412
+#, no-wrap
+msgid ""
+"# Device\tMountpoint\tFStype\tOptions\t\tDump\tPass#\n"
+"#\n"
+"# UFS file system.\n"
+"/dev/da0p2\t/\t\tufs\trw\t\t1\t1\n"
+"#\n"
+"# Swap space on a block device.\n"
+"/dev/da0p1\tnone\t\tswap\tsw\t\t0\t0\n"
+"#\n"
+"# Swap space using a block device with GBDE/GELI encyption.\n"
+"# aalgo, ealgo, keylen, sectorsize options are available\n"
+"# for .eli devices.\n"
+"/dev/da1p1.bde\tnone\t\tswap\tsw\t\t0\t0\n"
+"/dev/da1p2.eli\tnone\t\tswap\tsw\t\t0\t0\n"
+"#\n"
+"# tmpfs.\n"
+"tmpfs\t\t/tmp\t\ttmpfs\trw,size=1g,mode=1777\t0 0\n"
+"#\n"
+"# UFS file system on a swap-backed md(4).  /dev/md10 is\n"
+"# automatically created.  If it is \"md\", a unit number\n"
+"# will be automatically selected.\n"
+"md10\t\t/scratch\tmfs\trw,-s1g\t\t0\t0\n"
+"#\n"
+"# Swap space on a vnode-backed md(4).\n"
+"md11\t\tnone\t\tswap\tsw,file=/swapfile\t0 0\n"
+"#\n"
+"# CDROM.  \"noauto\" option is typically used because the\n"
+"# media is removable.\n"
+"/dev/cd0\t/cdrom\t\tcd9660\tro,noauto\t0\t0\n"
+"#\n"
+"# NFS-exported file system.  \"serv\" is an NFS server name\n"
+"# or IP address.\n"
+"serv:/export\t/nfs\t\tnfs\trw,noinet6\t0\t0\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:413
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:426
+msgid ""
+"E<.Xr getfsent 3>, E<.Xr getvfsbyname 3>, E<.Xr strunvis 3>, E<.Xr ccd 4>, "
+"E<.Xr dump 8>, E<.Xr fsck 8>, E<.Xr geli 8>, E<.Xr mount 8>, E<.Xr "
+"quotacheck 8>, E<.Xr quotaon 8>, E<.Xr swapon 8>, E<.Xr umount 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fstab.5:426
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fstab.5:430
+msgid "The E<.Nm> file format appeared in E<.Bx 4.0>."
+msgstr ""

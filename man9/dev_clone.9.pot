@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/dev_clone.9:27
+#, no-wrap
+msgid "January 3, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/dev_clone.9:28
+#, no-wrap
+msgid "DEV_CLONE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_clone.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:33
+msgid "E<.Nm dev_clone>, E<.Nm drain_dev_clone_events>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/dev_clone.9:33
+#, no-wrap
+msgid "eventhandler for name-based device cloning in devfs"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_clone.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/dev_clone.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/dev_clone.9:36
+#, no-wrap
+msgid "sys/conf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:39
+msgid ""
+"E<.Ft void> E<.Fn clone_handler \"void *arg\" \"struct ucred *cr\" \"char "
+"*name\" \"int namelen\" \"struct cdev **dev\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:41
+#, no-wrap
+msgid "EVENTHANDLER_REGISTER(dev_clone, clone_handler, arg, priority);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:44
+msgid "E<.Ft void> E<.Fn drain_dev_clone_events>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_clone.9:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:67
+msgid ""
+"A device driver may register a listener that will be notified each time a "
+"name lookup on the E<.Xr devfs 5> mount point fails to find the vnode.  A "
+"listener shall be registered for the E<.Va dev_clone> event.  When called, "
+"it is supplied with the first argument E<.Va arg> that was specified at "
+"handler registration time, appropriate credentials E<.Va cr>, and a name "
+"E<.Va name> of length E<.Va namelen> that we look for.  If the handler "
+"decides that the name is appropriate and wants to create the device that "
+"will be associated with the name, it should return it to devfs in the E<.Va "
+"dev> argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:76
+msgid ""
+"The E<.Fn drain_dev_clone_events> function is a barrier.  It is guaranteed "
+"that all calls to eventhandlers for E<.Nm dev_clone> that were started "
+"before E<.Fn drain_dev_clone_events> call, are finished before it returns "
+"control."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dev_clone.9:76
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dev_clone.9:78
+msgid "E<.Xr devfs 5>, E<.Xr namei 9>"
+msgstr ""

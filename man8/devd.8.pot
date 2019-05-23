@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/devd/devd.8:28
+#, no-wrap
+msgid "October 5, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/devd/devd.8:29
+#, no-wrap
+msgid "DEVD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:33
+msgid "E<.Nm devd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/devd/devd.8:33
+#, no-wrap
+msgid "device state change daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:39
+msgid "E<.Nm> E<.Op Fl dnq> E<.Op Fl f Ar file> E<.Op Fl l Ar num>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:44
+msgid ""
+"The E<.Nm> daemon provides a way to have userland programs run when certain "
+"kernel events happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:46
+msgid "The following options are accepted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:47
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:49
+msgid ""
+"Run in the foreground instead of becoming a daemon and log additional "
+"information for debugging."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:49
+#, no-wrap
+msgid "Fl f Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:57
+msgid ""
+"Use configuration file E<.Ar file> instead of the default E<.Pa "
+"/etc/devd.conf>.  If option E<.Fl f> is specified more than once, the last "
+"file specified is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:57
+#, no-wrap
+msgid "Fl l Ar num"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:61
+msgid ""
+"Limit concurrent socket connections to E<.Ar num>.  The default connection "
+"limit is 10."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:61
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:64
+msgid ""
+"Do not process all pending events before becoming a daemon.  Instead, call "
+"daemon right away."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:64
+#, no-wrap
+msgid "Fl q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:67
+msgid "Quiet mode.  Only log messages at priority LOG_WARNING or above."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:68
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:89
+msgid ""
+"The E<.Nm> utility is a system daemon that runs in the background all the "
+"time.  Whenever a device is added to or removed from the device tree, E<.Nm> "
+"will execute actions specified in E<.Xr devd.conf 5>.  For example, E<.Nm> "
+"might execute E<.Xr dhclient 8> when an Ethernet adapter is added to the "
+"system, and kill the E<.Xr dhclient 8> instance when the same adapter is "
+"removed.  Another example would be for E<.Nm> to use a table to locate and "
+"load via E<.Xr kldload 8> the proper driver for an unrecognized device that "
+"is added to the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:107
+msgid ""
+"The E<.Nm> utility hooks into the E<.Xr devctl 4> device driver.  This "
+"device driver has hooks into the device configuration system.  When nodes "
+"are added or deleted from the tree, this device will deliver information "
+"about the event to E<.Nm>.  Once E<.Nm> has parsed the message, it will "
+"search its action list for that kind of event and perform the action with "
+"the highest matching value.  For most mundane uses, the default handlers are "
+"adequate.  However, for more advanced users, the power is present to tweak "
+"every aspect of what happens."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:131
+msgid ""
+"The E<.Nm> utility reads E<.Pa /etc/devd.conf> or the alternate "
+"configuration file specified with a E<.Fl f> option and uses that file to "
+"drive the rest of the process.  While the format of this file is described "
+"in E<.Xr devd.conf 5>, some basics are covered here.  In the E<.Ic options> "
+"section, one can define multiple directories to search for config files.  "
+"All files in these directories whose names match the pattern E<.Pa *.conf> "
+"are parsed.  These files are intended to be installed by third party vendors "
+"that wish to hook into the E<.Nm> system without modifying the user's other "
+"config files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:141
+msgid ""
+"Since E<.Xr devctl 4> allows only one active reader, E<.Nm> multiplexes it, "
+"forwarding all events to any number of connected clients.  Clients connect "
+"by opening the SOCK_SEQPACKET E<.Ux> domain socket at E<.Pa "
+"/var/run/devd.seqpacket.pipe>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:141
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:143
+#, no-wrap
+msgid "Pa /etc/devd.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:147
+msgid "The default E<.Nm> configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:147
+#, no-wrap
+msgid "Pa /var/run/devd.seqpacket.pipe"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:151
+msgid "The socket used by E<.Nm> to communicate with its clients."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/devd/devd.8:151
+#, no-wrap
+msgid "Pa /var/run/devd.pipe"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:153
+msgid "A deprecated socket retained for use with old clients."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:154
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:157
+msgid "E<.Xr devctl 4>, E<.Xr devd.conf 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:157
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:162
+msgid "The E<.Nm> utility first appeared in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/devd/devd.8:162
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/devd/devd.8:163
+msgid "E<.An M. Warner Losh>"
+msgstr ""

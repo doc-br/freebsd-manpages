@@ -1,0 +1,1191 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/make.conf.5:27
+#, no-wrap
+msgid "September 27, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/make.conf.5:28
+#, no-wrap
+msgid "MAKE.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:32
+msgid "E<.Nm make.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/make.conf.5:32
+#, no-wrap
+msgid "system build information"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:49
+msgid ""
+"The file E<.Nm> contains system-wide settings that will apply to every build "
+"using E<.Xr make 1> and the standard E<.Pa sys.mk> file.  This is achieved "
+"as follows: E<.Xr make 1> processes the system makefile E<.Pa sys.mk> before "
+"any other file by default, and E<.Pa sys.mk> includes E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:62
+msgid ""
+"The file E<.Nm> uses the standard makefile syntax.  However, E<.Nm> should "
+"not specify any dependencies to E<.Xr make 1>.  Instead, E<.Nm> is to set "
+"E<.Xr make 1> variables that control the actions of other makefiles."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:79
+msgid ""
+"The default location of E<.Nm> is E<.Pa /etc/make.conf>, though an "
+"alternative location can be specified in the E<.Xr make 1> variable E<.Va "
+"__MAKE_CONF>.  You may need to override the location of E<.Nm> if the "
+"system-wide settings are not suitable for a particular build.  For instance, "
+"setting E<.Va __MAKE_CONF> to E<.Pa /dev/null> effectively resets all build "
+"controls to their defaults."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:94
+msgid ""
+"The primary purpose of E<.Nm> is to control the compilation of the E<.Fx> "
+"sources, documentation, and ported applications, which are usually found in "
+"E<.Pa /usr/src>, E<.Pa /usr/doc>, and E<.Pa /usr/ports>.  As a rule, the "
+"system administrator creates E<.Nm> when the values of certain control "
+"variables need to be changed from their defaults."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:114
+msgid ""
+"The system build procedures occur in four broad areas: the world, the "
+"kernel, documentation and ports.  Variables set in E<.Nm> may be applicable "
+"in one, two, or all four of these areas.  In addition, control variables can "
+"be specified for a particular build via the E<.Fl D> option of E<.Xr make 1> "
+"or in E<.Xr environ 7>.  In the case of world and kernel builds it is "
+"possible to put these variables into E<.Xr src.conf 5> instead of E<.Nm>.  "
+"This way the environment for documentation and ports builds is not polluted "
+"by unrelated variables."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:127
+msgid ""
+"The following lists provide a name and short description for each variable "
+"you can use during the indicated builds.  The values of variables flagged as "
+"E<.Vt bool> are ignored; the variable being set at all (even to E<.Dq Li "
+"FALSE> or E<.Dq Li NO>)  causes it to be treated as if it were set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:132
+msgid ""
+"The following list provides a name and short description for variables that "
+"are used for all builds, or are used by the E<.Pa makefiles> for things "
+"other than builds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:133
+#, no-wrap
+msgid "Va ALWAYS_CHECK_MAKE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:143
+msgid ""
+"E<.Pq Vt bool> Instructs the top-level makefile in the source tree (normally "
+"E<.Pa /usr/src>)  to always check if E<.Xr make 1> is up-to-date.  Normally "
+"this is only done for the world and buildworld targets to handle upgrades "
+"from older versions of E<.Fx>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:143
+#, no-wrap
+msgid "Va CFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:151
+msgid ""
+"E<.Pq Vt str> Controls the compiler setting when compiling C code.  "
+"Optimization levels other than E<.Fl O> and E<.Fl O2> are not supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:151
+#, no-wrap
+msgid "Va CPUTYPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:173
+msgid ""
+"E<.Pq Vt str> Controls which processor should be targeted for generated "
+"code.  This controls processor-specific optimizations in certain code "
+"(currently only OpenSSL) as well as modifying the value of E<.Va CFLAGS> and "
+"E<.Va COPTFLAGS> to contain the appropriate optimization directive to E<.Xr "
+"cc 1>.  The automatic setting of E<.Va CFLAGS> may be overridden using the "
+"E<.Va NO_CPU_CFLAGS> variable.  Refer to E<.Pa "
+"/usr/share/examples/etc/make.conf> for a list of recognized E<.Va CPUTYPE> "
+"options."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:173
+#, no-wrap
+msgid "Va CXXFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:186
+msgid ""
+"E<.Pq Vt str> Controls the compiler settings when compiling C++ code.  E<.Va "
+"CXXFLAGS> is initially set to the value of E<.Va CFLAGS>.  If you want to "
+"add to the E<.Va CXXFLAGS> value, use E<.Dq Li +=> instead of E<.Dq Li =>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:186
+#, no-wrap
+msgid "Va DTC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:191
+msgid ""
+"E<.Pq Vt str> Select the compiler for DTS (Device Tree Syntax) file.  E<.Va "
+"DTC> is initially set to the value of dtc"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:191
+#, no-wrap
+msgid "Va INSTALL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:195
+msgid ""
+"E<.Pq Vt str> the default install command.  To install only files for which "
+"the target differs or does not exist, use"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:197
+#, no-wrap
+msgid "INSTALL+= -C\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:201
+msgid ""
+"Note that some makefiles (including those in E<.Pa /usr/share/mk>)  may "
+"hardcode options for the supplied install command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:201
+#, no-wrap
+msgid "Va LOCAL_DIRS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:207
+msgid ""
+"E<.Pq Vt str> List any directories that should be entered when doing make's "
+"in E<.Pa /usr/src> in this variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:207
+#, no-wrap
+msgid "Va MAKE_SHELL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:217
+msgid ""
+"E<.Pq Vt str> Controls the shell used internally by E<.Xr make 1> to process "
+"the command scripts in makefiles.  E<.Xr sh 1>, E<.Xr ksh 1>, and E<.Xr csh "
+"1> all currently supported."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/make.conf.5:218
+#, no-wrap
+msgid "MAKE_SHELL?=sh"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:219
+#, no-wrap
+msgid "Va MTREE_FOLLOWS_SYMLINKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:226
+msgid ""
+"E<.Pq Vt str> Set this to E<.Dq Fl L> to cause E<.Xr mtree 8> to follow "
+"symlinks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:226
+#, no-wrap
+msgid "Va NO_CPU_CFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:232
+msgid ""
+"E<.Pq Vt str> Setting this variable will prevent CPU specific compiler flags "
+"from being automatically added to E<.Va CFLAGS> during compile time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:232
+#, no-wrap
+msgid "Va NO_DOCUPDATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:236
+msgid ""
+"E<.Pq Vt bool> Set this to not update the doc tree during E<.Dq Li \"make "
+"update\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:236
+#, no-wrap
+msgid "Va NO_PORTSUPDATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:240
+msgid ""
+"E<.Pq Vt bool> Set this to not update the ports tree during E<.Dq Li \"make "
+"update\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:240
+#, no-wrap
+msgid "Va SVN_UPDATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:255
+msgid ""
+"E<.Pq Vt bool> Set this to use E<.Xr svn 1> or E<.Xr svnlite 1> to update "
+"your E<.Pa src> tree with E<.Dq Li \"make update\">.  Note that you can set "
+"E<.Va SVN> to the full path of a E<.Xr svn 1> binary."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man5/make.conf.5:256
+#, no-wrap
+msgid "BUILDING THE KERNEL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:259
+msgid ""
+"The following list provides a name and short description for variables that "
+"are only used doing a kernel build:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:260
+#, no-wrap
+msgid "Va BOOTWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:268
+msgid ""
+"E<.Pq Vt int> Controls the amount of time the kernel waits for a console "
+"keypress before booting the default kernel.  The value is approximately "
+"milliseconds.  Keypresses are accepted by the BIOS before booting from disk, "
+"making it possible to give custom boot parameters even when this is set to "
+"0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:268
+#, no-wrap
+msgid "Va COPTFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:275
+msgid ""
+"E<.Pq Vt str> Controls the compiler settings when building the kernel.  "
+"Optimization levels above E<.Oo Fl O ( O2 , No ...\\& ) Oc> are not "
+"guaranteed to work."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:275
+#, no-wrap
+msgid "Va KERNCONF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:283
+msgid ""
+"E<.Pq Vt str> Controls which kernel configurations will be built by E<.Dq Li "
+"\"${MAKE} buildkernel\"> and installed by E<.Dq Li \"${MAKE} "
+"installkernel\">.  For example,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:285
+#, no-wrap
+msgid "KERNCONF=MINE DEBUG GENERIC OTHERMACHINE\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:295
+msgid ""
+"will build the kernels specified by the config files E<.Pa MINE , DEBUG , "
+"GENERIC>, and E<.Pa OTHERMACHINE>, and install the kernel specified by the "
+"config file E<.Pa MINE>.  It defaults to E<.Pa GENERIC>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:295
+#, no-wrap
+msgid "Va MODULES_OVERRIDE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:298
+msgid "E<.Pq Vt str> Set to a list of modules to build instead of all of them."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:298
+#, no-wrap
+msgid "Va NO_KERNELCLEAN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:304
+msgid ""
+"E<.Pq Vt bool> Set this to skip running E<.Dq Li \"${MAKE} clean\"> during "
+"E<.Dq Li \"${MAKE} buildkernel\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:304
+#, no-wrap
+msgid "Va NO_KERNELCONFIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:310
+msgid ""
+"E<.Pq Vt bool> Set this to skip running E<.Xr config 8> during E<.Dq Li "
+"\"${MAKE} buildkernel\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:310
+#, no-wrap
+msgid "Va NO_KERNELOBJ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:316
+msgid ""
+"E<.Pq Vt bool> Set this to skip running E<.Dq Li \"${MAKE} obj\"> during "
+"E<.Dq Li \"${MAKE} buildkernel\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:316
+#, no-wrap
+msgid "Va NO_MODULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:319
+msgid "E<.Pq Vt bool> Set to not build modules with the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:319
+#, no-wrap
+msgid "Va PORTS_MODULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:322
+msgid ""
+"Set this to the list of ports you wish to rebuild every time the kernel is "
+"built."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:322
+#, no-wrap
+msgid "Va WITHOUT_MODULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:332
+msgid ""
+"E<.Pq Vt str> Set to a list of modules to exclude from the build.  This "
+"provides a somewhat easier way to exclude modules you are certain you will "
+"never need than specifying E<.Va MODULES_OVERRIDE>.  This is applied E<.Em "
+"after> E<.Va MODULES_OVERRIDE>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man5/make.conf.5:333
+#, no-wrap
+msgid "BUILDING THE WORLD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:336
+msgid ""
+"The following list provides a name and short description for variables that "
+"are used during the world build:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:337
+#, no-wrap
+msgid "Va BOOT_COMCONSOLE_PORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:341
+msgid ""
+"E<.Pq Vt str> The port address to use for the console if the boot blocks "
+"have been configured to use a serial console instead of the keyboard/video "
+"card."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:341
+#, no-wrap
+msgid "Va BOOT_COMCONSOLE_SPEED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:345
+msgid ""
+"E<.Pq Vt int> The baud rate to use for the console if the boot blocks have "
+"been configured to use a serial console instead of the keyboard/video card."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:345
+#, no-wrap
+msgid "Va BOOT_PXELDR_ALWAYS_SERIAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:355
+msgid ""
+"E<.Pq Vt bool> Compile in the code into E<.Xr pxeboot 8> that forces the use "
+"of a serial console.  This is analogous to the E<.Fl h> option in E<.Xr boot "
+"8> blocks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:355
+#, no-wrap
+msgid "Va BOOT_PXELDR_PROBE_KEYBOARD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:366
+msgid ""
+"E<.Pq Vt bool> Compile in the code into E<.Xr pxeboot 8> that probes the "
+"keyboard.  If no keyboard is found, boot with the dual console "
+"configuration.  This is analogous to the E<.Fl D> option in E<.Xr boot 8> "
+"blocks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:366
+#, no-wrap
+msgid "Va ENABLE_SUID_K5SU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:371
+msgid ""
+"E<.Pq Vt bool> Set this if you wish to use the ksu utility.  Otherwise, it "
+"will be installed without the set-user-ID bit set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:371
+#, no-wrap
+msgid "Va ENABLE_SUID_NEWGRP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:379
+msgid ""
+"E<.Pq Vt bool> Set this to install E<.Xr newgrp 1> with the set-user-ID bit "
+"set.  Otherwise, E<.Xr newgrp 1> will not be able to change users' groups."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:379
+#, no-wrap
+msgid "Va LOADER_TFTP_SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:393
+msgid ""
+"E<.Pq Vt bool> By default the E<.Xr pxeboot 8> loader retrieves the kernel "
+"via NFS.  Defining this and recompiling E<.Pa /usr/src/stand> will cause it "
+"to retrieve the kernel via TFTP.  This allows E<.Xr pxeboot 8> to load a "
+"custom BOOTP diskless kernel yet still mount the server's E<.Pa /> rather "
+"than load the server's kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:393
+#, no-wrap
+msgid "Va LOADER_FIREWIRE_SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:404
+msgid ""
+"E<.Pq Vt bool> Defining this and recompiling E<.Pa /usr/src/stand/i386> will "
+"add E<.Xr dcons 4> console driver to E<.Xr loader 8> and allow access over "
+"FireWire(IEEE1394) using E<.Xr dconschat 8>.  Currently, only i386 and amd64 "
+"are supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:404
+#, no-wrap
+msgid "Va MALLOC_PRODUCTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:410
+msgid ""
+"E<.Pq Vt bool> Set this to disable assertions and statistics gathering in "
+"E<.Xr malloc 3>.  It also defaults the A and J runtime options to off.  "
+"Disabled by default on -CURRENT."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:410
+#, no-wrap
+msgid "Va MAN_ARCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:418
+msgid ""
+"E<.Pq Vt str> Space-delimited list of one or more MACHINE and/or "
+"MACHINE_ARCH values for which section 4 man pages will be installed.  The "
+"special value E<.Sq all> installs all available architectures.  The default "
+"is the MACHINE and MACHINE_ARCH being built."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:418
+#, no-wrap
+msgid "Va MODULES_WITH_WORLD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:421
+msgid "E<.Pq Vt bool> Set to build modules with the system instead of the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:421
+#, no-wrap
+msgid "Va NO_CLEAN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:426
+msgid ""
+"E<.Pq Vt bool> Set this to disable cleaning during E<.Dq Li \"make "
+"buildworld\">.  This should not be set unless you know what you are doing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:426
+#, no-wrap
+msgid "Va NO_CLEANDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:432
+msgid ""
+"E<.Pq Vt bool> Set this to run E<.Dq Li \"${MAKE} clean\"> instead of E<.Dq "
+"Li \"${MAKE} cleandir\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:432
+#, no-wrap
+msgid "Va WITH_MANCOMPRESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:435
+msgid "E<.Pq Vt defined> Set to install manual pages compressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:435
+#, no-wrap
+msgid "Va WITHOUT_MANCOMPRESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:438
+msgid "E<.Pq Vt defined> Set to install manual pages uncompressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:438
+#, no-wrap
+msgid "Va NO_SHARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:443
+msgid "E<.Pq Vt bool> Set to not build in the E<.Pa share> subdir."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:443
+#, no-wrap
+msgid "Va NO_SHARED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:453
+msgid ""
+"E<.Pq Vt bool> Set to build E<.Pa /bin> and E<.Pa /sbin> statically linked, "
+"this can be bad.  If set, every utility that uses E<.Pa bsd.prog.mk> will be "
+"linked statically."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:453
+#, no-wrap
+msgid "Va PPP_NO_NAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:458
+msgid ""
+"E<.Pq Vt bool> Build E<.Xr ppp 8> without support for network address "
+"translation (NAT)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:458
+#, no-wrap
+msgid "Va PPP_NO_NETGRAPH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:463
+msgid "E<.Pq Vt bool> Set to build E<.Xr ppp 8> without support for Netgraph."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:463
+#, no-wrap
+msgid "Va PPP_NO_RADIUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:468
+msgid "E<.Pq Vt bool> Set to build E<.Xr ppp 8> without support for RADIUS."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:468
+#, no-wrap
+msgid "Va PPP_NO_SUID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:473
+msgid ""
+"E<.Pq Vt bool> Set to disable the installation of E<.Xr ppp 8> as a "
+"set-user-ID root program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:473
+#, no-wrap
+msgid "Va SENDMAIL_ADDITIONAL_MC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:485
+msgid ""
+"E<.Pq Vt str> Additional E<.Pa .mc> files which should be built into E<.Pa "
+".cf> files at build time.  The value should include the full path to the "
+"E<.Pa .mc> file(s), e.g., E<.Pa /etc/mail/foo.mc>, E<.Pa /etc/mail/bar.mc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:485
+#, no-wrap
+msgid "Va SENDMAIL_ALIASES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:493
+msgid ""
+"E<.Pq Vt str> List of E<.Xr aliases 5> files to rebuild when using E<.Pa "
+"/etc/mail/Makefile>.  The default value is E<.Pa /etc/mail/aliases>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:493
+#, no-wrap
+msgid "Va SENDMAIL_CFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:500
+msgid ""
+"E<.Pq Vt str> Flags to pass to the compile command when building E<.Xr "
+"sendmail 8>.  The E<.Va SENDMAIL_*> flags can be used to provide SASL "
+"support with setting such as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:504
+#, no-wrap
+msgid ""
+"SENDMAIL_CFLAGS=-I/usr/local/include -DSASL\n"
+"SENDMAIL_LDFLAGS=-L/usr/local/lib\n"
+"SENDMAIL_LDADD=-lsasl\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:505
+#, no-wrap
+msgid "Va SENDMAIL_CF_DIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:514
+msgid ""
+"E<.Pq Vt str> Override the default location for the E<.Xr m4 1> "
+"configuration files used to build a E<.Pa .cf> file from a E<.Pa .mc> file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:514
+#, no-wrap
+msgid "Va SENDMAIL_DPADD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:518
+msgid "E<.Pq Vt str> Extra dependencies to add when building E<.Xr sendmail 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:518
+#, no-wrap
+msgid "Va SENDMAIL_LDADD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:524
+msgid ""
+"E<.Pq Vt str> Flags to add to the end of the E<.Xr ld 1> command when "
+"building E<.Xr sendmail 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:524
+#, no-wrap
+msgid "Va SENDMAIL_LDFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:530
+msgid ""
+"E<.Pq Vt str> Flags to pass to the E<.Xr ld 1> command when building E<.Xr "
+"sendmail 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:530
+#, no-wrap
+msgid "Va SENDMAIL_M4_FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:539
+msgid ""
+"E<.Pq Vt str> Flags passed to E<.Xr m4 1> when building a E<.Pa .cf> file "
+"from a E<.Pa .mc> file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:539
+#, no-wrap
+msgid "Va SENDMAIL_MAP_PERMS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:544
+msgid ""
+"E<.Pq Vt str> Mode to use when generating alias and map database files using "
+"E<.Pa /etc/mail/Makefile>.  The default value is 0640."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:544
+#, no-wrap
+msgid "Va SENDMAIL_MAP_SRC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:558
+msgid ""
+"E<.Pq Vt str> Additional maps to rebuild when using E<.Pa "
+"/etc/mail/Makefile>.  The E<.Pa access>, E<.Pa bitdomain>, E<.Pa "
+"domaintable>, E<.Pa genericstable>, E<.Pa mailertable>, E<.Pa uucpdomain>, "
+"and E<.Pa virtusertable> maps are always rebuilt if they exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:558
+#, no-wrap
+msgid "Va SENDMAIL_MAP_TYPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:564
+msgid ""
+"E<.Pq Vt str> Database map type to use when generating map database files "
+"using E<.Pa /etc/mail/Makefile>.  The default value is hash.  The "
+"alternative is btree."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:564
+#, no-wrap
+msgid "Va SENDMAIL_MC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:578
+msgid ""
+"E<.Pq Vt str> The default E<.Xr m4 1> configuration file to use at install "
+"time.  The value should include the full path to the E<.Pa .mc> file, e.g., "
+"E<.Pa /etc/mail/myconfig.mc>.  Use with caution as a make install will "
+"overwrite any existing E<.Pa /etc/mail/sendmail.cf>.  Note that E<.Va "
+"SENDMAIL_CF> is now deprecated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:578
+#, no-wrap
+msgid "Va SENDMAIL_SET_USER_ID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:588
+msgid ""
+"E<.Pq Vt bool> If set, install E<.Xr sendmail 8> as a set-user-ID root "
+"binary instead of a set-group-ID binary and do not install E<.Pa "
+"/etc/mail/submit.{cf,mc}>.  Use of this flag is not recommended and the "
+"alternative advice in E<.Pa /etc/mail/README> should be followed instead if "
+"at all possible."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:588
+#, no-wrap
+msgid "Va SENDMAIL_START_SCRIPT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:600
+msgid ""
+"E<.Pq Vt str> The script used by E<.Pa /etc/mail/Makefile> to start, stop, "
+"and restart E<.Xr sendmail 8>.  The default value is E<.Pa "
+"/etc/rc.sendmail>.  This value should match the E<.Dq Li mta_start_script> "
+"setting in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:600
+#, no-wrap
+msgid "Va SENDMAIL_SUBMIT_MC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:612
+msgid ""
+"E<.Pq Vt str> The default E<.Xr m4 1> configuration file for mail submission "
+"to use at install time.  The value should include the full path to the E<.Pa "
+".mc> file, e.g., E<.Pa /etc/mail/mysubmit.mc>.  Use with caution as a make "
+"install will overwrite any existing E<.Pa /etc/mail/submit.cf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:612
+#, no-wrap
+msgid "Va TOP_TABLE_SIZE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:621
+msgid ""
+"E<.Pq Vt int> E<.Xr top 1> uses a hash table for the user names.  The size "
+"of this hash can be tuned to match the number of local users.  The table "
+"size should be a prime number approximately twice as large as the number of "
+"lines in E<.Pa /etc/passwd>.  The default number is 20011."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:621
+#, no-wrap
+msgid "Va WANT_FORCE_OPTIMIZATION_DOWNGRADE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:630
+msgid ""
+"E<.Pq Vt int> Causes the system compiler to be built such that it forces "
+"high optimization levels to a lower one.  E<.Xr cc 1> E<.Fl O2> and above is "
+"known to trigger known optimizer bugs at various times.  The value assigned "
+"is the highest optimization value used."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man5/make.conf.5:631
+#, no-wrap
+msgid "BUILDING DOCUMENTATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:634
+msgid ""
+"The following list provides a name and short description for variables that "
+"are used when building documentation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:635
+#, no-wrap
+msgid "Va DISTDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:642
+msgid ""
+"E<.Pq Vt str> Where distfiles are kept.  Normally, this is E<.Pa distfiles> "
+"in E<.Va PORTSDIR>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:642
+#, no-wrap
+msgid "Va DOC_LANG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:645
+msgid "E<.Pq Vt str> The list of languages and encodings to build and install."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:645
+#, no-wrap
+msgid "Va PRINTERDEVICE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:655
+msgid ""
+"E<.Pq Vt str> The default format for system documentation, depends on your "
+"printer.  This can be set to E<.Dq Li ascii> for simple printers, or E<.Dq "
+"Li ps> for postscript or graphics printers with a ghostscript filter, or "
+"both."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man5/make.conf.5:656
+#, no-wrap
+msgid "BUILDING PORTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:664
+msgid ""
+"Several make variables can be set that affect the building of ports.  These "
+"variables and their effects are documented in E<.Xr ports 7>, E<.Pa "
+"${PORTSDIR}/Mk/*> and the E<.Fx> Porter's Handbook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:664
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:666
+#, no-wrap
+msgid "Pa /etc/make.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:667
+#, no-wrap
+msgid "Pa /usr/doc/Makefile"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:668
+#, no-wrap
+msgid "Pa /usr/ports/Makefile"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:669
+#, no-wrap
+msgid "Pa /usr/share/examples/etc/make.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:670
+#, no-wrap
+msgid "Pa /usr/share/mk/sys.mk"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:671
+#, no-wrap
+msgid "Pa /usr/src/Makefile"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/make.conf.5:672
+#, no-wrap
+msgid "Pa /usr/src/Makefile.inc1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:674
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:683
+msgid ""
+"E<.Xr cc 1>, E<.Xr install 1>, E<.Xr make 1>, E<.Xr src.conf 5>, E<.Xr "
+"style.Makefile 5>, E<.Xr environ 7>, E<.Xr ports 7>, E<.Xr sendmail 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:683
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:688
+msgid "The E<.Nm> file appeared sometime before E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:688
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:692
+msgid "This manual page was written by E<.An Mike W. Meyer Aq Mt mwm@mired.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:692
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:702
+msgid ""
+"Note, that E<.Ev MAKEOBJDIRPREFIX> and E<.Ev MAKEOBJDIR> are environment "
+"variables and should not be set in E<.Nm> or as command line arguments to "
+"E<.Xr make 1>, but in make's environment."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/make.conf.5:702
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/make.conf.5:708
+msgid ""
+"This manual page may occasionally be out of date with respect to the options "
+"currently available for use in E<.Nm>.  Please check the E<.Pa "
+"/usr/share/examples/etc/make.conf> file for the latest options which are "
+"available."
+msgstr ""

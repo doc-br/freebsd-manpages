@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/khelp.9:33
+#, no-wrap
+msgid "February 15, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/khelp.9:34
+#, no-wrap
+msgid "KHELP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:46
+msgid ""
+"E<.Nm khelp>, E<.Nm khelp_init_osd>, E<.Nm khelp_destroy_osd>, E<.Nm "
+"khelp_get_id>, E<.Nm khelp_get_osd>, E<.Nm khelp_add_hhook>, E<.Nm "
+"khelp_remove_hhook>, E<.Nm KHELP_DECLARE_MOD>, E<.Nm KHELP_DECLARE_MOD_UMA>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/khelp.9:46
+#, no-wrap
+msgid "Kernel Helper Framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:47
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/khelp.9:48
+#, no-wrap
+msgid "sys/khelp.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/khelp.9:49
+#, no-wrap
+msgid "sys/module_khelp.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:58
+msgid ""
+"E<.Fn \"int khelp_init_osd\" \"uint32_t classes\" \"struct osd *hosd\"> "
+"E<.Fn \"int khelp_destroy_osd\" \"struct osd *hosd\"> E<.Fn \"int32_t "
+"khelp_get_id\" \"char *hname\"> E<.Fn \"void * khelp_get_osd\" \"struct osd "
+"*hosd\" \"int32_t id\"> E<.Fn \"int khelp_add_hhook\" \"struct hookinfo "
+"*hki\" \"uint32_t flags\"> E<.Fn \"int khelp_remove_hhook\" \"struct "
+"hookinfo *hki\"> E<.Fn KHELP_DECLARE_MOD \"hname\" \"hdata\" \"hhooks\" "
+"\"version\"> E<.Fn KHELP_DECLARE_MOD_UMA \"hname\" \"hdata\" \"hhooks\" "
+"\"version\" \"ctor\" \"dtor\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:58
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:81
+msgid ""
+"E<.Nm> provides a framework for managing E<.Nm> modules, which indirectly "
+"use the E<.Xr hhook 9> KPI to register their hook functions with hook points "
+"of interest within the kernel.  Khelp modules aim to provide a structured "
+"way to dynamically extend the kernel at runtime in an ABI preserving "
+"manner.  Depending on the subsystem providing hook points, a E<.Nm> module "
+"may be able to associate per-object data for maintaining relevant state "
+"between hook calls.  The E<.Xr hhook 9> and E<.Nm> frameworks are tightly "
+"integrated and anyone interested in E<.Nm> should also read the E<.Xr hhook "
+"9> manual page thoroughly."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/khelp.9:81
+#, no-wrap
+msgid "Information for Khelp Module Implementors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:88
+msgid ""
+"E<.Nm> modules are represented within the E<.Nm> framework by a E<.Vt struct "
+"helper> which has the following members:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:103
+#, no-wrap
+msgid ""
+"struct helper {\n"
+"\tint (*mod_init) (void);\n"
+"\tint (*mod_destroy) (void);\n"
+"#define\tHELPER_NAME_MAXLEN 16\n"
+"\tchar\t\t\th_name[HELPER_NAME_MAXLEN];\n"
+"\tuma_zone_t\t\th_zone;\n"
+"\tstruct hookinfo\t\t*h_hooks;\n"
+"\tuint32_t\t\th_nhooks;\n"
+"\tuint32_t\t\th_classes;\n"
+"\tint32_t\t\t\th_id;\n"
+"\tvolatile uint32_t\th_refcount;\n"
+"\tuint16_t\t\th_flags;\n"
+"\tTAILQ_ENTRY(helper)\th_next;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:118
+msgid ""
+"Modules must instantiate a E<.Vt struct helper>, but are only required to "
+"set the E<.Va h_classes> field, and may optionally set the E<.Va h_flags>, "
+"E<.Va mod_init> and E<.Va mod_destroy> fields where required.  The framework "
+"takes care of all other fields and modules should refrain from manipulating "
+"them.  Using the C99 designated initialiser feature to set fields is "
+"encouraged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:139
+msgid ""
+"If specified, the E<.Va mod_init> function will be run by the E<.Nm> "
+"framework prior to completing the registration process.  Returning a "
+"non-zero value from the E<.Va mod_init> function will abort the registration "
+"process and fail to load the module.  If specified, the E<.Va mod_destroy> "
+"function will be run by the E<.Nm> framework during the deregistration "
+"process, after the module has been deregistered by the E<.Nm> framework.  "
+"The return value is currently ignored.  Valid E<.Nm> classes are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/khelp.9:139
+#, no-wrap
+msgid "sys/khelp.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:141
+msgid "Valid flags are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/khelp.9:141
+#, no-wrap
+msgid "sys/module_khelp.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:152
+msgid ""
+"The HELPER_NEEDS_OSD flag should be set in the E<.Va h_flags> field if the "
+"E<.Nm> module requires persistent per-object data storage.  There is no "
+"programmatic way (yet) to check if a E<.Nm> class provides the ability for "
+"E<.Nm> modules to associate persistent per-object data, so a manual check is "
+"required."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:170
+msgid ""
+"The E<.Fn KHELP_DECLARE_MOD> and E<.Fn KHELP_DECLARE_MOD_UMA> macros provide "
+"convenient wrappers around the E<.Xr DECLARE_MODULE 9> macro, and are used "
+"to register a E<.Nm> module with the E<.Nm> framework.  E<.Fn "
+"KHELP_DECLARE_MOD_UMA> should only be used by modules which require the use "
+"of persistent per-object storage i.e. modules which set the HELPER_NEEDS_OSD "
+"flag in their E<.Vt struct helper Ns 's> E<.Va h_flags> field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:211
+msgid ""
+"The first four arguments common to both macros are as follows.  The E<.Fa "
+"hname> argument specifies the unique E<.Xr ascii 7> name for the E<.Nm> "
+"module.  It should be no longer than HELPER_NAME_MAXLEN-1 characters in "
+"length.  The E<.Fa hdata> argument is a pointer to the module's E<.Vt struct "
+"helper>.  The E<.Fa hhooks> argument points to a static array of E<.Vt "
+"struct hookinfo> structures.  The array should contain a E<.Vt struct "
+"hookinfo> for each E<.Xr hhook 9> point the module wishes to hook, even when "
+"using the same hook function multiple times for different E<.Xr hhook 9> "
+"points.  The E<.Fa version> argument specifies a version number for the "
+"module which will be passed to E<.Xr MODULE_VERSION 9>.  The E<.Fn "
+"KHELP_DECLARE_MOD_UMA> macro takes the additional E<.Fa ctor> and E<.Fa "
+"dtor> arguments, which specify optional E<.Xr uma 9> constructor and "
+"destructor functions.  NULL should be passed where the functionality is not "
+"required."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:218
+msgid ""
+"The E<.Fn khelp_get_id> function returns the numeric identifier for the "
+"E<.Nm> module with name E<.Fa hname>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:245
+msgid ""
+"The E<.Fn khelp_get_osd> function is used to obtain the per-object data "
+"pointer for a specified E<.Nm> module.  The E<.Fa hosd> argument is a "
+"pointer to the underlying subsystem object's E<.Vt struct osd>.  This is "
+"provided by the E<.Xr hhook 9> framework when calling into a E<.Nm> module's "
+"hook function.  The E<.Fa id> argument specifies the numeric identifier for "
+"the E<.Nm> module to extract the data pointer from E<.Fa hosd> for.  The "
+"E<.Fa id> is obtained using the E<.Fn khelp_get_id> function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:269
+msgid ""
+"The E<.Fn khelp_add_hhook> and E<.Fn khelp_remove_hhook> functions allow a "
+"E<.Nm> module to dynamically hook/unhook E<.Xr hhook 9> points at run time.  "
+"The E<.Fa hki> argument specifies a pointer to a E<.Vt struct hookinfo> "
+"which encapsulates the required information about the E<.Xr hhook 9> point "
+"and hook function being manipulated.  The HHOOK_WAITOK flag may be passed in "
+"via the E<.Fa flags> argument of E<.Fn khelp_add_hhook> if E<.Xr malloc 9> "
+"is allowed to sleep waiting for memory to become available."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/khelp.9:269
+#, no-wrap
+msgid "Integrating Khelp Into a Kernel Subsystem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:287
+msgid ""
+"Most of the work required to allow E<.Nm> modules to do useful things "
+"relates to defining and instantiating suitable E<.Xr hhook 9> points for "
+"E<.Nm> modules to hook into.  The only additional decision a subsystem needs "
+"to make is whether it wants to allow E<.Nm> modules to associate persistent "
+"per-object data.  Providing support for persistent data storage can allow "
+"E<.Nm> modules to perform more complex functionality which may be "
+"desirable.  Subsystems which want to allow Khelp modules to associate "
+"persistent per-object data with one of the subsystem's data structures need "
+"to make the following two key changes:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:292
+msgid ""
+"Embed a E<.Vt struct osd> pointer in the structure definition for the "
+"object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:299
+msgid ""
+"Add calls to E<.Fn khelp_init_osd> and E<.Fn khelp_destroy_osd> to the "
+"subsystem code paths which are responsible for respectively initialising and "
+"destroying the object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:324
+msgid ""
+"The E<.Fn khelp_init_osd> function initialises the per-object data storage "
+"for all currently loaded E<.Nm> modules of appropriate classes which have "
+"set the HELPER_NEEDS_OSD flag in their E<.Va h_flags> field.  The E<.Fa "
+"classes> argument specifies a bitmask of E<.Nm> classes which this subsystem "
+"associates with.  If a E<.Nm> module matches any of the classes in the "
+"bitmask, that module will be associated with the object.  The E<.Fa hosd> "
+"argument specifies the pointer to the object's E<.Vt struct osd> which will "
+"be used to provide the persistent storage for use by E<.Nm> modules."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:336
+msgid ""
+"The E<.Fn khelp_destroy_osd> function frees all memory that was associated "
+"with an object's E<.Vt struct osd> by a previous call to E<.Fn "
+"khelp_init_osd>.  The E<.Fa hosd> argument specifies the pointer to the "
+"object's E<.Vt struct osd> which will be purged in preparation for "
+"destruction."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:336
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:346
+msgid ""
+"E<.Nm> modules are protected from being prematurely unloaded by a reference "
+"count.  The count is incremented each time a subsystem calls E<.Fn "
+"khelp_init_osd> causing persistent storage to be allocated for the module, "
+"and decremented for each corresponding call to E<.Fn khelp_destroy_osd>.  "
+"Only when a module's reference count has dropped to zero can the module be "
+"unloaded."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:346
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:353
+msgid ""
+"The E<.Fn khelp_init_osd> function returns zero if no errors occurred.  It "
+"returns ENOMEM if a E<.Nm> module which requires per-object storage fails to "
+"allocate the necessary memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:357
+msgid ""
+"The E<.Fn khelp_destroy_osd> function only returns zero to indicate that no "
+"errors occurred."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:365
+msgid ""
+"The E<.Fn khelp_get_id> function returns the unique numeric identifier for "
+"the registered E<.Nm> module with name E<.Fa hname>.  It return -1 if no "
+"module with the specified name is currently registered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:377
+msgid ""
+"The E<.Fn khelp_get_osd> function returns the pointer to the E<.Nm> module's "
+"persistent object storage memory.  If the module identified by E<.Fa id> "
+"does not have persistent object storage registered with the object's E<.Fa "
+"hosd> E<.Vt struct osd>, NULL is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:391
+msgid ""
+"The E<.Fn khelp_add_hhook> function returns zero if no errors occurred.  It "
+"returns ENOENT if it could not find the requested E<.Xr hhook 9> point.  It "
+"returns ENOMEM if E<.Xr malloc 9> failed to allocate memory.  It returns "
+"EEXIST if attempting to register the same hook function more than once for "
+"the same E<.Xr hhook 9> point."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:398
+msgid ""
+"The E<.Fn khelp_remove_hhook> function returns zero if no errors occurred.  "
+"It returns ENOENT if it could not find the requested E<.Xr hhook 9> point."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:398
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:401
+msgid ""
+"A well commented example Khelp module can be found at: E<.Pa "
+"/usr/share/examples/kld/khelp/h_example.c>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:406
+msgid ""
+"The Enhanced Round Trip Time (ERTT)  E<.Xr h_ertt 4> E<.Nm> module provides "
+"a more complex example of what is possible."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:406
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:410
+msgid "E<.Xr h_ertt 4>, E<.Xr hhook 9>, E<.Xr osd 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:410
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:414
+msgid ""
+"Development and testing of this software were made possible in part by "
+"grants from the FreeBSD Foundation and Cisco University Research Program "
+"Fund at Community Foundation Silicon Valley."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:414
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:419
+msgid "The E<.Nm> kernel helper framework first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:426
+msgid ""
+"The E<.Nm> framework was first released in 2010 by Lawrence Stewart whilst "
+"studying at Swinburne University of Technology's Centre for Advanced "
+"Internet Architectures, Melbourne, Australia.  More details are available "
+"at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:428
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/khelp.9:428
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:434
+msgid ""
+"E<.An -nosplit> The E<.Nm> framework was written by E<.An Lawrence Stewart "
+"Aq Mt lstewart@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/khelp.9:438
+msgid ""
+"This manual page was written by E<.An David Hayes Aq Mt "
+"david.hayes@ieee.org> and E<.An Lawrence Stewart Aq Mt "
+"lstewart@FreeBSD.org>."
+msgstr ""

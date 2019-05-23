@@ -1,0 +1,305 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_mppc.4:38
+#, no-wrap
+msgid "June 7, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_mppc.4:39
+#, no-wrap
+msgid "NG_MPPC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:43
+msgid "E<.Nm ng_mppc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_mppc.4:43
+#, no-wrap
+msgid "Microsoft MPPC/MPPE compression and encryption netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_mppc.4:45
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_mppc.4:46
+#, no-wrap
+msgid "netgraph/ng_mppc.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:55
+msgid ""
+"The E<.Nm mppc> node type implements the Microsoft Point-to-Point "
+"Compression (MPPC)  and Microsoft Point-to-Point Encryption (MPPE) "
+"sub-protocols of the PPP protocol.  These protocols are often used in "
+"conjunction with the Point-to-Point Tunneling Protocol (PPTP)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:65
+msgid ""
+"The node has two hooks, E<.Dv \"comp\"> for compression and E<.Dv "
+"\"decomp\"> for decompression.  Typically one or both of these hooks would "
+"be connected to the E<.Xr ng_ppp 4> node type hook of the same name.  Each "
+"direction of traffic flow is independent of the other."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:65
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:67
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_mppc.4:68
+#, no-wrap
+msgid "Va comp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:75
+msgid ""
+"Connection to E<.Xr ng_ppp 4> E<.Dv \"comp\"> hook.  Incoming frames are "
+"compressed and/or encrypted, and sent back out the same hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_mppc.4:75
+#, no-wrap
+msgid "Va decomp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:82
+msgid ""
+"Connection to E<.Xr ng_ppp 4> E<.Dv \"decomp\"> hook.  Incoming frames are "
+"decompressed and/or decrypted, and sent back out the same hook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:83
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:85
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_mppc.4:86
+#, no-wrap
+msgid "Dv NGM_MPPC_CONFIG_COMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:92
+msgid ""
+"This command resets and configures the node for a session in the outgoing "
+"traffic direction (i.e., for compression and/or encryption).  This command "
+"takes a E<.Dv \"struct ng_mppc_config\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:95
+#, no-wrap
+msgid ""
+"/* Length of MPPE key */\n"
+"#define MPPE_KEY_LEN      16\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:104
+#, no-wrap
+msgid ""
+"/* MPPC/MPPE PPP negotiation bits */\n"
+"#define MPPC_BIT          0x00000001      /* mppc compression bits */\n"
+"#define MPPE_40           0x00000020      /* use 40 bit key */\n"
+"#define MPPE_56           0x00000080      /* use 56 bit key */\n"
+"#define MPPE_128          0x00000040      /* use 128 bit key */\n"
+"#define MPPE_BITS         0x000000e0      /* mppe encryption bits */\n"
+"#define MPPE_STATELESS    0x01000000      /* use stateless mode */\n"
+"#define MPPC_VALID_BITS   0x010000e1      /* possibly valid bits */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:111
+#, no-wrap
+msgid ""
+"/* Configuration for a session */\n"
+"struct ng_mppc_config {\n"
+"    u_char    enable;                 /* enable */\n"
+"    uint32_t  bits;                   /* config bits */\n"
+"    u_char    startkey[MPPE_KEY_LEN]; /* start key */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:125
+msgid ""
+"The E<.Dv enabled> field enables traffic flow through the node.  The E<.Dv "
+"bits> field contains the bits as negotiated by the Compression Control "
+"Protocol (CCP) in PPP.  The E<.Dv startkey> is only necessary if MPPE was "
+"negotiated, and must be equal to the session start key as defined for MPPE.  "
+"This key is based on the MS-CHAP credentials used at link authentication "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_mppc.4:125
+#, no-wrap
+msgid "Dv NGM_MPPC_CONFIG_DECOMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:131
+msgid ""
+"This command resets and configures the node for a session in the incoming "
+"traffic direction (i.e., for decompression and/or decryption).  This command "
+"takes a E<.Dv \"struct ng_mppc_config\"> as an argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_mppc.4:131
+#, no-wrap
+msgid "Dv NGM_MPPC_RESETREQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:138
+msgid ""
+"This message contains no arguments, and is bi-directional.  If an error is "
+"detected during decompression, this message is sent by the node to the "
+"originator of the E<.Dv NGM_MPPC_CONFIG_DECOMP> message that initiated the "
+"session.  The receiver should respond by sending a PPP CCP Reset-Request to "
+"the peer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:143
+msgid ""
+"This message may also be received by this node type when a CCP Reset-Request "
+"is received by the local PPP entity.  The node will respond by flushing its "
+"outgoing compression and encryption state so the remote side can "
+"resynchronize."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:144
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:148
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when both hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:148
+#, no-wrap
+msgid "COMPILATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:155
+msgid ""
+"The kernel options E<.Dv NETGRAPH_MPPC_COMPRESSION> and E<.Dv "
+"NETGRAPH_MPPC_ENCRYPTION> are supplied to selectively compile in either or "
+"both capabilities.  At least one of these must be defined, or else this node "
+"type is useless."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:155
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:180
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_ppp 4>, E<.Xr ngctl 8> E<.Rs> E<.%A G. Pall> "
+"E<.%T \"Microsoft Point-To-Point Compression (MPPC) Protocol\"> E<.%O RFC "
+"2118> E<.Re> E<.Rs> E<.%A G. S. Pall> E<.%A G. Zorn> E<.%T \"Microsoft "
+"Point-To-Point Encryption (MPPE) Protocol\"> E<.%O "
+"draft-ietf-pppext-mppe-04.txt> E<.Re> E<.Rs> E<.%A K. Hamzeh> E<.%A G. Pall> "
+"E<.%A W. Verthein> E<.%A J. Taarud> E<.%A W. Little> E<.%A G. Zorn> E<.%T "
+"\"Point-to-Point Tunneling Protocol (PPTP)\"> E<.%O RFC 2637> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:180
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:182
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_mppc.4:182
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_mppc.4:186
+msgid ""
+"In PPP, encryption should be handled by the Encryption Control Protocol "
+"(ECP)  rather than CCP.  However, Microsoft combined both compression and "
+"encryption into their ``compression'' algorithm, which is confusing."
+msgstr ""

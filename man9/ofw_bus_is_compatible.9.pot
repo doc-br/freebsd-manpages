@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:31
+#, no-wrap
+msgid "April 8, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:32
+#, no-wrap
+msgid "ofw_bus_is_compatible 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:39
+msgid ""
+"E<.Nm ofw_bus_is_compatible> E<.Nm ofw_bus_is_compatible_strict> E<.Nm "
+"ofw_bus_node_is_compatible> E<.Nm ofw_bus_search_compatible>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:39
+#, no-wrap
+msgid "check device tree nodes for compatibility with drivers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:41
+#, no-wrap
+msgid "dev/ofw/openfirm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:42
+#, no-wrap
+msgid "dev/ofw/ofw_bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:43
+#, no-wrap
+msgid "dev/ofw/ofw_bus_subr.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:52
+msgid ""
+"E<.Ft int> E<.Fn ofw_bus_is_compatible \"device_t dev\" \"const char "
+"*compatstr\"> E<.Ft int> E<.Fn ofw_bus_is_compatible_strict \"device_t dev\" "
+"\"const char *compatstr\"> E<.Ft int> E<.Fn ofw_bus_node_is_compatible "
+"\"phandle_t node\" \"const char *compatstr\"> E<.Ft const struct "
+"ofw_compat_data *> E<.Fn ofw_bus_search_compatible \"device_t dev\" \"const "
+"struct ofw_compat_data *compat\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:71
+msgid ""
+"The \"compatible\" property of the device tree node is used to identify the "
+"type of the device the node represents.  The property is a list of one or "
+"more strings that represent hardware types the device is compatible with.  "
+"The common format for such strings is \"vendor,hardware\" where \"vendor\" "
+"is an abbreviated name of the manufacturer and \"hardware\" is a device "
+"identifier, for instance, \"fsl\" for \"Freescale\" and \"imx6ul-i2c\" for "
+"the I2C controller.  More than one string is required for compatibility with "
+"older revisions of the driver.  If hardware revision B is backward "
+"compatible with revision A device tree node can signal this compatibility by "
+"providing both \"vndr,hrdwrA\" and \"vndr,hrdwrB\" strings in the "
+"\"compatibile\" property value.  This way older driver can use features "
+"available only in revision A, and the new version of the driver can take "
+"advantage of revision B feature set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:79
+msgid ""
+"E<.Fn ofw_bus_is_compatible> returns 1 if the E<.Fa compatstr> value occurs "
+"in the \"compatible\" property list of the device tree node associated with "
+"the device E<.Fa dev>, and 0 otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:87
+msgid ""
+"E<.Fn ofw_bus_is_compatible_strict> return 1 if the \"compatible\" property "
+"of the device tree node associated with the device E<.Fa dev> consists of "
+"only one string and this string is equal to E<.Fa compatstr>, and 0 "
+"otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:95
+msgid ""
+"E<.Fn ofw_bus_node_is_compatible> returns 1 if the E<.Fa compatstr> value "
+"occurs in the \"compatible\" property list of the device tree node E<.Fa "
+"node>, and 0 otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:105
+msgid ""
+"E<.Fn ofw_bus_search_compatible> returns pointer to the first entry of the "
+"E<.Fa compat> table whose ocd_str field occurs in \"compatible\" property of "
+"the device tree node associated with the device E<.Fa dev>.  The E<.Fa "
+"compat> table is an array of struct ofw_compat_data elements defined as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:110
+#, no-wrap
+msgid ""
+"struct ofw_compat_data {\n"
+"\tconst char *ocd_str;\n"
+"\tuintptr_t  ocd_data;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:117
+msgid ""
+"The E<.Fa compat> table must be terminated by the entry with ocd_str set to "
+"NULL.  If the device tree node is not compatible with any of the entries, "
+"the function returns the pointer to the terminating entry."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:117
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:124
+#, no-wrap
+msgid ""
+"static struct ofw_compat_data compat_data[] = {\n"
+"\t{\"arm,hrdwrA\",\t\tFEATURE_A},\n"
+"\t{\"arm,hrdwrB\",\t\tFEATURE_A | FEATURE_B},\n"
+"\t{NULL,\t\t\t0}\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:133
+#, no-wrap
+msgid ""
+"static int\n"
+"hrdwr_probe(device_t dev)\n"
+"{\n"
+"\t...\n"
+"\tif (!ofw_bus_search_compatible(dev, compat_data)-E<gt>ocd_data)\n"
+"\t\treturn (ENXIO);\n"
+"\t...\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:142
+#, no-wrap
+msgid ""
+"static int\n"
+"hrdwr_attach(device_t dev)\n"
+"{\n"
+"\t...\n"
+"\tsc = device_get_softc(dev);\n"
+"\tsc-E<gt>sc_features = ofw_bus_search_compatible(dev, "
+"compat_data)-E<gt>ocd_data;\n"
+"\t...\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:143
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:145
+msgid "E<.Xr ofw_bus_find_compatible 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:145
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ofw_bus_is_compatible.9:147
+msgid "This manual page was written by E<.An Oleksandr Tymoshenko>."
+msgstr ""

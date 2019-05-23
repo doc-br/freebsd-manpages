@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:27
+#, no-wrap
+msgid "November 25, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:28
+#, no-wrap
+msgid "PXEBOOT 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:32
+msgid "E<.Nm pxeboot>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:32
+#, no-wrap
+msgid "Preboot Execution Environment (PXE) bootloader"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:42
+msgid ""
+"The E<.Nm> bootloader is a modified version of the system third-stage "
+"bootstrap E<.Xr loader 8> configured to run under Intel's Preboot Execution "
+"Environment (PXE) system.  PXE is a form of smart boot ROM, built into Intel "
+"EtherExpress Pro/100 and 3Com 3c905c Ethernet cards, and Ethernet-equipped "
+"Intel motherboards.  PXE supports DHCP configuration and provides low-level "
+"NIC access services."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:46
+msgid ""
+"The DHCP client will set a DHCP user class named E<.Va FreeBSD> to allow "
+"flexible configuration of the DHCP server."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:56
+msgid ""
+"The E<.Nm> bootloader retrieves the kernel, modules, and other files either "
+"via NFS over UDP or by TFTP, selectable through compile-time options.  In "
+"combination with a memory file system image or NFS-mounted root file system, "
+"E<.Nm> allows for easy, EEPROM-burner free construction of diskless "
+"machines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:62
+msgid ""
+"The E<.Nm> binary is loaded just like any other boot file, by specifying it "
+"in the DHCP server's configuration file.  Below is a sample configuration "
+"for the ISC DHCP v3 server:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:71
+#, no-wrap
+msgid ""
+"option domain-name \"example.com\";\n"
+"option routers 10.0.0.1;\n"
+"option subnet-mask 255.255.255.0;\n"
+"option broadcast-address 10.0.0.255;\n"
+"option domain-name-servers 10.0.0.1;\n"
+"server-name \"DHCPserver\";\n"
+"server-identifier 10.0.0.1;\n"
+"next-server 10.0.0.1;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:74
+#, no-wrap
+msgid ""
+"default-lease-time 120;\n"
+"max-lease-time 120;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:82
+#, no-wrap
+msgid ""
+"subnet 10.0.0.0 netmask 255.255.255.0 {\n"
+"       filename \"pxeboot\";\n"
+"       range 10.0.0.10 10.0.0.254;\n"
+"       if exists user-class and option user-class = \"FreeBSD\" {\n"
+"            option root-path \"tftp://10.0.0.1/FreeBSD\";\n"
+"       }\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:97
+msgid ""
+"E<.Va next-server> is the IP address of the next server in the bootstrap "
+"process, i.e.  your TFTP server or NFS server.  E<.Nm> recognizes E<.Va "
+"option root-path> directives as the server and path to NFS mount for file "
+"requests, respectively, or the server to make TFTP requests to.  Note that "
+"E<.Nm> expects to fetch E<.Pa /boot/loader.rc> from the specified server "
+"before loading any other files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:101
+msgid "Valid E<.Va option root-path> Syntax is the following"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:102
+#, no-wrap
+msgid "/path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:104 /usr/src/stand/i386/pxeldr/pxeboot.8:109
+msgid "path to the root filesystem on the NFS server"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:104
+#, no-wrap
+msgid "ip:/path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:107 /usr/src/stand/i386/pxeldr/pxeboot.8:112
+msgid "path to the root filesystem on the NFS server E<.Ar ip>"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:107
+#, no-wrap
+msgid "nfs:/path"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:109
+#, no-wrap
+msgid "nfs://ip/path"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:112
+#, no-wrap
+msgid "tftp:/path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:114
+msgid "path to the root filesystem on the TFTP server"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:114
+#, no-wrap
+msgid "tftp://ip/path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:117
+msgid "path to the root filesystem on the TFTP server E<.Ar ip>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:126
+msgid ""
+"E<.Nm> defaults to a conservative 1024 byte NFS data packet size.  This may "
+"be changed by setting the E<.Va nfs.read_size> variable in E<.Pa "
+"/boot/loader.conf>.  Valid values range from 1024 to 16384 bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:131
+msgid "In all other respects, E<.Nm> acts just like E<.Xr loader 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:140
+msgid ""
+"As PXE is still in its infancy, some firmware versions may not work "
+"properly.  The E<.Nm> bootloader has been extensively tested on version 0.99 "
+"of Intel firmware; pre-release versions of the newer 2.0 firmware are known "
+"to have problems.  Check with the device's manufacturer for their latest "
+"stable release."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:144
+msgid ""
+"For further information on Intel's PXE specifications and Wired for "
+"Management (WfM) systems, see E<.Li "
+"http://www.intel.com/design/archives/wfm/>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:144
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:146
+msgid "E<.Xr loader 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:146
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:151
+msgid "The E<.Nm> bootloader first appeared in E<.Fx 4.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:151
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/pxeldr/pxeboot.8:160
+msgid ""
+"E<.An -nosplit> The E<.Nm> bootloader was written by E<.An John Baldwin Aq "
+"jhb@FreeBSD.org> and E<.An Paul Saab Aq ps@FreeBSD.org>.  This manual page "
+"was written by E<.An Doug White Aq dwhite@FreeBSD.org>."
+msgstr ""

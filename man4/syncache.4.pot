@@ -1,0 +1,430 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/syncache.4:15
+#, no-wrap
+msgid "January 22, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/syncache.4:16
+#, no-wrap
+msgid "SYNCACHE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syncache.4:18
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:20
+msgid "E<.Nm syncache , syncookies>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:23
+msgid "E<.Xr sysctl 8> MIBs for controlling TCP SYN caching"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syncache.4:23
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:27
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncookies>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:29
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncookies_only>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:34
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncache.hashsize>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:36
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncache.bucketlimit>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:38
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncache.cachelimit>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:40
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncache.rexmtlimit>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:42
+msgid "E<.Nm sysctl Cm net.inet.tcp.syncache.count>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syncache.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:49
+msgid ""
+"The E<.Nm> E<.Xr sysctl 8> MIB is used to control the TCP SYN caching in the "
+"system, which is intended to handle SYN flood Denial of Service attacks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:67
+msgid ""
+"When a TCP SYN segment is received on a port corresponding to a listen "
+"socket, an entry is made in the E<.Nm>, and a SYN,ACK segment is returned to "
+"the peer.  The E<.Nm> entry holds the TCP options from the initial SYN, "
+"enough state to perform a SYN,ACK retransmission, and takes up less space "
+"than a TCP control block endpoint.  An incoming segment which contains an "
+"ACK for the SYN,ACK and matches a E<.Nm> entry will cause the system to "
+"create a TCP control block with the options stored in the E<.Nm> entry, "
+"which is then released."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:74
+msgid ""
+"The E<.Nm> protects the system from SYN flood DoS attacks by minimizing the "
+"amount of state kept on the server, and by limiting the overall size of the "
+"E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:91
+msgid ""
+"E<.Nm Syncookies> provides a way to virtually expand the size of the E<.Nm> "
+"by keeping state regarding the initial SYN in the network.  Enabling E<.Nm "
+"syncookies> sends a cryptographic value in the SYN,ACK reply to the client "
+"machine, which is then returned in the client's ACK.  If the corresponding "
+"entry is not found in the E<.Nm>, but the value passes specific security "
+"checks, the connection will be accepted.  This is only used if the E<.Nm> is "
+"unable to handle the volume of incoming connections, and a prior entry has "
+"been evicted from the cache."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:102
+msgid ""
+"E<.Nm Syncookies> have a certain number of disadvantages that a paranoid "
+"administrator may wish to take note of.  Since the TCP options from the "
+"initial SYN are not saved, they are not applied to the connection, "
+"precluding use of features like window scale, timestamps, or exact MSS "
+"sizing.  As the returning ACK establishes the connection, it may be possible "
+"for an attacker to ACK flood a machine in an attempt to create a "
+"connection.  While steps have been taken to mitigate this risk, this may "
+"provide a way to bypass firewalls which filter incoming segments with the "
+"SYN bit set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:110
+msgid ""
+"To disable the E<.Nm syncache> and run only with E<.Nm syncookies>, set "
+"E<.Va net.inet.tcp.syncookies_only> to 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:122
+msgid ""
+"The E<.Nm> implements a number of variables in the E<.Va "
+"net.inet.tcp.syncache> branch of the E<.Xr sysctl 3> MIB.  Several of these "
+"may be tuned by setting the corresponding variable in the E<.Xr loader 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:123
+#, no-wrap
+msgid "Va hashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:129
+msgid ""
+"Size of the E<.Nm> hash table, must be a power of 2.  Read-only, tunable via "
+"E<.Xr loader 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:129
+#, no-wrap
+msgid "Va bucketlimit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:134
+msgid ""
+"Limit on the number of entries permitted in each bucket of the hash table.  "
+"This should be left at a low value to minimize search time.  Read-only, "
+"tunable via E<.Xr loader 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:134
+#, no-wrap
+msgid "Va cachelimit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:143
+msgid ""
+"Limit on the total number of entries in the E<.Nm>.  Defaults to E<.Va ( "
+"hashsize No \\(mu Va bucketlimit>), may be set lower to minimize memory "
+"consumption.  Read-only, tunable via E<.Xr loader 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:143
+#, no-wrap
+msgid "Va rexmtlimit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:149
+msgid ""
+"Maximum number of times a SYN,ACK is retransmitted before being discarded.  "
+"The default of 3 retransmits corresponds to a 45 second timeout, this value "
+"may be increased depending on the RTT to client machines.  Tunable via E<.Xr "
+"sysctl 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:149
+#, no-wrap
+msgid "Va count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:153
+msgid "Number of entries present in the E<.Nm> (read-only)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:160
+msgid ""
+"Statistics on the performance of the E<.Nm> may be obtained via E<.Xr "
+"netstat 1>, which provides the following counts:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:161
+#, no-wrap
+msgid "Li \"syncache entries added\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:164
+msgid "Entries successfully inserted in the E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:164
+#, no-wrap
+msgid "Li retransmitted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:166
+msgid "SYN,ACK retransmissions due to a timeout expiring."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:166
+#, no-wrap
+msgid "Li dupsyn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:168
+msgid "Incoming SYN segment matching an existing entry."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:168
+#, no-wrap
+msgid "Li dropped"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:170
+msgid "SYNs dropped because SYN,ACK could not be sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:170
+#, no-wrap
+msgid "Li completed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:172
+msgid "Successfully completed connections."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:172
+#, no-wrap
+msgid "Li \"bucket overflow\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:174
+msgid "Entries dropped for exceeding per-bucket size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:174
+#, no-wrap
+msgid "Li \"cache overflow\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:176
+msgid "Entries dropped for exceeding overall cache size."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:176
+#, no-wrap
+msgid "Li reset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:178
+msgid "RST segment received."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:178
+#, no-wrap
+msgid "Li stale"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:180
+msgid ""
+"Entries dropped due to maximum retransmissions or listen socket "
+"disappearance."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:180
+#, no-wrap
+msgid "Li aborted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:182
+msgid "New socket allocation failures."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:182
+#, no-wrap
+msgid "Li badack"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:184
+msgid "Entries dropped due to bad ACK reply."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:184
+#, no-wrap
+msgid "Li unreach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:186
+msgid "Entries dropped due to ICMP unreachable messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:186
+#, no-wrap
+msgid "Li \"zone failures\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:190
+msgid "Failures to allocate new E<.Nm> entry."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syncache.4:190
+#, no-wrap
+msgid "Li \"cookies received\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:192
+msgid "Connections created from segment containing ACK."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syncache.4:193
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:198
+msgid "E<.Xr netstat 1>, E<.Xr tcp 4>, E<.Xr loader 8>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syncache.4:198
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:211
+msgid ""
+"The existing E<.Nm> implementation first appeared in E<.Fx 4.5>.  The "
+"original concept of a E<.Nm> originally appeared in E<.Bsx>, and was later "
+"modified by E<.Nx>, then further extended here."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syncache.4:211
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syncache.4:215
+msgid ""
+"The E<.Nm> code and manual page were written by E<.An Jonathan Lemon Aq Mt "
+"jlemon@FreeBSD.org>."
+msgstr ""

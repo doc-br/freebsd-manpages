@@ -1,0 +1,1134 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/EVENTHANDLER.9:26
+#, no-wrap
+msgid "October 21, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/EVENTHANDLER.9:27
+#, no-wrap
+msgid "EVENTHANDLER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/EVENTHANDLER.9:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:31
+msgid "E<.Nm EVENTHANDLER>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/EVENTHANDLER.9:31
+#, no-wrap
+msgid "kernel event handling functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/EVENTHANDLER.9:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/EVENTHANDLER.9:33
+#, no-wrap
+msgid "sys/eventhandler.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:66
+msgid ""
+"E<.Fn EVENTHANDLER_DECLARE name type> E<.Fn EVENTHANDLER_DEFINE name func "
+"arg priority> E<.Fn EVENTHANDLER_INVOKE name ...> E<.Ft eventhandler_tag> "
+"E<.Fn EVENTHANDLER_REGISTER name func arg priority> E<.Fn "
+"EVENTHANDLER_DEREGISTER name tag> E<.Fn EVENTHANDLER_DEREGISTER_NOWAIT name "
+"tag> E<.Fn EVENTHANDLER_LIST_DECLARE name> E<.Fn EVENTHANDLER_LIST_DEFINE "
+"name> E<.Fn EVENTHANDLER_DIRECT_INVOKE name> E<.Ft eventhandler_tag> E<.Fo "
+"eventhandler_register> E<.Fa \"struct eventhandler_list *list\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"void *func\"> E<.Fa \"void *arg\"> E<.Fa \"int "
+"priority\"> E<.Fc> E<.Ft void> E<.Fo eventhandler_deregister> E<.Fa \"struct "
+"eventhandler_list *list\"> E<.Fa \"eventhandler_tag tag\"> E<.Fc> E<.Ft "
+"void> E<.Fo eventhandler_deregister_nowait> E<.Fa \"struct eventhandler_list "
+"*list\"> E<.Fa \"eventhandler_tag tag\"> E<.Fc> E<.Ft \"struct "
+"eventhandler_list *\"> E<.Fn eventhandler_find_list \"const char *name\"> "
+"E<.Ft void> E<.Fn eventhandler_prune_list \"struct eventhandler_list "
+"*list\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/EVENTHANDLER.9:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:72
+msgid ""
+"The E<.Nm> mechanism provides a way for kernel subsystems to register "
+"interest in kernel events and have their callback functions invoked when "
+"these events occur."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:86
+msgid ""
+"Callback functions are invoked in order of priority.  The relative priority "
+"of each callback among other callbacks associated with an event is given by "
+"argument E<.Fa priority>, which is an integer ranging from E<.Dv "
+"EVENTHANDLER_PRI_FIRST> (highest priority), to E<.Dv EVENTHANDLER_PRI_LAST> "
+"(lowest priority).  The symbol E<.Dv EVENTHANDLER_PRI_ANY> may be used if "
+"the handler does not have a specific priority associated with it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:95
+msgid ""
+"The normal way to use this subsystem is via the macro interface.  For events "
+"that are high frequency it is suggested that you additionally use E<.Fn "
+"EVENTHANDLER_LIST_DEFINE> so that the event handlers can be invoked directly "
+"using E<.Fn EVENTHANDLER_DIRECT_INVOKE> (see below).  This saves the invoker "
+"from having to do a locked traversal of a global list of event handler "
+"lists."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:96
+#, no-wrap
+msgid "Fn EVENTHANDLER_DECLARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:101
+msgid ""
+"This macro declares an event handler named by argument E<.Fa name> with "
+"callback functions of type E<.Fa type>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:101
+#, no-wrap
+msgid "Fn EVENTHANDLER_DEFINE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:116
+msgid ""
+"This macro uses E<.Xr SYSINIT 9> to register a callback function E<.Fa func> "
+"with event handler E<.Fa name>.  When invoked, function E<.Fa func> will be "
+"invoked with argument E<.Fa arg> as its first parameter along with any "
+"additional parameters passed in via macro E<.Fn EVENTHANDLER_INVOKE> (see "
+"below)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:116
+#, no-wrap
+msgid "Fn EVENTHANDLER_REGISTER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:133
+msgid ""
+"This macro registers a callback function E<.Fa func> with event handler "
+"E<.Fa name>.  When invoked, function E<.Fa func> will be invoked with "
+"argument E<.Fa arg> as its first parameter along with any additional "
+"parameters passed in via macro E<.Fn EVENTHANDLER_INVOKE> (see below).  If "
+"registration is successful, E<.Fn EVENTHANDLER_REGISTER> returns a cookie of "
+"type E<.Vt eventhandler_tag>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:133
+#, no-wrap
+msgid "Fn EVENTHANDLER_DEREGISTER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:141
+msgid ""
+"This macro removes a previously registered callback associated with tag "
+"E<.Fa tag> from the event handler named by argument E<.Fa name>.  It waits "
+"until no threads are running handlers for this event before returning, "
+"making it safe to unload a module immediately upon return from this "
+"function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:141
+#, no-wrap
+msgid "Fn EVENTHANDLER_DEREGISTER_NOWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:150
+msgid ""
+"This macro removes a previously registered callback associated with tag "
+"E<.Fa tag> from the event handler named by argument E<.Fa name>.  Upon "
+"return, one or more threads could still be running the removed function(s), "
+"but no new calls will be made.  To remove a handler function from within "
+"that function, use this version of deregister, to avoid a deadlock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:150
+#, no-wrap
+msgid "Fn EVENTHANDLER_INVOKE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:159
+msgid ""
+"This macro is used to invoke all the callbacks associated with event handler "
+"E<.Fa name>.  This macro is a variadic one.  Additional arguments to the "
+"macro after the E<.Fa name> parameter are passed as the second and "
+"subsequent arguments to each registered callback function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:159
+#, no-wrap
+msgid "Fn EVENTHANDLER_LIST_DEFINE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:166
+msgid ""
+"This macro defines a reference to an event handler list named by argument "
+"E<.Fa name>.  It uses E<.Xr SYSINIT 9> to initialize the reference and the "
+"eventhandler list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:166
+#, no-wrap
+msgid "Fn EVENTHANDLER_LIST_DECLARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:172
+msgid ""
+"This macro declares an event handler list named by argument E<.Fa name>.  "
+"This is only needed for users of E<.Fn EVENTHANDLER_DIRECT_INVOKE> which are "
+"not in the same compilation unit of that list's definition."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:172
+#, no-wrap
+msgid "Fn EVENTHANDLER_DIRECT_INVOKE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:180
+msgid ""
+"This macro invokes the event handlers registered for the list named by "
+"argument E<.Fa name>.  This macro can only be used if the list was defined "
+"with E<.Fn EVENTHANDLER_LIST_DEFINE>.  The macro is variadic with the same "
+"semantics as E<.Fn EVENTHANDLER_INVOKE>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:183
+msgid "The macros are implemented using the following functions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:184
+#, no-wrap
+msgid "Fn eventhandler_register"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:189
+msgid ""
+"The E<.Fn eventhandler_register> function is used to register a callback "
+"with a given event.  The arguments expected by this function are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:190
+#, no-wrap
+msgid "Fa list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:200
+msgid ""
+"A pointer to an existing event handler list, or E<.Dv NULL>.  If E<.Fa list> "
+"is E<.Dv NULL>, the event handler list corresponding to argument E<.Fa name> "
+"is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:200
+#, no-wrap
+msgid "Fa name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:202
+msgid "The name of the event handler list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:202
+#, no-wrap
+msgid "Fa func"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:209
+msgid ""
+"A pointer to a callback function.  Argument E<.Fa arg> is passed to the "
+"callback function E<.Fa func> as its first argument when it is invoked."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:209
+#, no-wrap
+msgid "Fa priority"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:216
+msgid ""
+"The relative priority of this callback among all the callbacks registered "
+"for this event.  Valid values are those in the range E<.Dv "
+"EVENTHANDLER_PRI_FIRST> to E<.Dv EVENTHANDLER_PRI_LAST>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:225
+msgid ""
+"The E<.Fn eventhandler_register> function returns a E<.Fa tag> that can "
+"later be used with E<.Fn eventhandler_deregister> to remove the particular "
+"callback function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:225
+#, no-wrap
+msgid "Fn eventhandler_deregister"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:240
+msgid ""
+"The E<.Fn eventhandler_deregister> function removes the callback associated "
+"with tag E<.Fa tag> from the event handler list pointed to by E<.Fa list>.  "
+"If E<.Fa tag> is E<.Va NULL>, all callback functions for the event are "
+"removed.  This function will not return until all threads have exited from "
+"the removed handler callback function(s).  This function is not safe to call "
+"from inside an event handler callback."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:240
+#, no-wrap
+msgid "Fn eventhandler_deregister_nowait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:249
+msgid ""
+"The E<.Fn eventhandler_deregister> function removes the callback associated "
+"with tag E<.Fa tag> from the event handler list pointed to by E<.Fa list>.  "
+"This function is safe to call from inside an event handler callback."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:249
+#, no-wrap
+msgid "Fn eventhandler_find_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:255
+msgid ""
+"The E<.Fn eventhandler_find_list> function returns a pointer to event "
+"handler list structure corresponding to event E<.Fa name>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:255
+#, no-wrap
+msgid "Fn eventhandler_prune_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:260
+msgid ""
+"The E<.Fn eventhandler_prune_list> function removes all deregistered "
+"callbacks from the event list E<.Fa list>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/EVENTHANDLER.9:261
+#, no-wrap
+msgid "Kernel Event Handlers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:263
+msgid "The following event handlers are present in the kernel:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:264
+#, no-wrap
+msgid "Vt acpi_sleep_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:266
+msgid "Callbacks invoked when the system is being sent to sleep."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:266
+#, no-wrap
+msgid "Vt acpi_wakeup_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:268
+msgid "Callbacks invoked when the system is being woken up."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:268
+#, no-wrap
+msgid "Vt app_coredump_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:270
+msgid "Callbacks invoked at start of application core dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:270
+#, no-wrap
+msgid "Vt app_coredump_progress"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:272
+msgid "Callbacks invoked during progress of application core dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:272
+#, no-wrap
+msgid "Vt app_coredump_finish"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:274
+msgid "Callbacks invoked at finish of application core dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:274
+#, no-wrap
+msgid "Vt app_coredump_error"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:276
+msgid "Callbacks invoked on error of application core dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:276
+#, no-wrap
+msgid "Vt bpf_track"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:278
+msgid ""
+"Callbacks invoked when a BPF listener attaches to/detaches from network "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:278
+#, no-wrap
+msgid "Vt cpufreq_levels_changed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:280
+msgid "Callback invoked when cpu frequency levels have changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:280
+#, no-wrap
+msgid "Vt cpufreq_post_change"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:282
+msgid "Callback invoked after cpu frequency has changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:282
+#, no-wrap
+msgid "Vt cpufreq_pre_change"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:284
+msgid "Callback invoked before cpu frequency has changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:284
+#, no-wrap
+msgid "Vt dcons_poll"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:286
+msgid "Callback invoked to poll for dcons changes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:286
+#, no-wrap
+msgid "Vt device_attach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:288
+msgid "Callback invoked after a device has attached."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:288
+#, no-wrap
+msgid "Vt device_detach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:290
+msgid "Callbacks invoked before and after a device has detached."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:290
+#, no-wrap
+msgid "Vt dev_clone"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:293
+msgid "Callbacks invoked when a new entry is created under E<.Pa /dev>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:293
+#, no-wrap
+msgid "Vt group_attach_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:295
+msgid "Callback invoked when an interfance has been added to an interface group."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:295
+#, no-wrap
+msgid "Vt group_change_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:297
+msgid "Callback invoked when an change has been made to an interface group."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:297
+#, no-wrap
+msgid "Vt group_detach_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:299
+msgid ""
+"Callback invoked when an interfance has been removed from an interface "
+"group."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:299
+#, no-wrap
+msgid "Vt ifaddr_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:301
+msgid "Callbacks invoked when an address is set up on a network interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:301
+#, no-wrap
+msgid "Vt ifaddr_event_ext"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:303
+msgid ""
+"Callback invoked when an address has been added or removed from an "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:303
+#, no-wrap
+msgid "Vt if_clone_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:305
+msgid "Callbacks invoked when an interface is cloned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:305
+#, no-wrap
+msgid "Vt iflladdr_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:307
+msgid "Callback invoked when an if link layer address event has happened."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:307
+#, no-wrap
+msgid "Vt ifnet_arrival_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:309
+msgid "Callbacks invoked when a new network interface appears."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:309
+#, no-wrap
+msgid "Vt ifnet_departure_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:311
+msgid "Callbacks invoked when a network interface is taken down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:311
+#, no-wrap
+msgid "Vt ifnet_link_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:313
+msgid "Callback invoked when an interfance link event has happened."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:313
+#, no-wrap
+msgid "Vt kld_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:315
+msgid "Callbacks invoked after a linker file has been loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:315
+#, no-wrap
+msgid "Vt kld_unload"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:317
+msgid "Callbacks invoked after a linker file has been successfully unloaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:317
+#, no-wrap
+msgid "Vt kld_unload_try"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:321
+msgid ""
+"Callbacks invoked before a linker file is about to be unloaded.  These "
+"callbacks may be used to return an error and prevent the unload from "
+"proceeding."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:321
+#, no-wrap
+msgid "Vt lle_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:323
+msgid "Callback invoked when an link layer event has happened."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:323
+#, no-wrap
+msgid "Vt nmbclusters_change"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:325
+msgid "Callback invoked when the number of mbuf clusters has changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:325
+#, no-wrap
+msgid "Vt nmbufs_change"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:327
+msgid "Callback invoked when the number of mbufs has changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:327
+#, no-wrap
+msgid "Vt maxsockets_change"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:329
+msgid "Callback invoked when the maximum number of sockets has changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:329
+#, no-wrap
+msgid "Vt mountroot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:331
+msgid "Callback invoked when root has been mounted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:331
+#, no-wrap
+msgid "Vt power_profile_change"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:333
+msgid "Callbacks invoked when the power profile of the system changes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:333
+#, no-wrap
+msgid "Vt power_resume"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:335
+msgid "Callback invoked when the system has resumed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:335
+#, no-wrap
+msgid "Vt power_suspend"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:337
+msgid "Callback invoked just before the system is suspended."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:337
+#, no-wrap
+msgid "Vt process_ctor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:339
+msgid "Callback invoked when a process is created."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:339
+#, no-wrap
+msgid "Vt process_dtor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:341
+msgid "Callback invoked when a process is destroyed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:341
+#, no-wrap
+msgid "Vt process_exec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:345
+msgid "Callbacks invoked when a process performs an E<.Fn exec> operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:345
+#, no-wrap
+msgid "Vt process_exit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:347
+msgid "Callbacks invoked when a process exits."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:347
+#, no-wrap
+msgid "Vt process_fini"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:350
+msgid "Callback invoked when a process memory is destroyed.  This is never called."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:350
+#, no-wrap
+msgid "Vt process_fork"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:352
+msgid "Callbacks invoked when a process forks a child."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:352
+#, no-wrap
+msgid "Vt process_init"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:354
+msgid "Callback invoked when a process is initialized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:354
+#, no-wrap
+msgid "Vt random_adaptor_attach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:356
+msgid "Callback invoked when a new random module has been loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:356
+#, no-wrap
+msgid "Vt register_framebuffer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:358
+msgid "Callback invoked when a new frame buffer is registered."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:358
+#, no-wrap
+msgid "Vt route_redirect_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:360
+msgid "Callback invoked when a route gets redirected to a new location."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:360
+#, no-wrap
+msgid "Vt shutdown_pre_sync"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:362
+msgid "Callbacks invoked at shutdown time, before file systems are synchronized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:362
+#, no-wrap
+msgid "Vt shutdown_post_sync"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:364
+msgid "Callbacks invoked at shutdown time, after all file systems are synchronized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:364
+#, no-wrap
+msgid "Vt shutdown_final"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:366
+msgid "Callbacks invoked just before halting the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:366
+#, no-wrap
+msgid "Vt tcp_offload_listen_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:368
+msgid "Callback invoked for TCP Offload to start listening for new connections."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:368
+#, no-wrap
+msgid "Vt tcp_offload_listen_stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:370
+msgid "Callback invoked ror TCP Offload to stop listening for new connections."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:370
+#, no-wrap
+msgid "Vt thread_ctor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:372
+msgid "Callback invoked when a thread object is created."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:372
+#, no-wrap
+msgid "Vt thread_dtor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:374
+msgid "Callback invoked when a thread object is destroyed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:374
+#, no-wrap
+msgid "Vt thread_init"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:376
+msgid "Callback invoked when a thread object is initialized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:376
+#, no-wrap
+msgid "Vt thread_fini"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:378
+msgid "Callback invoked when a thread object is deinitalized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:378
+#, no-wrap
+msgid "Vt usb_dev_configured"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:380
+msgid "Callback invoked when a USB device is configured"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:380
+#, no-wrap
+msgid "Vt unregister_framebuffer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:382
+msgid "Callback invoked when a frame buffer is deregistered."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:382
+#, no-wrap
+msgid "Vt vfs_mounted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:384
+msgid "Callback invoked when a file system is mounted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:384
+#, no-wrap
+msgid "Vt vfs_unmounted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:386
+msgid "Callback invoked when a file system is unmounted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:386
+#, no-wrap
+msgid "Vt vlan_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:388
+msgid "Callback invoked when the vlan configuration has changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:388
+#, no-wrap
+msgid "Vt vlan_unconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:390
+msgid "Callback invoked when a vlan is destroyed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:390
+#, no-wrap
+msgid "Vt vm_lowmem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:392
+msgid "Callbacks invoked when virtual memory is low."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/EVENTHANDLER.9:392
+#, no-wrap
+msgid "Vt watchdog_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:394
+msgid "Callbacks invoked when the system watchdog timer is reinitialized."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/EVENTHANDLER.9:395
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:406
+msgid ""
+"The macro E<.Fn EVENTHANDLER_REGISTER> and function E<.Fn "
+"eventhandler_register> return a cookie of type E<.Vt eventhandler_tag>, "
+"which may be used in a subsequent call to E<.Fn EVENTHANDLER_DEREGISTER> or "
+"E<.Fn eventhandler_deregister>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:415
+msgid ""
+"The E<.Fn eventhandler_find_list> function returns a pointer to an event "
+"handler list corresponding to parameter E<.Fa name>, or E<.Dv NULL> if no "
+"such list was found."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/EVENTHANDLER.9:415
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:420
+msgid "The E<.Nm> facility first appeared in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/EVENTHANDLER.9:420
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/EVENTHANDLER.9:424
+msgid ""
+"This manual page was written by E<.An Joseph Koshy Aq Mt jkoshy@FreeBSD.org> "
+"and E<.An Matt Joras Aq Mt mjoras@FreeBSD.org>."
+msgstr ""

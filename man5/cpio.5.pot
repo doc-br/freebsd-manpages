@@ -1,0 +1,669 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:27
+#, no-wrap
+msgid "December 23, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:28
+#, no-wrap
+msgid "CPIO 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:32
+msgid "E<.Nm cpio>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:32
+#, no-wrap
+msgid "format of cpio archive files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:39
+msgid ""
+"The E<.Nm> archive format collects any number of files, directories, and "
+"other file system objects (symbolic links, device nodes, etc.) into a single "
+"stream of bytes."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:39
+#, no-wrap
+msgid "General Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:58
+msgid ""
+"Each file system object in a E<.Nm> archive comprises a header record with "
+"basic numeric metadata followed by the full pathname of the entry and the "
+"file data.  The header record stores a series of integer values that "
+"generally follow the fields in E<.Va struct stat>.  (See E<.Xr stat 2> for "
+"details.)  The variants differ primarily in how they store those integers "
+"(binary, octal, or hexadecimal).  The header is followed by the pathname of "
+"the entry (the length of the pathname is stored in the header)  and any file "
+"data.  The end of the archive is indicated by a special record with the "
+"pathname E<.Dq TRAILER!!!>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:58
+#, no-wrap
+msgid "PWB format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:60
+msgid "XXX Any documentation of the original PWB/UNIX 1.0 format? XXX"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:60
+#, no-wrap
+msgid "Old Binary Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:65
+msgid ""
+"The old binary E<.Nm> format stores numbers as 2-byte and 4-byte binary "
+"values.  Each entry begins with a header in the following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:79
+#, no-wrap
+msgid ""
+"struct header_old_cpio {\n"
+"        unsigned short   c_magic;\n"
+"        unsigned short   c_dev;\n"
+"        unsigned short   c_ino;\n"
+"        unsigned short   c_mode;\n"
+"        unsigned short   c_uid;\n"
+"        unsigned short   c_gid;\n"
+"        unsigned short   c_nlink;\n"
+"        unsigned short   c_rdev;\n"
+"\tunsigned short   c_mtime[2];\n"
+"        unsigned short   c_namesize;\n"
+"\tunsigned short   c_filesize[2];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:87
+msgid ""
+"The E<.Va unsigned short> fields here are 16-bit integer values; the E<.Va "
+"unsigned int> fields are 32-bit integer values.  The fields are as follows"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:88 /usr/src/contrib/libarchive/libarchive/cpio.5:232
+#, no-wrap
+msgid "Va magic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:92
+msgid ""
+"The integer value octal 070707.  This value can be used to determine whether "
+"this archive is written with little-endian or big-endian integers."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:92
+#, no-wrap
+msgid "Va dev , Va ino"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:100
+msgid ""
+"The device and inode numbers from the disk.  These are used by programs that "
+"read E<.Nm> archives to determine when two entries refer to the same file.  "
+"Programs that synthesize E<.Nm> archives should be careful to set these to "
+"distinct values for each entry."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:100
+#, no-wrap
+msgid "Va mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:103
+msgid ""
+"The mode specifies both the regular permissions and the file type.  It "
+"consists of several bit fields as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:104
+#, no-wrap
+msgid "0170000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:106
+msgid "This masks the file type bits."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:106
+#, no-wrap
+msgid "0140000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:108
+msgid "File type value for sockets."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:108
+#, no-wrap
+msgid "0120000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:111
+msgid ""
+"File type value for symbolic links.  For symbolic links, the link body is "
+"stored as file data."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:111
+#, no-wrap
+msgid "0100000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:113
+msgid "File type value for regular files."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:113
+#, no-wrap
+msgid "0060000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:115
+msgid "File type value for block special devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:115
+#, no-wrap
+msgid "0040000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:117
+msgid "File type value for directories."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:117
+#, no-wrap
+msgid "0020000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:119
+msgid "File type value for character special devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:119
+#, no-wrap
+msgid "0010000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:121
+msgid "File type value for named pipes or FIFOs."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:121
+#, no-wrap
+msgid "0004000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:123
+msgid "SUID bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:123
+#, no-wrap
+msgid "0002000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:125
+msgid "SGID bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:125
+#, no-wrap
+msgid "0001000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:128
+msgid ""
+"Sticky bit.  On some systems, this modifies the behavior of executables "
+"and/or directories."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:128
+#, no-wrap
+msgid "0000777"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:131
+msgid ""
+"The lower 9 bits specify read/write/execute permissions for world, group, "
+"and user following standard POSIX conventions."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:132
+#, no-wrap
+msgid "Va uid , Va gid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:134
+msgid "The numeric user id and group id of the owner."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:134
+#, no-wrap
+msgid "Va nlink"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:138
+msgid ""
+"The number of links to this file.  Directories always have a value of at "
+"least two here.  Note that hardlinked files include file data with every "
+"copy in the archive."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:138
+#, no-wrap
+msgid "Va rdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:143
+msgid ""
+"For block special and character special entries, this field contains the "
+"associated device number.  For all other entry types, it should be set to "
+"zero by writers and ignored by readers."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:143
+#, no-wrap
+msgid "Va mtime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:150
+msgid ""
+"Modification time of the file, indicated as the number of seconds since the "
+"start of the epoch, 00:00:00 UTC January 1, 1970.  The four-byte integer is "
+"stored with the most-significant 16 bits first followed by the "
+"least-significant 16 bits.  Each of the two 16 bit values are stored in "
+"machine-native byte order."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:150
+#, no-wrap
+msgid "Va namesize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:153
+msgid ""
+"The number of bytes in the pathname that follows the header.  This count "
+"includes the trailing NUL byte."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:153
+#, no-wrap
+msgid "Va filesize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:160
+msgid ""
+"The size of the file.  Note that this archive format is limited to four "
+"gigabyte file sizes.  See E<.Va mtime> above for a description of the "
+"storage of four-byte integers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:168
+msgid ""
+"The pathname immediately follows the fixed header.  If the E<.Cm namesize> "
+"is odd, an additional NUL byte is added after the pathname.  The file data "
+"is then appended, padded with NUL bytes to an even length."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:172
+msgid ""
+"Hardlinked files are not given special treatment; the full file contents are "
+"included with each copy of the file."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:172
+#, no-wrap
+msgid "Portable ASCII Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:183
+msgid ""
+"E<.St -susv2> standardized an ASCII variant that is portable across all "
+"platforms.  It is commonly known as the E<.Dq old character> format or as "
+"the E<.Dq odc> format.  It stores the same numeric fields as the old binary "
+"format, but represents them as 6-character or 11-character octal values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:197
+#, no-wrap
+msgid ""
+"struct cpio_odc_header {\n"
+"        char    c_magic[6];\n"
+"        char    c_dev[6];\n"
+"        char    c_ino[6];\n"
+"        char    c_mode[6];\n"
+"        char    c_uid[6];\n"
+"        char    c_gid[6];\n"
+"        char    c_nlink[6];\n"
+"        char    c_rdev[6];\n"
+"        char    c_mtime[11];\n"
+"        char    c_namesize[6];\n"
+"        char    c_filesize[11];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:206
+msgid ""
+"The fields are identical to those in the old binary format.  The name and "
+"file body follow the fixed header.  Unlike the old binary format, there is "
+"no additional padding after the pathname or file contents.  If the files "
+"being archived are themselves entirely ASCII, then the resulting archive "
+"will be entirely ASCII, except for the NUL byte that terminates the name "
+"field."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:206
+#, no-wrap
+msgid "New ASCII Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:210
+msgid ""
+"The \"new\" ASCII format uses 8-byte hexadecimal fields for all numbers and "
+"separates device numbers into separate fields for major and minor numbers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:227
+#, no-wrap
+msgid ""
+"struct cpio_newc_header {\n"
+"        char    c_magic[6];\n"
+"        char    c_ino[8];\n"
+"        char    c_mode[8];\n"
+"        char    c_uid[8];\n"
+"        char    c_gid[8];\n"
+"        char    c_nlink[8];\n"
+"        char    c_mtime[8];\n"
+"        char    c_filesize[8];\n"
+"        char    c_devmajor[8];\n"
+"        char    c_devminor[8];\n"
+"        char    c_rdevmajor[8];\n"
+"        char    c_rdevminor[8];\n"
+"        char    c_namesize[8];\n"
+"        char    c_check[8];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:231
+msgid ""
+"Except as specified below, the fields here match those specified for the old "
+"binary format above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:235
+msgid "The string E<.Dq 070701>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:235
+#, no-wrap
+msgid "Va check"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:238
+msgid ""
+"This field is always set to zero by writers and ignored by readers.  See the "
+"next section for more details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:245
+msgid ""
+"The pathname is followed by NUL bytes so that the total size of the fixed "
+"header plus pathname is a multiple of four.  Likewise, the file data is "
+"padded to a multiple of four bytes.  Note that this format supports only 4 "
+"gigabyte files (unlike the older ASCII format, which supports 8 gigabyte "
+"files)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:249
+msgid ""
+"In this format, hardlinked files are handled by setting the filesize to zero "
+"for each entry except the last one that appears in the archive."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:249
+#, no-wrap
+msgid "New CRC Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:260
+msgid ""
+"The CRC format is identical to the new ASCII format described in the "
+"previous section except that the magic field is set to E<.Dq 070702> and the "
+"E<.Va check> field is set to the sum of all bytes in the file data.  This "
+"sum is computed treating all bytes as unsigned values and using unsigned "
+"arithmetic.  Only the least-significant 32 bits of the sum are stored."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:260
+#, no-wrap
+msgid "HP variants"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:265
+msgid ""
+"The E<.Nm cpio> implementation distributed with HPUX used XXXX but stored "
+"device numbers differently XXX."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:265
+#, no-wrap
+msgid "Other Extensions and Variants"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:269
+msgid ""
+"Sun Solaris uses additional file types to store extended file data, "
+"including ACLs and extended attributes, as special entries in cpio archives."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:271
+msgid "XXX Others? XXX"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:271
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:274
+msgid "E<.Xr cpio 1>, E<.Xr tar 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:274
+#, no-wrap
+msgid "STANDARDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:285
+msgid ""
+"The E<.Nm cpio> utility is no longer a part of POSIX or the Single Unix "
+"Standard.  It last appeared in E<.St -susv2>.  It has been supplanted in "
+"subsequent standards by E<.Xr pax 1>.  The portable ASCII format is "
+"currently part of the specification for the E<.Xr pax 1> utility."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:285
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:301
+msgid ""
+"The original cpio utility was written by Dick Haight while working in AT&T's "
+"Unix Support Group.  It appeared in 1977 as part of PWB/UNIX 1.0, the E<.Dq "
+"Programmer's Work Bench> derived from E<.At v6> that was used internally at "
+"AT&T.  Both the old binary and old character formats were in use by 1980, "
+"according to the System III source released by SCO under their E<.Dq Ancient "
+"Unix> license.  The character format was adopted as part of E<.St "
+"-p1003.1-88>.  XXX when did \"newc\" appear? Who invented it? When did HP "
+"come out with their variant? When did Sun introduce ACLs and extended "
+"attributes? XXX"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:301
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:306
+msgid ""
+"The E<.Dq CRC> format is mis-named, as it uses a simple checksum and not a "
+"cyclic redundancy check."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:310
+msgid ""
+"The old binary format is limited to 16 bits for user id, group id, device, "
+"and inode numbers.  It is limited to 4 gigabyte file sizes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:314
+msgid ""
+"The old ASCII format is limited to 18 bits for the user id, group id, "
+"device, and inode numbers.  It is limited to 8 gigabyte file sizes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:316
+msgid "The new ASCII format is limited to 4 gigabyte file sizes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:320
+msgid ""
+"None of the cpio formats store user or group names, which are essential when "
+"moving files between systems with dissimilar user or group numbering."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/libarchive/libarchive/cpio.5:325
+msgid ""
+"Especially when writing older cpio variants, it may be necessary to map "
+"actual device/inode values to synthesized values that fit the available "
+"fields.  With very large filesystems, this may be necessary even for the "
+"newer formats."
+msgstr ""

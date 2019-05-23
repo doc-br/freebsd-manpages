@@ -1,0 +1,338 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_scan.9:28
+#, no-wrap
+msgid "March 29, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_scan.9:29
+#, no-wrap
+msgid "IEEE80211_SCAN 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:33
+msgid "E<.Nm ieee80211_scan>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_scan.9:33
+#, no-wrap
+msgid "802.11 scanning support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_scan.9:35
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:130
+msgid ""
+"E<.Ft int> E<.Fo ieee80211_start_scan> E<.Fa \"struct ieee80211vap *\"> "
+"E<.Fa \"int flags\"> E<.Fa \"u_int duration\"> E<.Fa \"u_int mindwell\"> "
+"E<.Fa \"u_int maxdwell\"> E<.Fa \"u_int nssid\"> E<.Fa \"const struct "
+"ieee80211_scan_ssid ssids[]\"> E<.Fc> E<.Ft int> E<.Fo ieee80211_check_scan> "
+"E<.Fa \"struct ieee80211vap *\"> E<.Fa \"int flags\"> E<.Fa \"u_int "
+"duration\"> E<.Fa \"u_int mindwell\"> E<.Fa \"u_int maxdwell\"> E<.Fa "
+"\"u_int nssid\"> E<.Fa \"const struct ieee80211_scan_ssid ssids[]\"> E<.Fc> "
+"E<.Ft int> E<.Fn ieee80211_check_scan_current \"struct ieee80211vap *\"> "
+"E<.Ft int> E<.Fn ieee80211_bg_scan \"struct ieee80211vap *\" \"int\"> E<.Ft "
+"int> E<.Fn ieee80211_cancel_scan \"struct ieee80211vap *\"> E<.Ft int> E<.Fn "
+"ieee80211_cancel_scan_any \"struct ieee80211vap *\"> E<.Ft int> E<.Fn "
+"ieee80211_scan_next \"struct ieee80211vap *\"> E<.Ft int> E<.Fn "
+"ieee80211_scan_done \"struct ieee80211vap *\"> E<.Ft int> E<.Fn "
+"ieee80211_probe_curchan \"struct ieee80211vap *\" \"int\"> E<.Ft void> E<.Fo "
+"ieee80211_add_scan> E<.Fa \"struct ieee80211vap *\"> E<.Fa \"const struct "
+"ieee80211_scanparams *\"> E<.Fa \"const struct ieee80211_frame *\"> E<.Fa "
+"\"int subtype\"> E<.Fa \"int rssi\"> E<.Fa \"int noise\"> E<.Fc> E<.Ft void> "
+"E<.Fn ieee80211_scan_timeout \"struct ieee80211com *\"> E<.Ft void> E<.Fo "
+"ieee80211_scan_assoc_fail> E<.Fa \"struct ieee80211vap *\"> E<.Fa \"const "
+"uint8_t mac[IEEE80211_ADDR_LEN]\"> E<.Fa \"int reason\"> E<.Fc> E<.Ft void> "
+"E<.Fn ieee80211_scan_flush \"struct ieee80211vap *\"> E<.Ft void> E<.Fo "
+"ieee80211_scan_iterate> E<.Fa \"struct ieee80211vap *\"> E<.Fa "
+"\"ieee80211_scan_iter_func\"> E<.Fa \"void *\"> E<.Fc> E<.Ft void> E<.Fn "
+"ieee80211_scan_dump_channels \"const struct ieee80211_scan_state *\"> E<.Ft "
+"void> E<.Fo ieee80211_scanner_register> E<.Fa \"enum ieee80211_opmode\"> "
+"E<.Fa \"const struct ieee80211_scanner *\"> E<.Fc> E<.Ft void> E<.Fo "
+"ieee80211_scanner_unregister> E<.Fa \"enum ieee80211_opmode\"> E<.Fa \"const "
+"struct ieee80211_scanner *\"> E<.Fc> E<.Ft void> E<.Fn "
+"ieee80211_scanner_unregister_all \"const struct ieee80211_scanner *\"> E<.Ft "
+"const struct ieee80211_scanner *> E<.Fn ieee80211_scanner_get \"enum "
+"ieee80211_opmode\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:130
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:147
+msgid ""
+"The E<.Nm net80211> software layer provides an extensible framework for "
+"scanning.  Scanning is the procedure by which a station locates a BSS to "
+"join (in infrastructure and IBSS mode), or a channel to use (when operating "
+"as an AP or an IBSS master).  Scans are either E<.Dq active> or E<.Dq "
+"passive>.  An active scan causes one or more ProbeRequest frames to be sent "
+"on visiting each channel.  A passive request causes each channel in the scan "
+"set to be visited but no frames to be transmitted; the station only listens "
+"for traffic.  Note that active scanning may still need to listen for traffic "
+"before sending ProbeRequest frames depending on regulatory constraints."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:160
+msgid ""
+"A scan operation involves constructing a set of channels to inspect (the "
+"scan set), visiting each channel and collecting information (e.g. what BSS "
+"are present), and then analyzing the results to make decisions such as which "
+"BSS to join.  This process needs to be as fast as possible so E<.Nm "
+"net80211> does things like intelligently construct scan sets and dwell on a "
+"channel only as long as necessary.  Scan results are cached and the scan "
+"cache is used to avoid scanning when possible and to enable roaming between "
+"access points when operating in infrastructure mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:171
+msgid ""
+"Scanning is handled by pluggable modules that implement E<.Em policy> "
+"per-operating mode.  The core scanning support provides an infrastructure to "
+"support these modules and exports a common API to the rest of the E<.Nm "
+"net80211> layer.  Policy modules decide what channels to visit, what state "
+"to record to make decisions, and selects the final station/channel to return "
+"as the result of a scan."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:184
+msgid ""
+"Scanning is done synchronously when initially bringing a vap to an "
+"operational state and optionally in the background to maintain the scan "
+"cache for doing roaming and rogue AP monitoring.  Scanning is not tied to "
+"the E<.Nm net80211> state machine that governs vaps except for linkage to "
+"the E<.Dv IEEE80211_S_SCAN> state.  Only one vap at a time may be scanning; "
+"this scheduling policy is handled in E<.Fn ieee80211_new_state> and is "
+"transparent to scanning code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:194
+msgid ""
+"Scanning is controlled by a set of parameters that (potentially)  constrains "
+"the channel set and any desired SSID's and BSSID's.  E<.Nm net80211> comes "
+"with a standard scanner module that works with all available operating modes "
+"and supports E<.Dq background scanning> and E<.Dq roaming> operation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:194
+#, no-wrap
+msgid "SCANNER MODULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:206
+msgid ""
+"Scanning modules use a registration mechanism to hook into the E<.Nm "
+"net80211> layer.  Use E<.Fn ieee80211_scanner_register> to register a scan "
+"module for a particular operating mode and E<.Fn "
+"ieee80211_scanner_unregister> or E<.Fn ieee80211_scanner_unregister_all> to "
+"clear entries (typically on module unload).  Only one scanner module can be "
+"registered at any time for an operating mode."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:206
+#, no-wrap
+msgid "DRIVER SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:236
+msgid ""
+"Scanning operations are usually managed by the E<.Nm net80211> layer.  "
+"Drivers must provide E<.Vt ic_scan_start> and E<.Vt ic_scan_stop> methods "
+"that are called at the start of a scan and when the work is done; these "
+"should handle work such as enabling receive of Beacon and ProbeResponse "
+"frames and disable any BSSID matching.  The E<.Vt ic_set_channel> method is "
+"used to change channels while scanning.  E<.Nm net80211> will generate "
+"ProbeRequest frames and transmit them using the E<.Nm ic_raw_xmit> method.  "
+"Frames received while scanning are dispatched to E<.Nm net80211> using the "
+"normal receive path.  Devices that off-load scan work to firmware most "
+"easily mesh with E<.Nm net80211> by operating on a channel-at-a-time basis "
+"as this defers control to E<.Nm net80211's> scan machine scheduler.  But "
+"multi-channel scanning is supported if the driver manually dispatches "
+"results using E<.Fn ieee80211_add_scan> routine to enter results into the "
+"scan cache."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:236
+#, no-wrap
+msgid "SCAN REQUESTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:255
+msgid ""
+"Scan requests occur by way of the E<.Dv IEEE80211_SCAN_REQUEST> ioctl or "
+"through a change in a vap's state machine that requires scanning.  In both "
+"cases the scan cache can be checked first and, if it is deemed suitably "
+"E<.Dq warm> then it's contents are used without leaving the current "
+"channel.  To start a scan without checking the cache E<.Fn "
+"ieee80211_start_scan> can be called; otherwise E<.Fn ieee80211_check_scan> "
+"can be used to first check the scan cache, kicking off a scan if the cache "
+"contents are out of date.  There is also E<.Fn ieee80211_check_scan_current> "
+"which is a shorthand for using previously set scan parameters for checking "
+"the scan cache and then scanning."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:265
+msgid ""
+"Background scanning is done using E<.Fn ieee80211_bg_scan> in a co-routine "
+"fashion.  The first call to this routine will start a background scan that "
+"runs for a limited period of time before returning to the BSS channel.  "
+"Subsequent calls advance through the scan set until all channels are "
+"visited.  Typically these later calls are timed to allow receipt of frames "
+"buffered by an access point for the station."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:276
+msgid ""
+"A scan operation can be canceled using E<.Fn ieee80211_cancel_scan> if it "
+"was initiated by the specified vap, or E<.Fn ieee80211_cancel_scan_any> to "
+"force termination regardless which vap started it.  These requests are "
+"mostly used by E<.Nm net80211> in the transmit path to cancel background "
+"scans when frames are to be sent.  Drivers should not need to use these "
+"calls (or most of the calls described on this page)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:290
+msgid ""
+"The E<.Fn ieee80211_scan_next> and E<.Fn ieee80211_scan_done> routines do "
+"explicit iteration through the scan set and should not normally be used by "
+"drivers.  E<.Fn ieee80211_probe_curchan> handles the work of transmitting "
+"ProbeRequest frames when visiting a channel during an active scan.  When the "
+"channel attributes are marked with E<.Dv IEEE80211_CHAN_PASSIVE> this "
+"function will arrange that before any frame is transmitted 802.11 traffic is "
+"first received (in order to comply with regulatory constraints)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:300
+msgid ""
+"Min/max dwell time parameters are used to constrain time spent visiting a "
+"channel.  The maximum dwell time constrains the time spent listening for "
+"traffic.  The minimum dwell time is used to reduce this time--when it is "
+"reached and one or more frames have been received then an immediate channel "
+"change will be done.  Drivers can override this behaviour through the E<.Vt "
+"iv_scan_mindwell> method."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:300
+#, no-wrap
+msgid "SCAN CACHE MANAGEMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:311
+msgid ""
+"The scan cache contents are managed by the scan policy module and are opaque "
+"outside this module.  The E<.Nm net80211> scan framework defines API's for "
+"interacting.  The validity of the scan cache contents are controlled by "
+"E<.Vt iv_scanvalid> which is exported to user space through the E<.Dv "
+"IEEE80211_SCAN_VALID> request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:317
+msgid ""
+"The cache contents can be explicitly flushed with E<.Fn "
+"ieee80211_scan_flush> or by setting the E<.Dv IEEE80211_SCAN_FLUSH> flag "
+"when starting a scan operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:324
+msgid ""
+"Scan cache entries are created with the E<.Fn ieee80211_add_scan> routine; "
+"usually on receipt of Beacon or ProbeResponse frames.  Existing entries are "
+"typically updated based on the latest information though some information "
+"such as RSSI and noise floor readings may be combined to present an average."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:331
+msgid ""
+"The cache contents is aged through E<.Fn ieee80211_scan_timeout> calls.  "
+"Typically these happen together with other station table activity; every "
+"E<.Dv IEEE80211_INACT_WAIT> seconds (default 15)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:339
+msgid ""
+"Individual cache entries are marked usable with E<.Fn "
+"ieee80211_scan_assoc_success> and faulty with E<.Fn "
+"ieee80211_scan_assoc_fail> with the latter taking an argument to identify if "
+"there was no response to Authentication/Association requests or if a "
+"negative response was received (which might hasten cache eviction or "
+"blacklist the entry)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:347
+msgid ""
+"The cache contents can be viewed using the E<.Fn ieee80211_scan_iterate> "
+"call.  Cache entries are exported in a public format that is exported to "
+"user applications through the E<.Dv IEEE80211_SCAN_RESULTS> request."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_scan.9:347
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_scan.9:350
+msgid "E<.Xr ioctl 2>, E<.Xr ieee80211 9>, E<.Xr ieee80211_proto 9>"
+msgstr ""

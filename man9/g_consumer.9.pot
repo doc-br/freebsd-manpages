@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/g_consumer.9:27
+#, no-wrap
+msgid "January 16, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/g_consumer.9:28
+#, no-wrap
+msgid "G_CONSUMER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:33
+msgid "E<.Nm g_new_consumer>, E<.Nm g_destroy_consumer>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/g_consumer.9:33
+#, no-wrap
+msgid "GEOM consumers management"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/g_consumer.9:35
+#, no-wrap
+msgid "geom/geom.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:40
+msgid ""
+"E<.Ft \"struct g_consumer *\"> E<.Fn g_new_consumer \"struct g_geom *gp\"> "
+"E<.Ft void> E<.Fn g_destroy_consumer \"struct g_consumer *cp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:43
+msgid ""
+"A GEOM consumer is the backdoor through which a geom connects to another "
+"GEOM provider and through which I/O requests are sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:52
+msgid ""
+"The E<.Fn g_new_consumer> function creates a new consumer on geom E<.Fa "
+"gp>.  Before using the new consumer, it has to be attached to a provider "
+"with E<.Xr g_attach 9> and opened with E<.Xr g_access 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:57
+msgid ""
+"The E<.Fn g_destroy_consumer> function destroys the given consumer and "
+"cancels all related pending events.  This function is the last stage of "
+"killing an unwanted consumer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:57
+#, no-wrap
+msgid "RESTRICTIONS/CONDITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:59
+msgid "E<.Fn g_new_consumer>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:66
+msgid "The geom E<.Fa gp> has to have an E<.Va orphan> method defined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:68 /usr/src/share/man/man9/g_consumer.9:78
+msgid "The topology lock has to be held."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:71
+msgid "E<.Fn g_destroy_consumer>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:74
+msgid "The consumer must not be attached to a provider."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:76
+msgid "The access count has to be 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:79
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:84
+msgid ""
+"The E<.Fn g_new_consumer> function returns a pointer to the newly created "
+"consumer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:84
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:86
+msgid "Create consumer, attach it to given provider, gain read access and clean up."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:91
+#, no-wrap
+msgid ""
+"void\n"
+"some_function(struct g_geom *mygeom, struct g_provider *pp)\n"
+"{\n"
+"\tstruct g_consumer *cp;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:93
+#, no-wrap
+msgid "\tg_topology_assert();\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:107
+#, no-wrap
+msgid ""
+"\t/* Create new consumer on 'mygeom' geom. */\n"
+"\tcp = g_new_consumer(mygeom);\n"
+"\t/* Attach newly created consumer to given provider. */\n"
+"\tif (g_attach(cp, pp) != 0) {\n"
+"\t\tg_destroy_consumer(cp);\n"
+"\t\treturn;\n"
+"\t}\n"
+"\t/* Open provider for reading through our consumer. */\n"
+"\tif (g_access(cp, 1, 0, 0) != 0) {\n"
+"\t\tg_detach(cp);\n"
+"\t\tg_destroy_consumer(cp);\n"
+"\t\treturn;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:113
+#, no-wrap
+msgid ""
+"\tg_topology_unlock();\n"
+"\t/*\n"
+"\t * Read data from provider.\n"
+"\t */\n"
+"\tg_topology_lock();\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:121
+#, no-wrap
+msgid ""
+"\t/* Disconnect from provider (release access count). */\n"
+"\tg_access(cp, -1, 0, 0);\n"
+"\t/* Detach from provider. */\n"
+"\tg_detach(cp);\n"
+"\t/* Destroy consumer. */\n"
+"\tg_destroy_consumer(cp);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:122
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:134
+msgid ""
+"E<.Xr geom 4>, E<.Xr DECLARE_GEOM_CLASS 9>, E<.Xr g_access 9>, E<.Xr "
+"g_attach 9>, E<.Xr g_bio 9>, E<.Xr g_data 9>, E<.Xr g_event 9>, E<.Xr g_geom "
+"9>, E<.Xr g_provider 9>, E<.Xr g_provider_by_name 9>, E<.Xr g_wither_geom 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_consumer.9:134
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_consumer.9:137
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Pawel Jakub Dawidek Aq "
+"Mt pjd@FreeBSD.org>."
+msgstr ""

@@ -1,0 +1,413 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/hastctl/hastctl.8:30
+#, no-wrap
+msgid "September 8, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/hastctl/hastctl.8:31
+#, no-wrap
+msgid "HASTCTL 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:35
+msgid "E<.Nm hastctl>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/hastctl/hastctl.8:35
+#, no-wrap
+msgid "Highly Available Storage control utility"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:66
+msgid ""
+"E<.Nm> E<.Cm create> E<.Op Fl d> E<.Op Fl c Ar config> E<.Op Fl e Ar "
+"extentsize> E<.Op Fl k Ar keepdirty> E<.Op Fl m Ar mediasize> E<.Ar name "
+"...> E<.Nm> E<.Cm role> E<.Op Fl d> E<.Op Fl c Ar config> E<.Aq init | "
+"primary | secondary> E<.Ar all | name ...> E<.Nm> E<.Cm list> E<.Op Fl d> "
+"E<.Op Fl c Ar config> E<.Op Ar all | name ...> E<.Nm> E<.Cm status> E<.Op Fl "
+"d> E<.Op Fl c Ar config> E<.Op Ar all | name ...> E<.Nm> E<.Cm dump> E<.Op "
+"Fl d> E<.Op Fl c Ar config> E<.Op Ar all | name ...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:72
+msgid ""
+"The E<.Nm> utility is used to control the behaviour of the E<.Xr hastd 8> "
+"daemon."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:84
+msgid ""
+"This utility should be used by HA software like E<.Nm heartbeat> or E<.Nm "
+"ucarp> to setup HAST resources role when changing from primary mode to "
+"secondary or vice versa.  Be aware that if a file system like UFS exists on "
+"HAST provider and primary node dies, file system has to be checked for "
+"inconsistencies with the E<.Xr fsck 8> utility after switching secondary "
+"node to primary role."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:88
+msgid "The first argument to E<.Nm> indicates an action to be performed:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:89
+#, no-wrap
+msgid "Cm create"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:92
+msgid ""
+"Initialize local provider configured for the given resource.  Additional "
+"options include:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:93
+#, no-wrap
+msgid "Fl e Ar extentsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:109
+msgid ""
+"Size of an extent.  Extent is a block which is used for synchronization.  "
+"E<.Xr hastd 8> maintains a map of dirty extents and extent is the smallest "
+"region that can be marked as dirty.  If any part of an extent is modified, "
+"entire extent will be synchronized when nodes connect.  If extent size is "
+"too small, there will be too much disk activity related to dirty map "
+"updates, which will degrade performance of the given resource.  If extent "
+"size is too large, synchronization, even in case of short outage, can take a "
+"long time increasing the risk of losing up-to-date node before "
+"synchronization process is completed.  The default extent size is E<.Va "
+"2MB>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:109
+#, no-wrap
+msgid "Fl k Ar keepdirty"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:116
+msgid ""
+"Maximum number of dirty extents to keep dirty all the time.  Most recently "
+"used extents are kept dirty to reduce number of metadata updates.  The "
+"default number of most recently used extents which will be kept dirty is "
+"E<.Va 64>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:116
+#, no-wrap
+msgid "Fl m Ar mediasize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:120
+msgid ""
+"Size of the smaller provider used as backend storage on both nodes.  This "
+"option can be omitted if node providers have the same size on both sides."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:124
+msgid ""
+"If size is suffixed with a k, M, G or T, it is taken as a kilobyte, "
+"megabyte, gigabyte or terabyte measurement respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:124
+#, no-wrap
+msgid "Cm role"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:127
+msgid "Change role of the given resource.  The role can be one of:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:128
+#, no-wrap
+msgid "Cm init"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:130
+msgid "Resource is turned off."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:130
+#, no-wrap
+msgid "Cm primary"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:137
+msgid ""
+"Local E<.Xr hastd 8> daemon will act as primary node for the given "
+"resource.  System on which resource role is set to primary can use E<.Pa "
+"/dev/hast/E<lt>nameE<gt>> GEOM provider."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:137
+#, no-wrap
+msgid "Cm secondary"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:146
+msgid ""
+"Local E<.Xr hastd 8> daemon will act as secondary node for the given "
+"resource - it will wait for connection from the primary node and will handle "
+"I/O requests received from it.  GEOM provider E<.Pa "
+"/dev/hast/E<lt>nameE<gt>> will not be created on secondary node."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:147
+#, no-wrap
+msgid "Cm list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:149
+msgid "Present verbose status of the configured resources."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:149
+#, no-wrap
+msgid "Cm status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:152
+msgid ""
+"Present terse (and more easy machine-parseable) status of the configured "
+"resources."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:152
+#, no-wrap
+msgid "Cm dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:154
+msgid "Dump metadata stored on local component for the configured resources."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:157
+msgid "In addition, every subcommand can be followed by the following options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:158
+#, no-wrap
+msgid "Fl c Ar config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:162
+msgid ""
+"Specify alternative location of the configuration file.  The default "
+"location is E<.Pa /etc/hast.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:162
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:166
+msgid ""
+"Print debugging information.  This option can be specified multiple times to "
+"raise the verbosity level."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:167
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:169
+#, no-wrap
+msgid "Pa /etc/hast.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:174
+msgid "Configuration file for E<.Nm> and E<.Xr hastd 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastctl/hastctl.8:174
+#, no-wrap
+msgid "Pa /var/run/hastctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:180
+msgid "Control socket used by E<.Nm> to communicate with the E<.Xr hastd 8> daemon."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:181
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:185
+msgid ""
+"Exit status is 0 on success, or one of the values described in E<.Xr "
+"sysexits 3> on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:185
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:187
+msgid "Initialize HAST provider, create file system on it and mount it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:191
+#, no-wrap
+msgid ""
+"nodeB# hastctl create shared\n"
+"nodeB# hastd\n"
+"nodeB# hastctl role secondary shared\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:198
+#, no-wrap
+msgid ""
+"nodeA# hastctl create shared\n"
+"nodeA# hastd\n"
+"nodeA# hastctl role primary shared\n"
+"nodeA# newfs -U /dev/hast/shared\n"
+"nodeA# mount -o noatime /dev/hast/shared /shared\n"
+"nodeA# application_start\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:203
+msgid "Switch roles for the E<.Nm shared> HAST resource."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:207
+#, no-wrap
+msgid ""
+"nodeA# application_stop\n"
+"nodeA# umount -f /shared\n"
+"nodeA# hastctl role secondary shared\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:212
+#, no-wrap
+msgid ""
+"nodeB# hastctl role primary shared\n"
+"nodeB# fsck -t ufs /dev/hast/shared\n"
+"nodeB# mount -o noatime /dev/hast/shared /shared\n"
+"nodeB# application_start\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:213
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:223
+msgid ""
+"E<.Xr sysexits 3>, E<.Xr geom 4>, E<.Xr hast.conf 5>, E<.Xr fsck 8>, E<.Xr "
+"ggatec 8>, E<.Xr ggatel 8>, E<.Xr hastd 8>, E<.Xr mount 8>, E<.Xr newfs 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:223
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:228
+msgid "The E<.Nm> utility appeared in E<.Fx 8.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastctl/hastctl.8:228
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastctl/hastctl.8:233
+msgid ""
+"The E<.Nm> was developed by E<.An Pawel Jakub Dawidek Aq Mt pjd@FreeBSD.org> "
+"under sponsorship of the FreeBSD Foundation."
+msgstr ""

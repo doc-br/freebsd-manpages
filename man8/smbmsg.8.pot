@@ -1,0 +1,568 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:27
+#, no-wrap
+msgid "May 16, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:28
+#, no-wrap
+msgid "SMBMSG 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:32
+msgid "E<.Nm smbmsg>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:32
+#, no-wrap
+msgid "send or receive messages over an SMBus"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:37
+msgid "E<.Nm> E<.Op Fl f Ar dev> E<.Fl p>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:47
+msgid ""
+"E<.Nm> E<.Op Fl f Ar dev> E<.Fl s Ar slave> E<.Op Fl F Ar fmt> E<.Op Fl c Ar "
+"cmd> E<.Op Fl w> E<.Op Fl i Ar incnt> E<.Op Fl o Ar outcnt> E<.Op Ar outdata "
+"...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:53
+msgid ""
+"The E<.Nm> utility can be used to send or receive messages over an SMBus, "
+"see E<.Xr smbus 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:76
+msgid ""
+"The E<.Nm> utility has two different modi of operation.  The first form "
+"shown in the synopsis can be used to E<.Dq probe> the devices on the SMBus.  "
+"This is done by sending each valid device address one receive byte, and one "
+"quick read message, respectively.  Devices that respond to these requests "
+"will be displayed by their device address, followed by the strings E<.Ql r>, "
+"E<.Ql w>, or E<.Ql rw>, for devices that are readable, writeable, or both, "
+"readable and writeable, respectively.  The only valid additional option for "
+"this modus of operation (besides the E<.Fl p> option that chooses the modus) "
+"is E<.Fl f Ar dev>.  See below for a description."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:83
+msgid ""
+"Note that probing the bus is risky, since individual devices could perform "
+"unwanted actions upon receiving one of the mentioned messages.  For example, "
+"if a particular SMBus device considers E<.Em any> write operation issued to "
+"it as a request to power off the system, the probing would trigger this "
+"action."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:89
+msgid ""
+"The second form shown in the synopsis can be used to send or receive "
+"arbitrary messages to or from individual devices.  This might be useful to "
+"explore individual devices on the SMBus, or maybe even to write short shell "
+"scripts performing maintenance operations on the bus."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:97
+msgid ""
+"Any data values on the command-line are integer values in the range 0 "
+"through 255 for byte values, or 0 through 65535 for word values.  They can "
+"be specified using standard E<.Ql C> notation (prefix 0 for octal "
+"interpretation, or 0x for hexadecimal interpretation)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:101
+msgid ""
+"Since the low-order bit of the device address of SMBus devices selects "
+"between read and write operations, only even-numbered slave addresses can "
+"exist on the bus."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:103
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:104
+#, no-wrap
+msgid "Fl F Ar fmt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:117
+msgid ""
+"Specify the E<.Xr printf 3> format to be used for displaying input data.  "
+"This option is ignored in messages that do not read any input from the SMBus "
+"device.  The format defaults to E<.Ql 0x%02x> for byte input operations, and "
+"to E<.Ql 0x%04x> for word input operations.  For multi-byte input (block "
+"read), the same format is used for each individual byte read from the SMBus."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:117
+#, no-wrap
+msgid "Fl c Ar cmd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:121
+msgid ""
+"This is the value of the E<.Em command> byte to be issued as part of the "
+"SMBus message."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:121
+#, no-wrap
+msgid "Fl f Ar dev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:127
+msgid ""
+"This specifies that E<.Ar dev> should be used as the connection to the "
+"SMBus, rather than the default of E<.Pa /dev/smb0>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:127
+#, no-wrap
+msgid "Fl i Ar incnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:131
+msgid ""
+"An SMBus message should be generated to read E<.Ar incnt> bytes from the "
+"device."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:131
+#, no-wrap
+msgid "Fl o Ar outcnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:140
+msgid ""
+"An SMBus message should be generated to write E<.Ar outcnt> bytes to the "
+"device.  The data values to write are expected to follow all of the options "
+"(and their arguments) on the command-line, where the number of data bytes "
+"must match the E<.Ar outcnt> value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:140
+#, no-wrap
+msgid "Fl p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:144
+msgid "This selects the E<.Em probe bus> modus of operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:144
+#, no-wrap
+msgid "Fl s Ar slave"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:151
+msgid ""
+"The E<.Ar slave> parameter specifies which SMBus device to connect to.  This "
+"option also selects the E<.Em transfer messages from/to device> modus of "
+"operation, where a slave address is mandatory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:151
+#, no-wrap
+msgid "Fl w"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:161
+msgid ""
+"This option specifies that IO operations are word operations, rather than "
+"byte operations.  Either E<.Ar incnt>, or E<.Ar outcnt> (or both) must be "
+"equal 2 in this case.  Note that the SMBus byte order is defined to be "
+"little-endian (low byte first, high byte follows)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:169
+msgid ""
+"Not all argument combinations make sense in order to form valid SMBus "
+"messages.  If no E<.Fl c Ar cmd> option has been provided, the following "
+"messages can be issued:"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:172 /usr/src/usr.sbin/smbmsg/smbmsg.8:190
+#, no-wrap
+msgid "B<message>"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:172 /usr/src/usr.sbin/smbmsg/smbmsg.8:190
+#, no-wrap
+msgid "B<incnt>"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:172 /usr/src/usr.sbin/smbmsg/smbmsg.8:190
+#, no-wrap
+msgid "B<outcnt>"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:173
+#, no-wrap
+msgid "quick read"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:173 /usr/src/usr.sbin/smbmsg/smbmsg.8:174
+#, no-wrap
+msgid "0"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:173 /usr/src/usr.sbin/smbmsg/smbmsg.8:174 /usr/src/usr.sbin/smbmsg/smbmsg.8:175 /usr/src/usr.sbin/smbmsg/smbmsg.8:176 /usr/src/usr.sbin/smbmsg/smbmsg.8:191 /usr/src/usr.sbin/smbmsg/smbmsg.8:192 /usr/src/usr.sbin/smbmsg/smbmsg.8:193 /usr/src/usr.sbin/smbmsg/smbmsg.8:194 /usr/src/usr.sbin/smbmsg/smbmsg.8:196 /usr/src/usr.sbin/smbmsg/smbmsg.8:197
+#, no-wrap
+msgid "\\&-"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:174
+#, no-wrap
+msgid "quick write"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:175
+#, no-wrap
+msgid "receive byte"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:175 /usr/src/usr.sbin/smbmsg/smbmsg.8:176 /usr/src/usr.sbin/smbmsg/smbmsg.8:191 /usr/src/usr.sbin/smbmsg/smbmsg.8:192
+#, no-wrap
+msgid "1"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:176
+#, no-wrap
+msgid "send byte"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:183
+msgid ""
+"Note in particular that specifying 0 as a count value has a different "
+"meaning than omitting the respective option entirely."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:187
+msgid ""
+"If a command value has been given using the E<.Fl c Ar cmd> option, the "
+"following messages can be generated:"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:190
+#, no-wrap
+msgid "B<\\&-w>"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:191
+#, no-wrap
+msgid "read byte"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:191 /usr/src/usr.sbin/smbmsg/smbmsg.8:192 /usr/src/usr.sbin/smbmsg/smbmsg.8:196 /usr/src/usr.sbin/smbmsg/smbmsg.8:197
+#, no-wrap
+msgid "no"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:192
+#, no-wrap
+msgid "write byte"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:193
+#, no-wrap
+msgid "read word"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:193 /usr/src/usr.sbin/smbmsg/smbmsg.8:194 /usr/src/usr.sbin/smbmsg/smbmsg.8:195
+#, no-wrap
+msgid "yes"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:193 /usr/src/usr.sbin/smbmsg/smbmsg.8:194 /usr/src/usr.sbin/smbmsg/smbmsg.8:195 /usr/src/usr.sbin/smbmsg/smbmsg.8:195
+#, no-wrap
+msgid "2"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:194
+#, no-wrap
+msgid "write word"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:195
+#, no-wrap
+msgid "process call"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:196
+#, no-wrap
+msgid "block read"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:196 /usr/src/usr.sbin/smbmsg/smbmsg.8:197
+#, no-wrap
+msgid "\\*(Ge 2"
+msgstr ""
+
+#. type: tbl table
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:197
+#, no-wrap
+msgid "block write"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:200
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:202
+#, no-wrap
+msgid "Pa /dev/smb0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:206
+msgid "The default device to connect to, unless E<.Fl f Ar dev> has been provided."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:207
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:211
+msgid ""
+"Exit status is 0 on success, or according to E<.Xr sysexits 3> in case of "
+"failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:211
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:215
+msgid "Typical usage examples of the E<.Nm> command include:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:216
+#, no-wrap
+msgid "smbmsg -f /dev/smb1 -p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:220
+msgid "Probe all devices on the SMBus attached to E<.Pa /dev/smb1>."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:221
+#, no-wrap
+msgid "smbmsg -s 0x70 -i 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:227
+msgid ""
+"Issue a E<.Em receive byte> message to the device at address 0x70, and "
+"display the received byte using the default format."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:228
+#, no-wrap
+msgid "smbmsg -s 0x70 -c 0xff -i 1 -F %d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:236
+msgid ""
+"Issue a E<.Em read byte> message to the device at slave address 0x70, using "
+"255 (0xff) as the command-byte to send to the device, and display the result "
+"using the custom format E<.Ql %d>."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:237
+#, no-wrap
+msgid "smbmsg -s 0xa0 -c 0 -o 1 0x80"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:246
+msgid ""
+"Send a E<.Em write byte> message to the slave device at address 0xa0, using "
+"0 as the command-byte value, and 0x80 as the byte to send (after the "
+"command).  Assuming this might be a Philips PCF8583 real-time clock, this "
+"would stop the clock."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:247
+#, no-wrap
+msgid "smbmsg -s 0xa0 -c 1 -i 6 -F %02x"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:258
+msgid ""
+"Send a E<.Em block read> command to device at address 0xa0, and read 6 bytes "
+"from it, using hexadecimal display.  Again, assuming a PCF8583 RTC, this "
+"would display the fractions of second, seconds, minutes, hours, year/date, "
+"and weekday/month values.  Since this RTC uses BCD notation, the actual "
+"values displayed were decimal then."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:259
+#, no-wrap
+msgid "smbmsg -s 0xa0 -c 2 -o 5 0x00 0x07 0x22 0x16 0x05"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:266
+msgid ""
+"Send a E<.Em block write> command to device at address 0xa0.  For the "
+"PCF8583 RTC, this would set the clock to Sunday (2004%4)-05-16 22:07:00."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:266
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:268
+msgid "Diagnostic messages issued are supposed to be self-explanatory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:268
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:277
+msgid ""
+"E<.Xr printf 3>, E<.Xr sysexits 3>, E<.Xr smb 4>, E<.Xr smbus 4> E<.Rs> "
+"E<.%T \"The SMBus specification\"> E<.%U http://www.smbus.org/specs/> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:277
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:282
+msgid "The E<.Nm> utility first appeared in E<.Fx 5.3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:282
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/smbmsg/smbmsg.8:286
+msgid ""
+"The E<.Nm> utility and this manual page were written by E<.An J\\(:org "
+"Wunsch>."
+msgstr ""

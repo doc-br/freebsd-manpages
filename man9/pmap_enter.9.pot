@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/pmap_enter.9:29
+#, no-wrap
+msgid "December 16, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/pmap_enter.9:30
+#, no-wrap
+msgid "PMAP_ENTER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:34
+msgid "E<.Nm pmap_enter>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/pmap_enter.9:34
+#, no-wrap
+msgid "insert a virtual page into a physical map"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pmap_enter.9:36
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pmap_enter.9:37
+#, no-wrap
+msgid "vm/vm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/pmap_enter.9:38
+#, no-wrap
+msgid "vm/pmap.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:44
+msgid ""
+"E<.Ft int> E<.Fo pmap_enter> E<.Fa \"pmap_t pmap\" \"vm_offset_t va\" "
+"\"vm_page_t m\" \"vm_prot_t prot\"> E<.Fa \"u_int flags\" \"int8_t psind\"> "
+"E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:58
+msgid ""
+"The E<.Fn pmap_enter> function creates a mapping in the physical map E<.Fa "
+"pmap> from the virtual address E<.Fa va> to the physical page E<.Fa m> with "
+"the protection E<.Fa prot>.  Any previous mapping at the virtual address "
+"E<.Fa va> is destroyed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:62
+msgid "The E<.Fa flags> argument may have the following values:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pmap_enter.9:63
+#, no-wrap
+msgid "Dv VM_PROT_READ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:65
+msgid "A read access to the given virtual address triggered the call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pmap_enter.9:65
+#, no-wrap
+msgid "Dv VM_PROT_WRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:67
+msgid "A write access to the given virtual address triggered the call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pmap_enter.9:67
+#, no-wrap
+msgid "Dv VM_PROT_EXECUTE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:69
+msgid "An execute access to the given virtual address triggered the call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pmap_enter.9:69
+#, no-wrap
+msgid "Dv PMAP_ENTER_WIRED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:71
+msgid "The mapping should be marked as wired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/pmap_enter.9:71
+#, no-wrap
+msgid "Dv PMAP_ENTER_NOSLEEP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:75
+msgid ""
+"This function may not sleep during creation of the mapping.  If the mapping "
+"cannot be created without sleeping, an appropriate Mach VM error is "
+"returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:83
+msgid ""
+"If the E<.Dv PMAP_ENTER_NOSLEEP> flag is not specified, this function must "
+"create the requested mapping before returning.  It may not fail.  In order "
+"to create the requested mapping, this function may destroy any non-wired "
+"mapping in any pmap."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:91
+msgid ""
+"The E<.Fa psind> parameter specifies the page size that should be used by "
+"the mapping.  The supported page sizes are described by the global array "
+"E<.Dv pagesizes[]>.  The desired page size is specified by passing the index "
+"of the array element that equals the desired page size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:111
+msgid ""
+"When the E<.Fn pmap_enter> function destroys or updates a managed mapping, "
+"including an existing mapping at virtual address E<.Fa va>, it updates the "
+"E<.Ft vm_page> structure corresponding to the previously mapped physical "
+"page.  If the physical page was accessed through the managed mapping, then "
+"the E<.Ft vm_page> structure's E<.Dv PGA_REFERENCED> aflag is set.  If the "
+"physical page was modified through the managed mapping, then the E<.Fn "
+"vm_page_dirty> function is called on the E<.Ft vm_page> structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:122
+msgid ""
+"The E<.Dv PGA_WRITEABLE> aflag must be set for the page E<.Fa m> if the new "
+"mapping is managed and writeable.  It is advised to clear E<.Dv "
+"PGA_WRITEABLE> for destroyed mappings if the implementation can ensure that "
+"no other writeable managed mappings for the previously mapped pages exist."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:130
+msgid ""
+"If the request modifies an existing mapping to use a different physical "
+"page, an implementation of E<.Nm> must invalidate the previous mapping "
+"before installing the new one.  This ensures that all threads sharing the "
+"pmap keep a consistent view of the mapping, which is necessary for the "
+"correct handling of CoW (copy on write) faults."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:138
+msgid ""
+"If the page E<.Fa m> is managed, the page must be busied by the caller or "
+"the owning object must be locked.  In the later case, the E<.Dv "
+"PMAP_ENTER_NOSLEEP> must be specified by the caller."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:143
+msgid ""
+"The E<.Fn pmap_enter> function must handle the multiprocessor TLB "
+"consistency for the given address."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:143
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:153
+msgid ""
+"On arm and i386 architectures the existing implementation of the E<.Nm> "
+"function is incomplete, only value 0 for E<.Fa psind> is supported.  Other "
+"supported architectures, except amd64, have E<.Dv pagesizes[]> array of size "
+"1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:153
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:164
+msgid ""
+"If successful, the E<.Fn pmap_enter> function returns E<.Er KERN_SUCCESS>.  "
+"If the E<.Dv PMAP_ENTER_NOSLEEP> flag was specified and the resources "
+"required for the mapping cannot be acquired without sleeping, E<.Dv "
+"KERN_RESOURCE_SHORTAGE> is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:164
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:166
+msgid "E<.Xr pmap 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/pmap_enter.9:166
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/pmap_enter.9:172
+msgid ""
+"This manual page was first written by E<.An Bruce M Simpson Aq Mt "
+"bms@spc.org> and then rewritten by E<.An Alan Cox Aq Mt alc@FreeBSD.org> and "
+"E<.An Konstantin Belousov Aq Mt kib@FreeBSD.org>."
+msgstr ""

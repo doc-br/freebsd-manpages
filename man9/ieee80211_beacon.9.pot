@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_beacon.9:28
+#, no-wrap
+msgid "August 4, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_beacon.9:29
+#, no-wrap
+msgid "IEEE80211_BEACON 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_beacon.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:33
+msgid "E<.Nm ieee80211_beacon>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_beacon.9:33
+#, no-wrap
+msgid "802.11 beacon support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_beacon.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_beacon.9:35
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:53
+msgid ""
+"E<.Ft \"struct mbuf *\"> E<.Fo ieee80211_beacon_alloc> E<.Fa \"struct "
+"ieee80211_node *\"> E<.Fa \"struct ieee80211_beacon_offsets *\"> E<.Fc> "
+"E<.Ft int> E<.Fo ieee80211_beacon_update> E<.Fa \"struct ieee80211_node *\"> "
+"E<.Fa \"struct ieee80211_beacon_offsets *\"> E<.Fa \"struct mbuf *\"> E<.Fa "
+"\"int mcast\"> E<.Fc> E<.Ft void> E<.Fn ieee80211_beacon_notify \"struct "
+"ieee80211vap *\" \"int what\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_beacon.9:53
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:67
+msgid ""
+"The E<.Nm net80211> software layer provides a support framework for drivers "
+"that includes a template-based mechanism for dynamic update of beacon frames "
+"transmit in hostap, adhoc, and mesh operating modes.  Drivers should use "
+"E<.Fn ieee80211_beacon_alloc> to create an initial beacon frame.  The E<.Vt "
+"ieee80211_beacon_offsets> structure holds information about the beacon "
+"contents that is used to optimize updates done with E<.Fn "
+"ieee80211_beacon_update>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:77
+msgid ""
+"Update calls should only be done when something changes that affects the "
+"contents of the beacon frame.  When this happens the E<.Dv iv_update_beacon> "
+"method is invoked and a driver-supplied routine must do the right thing.  "
+"For devices that involve the host to transmit each beacon frame this work "
+"may be as simple as marking a bit in the E<.Vt ieee80211_beacon_offsets> "
+"structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:84
+#, no-wrap
+msgid ""
+"static void\n"
+"ath_beacon_update(struct ieee80211vap *vap, int item)\n"
+"{\n"
+"        struct ieee80211_beacon_offsets *bo = &ATH_VAP(vap)-E<gt>av_boff;\n"
+"\tsetbit(bo-E<gt>bo_flags, item);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:89
+msgid ""
+"with the E<.Fn ieee80211_beacon_update> call done before the next beacon is "
+"to be sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:95
+msgid ""
+"Devices that off-load beacon generation may instead choose to use this "
+"callback to push updates immediately to the device.  Exactly how that is "
+"accomplished is unspecified.  One possibility is to update the beacon frame "
+"contents and extract the appropriate information element, but other "
+"scenarios are possible."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_beacon.9:95
+#, no-wrap
+msgid "MULTI-VAP BEACON SCHEDULING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:114
+msgid ""
+"Drivers that support multiple vaps that can each beacon need to consider how "
+"to schedule beacon frames.  There are two possibilities at the moment: E<.Em "
+"burst> all beacons at TBTT or E<.Em stagger beacons> over the beacon "
+"interval.  Bursting beacon frames may result in aperiodic delivery that can "
+"affect power save operation of associated stations.  Applying some jitter "
+"(e.g. by randomly ordering burst frames) may be sufficient to combat this "
+"and typically this is not an issue unless stations are using aggressive "
+"power save techniques such as U-APSD (sometimes employed by VoIP phones).  "
+"Staggering frames requires more interrupts and device support that may not "
+"be available.  Staggering beacon frames is usually superior to bursting "
+"frames, up to about eight vaps, at which point the overhead becomes "
+"significant and the channel becomes noticeably busy anyway."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_beacon.9:114
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_beacon.9:115
+msgid "E<.Xr ieee80211 9>"
+msgstr ""

@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_vjc.4:38
+#, no-wrap
+msgid "January 19, 1999"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_vjc.4:39
+#, no-wrap
+msgid "NG_VJC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:43
+msgid "E<.Nm ng_vjc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_vjc.4:43
+#, no-wrap
+msgid "Van Jacobson compression netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:45
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:46
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:47
+#, no-wrap
+msgid "netinet/in_systm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:48
+#, no-wrap
+msgid "netinet/ip.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:49
+#, no-wrap
+msgid "net/slcompress.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:50
+#, no-wrap
+msgid "netgraph/ng_vjc.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:72
+msgid ""
+"The E<.Nm vjc> node type performs Van Jacobson compression, which is used "
+"over PPP, SLIP, and other point-to-point IP connections to compress TCP "
+"packet headers.  The E<.Dv ip> hook represents the uncompressed side of the "
+"node, while the E<.Dv vjcomp>, E<.Dv vjuncomp>, and E<.Dv vjip> hooks "
+"represent the compressed side of the node.  Packets received on the E<.Dv "
+"ip> will be compressed or passed through as appropriate.  Packets received "
+"on the other three hooks will be uncompressed as appropriate.  This node "
+"also supports E<.Dq always pass through> mode in either direction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:86
+msgid ""
+"Van Jacobson compression only applies to TCP packets.  Only E<.Dq normal> "
+"(i.e., common case) TCP packets are actually compressed.  These are output "
+"on the E<.Dv vjcomp> hook.  Other TCP packets are run through the state "
+"machine but not compressed; these appear on the E<.Dv vjuncomp> hook.  Other "
+"non-TCP IP packets are forwarded unchanged to E<.Dv vjip>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:104
+msgid ""
+"When connecting to a E<.Xr ng_ppp 4> node, the E<.Dv ip>, E<.Dv vjuncomp>, "
+"E<.Dv vjcomp>, and E<.Dv vjip> hooks should be connected to the E<.Xr ng_ppp "
+"4> node's E<.Dv vjc_ip>, E<.Dv vjc_vjcomp>, E<.Dv vjc_vjuncomp>, and E<.Dv "
+"vjc_ip> hooks, respectively."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:104
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:106
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:107
+#, no-wrap
+msgid "Va ip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:109
+msgid "Upstream (uncompressed) IP packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:109
+#, no-wrap
+msgid "Va vjcomp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:111
+msgid "Downstream compressed TCP packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:111
+#, no-wrap
+msgid "Va vjuncomp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:113
+msgid "Downstream uncompressed TCP packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:113
+#, no-wrap
+msgid "Va vjip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:115
+msgid "Downstream uncompressed IP packets."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:116
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:118
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:119
+#, no-wrap
+msgid "Dv NGM_VJC_SET_CONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:125
+msgid ""
+"This command resets the compression state and configures it according to the "
+"supplied E<.Dv \"struct ngm_vjc_config\"> argument.  This structure contains "
+"the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:132
+#, no-wrap
+msgid ""
+"struct ngm_vjc_config {\n"
+"  u_char   enableComp;    /* Enable compression */\n"
+"  u_char   enableDecomp;  /* Enable decompression */\n"
+"  u_char   maxChannel;    /* Number of outgoing channels - 1 */\n"
+"  u_char   compressCID;   /* OK to compress outgoing CID's */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:157
+msgid ""
+"When E<.Dv enableComp> is set to zero, all packets received on the E<.Dv ip> "
+"hook are forwarded unchanged out the E<.Dv vjip> hook.  Similarly, when "
+"E<.Dv enableDecomp> is set to zero, all packets received on the E<.Dv vjip> "
+"hook are forwarded unchanged out the E<.Dv ip> hook, and packets are not "
+"accepted on the E<.Dv vjcomp> and E<.Dv vjuncomp> hooks.  When a node is "
+"first created, both compression and decompression are disabled and the node "
+"is therefore operating in bi-directional E<.Dq pass through> mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:172
+msgid ""
+"When enabling compression, E<.Dv maxChannel> should be set to the number of "
+"outgoing compression channels minus one, and is a value between 3 and 15, "
+"inclusive.  The E<.Dv compressCID> field indicates whether it is OK to "
+"compress the CID header field for outgoing compressed TCP packets.  This "
+"value should be zero unless either (a) it is not possible for an outgoing "
+"frame to be lost, or (b) lost frames can be reliably detected and "
+"immediately reported to the peer's decompression engine (see E<.Dv "
+"NGM_VJC_RECV_ERROR> below)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:172
+#, no-wrap
+msgid "Dv NGM_VJC_GET_STATE Pq Ic getstate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:176
+msgid ""
+"This command returns the node's current state described by the E<.Dv "
+"\"struct slcompress\"> structure, which is defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vjc.4:176
+#, no-wrap
+msgid "net/slcompress.h ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:177
+#, no-wrap
+msgid "Dv NGM_VJC_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:186
+msgid ""
+"Clears the node statistics counters.  Statistics are also cleared whenever "
+"the E<.Dv enableComp> or E<.Dv enableDecomp> fields are changed from zero to "
+"one by a E<.Dv NGM_VJC_SET_CONFIG> control message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vjc.4:186
+#, no-wrap
+msgid "Dv NGM_VJC_RECV_ERROR Pq Ic recverror"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:194
+msgid ""
+"When the peer has CID header field compression enabled, this message must be "
+"sent to the local E<.Nm vjc> node immediately after detecting that a "
+"received frame has been lost, due to a bad checksum or for any other "
+"reason.  Failing to do this can result in corrupted TCP stream data."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:195
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:199
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:199
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:214
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_iface 4>, E<.Xr ng_ppp 4>, E<.Xr ngctl 8> E<.Rs> "
+"E<.%A V. Jacobson> E<.%T \"Compressing TCP/IP Headers\"> E<.%O RFC 1144> "
+"E<.Re> E<.Rs> E<.%A G. McGregor> E<.%T \"The PPP Internet Control Protocol "
+"(IPCP)\"> E<.%O RFC 1332> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:214
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:219
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:219
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:221
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vjc.4:221
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:231
+msgid ""
+"As the initialization routine in the kernel implementation of Van Jacobson "
+"compression initializes both compression and decompression at once, this "
+"node does not allow compression and decompression to be enabled in separate "
+"operations.  In order to enable one when the other is already enabled, first "
+"both must be disabled, then both enabled.  This of course resets the node "
+"state.  This restriction may be lifted in a later version."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vjc.4:238
+msgid ""
+"When built as a loadable kernel module, this module includes the file E<.Pa "
+"net/slcompress.c>.  Although loading the module should fail if E<.Pa "
+"net/slcompress.c> already exists in the kernel, currently it does not, and "
+"the duplicate copies of the file do not interfere.  However, this may change "
+"in the future."
+msgstr ""

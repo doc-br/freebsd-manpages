@@ -1,0 +1,515 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/init/init.8:34
+#, no-wrap
+msgid "August 15, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/init/init.8:35
+#, no-wrap
+msgid "INIT 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:39
+msgid "E<.Nm init>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/init/init.8:39
+#, no-wrap
+msgid "process control initialization"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:47
+msgid "E<.Nm> E<.Nm> E<.Oo> E<.Cm 0 | 1 | 6 |> E<.Cm c | q> E<.Oc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:74
+msgid ""
+"The E<.Nm> utility is the last stage of the boot process.  It normally runs "
+"the automatic reboot sequence as described in E<.Xr rc 8>, and if this "
+"succeeds, begins multi-user operation.  If the reboot scripts fail, E<.Nm> "
+"commences single-user operation by giving the super-user a shell on the "
+"console.  The E<.Nm> utility may be passed parameters from the boot program "
+"to prevent the system from going multi-user and to instead execute a "
+"single-user shell without starting the normal daemons.  The system is then "
+"quiescent for maintenance work and may later be made to go to multi-user by "
+"exiting the single-user shell (with ^D).  This causes E<.Nm> to run the "
+"E<.Pa /etc/rc> start up command file in fastboot mode (skipping disk "
+"checks)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:98
+msgid ""
+"If the E<.Em console> entry in the E<.Xr ttys 5> file is marked E<.Dq "
+"insecure>, then E<.Nm> will require that the super-user password be entered "
+"before the system will start a single-user shell.  The password check is "
+"skipped if the E<.Em console> is marked as E<.Dq secure>.  Note that the "
+"password check does not protect from variables such as E<.Va init_script> "
+"being set from the E<.Xr loader 8> command line; see the E<.Sx SECURITY> "
+"section of E<.Xr loader 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:117
+msgid ""
+"If the system security level (see E<.Xr security 7>)  is initially nonzero, "
+"then E<.Nm> leaves it unchanged.  Otherwise, E<.Nm> raises the level to 1 "
+"before going multi-user for the first time.  Since the level cannot be "
+"reduced, it will be at least 1 for subsequent operation, even on return to "
+"single-user.  If a level higher than 1 is desired while running multi-user, "
+"it can be set before going multi-user, e.g., by the startup script E<.Xr rc "
+"8>, using E<.Xr sysctl 8> to set the E<.Va kern.securelevel> variable to the "
+"required security level."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:130
+msgid ""
+"If E<.Nm> is run in a jail, the security level of the E<.Dq host system> "
+"will not be affected.  Part of the information set up in the kernel to "
+"support a jail is a per-jail security level.  This allows running a higher "
+"security level inside of a jail than that of the host system.  See E<.Xr "
+"jail 8> for more information about jails."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:162
+msgid ""
+"In multi-user operation, E<.Nm> maintains processes for the terminal ports "
+"found in the file E<.Xr ttys 5>.  The E<.Nm> utility reads this file and "
+"executes the command found in the second field, unless the first field "
+"refers to a device in E<.Pa /dev> which is not configured.  The first field "
+"is supplied as the final argument to the command.  This command is usually "
+"E<.Xr getty 8>; E<.Nm getty> opens and initializes the tty line and executes "
+"the E<.Xr login 1> program.  The E<.Nm login> program, when a valid user "
+"logs in, executes a shell for that user.  When this shell dies, either "
+"because the user logged out or an abnormal termination occurred (a signal), "
+"the cycle is restarted by executing a new E<.Nm getty> for the line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:175
+msgid ""
+"The E<.Nm> utility can also be used to keep arbitrary daemons running, "
+"automatically restarting them if they die.  In this case, the first field in "
+"the E<.Xr ttys 5> file must not reference the path to a configured device "
+"node and will be passed to the daemon as the final argument on its command "
+"line.  This is similar to the facility offered in the E<.At V> E<.Pa "
+"/etc/inittab>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:209
+msgid ""
+"Line status (on, off, secure, getty, or window information)  may be changed "
+"in the E<.Xr ttys 5> file without a reboot by sending the signal E<.Dv "
+"SIGHUP> to E<.Nm> with the command E<.Dq Li \"kill -HUP 1\">.  On receipt of "
+"this signal, E<.Nm> re-reads the E<.Xr ttys 5> file.  When a line is turned "
+"off in E<.Xr ttys 5>, E<.Nm> will send a SIGHUP signal to the controlling "
+"process for the session associated with the line.  For any lines that were "
+"previously turned off in the E<.Xr ttys 5> file and are now on, E<.Nm> "
+"executes the command specified in the second field.  If the command or "
+"window field for a line is changed, the change takes effect at the end of "
+"the current login session (e.g., the next time E<.Nm> starts a process on "
+"the line).  If a line is commented out or deleted from E<.Xr ttys 5>, E<.Nm> "
+"will not do anything at all to that line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:222
+msgid ""
+"The E<.Nm> utility will terminate multi-user operations and resume "
+"single-user mode if sent a terminate E<.Pq Dv TERM> signal, for example, "
+"E<.Dq Li \"kill \\-TERM 1\">.  If there are processes outstanding that are "
+"deadlocked (because of hardware or software failure), E<.Nm> will not wait "
+"for them all to die (which might take forever), but will time out after 30 "
+"seconds and print a warning message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:236
+msgid ""
+"The E<.Nm> utility will cease creating new processes and allow the system to "
+"slowly die away, if it is sent a terminal stop E<.Pq Dv TSTP> signal, "
+"i.e.\\& E<.Dq Li \"kill \\-TSTP 1\">.  A later hangup will resume full "
+"multi-user operations, or a terminate will start a single-user shell.  This "
+"hook is used by E<.Xr reboot 8> and E<.Xr halt 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:246
+msgid ""
+"The E<.Nm> utility will terminate all possible processes (again, it will not "
+"wait for deadlocked processes) and reboot the machine if sent the interrupt "
+"E<.Pq Dv INT> signal, i.e.\\& E<.Dq Li \"kill \\-INT 1\".> This is useful "
+"for shutting the machine down cleanly from inside the kernel or from X when "
+"the machine appears to be hung."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:255
+msgid ""
+"The E<.Nm> utility will do the same, except it will halt the machine if sent "
+"the user defined signal 1 E<.Pq Dv USR1>, or will halt and turn the power "
+"off (if hardware permits) if sent the user defined signal 2 E<.Pq Dv USR2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:272
+msgid ""
+"When shutting down the machine, E<.Nm> will try to run the E<.Pa "
+"/etc/rc.shutdown> script.  This script can be used to cleanly terminate "
+"specific programs such as E<.Nm innd> (the InterNetNews server).  If this "
+"script does not terminate within 120 seconds, E<.Nm> will terminate it.  The "
+"timeout can be configured via the E<.Xr sysctl 8> variable E<.Va "
+"kern.init_shutdown_timeout>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:281
+msgid ""
+"The role of E<.Nm> is so critical that if it dies, the system will reboot "
+"itself automatically.  If, at bootstrap time, the E<.Nm> process cannot be "
+"located, the system will panic with the message E<.Dq \"panic: init died "
+"(signal %d, exit %d)\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:294
+msgid ""
+"If run as a user process as shown in the second synopsis line, E<.Nm> will "
+"emulate E<.At V> behavior, i.e., super-user can specify the desired E<.Em "
+"run-level> on a command line, and E<.Nm> will signal the original (PID 1)  "
+"E<.Nm> as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:295
+#, no-wrap
+msgid "Sy \"Run-level\tSignal\tAction\""
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:296
+#, no-wrap
+msgid "Cm 0 Ta Dv SIGUSR1 Ta Halt"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:297
+#, no-wrap
+msgid "Cm 0 Ta Dv SIGUSR2 Ta \"Halt and turn the power off\""
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:298
+#, no-wrap
+msgid "Cm 0 Ta Dv SIGWINCH Ta \"Halt and turn the power off and then back on\""
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:299
+#, no-wrap
+msgid "Cm 1 Ta Dv SIGTERM Ta \"Go to single-user mode\""
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:300
+#, no-wrap
+msgid "Cm 6 Ta Dv SIGINT Ta \"Reboot the machine\""
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:301
+#, no-wrap
+msgid "Cm c Ta Dv SIGTSTP Ta \"Block further logins\""
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:302
+#, no-wrap
+msgid "Cm q Ta Dv SIGHUP Ta Rescan the"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:305
+msgid "E<.Xr ttys 5> file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:306
+#, no-wrap
+msgid "KERNEL ENVIRONMENT VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:312
+msgid ""
+"The following E<.Xr kenv 2> variables are available as E<.Xr loader 8> "
+"tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:313
+#, no-wrap
+msgid "Va init_chroot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:328
+msgid ""
+"If set to a valid directory in the root file system, it causes E<.Nm> to "
+"perform a E<.Xr chroot 2> operation on that directory, making it the new "
+"root directory.  That happens before entering single-user mode or multi-user "
+"mode (but after executing the E<.Va init_script> if enabled).  This "
+"functionality has generally been eclipsed by rerooting.  See E<.Xr reboot 8> "
+"E<.Fl r> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:328
+#, no-wrap
+msgid "Va init_exec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:336
+msgid ""
+"If set to a valid file name in the root file system, instructs E<.Nm> to "
+"directly execute that file as the very first action, replacing E<.Nm> as PID "
+"1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:336
+#, no-wrap
+msgid "Va init_script"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:356
+msgid ""
+"If set to a valid file name in the root file system, instructs E<.Nm> to run "
+"that script as the very first action, before doing anything else.  Signal "
+"handling and exit code interpretation is similar to running the E<.Pa "
+"/etc/rc> script.  In particular, single-user operation is enforced if the "
+"script terminates with a non-zero exit code, or if a SIGTERM is delivered to "
+"the E<.Nm> process (PID 1).  This functionality has generally been eclipsed "
+"by rerooting.  See E<.Xr reboot 8> E<.Fl r> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:356
+#, no-wrap
+msgid "Va init_shell"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:384
+msgid ""
+"Defines the shell binary to be used for executing the various shell "
+"scripts.  The default is E<.Dq Li /bin/sh>.  It is used for running the "
+"E<.Va init_exec> or E<.Va init_script> if set, as well as for the E<.Pa "
+"/etc/rc> and E<.Pa /etc/rc.shutdown> scripts.  The value of the "
+"corresponding E<.Xr kenv 2> variable is evaluated every time E<.Nm> calls a "
+"shell script, so it can be changed later on using the E<.Xr kenv 1> "
+"utility.  In particular, if a non-default shell is used for running an E<.Va "
+"init_script>, it might be desirable to have that script reset the value of "
+"E<.Va init_shell> back to the default, so that the E<.Pa /etc/rc> script is "
+"executed with the standard shell E<.Pa /bin/sh>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:384
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:386
+#, no-wrap
+msgid "Pa /dev/console"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:388
+msgid "system console device"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:388
+#, no-wrap
+msgid "Pa /dev/tty*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:391
+msgid "terminal ports found in E<.Xr ttys 5>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:391
+#, no-wrap
+msgid "Pa /etc/ttys"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:393
+msgid "the terminal initialization information file"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:393
+#, no-wrap
+msgid "Pa /etc/rc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:395
+msgid "system startup commands"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:395
+#, no-wrap
+msgid "Pa /etc/rc.shutdown"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:397
+msgid "system shutdown commands"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:397
+#, no-wrap
+msgid "Pa /var/log/init.log"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:401
+msgid "log of E<.Xr rc 8> output if the system console device is not available"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:402
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:404
+#, no-wrap
+msgid "getty repeating too quickly on port %s, sleeping."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:412
+msgid ""
+"A process being started to service a line is exiting quickly each time it is "
+"started.  This is often caused by a ringing or noisy terminal line.  E<.Bf "
+"-emphasis> Init will sleep for 30 seconds, then continue trying to start the "
+"process.  E<.Ef>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/init/init.8:412
+#, no-wrap
+msgid "some processes would not die; ps axl advised."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:418
+msgid ""
+"A process is hung and could not be killed when the system was shutting "
+"down.  This condition is usually caused by a process that is stuck in a "
+"device driver because of a persistent device error condition."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:419
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:432
+msgid ""
+"E<.Xr kill 1>, E<.Xr login 1>, E<.Xr sh 1>, E<.Xr ttys 5>, E<.Xr security "
+"7>, E<.Xr getty 8>, E<.Xr halt 8>, E<.Xr jail 8>, E<.Xr rc 8>, E<.Xr reboot "
+"8>, E<.Xr shutdown 8>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:432
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:437
+msgid "An E<.Nm> utility appeared in E<.At v1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/init/init.8:437
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:441
+msgid ""
+"Systems without E<.Xr sysctl 8> behave as though they have security level "
+"\\-1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/init/init.8:449
+msgid ""
+"Setting the security level above 1 too early in the boot sequence can "
+"prevent E<.Xr fsck 8> from repairing inconsistent file systems.  The "
+"preferred location to set the security level is at the end of E<.Pa /etc/rc> "
+"after all multi-user startup actions are complete."
+msgstr ""

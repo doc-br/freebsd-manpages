@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/smp.4:26
+#, no-wrap
+msgid "January 4, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/smp.4:27
+#, no-wrap
+msgid "SMP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:31
+msgid "E<.Nm SMP>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/smp.4:31
+#, no-wrap
+msgid "description of the FreeBSD Symmetric Multi-Processor kernel"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:34
+msgid "E<.Cd options SMP>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:38
+msgid "The E<.Nm> kernel implements symmetric multi-processor support."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:43
+msgid ""
+"E<.Nm> support can be disabled by setting the loader tunable E<.Va "
+"kern.smp.disabled> to 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:47
+msgid ""
+"The number of CPUs detected by the system is available in the read-only "
+"sysctl variable E<.Va hw.ncpu>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:54
+msgid ""
+"The number of online threads per CPU core is available in the read-only "
+"sysctl variable E<.Va kern.smp.threads_per_core>.  The number of physical "
+"CPU cores detected by the system is available in the read-only sysctl "
+"variable E<.Va kern.smp.cores>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:62
+msgid ""
+"E<.Fx> allows specific CPUs on a multi-processor system to be disabled.  "
+"This can be done using the E<.Va hint.lapic.X.disabled> tunable, where X is "
+"the APIC ID of a CPU.  Setting this tunable to 1 will result in the "
+"corresponding CPU being disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:68
+msgid ""
+"E<.Fx> supports simultaneous multithreading on x86 and powerpc platforms.  "
+"On x86, the logical CPUs can be disabled by setting the E<.Va "
+"machdep.hyperthreading_allowed> tunable to zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:96
+msgid ""
+"The E<.Xr sched_ule 4> scheduler implements CPU topology detection and "
+"adjusts the scheduling algorithms to make better use of modern multi-core "
+"CPUs.  The sysctl variable E<.Va kern.sched.topology_spec> reflects the "
+"detected CPU hardware in a parsable XML format.  The top level XML tag is "
+"E<lt>groupsE<gt>, which encloses one or more E<lt>groupE<gt> tags containing "
+"data about individual CPU groups.  A CPU group contains CPUs that are "
+"detected to be \"close\" together, usually by being cores in a single "
+"multi-core processor.  Attributes available in a E<lt>groupE<gt> tag are "
+"\"level\", corresponding to the nesting level of the CPU group and "
+"\"cache-level\", corresponding to the level of CPU caches shared by the CPUs "
+"in the group.  The E<lt>groupE<gt> tag contains the E<lt>cpuE<gt> and "
+"E<lt>flagsE<gt> tags.  The E<lt>cpuE<gt> tag describes CPUs in the group.  "
+"Its attributes are \"count\", corresponding to the number of CPUs in the "
+"group and \"mask\", corresponding to the integer binary mask in which each "
+"bit position set to 1 signifies a CPU belonging to the group.  The contents "
+"(CDATA) of the E<lt>cpuE<gt> tag is the comma-delimited list of CPU indexes "
+"(derived from the \"mask\" attribute).  The E<lt>flagsE<gt> tag contains "
+"special tags (if any) describing the relation of the CPUs in the group.  The "
+"possible flags are currently \"HTT\" and \"SMT\", corresponding to the "
+"various implementations of hardware multithreading.  An example "
+"topology_spec output for a system consisting of two quad-core processors is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:113
+#, no-wrap
+msgid ""
+"E<lt>groupsE<gt>\n"
+"  E<lt>group level=\"1\" cache-level=\"0\"E<gt>\n"
+"    E<lt>cpu count=\"8\" mask=\"0xff\"E<gt>0, 1, 2, 3, 4, 5, 6, "
+"7E<lt>/cpuE<gt>\n"
+"    E<lt>flagsE<gt>E<lt>/flagsE<gt>\n"
+"    E<lt>childrenE<gt>\n"
+"      E<lt>group level=\"2\" cache-level=\"0\"E<gt>\n"
+"        E<lt>cpu count=\"4\" mask=\"0xf\"E<gt>0, 1, 2, 3E<lt>/cpuE<gt>\n"
+"        E<lt>flagsE<gt>E<lt>/flagsE<gt>\n"
+"      E<lt>/groupE<gt>\n"
+"      E<lt>group level=\"2\" cache-level=\"0\"E<gt>\n"
+"        E<lt>cpu count=\"4\" mask=\"0xf0\"E<gt>4, 5, 6, 7E<lt>/cpuE<gt>\n"
+"        E<lt>flagsE<gt>E<lt>/flagsE<gt>\n"
+"      E<lt>/groupE<gt>\n"
+"    E<lt>/childrenE<gt>\n"
+"  E<lt>/groupE<gt>\n"
+"E<lt>/groupsE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:117
+msgid ""
+"This information is used internally by the kernel to schedule related tasks "
+"on CPUs that are closely grouped together."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:117
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:125
+msgid ""
+"Support for multi-processor systems is present for all Tier-1 and Tier-2 "
+"architectures on E<.Fx>.  Currently, this includes x86, powerpc, arm, and "
+"sparc64.  Support is enabled using E<.Cd options SMP>.  It is permissible to "
+"use the SMP kernel configuration on non-SMP hardware."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:125
+#, no-wrap
+msgid "I386 NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:137
+msgid ""
+"For i386 systems, the E<.Nm> kernel supports motherboards that follow the "
+"Intel MP specification, version 1.4.  In addition to E<.Cd options SMP>, "
+"i386 also requires E<.Cd device apic>.  The E<.Xr mptable 1> command may be "
+"used to view the status of multi-processor support."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:137
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:151
+msgid ""
+"E<.Xr cpuset 1>, E<.Xr mptable 1>, E<.Xr sched_4bsd 4>, E<.Xr sched_ule 4>, "
+"E<.Xr loader 8>, E<.Xr sysctl 8>, E<.Xr condvar 9>, E<.Xr msleep 9>, E<.Xr "
+"mtx_pool 9>, E<.Xr mutex 9>, E<.Xr rwlock 9>, E<.Xr sema 9>, E<.Xr sx 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:151
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:160
+msgid ""
+"The E<.Nm> kernel's early history is not (properly) recorded.  It was "
+"developed in a separate CVS branch until April 26, 1997, at which point it "
+"was merged into 3.0-current.  By this date 3.0-current had already been "
+"merged with Lite2 kernel code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:169
+msgid ""
+"E<.Fx 5.0> introduced support for a host of new synchronization primitives, "
+"and a move towards fine-grained kernel locking rather than reliance on a "
+"Giant kernel lock.  The SMPng Project relied heavily on the support of BSDi, "
+"who provided reference source code from the fine-grained SMP implementation "
+"found in E<.Bsx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:172
+msgid "E<.Fx 5.0> also introduced support for SMP on the sparc64 architecture."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:172
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:174
+msgid "E<.An Steve Passe Aq Mt fsmp@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smp.4:174
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smp.4:190
+msgid ""
+"The E<.Va kern.smp.threads_per_core> and E<.Va kern.smp.cores> sysctl "
+"variables are provided as a best-effort guess.  If an architecture or "
+"platform adds SMT and E<.Fx> has not yet implemented detection, the reported "
+"values may be inaccurate.  In this case, E<.Va kern.smp.threads_per_core> "
+"will report E<.Dv 1> and E<.Va kern.smp.cores> will report the same value as "
+"E<.Va hw.ncpu>."
+msgstr ""

@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/rp.4:5
+#, no-wrap
+msgid "November 15, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/rp.4:6
+#, no-wrap
+msgid "RP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:8
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:10
+msgid "E<.Nm rp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/rp.4:10
+#, no-wrap
+msgid "driver for Comtrol RocketPort Intelligent Serial Port Cards"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:11
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:13
+msgid "E<.Cd \"device rp\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:18
+msgid ""
+"For ISA cards, you must specify the port address in E<.Pa "
+"/boot/device.hints>: E<.Cd hint.rp.0.at=\"isa\"> E<.Cd "
+"hint.rp.0.port=\"0x100\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:18
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:36
+msgid ""
+"This driver provides a kernel device driver for the E<.Tn RocketPort> and "
+"E<.Tn RocketPort RA> serial boards.  These boards provide 8, 16, or 32 "
+"high-speed serial ports while requiring only 68 bytes of I/O space for all "
+"8, 16, or 32 ports, and do not require an interrupt channel.  This driver "
+"supports up to four E<.Tn RocketPort> or E<.Tn RocketPort RA> boards in one "
+"machine simultaneously.  If you are using four 32 port E<.Tn RocketPort> "
+"boards, you can put as many as 128 intelligent serial ports on your system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:46
+msgid ""
+"The E<.Nm> driver supports the following speeds: 50, 75, 110, 134, 150, 200, "
+"300, 600, 1200, 1800, 2400, 4800, 9600, 19200, 38400, 7200, 14400, 57600, "
+"76800, 115200, and 230400.  (You must use E<.Xr termios 4>, rather than the "
+"old style ioctl interface to use non-traditional speeds.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:54
+msgid ""
+"An open on the E<.Nm> driver will block until carrier is present, unless "
+"E<.Dv O_NONBLOCK> or E<.Dv CLOCAL> is set."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:54
+#, no-wrap
+msgid "HARDWARE CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:77
+msgid ""
+"The first E<.Tn RocketPort> or E<.Tn RocketPort RA> card requires a 68-byte "
+"contiguous block of I/O addresses, starting at one of the following: 0x100h, "
+"0x140h, 0x180h, 0x200h, 0x240h, 0x280h, 0x300h, 0x340h, 0x380h.  The second, "
+"third, and fourth E<.Tn RocketPort> cards require only a 64-byte contiguous "
+"block of I/O addresses, starting at one of the above address ranges.  The "
+"I/O address range used by any of the E<.Tn RocketPort> cards must not "
+"conflict with any other cards in the system, including other E<.Tn "
+"RocketPort> cards.  The starting range of the I/O ports used by each card "
+"must match with the I/O address specified in E<.Pa /boot/device.hints>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:89
+msgid ""
+"Since the first E<.Tn RocketPort> uses 68 I/O addresses, if the first card "
+"is set to use an I/O block starting at 0x100, it will occupy the I/O ports "
+"between 0x100 and 0x143.  This means that the second, third, or fourth E<.Tn "
+"RocketPort> board may not use the block of addresses starting at 0x140, "
+"since the first three I/O addresses of that range are used by the first "
+"board.  This is an important point to keep in mind."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:93
+msgid ""
+"If you have two ISA cards, one installed at 0x100 and the second installed "
+"at 0x180, then you should add the following to E<.Pa /boot/device.hints>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/rp.4:94
+#, no-wrap
+msgid "hint.rp.0.at=\"isa\""
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/rp.4:95
+#, no-wrap
+msgid "hint.rp.0.port=\"0x100\""
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/rp.4:96
+#, no-wrap
+msgid "hint.rp.1.at=\"isa\""
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/rp.4:97
+#, no-wrap
+msgid "hint.rp.1.port=\"0x180\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:105
+msgid ""
+"The configuration of the E<.Tn RocketPort> cards is done via the set of 8 "
+"DIP switches, labeled SW1 on the E<.Tn RocketPort> card:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:111
+#, no-wrap
+msgid ""
+"+-------------------------------+\n"
+"| 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 |\n"
+"+-------+-------+---------------+\n"
+"| Unused| Card  | I/O Port Block|\n"
+"+-------------------------------+\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:114
+msgid "DIP switches 7 and 8 are unused, and must be left on."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:124
+msgid ""
+"DIP switches 6 and 5 identify the card number of each E<.Tn RocketPort> "
+"card.  The first card installed in the system must have its DIP switches set "
+"as card number one; the second card installed in the system must have its "
+"DIP switches set as card number two; and so on.  As shipped from the "
+"factory, DIP switches 6 and 5 are both on by default, indicating that this "
+"is the first card installed on the system:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:132
+#, no-wrap
+msgid ""
+"DIP Switches\n"
+"6    5\n"
+"===================\n"
+"On   On   First Card\n"
+"On   Off  Second Card\n"
+"Off  On   Third Card\n"
+"Off  Off  Fourth Card\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:153
+msgid ""
+"DIP switches 4, 3, 2, and 1 indicate the I/O address range used by the first "
+"E<.Tn RocketPort> card.  If there are more than one E<.Tn RocketPort> cards "
+"installed in a system, the second, third and fourth E<.Tn RocketPort> cards "
+"must also be set to the I/O address range used by the first E<.Tn "
+"RocketPort> card; all cards must have these DIP switches set identically for "
+"proper operation.  As shipped from the factory, DIP switch 4 is on, and "
+"switches 3, 2, and 1 are off by default, indicating an I/O address range "
+"used by the first card which starts at 0x180 and extends to 0x1C3."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:166
+#, no-wrap
+msgid ""
+"DIP Switches         I/O Address Range\n"
+"4    3    2    1     Used by the First Card\n"
+"=====================================\n"
+"On   Off  On   Off   100-143\n"
+"On   Off  Off  On    140-183\n"
+"On   Off  Off  Off   180-1C3\n"
+"Off  On   On   Off   200-243\n"
+"Off  On   Off  On    240-283\n"
+"Off  On   Off  Off   280-2C3\n"
+"Off  Off  On   Off   300-343\n"
+"Off  Off  Off  On    340-383\n"
+"Off  Off  Off  Off   380-3C3\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:167
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/rp.4:169
+#, no-wrap
+msgid "Pa /dev/ttyR[0-4][0-9a-f]"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:171
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:173
+msgid "E<.An Theodore Ts'o Aq Mt tytso@mit.edu>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:181
+msgid ""
+"This driver was written under contract for Comtrol Corporation.  For dealer, "
+"distributor and other information regarding Comtrol E<.Tn RocketPort>, "
+"contact Comtrol Corporation at (800) 926-6876 or send email to E<.Aq Mt "
+"info@comtrol.com>.  To report bugs for this driver, please send email to "
+"E<.Aq Mt bug-bsdi-rocketport@comtrol.com>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/rp.4:181
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/rp.4:191
+msgid ""
+"If incoming software flow control is enabled on a 486 or Pentium machine, "
+"and the flow control is very heavily exercised, on rare occasions a "
+"character will get dropped.  This problem does not occur on a 386, and it is "
+"not currently known whether the bug is in the E<.Nm> driver or in the "
+"E<.Bsx> tty layer."
+msgstr ""

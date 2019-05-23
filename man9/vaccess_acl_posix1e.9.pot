@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:28
+#, no-wrap
+msgid "August 22, 2001"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:29
+#, no-wrap
+msgid "VACCESS_ACL_POSIX1E 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:33
+msgid "E<.Nm vaccess_acl_posix1e>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:33
+#, no-wrap
+msgid "generate a POSIX.1e ACL access control decision using vnode parameters"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:36
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:37
+#, no-wrap
+msgid "sys/acl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:48
+msgid ""
+"E<.Ft int> E<.Fo vaccess_acl_posix1e> E<.Fa \"enum vtype type\"> E<.Fa "
+"\"uid_t file_uid\"> E<.Fa \"gid_t file_gid\"> E<.Fa \"struct acl *acl\"> "
+"E<.Fa \"accmode_t accmode\"> E<.Fa \"struct ucred *cred\"> E<.Fa \"int "
+"*privused\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:75
+msgid ""
+"This call implements the logic for the E<.Ux> discretionary file security "
+"model with POSIX.1e ACL extensions.  It accepts the vnodes type E<.Fa type>, "
+"owning UID E<.Fa file_uid>, owning GID E<.Fa file_gid>, access ACL for the "
+"file E<.Fa acl>, desired access mode E<.Fa accmode>, requesting credential "
+"E<.Fa cred>, and an optional call-by-reference E<.Vt int> pointer returning "
+"whether or not privilege was required for successful evaluation of the call; "
+"the E<.Fa privused> pointer may be set to E<.Dv NULL> by the caller in order "
+"not to be informed of privilege information, or it may point to an integer "
+"that will be set to 1 if privilege is used, and 0 otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:86
+msgid ""
+"This call is intended to support implementations of E<.Xr VOP_ACCESS 9>, "
+"which will use their own access methods to retrieve the vnode properties, "
+"and then invoke E<.Fn vaccess_acl_posix1e> in order to perform the actual "
+"check.  Implementations of E<.Xr VOP_ACCESS 9> may choose to implement "
+"additional security mechanisms whose results will be composed with the "
+"return value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:96
+msgid ""
+"The algorithm used by E<.Fn vaccess_acl_posix1e> is based on the POSIX.1e "
+"ACL evaluation algorithm.  The algorithm selects a E<.Em matching> entry "
+"from the access ACL, which may then be composed with an available ACL mask "
+"entry, providing E<.Ux> security compatibility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:103
+msgid ""
+"Once appropriate protections are selected for the current credential, the "
+"requested access mode, in combination with the vnode type, will be compared "
+"with the discretionary rights available for the credential.  If the rights "
+"granted by discretionary protections are insufficient, then super-user "
+"privilege, if available for the credential, will also be considered."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:103
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:106
+msgid ""
+"E<.Fn vaccess_acl_posix1e> will return 0 on success, or a non-zero error "
+"value on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:106
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:108
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:112
+msgid ""
+"Permission denied.  An attempt was made to access a file in a way forbidden "
+"by its file access permissions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:112
+#, no-wrap
+msgid "Bq Er EPERM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:116
+msgid ""
+"Operation not permitted.  An attempt was made to perform an operation "
+"limited to processes with appropriate privileges or to the owner of a file "
+"or other resource."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:117
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:121
+msgid "E<.Xr vaccess 9>, E<.Xr vnode 9>, E<.Xr VOP_ACCESS 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:121
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:126
+msgid ""
+"This manual page and the current implementation of E<.Fn "
+"vaccess_acl_posix1e> were written by E<.An Robert Watson>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:126
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess_acl_posix1e.9:128
+msgid ""
+"This manual page should include a full description of the POSIX.1e ACL "
+"evaluation algorithm, or cross reference another page that does."
+msgstr ""

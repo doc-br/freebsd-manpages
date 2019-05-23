@@ -1,0 +1,1262 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/pci.4:27
+#, no-wrap
+msgid "June 14, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/pci.4:28
+#, no-wrap
+msgid "PCI 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:32
+msgid "E<.Nm pci>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/pci.4:32
+#, no-wrap
+msgid "generic PCI bus driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:37
+msgid ""
+"To compile the PCI bus driver into the kernel, place the following line in "
+"your kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:39
+#, no-wrap
+msgid "E<.Cd device pci>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:43
+msgid "To compile in support for Single Root I/O Virtualization E<.Pq SR-IOV>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:45
+#, no-wrap
+msgid "E<.Cd options PCI_IOV>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:48
+msgid "To compile in support for native PCI-express HotPlug:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:50
+#, no-wrap
+msgid "E<.Cd options PCI_HP>\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:59
+msgid ""
+"The E<.Nm> driver provides support for E<.Tn PCI> devices in the kernel and "
+"limited access to E<.Tn PCI> devices for userland."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:72
+msgid ""
+"The E<.Nm> driver provides a E<.Pa /dev/pci> character device that can be "
+"used by userland programs to read and write E<.Tn PCI> configuration "
+"registers.  Programs can also use this device to get a list of all E<.Tn "
+"PCI> devices, or all E<.Tn PCI> devices that match various patterns."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:83
+msgid ""
+"Since the E<.Nm> driver provides a write interface for E<.Tn PCI> "
+"configuration registers, system administrators should exercise caution when "
+"granting access to the E<.Nm> device.  If used improperly, this driver can "
+"allow userland applications to crash a machine or cause data loss."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:109
+msgid ""
+"The E<.Nm> driver implements the E<.Tn PCI> bus in the kernel.  It "
+"enumerates any devices on the E<.Tn PCI> bus and gives E<.Tn PCI> client "
+"drivers the chance to attach to them.  It assigns resources to children, "
+"when the BIOS does not.  It takes care of routing interrupts when "
+"necessary.  It reprobes the unattached E<.Tn PCI> children when E<.Tn PCI> "
+"client drivers are dynamically loaded at runtime.  The E<.Nm> driver also "
+"includes support for PCI-PCI bridges, various platform-specific Host-PCI "
+"bridges, and basic support for E<.Tn PCI> VGA adapters."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:109
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:116
+msgid ""
+"The following E<.Xr ioctl 2> calls are supported by the E<.Nm> driver.  They "
+"are defined in the header file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/pci.4:116
+#, no-wrap
+msgid "sys/pciio.h ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:118
+#, no-wrap
+msgid "PCIOCGETCONF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:138
+msgid ""
+"This E<.Xr ioctl 2> takes a E<.Va pci_conf_io> structure.  It allows the "
+"user to retrieve information on all E<.Tn PCI> devices in the system, or on "
+"E<.Tn PCI> devices matching patterns supplied by the user.  The call may set "
+"E<.Va errno> to any value specified in either E<.Xr copyin 9> or E<.Xr "
+"copyout 9>.  The E<.Va pci_conf_io> structure consists of a number of "
+"fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:139
+#, no-wrap
+msgid "pat_buf_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:141
+msgid "The length, in bytes, of the buffer filled with user-supplied patterns."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:141
+#, no-wrap
+msgid "num_patterns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:143
+msgid "The number of user-supplied patterns."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:143
+#, no-wrap
+msgid "patterns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:153
+msgid ""
+"Pointer to a buffer filled with user-supplied patterns.  E<.Va patterns> is "
+"a pointer to E<.Va num_patterns> E<.Va pci_match_conf> structures.  The "
+"E<.Va pci_match_conf> structure consists of the following elements:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:154 /usr/src/share/man/man4/pci.4:195
+#, no-wrap
+msgid "pc_sel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:157 /usr/src/share/man/man4/pci.4:198
+msgid "E<.Tn PCI> domain, bus, slot and function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:157 /usr/src/share/man/man4/pci.4:225
+#, no-wrap
+msgid "pd_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:160
+msgid "E<.Tn PCI> device driver name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:160 /usr/src/share/man/man4/pci.4:227
+#, no-wrap
+msgid "pd_unit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:163
+msgid "E<.Tn PCI> device driver unit number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:163 /usr/src/share/man/man4/pci.4:207
+#, no-wrap
+msgid "pc_vendor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:166 /usr/src/share/man/man4/pci.4:210
+msgid "E<.Tn PCI> vendor ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:166 /usr/src/share/man/man4/pci.4:210
+#, no-wrap
+msgid "pc_device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:169 /usr/src/share/man/man4/pci.4:213
+msgid "E<.Tn PCI> device ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:169 /usr/src/share/man/man4/pci.4:213
+#, no-wrap
+msgid "pc_class"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:172 /usr/src/share/man/man4/pci.4:216
+msgid "E<.Tn PCI> device class."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:172
+#, no-wrap
+msgid "flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:180
+msgid ""
+"The flags describe which of the fields the kernel should match against.  A "
+"device must match all specified fields in order to be returned.  The match "
+"flags are enumerated in the E<.Va pci_getconf_flags> structure.  Hopefully "
+"the flag values are obvious enough that they do not need to described in "
+"detail."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:181
+#, no-wrap
+msgid "match_buf_len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:187
+msgid ""
+"Length of the E<.Va matches> buffer allocated by the user to hold the "
+"results of the E<.Dv PCIOCGETCONF> query."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:187
+#, no-wrap
+msgid "num_matches"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:189
+msgid "Number of matches returned by the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:189
+#, no-wrap
+msgid "matches"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:194
+msgid ""
+"Buffer containing matching devices returned by the kernel.  The items in "
+"this buffer are of type E<.Va pci_conf>, which consists of the following "
+"items:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:198
+#, no-wrap
+msgid "pc_hdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:201
+msgid "E<.Tn PCI> header type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:201
+#, no-wrap
+msgid "pc_subvendor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:204
+msgid "E<.Tn PCI> subvendor ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:204
+#, no-wrap
+msgid "pc_subdevice"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:207
+msgid "E<.Tn PCI> subdevice ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:216
+#, no-wrap
+msgid "pc_subclass"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:219
+msgid "E<.Tn PCI> device subclass."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:219
+#, no-wrap
+msgid "pc_progif"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:222
+msgid "E<.Tn PCI> device programming interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:222
+#, no-wrap
+msgid "pc_revid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:225
+msgid "E<.Tn PCI> revision ID."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:227
+msgid "Driver name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:229
+msgid "Driver unit number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:230
+#, no-wrap
+msgid "offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:240
+msgid ""
+"The offset is passed in by the user to tell the kernel where it should start "
+"traversing the device list.  The value passed out by the kernel points to "
+"the record immediately after the last one returned.  The user may pass the "
+"value returned by the kernel in subsequent calls to the E<.Dv PCIOCGETCONF> "
+"ioctl.  If the user does not intend to use the offset, it must be set to "
+"zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:240
+#, no-wrap
+msgid "generation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:252
+msgid ""
+"E<.Tn PCI> configuration generation.  This value only needs to be set if the "
+"offset is set.  The kernel will compare the current generation number of its "
+"internal device list to the generation passed in by the user to determine "
+"whether its device list has changed since the user last called the E<.Dv "
+"PCIOCGETCONF> ioctl.  If the device list has changed, a status of E<.Va "
+"PCI_GETCONF_LIST_CHANGED> will be passed back."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:252
+#, no-wrap
+msgid "status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:255
+msgid ""
+"The status tells the user the disposition of his request for a device list.  "
+"The possible status values are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:256
+#, no-wrap
+msgid "PCI_GETCONF_LAST_DEVICE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:262
+msgid ""
+"This means that there are no more devices in the PCI device list matching "
+"the specified criteria after the ones returned in the E<.Va matches> buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:262
+#, no-wrap
+msgid "PCI_GETCONF_LIST_CHANGED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:272
+msgid ""
+"This status tells the user that the E<.Tn PCI> device list has changed since "
+"his last call to the E<.Dv PCIOCGETCONF> ioctl and he must reset the E<.Va "
+"offset> and E<.Va generation> to zero to start over at the beginning of the "
+"list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:272
+#, no-wrap
+msgid "PCI_GETCONF_MORE_DEVS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:275
+msgid ""
+"This tells the user that his buffer was not large enough to hold all of the "
+"remaining devices in the device list that match his criteria."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:275
+#, no-wrap
+msgid "PCI_GETCONF_ERROR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:286
+msgid ""
+"This indicates a general error while servicing the user's request.  If the "
+"E<.Va pat_buf_len> is not equal to E<.Va num_patterns> times E<.Fn sizeof "
+"\"struct pci_match_conf\">, E<.Va errno> will be set to E<.Er EINVAL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:288
+#, no-wrap
+msgid "PCIOCREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:299
+msgid ""
+"This E<.Xr ioctl 2> reads the E<.Tn PCI> configuration registers specified "
+"by the passed-in E<.Va pci_io> structure.  The E<.Va pci_io> structure "
+"consists of the following fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:300
+#, no-wrap
+msgid "pi_sel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:307
+msgid ""
+"A E<.Va pcisel> structure which specifies the domain, bus, slot and function "
+"the user would like to query.  If the specific bus is not found, errno will "
+"be set to ENODEV and -1 returned from the ioctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:307
+#, no-wrap
+msgid "pi_reg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:311
+msgid "The E<.Tn PCI> configuration register the user would like to access."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:311
+#, no-wrap
+msgid "pi_width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:318
+msgid ""
+"The width, in bytes, of the data the user would like to read.  This value "
+"may be either 1, 2, or 4.  3-byte reads and reads larger than 4 bytes are "
+"not supported.  If an invalid width is passed, errno will be set to EINVAL."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:318
+#, no-wrap
+msgid "pi_data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:320
+msgid "The data returned by the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:321
+#, no-wrap
+msgid "PCIOCWRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:336
+msgid ""
+"This E<.Xr ioctl 2> allows users to write to the E<.Tn PCI> specified in the "
+"passed-in E<.Va pci_io> structure.  The E<.Va pci_io> structure is described "
+"above.  The limitations on data width described for reading registers, "
+"above, also apply to writing E<.Tn PCI> configuration registers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:336
+#, no-wrap
+msgid "PCIOCBARMMAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:345
+msgid ""
+"This E<.Xr ioctl 2> command allows userspace processes to E<.Xr mmap 2> the "
+"memory-mapped PCI BAR into its address space.  The input parameters and "
+"results are passed in the E<.Va pci_bar_mmap> structure, which has the "
+"following fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:346
+#, no-wrap
+msgid "Vt \"uint64_t\tpbm_map_base\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:352
+msgid ""
+"Reports the established mapping base to the caller.  If E<.Va "
+"PCIIO_BAR_MMAP_FIXED> flag was specified, then this field must be filled "
+"before the call with the desired address for the mapping."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:352
+#, no-wrap
+msgid "Vt uint64_t pbm_map_length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:355
+msgid ""
+"Reports the mapped length of the BAR, in bytes.  Its .Vt uint64_t value is "
+"always multiple of machine pages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:355
+#, no-wrap
+msgid "Vt int64_t pbm_bar_length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:357
+msgid "Reports length of the bar as exposed by the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:357
+#, no-wrap
+msgid "Vt int pbm_bar_off"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:360
+msgid ""
+"Reports offset from the mapped base to the start of the first register in "
+"the bar."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:360
+#, no-wrap
+msgid "Vt struct pcisel pbm_sel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:363
+msgid "Should be filled before the call.  Describes the device to operate on."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:363
+#, no-wrap
+msgid "Vt int pbm_reg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:365
+msgid "The BAR index to mmap."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:365
+#, no-wrap
+msgid "Vt int pbm_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:368
+msgid "Flags which augments the operation.  See below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:368
+#, no-wrap
+msgid "Vt int pbm_memattr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:378
+msgid ""
+"The caching attribute for the mapping.  Typical values are E<.Dv "
+"VM_MEMATTR_UNCACHEABLE> for control registers BARs, and E<.Dv "
+"VM_MEMATTR_WRITE_COMBINING> for frame buffers.  Regular memory-like BAR "
+"should be mapped with E<.Dv VM_MEMATTR_DEFAULT> attribute."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:381
+msgid "Currently defined flags are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:382
+#, no-wrap
+msgid "PCIIO_BAR_MMAP_FIXED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:387
+msgid ""
+"The resulted mappings should be established at the address specified by the "
+"E<.Va pbm_map_base> member, otherwise fail."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:387
+#, no-wrap
+msgid "PCIIO_BAR_MMAP_EXCL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:392
+msgid ""
+"Must be used together with E<.Dv PCIIO_BAR_MMAP_FIXED> If the specified base "
+"contains already established mappings, the operation fails instead of "
+"implicitly unmapping them."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:392
+#, no-wrap
+msgid "PCIIO_BAR_MMAP_RW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:397
+msgid ""
+"The requested mapping allows both reading and writing.  Without the flag, "
+"read-only mapping is established.  Note that it is common for the device "
+"registers to have side-effects even on reads."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:397
+#, no-wrap
+msgid "PCIIO_BAR_MMAP_ACTIVATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:401
+msgid ""
+"(Unimplemented) If the BAR is not activated, activate it in the course of "
+"mapping.  Currently attempt to mmap an inactive BAR results in error."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:403
+#, no-wrap
+msgid "LOADER TUNABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:414
+msgid ""
+"Tunables can be set at the E<.Xr loader 8> prompt before booting the kernel, "
+"or stored in E<.Xr loader.conf 5>.  The current value of these tunables can "
+"be examined at runtime via E<.Xr sysctl 8> nodes of the same name.  Unless "
+"otherwise specified, each of these tunables is a boolean that can be enabled "
+"by setting the tunable to a non-zero value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:415
+#, no-wrap
+msgid "Va hw.pci.clear_bars Pq Defaults to 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:421
+msgid ""
+"Ignore any firmware-assigned memory and I/O port resources.  This forces the "
+"E<.Tn PCI> bus driver to allocate resource ranges for memory and I/O port "
+"resources from scratch."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:421
+#, no-wrap
+msgid "Va hw.pci.clear_buses Pq Defaults to 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:427
+msgid ""
+"Ignore any firmware-assigned bus number registers in PCI-PCI bridges.  This "
+"forces the E<.Tn PCI> bus driver and PCI-PCI bridge driver to allocate bus "
+"numbers for secondary buses behind PCI-PCI bridges."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:427
+#, no-wrap
+msgid "Va hw.pci.clear_pcib Pq Defaults to 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:432
+msgid ""
+"Ignore any firmware-assigned memory and I/O port resource windows in PCI-PCI "
+"bridges.  This forces the PCI-PCI bridge driver to allocate memory and I/O "
+"port resources for resource windows from scratch."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:443
+msgid ""
+"By default the PCI-PCI bridge driver will allocate windows that contain the "
+"firmware-assigned resources devices behind the bridge.  In addition, the "
+"PCI-PCI bridge driver will suballocate from existing window regions when "
+"possible to satisfy a resource request.  As a result, both E<.Va "
+"hw.pci.clear_bars> and E<.Va hw.pci.clear_pcib> must be enabled to fully "
+"ignore firmware-supplied resource assignments."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:443
+#, no-wrap
+msgid "Va hw.pci.default_vgapci_unit Pq Defaults to -1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:452
+msgid ""
+"By default, the first E<.Tn PCI> VGA adapter encountered by the system is "
+"assumed to be the boot display device.  This tunable can be set to choose a "
+"specific VGA adapter by specifying the unit number of the associated E<.Va "
+"vgapci Ns Ar X> device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:452
+#, no-wrap
+msgid "Va hw.pci.do_power_nodriver Pq Defaults to 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:457
+msgid ""
+"Place devices into a low power state E<.Pq D3> when a suitable device driver "
+"is not found.  Can be set to one of the following values:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:458
+#, no-wrap
+msgid "3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:462
+msgid "Powers down all E<.Tn PCI> devices without a device driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:462
+#, no-wrap
+msgid "2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:466
+msgid ""
+"Powers down most devices without a device driver.  PCI devices with the "
+"display, memory, and base peripheral device classes are not powered down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:466
+#, no-wrap
+msgid "1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:469
+msgid ""
+"Similar to a setting of 2 except that storage controllers are also not "
+"powered down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:469
+#, no-wrap
+msgid "0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:471
+msgid "All devices are left fully powered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:477
+msgid ""
+"A E<.Tn PCI> device must support power management to be powered down.  "
+"Placing a device into a low power state may not reduce power consumption."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:477
+#, no-wrap
+msgid "Va hw.pci.do_power_resume Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:484
+msgid ""
+"Place E<.Tn PCI> devices into the fully powered state when resuming either "
+"the system or an individual device.  Setting this to zero is discouraged as "
+"the system will not attempt to power up non-powered PCI devices after a "
+"suspend."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:484
+#, no-wrap
+msgid "Va hw.pci.do_power_suspend Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:491
+msgid ""
+"Place E<.Tn PCI> devices into a low power state when suspending either the "
+"system or individual devices.  Normally the D3 state is used as the low "
+"power state, but firmware may override the desired power state during a "
+"system suspend."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:491
+#, no-wrap
+msgid "Va hw.pci.enable_ari Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:494
+msgid ""
+"Enable support for PCI-express Alternative RID Interpretation.  This is "
+"often used in conjunction with SR-IOV."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:494
+#, no-wrap
+msgid "Va hw.pci.enable_io_modes Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:502
+msgid ""
+"Enable memory or I/O port decoding in a PCI device's command register if it "
+"has firmware-assigned memory or I/O port resources.  The firmware E<.Pq "
+"BIOS> in some systems does not enable memory or I/O port decoding for some "
+"devices even when it has assigned resources to the device.  This enables "
+"decoding for such resources during bus probe."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:502
+#, no-wrap
+msgid "Va hw.pci.enable_msi Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:506
+msgid ""
+"Enable support for Message Signalled Interrupts E<.Pq MSI>.  MSI interrupts "
+"can be disabled by setting this tunable to 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:506
+#, no-wrap
+msgid "Va hw.pci.enable_msix Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:510
+msgid ""
+"Enable support for extended Message Signalled Interrupts E<.Pq MSI-X>.  "
+"MSI-X interrupts can be disabled by setting this tunable to 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:510
+#, no-wrap
+msgid "Va hw.pci.enable_pcie_hp Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:512
+msgid "Enable support for native PCI-express HotPlug."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:512
+#, no-wrap
+msgid "Va hw.pci.honor_msi_blacklist Pq Defaults to 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:517
+msgid ""
+"MSI and MSI-X interrupts are disabled for certain chipsets known to have "
+"broken MSI and MSI-X implementations when this tunable is set.  It can be "
+"set to zero to permit use of MSI and MSI-X interrupts if the chipset match "
+"is a false positive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:517
+#, no-wrap
+msgid "Va hw.pci.iov_max_config Pq Defaults to 1MB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:522
+msgid ""
+"The maximum amount of memory permitted for the configuration parameters used "
+"when creating Virtual Functions via SR-IOV.  This tunable can also be "
+"changed at runtime via E<.Xr sysctl 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:522
+#, no-wrap
+msgid "Va hw.pci.realloc_bars Pq Defaults to 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:526
+msgid ""
+"Attempt to allocate a new resource range during the initial device scan for "
+"any memory or I/O port resources with firmware-assigned ranges that conflict "
+"with another active resource."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:526
+#, no-wrap
+msgid "Va hw.pci.usb_early_takeover Pq Defaults to 1 on Tn amd64 and Tn i386"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:531
+msgid ""
+"Disable legacy device emulation of USB devices during the initial device "
+"scan.  Set this tunable to zero to use USB devices via legacy emulation when "
+"using a custom kernel without USB controller drivers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:531
+#, no-wrap
+msgid "Va hw.pciE<lt>DE<gt>.E<lt>BE<gt>.E<lt>SE<gt>.INTE<lt>PE<gt>.irq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:538
+msgid ""
+"These tunables can be used to override the interrupt routing for legacy PCI "
+"INTx interrupts.  Unlike other tunables in this list, these do not have "
+"corresponding sysctl nodes.  The tunable name includes the address of the "
+"PCI device as well as the pin of the desired INTx IRQ to override:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:539 /usr/src/share/man/man4/pci.4:573
+#, no-wrap
+msgid "E<lt>DE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:543
+msgid "The domain E<.Pq or segment> of the PCI device in decimal."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:543 /usr/src/share/man/man4/pci.4:578
+#, no-wrap
+msgid "E<lt>BE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:545 /usr/src/share/man/man4/pci.4:580
+msgid "The bus address of the PCI device in decimal."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:545 /usr/src/share/man/man4/pci.4:580
+#, no-wrap
+msgid "E<lt>SE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:547 /usr/src/share/man/man4/pci.4:582
+msgid "The slot of the PCI device in decimal."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:547
+#, no-wrap
+msgid "E<lt>PE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:555
+msgid ""
+"The interrupt pin of the PCI slot to override.  One of E<.Ql A>, E<.Ql B>, "
+"E<.Ql C>, or E<.Ql D>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:560
+msgid ""
+"The value of the tunable is the raw IRQ value to use for the INTx interrupt "
+"pin identified by the tunable name.  Mapping of IRQ values to platform "
+"interrupt sources is machine dependent."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:561
+#, no-wrap
+msgid "DEVICE WIRING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:572
+msgid ""
+"You can wire the device unit at a given location with device.hints.  Entries "
+"of the form E<.Va "
+"hints.E<lt>nameE<gt>.E<lt>unitE<gt>.at=\"pciE<lt>BE<gt>:E<lt>SE<gt>:E<lt>FE<gt>\"> "
+"or E<.Va "
+"hints.E<lt>nameE<gt>.E<lt>unitE<gt>.at=\"pciE<lt>DE<gt>:E<lt>BE<gt>:E<lt>SE<gt>:E<lt>FE<gt>\"> "
+"will force the driver E<.Va name> to probe and attach at unit E<.Va unit> "
+"for any PCI device found to match the specification, where:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:578
+msgid ""
+"The domain E<.Pq or segment> of the PCI device in decimal.  Defaults to 0 if "
+"unspecified"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:582
+#, no-wrap
+msgid "E<lt>FE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:584
+msgid "The function of the PCI device in decimal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:595
+msgid ""
+"The code to do the matching requires an exact string match.  Do not specify "
+"the angle brackets E<.Pq E<lt> E<gt>> in the hints file.  Wiring multiple "
+"devices to the same E<.Va name> and E<.Va unit> produces undefined results."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/pci.4:595
+#, no-wrap
+msgid "Examples"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:614
+msgid ""
+"Given the following lines in E<.Pa /boot/device.hints>: E<.Cd "
+"hint.nvme.3.at=\"pci6:0:0\"> E<.Cd hint.igb.8.at=\"pci14:0:0\"> If there is "
+"a device that supports E<.Xr igb 4> at PCI bus 14 slot 0 function 0, then it "
+"will be assigned igb8 for probe and attach.  Likewise, if there is an E<.Xr "
+"nvme 4> card at PCI bus 6 slot 0 function 0, then it will be assigned nvme3 "
+"for probe and attach.  If another type of card is in either of these "
+"locations, the name and unit of that card will be the default names and will "
+"be unaffected by these hints.  If other igb or nvme cards are located "
+"elsewhere, they will be assigned their unit numbers sequentially, skipping "
+"the unit numbers that have 'at' hints."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:614
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pci.4:616
+#, no-wrap
+msgid "Pa /dev/pci"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:620
+msgid "Character device for the E<.Nm> driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:621
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:623
+msgid "E<.Xr pciconf 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:623
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:634
+msgid ""
+"The E<.Nm> driver (not the kernel's E<.Tn PCI> support code) first appeared "
+"in E<.Fx 2.2>, and was written by Stefan Esser and Garrett Wollman.  Support "
+"for device listing and matching was re-implemented by Kenneth Merry, and "
+"first appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:634
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:636
+msgid "E<.An Kenneth Merry Aq Mt ken@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pci.4:636
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pci.4:644
+msgid ""
+"It is not possible for users to specify an accurate offset into the device "
+"list without calling the E<.Dv PCIOCGETCONF> at least once, since they have "
+"no way of knowing the current generation number otherwise.  This probably is "
+"not a serious problem, though, since users can easily narrow their search by "
+"specifying a pattern or patterns for the kernel to match against."
+msgstr ""

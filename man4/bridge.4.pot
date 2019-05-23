@@ -1,0 +1,661 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/bridge.4:38
+#, no-wrap
+msgid "October 16, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/bridge.4:39
+#, no-wrap
+msgid "IF_BRIDGE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:43
+msgid "E<.Nm if_bridge>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/bridge.4:43
+#, no-wrap
+msgid "network bridge device"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:48
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:50
+#, no-wrap
+msgid "E<.Cd \"device if_bridge\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:55
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following lines in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:58
+#, no-wrap
+msgid ""
+"if_bridge_load=\"YES\"\n"
+"bridgestp_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:59
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:68
+msgid ""
+"The E<.Nm> driver creates a logical link between two or more IEEE 802 "
+"networks that use the same (or E<.Dq \"similar enough\">)  framing format.  "
+"For example, it is possible to bridge Ethernet and 802.11 networks together, "
+"but it is not possible to bridge Ethernet and Token Ring together."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:80
+msgid ""
+"Each E<.Nm> interface is created at runtime using interface cloning.  This "
+"is most easily done with the E<.Xr ifconfig 8> E<.Cm create> command or "
+"using the E<.Va cloned_interfaces> variable in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:94
+msgid ""
+"The E<.Nm> interface randomly chooses a link (MAC) address in the range "
+"reserved for locally administered addresses when it is created.  This "
+"address is guaranteed to be unique E<.Em only> across all E<.Nm> interfaces "
+"on the local machine.  Thus you can theoretically have two bridges on the "
+"different machines with the same link addresses.  The address can be changed "
+"by assigning the desired link address using E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:110
+msgid ""
+"If E<.Xr sysctl 8> node E<.Va net.link.bridge.inherit_mac> has non-zero "
+"value, newly created bridge will inherit MAC address from its first member "
+"instead of choosing random link-level address.  This will provide more "
+"predictable bridge MAC without any additional configuration, but currently "
+"this feature is known to break some L2 protocols, for example PPPoE that is "
+"provided by E<.Xr ng_pppoe 4> and E<.Xr ppp 8>.  Now this feature is "
+"considered as experimental and is turned off by-default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:113
+msgid ""
+"A bridge can be used to provide several services, such as a simple "
+"802.11-to-Ethernet bridge for wireless hosts, and traffic isolation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:120
+msgid ""
+"A bridge works like a switch, forwarding traffic from one interface to "
+"another.  Multicast and broadcast packets are always forwarded to all "
+"interfaces that are part of the bridge.  For unicast traffic, the bridge "
+"learns which MAC addresses are associated with which interfaces and will "
+"forward the traffic selectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:128
+msgid ""
+"All the bridged member interfaces need to be up in order to pass network "
+"traffic.  These can be enabled using E<.Xr ifconfig 8> or E<.Va ifconfig_ Ns "
+"Ao Ar interface Ac Ns Li =\"up\"> in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:131
+msgid ""
+"The MTU of the first member interface to be added is used as the bridge "
+"MTU.  All additional members are required to have exactly the same value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:137
+msgid ""
+"The TOE, TSO, TXCSUM and TXCSUM6 capabilities on all interfaces added to the "
+"bridge are disabled if any of the interfaces doesn't support/enable them.  "
+"The LRO capability is always disabled.  All the capabilities are restored "
+"when the interface is removed from bridge.  Changing capabilities in run "
+"time may cause NIC reinit and the link flap."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:148
+msgid ""
+"The bridge supports E<.Dq monitor mode>, where the packets are discarded "
+"after E<.Xr bpf 4> processing, and are not processed or forwarded further.  "
+"This can be used to multiplex the input of two or more interfaces into a "
+"single E<.Xr bpf 4> stream.  This is useful for reconstructing the traffic "
+"for network taps that transmit the RX/TX signals out through two separate "
+"interfaces."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:148
+#, no-wrap
+msgid "IPV6 SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:158
+msgid ""
+"E<.Nm> supports the E<.Li AF_INET6> address family on bridge interfaces.  "
+"The following E<.Xr rc.conf 5> variable configures an IPv6 link-local "
+"address on E<.Li bridge0> interface:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:160
+#, no-wrap
+msgid "ifconfig_bridge0_ipv6=\"up\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:163
+msgid "or in a more explicit manner:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:165
+#, no-wrap
+msgid "ifconfig_bridge0_ipv6=\"inet6 auto_linklocal\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:188
+msgid ""
+"However, the E<.Li AF_INET6> address family has a concept of scope zone.  "
+"Bridging multiple interfaces change the zone configuration because multiple "
+"links are merged to each other and form a new single link while the member "
+"interfaces still work individually.  This means each member interface still "
+"has a separate link-local scope zone and the E<.Nm> interface has another "
+"single, aggregated link-local scope zone at the same time.  This situation "
+"is clearly against the description E<.Qq zones of the same scope cannot "
+"overlap> in Section 5, RFC 4007.  Although it works in most cases, it can "
+"cause some conterintuitive or undesirable behavior in some edge cases when "
+"both of the E<.Nm> interface and one of the member interface have an IPv6 "
+"address and applications use both of them."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:200
+msgid ""
+"To prevent this situation, E<.Nm> checks whether a link-local scoped IPv6 "
+"address is configured on a member interface to be added and the E<.Nm> "
+"interface.  When the E<.Nm> interface has IPv6 addresses, IPv6 addresses on "
+"the member interface will be automatically removed before the interface is "
+"added."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:207
+msgid ""
+"This behavior can be disabled by setting E<.Xr sysctl 8> variable E<.Va "
+"net.link.bridge.allow_llz_overlap> to E<.Li 1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:220
+msgid ""
+"Note that E<.Li ACCEPT_RTADV> and E<.Li AUTO_LINKLOCAL> interface flag are "
+"not enabled by default on E<.Nm> interface even when E<.Va "
+"net.inet6.ip6.accept_rtadv> and/or E<.Va net.inet6.ip6.auto_linklocal> is "
+"set to E<.Li 1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:220
+#, no-wrap
+msgid "SPANNING TREE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:226
+msgid ""
+"The E<.Nm> driver implements the Rapid Spanning Tree Protocol (RSTP or "
+"802.1w) with backwards compatibility with the legacy Spanning Tree Protocol "
+"(STP).  Spanning Tree is used to detect and remove loops in a network "
+"topology."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:230
+msgid ""
+"RSTP provides faster spanning tree convergence than legacy STP, the protocol "
+"will exchange information with neighbouring switches to quickly transition "
+"to forwarding without creating loops."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:238
+msgid ""
+"The code will default to RSTP mode but will downgrade any port connected to "
+"a legacy STP network so is fully backward compatible.  A bridge can be "
+"forced to operate in STP mode without rapid state transitions via the E<.Va "
+"proto> command in E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:245
+msgid ""
+"The bridge can log STP port changes to E<.Xr syslog 3> by enabling the E<.Va "
+"net.link.bridge.log_stp> variable using E<.Xr sysctl 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:245
+#, no-wrap
+msgid "PACKET FILTERING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:255
+msgid ""
+"Packet filtering can be used with any firewall package that hooks in via the "
+"E<.Xr pfil 9> framework.  When filtering is enabled, bridged packets will "
+"pass through the filter inbound on the originating interface, on the bridge "
+"interface and outbound on the appropriate interfaces.  Either stage can be "
+"disabled.  The filtering behaviour can be controlled using E<.Xr sysctl 8>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bridge.4:256
+#, no-wrap
+msgid "Va net.link.bridge.pfil_onlyip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:264
+msgid ""
+"Controls the handling of non-IP packets which are not passed to E<.Xr pfil "
+"9>.  Set to E<.Li 1> to only allow IP packets to pass (subject to firewall "
+"rules), set to E<.Li 0> to unconditionally pass all non-IP Ethernet frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bridge.4:264
+#, no-wrap
+msgid "Va net.link.bridge.pfil_member"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:271
+msgid ""
+"Set to E<.Li 1> to enable filtering on the incoming and outgoing member "
+"interfaces, set to E<.Li 0> to disable it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bridge.4:271
+#, no-wrap
+msgid "Va net.link.bridge.pfil_bridge"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:278
+msgid ""
+"Set to E<.Li 1> to enable filtering on the bridge interface, set to E<.Li 0> "
+"to disable it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bridge.4:278
+#, no-wrap
+msgid "Va net.link.bridge.pfil_local_phys"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:285
+msgid ""
+"Set to E<.Li 1> to additionally filter on the physical interface for locally "
+"destined packets.  Set to E<.Li 0> to disable this feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bridge.4:285
+#, no-wrap
+msgid "Va net.link.bridge.ipfw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:304
+msgid ""
+"Set to E<.Li 1> to enable layer2 filtering with E<.Xr ipfirewall 4>, set to "
+"E<.Li 0> to disable it.  This needs to be enabled for E<.Xr dummynet 4> "
+"support.  When E<.Va ipfw> is enabled, E<.Va pfil_bridge> and E<.Va "
+"pfil_member> will be disabled so that IPFW is not run twice; these can be "
+"re-enabled if desired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/bridge.4:304
+#, no-wrap
+msgid "Va net.link.bridge.ipfw_arp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:315
+msgid ""
+"Set to E<.Li 1> to enable layer2 ARP filtering with E<.Xr ipfirewall 4>, set "
+"to E<.Li 0> to disable it.  Requires E<.Va ipfw> to be enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:325
+msgid ""
+"ARP and REVARP packets are forwarded without being filtered and others that "
+"are not IP nor IPv6 packets are not forwarded when E<.Va pfil_onlyip> is "
+"enabled.  IPFW can filter Ethernet types using E<.Cm mac-type> so all "
+"packets are passed to the filter for processing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:329
+msgid ""
+"The packets originating from the bridging host will be seen by the filter on "
+"the interface that is looked up in the routing table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:352
+msgid ""
+"The packets destined to the bridging host will be seen by the filter on the "
+"interface with the MAC address equal to the packet's destination MAC.  There "
+"are situations when some of the bridge members are sharing the same MAC "
+"address (for example the E<.Xr vlan 4> interfaces: they are currently "
+"sharing the MAC address of the parent physical interface).  It is not "
+"possible to distinguish between these interfaces using their MAC address, "
+"excluding the case when the packet's destination MAC address is equal to the "
+"MAC address of the interface on which the packet was entered to the system.  "
+"In this case the filter will see the incoming packet on this interface.  In "
+"all other cases the interface seen by the packet filter is chosen from the "
+"list of bridge members with the same MAC address and the result strongly "
+"depends on the member addition sequence and the actual implementation of "
+"E<.Nm>.  It is not recommended to rely on the order chosen by the current "
+"E<.Nm> implementation: it can be changed in the future."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:356
+msgid "The previous paragraph is best illustrated with the following pictures.  Let"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:360
+msgid ""
+"the MAC address of the incoming packet's destination is E<.Nm "
+"nn:nn:nn:nn:nn:nn>,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:363
+msgid "the interface on which packet entered the system is E<.Nm ifX>,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:367
+msgid "E<.Nm ifX> MAC address is E<.Nm xx:xx:xx:xx:xx:xx>,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:370
+msgid ""
+"there are possibly other bridge members with the same MAC address E<.Nm "
+"xx:xx:xx:xx:xx:xx>,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:378
+msgid ""
+"the bridge has more than one interface that are sharing the same MAC address "
+"E<.Nm yy:yy:yy:yy:yy:yy>; we will call them E<.Nm vlanY1>, E<.Nm vlanY2>, "
+"etc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:398
+msgid ""
+"Then if the MAC address E<.Nm nn:nn:nn:nn:nn:nn> is equal to the E<.Nm "
+"xx:xx:xx:xx:xx:xx> then the filter will see the packet on the interface "
+"E<.Nm ifX> no matter if there are any other bridge members carrying the same "
+"MAC address.  But if the MAC address E<.Nm nn:nn:nn:nn:nn:nn> is equal to "
+"the E<.Nm yy:yy:yy:yy:yy:yy> then the interface that will be seen by the "
+"filter is one of the E<.Nm vlanYn>.  It is not possible to predict the name "
+"of the actual interface without the knowledge of the system state and the "
+"E<.Nm> implementation details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:413
+msgid ""
+"This problem arises for any bridge members that are sharing the same MAC "
+"address, not only to the E<.Xr vlan 4> ones: they we taken just as the "
+"example of such situation.  So if one wants the filter the locally destined "
+"packets based on their interface name, one should be aware of this "
+"implication.  The described situation will appear at least on the filtering "
+"bridges that are doing IP-forwarding; in some of such cases it is better to "
+"assign the IP address only to the E<.Nm> interface and not to the bridge "
+"members.  Enabling E<.Va net.link.bridge.pfil_local_phys> will let you do "
+"the additional filtering on the physical interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:413
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:426
+msgid ""
+"The following when placed in the file E<.Pa /etc/rc.conf> will cause a "
+"bridge called E<.Dq Li bridge0> to be created, and will add the interfaces "
+"E<.Dq Li wlan0> and E<.Dq Li fxp0> to the bridge, and then enable packet "
+"forwarding.  Such a configuration could be used to implement a simple "
+"802.11-to-Ethernet bridge (assuming the 802.11 interface is in ad-hoc mode)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:429
+#, no-wrap
+msgid ""
+"cloned_interfaces=\"bridge0\"\n"
+"ifconfig_bridge0=\"addm wlan0 addm fxp0 up\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:434
+msgid ""
+"For the bridge to forward packets, all member interfaces and the bridge need "
+"to be up.  The above example would also require:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:438
+#, no-wrap
+msgid ""
+"create_args_wlan0=\"wlanmode hostap\"\n"
+"ifconfig_wlan0=\"up ssid my_ap mode 11g\"\n"
+"ifconfig_fxp0=\"up\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:443
+msgid ""
+"Consider a system with two 4-port Ethernet boards.  The following will cause "
+"a bridge consisting of all 8 ports with Rapid Spanning Tree enabled to be "
+"created:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:455
+#, no-wrap
+msgid ""
+"ifconfig bridge0 create\n"
+"ifconfig bridge0 \\e\n"
+"    addm fxp0 stp fxp0 \\e\n"
+"    addm fxp1 stp fxp1 \\e\n"
+"    addm fxp2 stp fxp2 \\e\n"
+"    addm fxp3 stp fxp3 \\e\n"
+"    addm fxp4 stp fxp4 \\e\n"
+"    addm fxp5 stp fxp5 \\e\n"
+"    addm fxp6 stp fxp6 \\e\n"
+"    addm fxp7 stp fxp7 \\e\n"
+"    up\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:461
+msgid ""
+"The bridge can be used as a regular host interface at the same time as "
+"bridging between its member ports.  In this example, the bridge connects em0 "
+"and em1, and will receive its IP address through DHCP:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:466
+#, no-wrap
+msgid ""
+"cloned_interfaces=\"bridge0\"\n"
+"ifconfig_bridge0=\"addm em0 addm em1 DHCP\"\n"
+"ifconfig_em0=\"up\"\n"
+"ifconfig_em1=\"up\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:477
+msgid ""
+"The bridge can tunnel Ethernet across an IP internet using the EtherIP "
+"protocol.  This can be combined with E<.Xr ipsec 4> to provide an encrypted "
+"connection.  Create a E<.Xr gif 4> interface and set the local and remote IP "
+"addresses for the tunnel, these are reversed on the remote bridge."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:482
+#, no-wrap
+msgid ""
+"ifconfig gif0 create\n"
+"ifconfig gif0 tunnel 1.2.3.4 5.6.7.8 up\n"
+"ifconfig bridge0 create\n"
+"ifconfig bridge0 addm fxp0 addm gif0 up\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:490
+msgid ""
+"Note that E<.Fx> 6.1, 6.2, 6.3, 7.0, 7.1, and 7.2 have a bug in the EtherIP "
+"protocol.  For more details and workaround, see E<.Xr gif 4> manual page."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:490
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:496
+msgid "E<.Xr gif 4>, E<.Xr ipf 4>, E<.Xr ipfw 4>, E<.Xr pf 4>, E<.Xr ifconfig 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:496
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:501
+msgid "The E<.Nm> driver first appeared in E<.Fx 6.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:501
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:509
+msgid ""
+"E<.An -nosplit> The E<.Nm bridge> driver was originally written by E<.An "
+"Jason L. Wright Aq Mt jason@thought.net> as part of an undergraduate "
+"independent study at the University of North Carolina at Greensboro."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:514
+msgid ""
+"This version of the E<.Nm> driver has been heavily modified from the "
+"original version by E<.An Jason R. Thorpe Aq Mt thorpej@wasabisystems.com>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:517
+msgid ""
+"Rapid Spanning Tree Protocol (RSTP) support was added by E<.An Andrew "
+"Thompson Aq Mt thompsa@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/bridge.4:517
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/bridge.4:521
+msgid ""
+"The E<.Nm> driver currently supports only Ethernet and Ethernet-like (e.g., "
+"802.11)  network devices, with exactly the same interface MTU size as the "
+"bridge device."
+msgstr ""

@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/pflog.4:28
+#, no-wrap
+msgid "April 18, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/pflog.4:29
+#, no-wrap
+msgid "PFLOG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:33
+msgid "E<.Nm pflog>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/pflog.4:33
+#, no-wrap
+msgid "packet filter logging interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:36
+msgid "E<.Cd \"device pflog\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:49
+msgid ""
+"The E<.Nm pflog> interface is a device which makes visible all packets "
+"logged by the packet filter, E<.Xr pf 4>.  Logged packets can easily be "
+"monitored in real time by invoking E<.Xr tcpdump 1> on the E<.Nm> interface, "
+"or stored to disk using E<.Xr pflogd 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:62
+msgid ""
+"The pflog0 interface is created when the E<.Nm> module is loaded; further "
+"instances can be created using E<.Xr ifconfig 8>.  The E<.Nm> module is "
+"loaded automatically if both E<.Xr pf 4> and E<.Xr pflogd 8> are enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:71
+msgid ""
+"Each packet retrieved on this interface has a header associated with it of "
+"length E<.Dv PFLOG_HDRLEN>.  This header documents the address family, "
+"interface name, rule number, reason, action, and direction of the packet "
+"that was logged.  This structure, defined in E<.Aq Pa net/if_pflog.h> looks "
+"like"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:88
+#, no-wrap
+msgid ""
+"struct pfloghdr {\n"
+"\tu_int8_t\tlength;\n"
+"\tsa_family_t\taf;\n"
+"\tu_int8_t\taction;\n"
+"\tu_int8_t\treason;\n"
+"\tchar\t\tifname[IFNAMSIZ];\n"
+"\tchar\t\truleset[PF_RULESET_NAME_SIZE];\n"
+"\tu_int32_t\trulenr;\n"
+"\tu_int32_t\tsubrulenr;\n"
+"\tuid_t\t\tuid;\n"
+"\tpid_t\t\tpid;\n"
+"\tuid_t\t\trule_uid;\n"
+"\tpid_t\t\trule_pid;\n"
+"\tu_int8_t\tdir;\n"
+"\tu_int8_t\tpad[3];\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:89
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:94
+msgid "Create a E<.Nm> interface and monitor all packets logged on it:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:99
+#, no-wrap
+msgid ""
+"# ifconfig pflog create\n"
+"pflog1\n"
+"# ifconfig pflog1 up\n"
+"# tcpdump -n -e -ttt -i pflog1\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:100
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:108
+msgid ""
+"E<.Xr tcpdump 1>, E<.Xr inet 4>, E<.Xr inet6 4>, E<.Xr netintro 4>, E<.Xr pf "
+"4>, E<.Xr ifconfig 8>, E<.Xr pflogd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:108
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:113
+msgid "The E<.Nm> device first appeared in E<.Ox 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pflog.4:113
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pflog.4:116
+msgid "FreeBSD does not set a process id in the E<.Fa pid> field in pfloghdr."
+msgstr ""

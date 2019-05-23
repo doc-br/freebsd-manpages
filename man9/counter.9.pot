@@ -1,0 +1,398 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/counter.9:28
+#, no-wrap
+msgid "March 22, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/counter.9:29
+#, no-wrap
+msgid "COUNTER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:33
+msgid "E<.Nm counter>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/counter.9:33
+#, no-wrap
+msgid "SMP-friendly kernel counter implementation"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/counter.9:35
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/counter.9:36
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/counter.9:37
+#, no-wrap
+msgid "sys/counter.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:56
+msgid ""
+"E<.Ft counter_u64_t> E<.Fn counter_u64_alloc \"int wait\"> E<.Ft void> E<.Fn "
+"counter_u64_free \"counter_u64_t c\"> E<.Ft void> E<.Fn counter_u64_add "
+"\"counter_u64_t c\" \"int64_t v\"> E<.Ft void> E<.Fn counter_enter> E<.Ft "
+"void> E<.Fn counter_exit> E<.Ft void> E<.Fn counter_u64_add_protected "
+"\"counter_u64_t c\" \"int64_t v\"> E<.Ft uint64_t> E<.Fn counter_u64_fetch "
+"\"counter_u64_t c\"> E<.Ft void> E<.Fn counter_u64_zero \"counter_u64_t c\"> "
+"E<.Ft int64_t> E<.Fn counter_ratecheck \"struct counter_rate *cr\" \"int64_t "
+"limit\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/counter.9:56
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:61
+msgid ""
+"E<.Fn SYSCTL_COUNTER_U64 parent nbr name access ptr descr> E<.Fn "
+"SYSCTL_ADD_COUNTER_U64 ctx parent nbr name access ptr descr> E<.Fn "
+"SYSCTL_COUNTER_U64_ARRAY parent nbr name access ptr len descr> E<.Fn "
+"SYSCTL_ADD_COUNTER_U64_ARRAY ctx parent nbr name access ptr len descr>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:61
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:86
+msgid ""
+"E<.Nm> is a generic facility to create counters that can be utilized for any "
+"purpose (such as collecting statistical data).  A E<.Nm> is guaranteed to be "
+"lossless when several kernel threads do simultaneous updates.  However, "
+"E<.Nm> does not block the calling thread, also no E<.Xr atomic 9> operations "
+"are used for the update, therefore the counters can be used in any "
+"non-interrupt context.  Moreover, E<.Nm> has special optimisations for SMP "
+"environments, making E<.Nm> update faster than simple arithmetic on the "
+"global variable.  Thus E<.Nm> is considered suitable for accounting in the "
+"performance-critical code paths."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:87
+#, no-wrap
+msgid "Fn counter_u64_alloc wait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:100
+msgid ""
+"Allocate a new 64-bit unsigned counter.  The E<.Fa wait> argument is the "
+"E<.Xr malloc 9> wait flag, should be either E<.Va M_NOWAIT> or E<.Va "
+"M_WAITOK>.  If E<.Va M_NOWAIT> is specified the operation may fail."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:100
+#, no-wrap
+msgid "Fn counter_u64_free c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:103
+msgid "Free the previously allocated counter E<.Fa c>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:103
+#, no-wrap
+msgid "Fn counter_u64_add c v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:109
+msgid ""
+"Add E<.Fa v> to E<.Fa c>.  The KPI does not guarantee any protection from "
+"wraparound."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:109
+#, no-wrap
+msgid "Fn counter_enter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:117
+msgid ""
+"Enter mode that would allow the safe update of several counters via E<.Fn "
+"counter_u64_add_protected>.  On some machines this expands to E<.Xr critical "
+"9> section, while on other is a nop.  See E<.Sx IMPLEMENTATION DETAILS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:117
+#, no-wrap
+msgid "Fn counter_exit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:119
+msgid "Exit mode for updating several counters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:119
+#, no-wrap
+msgid "Fn counter_u64_add_protected c v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:124
+msgid ""
+"Same as E<.Fn counter_u64_add>, but should be preceded by E<.Fn "
+"counter_enter>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:124
+#, no-wrap
+msgid "Fn counter_u64_fetch c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:129
+msgid ""
+"Take a snapshot of counter E<.Fa c>.  The data obtained is not guaranteed to "
+"reflect the real cumulative value for any moment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:129
+#, no-wrap
+msgid "Fn counter_u64_zero c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:133
+msgid "Clear the counter E<.Fa c> and set it to zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:133
+#, no-wrap
+msgid "Fn counter_ratecheck cr limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:145
+msgid ""
+"The function is a multiprocessor-friendly version of E<.Fn ppsratecheck> "
+"which uses E<.Nm> internally.  Returns non-negative value if the rate is not "
+"yet reached during the current second, and a negative value otherwise.  If "
+"the limit was reached on previous second, but was just reset back to zero, "
+"then E<.Fn counter_ratecheck> returns number of events since previous reset."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:145
+#, no-wrap
+msgid "Fn SYSCTL_COUNTER_U64 parent nbr name access ptr descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:157
+msgid ""
+"Declare a static E<.Xr sysctl 9> oid that would represent a E<.Nm>.  The "
+"E<.Fa ptr> argument should be a pointer to allocated E<.Vt counter_u64_t>.  "
+"A read of the oid returns value obtained through E<.Fn counter_u64_fetch>.  "
+"Any write to the oid zeroes it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:157
+#, no-wrap
+msgid "Fn SYSCTL_ADD_COUNTER_U64 ctx parent nbr name access ptr descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:169
+msgid ""
+"Create a E<.Xr sysctl 9> oid that would represent a E<.Nm>.  The E<.Fa ptr> "
+"argument should be a pointer to allocated E<.Vt counter_u64_t>.  A read of "
+"the oid returns value obtained through E<.Fn counter_u64_fetch>.  Any write "
+"to the oid zeroes it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:169
+#, no-wrap
+msgid "Fn SYSCTL_COUNTER_U64_ARRAY parent nbr name access ptr len descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:186
+msgid ""
+"Declare a static E<.Xr sysctl 9> oid that would represent an array of "
+"E<.Nm>.  The E<.Fa ptr> argument should be a pointer to allocated array of "
+"E<.Vt counter_u64_t's>.  The E<.Fa len> argument should specify number of "
+"elements in the array.  A read of the oid returns len-sized array of E<.Vt "
+"uint64_t> values obtained through E<.Fn counter_u64_fetch>.  Any write to "
+"the oid zeroes all array elements."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/counter.9:186
+#, no-wrap
+msgid "Fn SYSCTL_ADD_COUNTER_U64_ARRAY ctx parent nbr name access ptr len descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:203
+msgid ""
+"Create a E<.Xr sysctl 9> oid that would represent an array of E<.Nm>.  The "
+"E<.Fa ptr> argument should be a pointer to allocated array of E<.Vt "
+"counter_u64_t's>.  The E<.Fa len> argument should specify number of elements "
+"in the array.  A read of the oid returns len-sized array of E<.Vt uint64_t> "
+"values obtained through E<.Fn counter_u64_fetch>.  Any write to the oid "
+"zeroes all array elements."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:204
+#, no-wrap
+msgid "IMPLEMENTATION DETAILS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:217
+msgid ""
+"On all architectures E<.Nm> is implemented using per-CPU data fields that "
+"are specially aligned in memory, to avoid inter-CPU bus traffic due to "
+"shared use of the variables between CPUs.  These are allocated using E<.Va "
+"UMA_ZONE_PCPU> E<.Xr uma 9> zone.  The update operation only touches the "
+"field that is private to current CPU.  Fetch operation loops through all "
+"per-CPU fields and obtains a snapshot sum of all fields."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:223
+msgid ""
+"On amd64 a E<.Nm counter> update is implemented as a single instruction "
+"without lock semantics, operating on the private data for the current CPU, "
+"which is safe against preemption and interrupts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:228
+msgid ""
+"On i386 architecture, when machine supports the cmpxchg8 instruction, this "
+"instruction is used.  The multi-instruction sequence provides the same "
+"guarantees as the amd64 single-instruction implementation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:232
+msgid ""
+"On some architectures updating a counter require a E<.Xr critical 9> "
+"section."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:232
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:235
+msgid ""
+"The following example creates a static counter array exported to userspace "
+"through a sysctl:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:240
+#, no-wrap
+msgid ""
+"#define MY_SIZE 8\n"
+"static counter_u64_t array[MY_SIZE];\n"
+"SYSCTL_COUNTER_U64_ARRAY(_debug, OID_AUTO, counter_array, CTLFLAG_RW,\n"
+"    &array[0], MY_SIZE, \"Test counter array\");\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:241
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:249
+msgid ""
+"E<.Xr atomic 9>, E<.Xr critical 9>, E<.Xr locking 9>, E<.Xr malloc 9>, E<.Xr "
+"ratecheck 9>, E<.Xr sysctl 9>, E<.Xr uma 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:249
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:254
+msgid "The E<.Nm> facility first appeared in E<.Fx 10.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/counter.9:254
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/counter.9:261
+msgid ""
+"E<.An -nosplit> The E<.Nm> facility was written by E<.An Gleb Smirnoff> and "
+"E<.An Konstantin Belousov>."
+msgstr ""

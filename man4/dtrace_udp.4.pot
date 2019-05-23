@@ -1,0 +1,461 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_udp.4:27
+#, no-wrap
+msgid "August 1, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_udp.4:28
+#, no-wrap
+msgid "DTRACE_UDP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:32
+msgid "E<.Nm dtrace_udp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_udp.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing events related to the UDP protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:38
+msgid ""
+"E<.Fn udp:::receive \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" "
+"\"udpsinfo_t *\" \"udpinfo_t *\"> E<.Fn udp:::send \"pktinfo_t *\" "
+"\"csinfo_t *\" \"ipinfo_t *\" \"udpsinfo_t *\" \"udpinfo_t *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:55
+msgid ""
+"The DTrace E<.Nm udp> provider allows users to trace events in the E<.Xr udp "
+"4> protocol implementation.  The E<.Fn udp:::send> probe fires whenever the "
+"kernel prepares to transmit a UDP packet, and the E<.Fn udp:::receive> probe "
+"fires whenever the kernel receives a UDP packet, unless the UDP header is "
+"incomplete, the destination port is 0, the length field is invalid, or the "
+"checksum is wrong.  The arguments to these probes can be used to obtain "
+"detailed information about the IP and UDP headers of the corresponding "
+"packet."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:55
+#, no-wrap
+msgid "ARGUMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:61
+msgid ""
+"The E<.Vt pktinfo_t> argument is currently unimplemented and is included for "
+"compatibility with other implementations of this provider.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:62
+#, no-wrap
+msgid "Vt uintptr_t pkt_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:64 /usr/src/share/man/man4/dtrace_udp.4:74 /usr/src/share/man/man4/dtrace_udp.4:81
+msgid "Always set to 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:71
+msgid ""
+"The E<.Vt csinfo_t> argument is currently unimplemented and is included for "
+"compatibility with other implementations of this provider.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:72
+#, no-wrap
+msgid "Vt uintptr_t cs_addr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:74
+#, no-wrap
+msgid "Vt uint64_t cs_cid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:79
+msgid "A pointer to the E<.Vt struct inpcb> for this packet, or E<.Dv NULL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:79
+#, no-wrap
+msgid "Vt pid_t cs_pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:87
+msgid ""
+"The E<.Vt ipinfo_t> argument contains IP fields common to both IPv4 and IPv6 "
+"packets.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:88
+#, no-wrap
+msgid "Vt uint8_t ip_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:90
+msgid "IP version of the packet, 4 for IPv4 packets and 6 for IPv6 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:90
+#, no-wrap
+msgid "Vt uint32_t ip_plength"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:93
+msgid ""
+"IP payload size.  This does not include the size of the IP header or IPv6 "
+"option headers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:93
+#, no-wrap
+msgid "Vt string ip_saddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:95
+msgid "IP source address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:95
+#, no-wrap
+msgid "Vt string ip_daddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:97
+msgid "IP destination address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:103
+msgid ""
+"The E<.Vt udpsinfo_t> argument contains the state of the UDP connection "
+"associated with the packet.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:104
+#, no-wrap
+msgid "Vt uintptr_t udps_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:108
+msgid ""
+"Pointer to the E<.Vt struct inpcb> containing the IP state for the "
+"associated socket."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:108
+#, no-wrap
+msgid "Vt uint16_t udps_lport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:110
+msgid "Local UDP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:110
+#, no-wrap
+msgid "Vt uint16_t udps_rport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:112
+msgid "Remote UDP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:112
+#, no-wrap
+msgid "Vt string udps_laddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:114
+msgid "Local IPv4 or IPv6 address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:114
+#, no-wrap
+msgid "Vt string udps_raddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:116
+msgid "Remote IPv4 or IPv6 address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:122
+msgid ""
+"The E<.Vt udpinfo_t> argument is the raw UDP header of the packet, with all "
+"fields in host order.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:123
+#, no-wrap
+msgid "Vt uint16_t udp_sport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:125
+msgid "Source UDP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:125
+#, no-wrap
+msgid "Vt uint16_t udp_dport"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:127
+msgid "Destination UDP port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:127
+#, no-wrap
+msgid "Vt uint16_t udp_length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:129
+msgid "Length of the UDP header and payload, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:129
+#, no-wrap
+msgid "Vt uint16_t udp_checksum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:131
+msgid ""
+"A checksum of the UDP header and payload, or 0 if no checksum was "
+"calculated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:131
+#, no-wrap
+msgid "Vt struct udphdr *udp_hdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:133
+msgid "A pointer to the raw UDP header."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:134
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_udp.4:136
+#, no-wrap
+msgid "Pa /usr/lib/dtrace/udp.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:140
+msgid "DTrace type and translator definitions for the E<.Nm udp> provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:141
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:143
+msgid "The following script counts transmitted packets by destination port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:148
+#, no-wrap
+msgid ""
+"udp:::send\n"
+"{\n"
+"        @num[args[4]-E<gt>udp_dport] = count();\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:152
+msgid ""
+"This script will print some details of each UDP packet as it is sent or "
+"received by the kernel:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:155
+#, no-wrap
+msgid ""
+"#pragma D option quiet\n"
+"#pragma D option switchrate=10Hz\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:162
+#, no-wrap
+msgid ""
+"dtrace:::BEGIN\n"
+"{\n"
+"        printf(\" %10s %36s    %-36s %6s\\en\", \"DELTA(us)\", \"SOURCE\",\n"
+"            \"DEST\", \"BYTES\");\n"
+"        last = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:173
+#, no-wrap
+msgid ""
+"udp:::send\n"
+"{\n"
+"        this-E<gt>elapsed = (timestamp - last) / 1000;\n"
+"        self-E<gt>dest = strjoin(strjoin(args[2]-E<gt>ip_daddr, \":\"),\n"
+"             lltostr(args[4]-E<gt>udp_dport));\n"
+"        printf(\" %10d %30s:%-5d -E<gt> %-36s %6d\\en\", "
+"this-E<gt>elapsed,\n"
+"            args[2]-E<gt>ip_saddr, args[4]-E<gt>udp_sport,\n"
+"            self-E<gt>dest, args[4]-E<gt>udp_length);\n"
+"        last = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:184
+#, no-wrap
+msgid ""
+"udp:::receive\n"
+"{\n"
+"        this-E<gt>elapsed = (timestamp - last) / 1000;\n"
+"        self-E<gt>dest = strjoin(strjoin(args[2]-E<gt>ip_saddr, \":\"),\n"
+"             lltostr(args[4]-E<gt>udp_sport));\n"
+"        printf(\" %10d %30s:%-5d E<lt>- %-36s %6d\\en\", "
+"this-E<gt>elapsed,\n"
+"            args[2]-E<gt>ip_daddr, args[4]-E<gt>udp_dport,\n"
+"            self-E<gt>dest, args[4]-E<gt>udp_length);\n"
+"        last = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:185
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:189
+msgid "This provider is compatible with the E<.Nm udp> provider in Solaris."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:189
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:197
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr dtrace_ip 4>, E<.Xr dtrace_sctp 4>, E<.Xr dtrace_tcp "
+"4>, E<.Xr dtrace_udplite 4>, E<.Xr udp 4>, E<.Xr SDT 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:197
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:203
+msgid "The E<.Nm udp> provider first appeared in E<.Fx> 10.0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_udp.4:203
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_udp.4:205
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""

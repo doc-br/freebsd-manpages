@@ -1,0 +1,6828 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/rc.conf.5:27
+#, no-wrap
+msgid "March 21, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/rc.conf.5:28
+#, no-wrap
+msgid "RC.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/rc.conf.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:32
+msgid "E<.Nm rc.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/rc.conf.5:32
+#, no-wrap
+msgid "system configuration information"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/rc.conf.5:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:42
+msgid ""
+"The file E<.Nm> contains descriptive information about the local host name, "
+"configuration details for any potential network interfaces and which "
+"services should be started up at system initial boot time.  In new "
+"installations, the E<.Nm> file is generally initialized by the system "
+"installation utility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:52
+msgid ""
+"The purpose of E<.Nm> is not to run commands or perform system startup "
+"actions directly.  Instead, it is included by the various generic startup "
+"scripts in E<.Pa /etc> which conditionalize their internal actions according "
+"to the settings found there."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:66
+msgid ""
+"The E<.Pa /etc/rc.conf> file is included from the file E<.Pa "
+"/etc/defaults/rc.conf>, which specifies the default settings for all the "
+"available options.  Options need only be specified in E<.Pa /etc/rc.conf> "
+"when the system administrator wishes to override these defaults.  The file "
+"E<.Pa /etc/rc.conf.local> is used to override settings in E<.Pa "
+"/etc/rc.conf> for historical reasons."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:69
+msgid ""
+"The sysrc(8) command provides a scripting interface to modify system config "
+"files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:103
+msgid ""
+"In addition to E<.Pa /etc/rc.conf.local> you can also place smaller "
+"configuration files for each E<.Xr rc 8> script in the E<.Pa /etc/rc.conf.d> "
+"directory or E<.Ao Ar dir Ac Ns Pa /rc.conf.d> directories specified in "
+"E<.Va local_startup>, which will be included by the E<.Va load_rc_config> "
+"function.  For jail configurations you could use the file E<.Pa "
+"/etc/rc.conf.d/jail> to store jail specific configuration options.  If E<.Va "
+"local_startup> contains E<.Pa /usr/local/etc/rc.d> and E<.Pa /opt/conf>, "
+"E<.Pa /usr/local/rc.conf.d/jail> and E<.Pa /opt/conf/rc.conf.d/jail> will be "
+"loaded.  If E<.Ao Ar dir Ac Ns Pa /rc.conf.d/ Ns Ao Ar name Ac> is a "
+"directory, all of files in the directory will be loaded.  Also see the E<.Va "
+"rc_conf_files> variable below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:113
+msgid ""
+"Options are set with E<.Dq Ar name Ns Li = Ns Ar value> assignments that use "
+"E<.Xr sh 1> syntax.  The following list provides a name and short "
+"description for each variable that can be set in the E<.Nm> file:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:114
+#, no-wrap
+msgid "Va rc_debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:123
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable output of debug messages from "
+"rc scripts.  This variable can be helpful in diagnosing mistakes when "
+"editing or integrating new scripts.  Beware that this produces copious "
+"output to the terminal and E<.Xr syslog 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:123
+#, no-wrap
+msgid "Va rc_info"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:131
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li NO>, disable informational messages from "
+"the rc scripts.  Informational messages are displayed when a condition that "
+"is not serious enough to warrant a warning or an error occurs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:131
+#, no-wrap
+msgid "Va rc_startmsgs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:138
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, show E<.Dq Starting foo:> when "
+"faststart is used (e.g., at boot time)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:138
+#, no-wrap
+msgid "Va early_late_divider"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:173
+msgid ""
+"E<.Pq Vt str> The name of the script that should be used as the delimiter "
+"between the E<.Dq early> and E<.Dq late> stages of the boot process.  The "
+"early stage should contain all the services needed to get the disks (local "
+"or remote) mounted so that the late stage can include scripts contained in "
+"the directories listed in the E<.Va local_startup> variable (see below).  "
+"Thus, the two likely candidates for this value are E<.Pa mountcritlocal> for "
+"the typical system, and E<.Pa mountcritremote> if the system needs remote "
+"file systems mounted to get access to the E<.Va local_startup> directories; "
+"for example when E<.Pa /usr/local> is NFS mounted.  For E<.Pa rc.conf> "
+"within a E<.Xr jail 8> E<.Pa NETWORKING> is likely to be an appropriate "
+"value.  Extreme care should be taken when changing this value, and before "
+"changing it one should ensure that there are adequate provisions to recover "
+"from a failed boot (such as physical contact with the machine, or reliable "
+"remote console access)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:173
+#, no-wrap
+msgid "Va always_force_depends"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:186
+msgid ""
+"E<.Pq Vt bool> Various E<.Pa rc.d> scripts use the force_depend function to "
+"check whether required services are already running, and to start them if "
+"necessary.  By default during boot time this check is bypassed if the "
+"required service is enabled in E<.Pa /etc/rc.conf[.local]>.  Setting this "
+"option will bypass that check at boot time and always test whether or not "
+"the service is actually running.  Enabling this option is likely to increase "
+"your boot time if services are enabled that utilize the force_depend check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:186
+#, no-wrap
+msgid "Ao Ar name Ac Ns Va _chroot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:190
+msgid "E<.Pq Vt str> E<.Xr chroot 8> to this directory before running the service."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:190
+#, no-wrap
+msgid "Ao Ar name Ac Ns Va _user"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:193
+msgid "E<.Pq Vt str> Run the service under this user account."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:193
+#, no-wrap
+msgid "Ao Ar name Ac Ns Va _group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:198
+msgid ""
+"E<.Pq Vt str> Run the chrooted service under this system group.  Unlike the "
+"_user setting, this setting has no effect if the service is not chrooted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:198
+#, no-wrap
+msgid "Ao Ar name Ac Ns Va _fib"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:203
+msgid "E<.Pq Vt int> The E<.Xr setfib 1> value to run the service under."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:203
+#, no-wrap
+msgid "Ao Ar name Ac Ns Va _nice"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:208
+msgid "E<.Pq Vt int> The E<.Xr nice 1> value to run the service under."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:208
+#, no-wrap
+msgid "Va apm_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:216
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable support for Automatic Power "
+"Management with the E<.Xr apm 8> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:216
+#, no-wrap
+msgid "Va apmd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:222
+msgid ""
+"E<.Pq Vt bool> Run E<.Xr apmd 8> to handle APM event from userland.  This "
+"also enables support for APM."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:222
+#, no-wrap
+msgid "Va apmd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:231
+msgid ""
+"E<.Pq Vt str> If E<.Va apmd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr apmd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:231
+#, no-wrap
+msgid "Va devd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:236
+msgid ""
+"E<.Pq Vt bool> Run E<.Xr devd 8> to handle device added, removed or unknown "
+"events from the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:236
+#, no-wrap
+msgid "Va ddb_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:243
+msgid ""
+"E<.Pq Vt bool> Run E<.Xr ddb 8> to install E<.Xr ddb 4> scripts at boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:243
+#, no-wrap
+msgid "Va ddb_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:249
+msgid ""
+"E<.Pq Vt str> Configuration file for E<.Xr ddb 8>.  Default E<.Pa "
+"/etc/ddb.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:249
+#, no-wrap
+msgid "Va kld_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:259
+msgid ""
+"E<.Pq Vt str> A whitespace-separated list of kernel modules to load right "
+"after the local disks are mounted, without any E<.Pa .ko> extension or "
+"path.  Loading modules at this point in the boot process is much faster than "
+"doing it via E<.Pa /boot/loader.conf> for those modules not necessary for "
+"mounting local disks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:259
+#, no-wrap
+msgid "Va kldxref_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:271
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Set to E<.Dq Li YES> to "
+"automatically rebuild E<.Pa linker.hints> files with E<.Xr kldxref 8> at "
+"boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:271
+#, no-wrap
+msgid "Va kldxref_clobber"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:288
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  If E<.Va kldxref_enable> is "
+"true, setting to E<.Dq Li YES> will overwrite existing E<.Pa linker.hints> "
+"files at boot time.  Otherwise, only missing E<.Pa linker.hints> files are "
+"generated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:288
+#, no-wrap
+msgid "Va kldxref_module_path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:301
+msgid ""
+"E<.Pq Vt str> Empty by default.  A semi-colon E<.Pq Ql \\&;> delimited list "
+"of paths containing E<.Xr kld 4> modules.  If empty, the contents of the "
+"E<.Va kern.module_path> E<.Xr sysctl 8> are used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:301
+#, no-wrap
+msgid "Va powerd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:308
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable the system power control "
+"facility with the E<.Xr powerd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:308
+#, no-wrap
+msgid "Va powerd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:317
+msgid ""
+"E<.Pq Vt str> If E<.Va powerd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr powerd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:317
+#, no-wrap
+msgid "Va tmpmfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:328
+msgid ""
+"Controls the creation of a E<.Pa /tmp> memory file system.  Always happens "
+"if set to E<.Dq Li YES> and never happens if set to E<.Dq Li NO>.  If set to "
+"anything else, a memory file system is created if E<.Pa /tmp> is not "
+"writable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:328
+#, no-wrap
+msgid "Va tmpsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:332
+msgid "Controls the size of a created E<.Pa /tmp> memory file system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:332
+#, no-wrap
+msgid "Va tmpmfs_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:348
+msgid ""
+"Extra options passed to the E<.Xr mdmfs 8> utility when the memory file "
+"system for E<.Pa /tmp> is created.  The default is E<.Dq Li \"-S\">, which "
+"inhibits the use of softupdates on E<.Pa /tmp> so that file system space is "
+"freed without delay after file truncation or deletion.  See E<.Xr mdmfs 8> "
+"for other options you can use in E<.Va tmpmfs_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:348
+#, no-wrap
+msgid "Va varmfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:359
+msgid ""
+"Controls the creation of a E<.Pa /var> memory file system.  Always happens "
+"if set to E<.Dq Li YES> and never happens if set to E<.Dq Li NO>.  If set to "
+"anything else, a memory file system is created if E<.Pa /var> is not "
+"writable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:359
+#, no-wrap
+msgid "Va varsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:363
+msgid "Controls the size of a created E<.Pa /var> memory file system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:363
+#, no-wrap
+msgid "Va varmfs_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:379
+msgid ""
+"Extra options passed to the E<.Xr mdmfs 8> utility when the memory file "
+"system for E<.Pa /var> is created.  The default is E<.Dq Li \"-S\">, which "
+"inhibits the use of softupdates on E<.Pa /var> so that file system space is "
+"freed without delay after file truncation or deletion.  See E<.Xr mdmfs 8> "
+"for other options you can use in E<.Va varmfs_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:379
+#, no-wrap
+msgid "Va populate_var"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:395
+msgid ""
+"Controls the automatic population of the E<.Pa /var> file system.  Always "
+"happens if set to E<.Dq Li YES> and never happens if set to E<.Dq Li NO>.  "
+"If set to anything else, a memory file system is created if E<.Pa /var> is "
+"not writable.  Note that this process requires access to certain commands in "
+"E<.Pa /usr> before E<.Pa /usr> is mounted on normal systems."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:395
+#, no-wrap
+msgid "Va cleanvar_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:400
+msgid "E<.Pq Vt bool> Clean the E<.Pa /var> directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:400
+#, no-wrap
+msgid "Va local_startup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:403
+msgid "E<.Pq Vt str> List of directories to search for startup script files."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:403
+#, no-wrap
+msgid "Va script_name_sep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:410
+msgid ""
+"E<.Pq Vt str> The field separator to use for breaking down the list of "
+"startup script files into individual filenames.  The default is a space.  It "
+"is not necessary to change this unless there are startup scripts with names "
+"containing spaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:410
+#, no-wrap
+msgid "Va hostapd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:417
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr hostapd 8> at system boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:417
+#, no-wrap
+msgid "Va hostname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:432
+msgid ""
+"E<.Pq Vt str> The fully qualified domain name (FQDN) of this host on the "
+"network.  This should almost certainly be set to something meaningful, even "
+"if there is no network connection.  If E<.Xr dhclient 8> is used to set the "
+"hostname via DHCP, this variable should be set to an empty string.  Within a "
+"E<.Xr jail 8> the hostname is generally already set and this variable may "
+"absent.  If this value remains unset when the system is done booting your "
+"console login will display the default hostname of E<.Dq Amnesiac>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:432
+#, no-wrap
+msgid "Va nisdomainname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:437
+msgid ""
+"E<.Pq Vt str> The NIS domain name of this host, or E<.Dq Li NO> if NIS is "
+"not used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:437
+#, no-wrap
+msgid "Va dhclient_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:445
+msgid ""
+"E<.Pq Vt str> Path to the DHCP client program E<.Pa ( /sbin/dhclient>, the "
+"E<.Ox> DHCP client, is the default)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:445
+#, no-wrap
+msgid "Va dhclient_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:453
+msgid ""
+"E<.Pq Vt str> Additional flags to pass to the DHCP client program.  For the "
+"E<.Ox> DHCP client, see the E<.Xr dhclient 8> manpage for a description of "
+"the command line options available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:453
+#, no-wrap
+msgid "Va dhclient_flags_ Ns Aq Ar iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:459
+msgid ""
+"Additional flags to pass to the DHCP client program running on E<.Ar iface> "
+"only.  When specified, this variable overrides E<.Va dhclient_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:459
+#, no-wrap
+msgid "Va background_dhclient"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:467
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start the DHCP client in background.  "
+"This can cause trouble with applications depending on a working network, but "
+"it will provide a faster startup in many cases."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:467
+#, no-wrap
+msgid "Va background_dhclient_ Ns Aq Ar iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:473
+msgid ""
+"When specified, this variable overrides the E<.Va background_dhclient> "
+"variable for interface E<.Ar iface> only."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:473
+#, no-wrap
+msgid "Va synchronous_dhclient"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:489
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr dhclient 8> synchronously "
+"at startup.  This behavior can be overridden on a per-interface basis by "
+"replacing the E<.Dq Li DHCP> keyword in the E<.Va ifconfig_ Ns Aq Ar "
+"interface> variable with E<.Dq Li SYNCDHCP> or E<.Dq Li NOSYNCDHCP>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:489
+#, no-wrap
+msgid "Va defaultroute_delay"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:493
+msgid ""
+"E<.Pq Vt int> When set to a positive value, wait up to this long after "
+"configuring DHCP interfaces at startup to give the interfaces time to "
+"receive a lease."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:493
+#, no-wrap
+msgid "Va firewall_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:505
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to load firewall rules at startup.  If "
+"the kernel was not built with E<.Cd \"options IPFIREWALL\">, the E<.Pa "
+"ipfw.ko> kernel module will be loaded.  See also E<.Va ipfilter_enable>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:505
+#, no-wrap
+msgid "Va firewall_script"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:510
+msgid ""
+"E<.Pq Vt str> This variable specifies the full path to the firewall script "
+"to run.  The default is E<.Pa /etc/rc.firewall>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:510
+#, no-wrap
+msgid "Va firewall_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:518
+msgid ""
+"E<.Pq Vt str> Names the firewall type from the selection in E<.Pa "
+"/etc/rc.firewall>, or the file which contains the local firewall ruleset.  "
+"Valid selections from E<.Pa /etc/rc.firewall> are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:520
+#, no-wrap
+msgid "Li open"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:522
+msgid "unrestricted IP access"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:522
+#, no-wrap
+msgid "Li closed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:525
+msgid "all IP services disabled, except via E<.Dq Li lo0>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:525
+#, no-wrap
+msgid "Li client"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:527
+msgid "basic protection for a workstation"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:527
+#, no-wrap
+msgid "Li simple"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:529
+msgid "basic protection for a LAN."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:533
+msgid "If a filename is specified, the full path must be given."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:533
+#, no-wrap
+msgid "Va firewall_quiet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:538
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to disable the display of firewall rules "
+"on the console during boot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:538
+#, no-wrap
+msgid "Va firewall_logging"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:546
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to enable firewall event logging.  This "
+"is equivalent to the E<.Dv IPFIREWALL_VERBOSE> kernel option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:546
+#, no-wrap
+msgid "Va firewall_logif"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:556
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to create pseudo interface E<.Li ipfw0> "
+"for logging.  For more details, see E<.Xr ipfw 8> manual page."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:556
+#, no-wrap
+msgid "Va firewall_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:563
+msgid ""
+"E<.Pq Vt str> Flags passed to E<.Xr ipfw 8> if E<.Va firewall_type> "
+"specifies a filename."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:563
+#, no-wrap
+msgid "Va firewall_coscripts"
+msgstr ""
+
+#.  ----- firewall_nat_enable setting --------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:568
+msgid ""
+"E<.Pq Vt str> List of executables and/or rc scripts to run after firewall "
+"starts/stops.  Default is empty."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:568
+#, no-wrap
+msgid "Va firewall_nat_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:582
+msgid ""
+"E<.Pq Vt bool> The E<.Xr ipfw 8> equivalent of E<.Va natd_enable>.  Setting "
+"this to E<.Dq Li YES> will automatically load the E<.Xr ipfw 8> NAT kernel "
+"module if E<.Va firewall_enable> is also set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:582
+#, no-wrap
+msgid "Va firewall_nat_interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:590
+msgid ""
+"E<.Pq Vt str> The E<.Xr ipfw 8> equivalent of E<.Va natd_interface>.  This "
+"is the name of the public interface or IP address on which kernel NAT should "
+"run."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:590
+#, no-wrap
+msgid "Va firewall_nat_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:593
+msgid ""
+"E<.Pq Vt str> Additional configuration parameters for kernel NAT should be "
+"placed here."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:593
+#, no-wrap
+msgid "Va firewall_nat64_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:603
+msgid ""
+"E<.Pq Vt bool> Setting this to E<.Dq Li YES> will automatically load the "
+"E<.Xr ipfw 8> NAT64 kernel module if E<.Va firewall_enable> is also set to "
+"E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:603
+#, no-wrap
+msgid "Va firewall_nptv6_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:613
+msgid ""
+"E<.Pq Vt bool> Setting this to E<.Dq Li YES> will automatically load the "
+"E<.Xr ipfw 8> NPTv6 kernel module if E<.Va firewall_enable> is also set to "
+"E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:613
+#, no-wrap
+msgid "Va firewall_pmod_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:623
+msgid ""
+"E<.Pq Vt bool> Setting this to E<.Dq Li YES> will automatically load the "
+"E<.Xr ipfw 8> pmod kernel module if E<.Va firewall_enable> is also set to "
+"E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:623
+#, no-wrap
+msgid "Va dummynet_enable"
+msgstr ""
+
+#.  -------------------------------------------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:634
+msgid ""
+"E<.Pq Vt bool> Setting this to E<.Dq Li YES> will automatically load the "
+"E<.Xr dummynet 4> module if E<.Va firewall_enable> is also set to E<.Dq Li "
+"YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:634
+#, no-wrap
+msgid "Va ipfw_netflow_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:640
+msgid ""
+"E<.Pq Vt bool> Setting this to E<.Dq Li YES> will enable netflow logging via "
+"E<.Xr ng_netflow 4>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:644
+msgid ""
+"By default a ipfw rule is inserted and all packets are duplicated with the "
+"ngtee command and netflow packets are sent to 127.0.0.1 on the netflow port "
+"using protocol version 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:644
+#, no-wrap
+msgid "Va ipfw_netflow_hook"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:649
+msgid "E<.Pq Vt int> netflow hook name, must be numerical (default E<.Pa 9995>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:649
+#, no-wrap
+msgid "Va ipfw_netflow_rule"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:654
+msgid "E<.Pq Vt int> ipfw rule number (default E<.Pa 1000>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:654
+#, no-wrap
+msgid "Va ipfw_netflow_ip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:659
+msgid ""
+"E<.Pq Vt str> Destination server ip for receiving netflow data (default "
+"E<.Pa 127.0.0.1>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:659
+#, no-wrap
+msgid "Va ipfw_netflow_port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:664
+msgid ""
+"E<.Pq Vt int> Destination server port for receiving netflow data (default "
+"E<.Pa 9995>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:664
+#, no-wrap
+msgid "Va ipfw_netflow_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:667
+msgid ""
+"E<.Pq Vt int> Do not set for using version 5 of the netflow protocol, set it "
+"to 9 for using version 9."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:667
+#, no-wrap
+msgid "Va ipfw_netflow_fib"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:672
+msgid ""
+"E<.Pq Vt int> Only match packet in FIB E<.Pa ipfw_netflow_fib> (default is "
+"undefined meaning all FIBs)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:672
+#, no-wrap
+msgid "Va natd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:676
+msgid "E<.Pq Vt str> Path to E<.Xr natd 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:676
+#, no-wrap
+msgid "Va natd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:693
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to enable E<.Xr natd 8>.  E<.Va "
+"firewall_enable> must also be set to E<.Dq Li YES>, and E<.Xr divert 4> "
+"sockets must be enabled in the kernel.  If the kernel was not built with "
+"E<.Cd \"options IPDIVERT\">, the E<.Pa ipdivert.ko> kernel module will be "
+"loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:693
+#, no-wrap
+msgid "Va natd_interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:699
+msgid ""
+"E<.Pq Vt str> This is the name of the public interface on which E<.Xr natd "
+"8> should run.  The interface may be given as an interface name or as an IP "
+"address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:699
+#, no-wrap
+msgid "Va natd_flags"
+msgstr ""
+
+#.  ----- ipfilter_enable setting --------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:712
+msgid ""
+"E<.Pq Vt str> Additional E<.Xr natd 8> flags should be placed here.  The "
+"E<.Fl n> or E<.Fl a> flag is automatically added with the above E<.Va "
+"natd_interface> as an argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:712
+#, no-wrap
+msgid "Va ipfilter_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:722
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting this to E<.Dq Li "
+"YES> enables E<.Xr ipf 8> packet filtering."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:724 /usr/src/share/man/man5/rc.conf.5:942
+msgid "Typical usage will require putting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:729
+#, no-wrap
+msgid ""
+"ipfilter_enable=\"YES\"\n"
+"ipnat_enable=\"YES\"\n"
+"ipmon_enable=\"YES\"\n"
+"ipfs_enable=\"YES\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:738
+msgid ""
+"into E<.Pa /etc/rc.conf> and editing E<.Pa /etc/ipf.rules> and E<.Pa "
+"/etc/ipnat.rules> appropriately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:752
+msgid ""
+"Note that E<.Va ipfilter_enable> and E<.Va ipnat_enable> can be enabled "
+"independently.  E<.Va ipmon_enable> and E<.Va ipfs_enable> both require at "
+"least one of E<.Va ipfilter_enable> and E<.Va ipnat_enable> to be enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:754
+msgid "Having"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:758
+#, no-wrap
+msgid ""
+"options IPFILTER\n"
+"options IPFILTER_LOG\n"
+"options IPFILTER_DEFAULT_BLOCK\n"
+msgstr ""
+
+#.  ----- ipfilter_program setting ------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:762
+msgid "in the kernel configuration file is a good idea, too."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:762
+#, no-wrap
+msgid "Va ipfilter_program"
+msgstr ""
+
+#.  ----- ipfilter_rules setting --------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:769
+msgid "E<.Pq Vt str> Path to E<.Xr ipf 8> (default E<.Pa /sbin/ipf>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:769
+#, no-wrap
+msgid "Va ipfilter_rules"
+msgstr ""
+
+#.  ----- ipv6_ipfilter_rules setting ---------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:779
+msgid ""
+"E<.Pq Vt str> Set to E<.Pa /etc/ipf.rules> by default.  This variable "
+"contains the name of the filter rule definition file.  The file is expected "
+"to be readable for the E<.Xr ipf 8> command to execute."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:779
+#, no-wrap
+msgid "Va ipv6_ipfilter_rules"
+msgstr ""
+
+#.  ----- ipfilter_flags setting --------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:789
+msgid ""
+"E<.Pq Vt str> Set to E<.Pa /etc/ipf6.rules> by default.  This variable "
+"contains the IPv6 filter rule definition file.  The file is expected to be "
+"readable for the E<.Xr ipf 8> command to execute."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:789
+#, no-wrap
+msgid "Va ipfilter_flags"
+msgstr ""
+
+#.  ----- ipnat_enable setting ----------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:796
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains flags passed to the "
+"E<.Xr ipf 8> program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:796
+#, no-wrap
+msgid "Va ipnat_enable"
+msgstr ""
+
+#.  ----- ipnat_program setting ---------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:810
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Set it to E<.Dq Li YES> to "
+"enable E<.Xr ipnat 8> network address translation.  See E<.Va "
+"ipfilter_enable> for a detailed discussion."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:810
+#, no-wrap
+msgid "Va ipnat_program"
+msgstr ""
+
+#.  ----- ipnat_rules setting -----------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:817
+msgid "E<.Pq Vt str> Path to E<.Xr ipnat 8> (default E<.Pa /sbin/ipnat>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:817
+#, no-wrap
+msgid "Va ipnat_rules"
+msgstr ""
+
+#.  ----- ipnat_flags setting -----------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:828
+msgid ""
+"E<.Pq Vt str> Set to E<.Pa /etc/ipnat.rules> by default.  This variable "
+"contains the name of the file holding the network address translation "
+"definition.  This file is expected to be readable for the E<.Xr ipnat 8> "
+"command to execute."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:828
+#, no-wrap
+msgid "Va ipnat_flags"
+msgstr ""
+
+#.  ----- ipmon_enable setting ----------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:835
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains flags passed to the "
+"E<.Xr ipnat 8> program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:835
+#, no-wrap
+msgid "Va ipmon_enable"
+msgstr ""
+
+#.  ----- ipmon_program setting ---------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:858
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Set it to E<.Dq Li YES> to "
+"enable E<.Xr ipmon 8> monitoring (logging E<.Xr ipf 8> and E<.Xr ipnat 8> "
+"events).  Setting this variable needs setting E<.Va ipfilter_enable> or "
+"E<.Va ipnat_enable> too.  See E<.Va ipfilter_enable> for a detailed "
+"discussion."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:858
+#, no-wrap
+msgid "Va ipmon_program"
+msgstr ""
+
+#.  ----- ipmon_flags setting -----------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:865
+msgid "E<.Pq Vt str> Path to E<.Xr ipmon 8> (default E<.Pa /sbin/ipmon>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:865
+#, no-wrap
+msgid "Va ipmon_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:882
+msgid ""
+"E<.Pq Vt str> Set to E<.Dq Li -Ds> by default.  This variable contains flags "
+"passed to the E<.Xr ipmon 8> program.  Another typical example would be "
+"E<.Dq Fl D Pa /var/log/ipflog> to have E<.Xr ipmon 8> log directly to a file "
+"bypassing E<.Xr syslogd 8>.  Make sure to adjust E<.Pa /etc/newsyslog.conf> "
+"in such case like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:884
+#, no-wrap
+msgid "/var/log/ipflog  640  10  100  *  Z  /var/run/ipmon.pid\n"
+msgstr ""
+
+#.  ----- ipfs_enable setting -----------------------------------
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:886
+#, no-wrap
+msgid "Va ipfs_enable"
+msgstr ""
+
+#.  ----- ipfs_program setting ----------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:916
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Set it to E<.Dq Li YES> to "
+"enable E<.Xr ipfs 8> saving the filter and NAT state tables during shutdown "
+"and reloading them during startup again.  Setting this variable needs "
+"setting E<.Va ipfilter_enable> or E<.Va ipnat_enable> to E<.Dq Li YES> too.  "
+"See E<.Va ipfilter_enable> for a detailed discussion.  Note that if E<.Va "
+"kern_securelevel> is set to 3, E<.Va ipfs_enable> cannot be used because the "
+"raised securelevel will prevent E<.Xr ipfs 8> from saving the state tables "
+"at shutdown time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:916
+#, no-wrap
+msgid "Va ipfs_program"
+msgstr ""
+
+#.  ----- ipfs_flags setting ------------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:923
+msgid "E<.Pq Vt str> Path to E<.Xr ipfs 8> (default E<.Pa /sbin/ipfs>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:923
+#, no-wrap
+msgid "Va ipfs_flags"
+msgstr ""
+
+#.  ----- end of added ipf hook ---------------------------------
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:930
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains flags passed to the "
+"E<.Xr ipfs 8> program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:930
+#, no-wrap
+msgid "Va pf_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:940
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting this to E<.Dq Li "
+"YES> enables E<.Xr pf 4> packet filtering."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/rc.conf.5:943
+#, no-wrap
+msgid "pf_enable=\"YES\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:951
+msgid ""
+"into E<.Pa /etc/rc.conf> and editing E<.Pa /etc/pf.conf> appropriately.  "
+"Adding"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/rc.conf.5:952
+#, no-wrap
+msgid "device pf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:958
+msgid ""
+"builds support for E<.Xr pf 4> into the kernel, otherwise the kernel module "
+"will be loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:958
+#, no-wrap
+msgid "Va pf_rules"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:965
+msgid ""
+"E<.Pq Vt str> Path to E<.Xr pf 4> ruleset configuration file (default E<.Pa "
+"/etc/pf.conf>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:965
+#, no-wrap
+msgid "Va pf_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:971
+msgid "E<.Pq Vt str> Path to E<.Xr pfctl 8> (default E<.Pa /sbin/pfctl>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:971
+#, no-wrap
+msgid "Va pf_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:980
+msgid ""
+"E<.Pq Vt str> If E<.Va pf_enable> is set to E<.Dq Li YES>, these flags are "
+"passed to the E<.Xr pfctl 8> program when loading the ruleset."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:980
+#, no-wrap
+msgid "Va pflog_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:992
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting this to E<.Dq Li "
+"YES> enables E<.Xr pflogd 8> which logs packets from the E<.Xr pf 4> packet "
+"filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:992
+#, no-wrap
+msgid "Va pflog_logfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1006
+msgid ""
+"E<.Pq Vt str> If E<.Va pflog_enable> is set to E<.Dq Li YES> this controls "
+"where E<.Xr pflogd 8> stores the logfile (default E<.Pa /var/log/pflog>).  "
+"Check E<.Pa /etc/newsyslog.conf> to adjust logfile rotation for this."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1006
+#, no-wrap
+msgid "Va pflog_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1012
+msgid "E<.Pq Vt str> Path to E<.Xr pflogd 8> (default E<.Pa /sbin/pflogd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1012
+#, no-wrap
+msgid "Va pflog_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1018
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains additional flags "
+"passed to the E<.Xr pflogd 8> program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1018
+#, no-wrap
+msgid "Va pflog_instances"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1046
+msgid ""
+"E<.Pq Vt str> If logging to more than one E<.Xr pflog 4> interface is "
+"desired, E<.Va pflog_instances> is set to the list of E<.Xr pflogd 8> "
+"instances that should be started at system boot time.  If E<.Va "
+"pflog_instances> is set, for each whitespace-separated E<.Ar element> in the "
+"list, E<.Ao Ar element Ac Ns Va _dev> and E<.Ao Ar element Ac Ns Va "
+"_logfile> elements are assumed to exist.  E<.Ao Ar element Ac Ns Va _dev> "
+"must contain the E<.Xr pflog 4> interface to be watched by the named E<.Xr "
+"pflogd 8> instance.  E<.Ao Ar element Ac Ns Va _logfile> must contain the "
+"name of the logfile that will be used by the E<.Xr pflogd 8> instance."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1046
+#, no-wrap
+msgid "Va ftpproxy_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1058
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting this to E<.Dq Li "
+"YES> enables E<.Xr ftp-proxy 8> which supports the E<.Xr pf 4> packet filter "
+"in translating ftp connections."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1058
+#, no-wrap
+msgid "Va ftpproxy_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1064
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains additional flags "
+"passed to the E<.Xr ftp-proxy 8> program."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1064
+#, no-wrap
+msgid "Va ftpproxy_instances"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1079
+msgid ""
+"E<.Pq Vt str> Empty by default.  If multiple instances of E<.Xr ftp-proxy 8> "
+"are desired at boot time, E<.Va ftpproxy_instances> should contain a "
+"whitespace-separated list of instance names.  For each E<.Ar element> in the "
+"list, a variable named E<.Ao Ar element Ac Ns Va _flags> should be defined, "
+"containing the command-line flags to be passed to the E<.Xr ftp-proxy 8> "
+"instance."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1079
+#, no-wrap
+msgid "Va pfsync_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1094
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting this to E<.Dq Li "
+"YES> enables exposing E<.Xr pf 4> state changes to other hosts over the "
+"network by means of E<.Xr pfsync 4>.  The E<.Va pfsync_syncdev> variable "
+"must also be set then."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1094
+#, no-wrap
+msgid "Va pfsync_syncdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1104
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable specifies the name of the "
+"network interface E<.Xr pfsync 4> should operate through.  It must be set "
+"accordingly if E<.Va pfsync_enable> is set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1104
+#, no-wrap
+msgid "Va pfsync_syncpeer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1124
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable is optional.  By default, "
+"state change messages are sent out on the synchronisation interface using IP "
+"multicast packets.  The protocol is IP protocol 240, PFSYNC, and the "
+"multicast group used is 224.0.0.240.  When a peer address is specified using "
+"the E<.Va pfsync_syncpeer> option, the peer address is used as a destination "
+"for the pfsync traffic, and the traffic can then be protected using E<.Xr "
+"ipsec 4>.  See the E<.Xr pfsync 4> manpage for more details about using "
+"E<.Xr ipsec 4> with E<.Xr pfsync 4> interfaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1124
+#, no-wrap
+msgid "Va pfsync_ifconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1131
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable can contain additional "
+"options to be passed to the E<.Xr ifconfig 8> command used to set up E<.Xr "
+"pfsync 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1131
+#, no-wrap
+msgid "Va tcp_extensions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1148
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> by default.  Setting this to E<.Dq Li "
+"NO> disables certain TCP options as described by E<.Rs> E<.%T \"RFC 1323\"> "
+"E<.Re> Setting this to E<.Dq Li NO> might help remedy such problems with "
+"connections as randomly hanging or other weird behavior.  Some network "
+"devices are known to be broken with respect to these options."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1148
+#, no-wrap
+msgid "Va log_in_vain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1162
+msgid ""
+"E<.Pq Vt int> Set to 0 by default.  The E<.Xr sysctl 8> variables, E<.Va "
+"net.inet.tcp.log_in_vain> and E<.Va net.inet.udp.log_in_vain>, as described "
+"in E<.Xr tcp 4> and E<.Xr udp 4>, are set to the given value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1162
+#, no-wrap
+msgid "Va tcp_keepalive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1171
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> by default.  Setting to E<.Dq Li NO> "
+"will disable probing idle TCP connections to verify that the peer is still "
+"up and reachable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1171
+#, no-wrap
+msgid "Va tcp_drop_synfin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1182
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting to E<.Dq Li YES> "
+"will cause the kernel to ignore TCP frames that have both the SYN and FIN "
+"flags set.  This prevents OS fingerprinting, but may break some legitimate "
+"applications."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1182
+#, no-wrap
+msgid "Va icmp_drop_redirect"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1193
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting to E<.Dq Li YES> "
+"will cause the kernel to ignore ICMP REDIRECT packets.  Refer to E<.Xr icmp "
+"4> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1193
+#, no-wrap
+msgid "Va icmp_log_redirect"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1207
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> by default.  Setting to E<.Dq Li YES> "
+"will cause the kernel to log ICMP REDIRECT packets.  Note that the log "
+"messages are not rate-limited, so this option should only be used for "
+"troubleshooting networks.  Refer to E<.Xr icmp 4> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1207
+#, no-wrap
+msgid "Va icmp_bmcastecho"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1215
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to respond to broadcast or multicast "
+"ICMP ping packets.  Refer to E<.Xr icmp 4> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1215
+#, no-wrap
+msgid "Va ip_portrange_first"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1223
+msgid ""
+"E<.Pq Vt int> If not set to E<.Dq Li NO>, this is the first port in the "
+"default portrange.  Refer to E<.Xr ip 4> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1223
+#, no-wrap
+msgid "Va ip_portrange_last"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1231
+msgid ""
+"E<.Pq Vt int> If not set to E<.Dq Li NO>, this is the last port in the "
+"default portrange.  Refer to E<.Xr ip 4> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1231
+#, no-wrap
+msgid "Va network_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1245
+msgid ""
+"E<.Pq Vt str> Set to the list of network interfaces to configure on this "
+"host or E<.Dq Li AUTO> (the default) for all current interfaces.  Setting "
+"the E<.Va network_interfaces> variable to anything other than the default is "
+"deprecated.  Interfaces that the administrator wishes to store configuration "
+"for, but not start at boot should be configured with the E<.Dq Li NOAUTO> "
+"keyword in their E<.Va ifconfig_ Ns Aq Ar interface> variables as described "
+"below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1261
+msgid ""
+"An E<.Va ifconfig_ Ns Aq Ar interface> variable is also assumed to exist for "
+"each value of E<.Ar interface>.  When an interface name contains any of the "
+"characters E<.Dq Li .-/+> they are translated to E<.Dq Li _> before lookup.  "
+"The variable can contain arguments to E<.Xr ifconfig 8>, as well as special "
+"case-insensitive keywords described below.  Such keywords are removed before "
+"passing the value to E<.Xr ifconfig 8> while the order of the other "
+"arguments is preserved."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1269
+msgid ""
+"It is possible to add IP alias entries using E<.Xr ifconfig 8> syntax with "
+"the address family keyword such as E<.Li inet>.  Assuming that the interface "
+"in question was E<.Li ed0>, it might look something like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1272
+#, no-wrap
+msgid ""
+"ifconfig_ed0_alias0=\"inet 127.0.0.253 netmask 0xffffffff\"\n"
+"ifconfig_ed0_alias1=\"inet 127.0.0.254 netmask 0xffffffff\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1294
+msgid ""
+"It also possible to configure multiple IP addresses in Classless "
+"Inter-Domain Routing E<.Pq CIDR> address notation, whose each address "
+"component can be a range like E<.Li inet 192.0.2.5-23/24> or E<.Li inet6 "
+"2001:db8:1-f::1/64>.  This notation allows address and prefix length part "
+"only, not the other address modifiers.  Note that the maximum number of the "
+"generated addresses from a range specification is limited to an integer "
+"value specified in E<.Va netif_ipexpand_max> in E<.Nm> because a small typo "
+"can unexpectedly generate a large number of addresses.  The default value is "
+"E<.Li 2048>.  It can be increased by adding the following line into E<.Nm>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1296
+#, no-wrap
+msgid "netif_ipexpand_max=\"4096\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1309
+msgid ""
+"In the case of E<.Li 192.0.2.5-23/24>, the address 192.0.2.5 will be "
+"configured with the netmask /24 and the addresses 192.0.2.6 to 192.0.2.23 "
+"with the non-conflicting netmask /32 as explained in the E<.Xr ifconfig 8> "
+"alias section.  Note that this special netmask handling is only for E<.Li "
+"inet>, not for the other address families such as E<.Li inet6>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1313
+msgid "With the interface in question being E<.Li ed0>, an example could look like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1316
+#, no-wrap
+msgid ""
+"ifconfig_ed0_alias2=\"inet 192.0.2.129/27\"\n"
+"ifconfig_ed0_alias3=\"inet 192.0.2.1-5/28\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1319
+msgid "and so on."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1328
+msgid ""
+"Note that E<.Va ipv4_addrs_ Ns Aq Ar interface> variable was supported for "
+"IPv4 CIDR address notation.  It is now deprecated because the functionality "
+"was integrated into E<.Va ifconfig_ Ns Ao Ar interface Ac Ns Va _alias Ns Aq "
+"Ar n> though E<.Va ipv4_addrs_ Ns Aq Ar interface> is still supported for "
+"backward compatibility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1336
+msgid ""
+"For each E<.Va ifconfig_ Ns Ao Ar interface Ac Ns Va _alias Ns Aq Ar n> "
+"entry with an address family keyword, its contents are passed to E<.Xr "
+"ifconfig 8>.  Execution stops at the first unsuccessful access, so if "
+"something like this is present:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1341
+#, no-wrap
+msgid ""
+"ifconfig_ed0_alias0=\"inet 127.0.0.251 netmask 0xffffffff\"\n"
+"ifconfig_ed0_alias1=\"inet 127.0.0.252 netmask 0xffffffff\"\n"
+"ifconfig_ed0_alias2=\"inet 127.0.0.253 netmask 0xffffffff\"\n"
+"ifconfig_ed0_alias4=\"inet 127.0.0.254 netmask 0xffffffff\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1355
+msgid ""
+"Then note that alias4 would E<.Em not> be added since the search would stop "
+"with the missing E<.Dq Li alias3> entry.  Because of this difficult to "
+"manage behavior, there is E<.Va ifconfig_ Ns Ao Ar interface Ac Ns Va "
+"_aliases> variable, which has the same functionality as E<.Va ifconfig_ Ns "
+"Ao Ar interface Ac Ns Va _alias Ns Aq Ar n> and can have all of entries in a "
+"variable like the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1361
+#, no-wrap
+msgid ""
+"ifconfig_ed0_aliases=\"\\e\n"
+"\tinet 127.0.0.251 netmask 0xffffffff \\e\n"
+"\tinet 127.0.0.252 netmask 0xffffffff \\e\n"
+"\tinet 127.0.0.253 netmask 0xffffffff \\e\n"
+"\tinet 127.0.0.254 netmask 0xffffffff\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1364
+msgid "It also supports CIDR notation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1375
+msgid ""
+"If the E<.Pa /etc/start_if. Ns Aq Ar interface> file is present, it is read "
+"and executed by the E<.Xr sh 1> interpreter before configuring the interface "
+"as specified in the E<.Va ifconfig_ Ns Aq Ar interface> and E<.Va ifconfig_ "
+"Ns Ao Ar interface Ac Ns Va _alias Ns Aq Ar n> variables."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1395
+msgid ""
+"If a E<.Va vlans_ Ns Aq Ar interface> variable is set, a E<.Xr vlan 4> "
+"interface will be created for each item in the list with the E<.Ar vlandev> "
+"argument set to E<.Ar interface>.  If a vlan interface's name is a number, "
+"then that number is used as the vlan tag and the new vlan interface is named "
+"E<.Ar interface . Ns Ar tag>.  Otherwise, the vlan tag must be specified via "
+"a E<.Va vlan> parameter in the E<.Va create_args_ Ns Aq Ar interface> "
+"variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1401
+msgid ""
+"To create a vlan device named E<.Li em0.101> on E<.Li em0> with the vlan tag "
+"101 and the optional the IPv4 address 192.0.2.1/24:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1404
+#, no-wrap
+msgid ""
+"vlans_em0=\"101\"\n"
+"ifconfig_em0_101=\"inet 192.0.2.1/24\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1411
+msgid ""
+"To create a vlan device named E<.Li myvlan> on E<.Li em0> with the vlan tag "
+"102:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1414
+#, no-wrap
+msgid ""
+"vlans_em0=\"myvlan\"\n"
+"create_args_myvlan=\"vlan 102\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1444
+msgid ""
+"If a E<.Va wlans_ Ns Aq Ar interface> variable is set, an E<.Xr wlan 4> "
+"interface will be created for each item in the list with the E<.Ar wlandev> "
+"argument set to E<.Ar interface>.  Further wlan cloning arguments may be "
+"passed to the E<.Xr ifconfig 8> E<.Cm create> command by setting the E<.Va "
+"create_args_ Ns Aq Ar interface> variable.  One or more E<.Xr wlan 4> "
+"devices must be created for each wireless devices as of E<.Fx 8.0>.  "
+"Debugging flags for E<.Xr wlan 4> devices as set by E<.Xr wlandebug 8> may "
+"be specified with an E<.Va wlandebug_ Ns Aq Ar interface> variable.  The "
+"contents of this variable will be passed directly to E<.Xr wlandebug 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1456
+msgid ""
+"If the E<.Va ifconfig_ Ns Aq Ar interface> contains the keyword E<.Dq Li "
+"NOAUTO> then the interface will not be configured at boot or by E<.Pa "
+"/etc/pccard_ether> when E<.Va network_interfaces> is set to E<.Dq Li AUTO>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1466
+msgid ""
+"It is possible to bring up an interface with DHCP by adding E<.Dq Li DHCP> "
+"to the E<.Va ifconfig_ Ns Aq Ar interface> variable.  For instance, to "
+"initialize the E<.Li ed0> device via DHCP, it is possible to use something "
+"like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1468
+#, no-wrap
+msgid "ifconfig_ed0=\"DHCP\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1477
+msgid ""
+"If you want to configure your wireless interface with E<.Xr wpa_supplicant "
+"8> for use with WPA, EAP/LEAP or WEP, you need to add E<.Dq Li WPA> to the "
+"E<.Va ifconfig_ Ns Aq Ar interface> variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1488
+msgid ""
+"On the other hand, if you want to configure your wireless interface with "
+"E<.Xr hostapd 8>, you need to add E<.Dq Li HOSTAP> to the E<.Va ifconfig_ Ns "
+"Aq Ar interface> variable.  E<.Xr hostapd 8> will use the settings from "
+"E<.Pa /etc/hostapd- Ns Ao Ar interface Ac Ns .conf>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1499
+msgid ""
+"Finally, you can add E<.Xr ifconfig 8> options in this variable, in addition "
+"to the E<.Pa /etc/start_if. Ns Aq Ar interface> file.  For instance, to "
+"configure an E<.Xr ath 4> wireless device in station mode with an address "
+"obtained via DHCP, using WPA authentication and 802.11b mode, it is possible "
+"to use something like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1502
+#, no-wrap
+msgid ""
+"wlans_ath0=\"wlan0\"\n"
+"ifconfig_wlan0=\"DHCP WPA mode 11b\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1515
+msgid ""
+"In addition to the E<.Va ifconfig_ Ns Aq Ar interface> form, a fallback "
+"variable E<.Va ifconfig_DEFAULT> may be configured.  It will be used for all "
+"interfaces with no E<.Va ifconfig_ Ns Aq Ar interface> variable.  This is "
+"intended to replace the no longer supported E<.Va pccard_ifconfig> variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1517
+msgid "It is also possible to rename an interface by doing:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1520
+#, no-wrap
+msgid ""
+"ifconfig_ed0_name=\"net0\"\n"
+"ifconfig_net0=\"inet 192.0.2.1 netmask 0xffffff00\"\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1521
+#, no-wrap
+msgid "Va ipv6_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1529
+msgid ""
+"E<.Pq Vt bool> This variable is deprecated.  Use E<.Va ifconfig_ Ns Ao Ar "
+"interface Ac Ns _ipv6> and E<.Va ipv6_activate_all_interfaces> if necessary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1539
+msgid ""
+"If the variable is E<.Dq Li YES>, E<.Dq Li inet6 accept_rtadv> is added to "
+"all of E<.Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6> and the E<.Va "
+"ipv6_activate_all_interfaces> is defined as E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1539
+#, no-wrap
+msgid "Va ipv6_prefer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1545
+msgid ""
+"E<.Pq Vt bool> This variable is deprecated.  Use E<.Va ip6addrctl_policy> "
+"instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1551
+msgid ""
+"If the variable is E<.Dq Li YES>, the default address selection policy table "
+"set by E<.Xr ip6addrctl 8> will be IPv6-preferred."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1557
+msgid ""
+"If the variable is E<.Dq Li NO>, the default address selection policy table "
+"set by E<.Xr ip6addrctl 8> will be IPv4-preferred."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1557
+#, no-wrap
+msgid "Va ipv6_activate_all_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1570
+msgid ""
+"E<.Pq Vt bool> This controls initial configuration on IPv6-capable "
+"interfaces with no corresponding E<.Va ifconfig_ Ns Ao Ar interface Ac Ns "
+"_ipv6> variable.  Note that it is not always necessary to set this variable "
+"to E<.Dq YES> to use IPv6 functionality on E<.Fx>.  In most cases, just "
+"configuring E<.Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6> variables works."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1583
+msgid ""
+"If the variable is E<.Dq Li NO>, all interfaces which do not have a "
+"corresponding E<.Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6> variable will "
+"be marked as E<.Dq Li IFDISABLED> at creation.  This means that all of IPv6 "
+"functionality on that interface is completely disabled to enforce a security "
+"policy.  If the variable is set to E<.Dq YES>, the flag will be cleared on "
+"all of the interfaces."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1594
+msgid ""
+"In most cases, just defining an E<.Va ifconfig_ Ns Ao Ar interface Ac Ns "
+"_ipv6> for an IPv6-capable interface should be sufficient.  However, if an "
+"interface is added dynamically E<.Pq by some tunneling protocols such as "
+"PPP, for example>, it is often difficult to define the variable in advance.  "
+"In such a case, configuring the E<.Dq Li IFDISABLED> flag can be disabled by "
+"setting this variable to E<.Dq YES>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1601
+msgid ""
+"For more details of the E<.Dq Li IFDISABLED> flag and keywords E<.Dq Li "
+"inet6 ifdisabled>, see E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1604 /usr/src/share/man/man5/rc.conf.5:1656
+msgid "Default is E<.Dq Li NO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1604
+#, no-wrap
+msgid "Va ipv6_privacy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1610
+msgid ""
+"E<.Pq Vt bool> If the variable is E<.Dq Li YES> privacy addresses will be "
+"generated for each IPv6 interface as described in RFC 4941."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1610
+#, no-wrap
+msgid "Va ipv6_network_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1615
+msgid ""
+"E<.Pq Vt str> This is the IPv6 equivalent of E<.Va network_interfaces>.  "
+"Normally manual configuration of this variable is not needed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1615
+#, no-wrap
+msgid "Va ipv6_cpe_wanif"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1631
+msgid ""
+"E<.Pq Vt str> If the variable is set to an interface name, the E<.Xr "
+"ifconfig 8> options E<.Dq inet6 -no_radr accept_rtadv> will be added to the "
+"specified interface automatically before evaluating E<.Va ifconfig_ Ns Ao Ar "
+"interface Ac Ns _ipv6>, and two E<.Xr sysctl 8> variables E<.Va "
+"net.inet6.ip6.rfc6204w3> and E<.Va net.inet6.ip6.no_radr> will be set to 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1644
+msgid ""
+"This means the specified interface will accept ICMPv6 Router Advertisement "
+"messages on that link and add the discovered routers into the Default Router "
+"List.  While the other interfaces can still accept RA messages if the E<.Dq "
+"inet6 accept_rtadv> option is specified, adding routes into the Default "
+"Router List will be disabled by E<.Dq inet6 no_radr> option by default.  See "
+"E<.Xr ifconfig 8> for more details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1653
+msgid ""
+"Note that ICMPv6 Router Advertisement messages will be accepted even when "
+"E<.Va net.inet6.ip6.forwarding> is 1 E<.Pq packet forwarding is enabled> "
+"when E<.Va net.inet6.ip6.rfc6204w3> is set to 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1656
+#, no-wrap
+msgid "Va ifconfig_ Ns Ao Ar interface Ac Ns _descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1673
+msgid ""
+"E<.Pq Vt str> This assigns arbitrary description to an interface.  The E<.Xr "
+"sysctl 8> variable E<.Va net.ifdescr_maxlen> limits its length.  This static "
+"setting may be overridden by commands started with dynamic interface "
+"configuration utilities like E<.Xr dhclient 8> hooks. The description can be "
+"seen with E<.Xr ifconfig 8> command and it may be exported with E<.Xr bsnmpd "
+"1> daemon using its MIB-2 module."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1673
+#, no-wrap
+msgid "Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1683
+msgid ""
+"E<.Pq Vt str> IPv6 functionality on an interface should be configured by "
+"E<.Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6>, instead of setting ifconfig "
+"parameters in E<.Va ifconfig_ Ns Aq Ar interface>.  If this variable is "
+"empty, all of IPv6 configurations on the specified interface by other "
+"variables such as E<.Va ipv6_prefix_ Ns Ao Ar interface Ac> will be ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1690
+msgid ""
+"Aliases should be set by E<.Va ifconfig_ Ns Ao Ar interface Ac Ns Va _alias "
+"Ns Aq Ar n> with E<.Dq Li inet6> keyword.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1693
+#, no-wrap
+msgid ""
+"ifconfig_ed0_ipv6=\"inet6 2001:db8:1::1 prefixlen 64\"\n"
+"ifconfig_ed0_alias0=\"inet6 2001:db8:2::1 prefixlen 64\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1705
+msgid ""
+"Interfaces that have an E<.Dq Li inet6 accept_rtadv> keyword in E<.Va "
+"ifconfig_ Ns Ao Ar interface Ac Ns _ipv6> setting will be automatically "
+"configured by SLAAC E<.Pq StateLess Address AutoConfiguration> described in "
+"E<.Rs> E<.%T \"RFC 4862\"> E<.Re>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1715
+msgid ""
+"Note that a link-local address will be automatically configured in addition "
+"to the configured global-scope addresses because the IPv6 specifications "
+"require it on each link.  The address is calculated from the MAC address by "
+"using an algorithm defined in E<.Rs> E<.%T \"RFC 4862\"> E<.%O \"Section "
+"5.3\"> E<.Re>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1718
+msgid ""
+"If only a link-local address is needed on the interface, the following "
+"configuration can be used:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1720
+#, no-wrap
+msgid "ifconfig_ed0_ipv6=\"inet6 auto_linklocal\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1727
+msgid ""
+"A link-local address can also be configured manually.  This is useful for "
+"the default router address of an IPv6 router so that it does not change when "
+"the network interface card is replaced.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1729
+#, no-wrap
+msgid "ifconfig_ed0_ipv6=\"inet6 fe80::1 prefixlen 64\"\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1730
+#, no-wrap
+msgid "Va ipv6_prefix_ Ns Aq Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1739
+msgid ""
+"E<.Pq Vt str> If one or more prefixes are defined in E<.Va ipv6_prefix_ Ns "
+"Aq Ar interface> addresses based on each prefix and the EUI-64 interface "
+"index will be configured on that interface.  Note that this variable will be "
+"ignored when E<.Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6> is empty."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1741
+msgid "For example, the following configuration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1743
+#, no-wrap
+msgid "ipv6_prefix_ed0=\"2001:db8:1:0 2001:db8:2:0\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1746
+msgid "is equivalent to the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1751
+#, no-wrap
+msgid ""
+"ifconfig_ed0_alias0=\"inet6 2001:db8:1:: eui64 prefixlen 64\"\n"
+"ifconfig_ed0_alias1=\"inet6 2001:db8:1:: prefixlen 64 anycast\"\n"
+"ifconfig_ed0_alias2=\"inet6 2001:db8:2:: eui64 prefixlen 64\"\n"
+"ifconfig_ed0_alias3=\"inet6 2001:db8:2:: prefixlen 64 anycast\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1756
+msgid ""
+"These Subnet-Router anycast addresses will be added only when E<.Va "
+"ipv6_gateway_enable> is YES."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1756
+#, no-wrap
+msgid "Va ipv6_default_interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1762
+msgid ""
+"E<.Pq Vt str> If not set to E<.Dq Li NO>, this is the default output "
+"interface for scoped addresses.  This works only with "
+"ipv6_gateway_enable=\"NO\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1762
+#, no-wrap
+msgid "Va ip6addrctl_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1775
+msgid ""
+"E<.Pq Vt bool> This variable is to enable configuring default address "
+"selection policy table E<.Pq RFC 3484>.  The table can be specified in "
+"another variable E<.Va ip6addrctl_policy>.  For E<.Va ip6addrctl_policy> the "
+"following keywords can be specified: E<.Dq Li ipv4_prefer>, E<.Dq Li "
+"ipv6_prefer>, or E<.Dq Li AUTO>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1787
+msgid ""
+"If E<.Dq Li ipv4_prefer> or E<.Dq Li ipv6_prefer> is specified, E<.Xr "
+"ip6addrctl 8> installs a pre-defined policy table described in Section 2.1 "
+"E<.Pq IPv6-preferred> or 10.3 E<.Pq IPv4-preferred> of RFC 3484."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1803
+msgid ""
+"If E<.Dq Li AUTO> is specified, it attempts to read a file E<.Pa "
+"/etc/ip6addrctl.conf> first.  If this file is found, E<.Xr ip6addrctl 8> "
+"reads and installs it.  If not found, a policy is automatically set "
+"according to E<.Va ipv6_activate_all_interfaces> variable; if the variable "
+"is set to E<.Dq Li YES> the IPv6-preferred one is used.  Otherwise "
+"IPv4-preferred."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1813
+msgid ""
+"The default value of E<.Va ip6addrctl_enable> and E<.Va ip6addrctl_policy> "
+"are E<.Dq Li YES> and E<.Dq Li AUTO>, respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1813
+#, no-wrap
+msgid "Va cloned_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1836
+msgid ""
+"E<.Pq Vt str> Set to the list of clonable network interfaces to create on "
+"this host.  Further cloning arguments may be passed to the E<.Xr ifconfig 8> "
+"E<.Cm create> command for each interface by setting the E<.Va create_args_ "
+"Ns Aq Ar interface> variable.  If an interface name is specified with E<.Dq "
+":sticky> keyword, the interface will not be destroyed even when E<.Pa "
+"rc.d/netif> script is invoked with E<.Dq stop> argument.  This is useful "
+"when reconfiguring the interface without destroying it.  Entries in E<.Va "
+"cloned_interfaces> are automatically appended to E<.Va network_interfaces> "
+"for configuration."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1836
+#, no-wrap
+msgid "Va cloned_interfaces_sticky"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1849
+msgid ""
+"E<.Pq Vt bool> This variable is to globally enable functionality of E<.Dq "
+":sticky> keyword in E<.Va cloned_interfaces> for all interfaces.  The "
+"default value is E<.Dq NO>.  Even if this variable is specified to E<.Dq "
+"YES>, E<.Dq :nosticky> keyword can be used to override it on per interface "
+"basis."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1849
+#, no-wrap
+msgid "Va gif_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1875
+msgid ""
+"E<.Pq Vt str> This variable is deprecated in favor of E<.Va "
+"cloned_interfaces>.  Set to the list of E<.Xr gif 4> tunnel interfaces to "
+"configure on this host.  For each E<.Xr gif> tunnel interface, set a "
+"variable named E<.Va ifconfig_ Ns Aq Ar interface> with the parameters for "
+"the E<.Xr ifconfig 8> command to configure the link level for E<.Ar "
+"interface> with the E<.Cm tunnel> option.  The value of this variable is "
+"used to configure the link layer of the tunnel using the E<.Cm tunnel> "
+"option to E<.Xr ifconfig>.  For example, configure two E<.Xr gif> interfaces "
+"with:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1879
+#, no-wrap
+msgid ""
+"gif_interfaces=\"gif0 gif1\"\n"
+"ifconfig_gif0=\"tunnel src_addr0 dst_addr0\"\n"
+"ifconfig_gif1=\"tunnel src_addr1 dst_addr1\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1890
+msgid ""
+"Additionally, this option ensures that each listed interface is created via "
+"the E<.Cm create> option to E<.Xr ifconfig>.  This example also works with "
+"E<.Va cloned_interfaces> instead of E<.Va gif_interfaces>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1890
+#, no-wrap
+msgid "Va sppp_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1905
+msgid ""
+"E<.Pq Vt str> Set to the list of E<.Xr sppp 4> interfaces to configure on "
+"this host.  A E<.Va spppconfig_ Ns Aq Ar interface> variable is assumed to "
+"exist for each value of E<.Ar interface>.  Each interface should also be "
+"configured by a general E<.Va ifconfig_ Ns Aq Ar interface> setting.  Refer "
+"to E<.Xr spppcontrol 8> for more information about available options."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1905
+#, no-wrap
+msgid "Va ppp_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1912
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr ppp 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1912
+#, no-wrap
+msgid "Va ppp_profile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1927
+msgid ""
+"E<.Pq Vt str> The name of the profile to use from E<.Pa /etc/ppp/ppp.conf>.  "
+"Also used for per-profile overrides of E<.Va ppp_mode> and E<.Va ppp_nat>, "
+"and E<.Va ppp_ Ns Ao Ar profile Ac Ns _unit>.  When the profile name "
+"contains any of the characters E<.Dq Li .-/+> they are translated to E<.Dq "
+"Li _> for the proposes of the override variable names."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1927
+#, no-wrap
+msgid "Va ppp_mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1932
+msgid "E<.Pq Vt str> Mode in which to run the E<.Xr ppp 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1932
+#, no-wrap
+msgid "Va ppp_ Ns Ao Ar profile Ac Ns _mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1945
+msgid ""
+"E<.Pq Vt str> Overrides the global E<.Va ppp_mode> for E<.Ar profile>.  "
+"Accepted modes are E<.Dq Li auto>, E<.Dq Li ddial>, E<.Dq Li direct> and "
+"E<.Dq Li dedicated>.  See the manual for a full description."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1945
+#, no-wrap
+msgid "Va ppp_nat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1954
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enables network address "
+"translation.  Used in conjunction with E<.Va gateway_enable> allows hosts on "
+"private network addresses access to the Internet using this host as a "
+"network address translating router."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1954
+#, no-wrap
+msgid "Va ppp_ Ns Ao Ar profile Ac Ns _nat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1960
+msgid "E<.Pq Vt str> Overrides the global E<.Va ppp_nat> for E<.Ar profile>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1960
+#, no-wrap
+msgid "Va ppp_ Ns Ao Ar profile Ac Ns _unit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1966
+msgid ""
+"E<.Pq Vt int> Set the unit number to be used for this profile.  See the "
+"manual description of E<.Fl unit Ns Ar N> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1966
+#, no-wrap
+msgid "Va ppp_user"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1976
+msgid ""
+"E<.Pq Vt str> The name of the user under which E<.Xr ppp 8> should be "
+"started.  By default, E<.Xr ppp 8> is started as E<.Dq Li root>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1976
+#, no-wrap
+msgid "Va rc_conf_files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1987
+msgid ""
+"E<.Pq Vt str> This option is used to specify a list of files that will "
+"override the settings in E<.Pa /etc/defaults/rc.conf>.  The files will be "
+"read in the order in which they are specified and should include the full "
+"path to the file.  By default, the files specified are E<.Pa /etc/rc.conf> "
+"and E<.Pa /etc/rc.conf.local>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1987
+#, no-wrap
+msgid "Va zfs_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:1994
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Pa /etc/rc.d/zfs> will attempt to "
+"automatically mount ZFS file systems and initialize ZFS volumes (ZVOLs)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:1994
+#, no-wrap
+msgid "Va gptboot_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2005
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Pa /etc/rc.d/gptboot> will log if "
+"the system successfully (or not) booted from a GPT partition, which had the "
+"E<.Ar bootonce> attribute set using E<.Xr gpart 8> utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2005
+#, no-wrap
+msgid "Va gbde_autoattach_all"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2012
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Pa /etc/rc.d/gbde> will attempt "
+"to automatically initialize your .bde devices in E<.Pa /etc/fstab>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2012
+#, no-wrap
+msgid "Va gbde_devices"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2017
+msgid ""
+"E<.Pq Vt str> List the devices that the script should try to attach, or "
+"E<.Dq Li AUTO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2017
+#, no-wrap
+msgid "Va gbde_lockdir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2024
+msgid ""
+"E<.Pq Vt str> The directory where the E<.Xr gbde 4> lockfiles are located.  "
+"The default lockfile directory is E<.Pa /etc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2036
+msgid ""
+"The lockfile for each individual E<.Xr gbde 4> device can be overridden by "
+"setting the variable E<.Va gbde_lock_ Ns Aq Ar device>, where E<.Ar device> "
+"is the encrypted device without the E<.Dq Pa /dev/> and E<.Dq Pa .bde> "
+"parts."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2036
+#, no-wrap
+msgid "Va gbde_attach_attempts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2042
+msgid ""
+"E<.Pq Vt int> Number of times to attempt attaching to a E<.Xr gbde 4> "
+"device, i.e., how many times the user is asked for the pass-phrase.  Default "
+"is 3."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2042
+#, no-wrap
+msgid "Va geli_devices"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2048
+msgid ""
+"E<.Pq Vt str> List of devices to automatically attach on boot.  Note that "
+".eli devices from E<.Pa /etc/fstab> are automatically appended to this list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2048
+#, no-wrap
+msgid "Va geli_groups"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2055
+msgid ""
+"E<.Pq Vt str> List of groups containing devices to automatically attach on "
+"boot with the same keyfiles and passphrase.  This must be accompanied with a "
+"corresponding E<.Va geli_ Ns Ao Ar group Ac Ns Va _devices> variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2055
+#, no-wrap
+msgid "Va geli_tries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2061
+msgid ""
+"E<.Pq Vt int> Number of times user is asked for the pass-phrase.  If empty, "
+"it will be taken from E<.Va kern.geom.eli.tries> sysctl variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2061
+#, no-wrap
+msgid "Va geli_default_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2071
+msgid ""
+"E<.Pq Vt str> Default flags to use by E<.Xr geli 8> when configuring disk "
+"encryption.  Flags can be configured for every device separately by defining "
+"the E<.Va geli_ Ns Ao Ar device Ac Ns Va _flags> variable, and for every "
+"group separately by defining the E<.Va geli_ Ns Ao Ar group Ac Ns Va _flags> "
+"variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2071
+#, no-wrap
+msgid "Va geli_autodetach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2080
+msgid ""
+"E<.Pq Vt str> Specifies if GELI devices should be marked for detach on last "
+"close after file systems are mounted.  Default is E<.Dq Li YES>.  This can "
+"be changed for every device separately by defining the E<.Va geli_ Ns Ao Ar "
+"device Ac Ns Va _autodetach> variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2080
+#, no-wrap
+msgid "Va root_rw_mount"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2093
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> by default.  After the file systems are "
+"checked at boot time, the root file system is remounted as read-write if "
+"this is set to E<.Dq Li YES>.  Diskless systems that mount their root file "
+"system from a read-only remote NFS share should set this to E<.Dq Li NO> in "
+"their E<.Pa rc.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2093
+#, no-wrap
+msgid "Va fsck_y_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2102
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Xr fsck 8> will be run with the "
+"E<.Fl y> flag if the initial preen of the file systems fails."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2102
+#, no-wrap
+msgid "Va background_fsck"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2109
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li NO>, the system will not attempt to run "
+"E<.Xr fsck 8> in the background where possible."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2109
+#, no-wrap
+msgid "Va background_fsck_delay"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2122
+msgid ""
+"E<.Pq Vt int> The amount of time in seconds to sleep before starting a "
+"background E<.Xr fsck 8>.  It defaults to sixty seconds to allow large "
+"applications such as the X server to start before disk I/O bandwidth is "
+"monopolized by E<.Xr fsck 8>.  If set to a negative number, the background "
+"file system check will be delayed indefinitely to allow the administrator to "
+"run it at a more convenient time.  For example it may be run from E<.Xr cron "
+"8> by adding a line like"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/rc.conf.5:2123
+#, no-wrap
+msgid "0 4 * * * root /etc/rc.d/bgfsck forcestart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2127
+msgid "to E<.Pa /etc/crontab>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2127
+#, no-wrap
+msgid "Va netfs_types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2134
+msgid ""
+"E<.Pq Vt str> List of file system types that are network-based.  This list "
+"should generally not be modified by end users.  Use E<.Va extra_netfs_types> "
+"instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2134
+#, no-wrap
+msgid "Va extra_netfs_types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2152
+msgid ""
+"E<.Pq Vt str> If set to something other than E<.Dq Li NO> (the default), "
+"this variable extends the list of file system types for which automatic "
+"mounting at startup by E<.Xr rc 8> should be delayed until the network is "
+"initialized.  It should contain a whitespace-separated list of network file "
+"system descriptor pairs, each consisting of a file system type as passed to "
+"E<.Xr mount 8> and a human-readable, one-word description, joined with a "
+"colon E<.Pq Ql \\&:>.  Extending the default list in this way is only "
+"necessary when third party file system types are used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2152
+#, no-wrap
+msgid "Va syslogd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2159
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr syslogd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2159
+#, no-wrap
+msgid "Va syslogd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2165
+msgid "E<.Pq Vt str> Path to E<.Xr syslogd 8> (default E<.Pa /usr/sbin/syslogd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2165
+#, no-wrap
+msgid "Va syslogd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2173
+msgid ""
+"E<.Pq Vt str> If E<.Va syslogd_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to E<.Xr syslogd 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2173
+#, no-wrap
+msgid "Va inetd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2180
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr inetd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2180
+#, no-wrap
+msgid "Va inetd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2186
+msgid "E<.Pq Vt str> Path to E<.Xr inetd 8> (default E<.Pa /usr/sbin/inetd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2186
+#, no-wrap
+msgid "Va inetd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2194
+msgid ""
+"E<.Pq Vt str> If E<.Va inetd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to E<.Xr inetd 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2194
+#, no-wrap
+msgid "Va hastd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2201
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr hastd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2201
+#, no-wrap
+msgid "Va hastd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2207
+msgid "E<.Pq Vt str> Path to E<.Xr hastd 8> (default E<.Pa /sbin/hastd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2207
+#, no-wrap
+msgid "Va hastd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2215
+msgid ""
+"E<.Pq Vt str> If E<.Va hastd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to E<.Xr hastd 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2215
+#, no-wrap
+msgid "Va local_unbound_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2222
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr unbound 8> daemon as a "
+"local caching resolver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2222
+#, no-wrap
+msgid "Va kdc_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2228
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start a Kerberos 5 authentication "
+"server at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2228
+#, no-wrap
+msgid "Va kdc_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2235
+msgid ""
+"E<.Pq Vt str> If E<.Va kdc_enable> is set to E<.Dq Li YES> this is the path "
+"to Kerberos 5 Authentication Server."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2235
+#, no-wrap
+msgid "Va kdc_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2240
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains additional flags to "
+"be passed to the Kerberos 5 authentication server."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2240
+#, no-wrap
+msgid "Va kadmind_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2249
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr kadmind 8>, the Kerberos "
+"5 Administration Daemon; set to E<.Dq Li NO> on a slave server."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2249
+#, no-wrap
+msgid "Va kadmind_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2256
+msgid ""
+"E<.Pq Vt str> If E<.Va kadmind_enable> is set to E<.Dq Li YES> this is the "
+"path to Kerberos 5 Administration Daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2256
+#, no-wrap
+msgid "Va kpasswdd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2265
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr kpasswdd 8>, the Kerberos "
+"5 Password-Changing Daemon; set to E<.Dq Li NO> on a slave server."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2265
+#, no-wrap
+msgid "Va kpasswdd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2272
+msgid ""
+"E<.Pq Vt str> If E<.Va kpasswdd_enable> is set to E<.Dq Li YES> this is the "
+"path to Kerberos 5 Password-Changing Daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2272
+#, no-wrap
+msgid "Va kfd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2279
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr kfd 8>, the Kerberos 5 "
+"ticket forwarding daemon, at the boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2279
+#, no-wrap
+msgid "Va kfd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2285
+msgid "E<.Pq Vt str> Path to E<.Xr kfd 8> (default E<.Pa /usr/libexec/kfd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2285
+#, no-wrap
+msgid "Va rwhod_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2292
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr rwhod 8> daemon at "
+"boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2292
+#, no-wrap
+msgid "Va rwhod_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2299
+msgid ""
+"E<.Pq Vt str> If E<.Va rwhod_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2299
+#, no-wrap
+msgid "Va amd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2306
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr amd 8> daemon at boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2306
+#, no-wrap
+msgid "Va amd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2316
+msgid ""
+"E<.Pq Vt str> If E<.Va amd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to it.  See the E<.Xr amd 8> manpage for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2316
+#, no-wrap
+msgid "Va amd_map_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2332
+msgid ""
+"E<.Pq Vt str> If set, the specified program is run to get the list of E<.Xr "
+"amd 8> maps.  For example, if the E<.Xr amd 8> maps are stored in NIS, one "
+"can set this to run E<.Xr ypcat 1> to get a list of E<.Xr amd 8> maps from "
+"the E<.Pa amd.master> NIS map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2332
+#, no-wrap
+msgid "Va update_motd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2343
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Pa /etc/motd> will be updated at "
+"boot time to reflect the kernel release being run.  If set to E<.Dq Li NO>, "
+"E<.Pa /etc/motd> will not be updated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2343
+#, no-wrap
+msgid "Va nfs_client_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2348
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the NFS client daemons at boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2348
+#, no-wrap
+msgid "Va nfs_access_cache"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2361
+msgid ""
+"E<.Pq Vt int> If E<.Va nfs_client_enable> is set to E<.Dq Li YES>, this can "
+"be set to E<.Dq Li 0> to disable NFS ACCESS RPC caching, or to the number of "
+"seconds for which NFS ACCESS results should be cached.  A value of 2-10 "
+"seconds will substantially reduce network traffic for many NFS operations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2361
+#, no-wrap
+msgid "Va nfs_server_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2366
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the NFS server daemons at boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2366
+#, no-wrap
+msgid "Va nfs_server_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2375
+msgid ""
+"E<.Pq Vt str> If E<.Va nfs_server_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr nfsd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2375
+#, no-wrap
+msgid "Va nfsv4_server_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2386
+msgid ""
+"E<.Pq Vt bool> If E<.Va nfs_server_enable> is set to E<.Dq Li YES> and E<.Va "
+"nfsv4_server_enable> are set to E<.Dq Li YES>, enable the server for NFSv4 "
+"as well as NFSv2 and NFSv3."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2386
+#, no-wrap
+msgid "Va nfsuserd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2399
+msgid ""
+"E<.Pq Vt bool> If E<.Va nfsuserd_enable> is set to E<.Dq Li YES>, run the "
+"nfsuserd daemon, which is needed for NFSv4 in order to map between "
+"user/group names vs uid/gid numbers.  If E<.Va nfsv4_server_enable> is set "
+"to E<.Dq Li YES>, this will be forced enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2399
+#, no-wrap
+msgid "Va nfsuserd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2408
+msgid ""
+"E<.Pq Vt str> If E<.Va nfsuserd_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr nfsuserd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2408
+#, no-wrap
+msgid "Va nfscbd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2415
+msgid ""
+"E<.Pq Vt bool> If E<.Va nfscbd_enable> is set to E<.Dq Li YES>, run the "
+"nfscbd daemon, which enables callbacks/delegations for the NFSv4 client."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2415
+#, no-wrap
+msgid "Va nfscbd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2424
+msgid ""
+"E<.Pq Vt str> If E<.Va nfscbd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr nfscbd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2424
+#, no-wrap
+msgid "Va mountd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2436
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, and no E<.Va nfs_server_enable> is "
+"set, start E<.Xr mountd 8>, but not E<.Xr nfsd 8> daemon.  It is commonly "
+"needed to run CFS without real NFS used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2436
+#, no-wrap
+msgid "Va mountd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2445
+msgid ""
+"E<.Pq Vt str> If E<.Va mountd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr mountd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2445
+#, no-wrap
+msgid "Va weak_mountd_authentication"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2451
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, allow services like PCNFSD to make "
+"non-privileged mount requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2451
+#, no-wrap
+msgid "Va nfs_reserved_port_only"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2456
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, provide NFS services only on a "
+"secure port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2456
+#, no-wrap
+msgid "Va nfs_bufpackets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2465
+msgid ""
+"E<.Pq Vt int> If set to a number, indicates the number of packets worth of "
+"socket buffer space to reserve on an NFS client.  The kernel default is "
+"typically 4.  Using a higher number may be useful on gigabit networks to "
+"improve performance.  The minimum value is 2 and the maximum is 64."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2465
+#, no-wrap
+msgid "Va rpc_lockd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2472
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES> and also an NFS server or client, run "
+"E<.Xr rpc.lockd 8> at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2472
+#, no-wrap
+msgid "Va rpc_lockd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2481
+msgid ""
+"E<.Pq Vt str> If E<.Va rpc_lockd_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr rpc.lockd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2481
+#, no-wrap
+msgid "Va rpc_statd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2488
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES> and also an NFS server or client, run "
+"E<.Xr rpc.statd 8> at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2488
+#, no-wrap
+msgid "Va rpc_statd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2497
+msgid ""
+"E<.Pq Vt str> If E<.Va rpc_statd_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr rpc.statd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2497
+#, no-wrap
+msgid "Va rpcbind_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2503
+msgid "E<.Pq Vt str> Path to E<.Xr rpcbind 8> (default E<.Pa /usr/sbin/rpcbind>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2503
+#, no-wrap
+msgid "Va rpcbind_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2510
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr rpcbind 8> service at "
+"boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2510
+#, no-wrap
+msgid "Va rpcbind_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2519
+msgid ""
+"E<.Pq Vt str> If E<.Va rpcbind_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr rpcbind 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2519
+#, no-wrap
+msgid "Va keyserv_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2526
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr keyserv 8> daemon on "
+"boot for running Secure RPC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2526
+#, no-wrap
+msgid "Va keyserv_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2535
+msgid ""
+"E<.Pq Vt str> If E<.Va keyserv_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to E<.Xr keyserv 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2535
+#, no-wrap
+msgid "Va pppoed_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2542
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr pppoed 8> daemon at "
+"boot time to provide PPP over Ethernet services."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2542
+#, no-wrap
+msgid "Va pppoed_ Ns Aq Ar provider"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2552
+msgid ""
+"E<.Pq Vt str> E<.Xr pppoed 8> listens to requests to this E<.Ar provider> "
+"and ultimately runs E<.Xr ppp 8> with a E<.Ar system> argument of the same "
+"name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2552
+#, no-wrap
+msgid "Va pppoed_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2556
+msgid "E<.Pq Vt str> Additional flags to pass to E<.Xr pppoed 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2556
+#, no-wrap
+msgid "Va pppoed_interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2565
+msgid ""
+"E<.Pq Vt str> The network interface to run E<.Xr pppoed 8> on.  This is "
+"mandatory when E<.Va pppoed_enable> is set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2565
+#, no-wrap
+msgid "Va timed_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2579
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr timed 8> service at "
+"boot time.  This command is intended for networks of machines where a "
+"consistent E<.Dq \"network time\"> for all hosts must be established.  This "
+"is often useful in large NFS environments where time stamps on files are "
+"expected to be consistent network-wide."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2579
+#, no-wrap
+msgid "Va timed_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2588
+msgid ""
+"E<.Pq Vt str> If E<.Va timed_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr timed 8> service."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2588
+#, no-wrap
+msgid "Va ntpdate_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2599
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run E<.Xr ntpdate 8> at system "
+"startup.  This command is intended to synchronize the system clock only "
+"E<.Em once> from some standard reference."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2607
+msgid ""
+"Note that the use of the E<.Va ntpd_sync_on_start> variable is a preferred "
+"alternative to the E<.Xr ntpdate 8> utility as E<.Xr ntpdate 8> is to be "
+"retired from the NTP distribution."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2607
+#, no-wrap
+msgid "Va ntpdate_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2613
+msgid ""
+"E<.Pq Vt str> Configuration file for E<.Xr ntpdate 8>.  Default E<.Pa "
+"/etc/ntp.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2613
+#, no-wrap
+msgid "Va ntpdate_hosts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2619
+msgid ""
+"E<.Pq Vt str> A whitespace-separated list of NTP servers to synchronize with "
+"at startup.  The default is to use the servers listed in E<.Va "
+"ntpdate_config>, if that file exists."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2619
+#, no-wrap
+msgid "Va ntpdate_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2625
+msgid "E<.Pq Vt str> Path to E<.Xr ntpdate 8> (default E<.Pa /usr/sbin/ntpdate>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2625
+#, no-wrap
+msgid "Va ntpdate_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2634
+msgid ""
+"E<.Pq Vt str> If E<.Va ntpdate_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr ntpdate 8> command (typically a hostname)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2634
+#, no-wrap
+msgid "Va ntpd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2641
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr ntpd 8> command at "
+"boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2641
+#, no-wrap
+msgid "Va ntpd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2647
+msgid "E<.Pq Vt str> Path to E<.Xr ntpd 8> (default E<.Pa /usr/sbin/ntpd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2647
+#, no-wrap
+msgid "Va ntpd_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2654
+msgid ""
+"E<.Pq Vt str> Path to E<.Xr ntpd 8> configuration file.  Default E<.Pa "
+"/etc/ntp.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2654
+#, no-wrap
+msgid "Va ntpd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2663
+msgid ""
+"E<.Pq Vt str> If E<.Va ntpd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr ntpd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2663
+#, no-wrap
+msgid "Va ntpd_sync_on_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2681
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Xr ntpd 8> is run with the E<.Fl "
+"g> flag, which syncs the system's clock on startup.  See E<.Xr ntpd 8> for "
+"more information regarding the E<.Fl g> option.  This is a preferred "
+"alternative to using E<.Xr ntpdate 8> or specifying the E<.Va "
+"ntpdate_enable> variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2681
+#, no-wrap
+msgid "Va nis_client_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2688
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr ypbind 8> service at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2688
+#, no-wrap
+msgid "Va nis_client_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2697
+msgid ""
+"E<.Pq Vt str> If E<.Va nis_client_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr ypbind 8> service."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2697
+#, no-wrap
+msgid "Va nis_ypldap_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2704
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr ypldap 8> daemon at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2704
+#, no-wrap
+msgid "Va nis_ypldap_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2713
+msgid ""
+"E<.Pq Vt str> If E<.Va nis.ypldap_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr ypldap 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2713
+#, no-wrap
+msgid "Va nis_ypset_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2720
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr ypset 8> daemon at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2720
+#, no-wrap
+msgid "Va nis_ypset_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2729
+msgid ""
+"E<.Pq Vt str> If E<.Va nis_ypset_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr ypset 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2729
+#, no-wrap
+msgid "Va nis_server_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2736
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr ypserv 8> daemon at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2736
+#, no-wrap
+msgid "Va nis_server_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2745
+msgid ""
+"E<.Pq Vt str> If E<.Va nis_server_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr ypserv 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2745
+#, no-wrap
+msgid "Va nis_ypxfrd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2752
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr rpc.ypxfrd 8> daemon "
+"at system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2752
+#, no-wrap
+msgid "Va nis_ypxfrd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2761
+msgid ""
+"E<.Pq Vt str> If E<.Va nis_ypxfrd_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr rpc.ypxfrd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2761
+#, no-wrap
+msgid "Va nis_yppasswdd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2768
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr rpc.yppasswdd 8> "
+"daemon at system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2768
+#, no-wrap
+msgid "Va nis_yppasswdd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2777
+msgid ""
+"E<.Pq Vt str> If E<.Va nis_yppasswdd_enable> is set to E<.Dq Li YES>, these "
+"are the flags to pass to the E<.Xr rpc.yppasswdd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2777
+#, no-wrap
+msgid "Va rpc_ypupdated_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2784
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Nm rpc.ypupdated> daemon "
+"at system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2784
+#, no-wrap
+msgid "Va bsnmpd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2793
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr bsnmpd 1> daemon at "
+"system boot time.  Be sure to understand the security implications of "
+"running SNMP daemon on your host."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2793
+#, no-wrap
+msgid "Va bsnmpd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2802
+msgid ""
+"E<.Pq Vt str> If E<.Va bsnmpd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr bsnmpd 1> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2802
+#, no-wrap
+msgid "Va defaultrouter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2809
+msgid ""
+"E<.Pq Vt str> If not set to E<.Dq Li NO>, create a default route to this "
+"host name or IP address (use an IP address if this router is also required "
+"to get to the name server!)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2809
+#, no-wrap
+msgid "Va ipv6_defaultrouter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2813
+msgid "E<.Pq Vt str> The IPv6 equivalent of E<.Va defaultrouter>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2813
+#, no-wrap
+msgid "Va static_arp_pairs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2825
+msgid ""
+"E<.Pq Vt str> Set to the list of static ARP pairs that are to be added at "
+"system boot time.  For each whitespace separated E<.Ar element> in the "
+"value, a E<.Va static_arp_ Ns Aq Ar element> variable is assumed to exist "
+"whose contents will later be passed to a E<.Dq Nm arp Cm -S> operation.  For "
+"example"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2828
+#, no-wrap
+msgid ""
+"static_arp_pairs=\"gw\"\n"
+"static_arp_gw=\"192.168.1.1 00:01:02:03:04:05\"\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2829
+#, no-wrap
+msgid "Va static_ndp_pairs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2841
+msgid ""
+"E<.Pq Vt str> Set to the list of static NDP pairs that are to be added at "
+"system boot time.  For each whitespace separated E<.Ar element> in the "
+"value, a E<.Va static_ndp_ Ns Aq Ar element> variable is assumed to exist "
+"whose contents will later be passed to a E<.Dq Nm ndp Cm -s> operation.  For "
+"example"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2844
+#, no-wrap
+msgid ""
+"static_ndp_pairs=\"gw\"\n"
+"static_ndp_gw=\"2001:db8:3::1 00:01:02:03:04:05\"\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2845
+#, no-wrap
+msgid "Va static_routes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2860
+msgid ""
+"E<.Pq Vt str> Set to the list of static routes that are to be added at "
+"system boot time.  If not set to E<.Dq Li NO> then for each whitespace "
+"separated E<.Ar element> in the value, a E<.Va route_ Ns Aq Ar element> "
+"variable is assumed to exist whose contents will later be passed to a E<.Dq "
+"Nm route Cm add> operation.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2865
+#, no-wrap
+msgid ""
+"static_routes=\"ext mcast:gif0 gif0local:gif0\"\n"
+"route_ext=\"-net 10.0.0.0/24 -gateway 192.168.0.1\"\n"
+"route_mcast=\"-net 224.0.0.0/4 -iface gif0\"\n"
+"route_gif0local=\"-host 169.254.1.1 -iface lo0\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2873
+msgid ""
+"When an E<.Ar element> is in the form of E<.Li name:ifname>, the route is "
+"specific to the interface E<.Li ifname>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2873
+#, no-wrap
+msgid "Va ipv6_static_routes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2887
+msgid ""
+"E<.Pq Vt str> The IPv6 equivalent of E<.Va static_routes>.  If not set to "
+"E<.Dq Li NO> then for each whitespace separated E<.Ar element> in the value, "
+"a E<.Va ipv6_route_ Ns Aq Ar element> variable is assumed to exist whose "
+"contents will later be passed to a E<.Dq Nm route Cm add Fl inet6> "
+"operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2887
+#, no-wrap
+msgid "Va gateway_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2893
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, configure host to act as an IP "
+"router, e.g.\\& to forward packets between interfaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2893
+#, no-wrap
+msgid "Va ipv6_gateway_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2897
+msgid "E<.Pq Vt bool> The IPv6 equivalent of E<.Va gateway_enable>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2897
+#, no-wrap
+msgid "Va routed_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2906
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run a routing daemon of some sort, "
+"based on the settings of E<.Va routed_program> and E<.Va routed_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2906
+#, no-wrap
+msgid "Va route6d_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2917
+msgid ""
+"E<.Pq Vt bool> The IPv6 equivalent of E<.Va routed_enable>.  If set to E<.Dq "
+"Li YES>, run a routing daemon of some sort, based on the settings of E<.Va "
+"route6d_program> and E<.Va route6d_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2917
+#, no-wrap
+msgid "Va routed_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2924
+msgid ""
+"E<.Pq Vt str> If E<.Va routed_enable> is set to E<.Dq Li YES>, this is the "
+"name of the routing daemon to use."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2924
+#, no-wrap
+msgid "Va route6d_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2928
+msgid "E<.Pq Vt str> The IPv6 equivalent of E<.Va routed_program>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2928
+#, no-wrap
+msgid "Va routed_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2935
+msgid ""
+"E<.Pq Vt str> If E<.Va routed_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the routing daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2935
+#, no-wrap
+msgid "Va route6d_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2939
+msgid "E<.Pq Vt str> The IPv6 equivalent of E<.Va routed_flags>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2939
+#, no-wrap
+msgid "Va rtadvd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2954
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr rtadvd 8> daemon at "
+"boot time.  The E<.Xr rtadvd 8> utility sends ICMPv6 Router Advertisement "
+"messages to the interfaces specified in E<.Va rtadvd_interfaces>.  This "
+"should only be enabled with great care.  You may want to fine-tune E<.Xr "
+"rtadvd.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2954
+#, no-wrap
+msgid "Va rtadvd_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2961
+msgid ""
+"E<.Pq Vt str> If E<.Va rtadvd_enable> is set to E<.Dq Li YES> this is the "
+"list of interfaces to use."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2961
+#, no-wrap
+msgid "Va arpproxy_all"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2966
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, enable global proxy ARP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2966
+#, no-wrap
+msgid "Va forward_sourceroute"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2975
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES> and E<.Va gateway_enable> is also set "
+"to E<.Dq Li YES>, source-routed packets are forwarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2975
+#, no-wrap
+msgid "Va accept_sourceroute"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2980
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, the system will accept source-routed "
+"packets directed at it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2980
+#, no-wrap
+msgid "Va rarpd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2987
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr rarpd 8> daemon at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2987
+#, no-wrap
+msgid "Va rarpd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:2996
+msgid ""
+"E<.Pq Vt str> If E<.Va rarpd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr rarpd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:2996
+#, no-wrap
+msgid "Va bootparamd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3003
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr bootparamd 8> daemon "
+"at system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3003
+#, no-wrap
+msgid "Va bootparamd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3012
+msgid ""
+"E<.Pq Vt str> If E<.Va bootparamd_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr bootparamd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3012
+#, no-wrap
+msgid "Va stf_interface_ipv4addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3019
+msgid ""
+"E<.Pq Vt str> If not set to E<.Dq Li NO>, this is the local IPv4 address for "
+"6to4 (IPv6 over IPv4 tunneling interface).  Specify this entry to enable the "
+"6to4 interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3019
+#, no-wrap
+msgid "Va stf_interface_ipv4plen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3023
+msgid ""
+"E<.Pq Vt int> Prefix length for 6to4 IPv4 addresses, to limit peer address "
+"range.  An effective value is 0-31."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3023
+#, no-wrap
+msgid "Va stf_interface_ipv6_ifid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3029
+msgid ""
+"E<.Pq Vt str> IPv6 interface ID for E<.Xr stf 4>.  This can be set to E<.Dq "
+"Li AUTO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3029
+#, no-wrap
+msgid "Va stf_interface_ipv6_slaid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3033
+msgid "E<.Pq Vt str> IPv6 Site Level Aggregator for E<.Xr stf 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3033
+#, no-wrap
+msgid "Va ipv6_ipv4mapping"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3039
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES> this enables IPv4 mapped IPv6 address "
+"communication (like E<.Li ::ffff:a.b.c.d>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3039
+#, no-wrap
+msgid "Va rtsold_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3046
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to enable the E<.Xr rtsold 8> daemon to "
+"send ICMPv6 Router Solicitation messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3046
+#, no-wrap
+msgid "Va rtsold_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3054
+msgid ""
+"E<.Pq Vt str> If E<.Va rtsold_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to E<.Xr rtsold 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3054
+#, no-wrap
+msgid "Va rtsol_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3060
+msgid ""
+"E<.Pq Vt str> For interfaces configured with the E<.Dq Li inet6 "
+"accept_rtadv> keyword, these are the flags to pass to E<.Xr rtsol 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3067
+msgid ""
+"Note that E<.Va rtsold_enable> is mutually exclusive to E<.Va rtsol_flags>; "
+"E<.Va rtsold_enable> takes precedence."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3067
+#, no-wrap
+msgid "Va keybell"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3080
+msgid ""
+"E<.Pq Vt str> The keyboard bell sound.  Set to E<.Dq Li normal>, E<.Dq Li "
+"visual>, E<.Dq Li off>, or E<.Dq Li NO> if the default behavior is desired.  "
+"For details, refer to the E<.Xr kbdcontrol 1> manpage."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3080
+#, no-wrap
+msgid "Va keyboard"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3084
+msgid ""
+"E<.Pq Vt str> If set to a non-null string, the virtual console's keyboard "
+"input is set to this device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3084
+#, no-wrap
+msgid "Va keymap"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3096
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li NO>, no keymap is installed, otherwise the "
+"value is used to install the keymap file found in E<.Pa "
+"/usr/share/syscons/keymaps/ Ns Ao Ar value Ac Ns Pa .kbd> (if using E<.Xr "
+"syscons 4 ) or> E<.Pa /usr/share/vt/keymaps/ Ns Ao Ar value Ac Ns Pa .kbd> "
+"(if using E<.Xr vt 4>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3096
+#, no-wrap
+msgid "Va keyrate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3106
+msgid ""
+"E<.Pq Vt str> The keyboard repeat speed.  Set to E<.Dq Li slow>, E<.Dq Li "
+"normal>, E<.Dq Li fast>, or E<.Dq Li NO> if the default behavior is desired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3106
+#, no-wrap
+msgid "Va keychange"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3114
+msgid ""
+"E<.Pq Vt str> If not set to E<.Dq Li NO>, attempt to program the function "
+"keys with the value.  The value should be a single string of the form: E<.Dq "
+"Ar funkey_number new_value Op Ar funkey_number new_value ...>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3114
+#, no-wrap
+msgid "Va cursor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3123
+msgid ""
+"E<.Pq Vt str> Can be set to the value of E<.Dq Li normal>, E<.Dq Li blink>, "
+"E<.Dq Li destructive>, or E<.Dq Li NO> to set the cursor behavior explicitly "
+"or choose the default behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3123
+#, no-wrap
+msgid "Va scrnmap"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3133
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li NO>, no screen map is installed, otherwise "
+"the value is used to install the screen map file in E<.Pa "
+"/usr/share/syscons/scrnmaps/ Ns Aq Ar value>.  This parameter is ignored "
+"when using E<.Xr vt 4> as the console driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3133
+#, no-wrap
+msgid "Va font8x16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3143
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li NO>, the default 8x16 font value is used "
+"for screen size requests, otherwise the value in E<.Pa "
+"/usr/share/syscons/fonts/ Ns Aq Ar value> or E<.Pa /usr/share/vt/fonts/ Ns "
+"Aq Ar value> is used (depending on the console driver being used)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3143
+#, no-wrap
+msgid "Va font8x14"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3153
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li NO>, the default 8x14 font value is used "
+"for screen size requests, otherwise the value in E<.Pa "
+"/usr/share/syscons/fonts/ Ns Aq Ar value> or E<.Pa /usr/share/vt/fonts/ Ns "
+"Aq Ar value> is used (depending on the console driver being used)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3153
+#, no-wrap
+msgid "Va font8x8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3163
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li NO>, the default 8x8 font value is used for "
+"screen size requests, otherwise the value in E<.Pa /usr/share/syscons/fonts/ "
+"Ns Aq Ar value> or E<.Pa /usr/share/vt/fonts/ Ns Aq Ar value> is used "
+"(depending on the console driver being used)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3163
+#, no-wrap
+msgid "Va blanktime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3171
+msgid ""
+"E<.Pq Vt int> If set to E<.Dq Li NO>, the default screen blanking interval "
+"is used, otherwise it is set to E<.Ar value> seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3171
+#, no-wrap
+msgid "Va saver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3178
+msgid ""
+"E<.Pq Vt str> If not set to E<.Dq Li NO>, this is the actual screen saver to "
+"use E<.Li ( blank , snake , daemon>, etc)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3178
+#, no-wrap
+msgid "Va moused_nondefault_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3193
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li NO>, the mouse device specified on the "
+"command line is not automatically treated as enabled by the E<.Pa "
+"/etc/rc.d/moused> script.  Having this variable set to E<.Dq Li YES> allows "
+"a E<.Xr usb 4> mouse, for example, to be enabled as soon as it is plugged "
+"in."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3193
+#, no-wrap
+msgid "Va moused_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3200
+msgid ""
+"E<.Pq Vt str> If set to E<.Dq Li YES>, the E<.Xr moused 8> daemon is started "
+"for doing cut/paste selection on the console."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3200
+#, no-wrap
+msgid "Va moused_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3215
+msgid ""
+"E<.Pq Vt str> This is the protocol type of the mouse connected to this "
+"host.  This variable must be set if E<.Va moused_enable> is set to E<.Dq Li "
+"YES>.  The E<.Xr moused 8> daemon is able to detect the appropriate mouse "
+"type automatically in many cases.  Set this variable to E<.Dq Li auto> to "
+"let the daemon detect it, or select one from the following list if the "
+"automatic detection fails."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3231
+msgid ""
+"If the mouse is attached to the PS/2 mouse port, choose E<.Dq Li auto> or "
+"E<.Dq Li ps/2>, regardless of the brand and model of the mouse.  Likewise, "
+"if the mouse is attached to the bus mouse port, choose E<.Dq Li auto> or "
+"E<.Dq Li busmouse>.  All other protocols are for serial mice and will not "
+"work with the PS/2 and bus mice.  If this is a USB mouse, E<.Dq Li auto> is "
+"the only protocol type which will work."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3233
+#, no-wrap
+msgid "Li microsoft"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3235
+msgid "Microsoft mouse (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3235
+#, no-wrap
+msgid "Li intellimouse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3237
+msgid "Microsoft IntelliMouse (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3237
+#, no-wrap
+msgid "Li mousesystems"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3239
+msgid "Mouse systems Corp.\\& mouse (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3239
+#, no-wrap
+msgid "Li mmseries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3241
+msgid "MM Series mouse (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3241
+#, no-wrap
+msgid "Li logitech"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3243
+msgid "Logitech mouse (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3243
+#, no-wrap
+msgid "Li busmouse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3245
+msgid "A bus mouse"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3245
+#, no-wrap
+msgid "Li mouseman"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3247
+msgid "Logitech MouseMan and TrackMan (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3247
+#, no-wrap
+msgid "Li glidepoint"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3249
+msgid "ALPS GlidePoint (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3249
+#, no-wrap
+msgid "Li thinkingmouse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3251
+msgid "Kensington ThinkingMouse (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3251
+#, no-wrap
+msgid "Li ps/2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3253
+msgid "PS/2 mouse"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3253
+#, no-wrap
+msgid "Li mmhittab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3255
+msgid "MM HitTablet (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3255
+#, no-wrap
+msgid "Li x10mouseremote"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3257
+msgid "X10 MouseRemote (serial)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3257
+#, no-wrap
+msgid "Li versapad"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3259
+msgid "Interlink VersaPad (serial)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3266
+msgid ""
+"Even if the mouse is not in the above list, it may be compatible with one in "
+"the list.  Refer to the manual page for E<.Xr moused 8> for compatibility "
+"information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3284
+msgid ""
+"It should also be noted that while this is enabled, any other client of the "
+"mouse (such as an X server) should access the mouse through the virtual "
+"mouse device, E<.Pa /dev/sysmouse>, and configure it as a E<.Dq Li sysmouse> "
+"type mouse, since all mouse data is converted to this single canonical "
+"format when using E<.Xr moused 8>.  If the client program does not support "
+"the E<.Dq Li sysmouse> type, specify the E<.Dq Li mousesystems> type.  It is "
+"the second preferred type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3284
+#, no-wrap
+msgid "Va moused_port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3296
+msgid ""
+"E<.Pq Vt str> If E<.Va moused_enable> is set to E<.Dq Li YES>, this is the "
+"actual port the mouse is on.  It might be E<.Pa /dev/cuau0> for a COM1 "
+"serial mouse, or E<.Pa /dev/psm0> for a PS/2 mouse, for example."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3296
+#, no-wrap
+msgid "Va moused_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3303
+msgid ""
+"E<.Pq Vt str> If E<.Va moused_flags> is set, its value is used as an "
+"additional set of flags to pass to the E<.Xr moused 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3303
+#, no-wrap
+msgid "Va moused_ Ns Ar XXX Ns Va _flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3331
+msgid ""
+"When E<.Va moused_nondefault_enable> is enabled, and a E<.Xr moused 8> "
+"daemon is started for a non-default port, the E<.Va \"moused_\" Ns Ar XXX Ns "
+"Va \"_flags\"> set of options has precedence over and replaces the default "
+"E<.Va moused_flags> (where E<.Ar XXX> is the name of the non-default port, "
+"i.e.,\\& E<.Ar ums0>).  By setting E<.Va \"moused_\" Ns Ar XXX Ns Va "
+"\"_flags\"> it is possible to set up a different set of default flags for "
+"each E<.Xr moused 8> instance.  For example, you can use E<.Dq Li \"-3\"> "
+"for the default E<.Va moused_flags> to make your laptop's touchpad more "
+"comfortable to use, but an empty set of options for E<.Va moused_ums0_flags> "
+"when your E<.Xr usb 4> mouse has three or more buttons."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3331
+#, no-wrap
+msgid "Va mousechar_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3344
+msgid ""
+"E<.Pq Vt int> If set to E<.Dq Li NO>, the default mouse cursor character "
+"range E<.Li 0xd0 Ns - Ns Li 0xd3> is used, otherwise the range start is set "
+"to E<.Ar value> character, see E<.Xr vidcontrol 1>.  Use if the default "
+"range is occupied in the language code table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3344
+#, no-wrap
+msgid "Va allscreens_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3357
+msgid ""
+"E<.Pq Vt str> If set, E<.Xr vidcontrol 1> is run with these options for each "
+"of the virtual terminals E<.Pq Pa /dev/ttyv*>.  For example, E<.Dq Fl m Cm "
+"on> will enable the mouse pointer on all virtual terminals if E<.Va "
+"moused_enable> is set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3357
+#, no-wrap
+msgid "Va allscreens_kbdflags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3370
+msgid ""
+"E<.Pq Vt str> If set, E<.Xr kbdcontrol 1> is run with these options for each "
+"of the virtual terminals E<.Pq Pa /dev/ttyv*>.  For example, E<.Dq Fl h Li "
+"200> will set the E<.Xr syscons 4> or E<.Xr vt 4> scrollback (history) "
+"buffer to 200 lines."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3370
+#, no-wrap
+msgid "Va cron_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3377
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr cron 8> daemon at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3377
+#, no-wrap
+msgid "Va cron_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3383
+msgid "E<.Pq Vt str> Path to E<.Xr cron 8> (default E<.Pa /usr/sbin/cron>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3383
+#, no-wrap
+msgid "Va cron_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3391
+msgid ""
+"E<.Pq Vt str> If E<.Va cron_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to E<.Xr cron 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3391
+#, no-wrap
+msgid "Va cron_dst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3400
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable the special handling of "
+"transitions to and from the Daylight Saving Time in E<.Xr cron 8> "
+"(equivalent to using the flag E<.Fl s>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3400
+#, no-wrap
+msgid "Va lpd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3406
+msgid "E<.Pq Vt str> Path to E<.Xr lpd 8> (default E<.Pa /usr/sbin/lpd>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3406
+#, no-wrap
+msgid "Va lpd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3413
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr lpd 8> daemon at "
+"system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3413
+#, no-wrap
+msgid "Va lpd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3422
+msgid ""
+"E<.Pq Vt str> If E<.Va lpd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr lpd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3422
+#, no-wrap
+msgid "Va chkprintcap_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3431
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run the E<.Xr chkprintcap 8> command "
+"before starting the E<.Xr lpd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3431
+#, no-wrap
+msgid "Va chkprintcap_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3445
+msgid ""
+"E<.Pq Vt str> If E<.Va lpd_enable> and E<.Va chkprintcap_enable> are set to "
+"E<.Dq Li YES>, these are the flags to pass to the E<.Xr chkprintcap 8> "
+"program.  The default is E<.Dq Li -d>, which causes missing directories to "
+"be created."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3445
+#, no-wrap
+msgid "Va mta_start_script"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3458
+msgid ""
+"E<.Pq Vt str> This variable specifies the full path to the script to run to "
+"start a mail transfer agent.  The default is E<.Pa /etc/rc.sendmail>.  The "
+"E<.Va sendmail_*> variables which E<.Pa /etc/rc.sendmail> uses are "
+"documented in the E<.Xr rc.sendmail 8> manual page."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3458
+#, no-wrap
+msgid "Va dumpdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3471
+msgid ""
+"E<.Pq Vt str> Indicates the device (usually a swap partition) to which a "
+"crash dump should be written in the event of a system crash.  If the value "
+"of this variable is E<.Dq Li AUTO>, the first suitable swap device listed in "
+"E<.Pa /etc/fstab> will be used as dump device.  Otherwise, the value of this "
+"variable is passed as the argument to E<.Xr dumpon 8>.  To disable crash "
+"dumps, set this variable to E<.Dq Li NO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3471
+#, no-wrap
+msgid "Va dumpon_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3478
+msgid ""
+"E<.Pq Vt str> Flags to pass to E<.Xr dumpon 8> when configuring E<.Va "
+"dumpdev> as the system dump device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3478
+#, no-wrap
+msgid "Va dumpdir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3498
+msgid ""
+"E<.Pq Vt str> When the system reboots after a crash and a crash dump is "
+"found on the device specified by the E<.Va dumpdev> variable, E<.Xr savecore "
+"8> will save that crash dump and a copy of the kernel to the directory "
+"specified by the E<.Va dumpdir> variable.  The default value is E<.Pa "
+"/var/crash>.  Set to E<.Dq Li NO> to not run E<.Xr savecore 8> at boot time "
+"when E<.Va dumpdir> is set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3498
+#, no-wrap
+msgid "Va savecore_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3504
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li NO>, disable automatic extraction of the "
+"crash dump from the E<.Va dumpdev>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3504
+#, no-wrap
+msgid "Va savecore_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3509
+msgid ""
+"E<.Pq Vt str> If crash dumps are enabled, these are the flags to pass to the "
+"E<.Xr savecore 8> utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3509
+#, no-wrap
+msgid "Va quota_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3520
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to turn on user and group disk quotas on "
+"system startup via the E<.Xr quotaon 8> command for all file systems marked "
+"as having quotas enabled in E<.Pa /etc/fstab>.  The kernel must be built "
+"with E<.Cd \"options QUOTA\"> for disk quotas to function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3520
+#, no-wrap
+msgid "Va check_quotas"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3527
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to enable user and group disk quota "
+"checking via the E<.Xr quotacheck 8> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3527
+#, no-wrap
+msgid "Va quotacheck_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3544
+msgid ""
+"E<.Pq Vt str> If E<.Va quota_enable> is set to E<.Dq Li YES>, and E<.Va "
+"check_quotas> is set to E<.Dq Li YES>, these are the flags to pass to the "
+"E<.Xr quotacheck 8> utility.  The default is E<.Dq Li \"-a\">, which checks "
+"quotas for all file systems with quotas enabled in E<.Pa /etc/fstab>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3544
+#, no-wrap
+msgid "Va quotaon_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3557
+msgid ""
+"E<.Pq Vt str> If E<.Va quota_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr quotaon 8> utility.  The default is E<.Dq Li "
+"\"-a\">, which enables quotas for all file systems with quotas enabled in "
+"E<.Pa /etc/fstab>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3557
+#, no-wrap
+msgid "Va quotaoff_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3570
+msgid ""
+"E<.Pq Vt str> If E<.Va quota_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr quotaoff 8> utility when shutting down the quota "
+"system.  The default is E<.Dq Li \"-a\">, which disables quotas for all file "
+"systems with quotas enabled in E<.Pa /etc/fstab>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3570
+#, no-wrap
+msgid "Va accounting_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3577
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to enable system accounting through the "
+"E<.Xr accton 8> facility."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3577
+#, no-wrap
+msgid "Va firstboot_sentinel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3594
+msgid ""
+"E<.Pq Vt str> This variable specifies the full path to a E<.Dq first boot> "
+"sentinel file.  If a file exists with this path, E<.Pa rc.d> scripts with "
+"the E<.Dq firstboot> keyword will be run on startup and the sentinel file "
+"will be deleted after the boot process completes.  The sentinel file must be "
+"located on a writable file system which is mounted no later than E<.Va "
+"early_late_divider> to function properly.  The default is E<.Pa /firstboot>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3594
+#, no-wrap
+msgid "Va linux_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3600
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to enable Linux/ELF binary emulation at "
+"system initial boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3600
+#, no-wrap
+msgid "Va sysvipc_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3605
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, load System V IPC primitives at boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3605
+#, no-wrap
+msgid "Va clear_tmp_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3612
+msgid "E<.Pq Vt bool> Set to E<.Dq Li YES> to have E<.Pa /tmp> cleaned at startup."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3612
+#, no-wrap
+msgid "Va clear_tmp_X"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3620
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> to disable removing of X11 lock files, "
+"and the removal and (secure) recreation of the various socket directories "
+"for X11 related programs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3620
+#, no-wrap
+msgid "Va ldconfig_paths"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3627
+msgid ""
+"E<.Pq Vt str> Set to the list of shared library paths to use with E<.Xr "
+"ldconfig 8>.  NOTE: E<.Pa /usr/lib> will always be added first, so it need "
+"not appear in this list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3627
+#, no-wrap
+msgid "Va ldconfig32_paths"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3632
+msgid ""
+"E<.Pq Vt str> Set to the list of 32-bit compatibility shared library paths "
+"to use with E<.Xr ldconfig 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3632
+#, no-wrap
+msgid "Va ldconfig_paths_aout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3639
+msgid ""
+"E<.Pq Vt str> Set to the list of shared library paths to use with E<.Xr "
+"ldconfig 8> legacy E<.Xr a.out 5> support."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3639
+#, no-wrap
+msgid "Va ldconfig_insecure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3648
+msgid ""
+"E<.Pq Vt bool> The E<.Xr ldconfig 8> utility normally refuses to use "
+"directories which are writable by anyone except root.  Set this variable to "
+"E<.Dq Li YES> to disable that security check during system startup."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3648
+#, no-wrap
+msgid "Va ldconfig_local_dirs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3656
+msgid ""
+"E<.Pq Vt str> Set to the list of local E<.Xr ldconfig 8> directories.  The "
+"names of all files in the directories listed will be passed as arguments to "
+"E<.Xr ldconfig 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3656
+#, no-wrap
+msgid "Va ldconfig_local32_dirs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3664
+msgid ""
+"E<.Pq Vt str> Set to the list of local 32-bit compatibility E<.Xr ldconfig "
+"8> directories.  The names of all files in the directories listed will be "
+"passed as arguments to E<.Dq Nm ldconfig Fl 32>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3664
+#, no-wrap
+msgid "Va kern_securelevel_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3669
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to set the kernel security level at "
+"system startup."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3669
+#, no-wrap
+msgid "Va kern_securelevel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3680
+msgid ""
+"E<.Pq Vt int> The kernel security level to set at startup.  The allowed "
+"range of E<.Ar value> ranges from \\-1 (the compile time default) to 3 (the "
+"most secure).  See E<.Xr security 7> for the list of possible security "
+"levels and their effect on system operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3680
+#, no-wrap
+msgid "Va sshd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3685
+msgid ""
+"E<.Pq Vt str> Path to the SSH server program E<.Pa ( /usr/sbin/sshd> is the "
+"default)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3685
+#, no-wrap
+msgid "Va sshd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3692
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr sshd 8> at system boot "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3692
+#, no-wrap
+msgid "Va sshd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3701
+msgid ""
+"E<.Pq Vt str> If E<.Va sshd_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr sshd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3701
+#, no-wrap
+msgid "Va ftpd_program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3706
+msgid ""
+"E<.Pq Vt str> Path to the FTP server program E<.Pa ( /usr/libexec/ftpd> is "
+"the default)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3706
+#, no-wrap
+msgid "Va ftpd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3713
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to start E<.Xr ftpd 8> as a stand-alone "
+"daemon at system boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3713
+#, no-wrap
+msgid "Va ftpd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3722
+msgid ""
+"E<.Pq Vt str> If E<.Va ftpd_enable> is set to E<.Dq Li YES>, these are the "
+"additional flags to pass to the E<.Xr ftpd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3722
+#, no-wrap
+msgid "Va watchdogd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3732
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, start the E<.Xr watchdogd 8> daemon "
+"at boot time.  This requires that the kernel have been compiled with a E<.Xr "
+"watchdog 4> compatible device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3732
+#, no-wrap
+msgid "Va watchdogd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3741
+msgid ""
+"E<.Pq Vt str> If E<.Va watchdogd_enable> is set to E<.Dq Li YES>, these are "
+"the flags passed to the E<.Xr watchdogd 8> daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3741
+#, no-wrap
+msgid "Va devfs_rulesets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3745
+msgid "E<.Pq Vt str> List of files containing sets of rules for E<.Xr devfs 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3745
+#, no-wrap
+msgid "Va devfs_system_ruleset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3750
+msgid "E<.Pq Vt str> Rule name(s) to apply to the system E<.Pa /dev> itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3750
+#, no-wrap
+msgid "Va devfs_set_rulesets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3756
+msgid ""
+"E<.Pq Vt str> Pairs of already-mounted E<.Pa dev> directories and rulesets "
+"that should be applied to them.  For example: /mount/dev=ruleset_name"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3756
+#, no-wrap
+msgid "Va devfs_load_rulesets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3760
+msgid ""
+"E<.Pq Vt bool> If set, always load the default rulesets listed in E<.Va "
+"devfs_rulesets>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3760
+#, no-wrap
+msgid "Va performance_cx_lowest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3770
+msgid ""
+"E<.Pq Vt str> CPU idle state to use while on AC power.  The string E<.Dq Li "
+"LOW> indicates that E<.Xr acpi 4> should use the lowest power state "
+"available while E<.Dq Li HIGH> indicates that the lowest latency state (less "
+"power savings) should be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3770
+#, no-wrap
+msgid "Va performance_cpu_freq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3780
+msgid ""
+"E<.Pq Vt str> CPU clock frequency to use while on AC power.  The string "
+"E<.Dq Li LOW> indicates that E<.Xr cpufreq 4> should use the lowest "
+"frequency available while E<.Dq Li HIGH> indicates that the highest "
+"frequency (less power savings) should be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3780
+#, no-wrap
+msgid "Va economy_cx_lowest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3790
+msgid ""
+"E<.Pq Vt str> CPU idle state to use when off AC power.  The string E<.Dq Li "
+"LOW> indicates that E<.Xr acpi 4> should use the lowest power state "
+"available while E<.Dq Li HIGH> indicates that the lowest latency state (less "
+"power savings) should be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3790
+#, no-wrap
+msgid "Va economy_cpu_freq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3800
+msgid ""
+"E<.Pq Vt str> CPU clock frequency to use when off AC power.  The string "
+"E<.Dq Li LOW> indicates that E<.Xr cpufreq 4> should use the lowest "
+"frequency available while E<.Dq Li HIGH> indicates that the highest "
+"frequency (less power savings) should be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3800
+#, no-wrap
+msgid "Va jail_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3805
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li NO>, any configured jails will not be "
+"started."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3805
+#, no-wrap
+msgid "Va jail_conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3812
+msgid ""
+"E<.Pq Vt str> The configuration filename used by E<.Xr jail 8> utility.  The "
+"default value is E<.Pa /etc/jail.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3812
+#, no-wrap
+msgid "Va jail_parallel_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3817
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, all configured jails will be started "
+"in the background (in parallel)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3817
+#, no-wrap
+msgid "Va jail_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3824
+msgid ""
+"E<.Pq Vt str> Unset by default.  When set, use as default value for E<.Va "
+"jail_ Ns Ao Ar jname Ac Ns Va _flags> for every jail in E<.Va jail_list>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3824
+#, no-wrap
+msgid "Va jail_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3838
+msgid ""
+"E<.Pq Vt str> A space-delimited list of jail names.  When left empty, all of "
+"the E<.Xr jail 8> instances defined in the configuration file are started.  "
+"The names specified in this list control the jail startup order.  E<.Xr jail "
+"8> instances missing from E<.Va jail_list> must be started manually.  Note "
+"that a jail's E<.Va depend> parameter in the configuration file may override "
+"this list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3838
+#, no-wrap
+msgid "Va jail_reverse_stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3845
+msgid ""
+"E<.Pq Vt bool> When set to E<.Dq Li YES>, all configured jails in E<.Va "
+"jail_list> are stopped in reverse order."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3845
+#, no-wrap
+msgid "Va jail_* variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3863
+msgid ""
+"Note that older releases supported per-jail configuration via E<.Nm> "
+"variables.  For example, hostname of a jail named E<.Li vjail> was able to "
+"be set by E<.Li jail_vjail_hostname>.  These per-jail configuration "
+"variables are now obsolete in favor of E<.Xr jail 8> configuration file.  "
+"For backward compatibility, when per-jail configuration variables are "
+"defined, E<.Xr jail 8> configuration files are created as E<.Pa "
+"/var/run/jail. Ns Ao Ar jname Ac Ns Pa .conf> and used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3880
+msgid ""
+"The following per-jail parameters are handled by E<.Pa rc.d/jail> script out "
+"of their corresponding E<.Nm> variables.  In addition to them, parameters in "
+"E<.Va jail_ Ns Ao Ar jname Ac Ns Va _parameters> will be added to the "
+"configuration file.  They must be a semi-colon E<.Pq Ql \\&;> delimited list "
+"of E<.Dq key=value>.  For more details, see E<.Xr jail 8> manual page."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3881
+#, no-wrap
+msgid "Li path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3884
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _rootdir>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3884
+#, no-wrap
+msgid "Li host.hostname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3887
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _hostname>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3887
+#, no-wrap
+msgid "Li exec.consolelog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3892
+msgid ""
+"set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _consolelog>.  The default "
+"value is E<.Pa /var/log/jail_ Ao Ar jname Ac Pa _console.log>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3892
+#, no-wrap
+msgid "Li interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3895
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _interface>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3895
+#, no-wrap
+msgid "Li vnet.interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3906
+msgid ""
+"set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _vnet_interface>.  This implies "
+"E<.Li vnet> parameter will be enabled and cannot be specified with E<.Va "
+"jail_ Ns Ao Ar jname Ac Ns Va _interface>, E<.Va jail_ Ns Ao Ar jname Ac Ns "
+"Va _ip> and/or E<.Va jail_ Ns Ao Ar jname Ac Ns Va _ip_multi Ns Aq Ar n> at "
+"the same time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3906
+#, no-wrap
+msgid "Li fstab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3909
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _fstab>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3909
+#, no-wrap
+msgid "Li mount"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3912
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _procfs_enable>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3912
+#, no-wrap
+msgid "Li exec.fib"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3915
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _fib>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3915
+#, no-wrap
+msgid "Li exec.start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3921
+msgid ""
+"set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _exec_start>.  The parameter "
+"name was E<.Li command> in some older releases."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3921
+#, no-wrap
+msgid "Li exec.prestart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3924
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _exec_prestart>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3924
+#, no-wrap
+msgid "Li exec.poststart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3927
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _exec_poststart>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3927
+#, no-wrap
+msgid "Li exec.stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3930
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _exec_stop>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3930
+#, no-wrap
+msgid "Li exec.prestop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3933
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _exec_prestop>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3933
+#, no-wrap
+msgid "Li exec.poststop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3936
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _exec_poststop>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3936
+#, no-wrap
+msgid "Li ip4.addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3942
+msgid ""
+"set if E<.Va jail_ Ns Ao Ar jname Ac Ns Va _ip> or E<.Va jail_ Ns Ao Ar "
+"jname Ac Ns Va _ip_multi Ns Aq Ar n> contain IPv4 addresses"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3942
+#, no-wrap
+msgid "Li ip6.addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3948
+msgid ""
+"set if E<.Va jail_ Ns Ao Ar jname Ac Ns Va _ip> or E<.Va jail_ Ns Ao Ar "
+"jname Ac Ns Va _ip_multi Ns Aq Ar n> contain IPv6 addresses"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3948
+#, no-wrap
+msgid "Li allow.mount"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3951
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _mount_enable>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3951
+#, no-wrap
+msgid "Li mount.devfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3954
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _devfs_enable>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3954
+#, no-wrap
+msgid "Li devfs_ruleset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3959
+msgid ""
+"set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _devfs_ruleset>.  This must be "
+"an integer, not a string."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3959
+#, no-wrap
+msgid "Li mount.fdescfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3962
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _fdescfs_enable>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3962
+#, no-wrap
+msgid "Li allow.set_hostname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3965
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _set_hostname_allow>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3965
+#, no-wrap
+msgid "Li allow.rawsocket"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3968
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _socket_unixiproute_only>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3968
+#, no-wrap
+msgid "Li allow.sysvipc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3971
+msgid "set from E<.Va jail_ Ns Ao Ar jname Ac Ns Va _sysvipc_allow>"
+msgstr ""
+
+#.  -----------------------------------------------------
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3973
+#, no-wrap
+msgid "Va harvest_mask"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3981
+msgid ""
+"E<.Pq Vt int> Set to a bit-mask representing the entropy sources you wish to "
+"harvest.  Refer to E<.Xr random 4> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3981
+#, no-wrap
+msgid "Va entropy_dir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:3998
+msgid ""
+"E<.Pq Vt str> Set to E<.Dq Li NO> to disable caching entropy via E<.Xr cron "
+"8>.  Otherwise set to the directory in which the entropy files are stored.  "
+"To be useful, there must be a system cron job that regularly writes and "
+"rotates files here.  All files found will be used at boot time.  The default "
+"is E<.Pa /var/db/entropy>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:3998
+#, no-wrap
+msgid "Va entropy_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4018
+msgid ""
+"E<.Pq Vt str> Set to E<.Dq Li NO> to disable caching entropy through "
+"reboots.  Otherwise set to the name of a file used to store cached entropy.  "
+"This file should be located on a file system that is readable before all the "
+"volumes specified in E<.Xr fstab 5> are mounted.  By default, E<.Pa "
+"/entropy> is used, but if E<.Pa /var/db/entropy-file> is found it will also "
+"be used.  This will be of some use to E<.Xr bsdinstall 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4018
+#, no-wrap
+msgid "Va entropy_boot_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4035
+msgid ""
+"E<.Pq Vt str> Set to E<.Dq Li NO> to disable very early caching entropy "
+"through reboots.  Otherwise set to the filename used to read very early "
+"reboot cached entropy.  This file should be located where E<.Xr loader 8> "
+"can read it.  See also E<.Xr loader.conf 5>.  The default location is E<.Pa "
+"/boot/entropy>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4035
+#, no-wrap
+msgid "Va entropy_save_sz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4040
+msgid ""
+"E<.Pq Vt int> Size of the entropy cache files saved by E<.Nm save-entropy> "
+"periodically."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4040
+#, no-wrap
+msgid "Va entropy_save_num"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4045
+msgid ""
+"E<.Pq Vt int> Number of entropy cache files to save by E<.Nm save-entropy> "
+"periodically."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4045
+#, no-wrap
+msgid "Va ipsec_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4054
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to run E<.Xr setkey 8> on E<.Va "
+"ipsec_file> at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4054
+#, no-wrap
+msgid "Va ipsec_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4058
+msgid "E<.Pq Vt str> Configuration file for E<.Xr setkey 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4058
+#, no-wrap
+msgid "Va dmesg_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4067
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to save E<.Xr dmesg 8> to E<.Pa "
+"/var/run/dmesg.boot> on boot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4067
+#, no-wrap
+msgid "Va rcshutdown_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4090
+msgid ""
+"E<.Pq Vt int> If set, start a watchdog timer in the background which will "
+"terminate E<.Pa rc.shutdown> if E<.Xr shutdown 8> has not completed within "
+"the specified time (in seconds).  Notice that in addition to this soft "
+"timeout, E<.Xr init 8> also applies a hard timeout for the execution of "
+"E<.Pa rc.shutdown>.  This is configured via E<.Xr sysctl 8> variable E<.Va "
+"kern.init_shutdown_timeout> and defaults to 120 seconds.  Setting the value "
+"of E<.Va rcshutdown_timeout> to more than 120 seconds will have no effect "
+"until the E<.Xr sysctl 8> variable E<.Va kern.init_shutdown_timeout> is also "
+"increased."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4090
+#, no-wrap
+msgid "Va virecover_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4098
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li NO> to prevent the system from trying to "
+"recover pre-maturely terminated E<.Xr vi 1> sessions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4098
+#, no-wrap
+msgid "Va ugidfw_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4106
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to load the E<.Xr mac_bsdextended 4> "
+"module upon system initialization and load a default ruleset file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4106
+#, no-wrap
+msgid "Va bsdextended_script"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4113
+msgid ""
+"E<.Pq Vt str> The default E<.Xr mac_bsdextended 4> ruleset file to load.  "
+"The default value of this variable is E<.Pa /etc/rc.bsdextended>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4113
+#, no-wrap
+msgid "Va newsyslog_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4120
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, run E<.Xr newsyslog 8> command at "
+"startup."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4120
+#, no-wrap
+msgid "Va newsyslog_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4134
+msgid ""
+"E<.Pq Vt str> If E<.Va newsyslog_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr newsyslog 8> program.  The default is E<.Dq "
+"Li -CN>, which causes log files flagged with a E<.Cm C> to be created."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4134
+#, no-wrap
+msgid "Va mdconfig_md Ns Aq Ar X"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4156
+msgid ""
+"E<.Pq Vt str> Arguments to E<.Xr mdconfig 8> for E<.Xr md 4> device E<.Ar "
+"X>.  At minimum a E<.Fl t Ar type> must be specified and either a E<.Fl s Ar "
+"size> for malloc or swap backed E<.Xr md 4> devices or a E<.Fl f Ar file> "
+"for vnode backed E<.Xr md 4> devices.  Note that E<.Va mdconfig_md Ns Aq Ar "
+"X> variables are evaluated until one variable is unset or null."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4156
+#, no-wrap
+msgid "Va mdconfig_md Ns Ao Ar X Ac Ns Va _newfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4164
+msgid ""
+"E<.Pq Vt str> Optional arguments passed to E<.Xr newfs 8> to initialize "
+"E<.Xr md 4> device E<.Ar X>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4164
+#, no-wrap
+msgid "Va mdconfig_md Ns Ao Ar X Ac Ns Va _owner"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4176
+msgid ""
+"E<.Pq Vt str> An ownership specification passed to E<.Xr chown 8> after the "
+"specified E<.Xr md 4> device E<.Ar X> has been mounted.  Both the E<.Xr md "
+"4> device and the mount point will be changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4176
+#, no-wrap
+msgid "Va mdconfig_md Ns Ao Ar X Ac Ns Va _perms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4188
+msgid ""
+"E<.Pq Vt str> A mode string passed to E<.Xr chmod 1> after the specified "
+"E<.Xr md 4> device E<.Ar X> has been mounted.  Both the E<.Xr md 4> device "
+"and the mount point will be changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4188
+#, no-wrap
+msgid "Va mdconfig_md Ns Ao Ar X Ac Ns Va _files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4195
+msgid ""
+"E<.Pq Vt str> Files to be copied to the mount point of the E<.Xr md 4> "
+"device E<.Ar X> after it has been mounted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4195
+#, no-wrap
+msgid "Va mdconfig_md Ns Ao Ar X Ac Ns Va _cmd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4216
+msgid ""
+"E<.Pq Vt str> Command to execute after the specified E<.Xr md 4> device "
+"E<.Ar X> has been mounted.  Note that the command is passed to E<.Ic eval> "
+"and that both E<.Va _dev> and E<.Va _mp> variables can be used to reference "
+"respectively the E<.Xr md 4> device and the mount point.  Assuming that the "
+"E<.Xr md 4> device is E<.Li md0>, one could set the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4218
+#, no-wrap
+msgid "mdconfig_md0_cmd=\"tar xfzC /var/file.tgz \\e${_mp}\"\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4219
+#, no-wrap
+msgid "Va autobridge_interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4232
+msgid ""
+"E<.Pq Vt str> Set to the list of bridge interfaces that will have newly "
+"arriving interfaces checked against to be automatically added.  If not set "
+"to E<.Dq Li NO> then for each whitespace separated E<.Ar element> in the "
+"value, a E<.Va autobridge_ Ns Aq Ar element> variable is assumed to exist "
+"which has a whitespace separated list of interface names to match, these "
+"names can use wildcards.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4235
+#, no-wrap
+msgid ""
+"autobridge_interfaces=\"bridge0\"\n"
+"autobridge_bridge0=\"tap* dc0 vlan[345]\"\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4236
+#, no-wrap
+msgid "Va mixer_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4241
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, enable support for sound mixer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4241
+#, no-wrap
+msgid "Va hcsecd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4246
+msgid "E<.Pq Vt bool> If set to E<.Dq Li YES>, enable Bluetooth security daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4246
+#, no-wrap
+msgid "Va hcsecd_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4252
+msgid ""
+"E<.Pq Vt str> Configuration file for E<.Xr hcsecd 8>.  Default E<.Pa "
+"/etc/bluetooth/hcsecd.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4252
+#, no-wrap
+msgid "Va sdpd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4257
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable Bluetooth Service Discovery "
+"Protocol daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4257
+#, no-wrap
+msgid "Va sdpd_control"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4264
+msgid ""
+"E<.Pq Vt str> Path to E<.Xr sdpd 8> control socket.  Default E<.Pa "
+"/var/run/sdp>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4264
+#, no-wrap
+msgid "Va sdpd_groupname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4271
+msgid ""
+"E<.Pq Vt str> Sets E<.Xr sdpd 8> group to run as after it initializes.  "
+"Default E<.Dq Li nobody>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4271
+#, no-wrap
+msgid "Va sdpd_username"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4278
+msgid ""
+"E<.Pq Vt str> Sets E<.Xr sdpd 8> user to run as after it initializes.  "
+"Default E<.Dq Li nobody>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4278
+#, no-wrap
+msgid "Va bthidd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4283
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable Bluetooth Human Interface "
+"Device daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4283
+#, no-wrap
+msgid "Va bthidd_config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4289
+msgid ""
+"E<.Pq Vt str> Configuration file for E<.Xr bthidd 8>.  Default E<.Pa "
+"/etc/bluetooth/bthidd.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4289
+#, no-wrap
+msgid "Va bthidd_hids"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4296
+msgid ""
+"E<.Pq Vt str> Path to a file, where E<.Xr bthidd 8> will store information "
+"about known HID devices.  Default E<.Pa /var/db/bthidd.hids>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4296
+#, no-wrap
+msgid "Va rfcomm_pppd_server_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4301
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, enable Bluetooth RFCOMM PPP wrapper "
+"daemon."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4301
+#, no-wrap
+msgid "Va rfcomm_pppd_server_profile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4312
+msgid ""
+"E<.Pq Vt str> The name of the profile to use from E<.Pa /etc/ppp/ppp.conf>.  "
+"Multiple profiles can be specified here.  Also used to specify per-profile "
+"overrides.  When the profile name contains any of the characters E<.Dq Li "
+".-/+> they are translated to E<.Dq Li _> for the proposes of the override "
+"variable names."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4312
+#, no-wrap
+msgid "Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _bdaddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4321
+msgid ""
+"E<.Pq Vt str> Overrides local address to listen on.  By default E<.Xr "
+"rfcomm_pppd 8> will listen on E<.Dq Li ANY> address.  The address can be "
+"specified as BD_ADDR or name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4321
+#, no-wrap
+msgid "Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _channel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4328
+msgid ""
+"E<.Pq Vt str> Overrides local RFCOMM channel to listen on.  By default E<.Xr "
+"rfcomm_pppd 8> will listen on RFCOMM channel 1.  Must set properly if "
+"multiple profiles used in the same time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4328
+#, no-wrap
+msgid "Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _register_sp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4335
+msgid ""
+"E<.Pq Vt bool> Tells E<.Xr rfcomm_pppd 8> if it should register Serial Port "
+"service on the specified RFCOMM channel.  Default E<.Dq Li NO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4335
+#, no-wrap
+msgid "Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _register_dun"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4343
+msgid ""
+"E<.Pq Vt bool> Tells E<.Xr rfcomm_pppd 8> if it should register Dial-Up "
+"Networking service on the specified RFCOMM channel.  Default E<.Dq Li NO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4343
+#, no-wrap
+msgid "Va ubthidhci_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4353
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, change the USB Bluetooth controller "
+"from HID mode to HCI mode.  You also need to specify the location of USB "
+"Bluetooth controller with the E<.Va ubthidhci_busnum> and E<.Va "
+"ubthidhci_addr> variables."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4353
+#, no-wrap
+msgid "Va ubthidhci_busnum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4358
+msgid ""
+"Bus number where the USB Bluetooth controller is located.  Check the output "
+"of E<.Xr usbconfig 8> on your system to find this information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4358
+#, no-wrap
+msgid "Va ubthidhci_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4363
+msgid ""
+"Bus address of the USB Bluetooth controller.  Check the output of E<.Xr "
+"usbconfig 8> on your system to find this information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4363
+#, no-wrap
+msgid "Va netwait_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4383
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, delays the start of network-reliant "
+"services until E<.Va netwait_if> is up and ICMP packets to a destination "
+"defined in E<.Va netwait_ip> are flowing.  Link state is examined first, "
+"followed by E<.Dq Li pinging> an IP address to verify network usability.  If "
+"no destination can be reached or timeouts are exceeded, network services are "
+"started anyway with no guarantee that the network is usable.  Use of this "
+"variable requires both E<.Va netwait_ip> and E<.Va netwait_if> to be set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4383
+#, no-wrap
+msgid "Va netwait_ip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4392
+msgid ""
+"E<.Pq Vt str> Empty by default.  This variable contains a space-delimited "
+"list of IP addresses to E<.Xr ping 8>.  DNS hostnames should not be used as "
+"resolution is not guaranteed to be functional at this point.  If multiple IP "
+"addresses are specified, each will be tried until one is successful or the "
+"list is exhausted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4392
+#, no-wrap
+msgid "Va netwait_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4402
+msgid ""
+"E<.Pq Vt int> Indicates the total number of seconds to perform a E<.Dq Li "
+"ping> against each IP address in E<.Va netwait_ip>, at a rate of one ping "
+"per second.  If any of the pings are successful, full network connectivity "
+"is considered reliable.  The default is 60."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4402
+#, no-wrap
+msgid "Va netwait_if"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4413
+msgid ""
+"E<.Pq Vt str> Empty by default.  Defines the name of the network interface "
+"on which watch for link.  E<.Xr ifconfig 8> is used to monitor the "
+"interface, looking for E<.Dq Li status: no carrier>.  Once gone, the link is "
+"considered up.  This can be a E<.Xr vlan 4> interface if desired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4413
+#, no-wrap
+msgid "Va netwait_if_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4418
+msgid ""
+"E<.Pq Vt int> Defines the total number of seconds to wait for link to become "
+"usable, polled at a 1-second interval.  The default is 30."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4418
+#, no-wrap
+msgid "Va rctl_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4429
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, load E<.Xr rctl 8> rules from the "
+"defined ruleset.  The kernel must be built with E<.Cd \"options RACCT\"> and "
+"E<.Cd \"options RCTL\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4429
+#, no-wrap
+msgid "Va rctl_rules"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4438
+msgid ""
+"E<.Pq Vt str> Set to E<.Pa /etc/rctl.conf> by default.  This variables "
+"contains the E<.Xr rctl.conf 5> ruleset to load for E<.Xr rctl 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4438
+#, no-wrap
+msgid "Va iovctl_files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4443
+msgid ""
+"E<.Pq Vt str> A space-separated list of configuration files used by E<.Xr "
+"iovctl 8>.  The default value is an empty string."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4443
+#, no-wrap
+msgid "Va autofs_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4454
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, start the E<.Xr automount 8> utility "
+"and the E<.Xr automountd 8> and E<.Xr autounmountd 8> daemons at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4454
+#, no-wrap
+msgid "Va automount_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4464
+msgid ""
+"E<.Pq Vt str> If E<.Va autofs_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr automount 8> program.  By default no flags are "
+"passed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4464
+#, no-wrap
+msgid "Va automountd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4474
+msgid ""
+"E<.Pq Vt str> If E<.Va autofs_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr automountd 8> daemon.  By default no flags are "
+"passed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4474
+#, no-wrap
+msgid "Va autounmountd_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4484
+msgid ""
+"E<.Pq Vt str> If E<.Va autofs_enable> is set to E<.Dq Li YES>, these are the "
+"flags to pass to the E<.Xr autounmountd 8> daemon.  By default no flags are "
+"passed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4484
+#, no-wrap
+msgid "Va ctld_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4491
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, start the E<.Xr ctld 8> daemon at "
+"boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4491
+#, no-wrap
+msgid "Va iscsid_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4498
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, start the E<.Xr iscsid 8> daemon at "
+"boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4498
+#, no-wrap
+msgid "Va iscsictl_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4505
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, start the E<.Xr iscsictl 8> utility "
+"at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4505
+#, no-wrap
+msgid "Va iscsictl_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4519
+msgid ""
+"E<.Pq Vt str> If E<.Va iscsictl_enable> is set to E<.Dq Li YES>, these are "
+"the flags to pass to the E<.Xr iscsictl 8> program.  The default is E<.Dq Li "
+"-Aa>, which configures sessions based on the E<.Pa /etc/iscsi.conf> "
+"configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4519
+#, no-wrap
+msgid "Va cfumass_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4526
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, create and export an USB LUN using "
+"E<.Xr cfumass 4> at boot time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4526
+#, no-wrap
+msgid "Va cfumass_dir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4531
+msgid ""
+"E<.Pq Vt str> The directory where the files exported by USB LUN are "
+"located.  The default directory is E<.Pa /var/cfumass>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4531
+#, no-wrap
+msgid "Va service_delete_empty"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4539
+msgid ""
+"E<.Pq Vt bool> If set to E<.Dq Li YES>, E<.Ql Li service delete> removes "
+"empty E<.Dq Li rc.conf.d> files."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/rc.conf.5:4540
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4542
+#, no-wrap
+msgid "Pa /etc/defaults/rc.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4543
+#, no-wrap
+msgid "Pa /etc/rc.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/rc.conf.5:4544
+#, no-wrap
+msgid "Pa /etc/rc.conf.local"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/rc.conf.5:4546
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4641
+msgid ""
+"E<.Xr chmod 1>, E<.Xr gdb 1>, E<.Xr info 1>, E<.Xr kbdcontrol 1>, E<.Xr "
+"makewhatis 1>, E<.Xr sh 1>, E<.Xr vi 1>, E<.Xr vidcontrol 1>, E<.Xr bridge "
+"4>, E<.Xr dummynet 4>, E<.Xr ip 4>, E<.Xr ipf 4>, E<.Xr ipfw 4>, E<.Xr ipnat "
+"4>, E<.Xr kld 4>, E<.Xr pf 4>, E<.Xr pflog 4>, E<.Xr pfsync 4>, E<.Xr tcp "
+"4>, E<.Xr udp 4>, E<.Xr exports 5>, E<.Xr fstab 5>, E<.Xr ipf 5>, E<.Xr "
+"ipnat 5>, E<.Xr jail.conf 5>, E<.Xr loader.conf 5>, E<.Xr motd 5>, E<.Xr "
+"newsyslog.conf 5>, E<.Xr pf.conf 5>, E<.Xr security 7>, E<.Xr accton 8>, "
+"E<.Xr amd 8>, E<.Xr apm 8>, E<.Xr bsdinstall 8>, E<.Xr bthidd 8>, E<.Xr "
+"chkprintcap 8>, E<.Xr chown 8>, E<.Xr cron 8>, E<.Xr devfs 8>, E<.Xr "
+"dhclient 8>, E<.Xr ftpd 8>, E<.Xr geli 8>, E<.Xr hcsecd 8>, E<.Xr ifconfig "
+"8>, E<.Xr inetd 8>, E<.Xr iovctl 8>, E<.Xr ipf 8>, E<.Xr ipfw 8>, E<.Xr "
+"ipnat 8>, E<.Xr jail 8>, E<.Xr kldxref 8>, E<.Xr loader 8>, E<.Xr lpd 8>, "
+"E<.Xr mdconfig 8>, E<.Xr mdmfs 8>, E<.Xr mixer 8>, E<.Xr mountd 8>, E<.Xr "
+"moused 8>, E<.Xr newfs 8>, E<.Xr newsyslog 8>, E<.Xr nfsd 8>, E<.Xr ntpd 8>, "
+"E<.Xr ntpdate 8>, E<.Xr pfctl 8>, E<.Xr pflogd 8>, E<.Xr ping 8>, E<.Xr "
+"powerd 8>, E<.Xr quotacheck 8>, E<.Xr quotaon 8>, E<.Xr rc 8>, E<.Xr "
+"rc.sendmail 8>, E<.Xr rfcomm_pppd 8>, E<.Xr route 8>, E<.Xr routed 8>, E<.Xr "
+"rpc.lockd 8>, E<.Xr rpc.statd 8>, E<.Xr rpcbind 8>, E<.Xr rwhod 8>, E<.Xr "
+"savecore 8>, E<.Xr sdpd 8>, E<.Xr service 8>, E<.Xr sshd 8>, E<.Xr swapon "
+"8>, E<.Xr sysctl 8>, E<.Xr syslogd 8>, E<.Xr sysrc 8>, E<.Xr timed 8>, E<.Xr "
+"unbound 8>, E<.Xr usbconfig 8>, E<.Xr wlandebug 8>, E<.Xr yp 8>, E<.Xr "
+"ypbind 8>, E<.Xr ypserv 8>, E<.Xr ypset 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/rc.conf.5:4641
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4646
+msgid "The E<.Nm> file appeared in E<.Fx 2.2.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/rc.conf.5:4646
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/rc.conf.5:4647
+msgid "E<.An Jordan K. Hubbard>."
+msgstr ""

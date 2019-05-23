@@ -1,0 +1,425 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/cron/cron/cron.8:20
+#, no-wrap
+msgid "April 15, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/cron/cron/cron.8:21
+#, no-wrap
+msgid "CRON 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/cron/cron/cron.8:23
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:25
+msgid "E<.Nm cron>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/cron/cron/cron.8:25
+#, no-wrap
+msgid "daemon to execute scheduled commands (Vixie Cron)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/cron/cron/cron.8:26
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:35
+msgid ""
+"E<.Nm> E<.Op Fl j Ar jitter> E<.Op Fl J Ar rootjitter> E<.Op Fl m Ar mailto> "
+"E<.Op Fl n> E<.Op Fl s> E<.Op Fl o> E<.Op Fl x Ar debugflag Ns Op , Ns Ar "
+"...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/cron/cron/cron.8:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:44
+msgid ""
+"The E<.Nm> utility should be started from E<.Pa /etc/rc> or E<.Pa "
+"/etc/rc.local>.  It will return immediately, so you do not need to start it "
+"with '&'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:62
+msgid ""
+"The E<.Nm> utility searches E<.Pa /var/cron/tabs> for crontab files which "
+"are named after accounts in E<.Pa /etc/passwd>; crontabs found are loaded "
+"into memory.  The E<.Nm> utility also searches for E<.Pa /etc/crontab> and "
+"files in E<.Pa /etc/cron.d> and E<.Pa /usr/local/etc/cron.d> which are in a "
+"different format (see E<.Xr crontab 5>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:85
+msgid ""
+"The E<.Nm> utility then wakes up every minute, examining all stored "
+"crontabs, checking each command to see if it should be run in the current "
+"minute.  Before running a command from a per-account crontab file, E<.Nm> "
+"checks the status of the account with E<.Xr pam 3> and skips the command if "
+"the account is unavailable, e.g., locked out or expired.  Commands from "
+"E<.Pa /etc/crontab> bypass this check.  When executing commands, any output "
+"is mailed to the owner of the crontab (or to the user named in the E<.Ev "
+"MAILTO> environment variable in the crontab, if such exists).  The from "
+"address of this mail may be set with the E<.Ev MAILFROM> environment "
+"variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:102
+msgid ""
+"Additionally, E<.Nm> checks each minute to see if its spool directory's "
+"modification time (or the modification time on E<.Pa /etc/crontab>)  has "
+"changed, and if it has, E<.Nm> will then examine the modification time on "
+"all crontabs and reload those which have changed.  Thus E<.Nm> need not be "
+"restarted whenever a crontab file is modified.  Note that the E<.Xr crontab "
+"1> command updates the modification time of the spool directory whenever it "
+"changes a crontab."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:104
+msgid "Available options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:105
+#, no-wrap
+msgid "Fl j Ar jitter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:117
+msgid ""
+"Enable time jitter.  Prior to executing commands, E<.Nm> will sleep a random "
+"number of seconds in the range from 0 to E<.Ar jitter>.  This will not "
+"affect superuser jobs (see E<.Fl J>).  A value for E<.Ar jitter> must be "
+"between 0 and 60 inclusive.  Default is 0, which effectively disables time "
+"jitter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:121
+msgid ""
+"This option can help to smooth down system load spikes during moments when a "
+"lot of jobs are likely to start at once, e.g., at the beginning of the first "
+"minute of each hour."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:121
+#, no-wrap
+msgid "Fl J Ar rootjitter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:126
+msgid ""
+"Enable time jitter for superuser jobs.  The same as E<.Fl j> except that it "
+"will affect jobs run by the superuser only."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:126
+#, no-wrap
+msgid "Fl m Ar mailto"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:143
+msgid ""
+"Overrides the default recipient for E<.Nm> mail.  Each E<.Xr crontab 5> "
+"without E<.Ev MAILTO> explicitly set will send mail to the E<.Ar mailto> "
+"mailbox.  Sending mail will be disabled by default if E<.Ar mailto> set to a "
+"null string, usually specified in a shell as E<.Li ''> or E<.Li \\*q\\*q>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:143
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:145
+msgid "Do not daemonize; run in foreground instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:145
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:149
+msgid ""
+"Enable special handling of situations when the GMT offset of the local "
+"timezone changes, such as the switches between the standard time and "
+"daylight saving time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:157
+msgid ""
+"The jobs run during the GMT offset changes time as intuitively expected.  If "
+"a job falls into a time interval that disappears (for example, during the "
+"switch from standard time) to daylight saving time or is duplicated (for "
+"example, during the reverse switch), then it is handled in one of two ways:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:167
+msgid ""
+"The first case is for the jobs that run every at hour of a time interval "
+"overlapping with the disappearing or duplicated interval.  In other words, "
+"if the job had run within one hour before the GMT offset change (and cron "
+"was not restarted nor the E<.Xr crontab 5> changed after that)  or would run "
+"after the change at the next hour.  They work as always, skip the skipped "
+"time or run in the added time as usual."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:181
+msgid ""
+"The second case is for the jobs that run less frequently.  They are executed "
+"exactly once, they are not skipped nor executed twice (unless cron is "
+"restarted or the user's E<.Xr crontab 5> is changed during such a time "
+"interval).  If an interval disappears due to the GMT offset change, such "
+"jobs are executed at the same absolute point of time as they would be in the "
+"old time zone.  For example, if exactly one hour disappears, this point "
+"would be during the next hour at the first minute that is specified for them "
+"in E<.Xr crontab 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:181
+#, no-wrap
+msgid "Fl o"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:189
+msgid ""
+"Disable the special handling of situations when the GMT offset of the local "
+"timezone changes, to be compatible with the old (default) behavior.  If both "
+"options E<.Fl o> and E<.Fl s> are specified, the option specified last wins."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:189
+#, no-wrap
+msgid "Fl x Ar debugflag Ns Op , Ns Ar ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:194
+msgid ""
+"Enable writing of debugging information to standard output.  One or more of "
+"the following comma separated E<.Ar debugflag> identifiers must be "
+"specified:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:196
+#, no-wrap
+msgid "Cm bit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:198
+msgid "currently not used"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:198
+#, no-wrap
+msgid "Cm ext"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:200
+msgid "make the other debug flags more verbose"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:200
+#, no-wrap
+msgid "Cm load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:202
+msgid "be verbose when loading crontab files"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:202
+#, no-wrap
+msgid "Cm misc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:204
+msgid "be verbose about miscellaneous one-off events"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:204
+#, no-wrap
+msgid "Cm pars"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:206
+msgid "be verbose about parsing individual crontab lines"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:206
+#, no-wrap
+msgid "Cm proc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:208
+msgid "be verbose about the state of the process, including all of its offspring"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:208
+#, no-wrap
+msgid "Cm sch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:210
+msgid "be verbose when iterating through the scheduling algorithms"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:210
+#, no-wrap
+msgid "Cm test"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:212
+msgid "trace through the execution, but do not perform any actions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/cron/cron/cron.8:214
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:216
+#, no-wrap
+msgid "Pa /etc/crontab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:218
+msgid "System crontab file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:218
+#, no-wrap
+msgid "Pa /etc/cron.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:220
+msgid "Directory for optional/modularized system crontab files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:220
+#, no-wrap
+msgid "Pa /etc/pam.d/cron"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:224
+msgid "E<.Xr pam.conf 5> configuration file for E<.Nm>"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:224
+#, no-wrap
+msgid "Pa /usr/local/etc/cron.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:226
+msgid "Directory for third-party package provided crontab files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/cron/cron/cron.8:226
+#, no-wrap
+msgid "Pa /var/cron/tabs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:228
+msgid "Directory for personal crontab files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/cron/cron/cron.8:229
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:234
+msgid "E<.Xr crontab 1>, E<.Xr pam 3>, E<.Xr crontab 5>, E<.Xr pam.conf 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/cron/cron/cron.8:234
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/cron/cron/cron.8:235
+msgid "E<.An Paul Vixie Aq Mt paul@vix.com>"
+msgstr ""

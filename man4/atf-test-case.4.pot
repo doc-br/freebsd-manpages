@@ -1,0 +1,628 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/atf/doc/atf-test-case.4:25
+#, no-wrap
+msgid "March 6, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/atf/doc/atf-test-case.4:26
+#, no-wrap
+msgid "ATF-TEST-CASE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/atf/doc/atf-test-case.4:28
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:30
+msgid "E<.Nm atf-test-case>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/atf/doc/atf-test-case.4:30
+#, no-wrap
+msgid "generic description of test cases"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/atf/doc/atf-test-case.4:31
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:40
+msgid ""
+"A E<.Em test case> is a piece of code that stress-tests a specific feature "
+"of the software.  This feature is typically self-contained enough, either in "
+"the amount of code that implements it or in the general idea that describes "
+"it, to warrant its independent testing.  Given this, test cases are very "
+"fine-grained, but they attempt to group similar smaller tests which are "
+"semantically related."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:67
+msgid ""
+"A test case is defined by three components regardless of the language it is "
+"implemented in: a header, a body and a cleanup routine.  The E<.Em header> "
+"is, basically, a declarative piece of code that defines several properties "
+"to describe what the test case does and how it behaves.  In other words: it "
+"defines the test case's E<.Em meta-data>, further described in the E<.Sx "
+"Meta-data> section.  The E<.Em body> is the test case itself.  It executes "
+"all actions needed to reproduce the test, and checks for failures.  This "
+"body is only executed if the abstract conditions specified by the header are "
+"met.  The E<.Em cleanup> routine is a piece of code always executed after "
+"the body, regardless of the exit status of the test case.  It can be used to "
+"undo side-effects of the test case.  Note that almost all side-effects of a "
+"test case are automatically cleaned up by the library; this is explained in "
+"more detail in the rest of this document."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:73
+msgid ""
+"It is extremely important to keep the separation between a test case's "
+"header and body well-defined, because the header is E<.Em always> parsed, "
+"whereas the body is only executed when the conditions defined in the header "
+"are met and when the user specifies that test case."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:77
+msgid ""
+"At last, test cases are always contained into test programs.  The test "
+"programs act as a front-end to them, providing a consistent interface to the "
+"user and several APIs to ease their implementation."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/atf/doc/atf-test-case.4:77
+#, no-wrap
+msgid "Results"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:84
+msgid ""
+"Upon termination, a test case reports a status and, optionally, a textual "
+"reason describing why the test reported such status.  The caller must ensure "
+"that the test case really performed the task that its status describes, as "
+"the test program may be bogus and therefore providing a misleading result, "
+"e.g., providing a result that indicates success but the error code of the "
+"program says otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:86
+msgid "The possible exit status of a test case are one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:87
+#, no-wrap
+msgid "expected_death"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:89
+msgid "The test case expects to terminate abruptly."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:89
+#, no-wrap
+msgid "expected_exit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:91
+msgid "The test case expects to exit cleanly."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:91
+#, no-wrap
+msgid "expected_failure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:94
+msgid ""
+"The test case expects to exit with a controller fatal/non-fatal failure.  If "
+"this happens, the test program exits with a success error code."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:94
+#, no-wrap
+msgid "expected_signal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:96
+msgid "The test case expects to receive a signal that makes it terminate."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:96
+#, no-wrap
+msgid "expected_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:98
+msgid "The test case expects to execute for longer than its timeout."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:98
+#, no-wrap
+msgid "passed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:101
+msgid ""
+"The test case was executed successfully.  The test program exits with a "
+"success error code."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:101
+#, no-wrap
+msgid "skipped"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:110
+msgid ""
+"The test case could not be executed because some preconditions were not "
+"met.  This is not a failure because it can typically be resolved by "
+"adjusting the system to meet the necessary conditions.  This is always "
+"accompanied by a E<.Em reason>, a message describing why the test was "
+"skipped.  The test program exits with a success error code."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:110
+#, no-wrap
+msgid "failed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:116
+msgid ""
+"An error appeared during the execution of the test case.  This is always "
+"accompanied by a E<.Em reason>, a message describing why the test failed.  "
+"The test program exits with a failure error code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:127
+msgid ""
+"The usefulness of the E<.Sq expected_*> results comes when writing test "
+"cases that verify known failures caused, in general, due to programming "
+"errors (aka bugs).  Whenever the faulty condition that the E<.Sq expected_*> "
+"result is trying to cover is fixed, then the test case will be reported as "
+"E<.Sq failed> and the developer will have to adjust it to match its new "
+"condition."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:134
+msgid ""
+"It is important to note that all E<.Sq expected_*> results are only provided "
+"as a E<.Em hint> to the caller; the caller must verify that the test case "
+"did actually terminate as the expected condition says."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/atf/doc/atf-test-case.4:134
+#, no-wrap
+msgid "Input/output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:143
+msgid ""
+"Test cases are free to print whatever they want to their E<.Xr stdout 4> and "
+"E<.Xr stderr 4> file descriptors.  They are, in fact, encouraged to print "
+"status information as they execute to keep the user informed of their "
+"actions.  This is specially important for long test cases."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:148
+msgid ""
+"Test cases will log their results to an auxiliary file, which is then "
+"collected by the test program they are contained in.  The developer need not "
+"care about this as long as he uses the correct APIs to implement the test "
+"cases."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:151
+msgid ""
+"The standard input of the test cases is unconditionally connected to E<.Sq "
+"/dev/zero>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/atf/doc/atf-test-case.4:151
+#, no-wrap
+msgid "Meta-data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:157
+msgid ""
+"The following list describes all meta-data properties interpreted internally "
+"by ATF.  You are free to define new properties in your test cases and use "
+"them as you wish, but non-standard properties must be prefixed by E<.Sq X->."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:158
+#, no-wrap
+msgid "descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:161 /usr/src/contrib/atf/doc/atf-test-case.4:176
+msgid "Type: textual.  Required."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:165
+msgid ""
+"A brief textual description of the test case's purpose.  Will be shown to "
+"the user in reports.  Also good for documentation purposes."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:165
+#, no-wrap
+msgid "has.cleanup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:168
+msgid "Type: boolean.  Optional."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:173
+msgid ""
+"If set to true, specifies that the test case has a cleanup routine that has "
+"to be executed by the runtime engine during the cleanup phase of the "
+"execution.  This property is automatically set by the framework when "
+"defining a test case with a cleanup routine, so it should never be set by "
+"hand."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:173
+#, no-wrap
+msgid "ident"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:179
+msgid ""
+"The test case's identifier.  Must be unique inside the test program and "
+"should be short but descriptive."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:179
+#, no-wrap
+msgid "require.arch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:182 /usr/src/contrib/atf/doc/atf-test-case.4:188 /usr/src/contrib/atf/doc/atf-test-case.4:207 /usr/src/contrib/atf/doc/atf-test-case.4:216 /usr/src/contrib/atf/doc/atf-test-case.4:233 /usr/src/contrib/atf/doc/atf-test-case.4:245
+msgid "Type: textual.  Optional."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:185
+msgid ""
+"A whitespace separated list of architectures that the test case can be run "
+"under without causing errors due to an architecture mismatch."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:185
+#, no-wrap
+msgid "require.config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:193
+msgid ""
+"A whitespace separated list of configuration variables that must be defined "
+"to execute the test case.  If any of the required variables is not defined, "
+"the test case is E<.Em skipped>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:193
+#, no-wrap
+msgid "require.diskspace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:204
+msgid ""
+"Type: integer.  Optional.  Specifies the minimum amount of available disk "
+"space needed by the test.  The value can have a size suffix such as E<.Sq "
+"K>, E<.Sq M>, E<.Sq G> or E<.Sq T> to make the amount of bytes easier to "
+"type and read."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:204
+#, no-wrap
+msgid "require.files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:213
+msgid ""
+"A whitespace separated list of files that must be present to execute the "
+"test case.  The names of these files must be absolute paths.  If any of the "
+"required files is not found, the test case is E<.Em skipped>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:213
+#, no-wrap
+msgid "require.machine"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:219
+msgid ""
+"A whitespace separated list of machine types that the test case can be run "
+"under without causing errors due to a machine type mismatch."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:219
+#, no-wrap
+msgid "require.memory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:230
+msgid ""
+"Type: integer.  Optional.  Specifies the minimum amount of physical memory "
+"needed by the test.  The value can have a size suffix such as E<.Sq K>, "
+"E<.Sq M>, E<.Sq G> or E<.Sq T> to make the amount of bytes easier to type "
+"and read."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:230
+#, no-wrap
+msgid "require.progs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:242
+msgid ""
+"A whitespace separated list of programs that must be present to execute the "
+"test case.  These can be given as plain names, in which case they are looked "
+"in the user's E<.Ev PATH>, or as absolute paths.  If any of the required "
+"programs is not found, the test case is E<.Em skipped>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:242
+#, no-wrap
+msgid "require.user"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:251
+msgid ""
+"The required privileges to execute the test case.  Can be one of E<.Sq root> "
+"or E<.Sq unprivileged>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:256
+msgid ""
+"If the test case is running as a regular user and this property is E<.Sq "
+"root>, the test case is E<.Em skipped>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:263
+msgid ""
+"If the test case is running as root and this property is E<.Sq "
+"unprivileged>, the runtime engine will automatically drop the privileges if "
+"the E<.Sq unprivileged-user> configuration property is set; otherwise the "
+"test case is E<.Em skipped>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:263
+#, no-wrap
+msgid "timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:267
+msgid "Type: integral.  Optional; defaults to E<.Sq 300>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:274
+msgid ""
+"Specifies the maximum amount of time the test case can run.  This is "
+"particularly useful because some tests can stall either because they are "
+"incorrectly coded or because they trigger an anomalous behavior of the "
+"program.  It is not acceptable for these tests to stall the whole execution "
+"of the test program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:278
+msgid ""
+"Can optionally be set to zero, in which case the test case has no run-time "
+"limit.  This is discouraged."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/atf/doc/atf-test-case.4:279
+#, no-wrap
+msgid "Environment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:284
+msgid ""
+"Every time a test case is executed, several environment variables are "
+"cleared or reseted to sane values to ensure they do not make the test fail "
+"due to unexpected conditions.  These variables are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:285
+#, no-wrap
+msgid "Ev HOME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:287
+msgid "Set to the work directory's path."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:287
+#, no-wrap
+msgid "Ev LANG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:289 /usr/src/contrib/atf/doc/atf-test-case.4:291 /usr/src/contrib/atf/doc/atf-test-case.4:293 /usr/src/contrib/atf/doc/atf-test-case.4:295 /usr/src/contrib/atf/doc/atf-test-case.4:297 /usr/src/contrib/atf/doc/atf-test-case.4:299 /usr/src/contrib/atf/doc/atf-test-case.4:301 /usr/src/contrib/atf/doc/atf-test-case.4:303
+msgid "Undefined."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:289
+#, no-wrap
+msgid "Ev LC_ALL"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:291
+#, no-wrap
+msgid "Ev LC_COLLATE"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:293
+#, no-wrap
+msgid "Ev LC_CTYPE"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:295
+#, no-wrap
+msgid "Ev LC_MESSAGES"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:297
+#, no-wrap
+msgid "Ev LC_MONETARY"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:299
+#, no-wrap
+msgid "Ev LC_NUMERIC"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:301
+#, no-wrap
+msgid "Ev LC_TIME"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/atf/doc/atf-test-case.4:303
+#, no-wrap
+msgid "Ev TZ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:306
+msgid "Hardcoded to E<.Sq UTC>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/atf/doc/atf-test-case.4:307
+#, no-wrap
+msgid "Work directories"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:316
+msgid ""
+"The test program always creates a temporary directory and switches to it "
+"before running the test case's body.  This way the test case is free to "
+"modify its current directory as it wishes, and the runtime engine will be "
+"able to clean it up later on in a safe way, removing any traces of its "
+"execution from the system.  To do so, the runtime engine will perform a "
+"recursive removal of the work directory without crossing mount points; if a "
+"mount point is found, the file system will be unmounted (if possible)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/contrib/atf/doc/atf-test-case.4:316
+#, no-wrap
+msgid "File creation mode mask (umask)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:320
+msgid ""
+"Test cases are always executed with a file creation mode mask (umask) of "
+"E<.Sq 0022>.  The test case's code is free to change this during execution."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/atf/doc/atf-test-case.4:320
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/atf/doc/atf-test-case.4:321
+msgid "E<.Xr atf-test-program 1>"
+msgstr ""

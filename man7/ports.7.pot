@@ -1,0 +1,1269 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man7/ports.7:28
+#, no-wrap
+msgid "March 12, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man7/ports.7:29
+#, no-wrap
+msgid "PORTS 7"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:33
+msgid "E<.Nm ports>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man7/ports.7:33
+#, no-wrap
+msgid "contributed applications"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:41
+msgid ""
+"The E<.Fx> Ports Collection offers a simple way to compile and install third "
+"party applications.  It is also used to build packages, to be installed "
+"using E<.Xr pkg 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:62
+msgid ""
+"The ports tree, typically located at E<.Pa /usr/ports>, consists of "
+"subdirectories, one for each category; those in turn contain individual "
+"ports.  Each port is a directory with metadata and patches necessary to make "
+"the original application source code compile and run on E<.Fx>.  Compiling "
+"an application is as simple as typing E<.Dq Li \"make build\"> in the port "
+"directory.  The E<.Pa Makefile> automatically fetches the application source "
+"code, either from a local disk or the network, unpacks it, applies the "
+"patches, and compiles it.  It also recursively handles dependencies \\(em "
+"other pieces of software the port depends on in order to build and work.  "
+"Afterwards, E<.Dq Li \"make install\"> installs the application."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:76
+msgid ""
+"The E<.Fx> Ports Collection is maintained in several branches, which differ "
+"mostly by versions of software provided: the E<.Em head> branch contains all "
+"the latest changes, while the E<.Em quarterly> branches only provide "
+"critical fixes.  The E<.Em head> branch can be installed or updated using "
+"either E<.Xr portsnap 8>, or from Subversion repository at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:84
+msgid ""
+"The E<.Em quarterly> branches can be found in Subversion in the E<.Pa "
+"branches/> subdirectory, eg:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:111
+msgid ""
+"It is generally a good idea to use the E<.Nm> branch that matches the E<.Xr "
+"pkg 8> repository being used.  By default, for E<.Fx CURRENT> the E<.Xr pkg "
+"8> is configured to install packages built from the E<.Em head> branch, "
+"while for E<.Fx STABLE> or RELEASE versions it is configured to install "
+"packages built from the latest E<.Em quarterly> branch.  Currently "
+"configured E<.Xr pkg 8> repository can be verified by looking at the E<.Em "
+"url> field in E<.Cm pkg -vv> output."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:119
+msgid ""
+"For more information about using ports, see the E<.Dq \"Packages and Ports\" "
+"section> in E<.Sm off> E<.%B \"The FreeBSD Handbook\"> E<.No \\&:> E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:127
+msgid ""
+"For information about creating new ports, see E<.Sm off> E<.%B \"The "
+"Porter's Handbook\"> E<.No \\&:> E<.Sm on>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:129
+#, no-wrap
+msgid "TARGETS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:141
+msgid ""
+"Some of the E<.Xr make 1> targets work recursively through subdirectories.  "
+"This lets you, for example, install all of the E<.Dq Li biology> ports with "
+"one command.  The targets that do this are E<.Cm build , checksum , clean , "
+"configure>, E<.Cm depends , extract , fetch , install>, and E<.Cm package>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:153
+msgid ""
+"The following targets will be run automatically by each proceeding target in "
+"order.  That is, E<.Cm build> will be run (if necessary) by E<.Cm install>, "
+"and so on all the way to E<.Cm fetch>.  Usually, you will only use the E<.Cm "
+"install> target."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:154
+#, no-wrap
+msgid "Cm config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:159
+msgid "Configure E<.Va OPTIONS> for this port using E<.Xr dialog4ports 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:159
+#, no-wrap
+msgid "Cm fetch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:169
+msgid ""
+"Fetch all of the files needed to build this port from the sites listed in "
+"E<.Va MASTER_SITES> and E<.Va PATCH_SITES>.  See E<.Va FETCH_CMD , "
+"MASTER_SITE_OVERRIDE> and E<.Va MASTER_SITE_BACKUP>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:169
+#, no-wrap
+msgid "Cm checksum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:177
+msgid ""
+"Verify that the fetched distfile's checksum matches the one the port was "
+"tested against.  If the distfile's checksum does not match, it also fetches "
+"the distfiles which are missing or failed the checksum calculation.  "
+"Defining E<.Va NO_CHECKSUM> will skip this step."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:177
+#, no-wrap
+msgid "Cm depends"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:191
+msgid ""
+"Install (or compile if only compilation is necessary)  any dependencies of "
+"the current port.  When called by the E<.Cm extract> or E<.Cm fetch> "
+"targets, this is run in piecemeal as E<.Cm fetch-depends , build-depends>, "
+"etc.  Defining E<.Va NO_DEPENDS> will skip this step."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:191
+#, no-wrap
+msgid "Cm extract"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:193
+msgid "Expand the distfile into a work directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:193
+#, no-wrap
+msgid "Cm patch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:195
+msgid "Apply any patches that are necessary for the port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:195
+#, no-wrap
+msgid "Cm configure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:202
+msgid ""
+"Configure the port.  Some ports will ask you questions during this stage.  "
+"See E<.Va INTERACTIVE> and E<.Va BATCH>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:202
+#, no-wrap
+msgid "Cm build"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:207
+msgid "Build the port.  This is the same as calling the E<.Cm all> target."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:207
+#, no-wrap
+msgid "Cm install"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:210
+msgid ""
+"Install the port and register it with the package system.  This is all you "
+"really need to do."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:213
+msgid "The following targets are not run during the normal install process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:214
+#, no-wrap
+msgid "Cm showconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:218
+msgid "Display E<.Va OPTIONS> config for this port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:218
+#, no-wrap
+msgid "Cm showconfig-recursive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:222
+msgid "Display E<.Va OPTIONS> config for this port and all its dependencies."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:222
+#, no-wrap
+msgid "Cm rmconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:226
+msgid "Remove E<.Va OPTIONS> config for this port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:226
+#, no-wrap
+msgid "Cm rmconfig-recursive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:230
+msgid "Remove E<.Va OPTIONS> config for this port and all its dependencies."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:230
+#, no-wrap
+msgid "Cm config-conditional"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:234
+msgid "Skip the ports which have already had their E<.Va OPTIONS> configured."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:234
+#, no-wrap
+msgid "Cm config-recursive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:239
+msgid ""
+"Configure E<.Va OPTIONS> for this port and all its dependencies using E<.Xr "
+"dialog4ports 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:239
+#, no-wrap
+msgid "Cm fetch-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:241
+msgid "Show list of files to be fetched in order to build the port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:241
+#, no-wrap
+msgid "Cm fetch-recursive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:243
+msgid "Fetch the distfiles of the port and all its dependencies."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:243
+#, no-wrap
+msgid "Cm fetch-recursive-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:246
+msgid "Show list of files that would be retrieved by E<.Cm fetch-recursive>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:246
+#, no-wrap
+msgid "Cm run-depends-list , build-depends-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:249
+msgid ""
+"Print a list of all the compile and run dependencies, and dependencies of "
+"those dependencies, by port directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:249
+#, no-wrap
+msgid "Cm all-depends-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:251
+msgid "Print a list of all dependencies for the port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:251
+#, no-wrap
+msgid "Cm pretty-print-run-depends-list , pretty-print-build-depends-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:254
+msgid ""
+"Print a list of all the compile and run dependencies, and dependencies of "
+"those dependencies, by port name and version."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:254
+#, no-wrap
+msgid "Cm missing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:256
+msgid "Print a list of missing dependencies to be installed for the port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:256
+#, no-wrap
+msgid "Cm clean"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:261
+msgid ""
+"Remove the expanded source code.  This recurses to dependencies unless E<.Va "
+"NOCLEANDEPENDS> is defined."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:261
+#, no-wrap
+msgid "Cm distclean"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:273
+msgid ""
+"Remove the port's distfiles and perform the E<.Cm clean> target.  The E<.Cm "
+"clean> portion recurses to dependencies unless E<.Va NOCLEANDEPENDS> is "
+"defined, but the E<.Cm distclean> portion never recurses (this is perhaps a "
+"bug)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:273
+#, no-wrap
+msgid "Cm reinstall"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:278
+msgid ""
+"Use this to restore a port after using E<.Xr pkg-delete 8> when you should "
+"have used E<.Cm deinstall>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:278
+#, no-wrap
+msgid "Cm deinstall"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:281
+msgid "Remove an installed port from the system, similar to E<.Xr pkg-delete 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:281
+#, no-wrap
+msgid "Cm deinstall-all"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:285
+msgid "Remove all installed ports with the same E<.Va PKGORIGIN> from the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:285
+#, no-wrap
+msgid "Cm package"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:300
+msgid ""
+"Make a binary package for the port.  The port will be installed if it has "
+"not already been.  The package is a E<.Pa .tbz> file that you can use to "
+"install the port on other machines with E<.Xr pkg-add 8>.  If the directory "
+"specified by E<.Va PACKAGES> does not exist, the package will be put into "
+"the current directory.  See E<.Va PKGREPOSITORY> and E<.Va PKGFILE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:300
+#, no-wrap
+msgid "Cm package-recursive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:304
+msgid "Like E<.Cm package>, but makes a package for each depending port as well."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:304
+#, no-wrap
+msgid "Cm package-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:306
+msgid "Prints the name with version of the port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:306
+#, no-wrap
+msgid "Cm readmes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:312
+msgid ""
+"Create a port's E<.Pa README.html>.  This can be used from E<.Pa /usr/ports> "
+"to create a browsable web of all ports on your system!"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:312
+#, no-wrap
+msgid "Cm search"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:339
+msgid ""
+"Search the E<.Pa INDEX> file for the pattern specified by the E<.Va key> "
+"(searches the port name, comment, and dependencies), E<.Va name> (searches "
+"the port name only), E<.Va path> (searches the port path), E<.Va info> "
+"(searches the port info), E<.Va maint> (searches the port maintainer), E<.Va "
+"cat> (searches the port category), E<.Va bdeps> (searches the port "
+"build-time dependency), E<.Va rdeps> (searches the port run-time "
+"dependency), E<.Va www> (searches the port web site)  E<.Xr make 1> "
+"variables, and their exclusion counterparts: E<.Va xname , xkey> etc.  For "
+"example, one would type:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man7/ports.7:340
+#, no-wrap
+msgid "cd /usr/ports && make search name=query"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:347
+msgid ""
+"to find all ports whose name matches E<.Dq Li query>.  Results include the "
+"matching ports' path, comment, maintainer, build dependencies, and run "
+"dependencies."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:350
+#, no-wrap
+msgid ""
+"cd /usr/ports && make search name=pear- \\e\n"
+"    xbdeps=apache\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:357
+msgid ""
+"To find all ports whose names contain E<.Dq Li pear-> and which do not have "
+"apache listed in build-time dependencies."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:360
+#, no-wrap
+msgid ""
+"cd /usr/ports && make search name=pear- \\e\n"
+"    xname='ht(tp|ml)'\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:368
+msgid ""
+"To find all ports whose names contain E<.Dq Li pear->, but not E<.Dq Li "
+"html> or E<.Dq Li http>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:370
+#, no-wrap
+msgid "make search key=apache display=name,path,info keylim=1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:376
+msgid ""
+"To find ports that contain E<.Dq Li apache> in either of the name, path, "
+"info fields, ignore the rest of the record."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:381
+msgid ""
+"By default the search is not case-sensitive.  In order to make it "
+"case-sensitive you can use the E<.Va icase> variable:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:383
+#, no-wrap
+msgid "make search name=p5-R icase=0\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:384
+#, no-wrap
+msgid "Cm quicksearch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:389
+msgid "Reduced E<.Cm search> output.  Only display name, path and info."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:389
+#, no-wrap
+msgid "Cm describe"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:393
+msgid ""
+"Generate a one-line description of each port for use in the E<.Pa INDEX> "
+"file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:393
+#, no-wrap
+msgid "Cm maintainer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:395
+msgid "Display the port maintainer's email address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:395
+#, no-wrap
+msgid "Cm index"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:408
+msgid ""
+"Create E<.Pa /usr/ports/INDEX>, which is used by the E<.Cm pretty-print-*> "
+"and E<.Cm search> targets.  Running the E<.Cm index> target will ensure your "
+"E<.Pa INDEX> file is up to date with your ports tree."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:408
+#, no-wrap
+msgid "Cm fetchindex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:414
+msgid "Fetch the E<.Pa INDEX> file from the E<.Fx> cluster."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:415
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:417
+msgid "You can change all of these."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:418
+#, no-wrap
+msgid "Va PORTSDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:430
+msgid ""
+"Location of the ports tree.  This is E<.Pa /usr/ports> on E<.Fx> and E<.Ox>, "
+"and E<.Pa /usr/pkgsrc> on E<.Nx>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:430
+#, no-wrap
+msgid "Va WRKDIRPREFIX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:435
+msgid ""
+"Where to create any temporary files.  Useful if E<.Va PORTSDIR> is read-only "
+"(perhaps mounted from a CD-ROM)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:435
+#, no-wrap
+msgid "Va DISTDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:440
+msgid "Where to find/put distfiles, normally E<.Pa distfiles/> in E<.Va PORTSDIR>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:440
+#, no-wrap
+msgid "Va PACKAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:450
+msgid ""
+"Used only for the E<.Cm package> target; the base directory for the packages "
+"tree, normally E<.Pa packages/> in E<.Va PORTSDIR>.  If this directory "
+"exists, the package tree will be (partially) constructed.  This directory "
+"does not have to exist; if it does not, packages will be placed into the "
+"current directory, or you can define one of"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:451
+#, no-wrap
+msgid "Va PKGREPOSITORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:453
+msgid "Directory to put the package in."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:453
+#, no-wrap
+msgid "Va PKGFILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:455
+msgid "The full path to the package."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:456
+#, no-wrap
+msgid "Va LOCALBASE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:460
+msgid ""
+"Where existing things are installed and where to search for files when "
+"resolving dependencies (usually E<.Pa /usr/local>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:460
+#, no-wrap
+msgid "Va PREFIX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:463
+msgid "Where to install this port (usually set to the same as E<.Va LOCALBASE>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:463
+#, no-wrap
+msgid "Va MASTER_SITES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:465
+msgid "Primary sites for distribution files if not found locally."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:465
+#, no-wrap
+msgid "Va PATCH_SITES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:468
+msgid "Primary locations for distribution patch files if not found locally."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:468
+#, no-wrap
+msgid "Va MASTER_SITE_FREEBSD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:472
+msgid "If set, go to the master E<.Fx> site for all files."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:472
+#, no-wrap
+msgid "Va MASTER_SITE_OVERRIDE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:474
+msgid "Try going to these sites for all files and patches, first."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:474
+#, no-wrap
+msgid "Va MASTER_SITE_BACKUP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:476
+msgid "Try going to these sites for all files and patches, last."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:476
+#, no-wrap
+msgid "Va RANDOMIZE_MASTER_SITES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:478
+msgid "Try the download locations in a random order."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:478
+#, no-wrap
+msgid "Va MASTER_SORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:481
+msgid "Sort the download locations according to user supplied pattern.  Example:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man7/ports.7:481
+#, no-wrap
+msgid ".dk .sunet.se .se dk.php.net .no .de heanet.dl.sourceforge.net"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:482
+#, no-wrap
+msgid "Va MASTER_SITE_INDEX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:492
+msgid ""
+"Where to get E<.Pa INDEX> source built on E<.Fx> cluster (for E<.Cm "
+"fetchindex> target).  Defaults to E<.Pa https://www.FreeBSD.org/ports/>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:492
+#, no-wrap
+msgid "Va FETCHINDEX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:500
+msgid ""
+"Command to get E<.Pa INDEX> (for E<.Cm fetchindex> target).  Defaults to "
+"E<.Dq Li \"fetch -am\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:500
+#, no-wrap
+msgid "Va NOCLEANDEPENDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:504
+msgid "If defined, do not let E<.Cm clean> recurse to dependencies."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:504
+#, no-wrap
+msgid "Va FETCH_CMD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:508
+msgid "Command to use to fetch files.  Normally E<.Xr fetch 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:508
+#, no-wrap
+msgid "Va FORCE_PKG_REGISTER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:510
+msgid "If set, overwrite any existing package registration on the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:510
+#, no-wrap
+msgid "Va MOTIFLIB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:513
+msgid "Location of E<.Pa \"libXm\\&.\" Ns Brq Pa a , Ns Pa so>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:513
+#, no-wrap
+msgid "Va INTERACTIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:515
+msgid "If defined, only operate on a port if it requires interaction."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:515
+#, no-wrap
+msgid "Va BATCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:517
+msgid ""
+"If defined, only operate on a port if it can be installed 100% "
+"automatically."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:517
+#, no-wrap
+msgid "Va DISABLE_VULNERABILITIES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:521
+msgid ""
+"If defined, disable check for security vulnerabilities using E<.Xr pkg-audit "
+"8> when installing new ports."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:521
+#, no-wrap
+msgid "Va NO_IGNORE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:530
+msgid ""
+"If defined, allow installation of ports marked as E<.Aq Va FORBIDDEN>.  The "
+"default behavior of the Ports framework is to abort when the installation of "
+"a forbidden port is attempted.  Of course, these ports may not work as "
+"expected, but if you really know what you are doing and are sure about "
+"installing a forbidden port, then E<.Va NO_IGNORE> lets you do it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:530
+#, no-wrap
+msgid "Va NO_CHECKSUM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:532
+msgid "If defined, skip verifying the port's checksum."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:532
+#, no-wrap
+msgid "Va TRYBROKEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:535
+msgid ""
+"If defined, attempt to build a port even if it is marked as E<.Aq Va "
+"BROKEN>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:535
+#, no-wrap
+msgid "Va PORT_DBDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:546
+msgid ""
+"Directory where the results of configuring E<.Va OPTIONS> are stored.  "
+"Defaults to E<.Pa /var/db/ports>.  Each port where E<.Va OPTIONS> have been "
+"configured will have a uniquely named sub-directory, containing a single "
+"file E<.Pa options>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:547
+#, no-wrap
+msgid "MAKE VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:555
+msgid ""
+"The following list provides a name and short description for many of the "
+"variables that are used when building ports.  More information on these and "
+"other related variables may be found in E<.Pa ${PORTSDIR}/Mk/*> and the "
+"E<.Fx> Porter's Handbook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:556
+#, no-wrap
+msgid "Va WITH_DEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:559
+msgid "E<.Pq Vt bool> If set, debugging symbols are installed for ports binaries."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:559
+#, no-wrap
+msgid "Va WITH_DEBUG_PORTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:562
+msgid "A list of origins for which to set E<.Va WITH_DEBUG_PORTS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:562
+#, no-wrap
+msgid "Va WITH_CCACHE_BUILD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:567
+msgid ""
+"E<.Pq Vt bool> If set, enables the use of E<.Xr ccache 1> for building "
+"ports."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:567
+#, no-wrap
+msgid "Va CCACHE_DIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:571
+msgid "Which directory to use for the E<.Xr ccache 1> data."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:572
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:574
+#, no-wrap
+msgid "Pa /usr/ports"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:576
+msgid "The default ports directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:576
+#, no-wrap
+msgid "Pa /usr/ports/Mk/bsd.port.mk"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:578
+msgid "The big Kahuna."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:579
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:581
+#, no-wrap
+msgid "Sy Example 1\\&: No Building and Installing a Port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:584
+msgid "The following command builds and installs Emacs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:587
+#, no-wrap
+msgid ""
+"E<.Li # Ic cd /usr/ports/editors/emacs>\n"
+"E<.Li # Ic make install>\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:588
+#, no-wrap
+msgid "Sy Example 2\\&: No Installing Dependencies with Xr pkg 8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:594
+msgid ""
+"The following example shows how to build and install a port without having "
+"to build its dependencies.  Instead, the dependencies are downloaded via "
+"E<.Xr pkg 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:597
+#, no-wrap
+msgid ""
+"E<.Li # Ic make missing | xargs pkg install --automatic --yes>\n"
+"E<.Li # Ic make install>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:606
+msgid ""
+"It is especially useful, when the dependencies are costly in time and "
+"resources to build E<.Pq like Pa lang/rust>.  The drawback is that E<.Xr pkg "
+"8> offers only packages built with the default set of E<.Va OPTIONS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man7/ports.7:606
+#, no-wrap
+msgid "Sy Example 3\\&: No Building a Non-Default Flavor of a Port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:612
+msgid ""
+"The following command builds a non-default flavor of a port.  (In this case "
+"E<.Pa devel/py-pip> is going to be built with Python 3.7 support.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:615
+#, no-wrap
+msgid ""
+"E<.Li # Ic cd /usr/ports/devel/py-pip>\n"
+"E<.Li # Ic env FLAVOR=py37 make build>\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:617
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:622
+msgid "E<.Xr make 1>, E<.Xr make.conf 5>, E<.Xr pkg 7>, E<.Xr portsnap 8>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:624
+msgid "Additional developer documentation:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:627
+msgid "E<.Xr portlint 1>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:629
+msgid "E<.Pa /usr/ports/Mk/bsd.port.mk>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:632
+msgid "Additional user documentation:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:635
+msgid "E<.Xr pkg 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:638
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:646
+msgid ""
+"The Ports Collection appeared in E<.Fx 1.0>.  It has since spread to E<.Nx> "
+"and E<.Ox>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:646
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:650
+msgid "E<.An -nosplit> This manual page was originated by E<.An David O'Brien>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man7/ports.7:650
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man7/ports.7:659
+msgid ""
+"Ports documentation is split over four places \\(em E<.Pa "
+"/usr/ports/Mk/bsd.port.mk>, E<.%B \"The Porter's Handbook\">, the E<.Dq "
+"\"Packages and Ports\"> chapter of E<.%B \"The FreeBSD Handbook\">, and this "
+"manual page."
+msgstr ""

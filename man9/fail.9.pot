@@ -1,0 +1,496 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/fail.9:29
+#, no-wrap
+msgid "March 15, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/fail.9:30
+#, no-wrap
+msgid "FAIL 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:43
+msgid ""
+"E<.Nm KFAIL_POINT_CODE>, E<.Nm KFAIL_POINT_CODE_FLAGS>, E<.Nm "
+"KFAIL_POINT_CODE_COND>, E<.Nm KFAIL_POINT_RETURN>, E<.Nm "
+"KFAIL_POINT_RETURN_VOID>, E<.Nm KFAIL_POINT_ERROR>, E<.Nm KFAIL_POINT_GOTO>, "
+"E<.Nm KFAIL_POINT_SLEEP_CALLBACKS>, E<.Nm fail_point>, E<.Nm DEBUG_FP>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/fail.9:43
+#, no-wrap
+msgid "fail points"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/fail.9:45
+#, no-wrap
+msgid "sys/fail.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:54
+msgid ""
+"E<.Fn KFAIL_POINT_CODE \"parent\" \"name\" \"code\"> E<.Fn "
+"KFAIL_POINT_CODE_FLAGS \"parent\" \"name\" \"flags\" \"code\"> E<.Fn "
+"KFAIL_POINT_CODE_COND \"parent\" \"name\" \"cond\" \"flags\" \"code\"> E<.Fn "
+"KFAIL_POINT_RETURN \"parent\" \"name\"> E<.Fn KFAIL_POINT_RETURN_VOID "
+"\"parent\" \"name\"> E<.Fn KFAIL_POINT_ERROR \"parent\" \"name\" "
+"\"error_var\"> E<.Fn KFAIL_POINT_GOTO \"parent\" \"name\" \"error_var\" "
+"\"label\"> E<.Fn KFAIL_POINT_SLEEP_CALLBACKS \"parent\" \"name\" "
+"\"pre_func\" \"pre_arg\" \"post_func\" \"post_arg\" \"code\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:62
+msgid ""
+"Fail points are used to add code points where errors may be injected in a "
+"user controlled fashion.  Fail points provide a convenient wrapper around "
+"user-provided error injection code, providing a E<.Xr sysctl 9> MIB, and a "
+"parser for that MIB that describes how the error injection code should fire."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:86
+msgid ""
+"The base fail point macro is E<.Fn KFAIL_POINT_CODE> where E<.Fa parent> is "
+"a sysctl tree (frequently E<.Sy DEBUG_FP> for kernel fail points, but "
+"various subsystems may wish to provide their own fail point trees), and "
+"E<.Fa name> is the name of the MIB in that tree, and E<.Fa code> is the "
+"error injection code.  The E<.Fa code> argument does not require braces, but "
+"it is considered good style to use braces for any multi-line code "
+"arguments.  Inside the E<.Fa code> argument, the evaluation of E<.Sy "
+"RETURN_VALUE> is derived from the E<.Fn return> value set in the sysctl MIB."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:97
+msgid ""
+"Additionally, E<.Fn KFAIL_POINT_CODE_FLAGS> provides a E<.Fa flags> argument "
+"which controls the fail point's behaviour.  This can be used to e.g., mark "
+"the fail point's context as non-sleepable, which causes the E<.Sy sleep> "
+"action to be coerced to a busy wait.  The supported flags are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:98
+#, no-wrap
+msgid "FAIL_POINT_USE_TIMEOUT_PATH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:102
+msgid ""
+"Rather than sleeping on a E<.Fn sleep> call, just fire the post-sleep "
+"function after a timeout fires."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:102
+#, no-wrap
+msgid "FAIL_POINT_NONSLEEPABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:108
+msgid ""
+"Mark the fail point as being in a non-sleepable context, which coerces E<.Fn "
+"sleep> calls to E<.Fn delay> calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:117
+msgid ""
+"Likewise, E<.Fn KFAIL_POINT_CODE_COND> supplies a E<.Fa cond> argument, "
+"which allows you to set the condition under which the fail point's code may "
+"fire.  This is equivalent to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:120
+#, no-wrap
+msgid ""
+"\tif (cond)\n"
+"\t\tKFAIL_POINT_CODE_FLAGS(...);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:125
+msgid "See E<.Sx SYSCTL VARIABLES> below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:129
+msgid ""
+"The remaining E<.Fn KFAIL_POINT_*> macros are wrappers around common error "
+"injection paths:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:130
+#, no-wrap
+msgid "Fn KFAIL_POINT_RETURN parent name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:133
+msgid "is the equivalent of E<.Sy KFAIL_POINT_CODE(..., return RETURN_VALUE)>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:133
+#, no-wrap
+msgid "Fn KFAIL_POINT_RETURN_VOID parent name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:136
+msgid "is the equivalent of E<.Sy KFAIL_POINT_CODE(..., return)>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:136
+#, no-wrap
+msgid "Fn KFAIL_POINT_ERROR parent name error_var"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:139
+msgid "is the equivalent of E<.Sy KFAIL_POINT_CODE(..., error_var = RETURN_VALUE)>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:139
+#, no-wrap
+msgid "Fn KFAIL_POINT_GOTO parent name error_var label"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:142
+msgid ""
+"is the equivalent of E<.Sy KFAIL_POINT_CODE(..., { error_var = RETURN_VALUE; "
+"goto label;})>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:143
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:151
+msgid ""
+"The E<.Fn KFAIL_POINT_*> macros add sysctl MIBs where specified.  Many base "
+"kernel MIBs can be found in the E<.Sy debug.fail_point> tree (referenced in "
+"code by E<.Sy DEBUG_FP>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:153
+msgid "The sysctl variable may be set in a number of ways:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:155
+#, no-wrap
+msgid ""
+"  [E<lt>pctE<gt>%][E<lt>cntE<gt>*]E<lt>typeE<gt>[(args...)][-E<gt>E<lt>more "
+"termsE<gt>]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:158
+msgid ""
+"The E<lt>typeE<gt> argument specifies which action to take; it can be one "
+"of:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:159
+#, no-wrap
+msgid "Sy off"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:161
+msgid "Take no action (does not trigger fail point code)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:161
+#, no-wrap
+msgid "Sy return"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:163
+msgid "Trigger fail point code with specified argument"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:163
+#, no-wrap
+msgid "Sy sleep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:165
+msgid "Sleep the specified number of milliseconds"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:165
+#, no-wrap
+msgid "Sy panic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:167
+msgid "Panic"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:167
+#, no-wrap
+msgid "Sy break"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:169
+msgid "Break into the debugger, or trap if there is no debugger support"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:169
+#, no-wrap
+msgid "Sy print"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:171
+msgid "Print that the fail point executed"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:171
+#, no-wrap
+msgid "Sy pause"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:174
+msgid "Threads sleep at the fail point until the fail point is set to E<.Sy off>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:174
+#, no-wrap
+msgid "Sy yield"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:176
+msgid "Thread yields the cpu when the fail point is evaluated"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:176
+#, no-wrap
+msgid "Sy delay"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:179
+msgid ""
+"Similar to sleep, but busy waits the cpu.  (Useful in non-sleepable "
+"contexts.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:194
+msgid ""
+"The E<lt>pctE<gt>% and E<lt>cntE<gt>* modifiers prior to E<lt>typeE<gt> "
+"control when E<lt>typeE<gt> is executed.  The E<lt>pctE<gt>% form "
+"(e.g. \"1.2%\") can be used to specify a probability that E<lt>typeE<gt> "
+"will execute.  This is a decimal in the range (0, 100] which can specify up "
+"to 1/10,000% precision.  The E<lt>cntE<gt>* form (e.g. \"5*\") can be used "
+"to specify the number of times E<lt>typeE<gt> should be executed before this "
+"E<lt>termE<gt> is disabled.  Only the last probability and the last count "
+"are used if multiple are specified, i.e. \"1.2%2%\" is the same as \"2%\".  "
+"When both a probability and a count are specified, the probability is "
+"evaluated before the count, i.e. \"2%5*\" means \"2% of the time, but only 5 "
+"times total\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:206
+msgid ""
+"The operator -E<gt> can be used to express cascading terms.  If you specify "
+"E<lt>term1E<gt>-E<gt>E<lt>term2E<gt>, it means that if E<lt>term1E<gt> does "
+"not E<.Ql execute>, E<lt>term2E<gt> is evaluated.  For the purpose of this "
+"operator, the return() and print() operators are the only types that "
+"cascade.  A return() term only cascades if the code executes, and a print()  "
+"term only cascades when passed a non-zero argument.  A pid can optionally be "
+"specified.  The fail point term is only executed when invoked by a process "
+"with a matching p_pid."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:206
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:208
+#, no-wrap
+msgid "Sy sysctl debug.fail_point.foobar=\"2.1%return(5)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:212
+msgid "21/1000ths of the time, execute E<.Fa code> with RETURN_VALUE set to 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:212
+#, no-wrap
+msgid "Sy sysctl debug.fail_point.foobar=\"2%return(5)-E<gt>5%return(22)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:219
+msgid ""
+"2/100ths of the time, execute E<.Fa code> with RETURN_VALUE set to 5.  If "
+"that does not happen, 5% of the time execute E<.Fa code> with RETURN_VALUE "
+"set to 22."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:219
+#, no-wrap
+msgid "Sy sysctl debug.fail_point.foobar=\"5*return(5)-E<gt>0.1%return(22)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:222
+msgid "For 5 times, return 5.  After that, 1/1000th of the time, return 22."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:222
+#, no-wrap
+msgid "Sy sysctl debug.fail_point.foobar=\"0.1%5*return(5)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:224
+msgid "Return 5 for 1 in 1000 executions, but only 5 times total."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:224
+#, no-wrap
+msgid "Sy sysctl debug.fail_point.foobar=\"1%*sleep(50)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:226
+msgid "1/100th of the time, sleep 50ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/fail.9:226
+#, no-wrap
+msgid "Sy sysctl debug.fail_point.foobar=\"1*return(5)[pid 1234]\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:228
+msgid "Return 5 once, when pid 1234 executes the fail point."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:229
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:232
+msgid "E<.An -nosplit> This manual page was written by"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:235
+msgid "E<.An Matthew Bryan Aq Mt matthew.bryan@isilon.com> and"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:237
+msgid "E<.An Zach Loafman Aq Mt zml@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fail.9:237
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:243
+msgid ""
+"It is easy to shoot yourself in the foot by setting fail points too "
+"aggressively or setting too many in combination.  For example, forcing E<.Fn "
+"malloc> to fail consistently is potentially harmful to uptime."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fail.9:257
+msgid ""
+"The E<.Fn sleep> sysctl setting may not be appropriate in all situations.  "
+"Currently, E<.Fn fail_point_eval> does not verify whether the context is "
+"appropriate for calling E<.Fn msleep>.  You can force it to evaluate a E<.Sy "
+"sleep> action as a E<.Sy delay> action by specifying the E<.Sy "
+"FAIL_POINT_NONSLEEPABLE> flag at the point the fail point is declared."
+msgstr ""

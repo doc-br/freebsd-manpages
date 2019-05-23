@@ -1,0 +1,701 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_ip.4:27
+#, no-wrap
+msgid "September 14, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_ip.4:28
+#, no-wrap
+msgid "DTRACE_IP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:32
+msgid "E<.Nm dtrace_ip>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_ip.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing events related to the IPv4 and IPv6 protocols"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:38
+msgid ""
+"E<.Fn ip:::receive \"pktinfo_t *\" \"csinfo_t *\" \"ipinfo_t *\" \"ifinfo_t "
+"*\" \"ipv4info_t *\" \"ipv6info_t *\"> E<.Fn ip:::send \"pktinfo_t *\" "
+"\"csinfo_t *\" \"ipinfo_t *\" \"ifinfo_t *\" \"ipv4info_t *\" \"ipv6info_t "
+"*\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:63
+msgid ""
+"The DTrace E<.Nm ip> provider allows users to trace events in the E<.Xr ip "
+"4> and E<.Xr ip6 4> protocol implementations.  The E<.Fn ip:::send> probe "
+"fires whenever the kernel prepares to transmit an IP packet, and the E<.Fn "
+"ip:::receive> probe fires whenever the kernel receives an IP packet.  The "
+"arguments to these probes can be used to obtain detailed information about "
+"the IP headers of the corresponding packet, as well as the network interface "
+"on which the packet was sent or received.  Unlike the E<.Xr dtrace_tcp 4> "
+"and E<.Xr dtrace_udp 4> providers, E<.Nm ip> provider probes are triggered "
+"by forwarded packets.  That is, the probes will fire on packets that are not "
+"destined to the local host."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:63
+#, no-wrap
+msgid "ARGUMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:69
+msgid ""
+"The E<.Vt pktinfo_t> argument is currently unimplemented and is included for "
+"compatibility with other implementations of this provider.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:70
+#, no-wrap
+msgid "Vt uintptr_t pkt_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:72 /usr/src/share/man/man4/dtrace_ip.4:82 /usr/src/share/man/man4/dtrace_ip.4:89
+msgid "Always set to 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:79
+msgid ""
+"The E<.Vt csinfo_t> argument is currently unimplemented and is included for "
+"compatibility with other implementations of this provider.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:80
+#, no-wrap
+msgid "Vt uintptr_t cs_addr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:82
+#, no-wrap
+msgid "Vt uint64_t cs_cid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:87
+msgid "A pointer to the E<.Vt struct inpcb> for this packet, or E<.Dv NULL>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:87
+#, no-wrap
+msgid "Vt pid_t cs_pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:95
+msgid ""
+"The E<.Vt ipinfo_t> argument contains IP fields common to both IPv4 and IPv6 "
+"packets.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:96
+#, no-wrap
+msgid "Vt uint8_t ip_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:98
+msgid "IP version of the packet, 4 for IPv4 packets and 6 for IPv6 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:98
+#, no-wrap
+msgid "Vt uint32_t ip_plength"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:101
+msgid ""
+"IP payload size.  This does not include the size of the IP header or IPv6 "
+"option headers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:101
+#, no-wrap
+msgid "Vt string ip_saddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:103
+msgid "IP source address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:103
+#, no-wrap
+msgid "Vt string ip_daddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:105
+msgid "IP destination address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:115
+msgid ""
+"The E<.Vt ifinfo_t> argument describes the outgoing and incoming interfaces "
+"for the packet in the E<.Fn ip:::send> and E<.Fn ip:::receive> probes "
+"respectively.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:116
+#, no-wrap
+msgid "Vt string if_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:118
+msgid "The interface name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:118
+#, no-wrap
+msgid "Vt int8_t if_local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:120
+msgid ""
+"A boolean value indicating whether or not the interface is a loopback "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:120
+#, no-wrap
+msgid "Vt uintptr_t if_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:127
+msgid ""
+"A pointer to the E<.Vt struct ifnet> which describes the interface.  See the "
+"E<.Xr ifnet 9> manual page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:141
+msgid ""
+"The E<.Vt ipv4info_t> argument contains the fields of the IP header for IPv4 "
+"packets.  This argument is E<.Dv NULL> for IPv6 packets.  DTrace scripts "
+"should use the E<.Fn ip_ver> field in the E<.Vt ipinfo_t> argument to "
+"determine whether to use this argument.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:142
+#, no-wrap
+msgid "Vt uint8_t ipv4_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:145
+msgid "IP version.  This will always be 4 for IPv4 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:145
+#, no-wrap
+msgid "Vt uint8_t ipv4_ihl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:147
+msgid "The IP header length, including options, in 32-bit words."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:147
+#, no-wrap
+msgid "Vt uint8_t ipv4_tos"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:149
+msgid "IP type of service field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:149
+#, no-wrap
+msgid "Vt uint16_t ipv4_length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:151
+msgid "The total packet length, including the header, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:151
+#, no-wrap
+msgid "Vt uint16_t ipv4_ident"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:153
+msgid "Identification field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:153
+#, no-wrap
+msgid "Vt uint8_t ipv4_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:155
+msgid "The IP flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:155
+#, no-wrap
+msgid "Vt uint16_t ipv4_offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:157
+msgid "The fragment offset of the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:157
+#, no-wrap
+msgid "Vt uint8_t ipv4_ttl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:159
+msgid "Time to live field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:159
+#, no-wrap
+msgid "Vt uint8_t ipv4_protocol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:161
+msgid "Next-level protocol ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:161
+#, no-wrap
+msgid "Vt string ipv4_protostr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:167
+msgid ""
+"A string containing the name of the encapsulated protocol.  The protocol "
+"strings are defined in the E<.Va protocol> array in E<.Pa "
+"/usr/lib/dtrace/ip.d>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:167
+#, no-wrap
+msgid "Vt uint16_t ipv4_checksum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:169
+msgid "The IP checksum."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:169
+#, no-wrap
+msgid "Vt ipaddr_t ipv4_src"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:171
+msgid "IPv4 source address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:171
+#, no-wrap
+msgid "Vt ipaddr_t ipv4_dst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:173
+msgid "IPv4 destination address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:173
+#, no-wrap
+msgid "Vt string ipv4_saddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:175 /usr/src/share/man/man4/dtrace_ip.4:213
+msgid "A string representation of the source address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:175
+#, no-wrap
+msgid "Vt string ipv4_daddr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:177 /usr/src/share/man/man4/dtrace_ip.4:215
+msgid "A string representation of the destination address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:177
+#, no-wrap
+msgid "Vt ipha_t *ipv4_hdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:179
+msgid "A pointer to the raw IPv4 header."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:190
+msgid ""
+"The E<.Vt ipv6info_t> argument contains the fields of the IP header for IPv6 "
+"packets.  Its fields are not set for IPv4 packets; as with the E<.Vt "
+"ipv4info_t> argument, the E<.Fn ip_ver> field should be used to determine "
+"whether this argument is valid.  Its fields are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:191
+#, no-wrap
+msgid "Vt uint8_t ipv6_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:194
+msgid "IP version.  This will always be 6 for IPv6 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:194
+#, no-wrap
+msgid "Vt uint8_t ipv6_tclass"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:197
+msgid ""
+"The traffic class, used to set the differentiated services codepoint and "
+"extended congestion notification flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:197
+#, no-wrap
+msgid "Vt uint32_t ipv6_flow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:199
+msgid "The flow label of the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:199
+#, no-wrap
+msgid "Vt uint16_t ipv6_plen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:201
+msgid "The IP payload size, including extension headers, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:201
+#, no-wrap
+msgid "Vt uint8_t ipv6_nexthdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:203
+msgid "An identifier for the type of the next header."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:203
+#, no-wrap
+msgid "Vt string ipv6_nextstr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:205
+msgid "A string representation of the type of the next header."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:205
+#, no-wrap
+msgid "Vt uint8_t ipv6_hlim"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:207
+msgid "The hop limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:207
+#, no-wrap
+msgid "Vt ip6_addr_t *ipv6_src"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:209
+msgid "IPv6 source address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:209
+#, no-wrap
+msgid "Vt ip6_addr_t *ipv6_dst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:211
+msgid "IPv6 destination address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:211
+#, no-wrap
+msgid "Vt string ipv6_saddr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:213
+#, no-wrap
+msgid "Vt string ipv6_daddr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:215
+#, no-wrap
+msgid "Vt struct ip6_hdr *ipv6_hdr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:217
+msgid "A pointer to the raw IPv6 header."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:218
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_ip.4:220
+#, no-wrap
+msgid "Pa /usr/lib/dtrace/ip.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:224
+msgid "DTrace type and translator definitions for the E<.Nm ip> provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:225
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:227
+msgid "The following script counts received packets by remote host address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:232
+#, no-wrap
+msgid ""
+"ip:::receive\n"
+"{\n"
+"        @num[args[2]-E<gt>ip_saddr] = count();\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:236
+msgid ""
+"This script will print some details of each IP packet as it is sent or "
+"received by the kernel:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:239
+#, no-wrap
+msgid ""
+"#pragma D option quiet\n"
+"#pragma D option switchrate=10Hz\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:246
+#, no-wrap
+msgid ""
+"dtrace:::BEGIN\n"
+"{\n"
+"        printf(\" %10s %30s    %-30s %8s %6s\\en\", \"DELTA(us)\", "
+"\"SOURCE\",\n"
+"            \"DEST\", \"INT\", \"BYTES\");\n"
+"        last = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:255
+#, no-wrap
+msgid ""
+"ip:::send\n"
+"{\n"
+"        this-E<gt>elapsed = (timestamp - last) / 1000;\n"
+"        printf(\" %10d %30s -E<gt> %-30s %8s %6d\\en\", this-E<gt>elapsed,\n"
+"            args[2]-E<gt>ip_saddr, args[2]-E<gt>ip_daddr, "
+"args[3]-E<gt>if_name,\n"
+"            args[2]-E<gt>ip_plength);\n"
+"        last = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:264
+#, no-wrap
+msgid ""
+"ip:::receive\n"
+"{\n"
+"        this-E<gt>elapsed = (timestamp - last) / 1000;\n"
+"        printf(\" %10d %30s E<lt>- %-30s %8s %6d\\en\", this-E<gt>elapsed,\n"
+"            args[2]-E<gt>ip_daddr, args[2]-E<gt>ip_saddr, "
+"args[3]-E<gt>if_name,\n"
+"            args[2]-E<gt>ip_plength);\n"
+"        last = timestamp;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:265
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:269
+msgid ""
+"This provider is compatible with the E<.Nm ip> providers found in Solaris "
+"and Darwin."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:269
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:277
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr dtrace_tcp 4>, E<.Xr dtrace_udp 4>, E<.Xr ip 4>, "
+"E<.Xr ip6 4>, E<.Xr ifnet 9>, E<.Xr SDT 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:277
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:283
+msgid "The E<.Nm ip> provider first appeared in E<.Fx> 10.0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_ip.4:283
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_ip.4:285
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""

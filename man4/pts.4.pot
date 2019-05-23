@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/pts.4:31
+#, no-wrap
+msgid "August 20, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/pts.4:32
+#, no-wrap
+msgid "PTS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pts.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:36
+msgid "E<.Nm pts>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/pts.4:36
+#, no-wrap
+msgid "pseudo-terminal driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pts.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:60
+msgid ""
+"The E<.Nm> driver provides support for a device-pair termed a E<.Em "
+"pseudo-terminal>.  A pseudo-terminal is a pair of character devices, a E<.Em "
+"master> device and a E<.Em slave> device.  The slave device provides to a "
+"process an interface identical to that described in E<.Xr tty 4>.  However, "
+"whereas all other devices which provide the interface described in E<.Xr tty "
+"4> have a hardware device of some sort behind them, the slave device has, "
+"instead, another process manipulating it through the master half of the "
+"pseudo-terminal.  That is, anything written on the master device is given to "
+"the slave device as input and anything written on the slave device is "
+"presented as input on the master device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:64
+msgid "The following E<.Xr ioctl 2> calls apply only to pseudo-terminals:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:65
+#, no-wrap
+msgid "Dv TIOCPKT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:82
+msgid ""
+"Enable/disable E<.Em packet> mode.  Packet mode is enabled by specifying (by "
+"reference)  a nonzero parameter and disabled by specifying (by reference)  a "
+"zero parameter.  When applied to the master side of a pseudo-terminal, each "
+"subsequent E<.Xr read 2> from the terminal will return data written on the "
+"slave part of the pseudo-terminal preceded by a zero byte (symbolically "
+"defined as E<.Dv TIOCPKT_DATA>), or a single byte reflecting control status "
+"information.  In the latter case, the byte is an inclusive-or of zero or "
+"more of the bits:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:83
+#, no-wrap
+msgid "Dv TIOCPKT_FLUSHREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:85
+msgid "whenever the read queue for the terminal is flushed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:85
+#, no-wrap
+msgid "Dv TIOCPKT_FLUSHWRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:87
+msgid "whenever the write queue for the terminal is flushed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:87
+#, no-wrap
+msgid "Dv TIOCPKT_STOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:90
+msgid "whenever output to the terminal is stopped a la E<.Ql ^S>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:90
+#, no-wrap
+msgid "Dv TIOCPKT_START"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:92
+msgid "whenever output to the terminal is restarted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:92
+#, no-wrap
+msgid "Dv TIOCPKT_DOSTOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:101
+msgid "whenever E<.Dv VSTOP> is E<.Ql ^S> and E<.Dv VSTART> is E<.Ql ^Q>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:101
+#, no-wrap
+msgid "Dv TIOCPKT_NOSTOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:104
+msgid "whenever the start and stop characters are not E<.Ql ^S/^Q>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:110
+msgid ""
+"While this mode is in use, the presence of control status information to be "
+"read from the master side may be detected by a E<.Xr select 2> for "
+"exceptional conditions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:120
+msgid ""
+"This mode is used by E<.Xr rlogin 1> and E<.Xr rlogind 8> to implement a "
+"remote-echoed, locally E<.Ql ^S/^Q> flow-controlled remote login with proper "
+"back-flushing of output; it can be used by other similar programs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:120
+#, no-wrap
+msgid "Dv TIOCGPTN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:129
+msgid ""
+"Obtain device unit number, which can be used to generate the filename of the "
+"pseudo-terminal slave device.  This E<.Xr ioctl 2> should not be used "
+"directly.  Instead, the E<.Xr ptsname 3> function should be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:129
+#, no-wrap
+msgid "Dv TIOCPTMASTER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:137
+msgid ""
+"Determine whether the file descriptor is pointing to a pseudo-terminal "
+"master device.  This E<.Xr ioctl 2> should not be used directly.  It is used "
+"to implement routines like E<.Xr grantpt 3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pts.4:138
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:141
+msgid "The files used by this pseudo-terminals implementation are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pts.4:142
+#, no-wrap
+msgid "Pa /dev/pts/[num]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:144
+msgid "Pseudo-terminal slave devices."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pts.4:145
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:147
+msgid "None."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pts.4:147
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:153
+msgid ""
+"E<.Xr posix_openpt 2>, E<.Xr grantpt 3>, E<.Xr ptsname 3>, E<.Xr pty 4>, "
+"E<.Xr tty 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pts.4:153
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pts.4:161
+msgid ""
+"A pseudo-terminal driver appeared in E<.Bx 4.2>.  In E<.Fx 8.0>, it was "
+"replaced with the E<.Nm> driver."
+msgstr ""

@@ -1,0 +1,758 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/hastd/hast.conf.5:31
+#, no-wrap
+msgid "January 25, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/hastd/hast.conf.5:32
+#, no-wrap
+msgid "HAST.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:36
+msgid "E<.Nm hast.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/hastd/hast.conf.5:36
+#, no-wrap
+msgid "configuration file for the"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:41
+msgid "E<.Xr hastd 8> daemon and the E<.Xr hastctl 8> utility"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:53
+msgid ""
+"The E<.Nm> file is used by both E<.Xr hastd 8> daemon and E<.Xr hastctl 8> "
+"control utility.  Configuration file is designed in a way that exactly the "
+"same file can be (and should be) used on both HAST nodes.  Every line "
+"starting with # is treated as comment and ignored."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:53
+#, no-wrap
+msgid "CONFIGURATION FILE SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:57
+msgid "General syntax of the E<.Nm> file is following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:68
+#, no-wrap
+msgid ""
+"# Global section\n"
+"control E<lt>addrE<gt>\n"
+"listen E<lt>addrE<gt>\n"
+"replication E<lt>modeE<gt>\n"
+"checksum E<lt>algorithmE<gt>\n"
+"compression E<lt>algorithmE<gt>\n"
+"timeout E<lt>secondsE<gt>\n"
+"exec E<lt>pathE<gt>\n"
+"metaflush on | off\n"
+"pidfile E<lt>pathE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:75 /usr/src/sbin/hastd/hast.conf.5:82
+#, no-wrap
+msgid ""
+"on E<lt>nodeE<gt> {\n"
+"\t# Node section\n"
+"        control E<lt>addrE<gt>\n"
+"        listen E<lt>addrE<gt>\n"
+"        pidfile E<lt>pathE<gt>\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:93
+#, no-wrap
+msgid ""
+"resource E<lt>nameE<gt> {\n"
+"\t# Resource section\n"
+"\treplication E<lt>modeE<gt>\n"
+"\tchecksum E<lt>algorithmE<gt>\n"
+"\tcompression E<lt>algorithmE<gt>\n"
+"\tname E<lt>nameE<gt>\n"
+"\tlocal E<lt>pathE<gt>\n"
+"\ttimeout E<lt>secondsE<gt>\n"
+"\texec E<lt>pathE<gt>\n"
+"\tmetaflush on | off\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:115
+#, no-wrap
+msgid ""
+"\ton E<lt>nodeE<gt> {\n"
+"\t\t# Resource-node section\n"
+"\t\tname E<lt>nameE<gt>\n"
+"\t\t# Required\n"
+"\t\tlocal E<lt>pathE<gt>\n"
+"\t\tmetaflush on | off\n"
+"\t\t# Required\n"
+"\t\tremote E<lt>addrE<gt>\n"
+"\t\tsource E<lt>addrE<gt>\n"
+"\t}\n"
+"\ton E<lt>nodeE<gt> {\n"
+"\t\t# Resource-node section\n"
+"\t\tname E<lt>nameE<gt>\n"
+"\t\t# Required\n"
+"\t\tlocal E<lt>pathE<gt>\n"
+"\t\tmetaflush on | off\n"
+"\t\t# Required\n"
+"\t\tremote E<lt>addrE<gt>\n"
+"\t\tsource E<lt>addrE<gt>\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:127
+msgid ""
+"Most of the various available configuration parameters are optional.  If "
+"parameter is not defined in the particular section, it will be inherited "
+"from the parent section.  For example, if the E<.Ic listen> parameter is not "
+"defined in the node section, it will be inherited from the global section.  "
+"In case the global section does not define the E<.Ic listen> parameter at "
+"all, the default value will be used."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:127
+#, no-wrap
+msgid "CONFIGURATION FILE DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:140
+msgid ""
+"The E<.Aq node> argument can be replaced either by a full hostname as "
+"obtained by E<.Xr gethostname 3>, only first part of the hostname, by node's "
+"UUID as found in the E<.Va kern.hostuuid> E<.Xr sysctl 8> variable or by "
+"node's hostid as found in the E<.Va kern.hostid> E<.Xr sysctl 8> variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:142
+msgid "The following statements are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:143
+#, no-wrap
+msgid "Ic control Aq addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:148
+msgid ""
+"Address for communication with E<.Xr hastctl 8>.  Each of the following "
+"examples defines the same control address:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:152
+#, no-wrap
+msgid ""
+"uds:///var/run/hastctl\n"
+"unix:///var/run/hastctl\n"
+"/var/run/hastctl\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:156
+msgid "The default value is E<.Pa uds:///var/run/hastctl>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:156
+#, no-wrap
+msgid "Ic pidfile Aq path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:161
+msgid "File in which to store the process ID of the main E<.Xr hastd 8> process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:164
+msgid "The default value is E<.Pa /var/run/hastd.pid>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:164
+#, no-wrap
+msgid "Ic listen Aq addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:167
+msgid "Address to listen on in form of:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:169
+#, no-wrap
+msgid "protocol://protocol-specific-address\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:172
+msgid "Each of the following examples defines the same listen address:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:179
+#, no-wrap
+msgid ""
+"0.0.0.0\n"
+"0.0.0.0:8457\n"
+"tcp://0.0.0.0\n"
+"tcp://0.0.0.0:8457\n"
+"tcp4://0.0.0.0\n"
+"tcp4://0.0.0.0:8457\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:189
+msgid ""
+"Multiple listen addresses can be specified.  By default E<.Nm hastd> listens "
+"on E<.Pa tcp4://0.0.0.0:8457> and E<.Pa tcp6://[::]:8457> if kernel supports "
+"IPv4 and IPv6 respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:189
+#, no-wrap
+msgid "Ic replication Aq mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:192
+msgid "Replication mode should be one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:193
+#, no-wrap
+msgid "Ic memsync"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:216
+msgid ""
+"Report the write operation as completed when local write completes and when "
+"the remote node acknowledges the data receipt, but before it actually stores "
+"the data.  The data on remote node will be stored directly after sending "
+"acknowledgement.  This mode is intended to reduce latency, but still "
+"provides a very good reliability.  The only situation where some small "
+"amount of data could be lost is when the data is stored on primary node and "
+"sent to the secondary.  Secondary node then acknowledges data receipt and "
+"primary reports success to an application.  However, it may happen that the "
+"secondary goes down before the received data is really stored locally.  "
+"Before secondary node returns, primary node dies entirely.  When the "
+"secondary node comes back to life it becomes the new primary.  Unfortunately "
+"some small amount of data which was confirmed to be stored to the "
+"application was lost.  The risk of such a situation is very small.  The "
+"E<.Ic memsync> replication mode is the default."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:216
+#, no-wrap
+msgid "Ic fullsync"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:221
+msgid ""
+"Mark the write operation as completed when local as well as remote write "
+"completes.  This is the safest and the slowest replication mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:221
+#, no-wrap
+msgid "Ic async"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:228
+msgid ""
+"The write operation is reported as complete right after the local write "
+"completes.  This is the fastest and the most dangerous replication mode.  "
+"This mode should be used when replicating to a distant node where latency is "
+"too high for other modes."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:229
+#, no-wrap
+msgid "Ic checksum Aq algorithm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:232
+msgid "Checksum algorithm should be one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:233 /usr/src/sbin/hastd/hast.conf.5:245
+#, no-wrap
+msgid "Ic none"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:236
+msgid ""
+"No checksum will be calculated for the data being send over the network.  "
+"This is the default setting."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:236
+#, no-wrap
+msgid "Ic crc32"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:238
+msgid "CRC32 checksum will be calculated."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:238
+#, no-wrap
+msgid "Ic sha256"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:240
+msgid "SHA256 checksum will be calculated."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:241
+#, no-wrap
+msgid "Ic compression Aq algorithm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:244
+msgid "Compression algorithm should be one of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:247
+msgid "Data send over the network will not be compressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:247
+#, no-wrap
+msgid "Ic hole"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:254
+msgid ""
+"Only blocks that contain all zeros will be compressed.  This is very useful "
+"for initial synchronization where potentially many blocks are still all "
+"zeros.  There should be no measurable performance overhead when this "
+"algorithm is being used.  This is the default setting."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:254
+#, no-wrap
+msgid "Ic lzf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:258
+msgid ""
+"The LZF algorithm by Marc Alexander Lehmann will be used to compress the "
+"data send over the network.  LZF is very fast, general purpose compression "
+"algorithm."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:259
+#, no-wrap
+msgid "Ic timeout Aq seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:264
+msgid "Connection timeout in seconds.  The default value is E<.Va 20>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:264
+#, no-wrap
+msgid "Ic exec Aq path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:269
+msgid ""
+"Execute the given program on various HAST events.  Below is the list of "
+"currently implemented events and arguments the given program is executed "
+"with:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:270
+#, no-wrap
+msgid ""
+"Ic \"E<lt>pathE<gt> role E<lt>resourceE<gt> E<lt>oldroleE<gt> "
+"E<lt>newroleE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:273
+msgid "Executed on both primary and secondary nodes when resource role is changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:273
+#, no-wrap
+msgid "Ic \"E<lt>pathE<gt> connect E<lt>resourceE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:277
+msgid ""
+"Executed on both primary and secondary nodes when connection for the given "
+"resource between the nodes is established."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:277
+#, no-wrap
+msgid "Ic \"E<lt>pathE<gt> disconnect E<lt>resourceE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:281
+msgid ""
+"Executed on both primary and secondary nodes when connection for the given "
+"resource between the nodes is lost."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:281
+#, no-wrap
+msgid "Ic \"E<lt>pathE<gt> syncstart E<lt>resourceE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:285
+msgid ""
+"Executed on primary node when synchronization process of secondary node is "
+"started."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:285
+#, no-wrap
+msgid "Ic \"E<lt>pathE<gt> syncdone E<lt>resourceE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:289
+msgid ""
+"Executed on primary node when synchronization process of secondary node is "
+"completed successfully."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:289
+#, no-wrap
+msgid "Ic \"E<lt>pathE<gt> syncintr E<lt>resourceE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:294
+msgid ""
+"Executed on primary node when synchronization process of secondary node is "
+"interrupted, most likely due to secondary node outage or connection failure "
+"between the nodes."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:294
+#, no-wrap
+msgid "Ic \"E<lt>pathE<gt> split-brain E<lt>resourceE<gt>\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:298
+msgid ""
+"Executed on both primary and secondary nodes when split-brain condition is "
+"detected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:307
+msgid ""
+"The E<.Aq path> argument should contain full path to executable program.  If "
+"the given program exits with code different than E<.Va 0>, E<.Nm hastd> will "
+"log it as an error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:311
+msgid "The E<.Aq resource> argument is resource name from the configuration file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:319
+msgid ""
+"The E<.Aq oldrole> argument is previous resource role (before the change).  "
+"It can be one of: E<.Ar init>, E<.Ar secondary>, E<.Ar primary>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:327
+msgid ""
+"The E<.Aq newrole> argument is current resource role (after the change).  It "
+"can be one of: E<.Ar init>, E<.Ar secondary>, E<.Ar primary>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:327
+#, no-wrap
+msgid "Ic metaflush on | off"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:345
+msgid ""
+"When set to E<.Va on>, flush write cache of the local provider after every "
+"metadata (activemap) update.  Flushing write cache ensures that provider "
+"will not reorder writes and that metadata will be properly updated before "
+"real data is stored.  If the local provider does not support flushing write "
+"cache (it returns E<.Er EOPNOTSUPP> on the E<.Cm BIO_FLUSH> request), E<.Nm "
+"hastd> will disable E<.Ic metaflush> automatically.  The default value is "
+"E<.Va on>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:345
+#, no-wrap
+msgid "Ic name Aq name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:350
+msgid ""
+"GEOM provider name that will appear as E<.Pa /dev/hast/E<lt>nameE<gt>>.  If "
+"name is not defined, resource name will be used as provider name."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:350
+#, no-wrap
+msgid "Ic local Aq path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:355
+msgid ""
+"Path to the local component which will be used as backend provider for the "
+"resource.  This can be either GEOM provider or regular file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:355
+#, no-wrap
+msgid "Ic remote Aq addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:367
+msgid ""
+"Address of the remote E<.Nm hastd> daemon.  Format is the same as for the "
+"E<.Ic listen> statement.  When operating as a primary node this address will "
+"be used to connect to the secondary node.  When operating as a secondary "
+"node only connections from this address will be accepted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:372
+msgid ""
+"A special value of E<.Va none> can be used when the remote address is not "
+"yet known (eg. the other node is not set up yet)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:372
+#, no-wrap
+msgid "Ic source Aq addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:380
+msgid ""
+"Local address to bind to before connecting to the remote E<.Nm hastd> "
+"daemon.  Format is the same as for the E<.Ic listen> statement."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:381
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:383
+#, no-wrap
+msgid "Pa /etc/hast.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:389
+msgid "The default E<.Xr hastctl 8> and E<.Xr hastd 8> configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/hastd/hast.conf.5:389
+#, no-wrap
+msgid "Pa /var/run/hastctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:395
+msgid ""
+"Control socket used by the E<.Xr hastctl 8> control utility to communicate "
+"with the E<.Xr hastd 8> daemon."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:396
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:398
+msgid "The example configuration file can look as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:400
+#, no-wrap
+msgid "listen tcp://0.0.0.0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:407
+#, no-wrap
+msgid ""
+"on hasta {\n"
+"\tlisten tcp://2001:db8::1/64\n"
+"}\n"
+"on hastb {\n"
+"\tlisten tcp://2001:db8::2/64\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:410
+#, no-wrap
+msgid ""
+"resource shared {\n"
+"\tlocal /dev/da0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:430
+#, no-wrap
+msgid ""
+"\ton hasta {\n"
+"\t\tremote tcp://10.0.0.2\n"
+"\t}\n"
+"\ton hastb {\n"
+"\t\tremote tcp://10.0.0.1\n"
+"\t}\n"
+"}\n"
+"resource tank {\n"
+"\ton hasta {\n"
+"\t\tlocal /dev/mirror/tanka\n"
+"\t\tsource tcp://10.0.0.1\n"
+"\t\tremote tcp://10.0.0.2\n"
+"\t}\n"
+"\ton hastb {\n"
+"\t\tlocal /dev/mirror/tankb\n"
+"\t\tsource tcp://10.0.0.2\n"
+"\t\tremote tcp://10.0.0.1\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:431
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:436
+msgid "E<.Xr gethostname 3>, E<.Xr geom 4>, E<.Xr hastctl 8>, E<.Xr hastd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/hastd/hast.conf.5:436
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/hastd/hast.conf.5:441
+msgid ""
+"The E<.Nm> was written by E<.An Pawel Jakub Dawidek Aq Mt pjd@FreeBSD.org> "
+"under sponsorship of the FreeBSD Foundation."
+msgstr ""

@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/smb.4:29
+#, no-wrap
+msgid "April 25, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/smb.4:30
+#, no-wrap
+msgid "SMB 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:34
+msgid "E<.Nm smb>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/smb.4:34
+#, no-wrap
+msgid "SMB generic I/O device driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:37
+msgid "E<.Cd \"device smb\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:49
+msgid ""
+"The E<.Em smb> character device driver provides generic I/O to any E<.Xr "
+"smbus 4> instance.  To control SMB devices, use E<.Pa /dev/smb?> with the "
+"ioctls described below.  Any of these ioctl commands takes a pointer to "
+"E<.Vt struct smbcmd> as its argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:51
+#, no-wrap
+msgid "#include E<lt>sys/types.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:72
+#, no-wrap
+msgid ""
+"struct smbcmd {\n"
+"\tu_char cmd;\n"
+"\tu_char reserved;\n"
+"\tu_short op;\n"
+"\tunion {\n"
+"\t\tchar    byte;\n"
+"\t\tchar    buf[2];\n"
+"\t\tshort   word;\n"
+"\t} wdata;\n"
+"\tunion {\n"
+"\t\tchar    byte;\n"
+"\t\tchar    buf[2];\n"
+"\t\tshort   word;\n"
+"\t} rdata;\n"
+"\tint  slave;\n"
+"\tchar *wbuf;     /* use wdata if NULL */\n"
+"\tint  wcount;\n"
+"\tchar *rbuf;     /* use rdata if NULL */\n"
+"\tint  rcount;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:81
+msgid ""
+"The E<.Fa slave> field is always used, and provides the address of the SMBus "
+"slave device.  The slave address is specified in the seven most significant "
+"bits E<.Pq i.e., Dq \"left-justified\">.  The least significant bit of the "
+"slave address must be zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:83
+#, no-wrap
+msgid "Em Ioctl Ta Em Description"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:85
+#, no-wrap
+msgid "Dv SMB_QUICK_WRITE Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:89
+msgid ""
+"E<.Em QuickWrite> does not transfer any data.  It just issues the device "
+"address with write intent to the bus."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:89
+#, no-wrap
+msgid "Dv SMB_QUICK_READ Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:93
+msgid ""
+"E<.Em QuickRead> does not transfer any data.  It just issues the device "
+"address with read intent to the bus."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:93
+#, no-wrap
+msgid "Dv SMB_SENDB Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:98
+msgid "E<.Em SendByte> sends the byte provided in E<.Fa cmd> to the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:98
+#, no-wrap
+msgid "Dv SMB_RECVB Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:102
+msgid ""
+"E<.Em ReceiveByte> reads a single byte from the device which is returned in "
+"E<.Fa cmd>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:102
+#, no-wrap
+msgid "Dv SMB_WRITEB Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:108
+msgid ""
+"E<.Em WriteByte> first sends the byte from E<.Fa cmd> to the device, "
+"followed by the byte given in E<.Fa wdata.byte>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:108
+#, no-wrap
+msgid "Dv SMB_WRITEW Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:115
+msgid ""
+"E<.Em WriteWord> first sends the byte from E<.Fa cmd> to the device, "
+"followed by the word given in E<.Fa wdata.word>.  Note that the SMBus "
+"byte-order is little-endian by definition."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:115
+#, no-wrap
+msgid "Dv SMB_READB Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:123
+msgid ""
+"E<.Em ReadByte> first sends the byte from E<.Fa cmd> to the device, then "
+"reads one byte of data from the device.  Returned data is stored in E<.Fa "
+"rdata.byte>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:123
+#, no-wrap
+msgid "Dv SMB_READW Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:131
+msgid ""
+"E<.Em ReadWord> first sends the byte from E<.Fa cmd> to the device, then "
+"reads one word of data from the device.  Returned data is stored in E<.Fa "
+"rdata.word>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:131
+#, no-wrap
+msgid "Dv SMB_PCALL Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:140
+msgid ""
+"E<.Em ProcedureCall> first sends the byte from E<.Fa cmd> to the device, "
+"followed by the word provided in E<.Fa wdata.word>.  It then reads one word "
+"of data from the device and returns it in E<.Fa rdata.word>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:140
+#, no-wrap
+msgid "Dv SMB_BWRITE Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:154
+msgid ""
+"E<.Em BlockWrite> first sends the byte from E<.Fa cmd> to the device, then "
+"the byte from E<.Fa wcount> followed by E<.Fa wcount> bytes of data that are "
+"taken from the buffer pointed to by E<.Fa wbuf>.  The SMBus specification "
+"mandates that no more than 32 bytes of data can be transferred in a single "
+"block read or write command.  This value can be read from the constant E<.Dv "
+"SMB_MAXBLOCKSIZE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:154
+#, no-wrap
+msgid "Dv SMB_BREAD Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:164
+msgid ""
+"E<.Em BlockRead> first sends the byte from E<.Fa cmd> to the device, then "
+"reads a count of data bytes that the device is going to provide and then "
+"reads that many bytes.  The count is returned in E<.Fa rcount.> The data is "
+"returned in the buffer pointed to by E<.Fa rbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:171
+msgid ""
+"The E<.Xr read 2> and E<.Xr write 2> system calls are not implemented by "
+"this driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:171
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:175
+msgid "The E<.Xr ioctl 2> commands can cause the following driver-specific errors:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:176
+#, no-wrap
+msgid "Bq Er ENXIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:178
+msgid "Device did not respond to selection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:178
+#, no-wrap
+msgid "Bq Er EBUSY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:180
+msgid "Device still in use."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:180
+#, no-wrap
+msgid "Bq Er ENODEV"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:182
+msgid "Operation not supported by device (not supposed to happen)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:182
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:184
+msgid "General argument error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/smb.4:184
+#, no-wrap
+msgid "Bq Er EWOULDBLOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:186
+msgid "SMBus transaction timed out."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:187
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:190
+msgid "E<.Xr ioctl 2>, E<.Xr smbus 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:190
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:195
+msgid "The E<.Nm> manual page first appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/smb.4:195
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/smb.4:200
+msgid ""
+"This manual page was written by E<.An Nicolas Souchu> and extended by E<.An "
+"Michael Gmelin Aq freebsd@grem.de>."
+msgstr ""

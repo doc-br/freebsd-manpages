@@ -1,0 +1,525 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/disk.9:30
+#, no-wrap
+msgid "August 3, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/disk.9:31
+#, no-wrap
+msgid "DISK 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/disk.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:35
+msgid "E<.Nm disk>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/disk.9:35
+#, no-wrap
+msgid "kernel disk storage API"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/disk.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/disk.9:37
+#, no-wrap
+msgid "geom/geom_disk.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:50
+msgid ""
+"E<.Ft struct disk *> E<.Fn disk_alloc void> E<.Ft void> E<.Fn disk_create "
+"\"struct disk *disk\" \"int version\"> E<.Ft void> E<.Fn disk_gone \"struct "
+"disk *disk\"> E<.Ft void> E<.Fn disk_destroy \"struct disk *disk\"> E<.Ft "
+"int> E<.Fn disk_resize \"struct disk *disk\" \"int flags\"> E<.Ft void> "
+"E<.Fn disk_add_alias \"struct disk *disk\" \"const char *alias\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/disk.9:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:57
+msgid ""
+"The disk storage API permits kernel device drivers providing access to "
+"disk-like storage devices to advertise the device to other kernel "
+"components, including E<.Xr GEOM 4> and E<.Xr devfs 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:65
+msgid ""
+"Each disk device is described by a E<.Vt \"struct disk\"> structure, which "
+"contains a variety of parameters for the disk device, function pointers for "
+"various methods that may be performed on the device, as well as private data "
+"storage for the device driver.  In addition, some fields are reserved for "
+"use by GEOM in managing access to the device and its statistics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:105
+msgid ""
+"GEOM has the ownership of E<.Vt \"struct disk\">, and drivers must allocate "
+"storage for it with the E<.Fn disk_alloc> function, fill in the fields and "
+"call E<.Fn disk_create> when the device is ready to service requests.  E<.Fn "
+"disk_add_alias> adds an alias for the disk and must be called before E<.Fn "
+"disk_create>, but may be called multiple times.  For each alias added, a "
+"device node will be created with E<.Xr make_dev_alias 9> in the same way "
+"primary device nodes are created with E<.Xr make_dev 9> for E<.Va d_name> "
+"and E<.Va d_unit>.  Care should be taken to ensure that only one driver "
+"creates aliases for any given name.  E<.Fn disk_resize> can be called by the "
+"driver after modifying E<.Va d_mediasize> to notify GEOM about the disk "
+"capacity change.  The E<.Fa flags> field should be set to either M_WAITOK, "
+"or M_NOWAIT.  E<.Fn disk_gone> orphans all of the providers associated with "
+"the drive, setting an error condition of ENXIO in each one.  In addition, it "
+"prevents a re-taste on last close for writing if an error condition has been "
+"set in the provider.  After calling E<.Fn disk_destroy>, the device driver "
+"is not allowed to access the contents of E<.Vt \"struct disk\"> anymore."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:115
+msgid ""
+"The E<.Fn disk_create> function takes a second parameter, E<.Fa version>, "
+"which must always be passed E<.Dv DISK_VERSION>.  If GEOM detects that the "
+"driver is compiled against an unsupported version, it will ignore the device "
+"and print a warning on the console."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/disk.9:115
+#, no-wrap
+msgid "Descriptive Fields"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:120
+msgid ""
+"The following fields identify the disk device described by the structure "
+"instance, and must be filled in prior to submitting the structure to E<.Fn "
+"disk_create> and may not be subsequently changed:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:121
+#, no-wrap
+msgid "Vt u_int Va d_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:132
+msgid ""
+"Optional flags indicating to the storage framework what optional features or "
+"descriptions the storage device driver supports.  Currently supported flags "
+"are E<.Dv DISKFLAG_OPEN> (maintained by storage framework), E<.Dv "
+"DISKFLAG_CANDELETE> (maintained by device driver), and E<.Dv "
+"DISKFLAG_CANFLUSHCACHE> (maintained by device driver)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:132
+#, no-wrap
+msgid "Vt \"const char *\" Va d_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:137
+msgid ""
+"Holds the name of the storage device class, e.g., E<.Dq Li ahd>.  This value "
+"typically uniquely identifies a particular driver device, and must not "
+"conflict with devices serviced by other device drivers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:137
+#, no-wrap
+msgid "Vt u_int Va d_unit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:147
+msgid ""
+"Holds the instance of the storage device class, e.g., E<.Dq Li 4>.  This "
+"namespace is managed by the device driver, and assignment of unit numbers "
+"might be a property of probe order, or in some cases topology.  Together, "
+"the E<.Va d_name> and E<.Va d_unit> values will uniquely identify a disk "
+"storage device."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/disk.9:148
+#, no-wrap
+msgid "Disk Device Methods"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:150
+msgid "The following fields identify various disk device methods, if implemented:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:151
+#, no-wrap
+msgid "Vt \"disk_open_t *\" Va d_open"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:154
+msgid ""
+"Optional: invoked when the disk device is opened.  If no method is provided, "
+"open will always succeed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:154
+#, no-wrap
+msgid "Vt \"disk_close_t *\" Va d_close"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:158
+msgid ""
+"Optional: invoked when the disk device is closed.  Although an error code "
+"may be returned, the call should always terminate any state setup by the "
+"corresponding open method call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:158
+#, no-wrap
+msgid "Vt \"disk_strategy_t *\" Va d_strategy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:162
+msgid ""
+"Mandatory: invoked when a new E<.Vt \"struct bio\"> is to be initiated on "
+"the disk device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:162
+#, no-wrap
+msgid "Vt \"disk_ioctl_t *\" Va d_ioctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:166
+msgid ""
+"Optional: invoked when an I/O control operation is initiated on the disk "
+"device.  Please note that for security reasons these operations should not "
+"be able to affect other devices than the one on which they are performed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:166
+#, no-wrap
+msgid "Vt \"dumper_t *\" Va d_dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:171
+msgid ""
+"Optional: if configured with E<.Xr dumpon 8>, this function is invoked from "
+"a very restricted system state after a kernel panic to record a copy of the "
+"system RAM to the disk."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:171
+#, no-wrap
+msgid "Vt \"disk_getattr_t *\" Va d_getattr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:176
+msgid ""
+"Optional: if this method is provided, it gives the disk driver the "
+"opportunity to override the default GEOM response to BIO_GETATTR requests.  "
+"This function should return -1 if the attribute is not handled, 0 if the "
+"attribute is handled, or an errno to be passed to g_io_deliver()."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:176
+#, no-wrap
+msgid "Vt \"disk_gone_t *\" Va d_gone"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:181
+msgid ""
+"Optional: if this method is provided, it will be called after disk_gone()  "
+"is called, once GEOM has finished its cleanup process.  Once this callback "
+"is called, it is safe for the disk driver to free all of its resources, as "
+"it will not be receiving further calls from GEOM."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/disk.9:182
+#, no-wrap
+msgid "Mandatory Media Properties"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:187
+msgid ""
+"The following fields identify the size and granularity of the disk device.  "
+"These fields must stay stable from return of the drivers open method until "
+"the close method is called, but it is perfectly legal to modify them in the "
+"open method before returning."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:188
+#, no-wrap
+msgid "Vt u_int Va d_sectorsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:190
+msgid "The sector size of the disk device in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:190
+#, no-wrap
+msgid "Vt off_t Va d_mediasize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:192
+msgid "The size of the disk device in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:192
+#, no-wrap
+msgid "Vt u_int Va d_maxsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:195
+msgid ""
+"The maximum supported size in bytes of an I/O request.  Requests larger than "
+"this size will be chopped up by GEOM."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/disk.9:196
+#, no-wrap
+msgid "Optional Media Properties"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:203
+msgid ""
+"These optional fields can provide extra information about the disk device.  "
+"Do not initialize these fields if the field/concept does not apply.  These "
+"fields must stay stable from return of the drivers open method until the "
+"close method is called, but it is perfectly legal to modify them in the open "
+"method before returning."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:204
+#, no-wrap
+msgid "Vt u_int Va d_fwsectors , Vt u_int Va d_fwheads"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:209
+msgid ""
+"The number of sectors and heads advertised on the disk device by the "
+"firmware or BIOS.  These values are almost universally bogus, but on some "
+"architectures necessary for the correct calculation of disk partitioning."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:209
+#, no-wrap
+msgid "Vt u_int Va d_stripeoffset , Vt u_int Va d_stripesize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:215
+msgid ""
+"These two fields can be used to describe the width and location of natural "
+"performance boundaries for most disk technologies.  Please see E<.Pa "
+"src/sys/geom/notes> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:215
+#, no-wrap
+msgid "Vt char Va d_ident[DISK_IDENT_SIZE]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:219
+msgid ""
+"This field can and should be used to store disk's serial number if the "
+"d_getattr method described above isn't implemented, or if it does not "
+"support the GEOM::ident attribute."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:219
+#, no-wrap
+msgid "Vt char Va d_descr[DISK_IDENT_SIZE]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:221
+msgid "This field can be used to store the disk vendor and product description."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:221
+#, no-wrap
+msgid "Vt uint16_t Va d_hba_vendor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:224
+msgid ""
+"This field can be used to store the PCI vendor ID for the HBA connected to "
+"the disk."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:224
+#, no-wrap
+msgid "Vt uint16_t Va d_hba_device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:227
+msgid ""
+"This field can be used to store the PCI device ID for the HBA connected to "
+"the disk."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:227
+#, no-wrap
+msgid "Vt uint16_t Va d_hba_subvendor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:230
+msgid ""
+"This field can be used to store the PCI subvendor ID for the HBA connected "
+"to the disk."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:230
+#, no-wrap
+msgid "Vt uint16_t Va d_hba_subdevice"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:233
+msgid ""
+"This field can be used to store the PCI subdevice ID for the HBA connected "
+"to the disk."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/disk.9:234
+#, no-wrap
+msgid "Driver Private Data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:237
+msgid ""
+"This field may be used by the device driver to store a pointer to private "
+"data to implement the disk service."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/disk.9:238
+#, no-wrap
+msgid "Vt \"void *\" Va d_drv1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:243
+msgid ""
+"Private data pointer.  Typically used to store a pointer to the drivers "
+"E<.Vt softc> structure for this disk device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/disk.9:244
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:248
+msgid "E<.Xr GEOM 4>, E<.Xr devfs 5>, E<.Xr MAKE_DEV 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/disk.9:248
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:251
+msgid "This manual page was written by E<.An Robert Watson>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/disk.9:251
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/disk.9:255
+msgid ""
+"Disk aliases are not a general purpose aliasing mechanism, but are intended "
+"only to ease the transition from one name to another.  They can be used to "
+"ensure that nvd0 and nda0 are the same thing.  They cannot be used to "
+"implement the diskX concept from macOS."
+msgstr ""

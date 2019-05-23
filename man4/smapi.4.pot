@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/man4.i386/smapi.4:28
+#, no-wrap
+msgid "April 1, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/man4.i386/smapi.4:29
+#, no-wrap
+msgid "SMAPI 4 i386"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/smapi.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:33
+msgid "E<.Nm smapi>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/man4.i386/smapi.4:33
+#, no-wrap
+msgid "System Management Application Program Interface driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/smapi.4:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:41
+msgid ""
+"Many E<.Tn IBM Thinkpad> laptops utilize a special software interface known "
+"as E<.Tn SMAPI> (System Management Application Program Interface).  This "
+"interface controls various aspects of the system including:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:47
+msgid ""
+"System Interface (the E<.Tn BIOS> can store system information such as the "
+"system identifier),"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:49
+msgid "System Configuration (where devices such as the display can be configured),"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:53
+msgid ""
+"Power Management (software can interact with the E<.Tn SMAPI BIOS> for Power "
+"Management control)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:65
+msgid ""
+"Client software must locate a E<.Dq \"header image\"> stored in the E<.Li "
+"F000> segment in the E<.Tn Thinkpad ROM> (read-only memory), which resides "
+"at the 16-byte boundary.  This is considered the E<.Dq \"Entry Point\"> for "
+"the service."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:69
+msgid "The E<.Dq \"header image\"> stores information like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:72
+msgid "signature,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:75
+msgid "E<.Tn SMAPI> version (major and minor),"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:77
+msgid "header image length,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:79
+msgid "checksum information (which verifies the image),"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:83
+msgid "an Information Word (used to identify the E<.Tn BIOS> service level),"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:86
+msgid ""
+"Real Mode Entry Point (where clients using the Real/V86 mode for the "
+"far-call value),"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:93
+msgid ""
+"and finally a 16-bit/32-bit Protected Mode Entry Point: base code address "
+"which specifies the E<.Tn BIOS> physical address.  The client must prepare a "
+"64 kilobyte selector for this E<.Tn BIOS>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:104
+msgid ""
+"To invoke the E<.Tn SMAPI BIOS>, a far-call must be used on the entry point "
+"specified in the header file.  All other information should be stored in the "
+"client data area.  The client is required to prepare both an input and "
+"output parameter in a data area of its own.  This area can be E<.Dq "
+"informed> by pushing those pointers into its stack before the far-calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:111
+msgid ""
+"The E<.Tn SMAPI BIOS> uses the stack and data areas with the selector during "
+"a E<.Tn BIOS> invocation, thus the caller must define the same privilege "
+"area as the E<.Tn BIOS>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:123
+msgid ""
+"The parameter structure will be made up by using the input and output fields "
+"prepared by the caller.  The input field will specify the function request "
+"to the E<.Tn BIOS>.  The E<.Tn BIOS> will then drop a return value into the "
+"output field.  These fields are made up of three parts.  The first holds "
+"parameters, function numbers, and return codes.  The next will contain an "
+"offset in hexadecimal.  Finally a length field which is comprised of Byte, "
+"Word, or Double Word."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/smapi.4:123
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:144
+msgid ""
+"E<.Rs> E<.%B \"IBM Thinkpad 560/560E Technical Reference\"> E<.%O \"06J0536 "
+"S76H-7587-01\"> E<.Re> E<.Rs> E<.%B \"IBM Thinkpad 560Z Technical "
+"Reference\"> E<.%O \"xxxxxxx xxxx-xxxx-xx\"> E<.Re> E<.Rs> E<.%B \"IBM "
+"Thinkpad 600 Technical Reference\"> E<.%O \"xxxxxxx xxxx-xxxx-xx\"> E<.Re> "
+"E<.Rs> E<.%B \"IBM Thinkpad 760XD/760XL/765D/765L Technical Reference\"> "
+"E<.%O \"06J0537 S30H-2433-02\"> E<.Re> E<.Rs> E<.%B \"IBM Thinkpad 770 "
+"Technical Reference\"> E<.%O \"05L1739 S05L-1739-00\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.i386/smapi.4:144
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.i386/smapi.4:153
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Matthew N. Dodd Aq Mt "
+"mdodd@FreeBSD.org>.  This manual page was written by E<.An Tom Rhodes Aq Mt "
+"trhodes@FreeBSD.org> and E<.An Matthew N. Dodd Aq Mt mdodd@FreeBSD.org>."
+msgstr ""

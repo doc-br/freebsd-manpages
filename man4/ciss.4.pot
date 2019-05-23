@@ -1,0 +1,375 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ciss.4:5
+#, no-wrap
+msgid "January 26, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ciss.4:6
+#, no-wrap
+msgid "CISS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ciss.4:8
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:10
+msgid "E<.Nm ciss>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ciss.4:10
+#, no-wrap
+msgid "Common Interface for SCSI-3 Support driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ciss.4:11
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:15
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:18
+#, no-wrap
+msgid ""
+"E<.Cd \"device scbus\">\n"
+"E<.Cd \"device ciss\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:23
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:25
+#, no-wrap
+msgid "ciss_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ciss.4:26
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:31
+msgid ""
+"The E<.Nm> driver claims to provide a common interface between generic SCSI "
+"transports and intelligent host adapters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:39
+msgid ""
+"The E<.Nm> driver supports E<.Em CISS> as defined in the document entitled "
+"E<.%T \"CISS Command Interface for SCSI-3 Support Open Specification, "
+"Version 1.04, Valence Number 1\">, dated 2000/11/27, produced by Compaq "
+"Computer Corporation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:62
+msgid ""
+"We provide a shim layer between the E<.Nm> interface and E<.Xr CAM 4>, "
+"offloading most of the queueing and being-a-disk chores onto CAM.  Entry to "
+"the driver is via the PCI bus attachment E<.Fn ciss_probe>, E<.Fn "
+"ciss_attach>, etc.\\& and via the CAM interface E<.Fn ciss_cam_action>, and "
+"E<.Fn ciss_cam_poll>.  The Compaq E<.Nm> adapters require faked responses to "
+"get reasonable behavior out of them.  In addition, the E<.Nm> command set is "
+"by no means adequate to support the functionality of a RAID controller, and "
+"thus the supported Compaq adapters utilize portions of the control protocol "
+"from earlier Compaq adapter families."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:70
+msgid ""
+"Currently E<.Nm> supports the E<.Dq simple> and E<.Dq performant> transport "
+"layer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:84
+msgid ""
+"Non-disk devices (such as internal DATs and devices attached to the external "
+"SCSI bus) are supported as normal CAM devices provided that they are "
+"exported by the controller firmware and are not marked as being masked.  "
+"Masked devices can be exposed by setting the E<.Va "
+"hw.ciss.expose_hidden_physical> tunable to non-zero at boot time.  Direct "
+"Access devices (such as disk drives) are only exposed as E<.Xr pass 4> "
+"devices.  Hot-insertion and removal of devices is supported and notification "
+"messages will be reported to the console and logs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:90
+msgid ""
+"The problem which adapter freezes with the message E<.Dq ADAPTER HEARTBEAT "
+"FAILED> might be solved by updating the firmware and/or setting the E<.Va "
+"hw.ciss.nop_message_heartbeat> tunable to non-zero at boot time."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ciss.4:90
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:94
+msgid "Controllers supported by the E<.Nm> driver include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:98
+msgid "Compaq Smart Array 5300 (simple mode only)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:100
+msgid "Compaq Smart Array 532"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:102
+msgid "Compaq Smart Array 5i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:104
+msgid "HP Smart Array 5312"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:106
+msgid "HP Smart Array 6i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:108
+msgid "HP Smart Array 641"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:110
+msgid "HP Smart Array 642"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:112
+msgid "HP Smart Array 6400"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:114
+msgid "HP Smart Array 6400 EM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:116
+msgid "HP Smart Array E200"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:118
+msgid "HP Smart Array E200i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:120
+msgid "HP Smart Array P212"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:122
+msgid "HP Smart Array P220i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:124
+msgid "HP Smart Array P222"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:126
+msgid "HP Smart Array P230i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:128
+msgid "HP Smart Array P400"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:130
+msgid "HP Smart Array P400i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:132
+msgid "HP Smart Array P410"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:134
+msgid "HP Smart Array P410i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:136
+msgid "HP Smart Array P411"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:138
+msgid "HP Smart Array P420"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:140
+msgid "HP Smart Array P420i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:142
+msgid "HP Smart Array P421"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:144
+msgid "HP Smart Array P430"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:146
+msgid "HP Smart Array P430i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:148
+msgid "HP Smart Array P431"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:150
+msgid "HP Smart Array P530"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:152
+msgid "HP Smart Array P531"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:154
+msgid "HP Smart Array P600"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:156
+msgid "HP Smart Array P721m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:158
+msgid "HP Smart Array P731m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:160
+msgid "HP Smart Array P800"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:162
+msgid "HP Smart Array P812"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:164
+msgid "HP Smart Array P830"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:166
+msgid "HP Smart Array P830i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:168
+msgid "HP Modular Smart Array 20 (MSA20)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:170
+msgid "HP Modular Smart Array 500 (MSA500)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ciss.4:171
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:182
+msgid ""
+"E<.Xr cam 4>, E<.Xr pass 4>, E<.Xr xpt 4>, E<.Xr loader.conf 5>, E<.Xr "
+"camcontrol 8> E<.Rs> E<.%T \"CISS Command Interface for SCSI-3 Support Open "
+"Specification, Version 1.04, Valence Number 1\"> E<.%D 2000/11/27> E<.%Q "
+"\"Compaq Computer Corporation\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ciss.4:182
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:188
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Mike Smith Aq Mt "
+"msmith@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ciss.4:190
+msgid ""
+"This manual page is based on his comments and was written by E<.An Tom "
+"Rhodes Aq Mt trhodes@FreeBSD.org>."
+msgstr ""

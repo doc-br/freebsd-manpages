@@ -1,0 +1,802 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/altq.9:31
+#, no-wrap
+msgid "March 20, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/altq.9:32
+#, no-wrap
+msgid "ALTQ 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:37
+msgid "E<.Nm ALTQ>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/altq.9:37
+#, no-wrap
+msgid "kernel interfaces for manipulating output queues on network interfaces"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/altq.9:39
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/altq.9:40
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/altq.9:41
+#, no-wrap
+msgid "net/if.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/altq.9:42
+#, no-wrap
+msgid "net/if_var.h"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:44
+#, no-wrap
+msgid "Enqueue macros"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:51
+msgid ""
+"E<.Fn IFQ_ENQUEUE \"struct ifaltq *ifq\" \"struct mbuf *m\" \"int error\"> "
+"E<.Fn IFQ_HANDOFF \"struct ifnet *ifp\" \"struct mbuf *m\" \"int error\"> "
+"E<.Fo IFQ_HANDOFF_ADJ> E<.Fa \"struct ifnet *ifp\" \"struct mbuf *m\" \"int "
+"adjust\" \"int error\"> E<.Fc>"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:51
+#, no-wrap
+msgid "Dequeue macros"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:57
+msgid ""
+"E<.Fn IFQ_DEQUEUE \"struct ifaltq *ifq\" \"struct mbuf *m\"> E<.Fn "
+"IFQ_POLL_NOLOCK \"struct ifaltq *ifq\" \"struct mbuf *m\"> E<.Fn IFQ_PURGE "
+"\"struct ifaltq *ifq\"> E<.Fn IFQ_IS_EMPTY \"struct ifaltq *ifq\">"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:57
+#, no-wrap
+msgid "Driver managed dequeue macros"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:63
+msgid ""
+"E<.Fn IFQ_DRV_DEQUEUE \"struct ifaltq *ifq\" \"struct mbuf *m\"> E<.Fn "
+"IFQ_DRV_PREPEND \"struct ifaltq *ifq\" \"struct mbuf *m\"> E<.Fn "
+"IFQ_DRV_PURGE \"struct ifaltq *ifq\"> E<.Fn IFQ_DRV_IS_EMPTY \"struct ifaltq "
+"*ifq\">"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:63
+#, no-wrap
+msgid "General setup macros"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:69
+msgid ""
+"E<.Fn IFQ_SET_MAXLEN \"struct ifaltq *ifq\" \"int len\"> E<.Fn IFQ_INC_LEN "
+"\"struct ifaltq *ifq\"> E<.Fn IFQ_DEC_LEN \"struct ifaltq *ifq\"> E<.Fn "
+"IFQ_INC_DROPS \"struct ifaltq *ifq\"> E<.Fn IFQ_SET_READY \"struct ifaltq "
+"*ifq\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:69
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:83
+msgid ""
+"The E<.Nm> system is a framework to manage queuing disciplines on network "
+"interfaces.  E<.Nm> introduces new macros to manipulate output queues.  The "
+"output queue macros are used to abstract queue operations and not to touch "
+"the internal fields of the output queue structure.  The macros are "
+"independent from the E<.Nm> implementation, and compatible with the "
+"traditional E<.Vt ifqueue> macros for ease of transition."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:110
+msgid ""
+"E<.Fn IFQ_ENQUEUE>, E<.Fn IFQ_HANDOFF> and E<.Fn IFQ_HANDOFF_ADJ> enqueue a "
+"packet E<.Fa m> to the queue E<.Fa ifq>.  The underlying queuing discipline "
+"may discard the packet.  The E<.Fa error> argument is set to 0 on success, "
+"or E<.Er ENOBUFS> if the packet is discarded.  The packet pointed to by "
+"E<.Fa m> will be freed by the device driver on success, or by the queuing "
+"discipline on failure, so the caller should not touch E<.Fa m> after "
+"enqueuing.  E<.Fn IFQ_HANDOFF> and E<.Fn IFQ_HANDOFF_ADJ> combine the "
+"enqueue operation with statistic generation and call E<.Fn if_start> upon "
+"successful enqueue to initiate the actual send."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:125
+msgid ""
+"E<.Fn IFQ_DEQUEUE> dequeues a packet from the queue.  The dequeued packet is "
+"returned in E<.Fa m>, or E<.Fa m> is set to E<.Dv NULL> if no packet is "
+"dequeued.  The caller must always check E<.Fa m> since a non-empty queue "
+"could return E<.Dv NULL> under rate-limiting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:133
+msgid ""
+"E<.Fn IFQ_POLL_NOLOCK> returns the next packet without removing it from the "
+"queue.  The caller must hold the queue mutex when calling E<.Fn "
+"IFQ_POLL_NOLOCK> in order to guarantee that a subsequent call to E<.Fn "
+"IFQ_DEQUEUE_NOLOCK> dequeues the same packet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:140
+msgid ""
+"E<.Fn IFQ_*_NOLOCK> variants (if available) always assume that the caller "
+"holds the queue mutex.  They can be grabbed with E<.Fn IFQ_LOCK> and "
+"released with E<.Fn IFQ_UNLOCK>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:145
+msgid ""
+"E<.Fn IFQ_PURGE> discards all the packets in the queue.  The purge operation "
+"is needed since a non-work conserving queue cannot be emptied by a dequeue "
+"loop."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:153
+msgid ""
+"E<.Fn IFQ_IS_EMPTY> can be used to check if the queue is empty.  Note that "
+"E<.Fn IFQ_DEQUEUE> could still return E<.Dv NULL> if the queuing discipline "
+"is non-work conserving."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:191
+msgid ""
+"E<.Fn IFQ_DRV_DEQUEUE> moves up to E<.Fa ifq-E<gt>ifq_drv_maxlen> packets "
+"from the queue to the E<.Dq \"driver managed\"> queue and returns the first "
+"one via E<.Fa m>.  As for E<.Fn IFQ_DEQUEUE>, E<.Fa m> can be E<.Dv NULL> "
+"even for a non-empty queue.  Subsequent calls to E<.Fn IFQ_DRV_DEQUEUE> pass "
+"the packets from the E<.Dq \"driver managed\"> queue without obtaining the "
+"queue mutex.  It is the responsibility of the caller to protect against "
+"concurrent access.  Enabling E<.Nm> for a given queue sets E<.Va "
+"ifq_drv_maxlen> to 0 as the E<.Dq \"bulk dequeue\"> performed by E<.Fn "
+"IFQ_DRV_DEQUEUE> for higher values of E<.Va ifq_drv_maxlen> is adverse to "
+"E<.Nm ALTQ Ns 's> internal timing.  Note that a driver must not mix E<.Fn "
+"IFQ_DRV_*> macros with the default dequeue macros as the default macros do "
+"not look at the E<.Dq \"driver managed\"> queue which might lead to an mbuf "
+"leak."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:199
+msgid ""
+"E<.Fn IFQ_DRV_PREPEND> prepends E<.Fa m> to the E<.Dq \"driver managed\"> "
+"queue from where it will be obtained with the next call to E<.Fn "
+"IFQ_DRV_DEQUEUE>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:206
+msgid ""
+"E<.Fn IFQ_DRV_PURGE> flushes all packets in the E<.Dq \"driver managed\"> "
+"queue and calls to E<.Fn IFQ_PURGE> afterwards."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:213
+msgid ""
+"E<.Fn IFQ_DRV_IS_EMPTY> checks for packets in the E<.Dq \"driver managed\"> "
+"part of the queue.  If it is empty, it forwards to E<.Fn IFQ_IS_EMPTY>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:223
+msgid ""
+"E<.Fn IFQ_SET_MAXLEN> sets the queue length limit to the default FIFO "
+"queue.  The E<.Va ifq_drv_maxlen> member of the E<.Vt ifaltq> structure "
+"controls the length limit of the E<.Dq \"driver managed\"> queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:229
+msgid ""
+"E<.Fn IFQ_INC_LEN> and E<.Fn IFQ_DEC_LEN> increment or decrement the current "
+"queue length in packets.  This is mostly for internal purposes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:234
+msgid ""
+"E<.Fn IFQ_INC_DROPS> increments the drop counter and is identical to E<.Fn "
+"IF_DROP>.  It is defined for naming consistency only."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:239
+msgid ""
+"E<.Fn IFQ_SET_READY> sets a flag to indicate that a driver was converted to "
+"use the new macros.  E<.Nm> can be enabled only on interfaces with this "
+"flag."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:239
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:240
+#, no-wrap
+msgid "Vt ifaltq structure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:251
+msgid ""
+"In order to keep compatibility with the existing code, the new output queue "
+"structure E<.Vt ifaltq> has the same fields.  The traditional E<.Fn IF_*> "
+"macros and the code directly referencing the fields within E<.Va if_snd> "
+"still work with E<.Vt ifaltq>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:265
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" struct ifqueue {                      | struct ifaltq {\n"
+"    struct mbuf *ifq_head;             |    struct mbuf *ifq_head;\n"
+"    struct mbuf *ifq_tail;             |    struct mbuf *ifq_tail;\n"
+"    int          ifq_len;              |    int          ifq_len;\n"
+"    int          ifq_maxlen;           |    int          ifq_maxlen;\n"
+" };                                    |    /* driver queue fields */\n"
+"                                       |    ......\n"
+"                                       |    /* altq related fields */\n"
+"                                       |    ......\n"
+"                                       | };\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:270
+msgid ""
+"The new structure replaces E<.Vt \"struct ifqueue\"> in E<.Vt \"struct "
+"ifnet\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:281
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" struct ifnet {                        | struct ifnet {\n"
+"     ....                              |     ....\n"
+"                                       |\n"
+"     struct ifqueue if_snd;            |     struct ifaltq if_snd;\n"
+"                                       |\n"
+"     ....                              |     ....\n"
+" };                                    | };\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:285
+msgid "The (simplified) new E<.Fn IFQ_*> macros look like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:291
+#, no-wrap
+msgid ""
+"\t#define IFQ_DEQUEUE(ifq, m)\t\t\t\\e\n"
+"\t\tif (ALTQ_IS_ENABLED((ifq))\t\t\\e\n"
+"\t\t\tALTQ_DEQUEUE((ifq), (m));\t\\e\n"
+"\t\telse\t\t\t\t\t\\e\n"
+"\t\t\tIF_DEQUEUE((ifq), (m));\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:292
+#, no-wrap
+msgid "Enqueue operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:299
+msgid ""
+"The semantics of the enqueue operation is changed.  In the new style, "
+"enqueue and packet drop are combined since they cannot be easily separated "
+"in many queuing disciplines.  The new enqueue operation corresponds to the "
+"following macro that is written with the old macros."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:311
+#, no-wrap
+msgid ""
+"#define\tIFQ_ENQUEUE(ifq, m, error)                      \\e\n"
+"do {                                                    \\e\n"
+"        if (IF_QFULL((ifq))) {                          \\e\n"
+"                m_freem((m));                           \\e\n"
+"                (error) = ENOBUFS;                      \\e\n"
+"                IF_DROP(ifq);                           \\e\n"
+"        } else {                                        \\e\n"
+"                IF_ENQUEUE((ifq), (m));                 \\e\n"
+"                (error) = 0;                            \\e\n"
+"        }                                               \\e\n"
+"} while (0)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:315
+msgid "E<.Fn IFQ_ENQUEUE> does the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:319
+msgid "queue a packet,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:321
+msgid "drop (and free) a packet if the enqueue operation fails."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:346
+msgid ""
+"If the enqueue operation fails, E<.Fa error> is set to E<.Er ENOBUFS>.  The "
+"E<.Fa m> mbuf is freed by the queuing discipline.  The caller should not "
+"touch mbuf after calling E<.Fn IFQ_ENQUEUE> so that the caller may need to "
+"copy E<.Va m_pkthdr.len> or E<.Va m_flags> field beforehand for statistics.  "
+"E<.Fn IFQ_HANDOFF> and E<.Fn IFQ_HANDOFF_ADJ> can be used if only default "
+"interface statistics and an immediate call to E<.Fn if_start> are desired.  "
+"The caller should not use E<.Fn senderr> since mbuf was already freed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:350
+msgid "The new style E<.Fn if_output> looks as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:385
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" int                                   | int\n"
+" ether_output(ifp, m0, dst, rt0)       | ether_output(ifp, m0, dst, rt0)\n"
+" {                                     | {\n"
+"     ......                            |     ......\n"
+"                                       |\n"
+"                                       |     mflags = m-E<gt>m_flags;\n"
+"                                       |     len = m-E<gt>m_pkthdr.len;\n"
+"     s = splimp();                     |     s = splimp();\n"
+"     if (IF_QFULL(&ifp-E<gt>if_snd)) {     |     "
+"IFQ_ENQUEUE(&ifp-E<gt>if_snd, m,\n"
+"                                       |                 error);\n"
+"         IF_DROP(&ifp-E<gt>if_snd);        |     if (error != 0) {\n"
+"         splx(s);                      |         splx(s);\n"
+"         senderr(ENOBUFS);             |         return (error);\n"
+"     }                                 |     }\n"
+"     IF_ENQUEUE(&ifp-E<gt>if_snd, m);      |\n"
+"     ifp-E<gt>if_obytes +=                 |     ifp-E<gt>if_obytes += "
+"len;\n"
+"                    m-E<gt>m_pkthdr.len;   |\n"
+"     if (m-E<gt>m_flags & M_MCAST)         |     if (mflags & M_MCAST)\n"
+"         ifp-E<gt>if_omcasts++;            |         "
+"ifp-E<gt>if_omcasts++;\n"
+"                                       |\n"
+"     if ((ifp-E<gt>if_flags & IFF_OACTIVE) |     if ((ifp-E<gt>if_flags & "
+"IFF_OACTIVE)\n"
+"         == 0)                         |         == 0)\n"
+"         (*ifp-E<gt>if_start)(ifp);        |         "
+"(*ifp-E<gt>if_start)(ifp);\n"
+"     splx(s);                          |     splx(s);\n"
+"     return (error);                   |     return (error);\n"
+"                                       |\n"
+" bad:                                  | bad:\n"
+"     if (m)                            |     if (m)\n"
+"         m_freem(m);                   |         m_freem(m);\n"
+"     return (error);                   |     return (error);\n"
+" }                                     | }\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:386
+#, no-wrap
+msgid "HOW TO CONVERT THE EXISTING DRIVERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:390
+msgid ""
+"First, make sure the corresponding E<.Fn if_output> is already converted to "
+"the new style."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:396
+msgid ""
+"Look for E<.Va if_snd> in the driver.  Probably, you need to make changes to "
+"the lines that include E<.Va if_snd>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:396
+#, no-wrap
+msgid "Empty check operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:401
+msgid ""
+"If the code checks E<.Va ifq_head> to see whether the queue is empty or not, "
+"use E<.Fn IFQ_IS_EMPTY>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:406
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" if (ifp-E<gt>if_snd.ifq_head != NULL)     | if "
+"(!IFQ_IS_EMPTY(&ifp-E<gt>if_snd))\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:417
+msgid ""
+"E<.Fn IFQ_IS_EMPTY> only checks if there is any packet stored in the queue.  "
+"Note that even when E<.Fn IFQ_IS_EMPTY> is E<.Dv FALSE>, E<.Fn IFQ_DEQUEUE> "
+"could still return E<.Dv NULL> if the queue is under rate-limiting."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:417
+#, no-wrap
+msgid "Dequeue operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:433
+msgid ""
+"Replace E<.Fn IF_DEQUEUE> by E<.Fn IFQ_DEQUEUE>.  Always check whether the "
+"dequeued mbuf is E<.Dv NULL> or not.  Note that even when E<.Fn "
+"IFQ_IS_EMPTY> is E<.Dv FALSE>, E<.Fn IFQ_DEQUEUE> could return E<.Dv NULL> "
+"due to rate-limiting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:440
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" IF_DEQUEUE(&ifp-E<gt>if_snd, m);          | IFQ_DEQUEUE(&ifp-E<gt>if_snd, "
+"m);\n"
+"                                       | if (m == NULL)\n"
+"                                       |     return;\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:444
+msgid ""
+"A driver is supposed to call E<.Fn if_start> from transmission complete "
+"interrupts in order to trigger the next dequeue."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:444
+#, no-wrap
+msgid "Poll-and-dequeue operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:450
+msgid ""
+"If the code polls the packet at the head of the queue and actually uses the "
+"packet before dequeuing it, use E<.Fn IFQ_POLL_NOLOCK> and E<.Fn "
+"IFQ_DEQUEUE_NOLOCK>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:468
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+"                                       | IFQ_LOCK(&ifp-E<gt>if_snd);\n"
+" m = ifp-E<gt>if_snd.ifq_head;             | "
+"IFQ_POLL_NOLOCK(&ifp-E<gt>if_snd, m);\n"
+" if (m != NULL) {                      | if (m != NULL) {\n"
+"                                       |\n"
+"     /* use m to get resources */      |     /* use m to get resources */\n"
+"     if (something goes wrong)         |     if (something goes wrong)\n"
+"                                       |         "
+"IFQ_UNLOCK(&ifp-E<gt>if_snd);\n"
+"         return;                       |         return;\n"
+"                                       |\n"
+"     IF_DEQUEUE(&ifp-E<gt>if_snd, m);      |     "
+"IFQ_DEQUEUE_NOLOCK(&ifp-E<gt>if_snd, m);\n"
+"                                       |     IFQ_UNLOCK(&ifp-E<gt>if_snd);\n"
+"                                       |\n"
+"     /* kick the hardware */           |     /* kick the hardware */\n"
+" }                                     | }\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:476
+msgid ""
+"It is guaranteed that E<.Fn IFQ_DEQUEUE_NOLOCK> under the same lock as a "
+"previous E<.Fn IFQ_POLL_NOLOCK> returns the same packet.  Note that they "
+"need to be guarded by E<.Fn IFQ_LOCK>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:476
+#, no-wrap
+msgid "Eliminating Fn IF_PREPEND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:488
+msgid ""
+"If the code uses E<.Fn IF_PREPEND>, you have to eliminate it unless you can "
+"use a E<.Dq \"driver managed\"> queue which allows the use of E<.Fn "
+"IFQ_DRV_PREPEND> as a substitute.  A common usage of E<.Fn IF_PREPEND> is to "
+"cancel the previous dequeue operation.  You have to convert the logic into "
+"poll-and-dequeue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:510
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+"                                       | IFQ_LOCK(&ifp-E<gt>if_snd);\n"
+" IF_DEQUEUE(&ifp-E<gt>if_snd, m);          | "
+"IFQ_POLL_NOLOCK(&ifp-E<gt>if_snd, m);\n"
+" if (m != NULL) {                      | if (m != NULL) {\n"
+"                                       |\n"
+"     if (something_goes_wrong) {       |     if (something_goes_wrong) {\n"
+"         IF_PREPEND(&ifp-E<gt>if_snd, m);  |         "
+"IFQ_UNLOCK(&ifp-E<gt>if_snd);\n"
+"         return;                       |         return;\n"
+"     }                                 |     }\n"
+"                                       |\n"
+"                                       |     /* at this point, the driver\n"
+"                                       |      * is committed to send this\n"
+"                                       |      * packet.\n"
+"                                       |      */\n"
+"                                       |     "
+"IFQ_DEQUEUE_NOLOCK(&ifp-E<gt>if_snd, m);\n"
+"                                       |     IFQ_UNLOCK(&ifp-E<gt>if_snd);\n"
+"                                       |\n"
+"     /* kick the hardware */           |     /* kick the hardware */\n"
+" }                                     | }\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:511
+#, no-wrap
+msgid "Purge operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:516
+msgid ""
+"Use E<.Fn IFQ_PURGE> to empty the queue.  Note that a non-work conserving "
+"queue cannot be emptied by a dequeue loop."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:524
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" while (ifp-E<gt>if_snd.ifq_head != NULL) {|  IFQ_PURGE(&ifp-E<gt>if_snd);\n"
+"     IF_DEQUEUE(&ifp-E<gt>if_snd, m);      |\n"
+"     m_freem(m);                       |\n"
+" }                                     |\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:525
+#, no-wrap
+msgid "Conversion using a driver managed queue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:533
+msgid ""
+"Convert E<.Fn IF_*> macros to their equivalent E<.Fn IFQ_DRV_*> and employ "
+"E<.Fn IFQ_DRV_IS_EMPTY> where appropriate."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:538
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" if (ifp-E<gt>if_snd.ifq_head != NULL)     | if "
+"(!IFQ_DRV_IS_EMPTY(&ifp-E<gt>if_snd))\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:545
+msgid ""
+"Make sure that calls to E<.Fn IFQ_DRV_DEQUEUE>, E<.Fn IFQ_DRV_PREPEND> and "
+"E<.Fn IFQ_DRV_PURGE> are protected with a mutex of some kind."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:545
+#, no-wrap
+msgid "Attach routine"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:561
+msgid ""
+"Use E<.Fn IFQ_SET_MAXLEN> to set E<.Va ifq_maxlen> to E<.Fa len>.  "
+"Initialize E<.Va ifq_drv_maxlen> with a sensible value if you plan to use "
+"the E<.Fn IFQ_DRV_*> macros.  Add E<.Fn IFQ_SET_READY> to show this driver "
+"is converted to the new style.  (This is used to distinguish new-style "
+"drivers.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:569
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" ifp-E<gt>if_snd.ifq_maxlen = qsize;       | "
+"IFQ_SET_MAXLEN(&ifp-E<gt>if_snd, qsize);\n"
+"                                       | ifp-E<gt>if_snd.ifq_drv_maxlen = "
+"qsize;\n"
+"                                       | IFQ_SET_READY(&ifp-E<gt>if_snd);\n"
+" if_attach(ifp);                       | if_attach(ifp);\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/altq.9:570
+#, no-wrap
+msgid "Other issues"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:572
+msgid "The new macros for statistics:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:581
+#, no-wrap
+msgid ""
+"            ##old-style##                           ##new-style##\n"
+"                                       |\n"
+" IF_DROP(&ifp-E<gt>if_snd);                | "
+"IFQ_INC_DROPS(&ifp-E<gt>if_snd);\n"
+"                                       |\n"
+" ifp-E<gt>if_snd.ifq_len++;                | "
+"IFQ_INC_LEN(&ifp-E<gt>if_snd);\n"
+"                                       |\n"
+" ifp-E<gt>if_snd.ifq_len--;                | "
+"IFQ_DEC_LEN(&ifp-E<gt>if_snd);\n"
+"                                       |\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:582
+#, no-wrap
+msgid "QUEUING DISCIPLINES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:591
+msgid ""
+"Queuing disciplines need to maintain E<.Fa ifq_len> (used by E<.Fn "
+"IFQ_IS_EMPTY>).  Queuing disciplines also need to guarantee that the same "
+"mbuf is returned if E<.Fn IFQ_DEQUEUE> is called immediately after E<.Fn "
+"IFQ_POLL>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:591
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:595
+msgid "E<.Xr pf 4>, E<.Xr pf.conf 5>, E<.Xr pfctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/altq.9:595
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/altq.9:602
+msgid ""
+"The E<.Nm> system first appeared in March 1997 and found home in the KAME "
+"project (http://www.kame.net).  It was imported to E<.Fx> in 5.3 ."
+msgstr ""

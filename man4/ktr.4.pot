@@ -1,0 +1,297 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ktr.4:26
+#, no-wrap
+msgid "October 20, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ktr.4:27
+#, no-wrap
+msgid "KTR 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ktr.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:31
+msgid "E<.Nm ktr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ktr.4:31
+#, no-wrap
+msgid "kernel tracing facility"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ktr.4:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:41
+msgid ""
+"E<.Cd options KTR> E<.Cd options ALQ> E<.Cd options KTR_ALQ> E<.Cd options "
+"KTR_COMPILE=(KTR_LOCK|KTR_INTR|KTR_PROC)> E<.Cd options KTR_CPUMASK=0x3> "
+"E<.Cd options KTR_ENTRIES=8192> E<.Cd options KTR_MASK=(KTR_INTR|KTR_PROC)> "
+"E<.Cd options KTR_VERBOSE>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ktr.4:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:50
+msgid ""
+"The E<.Nm> facility allows kernel events to be logged while the kernel "
+"executes so that they can be examined later when debugging.  The only "
+"mandatory option to enable E<.Nm> is E<.Dq Li options KTR>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:58
+msgid ""
+"The E<.Dv KTR_ENTRIES> option sets the size of the buffer of events.  The "
+"size of the buffer in the currently running kernel can be found via the "
+"sysctl E<.Va debug.ktr.entries>.  By default the buffer contains 1024 "
+"entries."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ktr.4:58
+#, no-wrap
+msgid "Event Masking"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:65
+msgid ""
+"Event levels can be enabled or disabled to trim excessive and overly verbose "
+"logging.  First, a mask of events is specified at compile time via the E<.Dv "
+"KTR_COMPILE> option to limit which events are actually compiled into the "
+"kernel.  The default value for this option is for all events to be enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:81
+msgid ""
+"Secondly, the actual events logged while the kernel runs can be further "
+"masked via the run time event mask.  The E<.Dv KTR_MASK> option sets the "
+"default value of the run time event mask.  The runtime event mask can also "
+"be set by the E<.Xr loader 8> via the E<.Va debug.ktr.mask> environment "
+"variable.  It can also be examined and set after booting via the E<.Va "
+"debug.ktr.mask> sysctl.  By default the run time mask is set to block any "
+"tracing.  The definitions of the event mask bits can be found in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ktr.4:81
+#, no-wrap
+msgid "sys/ktr.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:106
+msgid ""
+"Furthermore, there is a CPU event mask whose default value can be changed "
+"via the E<.Dv KTR_CPUMASK> option.  When two or more parameters to E<.Dv "
+"KTR_CPUMASK>, are used, it is important they are not separated by "
+"whitespace.  A CPU must have the bit corresponding to its logical id set in "
+"this bitmask for events that occur on it to be logged.  This mask can be set "
+"by the E<.Xr loader 8> via the E<.Va debug.ktr.cpumask> environment "
+"variable.  It can also be examined and set after booting via the E<.Va "
+"debug.ktr.cpumask> sysctl.  By default, only CPUs specified in E<.Dv "
+"KTR_CPUMASK> will log events.  See E<.Pa sys/conf/NOTES> for more "
+"information."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ktr.4:106
+#, no-wrap
+msgid "Verbose Mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:125
+msgid ""
+"By default, events are only logged to the internal buffer for examination "
+"later, but if the verbose flag is set then they are dumped to the kernel "
+"console as well.  This flag can also be set from the loader via the E<.Va "
+"debug.ktr.verbose> environment variable, or it can be examined and set after "
+"booting via the E<.Va debug.ktr.verbose> sysctl.  If the flag is set to "
+"zero, which is the default, then verbose output is disabled.  If the flag is "
+"set to one, then the contents of the log message and the CPU number are "
+"printed to the kernel console.  If the flag is greater than one, then the "
+"filename and line number of the event are output to the console in addition "
+"to the log message and the CPU number.  The E<.Dv KTR_VERBOSE> option sets "
+"the flag to one."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ktr.4:125
+#, no-wrap
+msgid "Examining the Events"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:149
+msgid ""
+"The KTR buffer can be examined from within E<.Xr ddb 4> via the E<.Ic show "
+"ktr Op Cm /vV> command.  This command displays the contents of the trace "
+"buffer one page at a time.  At the E<.Dq Li --more--> prompt, the Enter key "
+"displays one more entry and prompts again.  The spacebar displays another "
+"page of entries.  Any other key quits.  By default the timestamp, filename, "
+"and line number are not displayed with each log entry.  If the E<.Cm /v> "
+"modifier is specified, then they are displayed in addition to the normal "
+"output.  If the E<.Cm /V> modifier is specified, then just the timestamp is "
+"displayed in addition to the normal output.  Note that the events are "
+"displayed in reverse chronological order.  That is, the most recent events "
+"are displayed first."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ktr.4:149
+#, no-wrap
+msgid "Logging ktr to Disk"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:163
+msgid ""
+"The E<.Dv KTR_ALQ> option can be used to log E<.Nm> entries to disk for post "
+"analysis using the E<.Xr ktrdump 8> utility.  This option depends on the "
+"E<.Dv ALQ> option.  Due to the potentially high volume of trace messages the "
+"trace mask should be selected carefully.  This feature is configured through "
+"a group of sysctls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ktr.4:164
+#, no-wrap
+msgid "Va debug.ktr.alq_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:174
+msgid ""
+"displays or sets the file that E<.Nm> will log to.  By default its value is "
+"E<.Pa /tmp/ktr.out>.  If the file name is changed while E<.Nm> is enabled it "
+"will not take effect until the next invocation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ktr.4:174
+#, no-wrap
+msgid "Va debug.ktr.alq_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:181
+msgid ""
+"enables logging of E<.Nm> entries to disk if it is set to one.  Setting this "
+"to 0 will terminate logging to disk and revert to logging to the normal ktr "
+"ring buffer.  Data is not sent to the ring buffer while logging to disk."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ktr.4:181
+#, no-wrap
+msgid "Va debug.ktr.alq_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:186
+msgid ""
+"is the maximum number of entries that will be recorded to disk, or 0 for "
+"infinite.  This is helpful for limiting the number of particularly high "
+"frequency entries that are recorded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ktr.4:186
+#, no-wrap
+msgid "Va debug.ktr.alq_depth"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:192
+msgid ""
+"determines the number of entries in the write buffer.  This is the buffer "
+"that holds entries before they are written to disk and defaults to the value "
+"of the E<.Dv KTR_ENTRIES> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ktr.4:192
+#, no-wrap
+msgid "Va debug.ktr.alq_failed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:199
+msgid ""
+"records the number of times we failed to write an entry due to overflowing "
+"the write buffer.  This may happen if the frequency of the logged E<.Nm> "
+"messages outpaces the depth of the queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ktr.4:199
+#, no-wrap
+msgid "Va debug.ktr.alq_cnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:201
+msgid "records the number of entries that have currently been written to disk."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ktr.4:202
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:206
+msgid "E<.Xr ktrdump 8>, E<.Xr alq 9>, E<.Xr ktr 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ktr.4:206
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ktr.4:210
+msgid ""
+"The KTR kernel tracing facility first appeared in E<.Bsx 3.0> and was "
+"imported into E<.Fx 5.0>."
+msgstr ""

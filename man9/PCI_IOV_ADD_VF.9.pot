@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:28
+#, no-wrap
+msgid "May 28, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:29
+#, no-wrap
+msgid "PCI_IOV_ADD_VF 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:33
+msgid "E<.Nm PCI_IOV_ADD_VF>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:33
+#, no-wrap
+msgid "inform a PF driver that a VF is being created"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:35
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:36
+#, no-wrap
+msgid "machine/stdarg.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:37
+#, no-wrap
+msgid "sys/nv.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:38
+#, no-wrap
+msgid "dev/pci/pci_iov.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:41
+msgid ""
+"E<.Ft int> E<.Fn PCI_IOV_ADD_VF \"device_t dev\" \"uint16_t vfnum\" \"const "
+"nvlist_t *vf_config\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:61
+msgid ""
+"The E<.Fn PCI_IOV_ADD_VF> method is called by the PCI Single-Root I/O "
+"Virtualization E<.Pq SR-IOV> infrastructure when it is initializating a new "
+"Virtual Function (VF) as a child of the given Physical Function (PF) "
+"device.  This method will not be called until a successful call to E<.Xr "
+"PCI_IOV_INIT 9> has been made.  It is not guaranteed that this method will "
+"be called following a successful call to E<.Xr PCI_IOV_INIT 9>.  If the "
+"infrastructure encounters a failure to allocate resources following the call "
+"to E<.Xr PCI_IOV_INIT 9>, the VF creation will be aborted and E<.Xr "
+"PCI_IOV_UNINIT 9> will be called immediately without any preceding calls to "
+"E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:66
+msgid ""
+"The index of the VF being initialized is passed in the E<.Fa vfnum> "
+"argument.  VFs are always numbered sequentially starting at 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:84
+msgid ""
+"If the driver requested device-specific configuration parameters via a VF "
+"schema in its call to E<.Xr pci_iov_attach 9>, those parameters will be "
+"contained in the E<.Pa vf_config> argument.  All configuration parameters "
+"that were either set as required parameters or that had a default value set "
+"in the VF schema are guaranteed to be present in E<.Fa vf_config>.  "
+"Configuration parameters that were neither set as required nor were given a "
+"default value are optional and may or may not be present in E<.Fa "
+"vf_config>.  E<.Fa vf_config> will not contain any configuration parameters "
+"that were not specified in the VF schema.  All configuration parameters will "
+"have the correct type and will be in the range of valid values specified in "
+"the schema."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:91
+msgid ""
+"Note that it is possible for the user to set different configuration values "
+"on different VF devices that are children of the same PF.  The PF driver "
+"must not cache configuration parameters passed in previous calls to E<.Fn "
+"PCI_IOV_ADD_VF> for other VFs and apply those parameters to the current VF."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:99
+msgid ""
+"This function will not be called twice for the same E<.Fa vf_num> on the "
+"same PF device without E<.Xr PCI_IOV_UNINIT 9> and E<.Xr PCI_IOV_INIT 9> "
+"first being called, in that order."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:99
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:104
+msgid ""
+"This method returns 0 on success, otherwise an appropriate error is "
+"returned.  If this method returns an error then the current VF device will "
+"be destroyed but the rest of the VF devices will be created and SR-IOV will "
+"be enabled on the PF."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:104
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:110
+msgid ""
+"E<.Xr nv 9>, E<.Xr pci 9>, E<.Xr PCI_IOV_INIT 9>, E<.Xr pci_iov_schema 9>, "
+"E<.Xr PCI_IOV_UNINIT 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:110
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCI_IOV_ADD_VF.9:112
+msgid "This manual page was written by E<.An Ryan Stone Aq Mt rstone@FreeBSD.org>."
+msgstr ""

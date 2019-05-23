@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:34-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:34
+#, no-wrap
+msgid "May 24, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:35
+#, no-wrap
+msgid "IPROP 8"
+msgstr ""
+
+#. type: Os
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:36
+#, no-wrap
+msgid "Heimdal"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:41
+msgid "E<.Nm iprop>, E<.Nm ipropd-master>, E<.Nm ipropd-slave>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:41
+#, no-wrap
+msgid "propagate changes to a Heimdal Kerberos master KDC to slave KDCs"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:42
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:84
+msgid ""
+"E<.Nm ipropd-master> E<.Oo Fl c Ar string \\*(Ba Xo> E<.Fl Fl config-file= "
+"Ns Ar string> E<.Xc> E<.Oc> E<.Oo Fl r Ar string \\*(Ba Xo> E<.Fl Fl realm= "
+"Ns Ar string> E<.Xc> E<.Oc> E<.Oo Fl k Ar kspec \\*(Ba Xo> E<.Fl Fl keytab= "
+"Ns Ar kspec> E<.Xc> E<.Oc> E<.Oo Fl d Ar file \\*(Ba Xo> E<.Fl Fl database= "
+"Ns Ar file> E<.Xc> E<.Oc> E<.Op Fl Fl slave-stats-file= Ns Ar file> E<.Op Fl "
+"Fl time-missing= Ns Ar time> E<.Op Fl Fl time-gone= Ns Ar time> E<.Op Fl Fl "
+"detach> E<.Op Fl Fl version> E<.Op Fl Fl help> E<.Nm ipropd-slave> E<.Oo Fl "
+"c Ar string \\*(Ba Xo> E<.Fl Fl config-file= Ns Ar string> E<.Xc> E<.Oc> "
+"E<.Oo Fl r Ar string \\*(Ba Xo> E<.Fl Fl realm= Ns Ar string> E<.Xc> E<.Oc> "
+"E<.Oo Fl k Ar kspec \\*(Ba Xo> E<.Fl Fl keytab= Ns Ar kspec> E<.Xc> E<.Oc> "
+"E<.Op Fl Fl time-lost= Ns Ar time> E<.Op Fl Fl detach> E<.Op Fl Fl version> "
+"E<.Op Fl Fl help> E<.Ar master>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:84
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:90
+msgid ""
+"E<.Nm ipropd-master> is used to propagate changes to a Heimdal Kerberos "
+"database from the master Kerberos server on which it runs to slave Kerberos "
+"servers running E<.Nm ipropd-slave>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:96
+msgid ""
+"The slaves are specified by the contents of the E<.Pa slaves> file in the "
+"KDC's database directory, e.g.\\& E<.Pa /var/heimdal/slaves>.  This has "
+"principals one per-line of the form"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:96
+#, no-wrap
+msgid "iprop/ Ns Ar slave Ns @ Ns Ar REALM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:102
+msgid ""
+"where E<.Ar slave> is the hostname of the slave server in the given E<.Ar "
+"REALM>, e.g.\\&"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:102
+#, no-wrap
+msgid "iprop/kerberos-1.example.com@EXAMPLE.COM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:106
+msgid ""
+"On a slave, the argument E<.Fa master> specifies the hostname of the master "
+"server from which to receive updates."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:119
+msgid ""
+"In contrast to E<.Xr hprop 8>, which sends the whole database to the slaves "
+"regularly, E<.Nm> normally sends only the changes as they happen on the "
+"master.  The master keeps track of all the changes by assigning a version "
+"number to every change to the database.  The slaves know which was the "
+"latest version they saw, and in this way it can be determined if they are in "
+"sync or not.  A log of all the changes is kept on the master.  When a slave "
+"is at an older version than the oldest one in the log, the whole database "
+"has to be sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:131
+msgid ""
+"The changes are propagated over a secure channel (on port 2121 by default).  "
+"This should normally be defined as E<.Dq iprop/tcp> in E<.Pa /etc/services> "
+"or another source of the services database.  The master and slaves must each "
+"have access to a keytab with keys for the E<.Nm iprop> service principal on "
+"the local host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:136
+msgid ""
+"There is a keep-alive feature logged in the master's E<.Pa slave-stats> file "
+"(e.g.\\& E<.Pa /var/heimdal/slave-stats>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:139
+msgid "Supported options for E<.Nm ipropd-master>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:140 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:161
+#, no-wrap
+msgid "Fl c Ar string , Fl Fl config-file= Ns Ar string"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:141 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:162
+#, no-wrap
+msgid "Fl r Ar string , Fl Fl realm= Ns Ar string"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:142 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:163
+#, no-wrap
+msgid "Fl k Ar kspec , Fl Fl keytab= Ns Ar kspec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:144 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:165
+msgid "keytab to get authentication from"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:144
+#, no-wrap
+msgid "Fl d Ar file , Fl Fl database= Ns Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:146
+msgid "Database (default per KDC)"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:146
+#, no-wrap
+msgid "Fl Fl slave-stats-file= Ns Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:148
+msgid "file for slave status information"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:148
+#, no-wrap
+msgid "Fl Fl time-missing= Ns Ar time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:150
+msgid "time before slave is polled for presence (default 2 min)"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:150
+#, no-wrap
+msgid "Fl Fl time-gone= Ns Ar time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:152
+msgid "time of inactivity after which a slave is considered gone (default 5 min)"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:152 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:167
+#, no-wrap
+msgid "Fl Fl detach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:154 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:169
+msgid "detach from console"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:154 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:169
+#, no-wrap
+msgid "Fl Fl version"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:155 /usr/src/crypto/heimdal/lib/kadm5/iprop.8:170
+#, no-wrap
+msgid "Fl Fl help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:160
+msgid "Supported options for E<.Nm ipropd-slave>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:165
+#, no-wrap
+msgid "Fl Fl time-lost= Ns Ar time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:167
+msgid "time before server is considered lost (default 5 min)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:174
+msgid ""
+"Time arguments for the relevant options above may be specified in forms like "
+"5 min, 300 s, or simply a number of seconds."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:174
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:178
+msgid "E<.Pa slaves>, E<.Pa slave-stats> in the database directory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:178
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/crypto/heimdal/lib/kadm5/iprop.8:183
+msgid ""
+"E<.Xr krb5.conf 5>, E<.Xr hprop 8>, E<.Xr hpropd 8>, E<.Xr iprop-log 8>, "
+"E<.Xr kdc 8>."
+msgstr ""

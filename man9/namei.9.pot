@@ -1,0 +1,593 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/namei.9:36
+#, no-wrap
+msgid "May 23, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/namei.9:37
+#, no-wrap
+msgid "NAMEI 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:39
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:43
+msgid "E<.Nm namei>, E<.Nm NDINIT>, E<.Nm NDFREE>,"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/namei.9:43
+#, no-wrap
+msgid "pathname translation and lookup operations"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/namei.9:45
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/namei.9:46
+#, no-wrap
+msgid "sys/fcntl.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/namei.9:47
+#, no-wrap
+msgid "sys/namei.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:57
+msgid ""
+"E<.Ft int> E<.Fn namei \"struct nameidata *ndp\"> E<.Ft void> E<.Fo NDINIT> "
+"E<.Fa \"struct nameidata *ndp\" \"u_long op\" \"u_long flags\"> E<.Fa \"enum "
+"uio_seg segflg\" \"const char *namep\" \"struct thread *td\"> E<.Fc> E<.Ft "
+"void> E<.Fn NDFREE \"struct nameidata *ndp\" \"const uint flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:57
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:73
+msgid ""
+"The E<.Nm> facility allows the client to perform pathname translation and "
+"lookup operations.  The E<.Nm> functions will increment the reference count "
+"for the vnode in question.  The reference count has to be decremented after "
+"use of the vnode, by using either E<.Xr vrele 9> or E<.Xr vput 9>, depending "
+"on whether the E<.Dv LOCKLEAF> flag was specified or not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:80
+msgid ""
+"The E<.Fn NDINIT> function is used to initialize E<.Nm> components.  It "
+"takes the following arguments:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:81
+#, no-wrap
+msgid "Fa ndp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:85
+msgid "The E<.Vt \"struct nameidata\"> to initialize."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:85
+#, no-wrap
+msgid "Fa op"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:99
+msgid ""
+"The operation which E<.Fn namei> will perform.  The following operations are "
+"valid: E<.Dv LOOKUP , CREATE , DELETE>, and E<.Dv RENAME>.  The latter three "
+"are just setup for those effects; just calling E<.Fn namei> will not result "
+"in E<.Fn VOP_RENAME> being called."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:99
+#, no-wrap
+msgid "Fa flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:102
+msgid "Operation flags.  Several of these can be effective at the same time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:102
+#, no-wrap
+msgid "Fa segflg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:108
+msgid ""
+"UIO segment indicator.  This indicates if the name of the object is in "
+"userspace E<.Pq Dv UIO_USERSPACE> or in the kernel address space E<.Pq Dv "
+"UIO_SYSSPACE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:108
+#, no-wrap
+msgid "Fa namep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:111
+msgid ""
+"Pointer to the component's pathname buffer (the file or directory name that "
+"will be looked up)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:111
+#, no-wrap
+msgid "Fa td"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:115
+msgid "The thread context to use for E<.Nm> operations and locks."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:116
+#, no-wrap
+msgid "NAMEI OPERATION FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:122
+msgid ""
+"The E<.Fn namei> function takes the following set of E<.Dq \"operation "
+"flags\"> that influence its operation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:123
+#, no-wrap
+msgid "Dv LOCKLEAF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:139
+msgid ""
+"Lock vnode on return with E<.Dv LK_EXCLUSIVE> unless E<.Dv LOCKSHARED> is "
+"also set.  The E<.Xr VOP_UNLOCK 9> should be used to release the lock (or "
+"E<.Xr vput 9> which is equivalent to calling E<.Xr VOP_UNLOCK 9> followed by "
+"E<.Xr vrele 9>, all in one)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:139
+#, no-wrap
+msgid "Dv LOCKPARENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:156
+msgid ""
+"This flag lets the E<.Fn namei> function return the parent (directory) "
+"vnode, E<.Va ni_dvp> in locked state, unless it is identical to E<.Va "
+"ni_vp>, in which case E<.Va ni_dvp> is not locked per se (but may be locked "
+"due to E<.Dv LOCKLEAF>).  If a lock is enforced, it should be released using "
+"E<.Xr vput 9> or E<.Xr VOP_UNLOCK 9> and E<.Xr vrele 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:156
+#, no-wrap
+msgid "Dv LOCKSHARED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:169
+msgid ""
+"Lock vnode on return with E<.Dv LK_SHARED>.  The E<.Xr VOP_UNLOCK 9> should "
+"be used to release the lock (or E<.Xr vput 9> which is equivalent to calling "
+"E<.Xr VOP_UNLOCK 9> followed by E<.Xr vrele 9>, all in one)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:169
+#, no-wrap
+msgid "Dv WANTPARENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:175
+msgid ""
+"This flag allows the E<.Fn namei> function to return the parent (directory) "
+"vnode in an unlocked state.  The parent vnode must be released separately by "
+"using E<.Xr vrele 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:175
+#, no-wrap
+msgid "Dv NOCACHE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:184
+msgid ""
+"Avoid E<.Fn namei> creating this entry in the namecache if it is not already "
+"present.  Normally, E<.Fn namei> will add entries to the name cache if they "
+"are not already there."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:184
+#, no-wrap
+msgid "Dv FOLLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:190
+msgid ""
+"With this flag, E<.Fn namei> will follow the symbolic link if the last part "
+"of the path supplied is a symbolic link (i.e., it will return a vnode for "
+"whatever the link points at, instead for the link itself)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:190
+#, no-wrap
+msgid "Dv NOFOLLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:197
+msgid ""
+"Do not follow symbolic links (pseudo).  This flag is not looked for by the "
+"actual code, which looks for E<.Dv FOLLOW>.  E<.Dv NOFOLLOW> is used to "
+"indicate to the source code reader that symlinks are intentionally not "
+"followed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:197
+#, no-wrap
+msgid "Dv SAVENAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:204
+msgid ""
+"Do not free the pathname buffer at the end of the E<.Fn namei> invocation; "
+"instead, free it later in E<.Fn NDFREE> so that the caller may access the "
+"pathname buffer.  See below for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:204
+#, no-wrap
+msgid "Dv SAVESTART"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:208
+msgid ""
+"Retain an additional reference to the parent directory; do not free the "
+"pathname buffer.  See below for details."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:209
+#, no-wrap
+msgid "ALLOCATED ELEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:213
+msgid "The E<.Vt nameidata> structure is composed of the following fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:214
+#, no-wrap
+msgid "Va ni_startdir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:220
+msgid ""
+"In the normal case, this is either the current directory or the root.  It is "
+"the current directory if the name passed in does not start with E<.Ql /> and "
+"we have not gone through any symlinks with an absolute path, and the root "
+"otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:239
+msgid ""
+"In this case, it is only used by E<.Fn lookup>, and should not be considered "
+"valid after a call to E<.Fn namei>.  If E<.Dv SAVESTART> is set, this is set "
+"to the same as E<.Va ni_dvp>, with an extra E<.Xr vref 9>.  To block E<.Fn "
+"NDFREE> from releasing E<.Va ni_startdir>, the E<.Dv NDF_NO_STARTDIR_RELE> "
+"can be set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:239
+#, no-wrap
+msgid "Va ni_dvp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:256
+msgid ""
+"Vnode pointer to directory of the object on which lookup is performed.  This "
+"is available on successful return if E<.Dv LOCKPARENT> or E<.Dv WANTPARENT> "
+"is set.  It is locked if E<.Dv LOCKPARENT> is set.  Freeing this in E<.Fn "
+"NDFREE> can be inhibited by E<.Dv NDF_NO_DVP_RELE , NDF_NO_DVP_PUT>, or "
+"E<.Dv NDF_NO_DVP_UNLOCK> (with the obvious effects)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:256
+#, no-wrap
+msgid "Va ni_vp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:266
+msgid ""
+"Vnode pointer to the resulting object, E<.Dv NULL> otherwise.  The E<.Va "
+"v_usecount> field of this vnode is incremented.  If E<.Dv LOCKLEAF> is set, "
+"it is also locked."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:274
+msgid ""
+"Freeing this in E<.Fn NDFREE> can be inhibited by E<.Dv NDF_NO_VP_RELE , "
+"NDF_NO_VP_PUT>, or E<.Dv NDF_NO_VP_UNLOCK> (with the obvious effects)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:274
+#, no-wrap
+msgid "Va ni_cnd.cn_pnbuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:290
+msgid ""
+"The pathname buffer contains the location of the file or directory that will "
+"be used by the E<.Nm> operations.  It is managed by the E<.Xr uma 9> zone "
+"allocation interface.  If the E<.Dv SAVESTART> or E<.Dv SAVENAME> flag is "
+"set, then the pathname buffer is available after calling the E<.Fn namei> "
+"function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:304
+msgid ""
+"To only deallocate resources used by the pathname buffer, E<.Va "
+"ni_cnd.cn_pnbuf>, then E<.Dv NDF_ONLY_PNBUF> flag can be passed to the E<.Fn "
+"NDFREE> function.  To keep the pathname buffer intact, the E<.Dv "
+"NDF_NO_FREE_PNBUF> flag can be passed to the E<.Fn NDFREE> function."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:305
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:309
+msgid ""
+"If successful, E<.Fn namei> will return 0, otherwise it will return an "
+"error."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:309
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:311
+#, no-wrap
+msgid "Pa src/sys/kern/vfs_lookup.c"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:313
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:317
+msgid "Errors which E<.Fn namei> may return:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:318
+#, no-wrap
+msgid "Bq Er ENOTDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:321
+msgid ""
+"A component of the specified pathname is not a directory when a directory is "
+"expected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:321
+#, no-wrap
+msgid "Bq Er ENAMETOOLONG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:324
+msgid ""
+"A component of a pathname exceeded 255 characters, or an entire pathname "
+"exceeded 1023 characters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:324
+#, no-wrap
+msgid "Bq Er ENOENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:327
+msgid ""
+"A component of the specified pathname does not exist, or the pathname is an "
+"empty string."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:327
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:330
+msgid ""
+"An attempt is made to access a file in a way forbidden by its file access "
+"permissions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:330
+#, no-wrap
+msgid "Bq Er ELOOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:332
+msgid "Too many symbolic links were encountered in translating the pathname."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:332
+#, no-wrap
+msgid "Bq Er EISDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:334
+msgid "An attempt is made to open a directory with write mode specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:334
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:341
+msgid ""
+"The last component of the pathname specified for a E<.Dv DELETE> or E<.Dv "
+"RENAME> operation is E<.Ql \\&.>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/namei.9:341
+#, no-wrap
+msgid "Bq Er EROFS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:343
+msgid "An attempt is made to modify a file or directory on a read-only file system."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:344
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:351
+msgid ""
+"E<.Xr uio 9>, E<.Xr uma 9>, E<.Xr VFS 9>, E<.Xr vnode 9>, E<.Xr vput 9>, "
+"E<.Xr vref 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:351
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:357
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Eivind Eklund Aq Mt "
+"eivind@FreeBSD.org> and later significantly revised by E<.An Hiten M. Pandya "
+"Aq Mt hmp@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/namei.9:357
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/namei.9:368
+msgid ""
+"The E<.Dv LOCKPARENT> flag does not always result in the parent vnode being "
+"locked.  This results in complications when the E<.Dv LOCKPARENT> is used.  "
+"In order to solve this for the cases where both E<.Dv LOCKPARENT> and E<.Dv "
+"LOCKLEAF> are used, it is necessary to resort to recursive locking."
+msgstr ""

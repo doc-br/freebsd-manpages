@@ -1,0 +1,474 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/bhnd_erom.9:31
+#, no-wrap
+msgid "November 9, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/bhnd_erom.9:32
+#, no-wrap
+msgid "BHND_EROM 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bhnd_erom.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:53
+msgid ""
+"E<.Nm bhnd_erom>, E<.Nm bhnd_erom_alloc>, E<.Nm bhnd_erom_dump>, E<.Nm "
+"bhnd_erom_fini_static>, E<.Nm bhnd_erom_free>, E<.Nm "
+"bhnd_erom_free_core_table>, E<.Nm bhnd_erom_get_core_table>, E<.Nm "
+"bhnd_erom_init_static>, E<.Nm bhnd_erom_io>, E<.Nm bhnd_erom_io_fini>, E<.Nm "
+"bhnd_erom_io_map>, E<.Nm bhnd_erom_io_read>, E<.Nm bhnd_erom_iobus_init>, "
+"E<.Nm bhnd_erom_iores_new>, E<.Nm bhnd_erom_lookup_core>, E<.Nm "
+"bhnd_erom_lookup_core_addr>, E<.Nm bhnd_erom_probe>, E<.Nm "
+"bhnd_erom_probe_driver_classes>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/bhnd_erom.9:53
+#, no-wrap
+msgid "BHND device enumeration table parsing"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bhnd_erom.9:54
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bhnd_erom.9:55
+#, no-wrap
+msgid "dev/bhnd/bhnd.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bhnd_erom.9:56
+#, no-wrap
+msgid "dev/bhnd/bhnd_erom.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:130
+msgid ""
+"E<.Vt typedef struct bhnd_erom bhnd_erom_t>; E<.Vt typedef struct kobj_class "
+"bhnd_erom_class_t>; E<.Vt typedef struct bhnd_erom_static "
+"bhnd_erom_static_t>; E<.Ft int> E<.Fo bhnd_erom_probe> E<.Fa "
+"\"bhnd_erom_class_t *cls\"> E<.Fa \"struct bhnd_erom_io *eio\"> E<.Fa "
+"\"const struct bhnd_chipid *hint\"> E<.Fa \"struct bhnd_chipid *cid\"> "
+"E<.Fc> E<.Ft bhnd_erom_class_t *> E<.Fo bhnd_erom_probe_driver_classes> "
+"E<.Fa \"devclass_t bus_devclass\"> E<.Fa \"struct bhnd_erom_io *eio\"> E<.Fa "
+"\"const struct bhnd_chipid *hint\"> E<.Fa \"struct bhnd_chipid *cid\"> "
+"E<.Fc> E<.Ft bhnd_erom_t *> E<.Fo bhnd_erom_alloc> E<.Fa \"bhnd_erom_class_t "
+"*cls\"> E<.Fa \"const struct bhnd_chipid *cid\"> E<.Fa \"struct bhnd_erom_io "
+"*eio\"> E<.Fc> E<.Ft void> E<.Fo bhnd_erom_free> E<.Fa \"bhnd_erom_t "
+"*erom\"> E<.Fc> E<.Ft int> E<.Fo bhnd_erom_init_static> E<.Fa "
+"\"bhnd_erom_class_t *cls\"> E<.Fa \"bhnd_erom_t *erom\"> E<.Fa \"size_t "
+"esize\"> E<.Fa \"const struct bhnd_chipid *cid\"> E<.Fa \"struct "
+"bhnd_erom_io *eio\"> E<.Fc> E<.Ft void> E<.Fo bhnd_erom_fini_static> E<.Fa "
+"\"bhnd_erom_t *erom\"> E<.Fc> E<.Ft int> E<.Fo bhnd_erom_dump> E<.Fa "
+"\"bhnd_erom_t *erom\"> E<.Fc> E<.Ft int> E<.Fo bhnd_erom_get_core_table> "
+"E<.Fa \"bhnd_erom_t *erom\"> E<.Fa \"struct bhnd_core_info **cores\"> E<.Fa "
+"\"u_int *num_cores\"> E<.Fc> E<.Ft void> E<.Fo bhnd_erom_free_core_table> "
+"E<.Fa \"bhnd_erom_t *erom\"> E<.Fa \"struct bhnd_core_info *cores\"> E<.Fc> "
+"E<.Ft int> E<.Fo bhnd_erom_lookup_core> E<.Fa \"bhnd_erom_t *erom\"> E<.Fa "
+"\"const struct bhnd_core_match *desc\"> E<.Fa \"struct bhnd_core_info "
+"*core\"> E<.Fc> E<.Ft int> E<.Fo bhnd_erom_lookup_core_addr> E<.Fa "
+"\"bhnd_erom_t *erom\"> E<.Fa \"const struct bhnd_core_match *desc\"> E<.Fa "
+"\"bhnd_port_type type\"> E<.Fa \"u_int port\"> E<.Fa \"u_int region\"> E<.Fa "
+"\"struct bhnd_core_info *core\"> E<.Fa \"bhnd_addr_t *addr\"> E<.Fa "
+"\"bhnd_size_t *size\"> E<.Fc>"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/bhnd_erom.9:130 /usr/src/share/man/man9/bhnd_erom.9:338
+#, no-wrap
+msgid "Bus Space I/O"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:160
+msgid ""
+"E<.Ft struct bhnd_erom_io *> E<.Fo bhnd_erom_iores_new> E<.Fa \"device_t "
+"dev\"> E<.Fa \"int rid\"> E<.Fc> E<.Ft int> E<.Fo bhnd_erom_iobus_init> "
+"E<.Fa \"struct bhnd_erom_iobus *iobus\"> E<.Fa \"bhnd_addr_t addr\"> E<.Fa "
+"\"bhnd_size_t size\"> E<.Fa \"bus_space_tag_t bst\"> E<.Fa "
+"\"bus_space_handle_t bsh\"> E<.Fc> E<.Ft void> E<.Fo bhnd_erom_io_fini> "
+"E<.Fa \"struct bhnd_erom_io *eio\"> E<.Fc> E<.Ft int> E<.Fo "
+"bhnd_erom_io_map> E<.Fa \"struct bhnd_erom_io *eio\"> E<.Fa \"bhnd_addr_t "
+"addr\"> E<.Fa \"bhnd_size_t size\"> E<.Fc> E<.Ft uint32_t> E<.Fo "
+"bhnd_erom_io_read> E<.Fa \"struct bhnd_erom_io *eio\"> E<.Fa \"bhnd_size_t "
+"offset\"> E<.Fa \"u_int width\"> E<.Fc>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bhnd_erom.9:160
+#, no-wrap
+msgid "dev/bhnd/bhnd_eromvar.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:167
+#, no-wrap
+msgid ""
+"struct bhnd_erom_io {\n"
+"\tbhnd_erom_io_map_t\t*map;\n"
+"\tbhnd_erom_io_read_t\t*read;\n"
+"\tbhnd_erom_io_fini_t\t*fini;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:185
+msgid ""
+"E<.Ft typedef int> E<.Fo \\*(lpbhnd_erom_io_map_t\\*(rp> E<.Fa \"struct "
+"bhnd_erom_io *eio\"> E<.Fa \"bhnd_addr_t addr\"> E<.Fa \"bhnd_size_t size\"> "
+"E<.Fc> E<.Ft typedef uint32_t> E<.Fo \\*(lpbhnd_erom_io_read_t\\*(rp> E<.Fa "
+"\"struct bhnd_erom_io *eio\"> E<.Fa \"bhnd_size_t offset\"> E<.Fa \"u_int "
+"width\"> E<.Fc> E<.Ft typedef void> E<.Fo \"\\*(lpbhnd_erom_io_fini_t\\*(rp> "
+"E<.Fa \"struct bhnd_erom_io *eio\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bhnd_erom.9:185
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:192
+msgid ""
+"The E<.Nm> framework provides a common parser interface to the BHND device "
+"enumeration table formats supported by E<.Xr bhnd 4> bus drivers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:203
+msgid ""
+"The E<.Fn bhnd_erom_probe> function is used to identify a E<.Xr bhnd 4> bus "
+"device and determine whether the erom class E<.Fa cls> is capable of parsing "
+"its device enumeration table.  If successful, the probed chip identification "
+"is written to the location pointed to by E<.Fa cid>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:210
+msgid ""
+"A pointer to a bus I/O instance mapping the device registers of the first "
+"hardware core must be provided using the E<.Fa eio> argument.  The registers "
+"can be mapped using E<.Xr bhnd_erom_io_map 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:221
+msgid ""
+"On devices that do not provide standard E<.Xr bhnd_chipc 4> chip "
+"identification registers via the first hardware core, a pointer to chip "
+"information for the device must be specified using the E<.Fa hint> "
+"argument.  Otherwise, the E<.Fa hint> argument should be E<.Dv NULL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:237
+msgid ""
+"The E<.Fn bhnd_erom_probe_driver_classes> function is a convenience wrapper "
+"for E<.Fn bhnd_erom_probe>.  This function will iterate over all drivers "
+"instances in the device class E<.Fa bus_devclass>, using E<.Xr "
+"bhnd_driver_get_erom_class 9> to fetch each driver's erom class and probe "
+"the hardware core mapped by E<.Fa eio>.  A pointer to the erom class with "
+"the highest probe priority is returned on success.  If there are no "
+"successful probe results from the erom classes, E<.Dv NULL> is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:252
+msgid ""
+"The E<.Fn bhnd_erom_alloc> function allocates and returns a new parser "
+"instance of the device enumeration class E<.Fa cls> for the chip identified "
+"by E<.Fa cid>, using the bus I/O instance E<.Fa eio> to map and read the "
+"device table.  On success, the returned E<.Vt bhnd_erom_t> assumes ownership "
+"of E<.Fa eio>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:258
+msgid ""
+"The E<.Fn bhnd_erom_free> function releases all resources held by an erom "
+"parser successfully allocated using E<.Fn bhnd_erom_alloc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:270
+msgid ""
+"Clients can manage the allocation of memory themselves with E<.Fn "
+"bhnd_erom_init_static>.  This is useful in cases like performing device "
+"enumeration before E<.Xr malloc 9> initialization.  E<.Fn "
+"bhnd_erom_init_static> is called with E<.Fa erom> set to a pointer to the "
+"memory for the instance, and the total available bytes in E<.Fa esize>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:279
+msgid ""
+"The E<.Vt bhnd_erom_static> structure is large enough to statically allocate "
+"any supported parser class instance state.  Pointers to a E<.Vt "
+"bhnd_erom_static> structure can be cast to E<.Vt bhnd_erom_t>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:285
+msgid ""
+"The E<.Fn bhnd_erom_fini_static> function releases all resources held by an "
+"erom parser successfully initialized using E<.Fn bhnd_erom_init_static>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:290
+msgid ""
+"The E<.Fn bhnd_erom_dump> function enumerates and prints all device table "
+"entries in E<.Fa erom>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:301
+msgid ""
+"The E<.Fn bhnd_erom_get_core_table> function enumerates all device table "
+"entries in E<.Fa erom>, returning a table of core information structures in "
+"E<.Fa cores> and the count in E<.Fa num_cores>.  The memory allocated for "
+"the table must be freed using E<.Fn bhnd_erom_free_core_table>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:306
+msgid ""
+"The E<.Fn bhnd_erom_free_core_table> function frees any memory allocated in "
+"a previous call to E<.Fn bhnd_erom_get_core_table>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:315
+msgid ""
+"The E<.Fn bhnd_erom_lookup_core> function locates the first device table "
+"entry in E<.Fa erom> that matches core match descriptor E<.Fa desc>, writing "
+"the core information of the matching entry to E<.Fa core>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:338
+msgid ""
+"The E<.Fn bhnd_erom_lookup_core_addr> function locates the first device "
+"table entry in E<.Fa erom> that matches core match descriptor E<.Fa desc>, "
+"fetching the base address and size of the memory region E<.Fa region> mapped "
+"to the port E<.Fa port> of type E<.Fa type>.  On success, the core "
+"information of the matching entry is written to E<.Fa core>, the base "
+"address of the port region is written to E<.Fa addr>, and the total size of "
+"the port region is written to E<.Fa size>.  If the core information is not "
+"desired, set E<.Fa core> to E<.Dv NULL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:352
+msgid ""
+"The E<.Vt bhnd_erom_io> structure provides a set of I/O callbacks used by "
+"E<.Nm> to map and read the device enumeration table.  Clients may either use "
+"the existing E<.Fn bhnd_erom_iores_new> or E<.Fn bhnd_erom_iobus_init> "
+"functions to allocate a bus I/O instance, or implement the E<.Vt "
+"bhnd_erom_io> callbacks directly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:356
+msgid "The E<.Vt bhnd_erom_io> structure contains these required fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bhnd_erom.9:358
+#, no-wrap
+msgid "Fa map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:361
+msgid "A function implementing E<.Fn bhnd_erom_io_map>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bhnd_erom.9:361
+#, no-wrap
+msgid "Fa read"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:364
+msgid "A function implementing E<.Fn bhnd_erom_io_read>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/bhnd_erom.9:364
+#, no-wrap
+msgid "Fa fini"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:367
+msgid "A function implementing E<.Fn bhnd_erom_io_fini>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:380
+msgid ""
+"The E<.Fn bhnd_erom_iores_new> function allocates and returns a new bus I/O "
+"instance that will perform mapping by using E<.Xr bhnd_alloc_resource 9> to "
+"allocate E<.Dv SYS_RES_MEMORY> bus resources on demand from the device E<.Fa "
+"dev> using a resource ID of E<.Fa rid>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:396
+msgid ""
+"The E<.Fn bhnd_erom_iobus_init> function initializes a caller-allocated bus "
+"I/O instance E<.Fa iobus> that will perform bus I/O using the bus space tag "
+"E<.Fa bst> and handle E<.Fa bsh>.  The base address and total size mapped by "
+"E<.Fa bsh> should be specified using the E<.Fa addr> and E<.Fa size> "
+"arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:401
+msgid ""
+"The E<.Fn bhnd_erom_io_fini> function frees all resources held by the bus "
+"I/O instance E<.Fa eio>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:412
+msgid ""
+"The E<.Fn bhnd_erom_io_map> function is used to request that the bus I/O "
+"instance E<.Fa eio> map E<.Xr bhnd 4> bus space at bus address E<.Fa addr> "
+"with a mapping of size E<.Fa size>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:423
+msgid ""
+"The E<.Fn bhnd_erom_io_read> function is used to read a data item of E<.Fa "
+"width> bytes from the bus I/O instance E<.Fa eio> at E<.Fa offset>, relative "
+"to the bus address previously mapped using E<.Fn bhnd_erom_io_map>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:427
+msgid "The E<.Fa width> must be one of 1, 2, or 4 bytes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bhnd_erom.9:428
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:434
+msgid ""
+"The E<.Fn bhnd_erom_probe> function returns a standard E<.Xr DEVICE_PROBE 9> "
+"result."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:442
+msgid ""
+"A return value equal to or less than zero indicates success.  Values greater "
+"than zero indicates an error, and will be an appropriate error code.  For "
+"values less than or equal to zero, the erom class returning the highest "
+"value should be used to parse the erom table.  E<.Er ENXIO> is returned if "
+"the device is not supported by the parser."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:448
+msgid ""
+"The E<.Fn bhnd_erom_probe_driver_classes> function returns a pointer to the "
+"probed E<.Vt bhnd_erom_class_t> instance on success, a null pointer "
+"otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:456
+msgid ""
+"The E<.Fn bhnd_erom_alloc> function returns a pointer to E<.Vt bhnd_erom_t> "
+"on success, or E<.Dv NULL> if an error occurred allocating or initializing "
+"the EROM parser."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:463
+msgid ""
+"The E<.Fn bhnd_erom_init_static> function returns 0 on success, E<.Er "
+"ENOMEM> if the allocation size is smaller than required by the erom class, "
+"or an appropriate error code if initialization otherwise fails."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:470
+msgid ""
+"The E<.Fn bhnd_erom_lookup_core> function returns 0 on success, E<.Er "
+"ENOENT> if no matching core is found, or an appropriate error code if "
+"parsing the device table otherwise fails."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:477
+msgid ""
+"The E<.Fn bhnd_erom_dump>, E<.Fn bhnd_erom_get_core_table>, E<.Fn "
+"bhnd_erom_iobus_init>, E<.Fn bhnd_erom_io_map>, functions return 0 on "
+"success, otherwise an appropriate error code is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bhnd_erom.9:477
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:483
+msgid ""
+"E<.Xr bhnd 4>, E<.Xr bhnd 9>, E<.Xr bhnd_alloc_resource 9> E<.Xr "
+"bhnd_driver_get_erom_class 9> E<.Xr bus_space 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bhnd_erom.9:483
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bhnd_erom.9:488
+msgid ""
+"E<.An -nosplit> The E<.Nm> framework and this manual page were written by "
+"E<.An Landon Fuller Aq Mt landonf@FreeBSD.org>."
+msgstr ""

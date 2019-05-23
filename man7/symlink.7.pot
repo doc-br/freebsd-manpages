@@ -1,0 +1,425 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/bin/ln/symlink.7:32
+#, no-wrap
+msgid "February 16, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/bin/ln/symlink.7:33
+#, no-wrap
+msgid "SYMLINK 7"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ln/symlink.7:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:37
+msgid "E<.Nm symlink>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/bin/ln/symlink.7:37
+#, no-wrap
+msgid "symbolic link handling"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ln/symlink.7:38
+#, no-wrap
+msgid "SYMBOLIC LINK HANDLING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:52
+msgid ""
+"Symbolic links are files that act as pointers to other files.  To understand "
+"their behavior, you must first understand how hard links work.  A hard link "
+"to a file is indistinguishable from the original file because it is a "
+"reference to the object underlying the original file name.  Changes to a "
+"file are independent of the name used to reference the file.  Hard links may "
+"not refer to directories and may not reference files on different file "
+"systems.  A symbolic link contains the name of the file to which it is "
+"linked, i.e., it is a pointer to another name, and not to an underlying "
+"object.  For this reason, symbolic links may reference directories and may "
+"span file systems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:62
+msgid ""
+"Because a symbolic link and its referenced object coexist in the file system "
+"name space, confusion can arise in distinguishing between the link itself "
+"and the referenced object.  Historically, commands and system calls have "
+"adopted their own link following conventions in a somewhat ad-hoc fashion.  "
+"Rules for more a uniform approach, as they are implemented in this system, "
+"are outlined here.  It is important that local applications conform to these "
+"rules, too, so that the user interface can be as consistent as possible."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:77
+msgid ""
+"Symbolic links are handled either by operating on the link itself, or by "
+"operating on the object referenced by the link.  In the latter case, an "
+"application or system call is said to E<.Dq follow> the link.  Symbolic "
+"links may reference other symbolic links, in which case the links are "
+"dereferenced until an object that is not a symbolic link is found, a "
+"symbolic link which references a file which does not exist is found, or a "
+"loop is detected.  (Loop detection is done by placing an upper limit on the "
+"number of links that may be followed, and an error results if this limit is "
+"exceeded.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:80
+msgid ""
+"There are three separate areas that need to be discussed.  They are as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:84
+msgid "Symbolic links used as file name arguments for system calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:87
+msgid ""
+"Symbolic links specified as command line arguments to utilities that are not "
+"traversing a file tree."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:91
+msgid ""
+"Symbolic links encountered by utilities that are traversing a file tree "
+"(either specified on the command line or encountered as part of the file "
+"hierarchy walk)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/bin/ln/symlink.7:92
+#, no-wrap
+msgid "System calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:95
+msgid ""
+"The first area is symbolic links used as file name arguments for system "
+"calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:105
+msgid ""
+"Except as noted below, all system calls follow symbolic links.  For example, "
+"if there were a symbolic link E<.Dq Li slink> which pointed to a file named "
+"E<.Dq Li afile>, the system call E<.Dq Li open(\"slink\" ...\\&)> would "
+"return a file descriptor to the file E<.Dq afile>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:137
+msgid ""
+"There are thirteen system calls that do not follow links, and which operate "
+"on the symbolic link itself.  They are: E<.Xr lchflags 2>, E<.Xr lchmod 2>, "
+"E<.Xr lchown 2>, E<.Xr lpathconf 2>, E<.Xr lstat 2>, E<.Xr lutimes 2>, E<.Xr "
+"readlink 2>, E<.Xr readlinkat 2>, E<.Xr rename 2>, E<.Xr renameat 2>, E<.Xr "
+"rmdir 2>, E<.Xr unlink 2>, and E<.Xr unlinkat 2>.  Because E<.Xr remove 3> "
+"is an alias for E<.Xr unlink 2>, it also does not follow symbolic links.  "
+"When E<.Xr rmdir 2> or E<.Xr unlinkat 2> with the E<.Dv AT_REMOVEDIR> flag "
+"is applied to a symbolic link, it fails with the error E<.Er ENOTDIR>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:144
+msgid ""
+"The E<.Xr linkat 2> system call does not follow symbolic links unless given "
+"the E<.Dv AT_SYMLINK_FOLLOW> flag."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:155
+msgid ""
+"The following system calls follow symbolic links unless given the E<.Dv "
+"AT_SYMLINK_NOFOLLOW> flag: E<.Xr chflagsat 2>, E<.Xr fchmodat 2>, E<.Xr "
+"fchownat 2>, E<.Xr fstatat 2> and E<.Xr utimensat 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:170
+msgid ""
+"The owner and group of an existing symbolic link can be changed by means of "
+"the E<.Xr lchown 2> system call.  The flags, access permissions, owner/group "
+"and modification time of an existing symbolic link can be changed by means "
+"of the E<.Xr lchflags 2>, E<.Xr lchmod 2>, E<.Xr lchown 2>, and E<.Xr "
+"lutimes 2> system calls, respectively.  Of these, only the flags and "
+"ownership are used by the system; the access permissions are ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:183
+msgid ""
+"The E<.Bx 4.4> system differs from historical E<.Bx 4> systems in that the "
+"system call E<.Xr chown 2> has been changed to follow symbolic links.  The "
+"E<.Xr lchown 2> system call was added later when the limitations of the new "
+"E<.Xr chown 2> became apparent."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/bin/ln/symlink.7:183
+#, no-wrap
+msgid "Commands not traversing a file tree."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:186
+msgid ""
+"The second area is symbolic links, specified as command line file name "
+"arguments, to commands which are not traversing a file tree."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:197
+msgid ""
+"Except as noted below, commands follow symbolic links named as command line "
+"arguments.  For example, if there were a symbolic link E<.Dq Li slink> which "
+"pointed to a file named E<.Dq Li afile>, the command E<.Dq Li cat slink> "
+"would display the contents of the file E<.Dq Li afile>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:205
+msgid ""
+"It is important to realize that this rule includes commands which may "
+"optionally traverse file trees, e.g.\\& the command E<.Dq Li \"chown file\"> "
+"is included in this rule, while the command E<.Dq Li \"chown -R file\"> is "
+"not.  (The latter is described in the third area, below.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:223
+msgid ""
+"If it is explicitly intended that the command operate on the symbolic link "
+"instead of following the symbolic link, e.g., it is desired that E<.Dq Li "
+"\"chown slink\"> change the ownership of the file that E<.Dq Li slink> is, "
+"whether it is a symbolic link or not, the E<.Fl h> option should be used.  "
+"In the above example, E<.Dq Li \"chown root slink\"> would change the "
+"ownership of the file referenced by E<.Dq Li slink>, while E<.Dq Li \"chown "
+"-h root slink\"> would change the ownership of E<.Dq Li slink> itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:234
+msgid ""
+"There are five exceptions to this rule.  The E<.Xr mv 1> and E<.Xr rm 1> "
+"commands do not follow symbolic links named as arguments, but respectively "
+"attempt to rename and delete them.  (Note, if the symbolic link references a "
+"file via a relative path, moving it to another directory may very well cause "
+"it to stop working, since the path may no longer be correct.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:264
+msgid ""
+"The E<.Xr ls 1> command is also an exception to this rule.  For "
+"compatibility with historic systems (when E<.Nm ls> is not doing a tree "
+"walk, i.e., the E<.Fl R> option is not specified), the E<.Nm ls> command "
+"follows symbolic links named as arguments if the E<.Fl H> or E<.Fl L> option "
+"is specified, or if the E<.Fl F>, E<.Fl d> or E<.Fl l> options are not "
+"specified.  (The E<.Nm ls> command is the only command where the E<.Fl H> "
+"and E<.Fl L> options affect its behavior even though it is not doing a walk "
+"of a file tree.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:275
+msgid ""
+"The E<.Xr file 1> and E<.Xr stat 1> commands are also exceptions to this "
+"rule.  These commands do not follow symbolic links named as argument by "
+"default, but do follow symbolic links named as argument if the E<.Fl L> "
+"option is specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:285
+msgid ""
+"The E<.Bx 4.4> system differs from historical E<.Bx 4> systems in that the "
+"E<.Nm chown> and E<.Nm chgrp> commands follow symbolic links specified on "
+"the command line."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/bin/ln/symlink.7:285
+#, no-wrap
+msgid "Commands traversing a file tree."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:299
+msgid ""
+"The following commands either optionally or always traverse file trees: "
+"E<.Xr chflags 1>, E<.Xr chgrp 1>, E<.Xr chmod 1>, E<.Xr cp 1>, E<.Xr du 1>, "
+"E<.Xr find 1>, E<.Xr ls 1>, E<.Xr pax 1>, E<.Xr rm 1>, E<.Xr tar 1> and "
+"E<.Xr chown 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:303
+msgid ""
+"It is important to realize that the following rules apply equally to "
+"symbolic links encountered during the file tree traversal and symbolic links "
+"listed as command line arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:308
+msgid ""
+"The first rule applies to symbolic links that reference files that are not "
+"of type directory.  Operations that apply to symbolic links are performed on "
+"the links themselves, but otherwise the links are ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:321
+msgid ""
+"The command E<.Dq Li \"rm -r slink directory\"> will remove E<.Dq Li slink>, "
+"as well as any symbolic links encountered in the tree traversal of E<.Dq Li "
+"directory>, because symbolic links may be removed.  In no case will E<.Nm "
+"rm> affect the file which E<.Dq Li slink> references in any way."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:332
+msgid ""
+"The second rule applies to symbolic links that reference files of type "
+"directory.  Symbolic links which reference files of type directory are never "
+"E<.Dq followed> by default.  This is often referred to as a E<.Dq physical> "
+"walk, as opposed to a E<.Dq logical> walk (where symbolic links referencing "
+"directories are followed)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:347
+msgid ""
+"As consistently as possible, you can make commands doing a file tree walk "
+"follow any symbolic links named on the command line, regardless of the type "
+"of file they reference, by specifying the E<.Fl H> (for E<.Dq "
+"half\\-logical>)  flag.  This flag is intended to make the command line name "
+"space look like the logical name space.  (Note, for commands that do not "
+"always do file tree traversals, the E<.Fl H> flag will be ignored if the "
+"E<.Fl R> flag is not also specified.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:363
+msgid ""
+"For example, the command E<.Dq Li \"chown -HR user slink\"> will traverse "
+"the file hierarchy rooted in the file pointed to by E<.Dq Li slink>.  Note, "
+"the E<.Fl H> is not the same as the previously discussed E<.Fl h> flag.  The "
+"E<.Fl H> flag causes symbolic links specified on the command line to be "
+"dereferenced both for the purposes of the action to be performed and the "
+"tree walk, and it is as if the user had specified the name of the file to "
+"which the symbolic link pointed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:379
+msgid ""
+"As consistently as possible, you can make commands doing a file tree walk "
+"follow any symbolic links named on the command line, as well as any symbolic "
+"links encountered during the traversal, regardless of the type of file they "
+"reference, by specifying the E<.Fl L> (for E<.Dq logical>)  flag.  This flag "
+"is intended to make the entire name space look like the logical name space.  "
+"(Note, for commands that do not always do file tree traversals, the E<.Fl L> "
+"flag will be ignored if the E<.Fl R> flag is not also specified.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:394
+msgid ""
+"For example, the command E<.Dq Li \"chown -LR user slink\"> will change the "
+"owner of the file referenced by E<.Dq Li slink>.  If E<.Dq Li slink> "
+"references a directory, E<.Nm chown> will traverse the file hierarchy rooted "
+"in the directory that it references.  In addition, if any symbolic links are "
+"encountered in any file tree that E<.Nm chown> traverses, they will be "
+"treated in the same fashion as E<.Dq Li slink>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:403
+msgid ""
+"As consistently as possible, you can specify the default behavior by "
+"specifying the E<.Fl P> (for E<.Dq physical>)  flag.  This flag is intended "
+"to make the entire name space look like the physical name space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:421
+msgid ""
+"For commands that do not by default do file tree traversals, the E<.Fl H>, "
+"E<.Fl L> and E<.Fl P> flags are ignored if the E<.Fl R> flag is not also "
+"specified.  In addition, you may specify the E<.Fl H>, E<.Fl L> and E<.Fl P> "
+"options more than once; the last one specified determines the command's "
+"behavior.  This is intended to permit you to alias commands to behave one "
+"way or the other, and then override that behavior on the command line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:439
+msgid ""
+"The E<.Xr ls 1> and E<.Xr rm 1> commands have exceptions to these rules.  "
+"The E<.Nm rm> command operates on the symbolic link, and not the file it "
+"references, and therefore never follows a symbolic link.  The E<.Nm rm> "
+"command does not support the E<.Fl H>, E<.Fl L> or E<.Fl P> options."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:459
+msgid ""
+"To maintain compatibility with historic systems, the E<.Nm ls> command acts "
+"a little differently.  If you do not specify the E<.Fl F>, E<.Fl d> or E<.Fl "
+"l> options, E<.Nm ls> will follow symbolic links specified on the command "
+"line.  If the E<.Fl L> flag is specified, E<.Nm ls> follows all symbolic "
+"links, regardless of their type, whether specified on the command line or "
+"encountered in the tree walk."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ln/symlink.7:459
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ln/symlink.7:483
+msgid ""
+"E<.Xr chflags 1>, E<.Xr chgrp 1>, E<.Xr chmod 1>, E<.Xr cp 1>, E<.Xr du 1>, "
+"E<.Xr find 1>, E<.Xr ln 1>, E<.Xr ls 1>, E<.Xr mv 1>, E<.Xr pax 1>, E<.Xr rm "
+"1>, E<.Xr tar 1>, E<.Xr lchflags 2>, E<.Xr lchmod 2>, E<.Xr lchown 2>, E<.Xr "
+"lstat 2>, E<.Xr lutimes 2>, E<.Xr readlink 2>, E<.Xr rename 2>, E<.Xr "
+"symlink 2>, E<.Xr unlink 2>, E<.Xr fts 3>, E<.Xr remove 3>, E<.Xr chown 8>"
+msgstr ""

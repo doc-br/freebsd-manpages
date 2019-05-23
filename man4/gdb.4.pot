@@ -1,0 +1,1223 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/gdb.4:27
+#, no-wrap
+msgid "May 17, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/gdb.4:28
+#, no-wrap
+msgid "GDB 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:32
+msgid "E<.Nm gdb>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/gdb.4:32
+#, no-wrap
+msgid "external kernel debugger"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:36
+msgid "E<.Cd \"makeoptions DEBUG=-g\"> E<.Cd \"options DDB\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:45
+msgid ""
+"The E<.Nm> kernel debugger is a variation of E<.Xr gdb 1> which understands "
+"some aspects of the E<.Fx> kernel environment.  It can be used in a number "
+"of ways:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:48
+msgid "It can be used to examine the memory of the processor on which it runs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:50
+msgid "It can be used to analyse a processor dump after a panic."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:54
+msgid ""
+"It can be used to debug another system interactively via a serial or "
+"firewire link.  In this mode, the processor can be stopped and single "
+"stepped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:59
+msgid ""
+"With a firewire link, it can be used to examine the memory of a remote "
+"system without the participation of that system.  In this mode, the "
+"processor cannot be stopped and single stepped, but it can be of use when "
+"the remote system has crashed and is no longer responding."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:70
+msgid ""
+"When used for remote debugging, E<.Nm> requires the presence of the E<.Xr "
+"ddb 4> kernel debugger.  Commands exist to switch between E<.Nm> and E<.Xr "
+"ddb 4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:70
+#, no-wrap
+msgid "PREPARING FOR DEBUGGING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:76
+msgid ""
+"When debugging kernels, it is practically essential to have built a kernel "
+"with debugging symbols E<.Pq Cd \"makeoptions DEBUG=-g\">.  It is easiest to "
+"perform operations from the kernel build directory, by default E<.Pa "
+"/usr/obj/usr/src/sys/GENERIC>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:78
+msgid "First, ensure you have a copy of the debug macros in the directory:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:79
+#, no-wrap
+msgid "make gdbinit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:84
+msgid ""
+"This command performs some transformations on the macros installed in E<.Pa "
+"/usr/src/tools/debugscripts> to adapt them to the local environment."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:84
+#, no-wrap
+msgid "Inspecting the environment of the local machine"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:87
+msgid ""
+"To look at and change the contents of the memory of the system you are "
+"running on,"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:88
+#, no-wrap
+msgid "gdb -k -wcore kernel.debug /dev/mem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:105
+msgid ""
+"In this mode, you need the E<.Fl k> flag to indicate to E<.Xr gdb 1> that "
+"the E<.Dq \"dump file\"> E<.Pa /dev/mem> is a kernel data file.  You can "
+"look at live data, and if you include the E<.Fl wcore> option, you can "
+"change it at your peril.  The system does not stop (obviously), so a number "
+"of things will not work.  You can set breakpoints, but you cannot E<.Dq "
+"continue> execution, so they will not work."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:105
+#, no-wrap
+msgid "Debugging a crash dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:109
+msgid ""
+"By default, crash dumps are stored in the directory E<.Pa /var/crash>.  "
+"Investigate them from the kernel build directory with:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:110
+#, no-wrap
+msgid "gdb -k kernel.debug /var/crash/vmcore.29"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:113
+msgid "In this mode, the system is obviously stopped, so you can only look at it."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:113
+#, no-wrap
+msgid "Debugging a live system with a remote link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:119
+msgid ""
+"In the following discussion, the term E<.Dq \"local system\"> refers to the "
+"system running the debugger, and E<.Dq \"remote system\"> refers to the live "
+"system being debugged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:128
+msgid ""
+"To debug a live system with a remote link, the kernel must be compiled with "
+"the option E<.Cd \"options DDB\">.  The option E<.Cd \"options "
+"BREAK_TO_DEBUGGER\"> enables the debugging machine stop the debugged machine "
+"once a connection has been established by pressing E<.Ql ^C>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:128
+#, no-wrap
+msgid "Debugging a live system with a remote serial link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:138
+msgid ""
+"When using a serial port for the remote link on the i386 platform, the "
+"serial port must be identified by setting the flag bit E<.Li 0x80> for the "
+"specified interface.  Generally, this port will also be used as a serial "
+"console (flag bit E<.Li 0x10>), so the entry in E<.Pa /boot/device.hints> "
+"should be:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:139
+#, no-wrap
+msgid "hint.sio.0.flags=\"0x90\""
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:140
+#, no-wrap
+msgid "Debugging a live system with a remote firewire link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:144
+msgid ""
+"As with serial debugging, to debug a live system with a firewire link, the "
+"kernel must be compiled with the option E<.Cd \"options DDB\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:146
+msgid "A number of steps must be performed to set up a firewire link:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:156
+msgid ""
+"Ensure that both systems have E<.Xr firewire 4> support, and that the kernel "
+"of the remote system includes the E<.Xr dcons 4> and E<.Xr dcons_crom 4> "
+"drivers.  If they are not compiled into the kernel, load the KLDs:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:157
+#, no-wrap
+msgid "kldload firewire"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:160
+msgid "On the remote system only:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:163
+#, no-wrap
+msgid ""
+"kldload dcons\n"
+"kldload dcons_crom\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:168
+msgid ""
+"You should see something like this in the E<.Xr dmesg 8> output of the "
+"remote system:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:176
+#, no-wrap
+msgid ""
+"fwohci0: BUS reset\n"
+"fwohci0: node_id=0x8800ffc0, gen=2, non CYCLEMASTER mode\n"
+"firewire0: 2 nodes, maxhop E<lt>= 1, cable IRM = 1\n"
+"firewire0: bus manager 1\n"
+"firewire0: New S400 device ID:00c04f3226e88061\n"
+"dcons_crom0: E<lt>dcons configuration ROME<gt> on firewire0\n"
+"dcons_crom0: bus_addr 0x22a000\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:180
+msgid ""
+"It is a good idea to load these modules at boot time with the following "
+"entry in E<.Pa /boot/loader.conf>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:181
+#, no-wrap
+msgid "dcons_crom_enable=\"YES\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:192
+msgid ""
+"This ensures that all three modules are loaded.  There is no harm in loading "
+"E<.Xr dcons 4> and E<.Xr dcons_crom 4> on the local system, but if you only "
+"want to load the E<.Xr firewire 4> module, include the following in E<.Pa "
+"/boot/loader.conf>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:193
+#, no-wrap
+msgid "firewire_enable=\"YES\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:199
+msgid ""
+"Next, use E<.Xr fwcontrol 8> to find the firewire node corresponding to the "
+"remote machine.  On the local machine you might see:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:205
+#, no-wrap
+msgid ""
+"# fwcontrol\n"
+"2 devices (info_len=2)\n"
+"node        EUI64        status\n"
+"   1  0x00c04f3226e88061      0\n"
+"   0  0x000199000003622b      1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:212
+msgid ""
+"The first node is always the local system, so in this case, node 0 is the "
+"remote system.  If there are more than two systems, check from the other end "
+"to find which node corresponds to the remote system.  On the remote machine, "
+"it looks like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:218 /usr/src/share/man/man4/gdb.4:309
+#, no-wrap
+msgid ""
+"# fwcontrol\n"
+"2 devices (info_len=2)\n"
+"node        EUI64        status\n"
+"   0  0x000199000003622b      0\n"
+"   1  0x00c04f3226e88061      1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:222
+msgid "Next, establish a firewire connection with E<.Xr dconschat 8>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:223
+#, no-wrap
+msgid "dconschat -br -G 5556 -t 0x000199000003622b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:241
+msgid ""
+"E<.Li 0x000199000003622b> is the EUI64 address of the remote node, as "
+"determined from the output of E<.Xr fwcontrol 8> above.  When started in "
+"this manner, E<.Xr dconschat 8> establishes a local tunnel connection from "
+"port E<.Li localhost:5556> to the remote debugger.  You can also establish a "
+"console port connection with the E<.Fl C> option to the same invocation "
+"E<.Xr dconschat 8>.  See the E<.Xr dconschat 8> manpage for further details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:248
+msgid ""
+"The E<.Xr dconschat 8> utility does not return control to the user.  It "
+"displays error messages and console output for the remote system, so it is a "
+"good idea to start it in its own window."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:250
+msgid "Finally, establish connection:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:258
+#, no-wrap
+msgid ""
+"# gdb kernel.debug\n"
+"GNU gdb 5.2.1 (FreeBSD)\n"
+"E<.Em \"(political statements omitted)\">\n"
+"Ready to go.  Enter 'tr' to connect to the remote target\n"
+"with /dev/cuau0, 'tr /dev/cuau1' to connect to a different port\n"
+"or 'trf portno' to connect to the remote target with the firewire\n"
+"interface.  portno defaults to 5556.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:260
+#, no-wrap
+msgid "Type 'getsyms' after connection to load kld symbols.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:265
+#, no-wrap
+msgid ""
+"If you are debugging a local system, you can use 'kldsyms' instead\n"
+"to load the kld symbols.  That is a less obnoxious interface.\n"
+"(gdb) trf\n"
+"0xc21bd378 in ?? ()\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:278
+msgid ""
+"The E<.Ic trf> macro assumes a connection on port 5556.  If you want to use "
+"a different port (by changing the invocation of E<.Xr dconschat 8> above), "
+"use the E<.Ic tr> macro instead.  For example, if you want to use port 4711, "
+"run E<.Xr dconschat 8> like this:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:279
+#, no-wrap
+msgid "dconschat -br -G 4711 -t 0x000199000003622b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:282
+msgid "Then establish connection with:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:285
+#, no-wrap
+msgid ""
+"(gdb) tr localhost:4711\n"
+"0xc21bd378 in ?? ()\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:287
+#, no-wrap
+msgid "Non-cooperative debugging a live system with a remote firewire link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:303
+msgid ""
+"In addition to the conventional debugging via firewire described in the "
+"previous section, it is possible to debug a remote system without its "
+"cooperation, once an initial connection has been established.  This "
+"corresponds to debugging a local machine using E<.Pa /dev/mem>.  It can be "
+"very useful if a system crashes and the debugger no longer responds.  To use "
+"this method, set the E<.Xr sysctl 8> variables E<.Va "
+"hw.firewire.fwmem.eui64_hi> and E<.Va hw.firewire.fwmem.eui64_lo> to the "
+"upper and lower halves of the EUI64 ID of the remote system, respectively.  "
+"From the previous example, the remote machine shows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:312
+msgid "Enter:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:317
+#, no-wrap
+msgid ""
+"# sysctl -w hw.firewire.fwmem.eui64_hi=0x00019900\n"
+"hw.firewire.fwmem.eui64_hi: 0 -E<gt> 104704\n"
+"# sysctl -w hw.firewire.fwmem.eui64_lo=0x0003622b\n"
+"hw.firewire.fwmem.eui64_lo: 0 -E<gt> 221739\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:321
+msgid ""
+"Note that the variables must be explicitly stated in hexadecimal.  After "
+"this, you can examine the remote machine's state with the following input:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:331
+#, no-wrap
+msgid ""
+"# gdb -k kernel.debug /dev/fwmem0.0\n"
+"GNU gdb 5.2.1 (FreeBSD)\n"
+"E<.Em \"(messages omitted)\">\n"
+"Reading symbols from /boot/kernel/dcons.ko...done.\n"
+"Loaded symbols for /boot/kernel/dcons.ko\n"
+"Reading symbols from /boot/kernel/dcons_crom.ko...done.\n"
+"Loaded symbols for /boot/kernel/dcons_crom.ko\n"
+"#0  sched_switch (td=0xc0922fe0) at /usr/src/sys/kern/sched_4bsd.c:621\n"
+"0xc21bd378 in ?? ()\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:335
+msgid ""
+"In this case, it is not necessary to load the symbols explicitly.  The "
+"remote system continues to run."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:335
+#, no-wrap
+msgid "COMMANDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:345
+msgid ""
+"The user interface to E<.Nm> is via E<.Xr gdb 1>, so E<.Xr gdb 1> commands "
+"also work.  This section discusses only the extensions for kernel debugging "
+"that get installed in the kernel build directory."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:345
+#, no-wrap
+msgid "Debugging environment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:347
+msgid "The following macros manipulate the debugging environment:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:348
+#, no-wrap
+msgid "Ic ddb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:352
+msgid ""
+"Switch back to E<.Xr ddb 4>.  This command is only meaningful when "
+"performing remote debugging."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:352
+#, no-wrap
+msgid "Ic getsyms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:363
+msgid ""
+"Display E<.Ic kldstat> information for the target machine and invite user to "
+"paste it back in.  This is required because E<.Nm> does not allow data to be "
+"passed to shell scripts.  It is necessary for remote debugging and crash "
+"dumps; for local memory debugging use E<.Ic kldsyms> instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:363
+#, no-wrap
+msgid "Ic kldsyms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:369
+msgid ""
+"Read in the symbol tables for the debugging machine.  This does not work for "
+"remote debugging and crash dumps; use E<.Ic getsyms> instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:369
+#, no-wrap
+msgid "Ic tr Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:371
+msgid "Debug a remote system via the specified serial or firewire interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:371
+#, no-wrap
+msgid "Ic tr0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:374
+msgid "Debug a remote system via serial interface E<.Pa /dev/cuau0>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:374
+#, no-wrap
+msgid "Ic tr1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:377
+msgid "Debug a remote system via serial interface E<.Pa /dev/cuau1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:377
+#, no-wrap
+msgid "Ic trf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:379
+msgid "Debug a remote system via firewire interface at default port 5556."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:387
+msgid ""
+"The commands E<.Ic tr0 , tr1> and E<.Ic trf> are convenience commands which "
+"invoke E<.Ic tr>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:387
+#, no-wrap
+msgid "The current process environment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:392
+msgid ""
+"The following macros are convenience functions intended to make things "
+"easier than the standard E<.Xr gdb 1> commands."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:393
+#, no-wrap
+msgid "Ic f0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:395
+msgid "Select stack frame 0 and show assembler-level details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:395
+#, no-wrap
+msgid "Ic f1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:397
+msgid "Select stack frame 1 and show assembler-level details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:397
+#, no-wrap
+msgid "Ic f2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:399
+msgid "Select stack frame 2 and show assembler-level details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:399
+#, no-wrap
+msgid "Ic f3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:401
+msgid "Select stack frame 3 and show assembler-level details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:401
+#, no-wrap
+msgid "Ic f4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:403
+msgid "Select stack frame 4 and show assembler-level details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:403
+#, no-wrap
+msgid "Ic f5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:405
+msgid "Select stack frame 5 and show assembler-level details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:405
+#, no-wrap
+msgid "Ic xb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:409
+msgid "Show 12 words in hex, starting at current E<.Va ebp> value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:409
+#, no-wrap
+msgid "Ic xi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:413
+msgid "List the next 10 instructions from the current E<.Va eip> value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:413
+#, no-wrap
+msgid "Ic xp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:416
+msgid ""
+"Show the register contents and the first four parameters of the current "
+"stack frame."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:416
+#, no-wrap
+msgid "Ic xp0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:418
+msgid "Show the first parameter of current stack frame in various formats."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:418
+#, no-wrap
+msgid "Ic xp1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:420
+msgid "Show the second parameter of current stack frame in various formats."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:420
+#, no-wrap
+msgid "Ic xp2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:422
+msgid "Show the third parameter of current stack frame in various formats."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:422
+#, no-wrap
+msgid "Ic xp3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:424
+msgid "Show the fourth parameter of current stack frame in various formats."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:424
+#, no-wrap
+msgid "Ic xp4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:426
+msgid "Show the fifth parameter of current stack frame in various formats."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:426
+#, no-wrap
+msgid "Ic xs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:428
+msgid "Show the last 12 words on stack in hexadecimal."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:428
+#, no-wrap
+msgid "Ic xxp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:430
+msgid "Show the register contents and the first ten parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:430
+#, no-wrap
+msgid "Ic z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:432
+msgid "Single step 1 instruction (over calls) and show next instruction."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:432
+#, no-wrap
+msgid "Ic zs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:434
+msgid "Single step 1 instruction (through calls) and show next instruction."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:435
+#, no-wrap
+msgid "Examining other processes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:444
+msgid ""
+"The following macros access other processes.  The E<.Nm> debugger does not "
+"understand the concept of multiple processes, so they effectively bypass the "
+"entire E<.Nm> environment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:445
+#, no-wrap
+msgid "Ic btp Ar pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:448
+msgid "Show a backtrace for the process E<.Ar pid>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:448
+#, no-wrap
+msgid "Ic btpa"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:450
+msgid "Show backtraces for all processes in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:450
+#, no-wrap
+msgid "Ic btpp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:453
+msgid "Show a backtrace for the process previously selected with E<.Ic defproc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:453
+#, no-wrap
+msgid "Ic btr Ar ebp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:457
+msgid "Show a backtrace from the E<.Ar ebp> address specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:457
+#, no-wrap
+msgid "Ic defproc Ar pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:459
+msgid "Specify the PID of the process for some other commands in this section."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:459
+#, no-wrap
+msgid "Ic fr Ar frame"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:464
+msgid ""
+"Show frame E<.Ar frame> of the stack of the process previously selected with "
+"E<.Ic defproc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:464
+#, no-wrap
+msgid "Ic pcb Ar proc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:467
+msgid "Show some PCB contents of the process E<.Ar proc>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:468
+#, no-wrap
+msgid "Examining data structures"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:475
+msgid ""
+"You can use standard E<.Xr gdb 1> commands to look at most data structures.  "
+"The macros in this section are convenience functions which typically display "
+"the data in a more readable format, or which omit less interesting parts of "
+"the structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:476
+#, no-wrap
+msgid "Ic bp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:480
+msgid ""
+"Show information about the buffer header pointed to by the variable E<.Va "
+"bp> in the current frame."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:480
+#, no-wrap
+msgid "Ic bpd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:486
+msgid ""
+"Show the contents E<.Pq Vt \"char *\"> of E<.Va bp-E<gt>data> in the current "
+"frame."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:486
+#, no-wrap
+msgid "Ic bpl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:491
+msgid ""
+"Show detailed information about the buffer header E<.Pq Vt \"struct bp\"> "
+"pointed at by the local variable E<.Va bp>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:491
+#, no-wrap
+msgid "Ic bpp Ar bp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:496
+msgid ""
+"Show summary information about the buffer header E<.Pq Vt \"struct bp\"> "
+"pointed at by the parameter E<.Ar bp>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:496
+#, no-wrap
+msgid "Ic bx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:500
+msgid ""
+"Print a number of fields from the buffer header pointed at in by the pointer "
+"E<.Ar bp> in the current environment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:500
+#, no-wrap
+msgid "Ic vdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:505
+msgid ""
+"Show some information of the E<.Vt vnode> pointed to by the local variable "
+"E<.Va vp>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/gdb.4:506
+#, no-wrap
+msgid "Miscellaneous macros"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:508
+#, no-wrap
+msgid "Ic checkmem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:514
+msgid ""
+"Check unallocated memory for modifications.  This assumes that the kernel "
+"has been compiled with E<.Cd \"options DIAGNOSTIC\">.  This causes the "
+"contents of free memory to be set to E<.Li 0xdeadc0de>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:514
+#, no-wrap
+msgid "Ic dmesg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:528
+msgid ""
+"Print the system message buffer.  This corresponds to the E<.Xr dmesg 8> "
+"utility.  This macro used to be called E<.Ic msgbuf>.  It can take a very "
+"long time over a serial line, and it is even slower via firewire or local "
+"memory due to inefficiencies in E<.Nm>.  When debugging a crash dump or over "
+"firewire, it is not necessary to start E<.Nm> to access the message buffer: "
+"instead, use an appropriate variation of"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:531
+#, no-wrap
+msgid ""
+"dmesg -M /var/crash/vmcore.0 -N kernel.debug\n"
+"dmesg -M /dev/fwmem0.0 -N kernel.debug\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:532
+#, no-wrap
+msgid "Ic kldstat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:536
+msgid "Equivalent of the E<.Xr kldstat 8> utility without options."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:536
+#, no-wrap
+msgid "Ic pname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:538
+msgid "Print the command name of the current process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:538
+#, no-wrap
+msgid "Ic ps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:548
+msgid ""
+"Show process status.  This corresponds in concept, but not in appearance, to "
+"the E<.Xr ps 1> utility.  When debugging a crash dump or over firewire, it "
+"is not necessary to start E<.Nm> to display the E<.Xr ps 1> output: instead, "
+"use an appropriate variation of"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:551
+#, no-wrap
+msgid ""
+"ps -M /var/crash/vmcore.0 -N kernel.debug\n"
+"ps -M /dev/fwmem0.0 -N kernel.debug\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/gdb.4:552
+#, no-wrap
+msgid "Ic y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:561
+msgid ""
+"Kludge for writing macros.  When writing macros, it is convenient to paste "
+"them back into the E<.Nm> window.  Unfortunately, if the macro is already "
+"defined, E<.Nm> insists on asking"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/gdb.4:562
+#, no-wrap
+msgid "Redefine foo?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:569
+msgid ""
+"It will not give up until you answer E<.Ql y>.  This command is that "
+"answer.  It does nothing else except to print a warning message to remind "
+"you to remove it again."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:570
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:579
+msgid ""
+"E<.Xr gdb 1>, E<.Xr ps 1>, E<.Xr ddb 4>, E<.Xr firewire 4>, E<.Xr dconschat "
+"8>, E<.Xr dmesg 8>, E<.Xr fwcontrol 8>, E<.Xr kldload 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:579
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:582
+msgid "This man page was written by E<.An Greg Lehey Aq Mt grog@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/gdb.4:582
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:588
+msgid ""
+"The E<.Xr gdb 1> debugger was never designed to debug kernels, and it is not "
+"a very good match.  Many problems exist."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:592
+msgid "The E<.Nm> implementation is very inefficient, and many operations are slow."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:596
+msgid ""
+"Serial debugging is even slower, and race conditions can make it difficult "
+"to run the link at more than 9600 bps.  Firewire connections do not have "
+"this problem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:602
+msgid ""
+"The debugging macros E<.Dq just grew.> In general, the person who wrote them "
+"did so while looking for a specific problem, so they may not be general "
+"enough, and they may behave badly when used in ways for which they were not "
+"intended, even if those ways make sense."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/gdb.4:603
+msgid "Many of these commands only work on the ia32 architecture."
+msgstr ""

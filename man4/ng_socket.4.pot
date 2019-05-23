@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_socket.4:38
+#, no-wrap
+msgid "January 19, 1999"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_socket.4:39
+#, no-wrap
+msgid "NG_SOCKET 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:43
+msgid "E<.Nm ng_socket>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_socket.4:43
+#, no-wrap
+msgid "netgraph socket node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_socket.4:45
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_socket.4:46
+#, no-wrap
+msgid "netgraph/ng_socket.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:63
+msgid ""
+"A E<.Nm socket> node is both a E<.Bx> socket and a netgraph node.  The "
+"E<.Nm> node type allows user-mode processes to participate in the kernel "
+"E<.Xr netgraph 4> networking subsystem using the E<.Bx> socket interface.  "
+"The process must have root privileges to be able to create netgraph sockets "
+"however once created, any process that has one may use it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:88
+msgid ""
+"A new E<.Nm> node is created by creating a new socket of type E<.Dv "
+"NG_CONTROL> in the protocol family E<.Dv PF_NETGRAPH>, using the E<.Xr "
+"socket 2> system call.  Any control messages received by the node and not "
+"having a cookie value of E<.Dv NGM_SOCKET_COOKIE> are received by the "
+"process, using E<.Xr recvfrom 2>; the socket address argument is a E<.Dv "
+"\"struct sockaddr_ng\"> containing the sender's netgraph address.  "
+"Conversely, control messages can be sent to any node by calling E<.Xr sendto "
+"2>, supplying the recipient's address in a E<.Dv \"struct sockaddr_ng\">.  "
+"The E<.Xr bind 2> system call may be used to assign a global netgraph name "
+"to the node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:114
+msgid ""
+"To transmit and receive netgraph data packets, a E<.Dv NG_DATA> socket must "
+"also be created using E<.Xr socket 2> and associated with a E<.Nm> node.  "
+"E<.Dv NG_DATA> sockets do not automatically have nodes associated with them; "
+"they are bound to a specific node via the E<.Xr connect 2> system call.  The "
+"address argument is the netgraph address of the E<.Nm> node already "
+"created.  Once a data socket is associated with a node, any data packets "
+"received by the node are read using E<.Xr recvfrom 2> and any packets to be "
+"sent out from the node are written using E<.Xr sendto 2>.  In the case of "
+"data sockets, the E<.Dv \"struct sockaddr_ng\"> contains the name of the "
+"E<.Em hook> on which the data was received or should be sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:124
+msgid ""
+"As a special case, to allow netgraph data sockets to be used as stdin or "
+"stdout on naive programs, a E<.Xr sendto 2> with a NULL sockaddr pointer, a "
+"E<.Xr send 2> or a E<.Xr write 2> will succeed in the case where there is "
+"exactly ONE hook attached to the socket node, (and thus the path is "
+"unambiguous)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:127
+msgid ""
+"There is a user library that simplifies using netgraph sockets; see E<.Xr "
+"netgraph 3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:127
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:130
+msgid ""
+"This node type supports hooks with arbitrary names (as long as they are "
+"unique) and always accepts hook connection requests."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:130
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:132
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_socket.4:133
+#, no-wrap
+msgid "Dv NGM_SOCK_CMD_NOLINGER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:140
+msgid ""
+"When the last hook is removed from this node, it will shut down as if it had "
+"received a E<.Dv NGM_SHUTDOWN> message.  Attempts to access the sockets "
+"associated will return E<.Er ENOTCONN>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_socket.4:140
+#, no-wrap
+msgid "Dv NGM_SOCK_CMD_LINGER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:145
+msgid ""
+"This is the default mode.  When the last hook is removed, the node will "
+"continue to exist, ready to accept new hooks until it is explicitly shut "
+"down."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:155
+msgid ""
+"All other messages with neither the E<.Dv NGM_SOCKET_COOKIE> or E<.Dv "
+"NGM_GENERIC_COOKIE> will be passed unaltered up the E<.Dv NG_CONTROL> "
+"socket."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:155
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:170
+msgid ""
+"This node type shuts down and disappears when both the associated E<.Dv "
+"NG_CONTROL> and E<.Dv NG_DATA> sockets have been closed, or a E<.Dv "
+"NGM_SHUTDOWN> control message is received.  In the latter case, attempts to "
+"write to the still-open sockets will return E<.Er ENOTCONN>.  If the E<.Dv "
+"NGM_SOCK_CMD_NOLINGER> message has been received, closure of the last hook "
+"will also initiate a shutdown of the node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:170
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:176
+msgid ""
+"E<.Xr socket 2>, E<.Xr netgraph 3>, E<.Xr netgraph 4>, E<.Xr ng_ksocket 4>, "
+"E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:176
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:181
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:181
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:183
+msgid "E<.An Julian Elischer Aq Mt julian@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_socket.4:183
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:186
+msgid ""
+"It is not possible to reject the connection of a hook, though any data "
+"received on that hook can certainly be ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_socket.4:190
+msgid ""
+"The controlling process is not notified of all events that an in-kernel node "
+"would be notified of, e.g.\\& a new hook, or hook removal.  Some "
+"node-initiated messages should be defined for this purpose (to be sent up "
+"the control socket)."
+msgstr ""

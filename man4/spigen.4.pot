@@ -1,0 +1,429 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/spigen.4:28
+#, no-wrap
+msgid "April 7, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/spigen.4:29
+#, no-wrap
+msgid "SPIGEN 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:33
+msgid "E<.Nm spigen>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/spigen.4:33
+#, no-wrap
+msgid "SPI generic I/O device driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:38
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:42
+#, no-wrap
+msgid ""
+"E<.Cd \"device spi\">\n"
+"E<.Cd \"device spibus\">\n"
+"E<.Cd \"device spigen\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:47
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:49
+#, no-wrap
+msgid "spigen_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:59
+msgid ""
+"The E<.Nm> driver provides direct access to a slave device on the SPI bus.  "
+"Each instance of a E<.Nm> device is associated with a single chip-select "
+"line on the bus, and all I/O performed through that instance is done with "
+"that chip-select line asserted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:70
+msgid ""
+"SPI data transfers are inherently bi-directional; there are not separate "
+"read and write operations.  When commands and data are sent to a device, "
+"data also comes back from the device, although in some cases the data may "
+"not be useful (or even documented or predictable for some devices).  "
+"Likewise on a read operation, whatever data is in the buffer at the start of "
+"the operation is sent to (and typically ignored by) the device, with each "
+"outgoing byte then replaced in the buffer by the corresponding incoming "
+"byte.  Thus, all buffers passed to the transfer functions are both input and "
+"output buffers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:76
+msgid ""
+"The E<.Nm> driver provides access to the SPI slave device with the following "
+"E<.Xr ioctl 2> calls, defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/spigen.4:76
+#, no-wrap
+msgid "sys/spigenio.h :"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:78
+#, no-wrap
+msgid "Dv SPIGENIOC_TRANSFER Pq Vt \"struct spigen_transfer\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:85
+msgid ""
+"Transfer a command and optional associated data to/from the device, using "
+"the buffers described by the st_command and st_data fields in the E<.Vt "
+"spigen_transfer>.  Set E<.Vt st_data.iov_len> to zero if there is no data "
+"associated with the command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:90
+#, no-wrap
+msgid ""
+"struct spigen_transfer {\n"
+"\tstruct iovec st_command;\n"
+"\tstruct iovec st_data;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:91
+#, no-wrap
+msgid "Dv SPIGENIOC_TRANSFER_MMAPPED Pq Vt spigen_transfer_mmapped"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:106
+msgid ""
+"Transfer a command and optional associated data to/from the device.  The "
+"buffers for the transfer are a previously-mmap'd region.  The length of the "
+"command and data within that region are described by the E<.Vt "
+"stm_command_length> and E<.Vt stm_data_length> fields of E<.Vt "
+"spigen_transfer_mmapped>.  If E<.Vt stm_data_length> is non-zero, the data "
+"appears in the memory region immediately following the command (that is, at "
+"offset E<.Vt stm_command_length> from the start of the mapped region)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:111
+#, no-wrap
+msgid ""
+"struct spigen_transfer_mmapped {\n"
+"\tsize_t stm_command_length;\n"
+"\tsize_t stm_data_length;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:112
+#, no-wrap
+msgid "Dv SPIGENIOC_GET_CLOCK_SPEED Pq Vt uint32_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:115
+msgid ""
+"Get the maximum clock speed (bus frequency in Hertz) to be used when "
+"communicating with this slave device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:115
+#, no-wrap
+msgid "Dv SPIGENIOC_SET_CLOCK_SPEED Pq Vt uint32_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:122
+msgid ""
+"Set the maximum clock speed (bus frequency in Hertz) to be used when "
+"communicating with this slave device.  The setting remains in effect for "
+"subsequent transfers; it is not necessary to reset this before each "
+"transfer.  The actual bus frequency may be lower due to hardware "
+"limitiations of the SPI bus controller device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:122
+#, no-wrap
+msgid "Dv SPIGENIOC_GET_SPI_MODE Pq Vt uint32_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:125
+msgid ""
+"Get the SPI mode (clock polarity and phase) to be used when communicating "
+"with this device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:125
+#, no-wrap
+msgid "Dv SPIGENIOC_SET_SPI_MODE Pq Vt uint32_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:130
+msgid ""
+"Set the SPI mode (clock polarity and phase) to be used when communicating "
+"with this device.  The setting remains in effect for subsequent transfers; "
+"it is not necessary to reset this before each transfer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:131
+#, no-wrap
+msgid "HINTS CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:138
+msgid ""
+"On a E<.Xr device.hints 5> based system, such as E<.Li MIPS>, these values "
+"are configurable for E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:139
+#, no-wrap
+msgid "Va hint.spigen.%d.at"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:143
+msgid "The spibus the E<.Nm> instance is attached to."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:143
+#, no-wrap
+msgid "Va hint.spigen.%d.clock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:147
+msgid ""
+"The maximum bus frequency to use when communicating with this device.  "
+"Actual bus speed may be lower, depending on the capabilities of the SPI bus "
+"controller hardware."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:147
+#, no-wrap
+msgid "Va hint.spigen.%d.cs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:150
+msgid ""
+"The chip-select number to assert when performing I/O for this device.  Set "
+"the high bit (1 E<lt>E<lt> 31) to invert the logic level of the chip select "
+"line."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:150
+#, no-wrap
+msgid "Va hint.spigen.%d.mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:152
+msgid "The SPI mode (0-3) to use when communicating with this device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:153
+#, no-wrap
+msgid "FDT CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:164
+msgid ""
+"On an E<.Xr fdt 4> based system, the spigen device is defined as a slave "
+"device subnode of the SPI bus controller node.  All properties documented in "
+"the E<.Va spibus.txt> bindings document can be used with the E<.Nm> device.  "
+"The most commonly-used ones are documented below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:168
+msgid "The following properties are required in the E<.Nm> device subnode:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:169
+#, no-wrap
+msgid "Va compatible"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:171
+msgid "Must be the string \"freebsd,spigen\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:171
+#, no-wrap
+msgid "Va reg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:173
+msgid "Chip select address of device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:173
+#, no-wrap
+msgid "Va spi-max-frequency"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:177
+msgid ""
+"The maximum bus frequency to use when communicating with this slave device.  "
+"Actual bus speed may be lower, depending on the capabilities of the SPI bus "
+"controller hardware."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:182
+msgid "The following properties are optional for the E<.Nm> device subnode:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:183
+#, no-wrap
+msgid "Va spi-cpha"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:186
+msgid ""
+"Empty property indicating the slave device requires shifted clock phase "
+"(CPHA) mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:186
+#, no-wrap
+msgid "Va spi-cpol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:189
+msgid ""
+"Empty property indicating the slave device requires inverse clock polarity "
+"(CPOL) mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:189
+#, no-wrap
+msgid "Va spi-cs-high"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:191
+msgid "Empty property indicating the slave device requires chip select active high."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:192
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/spigen.4:194
+#, no-wrap
+msgid "Pa /dev/spigen*"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:196
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:199
+msgid "E<.Xr fdt 4>, E<.Xr device.hints 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/spigen.4:199
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/spigen.4:206
+msgid ""
+"The E<.Nm> driver appeared in E<.Fx 11.0>.  FDT support appeared in E<.Fx "
+"11.2>."
+msgstr ""

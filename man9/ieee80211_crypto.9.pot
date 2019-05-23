@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_crypto.9:30
+#, no-wrap
+msgid "March 29, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_crypto.9:31
+#, no-wrap
+msgid "IEEE80211_CRYPTO 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:35
+msgid "E<.Nm ieee80211_crypto>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_crypto.9:35
+#, no-wrap
+msgid "802.11 cryptographic support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_crypto.9:37
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:49
+msgid ""
+"E<.Ft void> E<.Fn ieee80211_crypto_register \"const struct ieee80211_cipher "
+"*\"> E<.Ft void> E<.Fn ieee80211_crypto_unregister \"const struct "
+"ieee80211_cipher *\"> E<.Ft int> E<.Fn ieee80211_crypto_available \"int "
+"cipher\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:92
+msgid ""
+"E<.Ft void> E<.Fo ieee80211_notify_replay_failure> E<.Fa \"struct "
+"ieee80211vap *\"> E<.Fa \"const struct ieee80211_frame *\"> E<.Fa \"const "
+"struct ieee80211_key *\"> E<.Fa \"uint64_t rsc\"> E<.Fa \"int tid\"> E<.Fc> "
+"E<.Ft void> E<.Fo ieee80211_notify_michael_failure> E<.Fa \"struct "
+"ieee80211vap *\"> E<.Fa \"const struct ieee80211_frame *\"> E<.Fa \"u_int "
+"keyix\"> E<.Fc> E<.Ft int> E<.Fo ieee80211_crypto_newkey> E<.Fa \"struct "
+"ieee80211vap *\"> E<.Fa \"int cipher\"> E<.Fa \"int flags\"> E<.Fa \"struct "
+"ieee80211_key *\"> E<.Fc> E<.Ft int> E<.Fn ieee80211_crypto_setkey \"struct "
+"ieee80211vap *\" \"struct ieee80211_key *\"> E<.Ft int> E<.Fn "
+"ieee80211_crypto_delkey \"struct ieee80211vap *\" \"struct ieee80211_key "
+"*\"> E<.Ft void> E<.Fn ieee80211_key_update_begin \"struct ieee80211vap *\"> "
+"E<.Ft void> E<.Fn ieee80211_key_update_end \"struct ieee80211vap *\"> E<.Ft "
+"void> E<.Fn ieee80211_crypto_delglobalkeys \"struct ieee80211vap *\"> E<.Ft "
+"void> E<.Fn ieee80211_crypto_reload_keys \"struct ieee80211com *\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:114
+msgid ""
+"E<.Ft struct ieee80211_key *> E<.Fn ieee80211_crypto_encap \"struct "
+"ieee80211_node *\" \"struct mbuf *\"> E<.Ft struct ieee80211_key *> E<.Fn "
+"ieee80211_crypto_decap \"struct ieee80211_node *\" \"struct mbuf *\" \"int "
+"flags\"> E<.Ft int> E<.Fo ieee80211_crypto_demic> E<.Fa \"struct "
+"ieee80211vap *\"> E<.Fa \"struct ieee80211_key *\"> E<.Fa \"struct mbuf *\"> "
+"E<.Fa \"int force\"> E<.Fc> E<.Ft int> E<.Fo ieee80211_crypto_enmic> E<.Fa "
+"\"struct ieee80211vap *\"> E<.Fa \"struct ieee80211_key *\"> E<.Fa \"struct "
+"mbuf *\"> E<.Fa \"int force\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:114
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:125
+msgid ""
+"The E<.Nm net80211> layer includes comprehensive cryptographic support for "
+"802.11 protocols.  Software implementations of ciphers required by WPA and "
+"802.11i are provided as well as encap/decap processing of 802.11 frames.  "
+"Software ciphers are written as kernel modules and register with the core "
+"crypto support.  The cryptographic framework supports hardware acceleration "
+"of ciphers by drivers with automatic fall-back to software implementations "
+"when a driver is unable to provide necessary hardware services."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:125
+#, no-wrap
+msgid "CRYPTO CIPHER MODULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:135
+msgid ""
+"E<.Nm net80211> cipher modules register their services using E<.Fn "
+"ieee80211_crypto_register> and supply a template that describes their "
+"operation.  This E<.Vt ieee80211_cipher> structure defines protocol-related "
+"state such as the number of bytes of space in the 802.11 header to "
+"reserve/remove during encap/decap and entry points for setting up keys and "
+"doing cryptographic operations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:141
+msgid ""
+"Cipher modules can associate private state to each key through the E<.Vt "
+"wk_private> structure member.  If state is setup by the module it will be "
+"called before a key is destroyed so it can reclaim resources."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:153
+msgid ""
+"Crypto modules can notify the system of two events.  When a packet replay "
+"event is recognized E<.Fn ieee80211_notify_replay_failure> can be used to "
+"signal the event.  When a E<.Dv TKIP> Michael failure is detected E<.Fn "
+"ieee80211_notify_michael_failure> can be invoked.  Drivers may also use "
+"these routines to signal events detected by the hardware."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:153
+#, no-wrap
+msgid "CRYPTO KEY MANAGEMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:167
+msgid ""
+"The E<.Nm net80211> layer implements a per-vap 4-element E<.Dq global key "
+"table> and a per-station E<.Dq unicast key> for protocols such as WPA, "
+"802.1x, and 802.11i.  The global key table is designed to support legacy WEP "
+"operation and Multicast/Group keys, though some applications also use it to "
+"implement WPA in station mode.  Keys in the global table are identified by a "
+"key index in the range 0-3.  Per-station keys are identified by the MAC "
+"address of the station and are typically used for unicast PTK bindings."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:175
+msgid ""
+"E<.Nm net80211> provides E<.Xr ioctl 2> operations for managing both global "
+"and per-station keys.  Drivers typically do not participate in software key "
+"management; they are involved only when providing hardware acceleration of "
+"cryptographic operations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:184
+msgid ""
+"E<.Fn ieee80211_crypto_newkey> is used to allocate a new E<.Nm net80211> key "
+"or reconfigure an existing key.  The cipher must be specified along with any "
+"fixed key index.  The E<.Nm net80211> layer will handle allocating cipher "
+"and driver resources to support the key."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:190
+msgid ""
+"Once a key is allocated it's contents can be set using E<.Fn "
+"ieee80211_crypto_setkey> and deleted with E<.Fn ieee80211_crypto_delkey> "
+"(with any cipher and driver resources reclaimed)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:196
+msgid ""
+"E<.Fn ieee80211_crypto_delglobalkeys> is used to reclaim all keys in the "
+"global key table for a vap; it typically is used only within the E<.Nm "
+"net80211> layer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:200
+msgid ""
+"E<.Fn ieee80211_crypto_reload_keys> handles hardware key state reloading "
+"from software key state, such as required after a suspend/resume cycle."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:200
+#, no-wrap
+msgid "DRIVER CRYPTO SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:220
+msgid ""
+"Drivers identify ciphers they have hardware support for through the E<.Vt "
+"ic_cryptocaps> field of the E<.Vt ieee80211com> structure.  If hardware "
+"support is available then a driver should also fill in the E<.Dv "
+"iv_key_alloc>, E<.Dv iv_key_set>, and E<.Dv iv_key_delete> methods of each "
+"E<.Vt ieee80211vap> created for use with the device.  In addition the "
+"methods E<.Dv iv_key_update_begin> and E<.Dv iv_key_update_end> can be setup "
+"to handle synchronization requirements for updating hardware key state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:234
+msgid ""
+"When E<.Nm net80211> allocates a software key and the driver can accelerate "
+"the cipher operations the E<.Dv iv_key_alloc> method will be invoked.  "
+"Drivers may return a token that is associated with outbound traffic (for use "
+"in encrypting frames).  Otherwise, e.g. if hardware resources are not "
+"available, the driver will not return a token and E<.Nm net80211> will "
+"arrange to do the work in software and pass frames to the driver that are "
+"already prepared for transmission."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:246
+msgid ""
+"For receive, drivers mark frames with the E<.Dv M_WEP> mbuf flag to indicate "
+"the hardware has decrypted the payload.  If frames have the E<.Dv "
+"IEEE80211_FC1_PROTECTED> bit marked in their 802.11 header and are not "
+"tagged with E<.Dv M_WEP> then decryption is done in software.  For more "
+"complicated scenarios the software key state is consulted; e.g.  to decide "
+"if Michael verification needs to be done in software after the hardware has "
+"handled TKIP decryption."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:255
+msgid ""
+"Drivers that manage complicated key data structures, e.g. faulting software "
+"keys into a hardware key cache, can safely manipulate software key state by "
+"bracketing their work with calls to E<.Fn ieee80211_key_update_begin> and "
+"E<.Fn ieee80211_key_update_end>.  These calls also synchronize hardware key "
+"state update when receive traffic is active."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_crypto.9:255
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_crypto.9:260
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr wlan_ccmp 4>, E<.Xr wlan_tkip 4>, E<.Xr wlan_wep 4>, "
+"E<.Xr ieee80211 9>"
+msgstr ""

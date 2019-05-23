@@ -1,0 +1,665 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:27
+#, no-wrap
+msgid "January 6, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:28
+#, no-wrap
+msgid "CRUNCHGEN 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:32
+msgid "E<.Nm crunchgen>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:32
+#, no-wrap
+msgid "generates build environment for a crunched binary"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:44
+msgid ""
+"E<.Bk -words> E<.Nm> E<.Op Fl foql> E<.Op Fl h Ar makefile-header-name> "
+"E<.Op Fl m Ar makefile-name> E<.Op Fl p Ar obj-prefix> E<.Op Fl c Ar "
+"c-file-name> E<.Op Fl e Ar exec-file-name> E<.Ar conf-file> E<.Ek>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:54
+msgid ""
+"A crunched binary is a program made up of many other programs linked "
+"together into a single executable.  The crunched binary E<.Fn main> function "
+"determines which component program to run by the contents of E<.Va "
+"argv[0]>.  The main reason to crunch programs together is for fitting as "
+"many programs as possible onto an installation or system recovery floppy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:76
+msgid ""
+"The E<.Nm> utility reads in the specifications in E<.Ar conf-file> for a "
+"crunched binary, and generates a E<.Pa Makefile> and accompanying top-level "
+"C source file that when built creates the crunched executable file from the "
+"component programs.  For each component program, E<.Nm> can optionally "
+"attempt to determine the object (.o) files that make up the program from its "
+"source directory E<.Pa Makefile>.  This information is cached between runs.  "
+"The E<.Nm> utility uses the companion program E<.Xr crunchide 1> to "
+"eliminate link-time conflicts between the component programs by hiding all "
+"unnecessary symbols."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:100
+msgid ""
+"The E<.Nm> utility places specific requirements on package E<.Pa Makefile Ns "
+"s> which make it unsuitable for use with E<.No non- Ns Bx> sources.  In "
+"particular, the E<.Pa Makefile> must contain the target E<.Ic depend>, and "
+"it must define all object files in the variable E<.Va OBJS>.  In some cases, "
+"you can use a fake E<.Pa Makefile>: before looking for E<.Pa Makefile> in "
+"the source directory E<.Pa foo>, E<.Nm> looks for the file E<.Pa "
+"Makefile.foo> in the current directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:116
+msgid ""
+"After E<.Nm> is run, the crunched binary can be built by running E<.Dq Li "
+"make -f E<lt>conf-nameE<gt>.mk>.  The component programs' object files must "
+"already be built.  An E<.Ic objs> target, included in the output makefile, "
+"will run E<.Xr make 1> in each component program's source dir to build the "
+"object files for the user.  This is not done automatically since in release "
+"engineering circumstances it is generally not desirable to be modifying "
+"objects in other directories."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:118
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:119
+#, no-wrap
+msgid "Fl c Ar c-file-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:124
+msgid ""
+"Set output C file name to E<.Ar c-file-name>.  The default name is E<.Pa "
+"E<lt>conf-nameE<gt>.c>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:124
+#, no-wrap
+msgid "Fl e Ar exec-file-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:129
+msgid ""
+"Set crunched binary executable file name to E<.Ar exec-file-name>.  The "
+"default name is E<.Pa E<lt>conf-nameE<gt>>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:129
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:132
+msgid "Flush cache.  Forces the recalculation of cached parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:132
+#, no-wrap
+msgid "Fl l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:135
+msgid "List names.  Lists the names this binary will respond to."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:135
+#, no-wrap
+msgid "Fl h Ar makefile-header-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:145
+msgid ""
+"Set the name of a file to be included at the beginning of the E<.Pa Makefile "
+"Ns s> generated by E<.Nm>.  This is useful to define some make variables "
+"such as E<.Va RELEASE_CRUNCH> or similar, which might affect the behavior of "
+"E<.Xr make 1> and are annoying to pass through environment variables."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:145
+#, no-wrap
+msgid "Fl m Ar makefile-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:152
+msgid ""
+"Set output E<.Pa Makefile> name to E<.Ar makefile-name>.  The default name "
+"is E<.Pa E<lt>conf-nameE<gt>.mk>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:152
+#, no-wrap
+msgid "Fl o"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:156
+msgid "Add E<.Dq Li make obj> rules to each program make target."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:156
+#, no-wrap
+msgid "Fl p Ar obj-prefix"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:166
+msgid ""
+"Set the pathname to be prepended to the E<.Ic srcdir> when computing the "
+"E<.Ic objdir>.  If this option is not present, then the prefix used is the "
+"content of the E<.Ev MAKEOBJDIRPREFIX> environment variable, or E<.Pa "
+"/usr/obj>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:166
+#, no-wrap
+msgid "Fl q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:169
+msgid "Quiet operation.  Status messages are suppressed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:170
+#, no-wrap
+msgid "CRUNCHGEN CONFIGURATION FILE COMMANDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:187
+msgid ""
+"The E<.Nm> utility reads specifications from the E<.Ar conf-file> that "
+"describe the components of the crunched binary.  In its simplest use, the "
+"component program names are merely listed along with the top-level source "
+"directories in which their sources can be found.  The E<.Nm> utility then "
+"calculates (via the source makefiles) and caches the list of object files "
+"and their locations.  For more specialized situations, the user can specify "
+"by hand all the parameters that E<.Nm> needs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:191
+msgid "The E<.Ar conf-file> commands are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:192
+#, no-wrap
+msgid "Ic srcdirs Ar dirname ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:203
+msgid ""
+"A list of source trees in which the source directories of the component "
+"programs can be found.  These dirs are searched using the E<.Bx> E<.Dq Pa "
+"E<lt>source-dirE<gt>/E<lt>prognameE<gt>/> convention.  Multiple E<.Ic "
+"srcdirs> lines can be specified.  The directories are searched in the order "
+"they are given."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:203
+#, no-wrap
+msgid "Ic progs Ar progname ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:208
+msgid ""
+"A list of programs that make up the crunched binary.  Multiple E<.Ic progs> "
+"lines can be specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:208
+#, no-wrap
+msgid "Ic libs Ar libspec ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:213
+msgid ""
+"A list of library specifications to be included in the crunched binary "
+"link.  Multiple E<.Ic libs> lines can be specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:213
+#, no-wrap
+msgid "Ic libs_so Ar libspec ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:228
+msgid ""
+"A list of library specifications to be dynamically linked in the crunched "
+"binary.  These libraries will need to be made available via the run-time "
+"link-editor E<.Xr rtld 1> when the component program that requires them is "
+"executed from the crunched binary.  Multiple E<.Ic libs_so> lines can be "
+"specified.  The E<.Ic libs_so> directive overrides a library specified "
+"gratuitously on a E<.Ic libs> line."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:228
+#, no-wrap
+msgid "Ic buildopts Ar buildopts ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:230
+msgid "A list of build options to be added to every make target."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:230
+#, no-wrap
+msgid "Ic ln Ar progname linkname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:239
+msgid ""
+"Causes the crunched binary to invoke E<.Ar progname> whenever E<.Ar "
+"linkname> appears in E<.Va argv[0]>.  This allows programs that change their "
+"behavior when run under different names to operate correctly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:249
+msgid ""
+"To handle specialized situations, such as when the source is not available "
+"or not built via a conventional E<.Pa Makefile>, the following E<.Ic "
+"special> commands can be used to set E<.Nm> parameters for a component "
+"program."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:250
+#, no-wrap
+msgid "Ic special Ar progname Ic srcdir Ar pathname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:257
+msgid ""
+"Set the source directory for E<.Ar progname>.  This is normally calculated "
+"by searching the specified E<.Ic srcdirs> for a directory named E<.Ar "
+"progname>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:257
+#, no-wrap
+msgid "Ic special Ar progname Ic objdir Ar pathname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:278
+msgid ""
+"Set the E<.Pa obj> directory for E<.Ar progname>.  The E<.Pa obj> directory "
+"is normally calculated by looking for a directory whose name is that of the "
+"source directory prepended by one of the following components, in order of "
+"priority: the E<.Fl p> argument passed to the command line; or, the value of "
+"the E<.Ev MAKEOBJDIRPREFIX> environment variable, or E<.Pa /usr/obj>.  If "
+"the directory is not found, the E<.Ic srcdir> itself becomes the E<.Ic "
+"objdir>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:278
+#, no-wrap
+msgid "Ic special Ar progname Ic buildopts Ar buildopts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:285
+msgid ""
+"Define a set of build options that should be added to E<.Xr make 1> targets "
+"in addition to those specified using E<.Ic buildopts> when processing E<.Ar "
+"progname>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:285
+#, no-wrap
+msgid "Ic special Ar progname Ic objs Ar object-file-name ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:292
+msgid ""
+"Set the list of object files for program E<.Ar progname>.  This is normally "
+"calculated by constructing a temporary makefile that includes E<.Dq Ic "
+"srcdir Ns / Ns Pa Makefile> and outputs the value of E<.Va $(OBJS)>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:292
+#, no-wrap
+msgid "Ic special Ar progname Ic objpaths Ar full-pathname-to-object-file ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:300
+msgid ""
+"Sets the pathnames of the object files for program E<.Ar progname>.  This is "
+"normally calculated by prepending the E<.Ic objdir> pathname to each file in "
+"the E<.Ic objs> list."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:300
+#, no-wrap
+msgid "Ic special Ar progname Ic objvar Ar variable_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:313
+msgid ""
+"Sets the name of the E<.Xr make 1> variable which holds the list of object "
+"files for program E<.Ar progname>.  This is normally E<.Va OBJS> but some "
+"E<.Pa Makefile Ns s> might like to use other conventions or prepend the "
+"program's name to the variable, e.g., E<.Va SSHD_OBJS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:313
+#, no-wrap
+msgid "Ic special Ar progname Ic lib Ar library-name ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:319
+msgid ""
+"Specifies libraries to be linked with object files to produce E<.Ar progname "
+"Ns Pa .lo>.  This can be useful with libraries which redefine routines in "
+"the standard libraries, or poorly written libraries which reference symbols "
+"in the object files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:319
+#, no-wrap
+msgid "Ic special Ar progname Ic keep Ar symbol-name ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:332
+msgid ""
+"Add specified list of symbols to the keep list for program E<.Ar progname>.  "
+"An underscore E<.Pq Ql _> is prepended to each symbol and it becomes the "
+"argument to a E<.Fl k> option for the E<.Xr crunchide 1> phase.  This option "
+"is to be used as a last resort as its use can cause a symbol conflict, "
+"however in certain instances it may be the only way to have a symbol "
+"resolve."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:332
+#, no-wrap
+msgid "Ic special Ar progname Ic ident Ar identifier"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:349
+msgid ""
+"Set the E<.Pa Makefile Ns / Ns Tn C> identifier for E<.Ar progname>.  This "
+"is normally generated from a E<.Ar progname>, mapping E<.Ql -> to E<.Ql _> "
+"and ignoring all other non-identifier characters.  This leads to programs "
+"named E<.Qq Li foo.bar> and E<.Qq Li foobar> to map to the same identifier."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:364
+msgid ""
+"Only the E<.Ic objpaths> parameter is actually needed by E<.Nm>, but it is "
+"calculated from E<.Ic objdir> and E<.Ic objs>, which are in turn calculated "
+"from E<.Ic srcdir>, so is sometimes convenient to specify the earlier "
+"parameters and let E<.Nm> calculate forward from there if it can."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:382
+msgid ""
+"The makefile produced by E<.Nm> contains an optional E<.Ic objs> target that "
+"will build the object files for each component program by running E<.Xr make "
+"1> inside that program's source directory.  For this to work the E<.Ic "
+"srcdir> and E<.Ic objs> parameters must also be valid.  If they are not "
+"valid for a particular program, that program is skipped in the E<.Ic objs> "
+"target."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:382
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:387
+msgid "Here is an example E<.Nm> input conf file, named E<.Dq Pa kcopy.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:389
+#, no-wrap
+msgid "srcdirs /usr/src/bin /usr/src/sbin\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:394
+#, no-wrap
+msgid ""
+"progs test cp echo sh fsck halt init mount umount myinstall\n"
+"progs anotherprog\n"
+"ln test [       # test can be invoked via [\n"
+"ln sh -sh       # init invokes the shell with \"-sh\" in argv[0]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:396
+#, no-wrap
+msgid "special myprog objpaths /homes/leroy/src/myinstall.o # no sources\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:398
+#, no-wrap
+msgid "special anotherprog -DNO_FOO WITHOUT_BAR=YES\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:400
+#, no-wrap
+msgid "libs -lutil -lcrypt\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:409
+msgid ""
+"This conf file specifies a small crunched binary consisting of some basic "
+"system utilities plus a homegrown install program E<.Dq Pa myinstall>, for "
+"which no source directory is specified, but its object file is specified "
+"directly with the E<.Ic special> line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:413
+msgid "Additionally when E<.Dq Pa anotherprog> is built the arguments"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:414
+#, no-wrap
+msgid "-DNO_FOO WITHOUT_BAR=YES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:417
+msgid "are added to all build targets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:421
+msgid "The crunched binary E<.Dq Pa kcopy> can be built as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:427
+#, no-wrap
+msgid ""
+"% crunchgen -m Makefile kcopy.conf    # gen Makefile and kcopy.c\n"
+"% make objs             # build the component programs' .o files\n"
+"% make                  # build the crunched binary kcopy\n"
+"% kcopy sh              # test that this invokes a sh shell\n"
+"$\t\t\t# it works!\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:433
+msgid ""
+"At this point the binary E<.Dq Pa kcopy> can be copied onto an install "
+"floppy and hard-linked to the names of the component programs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:438
+msgid ""
+"Note that if the E<.Ic libs_so> command had been used, copies of the "
+"libraries so named would also need to be copied to the install floppy."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:438
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:442
+msgid "E<.Xr crunchide 1>, E<.Xr make 1>, E<.Xr rtld 1>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:442
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:448
+msgid ""
+"E<.An -nosplit> The E<.Nm> utility was written by E<.An James da Silva Aq Mt "
+"jds@cs.umd.edu>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:451
+msgid "Copyright (c) 1994 University of Maryland.  All Rights Reserved."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:458
+msgid ""
+"The E<.Ic libs_so> keyword was added in 2005 by E<.An Adrian Steinmann Aq Mt "
+"ast@marabu.ch> and E<.An Ceri Davies Aq Mt ceri@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:458
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:467
+msgid ""
+"While E<.Nm> takes care to eliminate link conflicts between the component "
+"programs of a crunched binary, conflicts are still possible between the "
+"libraries that are linked in.  Some shuffling in the order of libraries may "
+"be required, and in some rare cases two libraries may have an unresolvable "
+"conflict and thus cannot be crunched together."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/crunch/crunchgen/crunchgen.1:475
+msgid ""
+"Some versions of the E<.Bx> build environment do not by default build the "
+"intermediate object file for single-source file programs.  The E<.Dq Li make "
+"objs> must then be used to get those object files built, or some other "
+"arrangements made."
+msgstr ""

@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/kern_testfrwk.9:26
+#, no-wrap
+msgid "November 12, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/kern_testfrwk.9:27
+#, no-wrap
+msgid "KERN_TESTFRWK 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kern_testfrwk.9:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:31
+msgid "E<.Nm kern_testfrwk>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/kern_testfrwk.9:31
+#, no-wrap
+msgid "A kernel testing framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kern_testfrwk.9:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:34
+msgid "kld_load kern_testfrwk"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kern_testfrwk.9:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#.  This whole section is not written in manual page style and should be ripped
+#.  out and replaced. -CEM
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:38
+msgid "So what is this sys/tests directory in the kernel all about?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:43
+msgid ""
+"Have you ever wanted to test a part of the FreeBSD kernel in some way and "
+"you had no real way from user-land to make what you want to occur happen? "
+"Say an error path or situation where locking occurs in a particular manner "
+"that happens only once in a blue moon?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:46
+msgid ""
+"If so, then the kernel test framework is just what you are looking for.  It "
+"is designed to help you create the situation you want."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:56
+msgid ""
+"There are two components to the system: the test framework and your test.  "
+"This document will describe both components and use the test submitted with "
+"the initial commit of this code to discuss the test E<.Xr ( callout_test "
+"4>).  All of the tests become kernel loadable modules.  The test you write "
+"should have a dependency on the test framework.  That way it will be loaded "
+"automatically with your test.  For example, you can see how to do this in "
+"the bottom of callout_test.c in E<.Pa "
+"sys/tests/callout_test/callout_test.c>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:62
+msgid ""
+"The framework itself is in E<.Pa sys/tests/framework/kern_testfrwk.c>.  Its "
+"job is to manage the tests that are loaded.  (More than one can be loaded.)  "
+"The idea is pretty simple; you load the test framework and then load your "
+"test."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:67
+msgid ""
+"When your test loads, you register your tests with the kernel test "
+"framework.  You do that through a call to E<.Fn "
+"kern_testframework_register>.  Usually this is done at the module load event "
+"as shown below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:72
+#, no-wrap
+msgid ""
+"\tswitch (type) {\n"
+"\tcase MOD_LOAD:\n"
+"\t\terr = kern_testframework_register(\"callout_test\",\n"
+"\t\t    run_callout_test);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:82
+msgid ""
+"Here the test is \"callout_test\" and it is registered to run the function "
+"E<.Fn run_callout_test> passing it a E<.Fa struct kern_test *ptr>.  The "
+"E<.Vt kern_test> structure is defined in E<.Pa kern_testfrwk.h>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:89
+#, no-wrap
+msgid ""
+"struct kern_test {\n"
+"\tchar name[TEST_NAME_LEN];\n"
+"\tint num_threads;  /* Fill in how many threads you want */\n"
+"\tint tot_threads_running;       /* Private to framework */\n"
+"\tuint8_t test_options[TEST_OPTION_SPACE];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:98
+msgid ""
+"The user sends this structure down via a sysctl to start your test.  He or "
+"she places the same name you registered (\"callout_test\" in our example) in "
+"the E<.Va name> field.  The user can also set the number of threads to run "
+"with E<.Va num_threads>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:116
+msgid ""
+"The framework will start the requested number of kernel threads, all running "
+"your test at the same time.  The user does not specify anything in E<.Va "
+"tot_threads_running>; it is private to the framework.  As the framework "
+"calls each of your tests, it will set the E<.Va tot_threads_running> to the "
+"index of the thread that your call is made from.  For example, if the user "
+"sets E<.Va num_threads> to 2, then the function E<.Fn run_callout_test> will "
+"be called once with E<.Va tot_threads_running> to 0, and a second time with "
+"E<.Va tot_threads_running> set to 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:123
+msgid ""
+"The E<.Va test_options> field is a test-specific set of information that is "
+"an opaque blob.  It is passed in from user space and has a maximum size of "
+"256 bytes.  You can pass arbitrary test input in the space.  In the case of "
+"callout_test we reshape that to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:128
+#, no-wrap
+msgid ""
+"struct callout_test {\n"
+"\tint number_of_callouts;\n"
+"\tint test_number;\n"
+"};\n"
+msgstr ""
+
+#.  This is a bad example and violates strict aliasing.  It should be replaced.
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:134
+msgid ""
+"So the first lines of E<.Fn run_callout_test> does the following to get at "
+"the user specific data:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:140
+#, no-wrap
+msgid ""
+"\tstruct callout_test *u;\n"
+"\tsize_t sz;\n"
+"\tint i;\n"
+"\tstruct callout_run *rn;\n"
+"\tint index = test-E<gt>tot_threads_running;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:142
+#, no-wrap
+msgid "\tu = (struct callout_test *)test-E<gt>test_options;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:150
+msgid ""
+"That way it can access: E<.Va u-E<gt>test_number> (there are two types of "
+"tests provided with this test)  and E<.Va u-E<gt>number_of_callouts> (how "
+"many simultaneous callouts to run)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:165
+msgid ""
+"Your test can do anything with these bytes.  So the callout_test in question "
+"wants to create a situation where multiple callouts are all run, that is the "
+"E<.Va number_of_callouts>, and it tries to cancel the callout with the new "
+"E<.Fn callout_async_drain>.  The threads do this by acquiring the lock in "
+"question, and then starting each of the callouts.  It waits for the callouts "
+"to all go off (the executor spins waits).  This forces the situation that "
+"the callouts have expired and are all waiting on the lock that the executor "
+"holds.  After the callouts are all blocked, the executor calls E<.Fn "
+"callout_async_drain> on each callout and releases the lock."
+msgstr ""
+
+#.  callout_test(4) specific documentation should probably be moved to its own
+#.  page.
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:183
+msgid ""
+"After all the callouts are done, a total status is printed showing the "
+"results via E<.Xr printf 9>.  The human tester can run E<.Xr dmesg 8> to see "
+"the results.  In this case it is expected that if you are running test 0, "
+"all the callouts expire on the same CPU so only one callout_drain function "
+"would have been called.  the number of zero_returns should match the number "
+"of callout_drains that were called, i.e., 1.  The one_returns should be the "
+"remainder of the callouts.  If the test number was 1, the callouts were "
+"spread across all CPUs.  The number of zero_returns will again match the "
+"number of drain calls made which matches the number of CPUs that were put in "
+"use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:186
+msgid ""
+"More than one thread can be used with this test, though in the example case "
+"it is probably not necessary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:189
+msgid ""
+"You should not need to change the framework.  Just add tests and register "
+"them after loading."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kern_testfrwk.9:189
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kern_testfrwk.9:193
+msgid ""
+"The kernel test framework was written by E<.An Randall Stewart Aq Mt "
+"rrs@FreeBSD.org> with help from E<.An John Mark Gurney Aq Mt "
+"jmg@FreeBSD.org>."
+msgstr ""

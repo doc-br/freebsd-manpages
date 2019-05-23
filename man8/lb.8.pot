@@ -1,0 +1,254 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/tools/tools/netmap/lb.8:27
+#, no-wrap
+msgid "October 28, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/tools/tools/netmap/lb.8:28
+#, no-wrap
+msgid "LB 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/netmap/lb.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:32
+msgid "E<.Nm lb>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/tools/tools/netmap/lb.8:32
+#, no-wrap
+msgid "netmap-based load balancer"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/netmap/lb.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:35
+msgid "E<.Bk -words>"
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/netmap/lb.8:36
+#, no-wrap
+msgid "Nm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:42
+msgid ""
+"E<.Op Fl i Ar port> E<.Op Fl p Ar pipe-group> E<.Op Fl B Ar extra-buffers> "
+"E<.Op Fl b Ar batch-size> E<.Op Fl w Ar wait-link>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:44
+msgid "E<.Ek>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/netmap/lb.8:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:50
+msgid ""
+"E<.Nm> reads packets from an input netmap port and sends them to a number of "
+"netmap pipes, trying to balance the packets received by each pipe.  Packets "
+"belonging to the same connection will always be sent to the same pipe."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:52
+msgid "Command line options are listed below."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/netmap/lb.8:53
+#, no-wrap
+msgid "Fl i Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:59
+msgid ""
+"Name of a netmap port.  It must be supplied exactly once to identify the "
+"input port.  Any netmap port type (e.g., physical interface, VALE switch, "
+"pipe, monitor port) can be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/netmap/lb.8:59
+#, no-wrap
+msgid "Fl p Ar name Ns Cm \\&: Ns Ar number | number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:71
+msgid ""
+"Add a new pipe group of the given number of pipes.  The pipe group will "
+"receive all the packets read from the input port, balanced among the "
+"available pipes.  The receiving ends of the pipes will be called E<.Dq Ar "
+"name Ns Em }0> to E<.Dq Ar name No Ns Em } Ns Aq Ar number No - 1>.  The "
+"name is optional and defaults to the name of the input port (stripped down "
+"of any netmap operator).  If the name is omitted, also the colon can be "
+"omitted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:74
+msgid ""
+"This option can be supplied multiple times to define a sequence of pipe "
+"groups, each group receiving all the packets in turn."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:78
+msgid ""
+"If no E<.Fl p> option is given, a single group of two pipes with default "
+"name is assumed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:82
+msgid ""
+"It is allowed to use the same name for several groups.  The pipe numbering "
+"in each group will start from were the previous identically-named group had "
+"left."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/netmap/lb.8:82
+#, no-wrap
+msgid "Fl B Ar extra-buffers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:89
+msgid ""
+"Try to reserve the given number of extra buffers.  Extra buffers are shared "
+"among all pipes in all groups and work as an extension of the pipe rings.  "
+"If a pipe ring is full for whatever reason, E<.Nm> tries to use extra "
+"buffers before dropping any packets directed to that pipe."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:94
+msgid ""
+"If all extra buffers are busy, some are stolen from the pipe with the "
+"longest backlog.  This gives preference to newer packets over old ones, and "
+"prevents a stalled pipe to deplete the pool of extra buffers."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/netmap/lb.8:94
+#, no-wrap
+msgid "Fl b Ar batch-size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:98
+msgid ""
+"Maximum number of packets processed between two read operations from the "
+"input port.  Higher values of batch-size improve performance by amortizing "
+"read operations, but increase the risk of filling up the port internal "
+"queues."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/netmap/lb.8:98
+#, no-wrap
+msgid "Fl w Ar wait-link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:102
+msgid ""
+"indicates the number of seconds to wait before transmitting.  It defaults to "
+"2, and may be useful when talking to physical ports to let link negotiation "
+"complete before starting transmission."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/netmap/lb.8:103
+#, no-wrap
+msgid "LIMITATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:107
+msgid ""
+"The group chaining assumes that the applications on the receiving end of the "
+"pipes are read-only: they must not modify the buffers or the pipe ring slots "
+"in any way."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:116
+msgid ""
+"The group naming is currently implemented by creating a persistent VALE port "
+"with the given name.  If E<.Nm> does not exit cleanly the ports will not be "
+"removed.  Please use E<.Xr vale-ctl 4> to remove any stale persistent VALE "
+"port."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/netmap/lb.8:116
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:120
+msgid "E<.Xr netmap 4>, E<.Xr bridge 8>, E<.Xr pkt-gen 8>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:122
+msgid "E<.Pa http://info.iet.unipi.it/~luigi/netmap/>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/netmap/lb.8:122
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/netmap/lb.8:130
+msgid ""
+"E<.An -nosplit> E<.Nm> has been written by E<.An Seth Hall> at Corelight, "
+"USA.  The facilities related to extra buffers and pipe groups have been "
+"added by E<.An Giuseppe Lettieri> at University of Pisa, Italy, under "
+"contract by Corelight, USA."
+msgstr ""

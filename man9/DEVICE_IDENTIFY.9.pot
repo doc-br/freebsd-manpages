@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:31
+#, no-wrap
+msgid "January 15, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:32
+#, no-wrap
+msgid "DEVICE_IDENTIFY 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:36
+msgid "E<.Nm DEVICE_IDENTIFY>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:36
+#, no-wrap
+msgid "identify a device, register it"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:39
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:42
+msgid "E<.Ft void> E<.Fn DEVICE_IDENTIFY \"driver_t *driver\" \"device_t parent\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:48
+msgid ""
+"The identify function for a device is only needed for devices on buses that "
+"cannot identify their children independently, e.g.\\& the ISA bus.  It is "
+"used to recognize the device (usually done by accessing non-ambiguous "
+"registers in the hardware) and to tell the kernel about it and thus creating "
+"a new device instance."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:57
+msgid ""
+"E<.Xr BUS_ADD_CHILD 9> is used to register the device as a child of the "
+"bus.  The device's resources (such as IRQ and I/O ports) are registered with "
+"the kernel by calling E<.Fn bus_set_resource> for each resource (refer to "
+"E<.Xr bus_set_resource 9> for more information)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:65
+msgid ""
+"Since the device tree and the device driver tree are disjoint, the E<.Fn "
+"DEVICE_IDENTIFY> routine needs to take this into account.  If you load and "
+"unload your device driver that has the identify routine, the child node has "
+"the potential for adding the same node multiple times unless specific "
+"measure are taken to preclude that possibility."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:65
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:69
+msgid ""
+"The following pseudo-code shows an example of a function that probes for a "
+"piece of hardware and registers it and its resource (an I/O port) with the "
+"kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:74
+#, no-wrap
+msgid ""
+"void\n"
+"foo_identify(driver_t *driver, device_t parent)\n"
+"{\n"
+"\tdevice_t child;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:82
+#, no-wrap
+msgid ""
+"\tretrieve_device_information;\n"
+"\tif (devices matches one of your supported devices &&\n"
+"\t    not already in device tree) {\n"
+"\t\tchild = BUS_ADD_CHILD(parent, 0, \"foo\", -1);\n"
+"\t\tbus_set_resource(child, SYS_RES_IOPORT, 0, FOO_IOADDR, 1);\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:83
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:92
+msgid ""
+"E<.Xr BUS_ADD_CHILD 9>, E<.Xr bus_set_resource 9>, E<.Xr device 9>, E<.Xr "
+"device_add_child 9>, E<.Xr DEVICE_ATTACH 9>, E<.Xr DEVICE_DETACH 9>, E<.Xr "
+"DEVICE_PROBE 9>, E<.Xr DEVICE_SHUTDOWN 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:92
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEVICE_IDENTIFY.9:94
+msgid ""
+"This manual page was written by E<.An Alexander Langer Aq Mt "
+"alex@FreeBSD.org>."
+msgstr ""

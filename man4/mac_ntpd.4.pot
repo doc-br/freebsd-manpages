@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mac_ntpd.4:26
+#, no-wrap
+msgid "July 20, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mac_ntpd.4:27
+#, no-wrap
+msgid "MAC_NTPD 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_ntpd.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:31
+msgid "E<.Nm mac_ntpd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mac_ntpd.4:31
+#, no-wrap
+msgid "policy allowing ntpd to run as non-root user"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_ntpd.4:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:35
+msgid ""
+"To compile the ntpd policy into your kernel, place the following lines in "
+"your kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:38
+#, no-wrap
+msgid ""
+"E<.Cd \"options MAC\">\n"
+"E<.Cd \"options MAC_NTPD\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:42
+msgid ""
+"Alternately, to load the ntpd policy module at boot time, place the "
+"following line in your kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:44
+#, no-wrap
+msgid "E<.Cd \"options MAC\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:48
+msgid "and in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:50
+#, no-wrap
+msgid "mac_ntpd_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_ntpd.4:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:58
+msgid ""
+"The E<.Nm> policy grants any process running as user E<.Sq ntpd> (uid 123) "
+"the privileges needed to manipulate system time, and to (re-)bind to the "
+"privileged NTP port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:68
+msgid ""
+"When E<.Xr ntpd 8> is started with E<.Sq Fl u Ar E<lt>userE<gt>[:group]> on "
+"the command line, it performs all initializations requiring root privileges, "
+"then drops root privileges by switching to the given user id.  From that "
+"point on, the only privileges it requires are the ability to manipulate "
+"system time, and the ability to re-bind a UDP socket to the NTP port (port "
+"123) after a network interface change."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:74
+msgid ""
+"With the E<.Nm> policy active, it may also be possible to start ntpd as a "
+"non-root user, because the default ntpd options don't require any additional "
+"root privileges beyond those granted by the policy."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/mac_ntpd.4:75
+#, no-wrap
+msgid "Privileges Granted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:78
+msgid ""
+"The exact set of kernel privileges granted to any process running with the "
+"configured uid is:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:79
+#, no-wrap
+msgid "Dv PRIV_ADJTIME"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:80
+#, no-wrap
+msgid "Dv PRIV_CLOCK_SETTIME"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:81
+#, no-wrap
+msgid "Dv PRIV_NTP_ADJTIME"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:82
+#, no-wrap
+msgid "Dv PRIV_NETINET_RESERVEDPORT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:83
+#, no-wrap
+msgid "Dv PRIV_NETINET_REUSEPORT"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/mac_ntpd.4:86
+#, no-wrap
+msgid "Runtime Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:96
+msgid ""
+"The following E<.Xr sysctl 8> MIBs are available for fine-tuning this MAC "
+"policy.  All E<.Xr sysctl 8> variables can also be set as E<.Xr loader 8> "
+"tunables in E<.Xr loader.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:97
+#, no-wrap
+msgid "Va security.mac.ntpd.enabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:102
+msgid "Enable the E<.Nm> policy.  (Default: 1)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_ntpd.4:102
+#, no-wrap
+msgid "Va security.mac.ntpd.uid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:105
+msgid "The numeric uid of the ntpd user.  (Default: 123)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_ntpd.4:106
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:109
+msgid "E<.Xr mac 4>, E<.Xr ntpd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_ntpd.4:109
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_ntpd.4:115
+msgid "MAC first appeared in E<.Fx 5.0> and E<.Nm> first appeared in E<.Fx 12.0>."
+msgstr ""

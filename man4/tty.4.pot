@@ -1,0 +1,760 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/tty.4:31
+#, no-wrap
+msgid "January 11, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/tty.4:32
+#, no-wrap
+msgid "TTY 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tty.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:36
+msgid "E<.Nm tty>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/tty.4:36
+#, no-wrap
+msgid "general terminal interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tty.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tty.4:38
+#, no-wrap
+msgid "sys/ioctl.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tty.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:42
+msgid "This section describes the interface to the terminal drivers in the system."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/tty.4:42
+#, no-wrap
+msgid "Terminal Special Files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:71
+msgid ""
+"Each hardware terminal port on the system usually has a terminal special "
+"device file associated with it in the directory ``/dev/'' (for example, "
+"``/dev/tty03'').  When a user logs into the system on one of these hardware "
+"terminal ports, the system has already opened the associated device and "
+"prepared the line for normal interactive use (see E<.Xr getty 8>.)  There is "
+"also a special case of a terminal file that connects not to a hardware "
+"terminal port, but to another program on the other side.  These special "
+"terminal devices are called E<.Em ptys> and provide the mechanism necessary "
+"to give users the same interface to the system when logging in over a "
+"network (using E<.Xr rlogin 1>, or E<.Xr telnet 1> for example).  Even in "
+"these cases the details of how the terminal file was opened and set up is "
+"already handled by special software in the system.  Thus, users do not "
+"normally need to worry about the details of how these lines are opened or "
+"used.  Also, these lines are often used for dialing out of a system (through "
+"an out-calling modem), but again the system provides programs that hide the "
+"details of accessing these terminal special files (see E<.Xr tip 1>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:87
+msgid ""
+"When an interactive user logs in, the system prepares the line to behave in "
+"a certain way (called a E<.Em \"line discipline\">), the particular details "
+"of which is described in E<.Xr stty 1> at the command level, and in E<.Xr "
+"termios 4> at the programming level.  A user may be concerned with changing "
+"settings associated with his particular login terminal and should refer to "
+"the preceding man pages for the common cases.  The remainder of this man "
+"page is concerned with describing details of using and controlling terminal "
+"devices at a low level, such as that possibly required by a program wishing "
+"to provide features similar to those provided by the system."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/tty.4:87
+#, no-wrap
+msgid "Terminal File Operations"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:111
+msgid ""
+"All of the following operations are invoked using the E<.Xr ioctl 2> system "
+"call.  Refer to that man page for a description of the E<.Em request> and "
+"E<.Em argp> parameters.  In addition to the ioctl E<.Em requests> defined "
+"here, the specific line discipline in effect will define other E<.Em "
+"requests> specific to it (actually E<.Xr termios 4> defines them as function "
+"calls, not ioctl E<.Em requests>.)  The following section lists the "
+"available ioctl requests.  The name of the request, a description of its "
+"purpose, and the typed E<.Em argp> parameter (if any)  are listed.  For "
+"example, the first entry says"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/tty.4:112
+#, no-wrap
+msgid "Em \"TIOCSPGRP int *tpgrp\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:116
+msgid ""
+"and would be called on the terminal associated with file descriptor zero by "
+"the following code fragment:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:118
+#, no-wrap
+msgid "\tint pgrp;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:121
+#, no-wrap
+msgid ""
+"\tpgrp = getpgrp();\n"
+"\tioctl(0, TIOCSPGRP, &pgrp);\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/tty.4:122
+#, no-wrap
+msgid "Terminal File Request Descriptions"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:124
+#, no-wrap
+msgid "Dv TIOCSETD Fa int *ldisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:130
+msgid ""
+"This call is obsolete but left for compatibility.  Before E<.Fx 8.0>, it "
+"would change to the new line discipline pointed to by E<.Fa ldisc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:130
+#, no-wrap
+msgid "Dv TIOCGETD Fa int *ldisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:133
+msgid ""
+"Return the current line discipline in the integer pointed to by E<.Fa "
+"ldisc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:133
+#, no-wrap
+msgid "Dv TIOCSBRK Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:135
+msgid "Set the terminal hardware into BREAK condition."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:135
+#, no-wrap
+msgid "Dv TIOCCBRK Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:137
+msgid "Clear the terminal hardware BREAK condition."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:137
+#, no-wrap
+msgid "Dv TIOCSDTR Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:139
+msgid "Assert data terminal ready (DTR)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:139
+#, no-wrap
+msgid "Dv TIOCCDTR Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:141
+msgid "Clear data terminal ready (DTR)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:141
+#, no-wrap
+msgid "Dv TIOCGPGRP Fa int *tpgrp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:149
+msgid ""
+"Return the current process group with which the terminal is associated in "
+"the integer pointed to by E<.Fa tpgrp>.  This is the underlying call that "
+"implements the E<.Xr termios 4> E<.Fn tcgetattr> call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:149
+#, no-wrap
+msgid "Dv TIOCSPGRP Fa int *tpgrp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:156
+msgid ""
+"Associate the terminal with the process group (as an integer) pointed to by "
+"E<.Fa tpgrp>.  This is the underlying call that implements the E<.Xr termios "
+"4> E<.Fn tcsetattr> call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:156
+#, no-wrap
+msgid "Dv TIOCGETA Fa struct termios *term"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:164
+msgid ""
+"Place the current value of the termios state associated with the device in "
+"the termios structure pointed to by E<.Fa term>.  This is the underlying "
+"call that implements the E<.Xr termios 4> E<.Fn tcgetattr> call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:164
+#, no-wrap
+msgid "Dv TIOCSETA Fa struct termios *term"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:172
+msgid ""
+"Set the termios state associated with the device immediately.  This is the "
+"underlying call that implements the E<.Xr termios 4> E<.Fn tcsetattr> call "
+"with the E<.Dv TCSANOW> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:172
+#, no-wrap
+msgid "Dv TIOCSETAW Fa struct termios *term"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:181
+msgid ""
+"First wait for any output to complete, then set the termios state associated "
+"with the device.  This is the underlying call that implements the E<.Xr "
+"termios 4> E<.Fn tcsetattr> call with the E<.Dv TCSADRAIN> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:181
+#, no-wrap
+msgid "Dv TIOCSETAF Fa struct termios *term"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:190
+msgid ""
+"First wait for any output to complete, clear any pending input, then set the "
+"termios state associated with the device.  This is the underlying call that "
+"implements the E<.Xr termios 4> E<.Fn tcsetattr> call with the E<.Dv "
+"TCSAFLUSH> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:190
+#, no-wrap
+msgid "Dv TIOCOUTQ Fa int *num"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:194
+msgid ""
+"Place the current number of characters in the output queue in the integer "
+"pointed to by E<.Fa num>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:194
+#, no-wrap
+msgid "Dv TIOCSTI Fa char *cp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:198
+msgid ""
+"Simulate typed input.  Pretend as if the terminal received the character "
+"pointed to by E<.Fa cp>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:198
+#, no-wrap
+msgid "Dv TIOCNOTTY Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:217
+msgid ""
+"This call is obsolete but left for compatibility.  In the past, when a "
+"process that did not have a controlling terminal (see E<.Em The Controlling "
+"Terminal> in E<.Xr termios 4>)  first opened a terminal device, it acquired "
+"that terminal as its controlling terminal.  For some programs this was a "
+"hazard as they did not want a controlling terminal in the first place, and "
+"this provided a mechanism to disassociate the controlling terminal from the "
+"calling process.  It E<.Em must> be called by opening the file E<.Pa "
+"/dev/tty> and calling E<.Dv TIOCNOTTY> on that file descriptor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:233
+msgid ""
+"The current system does not allocate a controlling terminal to a process on "
+"an E<.Fn open> call: there is a specific ioctl called E<.Dv TIOCSCTTY> to "
+"make a terminal the controlling terminal.  In addition, a program can E<.Fn "
+"fork> and call the E<.Fn setsid> system call which will place the process "
+"into its own session - which has the effect of disassociating it from the "
+"controlling terminal.  This is the new and preferred method for programs to "
+"lose their controlling terminal."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:233
+#, no-wrap
+msgid "Dv TIOCSTOP Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:235
+msgid "Stop output on the terminal (like typing ^S at the keyboard)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:235
+#, no-wrap
+msgid "Dv TIOCSTART Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:237
+msgid "Start output on the terminal (like typing ^Q at the keyboard)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:237
+#, no-wrap
+msgid "Dv TIOCSCTTY Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:240
+msgid ""
+"Make the terminal the controlling terminal for the process (the process must "
+"not currently have a controlling terminal)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:240
+#, no-wrap
+msgid "Dv TIOCDRAIN Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:242
+msgid "Wait until all output is drained, or until the drain wait timeout expires."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:242
+#, no-wrap
+msgid "Dv TIOCGDRAINWAIT Fa int *timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:244
+msgid "Return the current drain wait timeout in seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:244
+#, no-wrap
+msgid "Dv TIOCSDRAINWAIT Fa int *timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:251
+msgid ""
+"Set the drain wait timeout in seconds.  A value of zero disables timeouts.  "
+"The default drain wait timeout is controlled by the tunable E<.Xr sysctl 8> "
+"OID E<.Va kern.tty_drainwait>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:251
+#, no-wrap
+msgid "Dv TIOCEXCL Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:257
+msgid ""
+"Set exclusive use on the terminal.  No further opens are permitted except by "
+"root.  Of course, this means that programs that are run by root (or setuid) "
+"will not obey the exclusive setting - which limits the usefulness of this "
+"feature."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:257
+#, no-wrap
+msgid "Dv TIOCNXCL Fa void"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:260
+msgid "Clear exclusive use of the terminal.  Further opens are permitted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:260
+#, no-wrap
+msgid "Dv TIOCFLUSH Fa int *what"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:266
+msgid ""
+"If the value of the int pointed to by E<.Fa what> contains the E<.Dv FREAD> "
+"bit as defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tty.4:266
+#, no-wrap
+msgid "sys/file.h ,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:276
+msgid ""
+"then all characters in the input queue are cleared.  If it contains the "
+"E<.Dv FWRITE> bit, then all characters in the output queue are cleared.  If "
+"the value of the integer is zero, then it behaves as if both the E<.Dv "
+"FREAD> and E<.Dv FWRITE> bits were set (i.e., clears both queues)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:276
+#, no-wrap
+msgid "Dv TIOCGWINSZ Fa struct winsize *ws"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:289
+msgid ""
+"Put the window size information associated with the terminal in the E<.Va "
+"winsize> structure pointed to by E<.Fa ws>.  The window size structure "
+"contains the number of rows and columns (and pixels if appropriate) of the "
+"devices attached to the terminal.  It is set by user software and is the "
+"means by which most full\\&-screen oriented programs determine the screen "
+"size.  The E<.Va winsize> structure is defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tty.4:289
+#, no-wrap
+msgid "sys/ioctl.h ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:290
+#, no-wrap
+msgid "Dv TIOCSWINSZ Fa struct winsize *ws"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:297
+msgid ""
+"Set the window size associated with the terminal to be the value in the "
+"E<.Va winsize> structure pointed to by E<.Fa ws> (see above)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:297
+#, no-wrap
+msgid "Dv TIOCCONS Fa int *on"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:308
+msgid ""
+"If E<.Fa on> points to a non-zero integer, redirect kernel console output "
+"(kernel printf's)  to this terminal.  If E<.Fa on> points to a zero integer, "
+"redirect kernel console output back to the normal console.  This is usually "
+"used on workstations to redirect kernel messages to a particular window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:308
+#, no-wrap
+msgid "Dv TIOCMSET Fa int *state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:313
+msgid ""
+"The integer pointed to by E<.Fa state> contains bits that correspond to "
+"modem state.  Following is a list of defined variables and the modem state "
+"they represent:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:315
+#, no-wrap
+msgid "TIOCM_LE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:317
+msgid "Line Enable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:317
+#, no-wrap
+msgid "TIOCM_DTR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:319
+msgid "Data Terminal Ready."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:319
+#, no-wrap
+msgid "TIOCM_RTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:321
+msgid "Request To Send."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:321
+#, no-wrap
+msgid "TIOCM_ST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:323
+msgid "Secondary Transmit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:323
+#, no-wrap
+msgid "TIOCM_SR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:325
+msgid "Secondary Receive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:325
+#, no-wrap
+msgid "TIOCM_CTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:327
+msgid "Clear To Send."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:327
+#, no-wrap
+msgid "TIOCM_CAR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:329
+msgid "Carrier Detect."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:329
+#, no-wrap
+msgid "TIOCM_CD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:331
+msgid "Carrier Detect (synonym)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:331
+#, no-wrap
+msgid "TIOCM_RNG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:333
+msgid "Ring Indication."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:333
+#, no-wrap
+msgid "TIOCM_RI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:335
+msgid "Ring Indication (synonym)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:335
+#, no-wrap
+msgid "TIOCM_DSR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:337
+msgid "Data Set Ready."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:342
+msgid ""
+"This call sets the terminal modem state to that represented by E<.Fa "
+"state>.  Not all terminals may support this."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:342
+#, no-wrap
+msgid "Dv TIOCMGET Fa int *state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:346
+msgid ""
+"Return the current state of the terminal modem lines as represented above in "
+"the integer pointed to by E<.Fa state>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:346
+#, no-wrap
+msgid "Dv TIOCMBIS Fa int *state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:351
+msgid ""
+"The bits in the integer pointed to by E<.Fa state> represent modem state as "
+"described above, however the state is OR-ed in with the current state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tty.4:351
+#, no-wrap
+msgid "Dv TIOCMBIC Fa int *state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:358
+msgid ""
+"The bits in the integer pointed to by E<.Fa state> represent modem state as "
+"described above, however each bit which is on in E<.Fa state> is cleared in "
+"the terminal."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tty.4:359
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:369
+msgid ""
+"The total number of input and output bytes through all terminal devices are "
+"available via the E<.Va kern.tty_nin> and E<.Va kern.tty_nout> read-only "
+"E<.Xr sysctl 8> variables."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tty.4:369
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tty.4:375
+msgid ""
+"E<.Xr stty 1>, E<.Xr ioctl 2>, E<.Xr ng_tty 4>, E<.Xr pty 4>, E<.Xr termios "
+"4>, E<.Xr getty 8>"
+msgstr ""

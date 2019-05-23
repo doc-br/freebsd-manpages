@@ -1,0 +1,401 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mk48txx.4:32
+#, no-wrap
+msgid "December 25, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mk48txx.4:33
+#, no-wrap
+msgid "MK48TXX 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:37
+msgid "E<.Nm mk48txx>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:40
+msgid "E<.Tn Mostek> time-of-day clock driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mk48txx.4:41
+#, no-wrap
+msgid "sys/eventhandler.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mk48txx.4:42
+#, no-wrap
+msgid "sys/lock.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mk48txx.4:43
+#, no-wrap
+msgid "sys/mutex.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mk48txx.4:44
+#, no-wrap
+msgid "dev/mk48txx/mk48txxvar.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:49
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:51
+#, no-wrap
+msgid "E<.Cd \"device mk48txx\">\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:61
+msgid ""
+"The E<.Nm> driver is a back-end for several models of E<.Tn Mostek> "
+"time-of-day clock chips.  It provides access methods to retrieve and set "
+"date and time for use with the E<.Dq Li clock> KOBJ interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:65
+msgid ""
+"To tie an instance of this device to the system, use the E<.Fn "
+"mk48txx_attach> function and the mk48txx_softc structure defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:68
+msgid "E<.Ft \"int\"> E<.Fn mk48txx_attach \"device_t dev\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:71
+#, no-wrap
+msgid ""
+"typedef uint8_t (*mk48txx_nvrd_t)(device_t dev, int off);\n"
+"typedef void (*mk48txx_nvwr_t)(device_t dev, int off, uint8_t v);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:85
+#, no-wrap
+msgid ""
+"struct mk48txx_softc {\n"
+"\tstruct resource\tsc_res;\n"
+"\tstruct mtx\tsc_mtx;\n"
+"\teventhandler_tag\tsc_wet;\n"
+"\tconst char\t*sc_model;\n"
+"\tbus_size_t\tsc_nvramsz;\n"
+"\tbus_size_t\tsc_clkoffset;\n"
+"\tu_int\t\tsc_year0;\n"
+"\tu_int\t\tsc_flag;\n"
+"\tmk48txx_nvrd_t\tsc_nvrd;\n"
+"\tmk48txx_nvwr_t\tsc_nvwr;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:87
+#, no-wrap
+msgid "Fa sc_res"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:93
+msgid ""
+"The bus resource used for accessing the chip's non-volatile memory E<.Pq "
+"including the clock registers>, which must be supplied by the front-end when "
+"using the default access methods E<.Pq see below>.  Otherwise this member is "
+"optional."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:93
+#, no-wrap
+msgid "Fa sc_mtx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:99
+msgid ""
+"The hardware mutex used when accessing the chip's non-volatile memory E<.Pq "
+"including the clock registers>, which must be initialized with E<.Dv "
+"MTX_DEF> by the front-end."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:99
+#, no-wrap
+msgid "Fa sc_wet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:106
+msgid ""
+"The event handler tag for the watchdog functionality, which is registered by "
+"the E<.Fn mk48txx_attach> function if supported by the chip and specified as "
+"part of the machine-dependent features E<.Pq see below>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:106
+#, no-wrap
+msgid "Fa sc_model"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:115
+msgid ""
+"The chip model which this instance should serve.  This member must be set to "
+"one of E<.Dq mk48t02>, E<.Dq mk48t08>, E<.Dq mk48t18>, or E<.Dq mk48t59> by "
+"the front-end."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:115
+#, no-wrap
+msgid "Fa sc_nvramsz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:122
+msgid ""
+"The size of the non-volatile RAM in the E<.Tn Mostek> chip, which is set by "
+"the E<.Fn mk48txx_attach> function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:122
+#, no-wrap
+msgid "Fa sc_clkoffset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:129
+msgid ""
+"The offset into the control registers of the E<.Tn Mostek> chip, which is "
+"set by the E<.Fn mk48txx_attach> function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:129
+#, no-wrap
+msgid "Fa sc_year0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:140
+msgid ""
+"The year offset to be used with the E<.Sq year> counter of the clock, which "
+"must be set by the front-end.  This value is generally dependent on the "
+"system configuration in which the clock device is mounted.  For instance, on "
+"E<.Tn Sun Microsystems> machines the convention is to have clock's two-digit "
+"year represent the year since 1968."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:140
+#, no-wrap
+msgid "Fa sc_flag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:143
+msgid ""
+"This flag is used to specify machine-dependent features.  The following "
+"flags are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:144
+#, no-wrap
+msgid "Dv MK48TXX_NO_CENT_ADJUST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:154
+msgid ""
+"If the resulting date retrieved with the E<.Dq Li clock_gettime() method> "
+"would be earlier than January 1, 1970, the driver will assume that the "
+"chip's year counter actually represents a year in the 21st century.  This "
+"behavior can be overridden by setting this flag, which causes the E<.Nm> "
+"driver to respect the clock's century bit instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:154
+#, no-wrap
+msgid "Dv MK48TXX_WDOG_REGISTER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:161
+msgid ""
+"When this flag is set, the E<.Nm> driver will register as a watchdog via the "
+"interface defined in E<.Xr watchdog 9> if supported by the specific chip "
+"model."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:161
+#, no-wrap
+msgid "Dv MK48TXX_WDOG_ENABLE_WDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:170
+msgid ""
+"When this flag is set, the E<.Nm> driver will set the watchdog steering "
+"E<.Pq WDS> bit when enabling the watchdog functionality of the chip.  "
+"enabled E<.Pq see the chip documentation for further information regarding "
+"the WDS bit>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:171
+#, no-wrap
+msgid "Fa sc_nvread"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:172
+#, no-wrap
+msgid "Fa sc_nvwrite"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:182
+msgid ""
+"These members specify the access methods for reading respectively writing "
+"clock device registers.  The default, when E<.Dv NULL> is passed as an "
+"access method, is to access the chip memory E<.Pq and clock registers> as if "
+"they were direct-mapped using the specified bus resource."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:190
+msgid ""
+"Otherwise, the driver will call the respective function supplied by the "
+"front-end to perform the access, passing it the offset E<.Va off> of the "
+"chip memory E<.Pq or clock register> location to be read from or written to, "
+"respectively."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:191
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:193
+msgid "The following models are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:195
+#, no-wrap
+msgid "Tn Mostek MK48T02"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:196
+#, no-wrap
+msgid "Tn Mostek MK48T08"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:197
+#, no-wrap
+msgid "Tn Mostek MK48T18"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mk48txx.4:198
+#, no-wrap
+msgid "Tn Mostek MK48T59"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:200
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:203
+msgid "E<.Xr intro 4>, E<.Xr watchdog 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:203
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:212
+msgid ""
+"The E<.Nm mk48txx> driver appeared in E<.Nx 1.5>.  The first E<.Fx> version "
+"to include it was E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mk48txx.4:212
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mk48txx.4:225
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written for E<.Nx> by E<.An Paul "
+"Kranenburg Aq Mt pk@NetBSD.org>.  It was ported to E<.Fx> by E<.An Thomas "
+"Moestl Aq Mt tmm@FreeBSD.org> and later on improved by E<.An Marius Strobl "
+"Aq Mt marius@FreeBSD.org>."
+msgstr ""

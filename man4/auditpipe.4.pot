@@ -1,0 +1,526 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/auditpipe.4:27
+#, no-wrap
+msgid "April 28, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/auditpipe.4:28
+#, no-wrap
+msgid "AUDITPIPE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:32
+msgid "E<.Nm auditpipe>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/auditpipe.4:32
+#, no-wrap
+msgid "pseudo-device for live audit event tracking"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:35
+msgid "E<.Cd \"options AUDIT\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:47
+msgid ""
+"While audit trail files generated with E<.Xr audit 4> and maintained by "
+"E<.Xr auditd 8> provide a reliable long-term store for audit log "
+"information, current log files are owned by the audit daemon until "
+"terminated making them somewhat unwieldy for live monitoring applications "
+"such as host-based intrusion detection.  For example, the log may be cycled "
+"and new records written to a new file without notice to applications that "
+"may be accessing the file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:59
+msgid ""
+"The audit facility provides an audit pipe facility for applications "
+"requiring direct access to live BSM audit data for the purposes of real-time "
+"monitoring.  Audit pipes are available via a clonable special device, E<.Pa "
+"/dev/auditpipe>, subject to the permissions on the device node, and provide "
+"a E<.Qq tee> of the audit event stream.  As the device is clonable, more "
+"than one instance of the device may be opened at a time; each device "
+"instance will provide independent access to all records."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:73
+msgid ""
+"The audit pipe device provides discrete BSM audit records; if the read "
+"buffer passed by the application is too small to hold the next record in the "
+"sequence, it will be dropped.  Unlike audit data written to the audit trail, "
+"the reliability of record delivery is not guaranteed.  In particular, when "
+"an audit pipe queue fills, records will be dropped.  Audit pipe devices are "
+"blocking by default, but support non-blocking I/O, asynchronous I/O using "
+"E<.Dv SIGIO>, and polled operation via E<.Xr select 2> and E<.Xr poll 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:76
+msgid ""
+"Applications may choose to track the global audit trail, or configure local "
+"preselection parameters independent of the global audit trail parameters."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/auditpipe.4:76
+#, no-wrap
+msgid "Audit Pipe Queue Ioctls"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:79
+msgid ""
+"The following ioctls retrieve and set various audit pipe record queue "
+"properties:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:80
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_QLEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:82
+msgid "Query the current number of records available for reading on the pipe."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:82
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_QLIMIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:85
+msgid ""
+"Retrieve the current maximum number of records that may be queued for "
+"reading on the pipe."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:85
+#, no-wrap
+msgid "Dv AUDITPIPE_SET_QLIMIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:90
+msgid ""
+"Set the current maximum number of records that may be queued for reading on "
+"the pipe.  The new limit must fall between the queue limit minimum and queue "
+"limit maximum queryable using the following two ioctls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:90
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_QLIMIT_MIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:93
+msgid ""
+"Query the lowest possible maximum number of records that may be queued for "
+"reading on the pipe."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:93
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_QLIMIT_MAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:96
+msgid ""
+"Query the highest possible maximum number of records that may be queued for "
+"reading on the pipe."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:96
+#, no-wrap
+msgid "Dv AUDITPIPE_FLUSH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:100
+msgid ""
+"Flush all outstanding records on the audit pipe; useful after setting "
+"initial preselection properties to delete records queued during the "
+"configuration process which may not match the interests of the user process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:100
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_MAXAUDITDATA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:103
+msgid ""
+"Query the maximum size of an audit record, which is a useful minimum size "
+"for a user space buffer intended to hold audit records read from the audit "
+"pipe."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/auditpipe.4:104
+#, no-wrap
+msgid "Audit Pipe Preselection Mode Ioctls"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:114
+msgid ""
+"By default, the audit pipe facility configures pipes to present records "
+"matched by the system-wide audit trail, configured by E<.Xr auditd 8>.  "
+"However, the preselection mechanism for audit pipes can be configured using "
+"alternative criteria, including pipe-local flags and naflags settings, as "
+"well as auid-specific selection masks.  This allows applications to track "
+"events not captured in the global audit trail, as well as limit records "
+"presented to those of specific interest to the application."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:116
+msgid "The following ioctls configure the preselection mode on an audit pipe:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:117
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_PRESELECT_MODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:121
+msgid ""
+"Return the current preselect mode on the audit pipe.  The ioctl argument "
+"should be of type E<.Vt int>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:121
+#, no-wrap
+msgid "Dv AUDITPIPE_SET_PRESELECT_MODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:125
+msgid ""
+"Set the current preselection mode on the audit pipe.  The ioctl argument "
+"should be of type E<.Vt int>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:128
+msgid "Possible preselection mode values are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:129
+#, no-wrap
+msgid "Dv AUDITPIPE_PRESELECT_MODE_TRAIL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:132
+msgid ""
+"Use the global audit trail preselection parameters to select records for the "
+"audit pipe."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:132
+#, no-wrap
+msgid "Dv AUDITPIPE_PRESELECT_MODE_LOCAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:137
+msgid ""
+"Use local audit pipe preselection; this model is similar to the global audit "
+"trail configuration model, consisting of global flags and naflags "
+"parameters, as well as a set of per-auid masks.  These parameters are "
+"configured using further ioctls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:143
+msgid ""
+"After changing the audit pipe preselection mode, records selected under "
+"earlier preselection configuration may still be in the audit pipe queue.  "
+"The application may flush the current record queue after changing the "
+"configuration to remove possibly undesired records."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/auditpipe.4:143
+#, no-wrap
+msgid "Audit Pipe Local Preselection Mode Ioctls"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:148
+msgid ""
+"The following ioctls configure the preselection parameters used when an "
+"audit pipe is configured for the E<.Dv AUDITPIPE_PRESELECT_MODE_LOCAL> "
+"preselection mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:149
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_PRESELECT_FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:158
+msgid ""
+"Retrieve the current default preselection flags for attributable events on "
+"the pipe.  These flags correspond to the E<.Va flags> field in E<.Xr "
+"audit_control 5>.  The ioctl argument should be of type E<.Vt au_mask_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:158
+#, no-wrap
+msgid "Dv AUDITPIPE_SET_PRESELECT_FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:167
+msgid ""
+"Set the current default preselection flags for attributable events on the "
+"pipe.  These flags correspond to the E<.Va flags> field in E<.Xr "
+"audit_control 5>.  The ioctl argument should be of type E<.Vt au_mask_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:167
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_PRESELECT_NAFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:176
+msgid ""
+"Retrieve the current default preselection flags for non-attributable events "
+"on the pipe.  These flags correspond to the E<.Va naflags> field in E<.Xr "
+"audit_control 5>.  The ioctl argument should be of type E<.Vt au_mask_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:176
+#, no-wrap
+msgid "Dv AUDITPIPE_SET_PRESELECT_NAFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:185
+msgid ""
+"Set the current default preselection flags for non-attributable events on "
+"the pipe.  These flags correspond to the E<.Va naflags> field in E<.Xr "
+"audit_control 5>.  The ioctl argument should be of type E<.Vt au_mask_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:185
+#, no-wrap
+msgid "Dv AUDITPIPE_GET_PRESELECT_AUID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:197
+msgid ""
+"Query the current preselection masks for a specific auid on the pipe.  The "
+"ioctl argument should be of type E<.Vt \"struct "
+"auditpipe_ioctl_preselect\">.  The auid to query is specified via the E<.Va "
+"ap_auid> field of type E<.Vt au_id_t>; the mask will be returned via E<.Va "
+"ap_mask> of type E<.Vt au_mask_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:197
+#, no-wrap
+msgid "Dv AUDITPIPE_SET_PRESELECT_AUID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:204
+msgid ""
+"Set the current preselection masks for a specific auid on the pipe.  "
+"Arguments are identical to E<.Dv AUDITPIPE_GET_PRESELECT_AUID>, except that "
+"the caller should properly initialize the E<.Va ap_mask> field to hold the "
+"desired preselection mask."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:204
+#, no-wrap
+msgid "Dv AUDITPIPE_DELETE_PRESELECT_AUID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:210
+msgid ""
+"Delete the current preselection mask for a specific auid on the pipe.  Once "
+"called, events associated with the specified auid will use the default flags "
+"mask.  The ioctl argument should be of type E<.Vt au_id_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/auditpipe.4:210
+#, no-wrap
+msgid "Dv AUDITPIPE_FLUSH_PRESELECT_AUID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:212
+msgid "Delete all auid specific preselection specifications."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:213
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:220
+msgid ""
+"The E<.Xr praudit 1> utility may be directly executed on E<.Pa "
+"/dev/auditpipe> to review the default audit trail."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:220
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:228
+msgid ""
+"E<.Xr poll 2>, E<.Xr select 2>, E<.Xr audit 4>, E<.Xr dtaudit 4>, E<.Xr "
+"audit_control 5>, E<.Xr audit 8>, E<.Xr auditd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:228
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:233
+msgid ""
+"The OpenBSM implementation was created by McAfee Research, the security "
+"division of McAfee Inc., under contract to Apple Computer Inc.\\& in 2004.  "
+"It was subsequently adopted by the TrustedBSD Project as the foundation for "
+"the OpenBSM distribution."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:236
+msgid "Support for kernel audit first appeared in E<.Fx 6.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:236
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:239
+msgid ""
+"The audit pipe facility was designed and implemented by E<.An Robert Watson "
+"Aq Mt rwatson@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:242
+msgid ""
+"The Basic Security Module (BSM) interface to audit records and audit event "
+"stream format were defined by Sun Microsystems."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/auditpipe.4:242
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:246
+msgid ""
+"See the E<.Xr audit 4> manual page for information on audit-related bugs and "
+"limitations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:250
+msgid ""
+"The configurable preselection mechanism mirrors the selection model present "
+"for the global audit trail.  It might be desirable to provide a more "
+"flexible selection model."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/auditpipe.4:257
+msgid ""
+"The per-pipe audit event queue is fifo, with drops occurring if either the "
+"user thread provides in sufficient for the record on the queue head, or on "
+"enqueue if there is insufficient room.  It might be desirable to support "
+"partial reads of records, which would be more compatible with buffered I/O "
+"as implemented in system libraries, and to allow applications to select "
+"which records are dropped, possibly in the style of preselection."
+msgstr ""

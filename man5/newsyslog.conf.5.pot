@@ -1,0 +1,663 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:24
+#, no-wrap
+msgid "August 21, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:25
+#, no-wrap
+msgid "NEWSYSLOG.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:27
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:29
+msgid "E<.Nm newsyslog.conf>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:32
+msgid "E<.Xr newsyslog 8> configuration file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:32
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:70
+msgid ""
+"The E<.Nm> file is used to set log file rotation configuration for the E<.Xr "
+"newsyslog 8> utility.  Configuration may designate that logs are rotated "
+"based on size, last rotation time, or time of day.  The E<.Nm> file can also "
+"be used to designate secure permissions to log files at rotation time.  "
+"During initialization, E<.Xr newsyslog 8> reads a configuration file, "
+"normally E<.Pa /etc/newsyslog.conf>, to determine which logs may potentially "
+"be rotated and archived.  Each line has five mandatory fields and four "
+"optional fields, separated with whitespace.  Blank lines or lines beginning "
+"with E<.Ql #> are ignored.  If E<.Ql #> is placed in the middle of the line, "
+"the E<.Ql #> character and the rest of the line after it is ignored.  To "
+"prevent special meaning, the E<.Ql #> character may be escaped with E<.Ql "
+"\\e>; in this case preceding E<.Ql \\e> is removed and E<.Ql #> is treated "
+"as an ordinary character.  The fields of the configuration file are as "
+"follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:71
+#, no-wrap
+msgid "Ar logfile_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:84
+msgid ""
+"Name of the system log file to be archived, or one of the literal strings "
+"E<.Dq Aq Li default>, or E<.Dq Aq Li include>.  The special default entry "
+"will only be used if a log file name is given as a command line argument to "
+"E<.Xr newsyslog 8>, and if that log file name is not matched by any other "
+"line in the configuration file.  The include entry is used to include other "
+"configuration files and supports globbing."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:84
+#, no-wrap
+msgid "Ar owner : Ns Ar group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:97
+msgid ""
+"This optional field specifies the owner and group for the archive file.  The "
+"E<.Ql \\&:> is essential regardless if the E<.Ar owner> or E<.Ar group> "
+"field is left blank or contains a value.  The field may be numeric, or a "
+"name which is present in E<.Pa /etc/passwd> or E<.Pa /etc/group>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:97
+#, no-wrap
+msgid "Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:104
+msgid ""
+"Specify the file mode of the log file and archives.  Valid mode bits are "
+"E<.Dv 0666>.  (That is, read and write permissions for the rotated log may "
+"be specified for the owner, group, and others.)  All other mode bits are "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:104
+#, no-wrap
+msgid "Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:107
+msgid ""
+"Specify the maximum number of archive files which may exist.  This does not "
+"consider the current log file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:107
+#, no-wrap
+msgid "Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:114
+msgid ""
+"When the size of the log file reaches E<.Ar size> in kilobytes, the log file "
+"will be trimmed as described above.  If this field contains an asterisk "
+"E<.Pq Ql *>, the log file will not be trimmed based on size."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:114
+#, no-wrap
+msgid "Ar when"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:137
+msgid ""
+"The E<.Ar when> field may consist of an interval, a specific time, or both.  "
+"If the E<.Ar when> field contains an asterisk E<.Pq Ql *>, log rotation will "
+"solely depend on the contents of the E<.Ar size> field.  Otherwise, the "
+"E<.Ar when> field consists of an optional interval in hours, usually "
+"followed by an E<.So Li \\&@ Sc Ns No -sign> and a time in restricted E<.Tn "
+"ISO 8601> format.  Additionally, the format may also be constructed with a "
+"E<.Ql $> sign along with a rotation time specification of once a day, once a "
+"week, or once a month."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:146
+msgid ""
+"Time based trimming happens only if E<.Xr newsyslog 8> is run within one "
+"hour of the specified time.  If an interval is specified, the log file will "
+"be trimmed if that many hours have passed since the last rotation.  When "
+"both a time and an interval are specified then both conditions must be "
+"satisfied for the rotation to take place."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:151
+msgid ""
+"There is no provision for the specification of a timezone.  There is little "
+"point in specifying an explicit minutes or seconds component in the current "
+"implementation, since the only comparison is E<.Dq within the hour>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:153
+msgid "E<.Sy ISO 8601 restricted time format>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:179
+msgid ""
+"The lead-in character for a restricted E<.Tn ISO 8601> time is an E<.Ql @> "
+"sign.  The particular format of the time in restricted E<.Tn ISO 8601> is: "
+"E<.Sm off> E<.Oo Oo Oo Oo Oo> E<.Va cc Oc> E<.Va yy Oc> E<.Va mm Oc> E<.Va "
+"dd Oc> E<.Oo> E<.Li T Oo> E<.Va hh Oo> E<.Va mm Oo> E<.Va ss> E<.Oc Oc Oc Oc "
+"Oc>.  E<.Sm on> Optional date fields default to the appropriate component of "
+"the current date; optional time fields default to midnight; hence if today "
+"is January 22, 1999, the following date specifications are all equivalent:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:183
+msgid "E<.Sq Li 19990122T000000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:185
+msgid "E<.Sq Li 990122T000000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:187
+msgid "E<.Sq Li 0122T000000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:189
+msgid "E<.Sq Li 22T000000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:191
+msgid "E<.Sq Li T000000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:193
+msgid "E<.Sq Li T0000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:195
+msgid "E<.Sq Li T00>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:197
+msgid "E<.Sq Li 22T>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:199
+msgid "E<.Sq Li T>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:201
+msgid "E<.Sq Li \\&>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:204
+msgid "E<.Sy Day, week, and month time format:>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:216
+msgid ""
+"The lead-in character for day, week, and month specification is a E<.Ql $> "
+"sign.  The particular format of day, week, and month specification is: E<.Op "
+"Li D Ns Va hh>, E<.Op Li W Ns Va w Ns Op Li D Ns Va hh>, and E<.Op Li M Ns "
+"Va dd Ns Op Li D Ns Va hh>, respectively.  Optional time fields default to "
+"midnight.  The ranges for day and hour specifications are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:218
+#, no-wrap
+msgid "Ar hh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:220
+msgid "hours, range 0..23"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:220
+#, no-wrap
+msgid "Ar w"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:222
+msgid "day of week, range 0..6, 0 = Sunday"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:222
+#, no-wrap
+msgid "Ar dd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:228
+msgid ""
+"day of month, range 1..31, or one of the letters E<.Ql L> or E<.Ql l> to "
+"specify the last day of the month."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:231
+msgid "Some examples:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:233
+#, no-wrap
+msgid "Li $D0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:237
+msgid "rotate every night at midnight (same as E<.Li @T00>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:237
+#, no-wrap
+msgid "Li $D23"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:241
+msgid "rotate every day at 23:00 (same as E<.Li @T23>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:241
+#, no-wrap
+msgid "Li $W0D23"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:243
+msgid "rotate every week on Sunday at 23:00"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:243
+#, no-wrap
+msgid "Li $W5D16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:245
+msgid "rotate every week on Friday at 16:00"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:245
+#, no-wrap
+msgid "Li $M1D0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:249
+msgid ""
+"rotate at the first day of every month at midnight (i.e., the start of the "
+"day; same as E<.Li @01T00>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:249
+#, no-wrap
+msgid "Li $M5D6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:253
+msgid "rotate on every fifth day of month at 6:00 (same as E<.Li @05T06>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:254
+#, no-wrap
+msgid "Ar flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:259
+msgid ""
+"This optional field is made up of one or more characters that specify any "
+"special processing to be done for the log files matched by this line.  The "
+"following are valid flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:260
+#, no-wrap
+msgid "Cm B"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:274
+msgid ""
+"indicates that the log file is a binary file, or has some special format.  "
+"Usually E<.Xr newsyslog 8> inserts an E<.Tn ASCII> message into a log file "
+"during rotation.  This message is used to indicate when, and sometimes why "
+"the log file was rotated.  If E<.Cm B> is specified, then that informational "
+"message will not be inserted into the log file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:274
+#, no-wrap
+msgid "Cm C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:279
+msgid ""
+"indicates that the log file should be created if it does not already exist, "
+"and if the E<.Fl C> option was also specified on the command line."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:279
+#, no-wrap
+msgid "Cm D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:289
+msgid ""
+"indicates that E<.Xr newsyslog 8> should set the E<.Dv UF_NODUMP> flag when "
+"creating a new version of this log file.  This option would affect how the "
+"E<.Xr dump 8> command treats the log file when making a file system backup."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:289
+#, no-wrap
+msgid "Cm G"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:299
+msgid ""
+"indicates that the specified E<.Ar logfile_name> is a shell pattern, and "
+"that E<.Xr newsyslog 8> should archive all filenames matching that pattern "
+"using the other options on this line.  See E<.Xr glob 3> for details on "
+"syntax and matching rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:299
+#, no-wrap
+msgid "Cm J"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:305
+msgid ""
+"indicates that E<.Xr newsyslog 8> should attempt to save disk space by "
+"compressing the rotated log file using E<.Xr bzip2 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:305
+#, no-wrap
+msgid "Cm N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:308
+msgid ""
+"indicates that there is no process which needs to be signaled when this log "
+"file is rotated."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:308
+#, no-wrap
+msgid "Cm p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:310
+msgid "indicates that the zero-th rotated file should not be compressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:310
+#, no-wrap
+msgid "Cm R"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:317
+msgid ""
+"if this flag is set the E<.Xr newsyslog 8> will run shell command defined in "
+"E<.Ar path_to_pid_cmd_file> after rotation instead of trying to send signal "
+"to a process id stored in the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:317
+#, no-wrap
+msgid "Cm T"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:322
+msgid ""
+"if this flag is set the informational rotation message written to the log "
+"file will be in the format specified by RFC5424.  Normally, the rotation "
+"message is written in the traditional (RFC3164)  syslog format."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:322
+#, no-wrap
+msgid "Cm U"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:328
+msgid ""
+"indicates that the file specified by E<.Ar path_to_pid_cmd_file> will "
+"contain the ID for a process group instead of a process.  This option also "
+"requires that the first line in that file be a negative value to distinguish "
+"it from a process ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:328
+#, no-wrap
+msgid "Cm X"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:334
+msgid ""
+"indicates that E<.Xr newsyslog 8> should attempt to save disk space by "
+"compressing the rotated log file using E<.Xr xz 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:334
+#, no-wrap
+msgid "Cm Y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:340
+msgid ""
+"indicates that E<.Xr newsyslog 8> should attempt to save disk space by "
+"compressing the rotated log file using E<.Xr zstd 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:340
+#, no-wrap
+msgid "Cm Z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:346
+msgid ""
+"indicates that E<.Xr newsyslog 8> should attempt to save disk space by "
+"compressing the rotated log file using E<.Xr gzip 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:346
+#, no-wrap
+msgid "Fl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:351
+msgid ""
+"a minus sign will not cause any special processing, but it can be used as a "
+"placeholder to create a E<.Ar flags> field when you need to specify any of "
+"the following fields."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:352
+#, no-wrap
+msgid "Ar path_to_pid_cmd_file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:379
+msgid ""
+"This optional field specifies the file name containing a daemon's process ID "
+"or to find a group process ID if the E<.Cm U> flag was specified.  If this "
+"field is present, a E<.Ar signal> is sent to the process ID contained in "
+"this file.  If this field is not present and the E<.Cm N> flag has not been "
+"specified, then a E<.Dv SIGHUP> signal will be sent to E<.Xr syslogd 8> or "
+"to the process id found in the file specified by E<.Xr newsyslog 8 Ns 's> "
+"E<.Fl S> switch.  This field must start with E<.Ql /> in order to be "
+"recognized properly.  When used with the E<.Cm R> flag, the file is treated "
+"as a path to a binary to be executed by the E<.Xr newsyslog 8> after "
+"rotation instead of sending the signal out."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:379
+#, no-wrap
+msgid "Ar signal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:396
+msgid ""
+"This optional field specifies the signal that will be sent to the daemon "
+"process (or to all processes in a process group, if the E<.Cm U> flag was "
+"specified).  If this field is not present, then a E<.Dv SIGHUP> signal will "
+"be sent.  Signal names must start with E<.Dq SIG> and be the signal name, "
+"e.g., E<.Dv SIGUSR1>.  Alternatively, E<.Ar signal> can be the signal "
+"number, e.g., 30 for E<.Dv SIGUSR1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:397
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:401
+msgid "The following is an example of the E<.Dq Aq Li include> entry:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:401
+#, no-wrap
+msgid "E<lt>includeE<gt> /etc/newsyslog-local.conf"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:402
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:410
+msgid ""
+"E<.Xr bzip2 1>, E<.Xr gzip 1>, E<.Xr xz 1>, E<.Xr syslog 3>, E<.Xr chown 8>, "
+"E<.Xr newsyslog 8>, E<.Xr syslogd 8>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:421
+msgid ""
+"E<.Rs> E<.%A C. Lonvick> E<.%T The BSD syslog Protocol> E<.%O RFC3164> "
+"E<.Re> E<.Rs> E<.%A R. Gerhards> E<.%T The Syslog Protocol> E<.%O RFC5424> "
+"E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:421
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/newsyslog/newsyslog.conf.5:423
+msgid "This manual page first appeared in E<.Fx 4.10>."
+msgstr ""

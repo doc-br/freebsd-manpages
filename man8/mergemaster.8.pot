@@ -1,0 +1,694 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:27
+#, no-wrap
+msgid "November 27, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:28
+#, no-wrap
+msgid "MERGEMASTER 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:32
+msgid "E<.Nm mergemaster>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:32
+#, no-wrap
+msgid "merge configuration files, et al during an upgrade"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:45
+msgid ""
+"E<.Nm> E<.Op Fl scrvhpCP> E<.Op Fl a|iFU> E<.Op Fl "
+"-run-updates=[always|never]> E<.Op Fl m Ar /path/to/sources> E<.Op Fl t Ar "
+"/path/to/temp/root> E<.Op Fl d> E<.Op Fl u Ar N> E<.Op Fl w Ar N> E<.Op Fl A "
+"Ar Target architecture> E<.Op Fl D Ar /destdir/path>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:57
+msgid ""
+"The E<.Nm> utility is a Bourne shell script which is designed to aid you in "
+"updating the various configuration and other files associated with E<.Fx>.  "
+"It is E<.Sy HIGHLY> recommended that you back up your E<.Pa /etc> directory "
+"before beginning this process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:83
+msgid ""
+"The script uses E<.Pa /usr/src/Makefile> to build a temporary root "
+"environment from E<.Pa /> down, populating that environment with the various "
+"files.  You can specify a different source directory with the E<.Fl m> "
+"command line option, or specify the destination directory with the E<.Fl D> "
+"option.  It then compares each file in that environment to its installed "
+"counterpart.  When the script finds a change in the new file, or there is no "
+"installed version of the new file it gives you four options to deal with "
+"it.  You can install the new file as is, delete the new file, merge the old "
+"and new files (as appropriate) using E<.Xr sdiff 1> or leave the file in the "
+"temporary root environment to merge by hand later."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:104
+msgid ""
+"By default it creates the temporary root in E<.Pa /var/tmp/temproot> and "
+"compares the Version Control System (VCS) Id strings ($FreeBSD)  for files "
+"that have them, deleting the temporary file if the strings match.  If there "
+"is no Id string, or if the strings are different it compares the files "
+"themselves.  You can also specify that the script ignore the Id strings and "
+"compare every file with the E<.Fl s> option.  Using the E<.Fl F> option "
+"E<.Nm> will install the new file for you if they differ only by VCS strings."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:110
+msgid ""
+"The merge menu option is designed to let you easily combine your "
+"customizations from the old version of a file into the new one.  While you "
+"can use the merge function to incorporate changes from files that you have "
+"not customized, it is not recommended."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:135
+msgid ""
+"The E<.Nm> utility checks your umask and issues a warning for anything other "
+"than 022.  While it is not mandatory to grant world read permissions for "
+"most configuration files, you may run into problems without them.  If you "
+"choose a umask other than 022 and experience trouble later this could be the "
+"cause.  E<.Pa /etc/master.passwd> is treated as a special case.  If you "
+"choose to install this file or a merged version of it the file permissions "
+"are always 600 (rw-------) for security reasons.  After installing an "
+"updated version of this file you should probably run E<.Xr pwd_mkdb 8> with "
+"the E<.Fl p> option to rebuild your password databases and recreate E<.Pa "
+"/etc/passwd>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:142
+msgid ""
+"The script uses the owner and group ids that the files are created with by "
+"E<.Pa /usr/src/etc/Makefile>, and file permissions as specified by the "
+"umask.  Unified diffs are used by default to display any differences unless "
+"you choose context diffs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:169
+msgid ""
+"The E<.Nm> utility will source scripts that you specify right before it "
+"starts the comparison, and after it is done running.  The easiest way to "
+"handle this is to place the path to the script(s) in the appropriate "
+"variables in your E<.Pa .mergemasterrc> file.  The script sourced before "
+"comparison is named in E<.Ev MM_PRE_COMPARE_SCRIPT>, and the one sourced "
+"after the script is done is E<.Ev MM_EXIT_SCRIPT>.  This is the recommended "
+"way to specify local modifications, or files that you want to give special "
+"handling to.  This includes files that you want to be deleted without being "
+"compared.  Because the named scripts are sourced from within E<.Nm>, all of "
+"the script's variables are available for use in your custom script.  You can "
+"also use E<.Pa /etc/mergemaster.rc> which will be read before E<.Pa "
+".mergemasterrc>.  Options specified on the command line are updated last, "
+"and therefore can override both files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:177
+msgid ""
+"When the comparison is done if there are any files remaining in the temproot "
+"directory they will be listed, and if the E<.Fl a> option is not in use the "
+"user will be given the option of deleting the temproot directory.  If there "
+"are no files remaining in the temproot directory it will be deleted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:179
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:180
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:184
+msgid ""
+"Perform a strict comparison, diffing every pair of files.  This comparison "
+"is performed line by line, without regard to VCS Ids."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:184
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:186
+msgid "Use context diffs instead of unified diffs."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:186
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:193
+msgid ""
+"Re-run E<.Nm> on a previously cleaned directory, skipping the creation of "
+"the temporary root environment.  This option is compatible with all other "
+"options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:193
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:201
+msgid ""
+"Be more verbose about the process.  You should probably use this option the "
+"first time you run E<.Nm>.  This option also gives you a list of files that "
+"exist only in the installed version of E<.Pa /etc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:201
+#, no-wrap
+msgid "Fl a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:221
+msgid ""
+"Run automatically.  This option will leave all the files that differ from "
+"the installed versions in the temporary directory to be dealt with by hand.  "
+"If the E<.Pa temproot> directory exists, it creates a new one in a "
+"previously non-existent directory.  This option unsets the verbose flag, and "
+"is not compatible with E<.Fl i>, E<.Fl F>, or E<.Fl U>.  Setting E<.Fl a> "
+"makes E<.Fl w> superfluous."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:221
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:223
+msgid "Display usage and help information."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:223
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:226
+msgid ""
+"Automatically install any files that do not exist in the destination "
+"directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:226
+#, no-wrap
+msgid "Fl p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:233
+msgid ""
+"Pre-buildworld mode.  Compares only files known to be essential to the "
+"success of {build|install}world, i.e., E<.Pa /etc/group> and E<.Pa "
+"/etc/master.passwd>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:233
+#, no-wrap
+msgid "Fl F"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:236
+msgid "If the files differ only by VCS Id ($FreeBSD)  install the new file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:236
+#, no-wrap
+msgid "Fl C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:241
+msgid ""
+"After a standard E<.Nm> run, compares your rc.conf[.local] options to the "
+"defaults."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:241
+#, no-wrap
+msgid "Fl P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:247
+msgid ""
+"Preserve files that you replace in E<.Pa "
+"/var/tmp/mergemaster/preserved-files-E<lt>dateE<gt>>, or another directory "
+"you specify in your E<.Nm> rc file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:247
+#, no-wrap
+msgid "Fl U"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:251
+msgid ""
+"Attempt to auto upgrade files that have not been user modified.  This option "
+"can be dangerous when there are critical changes in the new versions that "
+"affect your running system."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:251
+#, no-wrap
+msgid "Fl -run-updates=[always|never]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:256
+msgid ""
+"Specify always or never to run newaliases, pwd_mkdb, etc.  at the end of the "
+"comparison run.  If this option is omitted the default is to prompt the user "
+"for each update as necessary."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:256
+#, no-wrap
+msgid "Fl m Ar /path/to/sources"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:268
+msgid ""
+"Specify the path to the directory where you want to do the E<.Xr make 1>.  "
+"(In other words, where your sources are, but -s was already taken.)  In "
+"older versions of E<.Nm> the path to E<.Pa src/etc> was required.  E<.Nm> "
+"will convert the path if this older method is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:268
+#, no-wrap
+msgid "Fl t Ar /path/to/temp/root"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:273
+msgid ""
+"Create the temporary root environment in E<.Pa /path/to/temp/root> instead "
+"of the default E<.Pa /var/tmp/temproot>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:273
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:280
+msgid ""
+"Add the date and time to the name of the temporary root directory.  If E<.Fl "
+"t> is specified, this option must follow it if you want the date added too."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:280
+#, no-wrap
+msgid "Fl u Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:283
+msgid "Specify a numeric umask.  The default is 022."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:283
+#, no-wrap
+msgid "Fl w Ar N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:288
+msgid ""
+"Supply an alternate screen width to the E<.Xr sdiff 1> command in numbers of "
+"columns.  The default is 80."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:288
+#, no-wrap
+msgid "Fl A Ar Target architecture"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:292
+msgid "Specify an alternative E<.Ev TARGET_ARCH> architecture name."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:292
+#, no-wrap
+msgid "Fl D Ar /path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:294
+msgid "Specify the destination directory for the installed files."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:295
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:321
+msgid ""
+"The E<.Nm> utility uses the E<.Ev PAGER> environment variable if set.  "
+"Otherwise it uses E<.Xr less 1>.  If E<.Ev PAGER> specifies a program "
+"outside its limited E<.Ev PATH> without specifying the full path, E<.Nm> "
+"prompts you with options on how to proceed.  The E<.Ev "
+"MM_PRE_COMPARE_SCRIPT> and E<.Ev MM_EXIT_SCRIPT> variables are used as "
+"described above.  Other variables that are used by the script internally can "
+"be specified in E<.Pa .mergemasterrc> as described in more detail below."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:321
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:323
+#, no-wrap
+msgid "Pa /etc/mergemaster.rc"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:324
+#, no-wrap
+msgid "Pa $HOME/.mergemasterrc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:339
+msgid ""
+"The E<.Nm> utility will E<.Ic .\\&> (source) these files if they exist.  "
+"Command line options will override rc file options.  E<.Pa "
+"$HOME/.mergemasterrc> overrides E<.Pa /etc/mergemaster.rc>.  Here is an "
+"example with all values commented out:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:411
+#, no-wrap
+msgid ""
+"# These are options for mergemaster, with their default values listed\n"
+"# The following options have command line overrides\n"
+"#\n"
+"# The target architecture (-A, unset by default)\n"
+"#ARCHSTRING='TARGET_ARCH=E<lt>fooE<gt>'\n"
+"#\n"
+"# Sourcedir is the directory to do the 'make' in (-m)\n"
+"#SOURCEDIR='/usr/src'\n"
+"#\n"
+"# Directory to install the temporary root environment into (-t)\n"
+"#TEMPROOT='/var/tmp/temproot'\n"
+"#\n"
+"# Specify the destination directory for the installed files (-D)\n"
+"#DESTDIR=\n"
+"#\n"
+"# Strict comparison skips the VCS Id test and compares every file (-s)\n"
+"#STRICT=no\n"
+"#\n"
+"# Type of diff, such as unified, context, etc. (-c)\n"
+"#DIFF_FLAG='-u'\n"
+"#\n"
+"# Install the new file if it differs only by VCS Id ($FreeBSD, -F)\n"
+"#FREEBSD_ID=\n"
+"#\n"
+"# Verbose mode includes more details and additional checks (-v)\n"
+"#VERBOSE=\n"
+"#\n"
+"# Automatically install files that do not exist on the system already (-i)\n"
+"#AUTO_INSTALL=\n"
+"#\n"
+"# Automatically upgrade files that have not been user modified (-U)\n"
+"# ***DANGEROUS***\n"
+"#AUTO_UPGRADE=\n"
+"#\n"
+"# Either always or never run newaliases, pwd_mkdb at the end "
+"(--run-updates)\n"
+"#RUN_UPDATES=\n"
+"#\n"
+"# Compare /etc/rc.conf[.local] to /etc/defaults/rc.conf (-C)\n"
+"#COMP_CONFS=\n"
+"#\n"
+"# Preserve files that you replace (-P)\n"
+"#PRESERVE_FILES=\n"
+"#PRESERVE_FILES_DIR=/var/tmp/mergemaster/preserved-files-`date "
+"+%y%m%d-%H%M%S`\n"
+"#\n"
+"# The umask for mergemaster to compare the default file's modes to (-u)\n"
+"#NEW_UMASK=022\n"
+"#\n"
+"# The following options have no command line overrides\n"
+"#\n"
+"# Files to always avoid comparing\n"
+"#IGNORE_FILES='/etc/motd /etc/printcap foo bar'\n"
+"#\n"
+"# Additional options for diff.  This will get unset when using -s.\n"
+"#DIFF_OPTIONS='-Bb'\t# Ignore changes in whitespace\n"
+"#\n"
+"# Location to store the list of mtree values for AUTO_UPGRADE purposes\n"
+"#MTREEDB='/var/db'\n"
+"#\n"
+"# For those who just cannot stand including the full path to PAGER\n"
+"#DONT_CHECK_PAGER=\n"
+"#\n"
+"# If you set 'yes' above, make sure to include the PATH to your pager\n"
+"#PATH=/bin:/usr/bin:/usr/sbin\n"
+"#\n"
+"# Delete stale files in /etc/rc.d without prompting\n"
+"#DELETE_STALE_RC_FILES=\n"
+"#\n"
+"# Specify the path to scripts to run before the comparison starts,\n"
+"# and/or after the script has finished its work\n"
+"#MM_PRE_COMPARE_SCRIPT=\n"
+"#MM_EXIT_SCRIPT=\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:412
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:415
+msgid ""
+"Exit status is 0 on successful completion, or if the user bails out manually "
+"at some point during execution."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:417
+msgid "Exit status is 1 if it fails for one of the following reasons:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:419
+msgid "Invalid command line option"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:421
+msgid "Failure to create the temporary root environment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:423
+msgid "Failure to populate the temporary root"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:426
+msgid "Presence of the 'nodev' option in E<.Pa E<lt>DESTDIRE<gt>/etc/fstab>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:428
+msgid "Failure to install a file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:428
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:432
+msgid ""
+"Typically all you will need to do is type E<.Nm> at the prompt and the "
+"script will do all the work for you."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:436
+msgid ""
+"To use context diffs and have E<.Nm> explain more things as it goes along, "
+"use:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:437
+#, no-wrap
+msgid "# mergemaster -cv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:444
+msgid ""
+"To specify that E<.Nm> put the temporary root environment in E<.Pa "
+"/usr/tmp/root>, use:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:445
+#, no-wrap
+msgid "# mergemaster -t /usr/tmp/root"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:449
+msgid "To specify a 110 column screen with a strict comparison, use:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:450
+#, no-wrap
+msgid "# mergemaster -sw 110"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:451
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:458
+msgid ""
+"E<.Xr diff 1>, E<.Xr make 1>, E<.Xr less 1>, E<.Xr sdiff 1>, E<.Xr etcupdate "
+"8>, E<.Xr pwd_mkdb 8>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:465
+msgid ""
+"E<.Pa /usr/src/etc/Makefile> E<.Rs> E<.%U "
+"https://www.FreeBSD.org/doc/en_US.ISO8859-1/books/handbook/makeworld.html> "
+"E<.%T The Cutting Edge (using make world)> E<.%A Nik Clayton> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:465
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:475
+msgid ""
+"The E<.Nm> utility was first publicly available on one of my web pages in a "
+"much simpler form under the name E<.Pa comproot> on 13 March 1998.  The idea "
+"for creating the temporary root environment comes from Nik Clayton's make "
+"world tutorial which is referenced above."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:475
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mergemaster/mergemaster.8:477
+msgid ""
+"This manual page and the script itself were written by E<.An Douglas Barton "
+"Aq Mt dougb@FreeBSD.org>."
+msgstr ""

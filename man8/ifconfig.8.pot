@@ -1,0 +1,5505 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/ifconfig/ifconfig.8:31
+#, no-wrap
+msgid "May 3, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/ifconfig/ifconfig.8:32
+#, no-wrap
+msgid "IFCONFIG 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:36
+msgid "E<.Nm ifconfig>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/ifconfig/ifconfig.8:36
+#, no-wrap
+msgid "configure network interface parameters"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:78
+msgid ""
+"E<.Nm> E<.Op Fl f Ar type:format Ns Op Ar ,type:format> E<.Op Fl L> E<.Op Fl "
+"k> E<.Op Fl m> E<.Op Fl n> E<.Ar interface> E<.Op Cm create> E<.Ar "
+"address_family> E<.Oo> E<.Ar address> E<.Op Ar dest_address> E<.Oc> E<.Op Ar "
+"parameters> E<.Nm> E<.Ar interface> E<.Cm destroy> E<.Nm> E<.Fl a> E<.Op Fl "
+"L> E<.Op Fl d> E<.Op Fl m> E<.Op Fl u> E<.Op Fl v> E<.Op Ar address_family> "
+"E<.Nm> E<.Fl l> E<.Op Fl d> E<.Op Fl u> E<.Op Ar address_family> E<.Nm> "
+"E<.Op Fl L> E<.Op Fl d> E<.Op Fl k> E<.Op Fl m> E<.Op Fl u> E<.Op Fl v> "
+"E<.Op Fl C> E<.Nm> E<.Op Fl g Ar groupname>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:78
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:90
+msgid ""
+"The E<.Nm> utility is used to assign an address to a network interface "
+"and/or configure network interface parameters.  The E<.Nm> utility must be "
+"used at boot time to define the network address of each interface present on "
+"a machine; it may also be used at a later time to redefine an interface's "
+"address or other operating parameters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:92
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:93
+#, no-wrap
+msgid "Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:104
+msgid ""
+"For the E<.Tn DARPA Ns -Internet> family, the address is either a host name "
+"present in the host name data base, E<.Xr hosts 5>, or a E<.Tn DARPA> "
+"Internet address expressed in the Internet standard E<.Dq dot notation>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:109
+msgid ""
+"It is also possible to use the CIDR notation (also known as the slash "
+"notation) to include the netmask.  That is, one can specify an address like "
+"E<.Li 192.168.0.1/16>."
+msgstr ""
+
+#.  For the Xerox Network Systems(tm) family,
+#.  addresses are
+#.  .Ar net:a.b.c.d.e.f ,
+#.  where
+#.  .Ar net
+#.  is the assigned network number (in decimal),
+#.  and each of the six bytes of the host number,
+#.  .Ar a
+#.  through
+#.  .Ar f ,
+#.  are specified in hexadecimal.
+#.  The host number may be omitted on IEEE 802 protocol
+#.  (Ethernet, FDDI, and Token Ring) interfaces,
+#.  which use the hardware physical address,
+#.  and on interfaces other than the first.
+#.  For the
+#.  .Tn ISO
+#.  family, addresses are specified as a long hexadecimal string,
+#.  as in the Xerox family.
+#.  However, two consecutive dots imply a zero
+#.  byte, and the dots are optional, if the user wishes to (carefully)
+#.  count out long strings of digits in network byte order.
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:140
+msgid ""
+"For the E<.Dq inet6> family, it is also possible to specify the prefix "
+"length using the slash notation, like E<.Li ::1/128>.  See the E<.Cm "
+"prefixlen> parameter below for more information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:158
+msgid ""
+"The link-level E<.Pq Dq link> address is specified as a series of "
+"colon-separated hex digits.  This can be used to, for example, set a new MAC "
+"address on an Ethernet interface, though the mechanism used is not Ethernet "
+"specific.  Use the E<.Pq Dq random> keyword to set a randomly generated MAC "
+"address.  A randomly-generated MAC address might be the same as one already "
+"in use in the network.  Such duplications are extremely unlikely.  If the "
+"interface is already up when this option is used, it will be briefly brought "
+"down and then brought back up again in order to ensure that the receive "
+"filter in the underlying Ethernet hardware is properly reprogrammed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:158
+#, no-wrap
+msgid "Ar address_family"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:191
+msgid ""
+"Specify the address family which affects interpretation of the remaining "
+"parameters.  Since an interface can receive transmissions in differing "
+"protocols with different naming schemes, specifying the address family is "
+"recommended.  The address or protocol families currently supported are E<.Dq "
+"inet>, E<.Dq inet6>, and E<.Dq link>.  The default if available is E<.Dq "
+"inet> or otherwise E<.Dq link>.  E<.Dq ether> and E<.Dq lladdr> are synonyms "
+"for E<.Dq link>.  When using the E<.Fl l> flag, the E<.Dq ether> address "
+"family has special meaning and is no longer synonymous with E<.Dq link> or "
+"E<.Dq lladdr>.  Specifying E<.Fl l Dq ether> will list only Ethernet "
+"interfaces, excluding all other interface types, including the loopback "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:191
+#, no-wrap
+msgid "Ar dest_address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:194
+msgid ""
+"Specify the address of the correspondent on the other end of a point to "
+"point link."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:194
+#, no-wrap
+msgid "Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:200
+msgid ""
+"This parameter is a string of the form E<.Dq name unit>, for example, E<.Dq "
+"Li ed0>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:200
+#, no-wrap
+msgid "Ar groupname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:202
+msgid "List the interfaces in the given group."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:222
+msgid ""
+"The output format of E<.Nm> can be controlled using the E<.Fl f> flag or the "
+"E<.Ev IFCONFIG_FORMAT> environment variable.  The format is specified as a "
+"comma separated list of E<.Sy type:format> pairs.  See the E<.Sx EXAMPLES> "
+"section for more information.  The E<.Sy types> and their associated E<.Sy "
+"format> strings are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:223
+#, no-wrap
+msgid "Sy addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:225
+msgid "Adjust the display of inet and inet6 addresses"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:226 /usr/src/sbin/ifconfig/ifconfig.8:244 /usr/src/sbin/ifconfig/ifconfig.8:255 /usr/src/sbin/ifconfig/ifconfig.8:274
+#, no-wrap
+msgid "Sy default"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:229
+msgid "Display inet and inet6 addresses in the default format, E<.Sy numeric>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:229
+#, no-wrap
+msgid "Sy fqdn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:232
+msgid "Display inet and inet6 addresses as fully qualified domain names E<.Pq FQDN>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:232
+#, no-wrap
+msgid "Sy host"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:234
+msgid "Display inet and inet6 addresses as unqualified hostnames"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:234 /usr/src/sbin/ifconfig/ifconfig.8:277
+#, no-wrap
+msgid "Sy numeric"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:236
+msgid "Display inet and inet6 addresses in numeric format"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:237
+#, no-wrap
+msgid "Sy ether"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:239
+msgid "Adjust the display of link-level ethernet (MAC) addresses"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:240
+#, no-wrap
+msgid "Sy colon"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:242
+msgid "Separate address segments with a colon"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:242
+#, no-wrap
+msgid "Sy dash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:244
+msgid "Separate address segments with a dash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:247
+msgid "Display ethernet addresses in the default format, E<.Sy colon>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:248
+#, no-wrap
+msgid "Sy inet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:250
+msgid "Adjust the display of inet address subnet masks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:251 /usr/src/sbin/ifconfig/ifconfig.8:270
+#, no-wrap
+msgid "Sy cidr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:253
+msgid "Display subnet masks in CIDR notation, for example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:255
+msgid "10.0.0.0/8 or 203.0.113.224/26"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:258
+msgid "Display subnet masks in the default format, E<.Sy hex>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:258
+#, no-wrap
+msgid "Sy dotted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:260
+msgid "Display subnet masks in dotted quad notation, for example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:262
+msgid "255.255.0.0 or 255.255.255.192"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:262
+#, no-wrap
+msgid "Sy hex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:264
+msgid "Display subnet masks in hexadecimal, for example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:266
+msgid "0xffff0000 or 0xffffffc0"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:267
+#, no-wrap
+msgid "Sy inet6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:269
+msgid "Adjust the display of inet6 address prefixes (subnet masks):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:272
+msgid "Display subnet prefix in CIDR notation, for example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:274
+msgid "::1/128 or fe80::1%lo0/64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:277
+msgid "Display subnet prefix in the default format E<.Sy numeric>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:279
+msgid "Display subnet prefix in integer format, for example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:281
+msgid "prefixlen 64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:286
+msgid "The following parameters may be set with E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:287
+#, no-wrap
+msgid "Cm add"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:294
+msgid ""
+"Another name for the E<.Cm alias> parameter.  Introduced for compatibility "
+"with E<.Bsx>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:294
+#, no-wrap
+msgid "Cm alias"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:303
+msgid ""
+"Establish an additional network address for this interface.  This is "
+"sometimes useful when changing network numbers, and one wishes to accept "
+"packets addressed to the old interface.  If the address is on the same "
+"subnet as the first network address for this interface, a non-conflicting "
+"netmask must be given.  Usually E<.Li 0xffffffff> is most appropriate."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:303
+#, no-wrap
+msgid "Fl alias"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:310
+msgid ""
+"Remove the network address specified.  This would be used if you incorrectly "
+"specified an alias, or it was no longer needed.  If you have incorrectly set "
+"an NS address having the side effect of specifying the host portion, "
+"removing all NS addresses will allow you to respecify the host portion."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:310
+#, no-wrap
+msgid "Cm anycast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:317
+msgid ""
+"(Inet6 only.)  Specify that the address configured is an anycast address.  "
+"Based on the current specification, only routers may configure anycast "
+"addresses.  Anycast address will not be used as source address of any of "
+"outgoing IPv6 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:317
+#, no-wrap
+msgid "Cm arp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:328
+msgid ""
+"Enable the use of the Address Resolution Protocol E<.Pq Xr arp 4> in mapping "
+"between network level addresses and link level addresses (default).  This is "
+"currently implemented for mapping between E<.Tn DARPA> Internet addresses "
+"and E<.Tn IEEE> 802 48-bit MAC addresses (Ethernet, FDDI, and Token Ring "
+"addresses)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:328
+#, no-wrap
+msgid "Fl arp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:331
+msgid "Disable the use of the Address Resolution Protocol E<.Pq Xr arp 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:331
+#, no-wrap
+msgid "Cm staticarp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:335
+msgid ""
+"If the Address Resolution Protocol is enabled, the host will only reply to "
+"requests for its addresses, and will never send any requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:335
+#, no-wrap
+msgid "Fl staticarp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:339
+msgid ""
+"If the Address Resolution Protocol is enabled, the host will perform "
+"normally, sending out requests and listening for replies."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:339
+#, no-wrap
+msgid "Cm broadcast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:344
+msgid ""
+"(Inet only.)  Specify the address to use to represent broadcasts to the "
+"network.  The default broadcast address is the address with a host part of "
+"all 1's."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:344
+#, no-wrap
+msgid "Cm debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:347
+msgid ""
+"Enable driver dependent debugging code; usually, this turns on extra console "
+"error logging."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:347
+#, no-wrap
+msgid "Fl debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:349
+msgid "Disable driver dependent debugging code."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:349
+#, no-wrap
+msgid "Cm promisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:351
+msgid "Put interface into permanently promiscuous mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:351
+#, no-wrap
+msgid "Fl promisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:353
+msgid "Disable permanently promiscuous mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:353
+#, no-wrap
+msgid "Cm delete"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:357
+msgid "Another name for the E<.Fl alias> parameter."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:357
+#, no-wrap
+msgid "Cm description Ar value , Cm descr Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:361
+msgid ""
+"Specify a description of the interface.  This can be used to label "
+"interfaces in situations where they may otherwise be difficult to "
+"distinguish."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:361
+#, no-wrap
+msgid "Cm -description , Cm -descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:363
+msgid "Clear the interface description."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:363
+#, no-wrap
+msgid "Cm down"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:372
+msgid ""
+"Mark an interface E<.Dq down>.  When an interface is marked E<.Dq down>, the "
+"system will not attempt to transmit messages through that interface.  If "
+"possible, the interface will be reset to disable reception as well.  This "
+"action does not automatically disable routes using the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:372
+#, no-wrap
+msgid "Cm group Ar group-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:376
+msgid ""
+"Assign the interface to a E<.Dq group>.  Any interface can be in multiple "
+"groups."
+msgstr ""
+
+#.  The interface(s) the default route(s) point to are members of the
+#.  .Em egress
+#.  interface group.
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:385
+msgid ""
+"Cloned interfaces are members of their interface family group by default.  "
+"For example, a PPP interface such as E<.Em ppp0> is a member of the PPP "
+"interface family group, E<.Em ppp>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:385
+#, no-wrap
+msgid "Cm -group Ar group-name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:388
+msgid "Remove the interface from the given E<.Dq group>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:388
+#, no-wrap
+msgid "Cm eui64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:393
+msgid ""
+"(Inet6 only.)  Fill interface index (lowermost 64bit of an IPv6 address)  "
+"automatically."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:393
+#, no-wrap
+msgid "Cm fib Ar fib_number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:406
+msgid ""
+"Specify interface FIB.  A FIB E<.Ar fib_number> is assigned to all frames or "
+"packets received on that interface.  The FIB is not inherited, e.g., vlans "
+"or other sub-interfaces will use the default FIB (0) irrespective of the "
+"parent interface's FIB.  The kernel needs to be tuned to support more than "
+"the default FIB using the E<.Va ROUTETABLES> kernel configuration option, or "
+"the E<.Va net.fibs> tunable."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:406
+#, no-wrap
+msgid "Cm tunnelfib Ar fib_number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:414
+msgid ""
+"Specify tunnel FIB.  A FIB E<.Ar fib_number> is assigned to all packets "
+"encapsulated by tunnel interface, e.g., E<.Xr gif 4> and E<.Xr gre 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:414
+#, no-wrap
+msgid "Cm maclabel Ar label"
+msgstr ""
+
+#.  (see
+#.  .Xr maclabel 7 ) .
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:420
+msgid ""
+"If Mandatory Access Control support is enabled in the kernel, set the MAC "
+"label to E<.Ar label>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:420
+#, no-wrap
+msgid "Cm media Ar type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:439
+msgid ""
+"If the driver supports the media selection system, set the media type of the "
+"interface to E<.Ar type>.  Some interfaces support the mutually exclusive "
+"use of one of several different physical media connectors.  For example, a "
+"10Mbit/s Ethernet interface might support the use of either E<.Tn AUI> or "
+"twisted pair connectors.  Setting the media type to E<.Cm 10base5/AUI> would "
+"change the currently active connector to the AUI port.  Setting it to E<.Cm "
+"10baseT/UTP> would activate twisted pair.  Refer to the interfaces' driver "
+"specific documentation or man page for a complete list of the available "
+"types."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:439
+#, no-wrap
+msgid "Cm mediaopt Ar opts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:448
+msgid ""
+"If the driver supports the media selection system, set the specified media "
+"options on the interface.  The E<.Ar opts> argument is a comma delimited "
+"list of options to apply to the interface.  Refer to the interfaces' driver "
+"specific man page for a complete list of available options."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:448
+#, no-wrap
+msgid "Fl mediaopt Ar opts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:451
+msgid ""
+"If the driver supports the media selection system, disable the specified "
+"media options on the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:451
+#, no-wrap
+msgid "Cm mode Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:463
+msgid ""
+"If the driver supports the media selection system, set the specified "
+"operating mode on the interface to E<.Ar mode>.  For IEEE 802.11 wireless "
+"interfaces that support multiple operating modes this directive is used to "
+"select between 802.11a E<.Pq Cm 11a>, 802.11b E<.Pq Cm 11b>, and 802.11g "
+"E<.Pq Cm 11g> operating modes."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:463
+#, no-wrap
+msgid "Cm txrtlmt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:465
+msgid "Set if the driver supports TX rate limiting."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:465
+#, no-wrap
+msgid "Cm inst Ar minst , Cm instance Ar minst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:470
+msgid ""
+"Set the media instance to E<.Ar minst>.  This is useful for devices which "
+"have multiple physical layer interfaces E<.Pq PHYs>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:470
+#, no-wrap
+msgid "Cm name Ar name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:473
+msgid "Set the interface name to E<.Ar name>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:473
+#, no-wrap
+msgid "Cm rxcsum , txcsum , rxcsum6 , txcsum6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:488
+msgid ""
+"If the driver supports user-configurable checksum offloading, enable receive "
+"(or transmit) checksum offloading on the interface.  The feature can be "
+"turned on selectively per protocol family.  Use E<.Cm rxcsum6 , txcsum6> for "
+"E<.Xr ip6 4> or E<.Cm rxcsum , txcsum> otherwise.  Some drivers may not be "
+"able to enable these flags independently of each other, so setting one may "
+"also set the other.  The driver will offload as much checksum work as it can "
+"reliably support, the exact level of offloading varies between drivers."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:488
+#, no-wrap
+msgid "Fl rxcsum , txcsum , rxcsum6 , txcsum6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:500
+msgid ""
+"If the driver supports user-configurable checksum offloading, disable "
+"receive (or transmit) checksum offloading on the interface.  The feature can "
+"be turned off selectively per protocol family.  Use E<.Fl rxcsum6 , txcsum6> "
+"for E<.Xr ip6 4> or E<.Fl rxcsum , txcsum> otherwise.  These settings may "
+"not always be independent of each other."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:500
+#, no-wrap
+msgid "Cm tso"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:509
+msgid ""
+"If the driver supports E<.Xr tcp 4> segmentation offloading, enable TSO on "
+"the interface.  Some drivers may not be able to support TSO for E<.Xr ip 4> "
+"and E<.Xr ip6 4> packets, so they may enable only one of them."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:509
+#, no-wrap
+msgid "Fl tso"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:517
+msgid ""
+"If the driver supports E<.Xr tcp 4> segmentation offloading, disable TSO on "
+"the interface.  It will always disable TSO for E<.Xr ip 4> and E<.Xr ip6 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:517
+#, no-wrap
+msgid "Cm tso6 , tso4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:525
+msgid ""
+"If the driver supports E<.Xr tcp 4> segmentation offloading for E<.Xr ip6 4> "
+"or E<.Xr ip 4> use one of these to selectively enabled it only for one "
+"protocol family."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:525
+#, no-wrap
+msgid "Fl tso6 , tso4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:533
+msgid ""
+"If the driver supports E<.Xr tcp 4> segmentation offloading for E<.Xr ip6 4> "
+"or E<.Xr ip 4> use one of these to selectively disable it only for one "
+"protocol family."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:533
+#, no-wrap
+msgid "Cm lro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:537
+msgid ""
+"If the driver supports E<.Xr tcp 4> large receive offloading, enable LRO on "
+"the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:537
+#, no-wrap
+msgid "Fl lro"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:541
+msgid ""
+"If the driver supports E<.Xr tcp 4> large receive offloading, disable LRO on "
+"the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:541
+#, no-wrap
+msgid "Cm wol , wol_ucast , wol_mcast , wol_magic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:556
+msgid ""
+"Enable Wake On Lan (WOL) support, if available.  WOL is a facility whereby a "
+"machine in a low power state may be woken in response to a received packet.  "
+"There are three types of packets that may wake a system: ucast (directed "
+"solely to the machine's mac address), mcast (directed to a broadcast or "
+"multicast address), or magic (unicast or multicast frames with a ``magic "
+"contents'').  Not all devices support WOL, those that do indicate the "
+"mechanisms they support in their capabilities.  E<.Cm wol> is a synonym for "
+"enabling all available WOL mechanisms.  To disable WOL use E<.Fl wol>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:556
+#, no-wrap
+msgid "Cm vlanmtu , vlanhwtag, vlanhwfilter, vlanhwcsum, vlanhwtso"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:566
+msgid ""
+"If the driver offers user-configurable VLAN support, enable reception of "
+"extended frames, tag processing in hardware, frame filtering in hardware, "
+"checksum offloading, or TSO on VLAN, respectively.  Note that this must be "
+"issued on a physical interface associated with E<.Xr vlan 4>, not on a E<.Xr "
+"vlan 4> interface itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:566
+#, no-wrap
+msgid "Fl vlanmtu , vlanhwtag, vlanhwfilter, vlanhwtso"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:571
+msgid ""
+"If the driver offers user-configurable VLAN support, disable reception of "
+"extended frames, tag processing in hardware, frame filtering in hardware, or "
+"TSO on VLAN, respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:571
+#, no-wrap
+msgid "Cm vnet Ar jail"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:577
+msgid ""
+"Move the interface to the E<.Xr jail 8>, specified by name or JID.  If the "
+"jail has a virtual network stack, the interface will disappear from the "
+"current environment and become visible to the jail."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:577
+#, no-wrap
+msgid "Fl vnet Ar jail"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:583
+msgid ""
+"Reclaim the interface from the E<.Xr jail 8>, specified by name or JID.  If "
+"the jail has a virtual network stack, the interface will disappear from the "
+"jail, and become visible to the current network environment."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:583
+#, no-wrap
+msgid "Cm polling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:588
+msgid ""
+"Turn on E<.Xr polling 4> feature and disable interrupts on the interface, if "
+"driver supports this mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:588
+#, no-wrap
+msgid "Fl polling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:592
+msgid ""
+"Turn off E<.Xr polling 4> feature and enable interrupt mode on the "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:592
+#, no-wrap
+msgid "Cm create"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:601
+msgid ""
+"Create the specified network pseudo-device.  If the interface is given "
+"without a unit number, try to create a new device with an arbitrary unit "
+"number.  If creation of an arbitrary device is successful, the new device "
+"name is printed to standard output unless the interface is renamed or "
+"destroyed in the same E<.Nm> invocation."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:601
+#, no-wrap
+msgid "Cm destroy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:603
+msgid "Destroy the specified network pseudo-device."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:603
+#, no-wrap
+msgid "Cm plumb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:610
+msgid ""
+"Another name for the E<.Cm create> parameter.  Included for E<.Tn Solaris> "
+"compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:610
+#, no-wrap
+msgid "Cm unplumb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:617
+msgid ""
+"Another name for the E<.Cm destroy> parameter.  Included for E<.Tn Solaris> "
+"compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:617
+#, no-wrap
+msgid "Cm metric Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:626
+msgid ""
+"Set the routing metric of the interface to E<.Ar n>, default 0.  The routing "
+"metric is used by the routing protocol E<.Pq Xr routed 8>.  Higher metrics "
+"have the effect of making a route less favorable; metrics are counted as "
+"additional hops to the destination network or host."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:626
+#, no-wrap
+msgid "Cm mtu Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:634
+msgid ""
+"Set the maximum transmission unit of the interface to E<.Ar n>, default is "
+"interface specific.  The MTU is used to limit the size of packets that are "
+"transmitted on an interface.  Not all interfaces support setting the MTU, "
+"and some interfaces have range restrictions."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:634
+#, no-wrap
+msgid "Cm netmask Ar mask"
+msgstr ""
+
+#.  (Inet and ISO.)
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:653
+msgid ""
+"(Inet only.)  Specify how much of the address to reserve for subdividing "
+"networks into sub-networks.  The mask includes the network part of the local "
+"address and the subnet part, which is taken from the host field of the "
+"address.  The mask can be specified as a single hexadecimal number with a "
+"leading E<.Ql 0x>, with a dot-notation Internet address, or with a "
+"pseudo-network name listed in the network table E<.Xr networks 5>.  The mask "
+"contains 1's for the bit positions in the 32-bit address which are to be "
+"used for the network and subnet parts, and 0's for the host part.  The mask "
+"should contain at least the standard network portion, and the subnet field "
+"should be contiguous with the network portion."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:658
+msgid ""
+"The netmask can also be specified in CIDR notation after the address.  See "
+"the E<.Ar address> option above for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:658
+#, no-wrap
+msgid "Cm prefixlen Ar len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:668
+msgid ""
+"(Inet6 only.)  Specify that E<.Ar len> bits are reserved for subdividing "
+"networks into sub-networks.  The E<.Ar len> must be integer, and for "
+"syntactical reason it must be between 0 to 128.  It is almost always 64 "
+"under the current IPv6 assignment rule.  If the parameter is omitted, 64 is "
+"used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:673
+msgid ""
+"The prefix can also be specified using the slash notation after the "
+"address.  See the E<.Ar address> option above for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:673
+#, no-wrap
+msgid "Cm remove"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:681
+msgid ""
+"Another name for the E<.Fl alias> parameter.  Introduced for compatibility "
+"with E<.Bsx>.  E<.Sm off>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:681
+#, no-wrap
+msgid "Cm link Op Cm 0 No - Cm 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:692
+msgid ""
+"E<.Sm on> Enable special processing of the link level of the interface.  "
+"These three options are interface specific in actual effect, however, they "
+"are in general used to select special modes of operation.  An example of "
+"this is to enable SLIP compression, or to select the connector type for some "
+"Ethernet cards.  Refer to the man page for the specific driver for more "
+"information.  E<.Sm off>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:692
+#, no-wrap
+msgid "Fl link Op Cm 0 No - Cm 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:695
+msgid ""
+"E<.Sm on> Disable special processing at the link level with the specified "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:695
+#, no-wrap
+msgid "Cm monitor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:700
+msgid ""
+"Put the interface in monitor mode.  No packets are transmitted, and received "
+"packets are discarded after E<.Xr bpf 4> processing."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:700
+#, no-wrap
+msgid "Fl monitor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:702
+msgid "Take the interface out of monitor mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:702
+#, no-wrap
+msgid "Cm up"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:710
+msgid ""
+"Mark an interface E<.Dq up>.  This may be used to enable an interface after "
+"an E<.Dq Nm Cm down>.  It happens automatically when setting the first "
+"address on an interface.  If the interface was reset when previously marked "
+"down, the hardware will be re-initialized."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:716
+msgid ""
+"The following parameters are for ICMPv6 Neighbor Discovery Protocol.  Note "
+"that the address family keyword E<.Dq Li inet6> is needed for them:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:717
+#, no-wrap
+msgid "Cm accept_rtadv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:724
+msgid ""
+"Set a flag to enable accepting ICMPv6 Router Advertisement messages.  The "
+"E<.Xr sysctl 8> variable E<.Va net.inet6.ip6.accept_rtadv> controls whether "
+"this flag is set by default or not."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:724
+#, no-wrap
+msgid "Cm -accept_rtadv"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:727
+msgid "Clear a flag E<.Cm accept_rtadv>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:727
+#, no-wrap
+msgid "Cm no_radr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:739
+msgid ""
+"Set a flag to control whether routers from which the system accepts Router "
+"Advertisement messages will be added to the Default Router List or not.  "
+"When the E<.Cm accept_rtadv> flag is disabled, this flag has no effect.  The "
+"E<.Xr sysctl 8> variable E<.Va net.inet6.ip6.no_radr> controls whether this "
+"flag is set by default or not."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:739
+#, no-wrap
+msgid "Cm -no_radr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:742
+msgid "Clear a flag E<.Cm no_radr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:742
+#, no-wrap
+msgid "Cm auto_linklocal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:750
+msgid ""
+"Set a flag to perform automatic link-local address configuration when the "
+"interface becomes available.  The E<.Xr sysctl 8> variable E<.Va "
+"net.inet6.ip6.auto_linklocal> controls whether this flag is set by default "
+"or not."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:750
+#, no-wrap
+msgid "Cm -auto_linklocal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:753
+msgid "Clear a flag E<.Cm auto_linklocal>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:753
+#, no-wrap
+msgid "Cm defaultif"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:756
+msgid ""
+"Set the specified interface as the default route when there is no default "
+"router."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:756
+#, no-wrap
+msgid "Cm -defaultif"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:759
+msgid "Clear a flag E<.Cm defaultif>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:759
+#, no-wrap
+msgid "Cm ifdisabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:766
+msgid ""
+"Set a flag to disable all of IPv6 network communications on the specified "
+"interface.  Note that if there are already configured IPv6 addresses on that "
+"interface, all of them are marked as E<.Dq tentative> and DAD will be "
+"performed when this flag is cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:766
+#, no-wrap
+msgid "Cm -ifdisabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:773
+msgid ""
+"Clear a flag E<.Cm ifdisabled>.  When this flag is cleared and E<.Cm "
+"auto_linklocal> flag is enabled, automatic configuration of a link-local "
+"address is performed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:773
+#, no-wrap
+msgid "Cm nud"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:775
+msgid "Set a flag to enable Neighbor Unreachability Detection."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:775
+#, no-wrap
+msgid "Cm -nud"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:778
+msgid "Clear a flag E<.Cm nud>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:778
+#, no-wrap
+msgid "Cm no_prefer_iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:784
+msgid ""
+"Set a flag to not honor rule 5 of source address selection in RFC 3484.  In "
+"practice this means the address on the outgoing interface will not be "
+"preferred, effectively yielding the decision to the address selection policy "
+"table, configurable with E<.Xr ip6addrctl 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:784
+#, no-wrap
+msgid "Cm -no_prefer_iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:787
+msgid "Clear a flag E<.Cm no_prefer_iface>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:787
+#, no-wrap
+msgid "Cm no_dad"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:789
+msgid "Set a flag to disable Duplicate Address Detection."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:789
+#, no-wrap
+msgid "Cm -no_dad"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:792
+msgid "Clear a flag E<.Cm no_dad>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:798
+msgid ""
+"The following parameters are specific for IPv6 addresses.  Note that the "
+"address family keyword E<.Dq Li inet6> is needed for them:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:799
+#, no-wrap
+msgid "Cm autoconf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:801
+msgid "Set the IPv6 autoconfigured address bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:801
+#, no-wrap
+msgid "Fl autoconf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:803
+msgid "Clear the IPv6 autoconfigured address bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:803
+#, no-wrap
+msgid "Cm deprecated"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:805
+msgid "Set the IPv6 deprecated address bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:805
+#, no-wrap
+msgid "Fl deprecated"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:807
+msgid "Clear the IPv6 deprecated address bit."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:807
+#, no-wrap
+msgid "Cm pltime Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:809
+msgid "Set preferred lifetime for the address."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:809
+#, no-wrap
+msgid "Cm prefer_source"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:812
+msgid ""
+"Set a flag to prefer address as a candidate of the source address for "
+"outgoing packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:812
+#, no-wrap
+msgid "Cm -prefer_source"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:815
+msgid "Clear a flag E<.Cm prefer_source>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:815
+#, no-wrap
+msgid "Cm vltime Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:817
+msgid "Set valid lifetime for the address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:823
+msgid ""
+"The following parameters are specific to cloning IEEE 802.11 wireless "
+"interfaces with the E<.Cm create> request:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:824
+#, no-wrap
+msgid "Cm wlandev Ar device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:828
+msgid "Use E<.Ar device> as the parent for the cloned device."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:828
+#, no-wrap
+msgid "Cm wlanmode Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:853
+msgid ""
+"Specify the operating mode for this cloned device.  E<.Ar mode> is one of "
+"E<.Cm sta>, E<.Cm ahdemo> (or E<.Cm adhoc-demo>), E<.Cm ibss>, (or E<.Cm "
+"adhoc>), E<.Cm ap>, (or E<.Cm hostap>), E<.Cm wds>, E<.Cm tdma>, E<.Cm "
+"mesh>, and E<.Cm monitor>.  The operating mode of a cloned interface cannot "
+"be changed.  The E<.Cm tdma> mode is actually implemented as an E<.Cm "
+"adhoc-demo> interface with special properties."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:853
+#, no-wrap
+msgid "Cm wlanbssid Ar bssid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:858
+msgid ""
+"The 802.11 mac address to use for the bssid.  This must be specified at "
+"create time for a legacy E<.Cm wds> device."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:858
+#, no-wrap
+msgid "Cm wlanaddr Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:867
+msgid ""
+"The local mac address.  If this is not specified then a mac address will "
+"automatically be assigned to the cloned device.  Typically this address is "
+"the same as the address of the parent device but if the E<.Cm bssid> "
+"parameter is specified then the driver will craft a unique address for the "
+"device (if supported)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:867
+#, no-wrap
+msgid "Cm wdslegacy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:877
+msgid ""
+"Mark a E<.Cm wds> device as operating in ``legacy mode''.  Legacy E<.Cm wds> "
+"devices have a fixed peer relationship and do not, for example, roam if "
+"their peer stops communicating.  For completeness a Dynamic WDS (DWDS) "
+"interface may marked as E<.Fl wdslegacy>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:877
+#, no-wrap
+msgid "Cm bssid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:882
+msgid ""
+"Request a unique local mac address for the cloned device.  This is only "
+"possible if the device supports multiple mac addresses.  To force use of the "
+"parent's mac address use E<.Fl bssid>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:882
+#, no-wrap
+msgid "Cm beacons"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:895
+msgid ""
+"Mark the cloned interface as depending on hardware support to track received "
+"beacons.  To have beacons tracked in software use E<.Fl beacons>.  For E<.Cm "
+"hostap> mode E<.Fl beacons> can also be used to indicate no beacons should "
+"be transmitted; this can be useful when creating a WDS configuration but "
+"E<.Cm wds> interfaces can only be created as companions to an access point."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:901
+msgid ""
+"The following parameters are specific to IEEE 802.11 wireless interfaces "
+"cloned with a E<.Cm create> operation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:902
+#, no-wrap
+msgid "Cm ampdu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:914
+msgid ""
+"Enable sending and receiving AMPDU frames when using 802.11n (default).  The "
+"802.11n specification states a compliant station must be capable of "
+"receiving AMPDU frames but transmission is optional.  Use E<.Fl ampdu> to "
+"disable all use of AMPDU with 802.11n.  For testing and/or to work around "
+"interoperability problems one can use E<.Cm ampdutx> and E<.Cm ampdurx> to "
+"control use of AMPDU in one direction."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:914
+#, no-wrap
+msgid "Cm ampdudensity Ar density"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:925
+msgid ""
+"Set the AMPDU density parameter used when operating with 802.11n.  This "
+"parameter controls the inter-packet gap for AMPDU frames.  The sending "
+"device normally controls this setting but a receiving station may request "
+"wider gaps.  Legal values for E<.Ar density> are 0, .25, .5, 1, 2, 4, 8, and "
+"16 (microseconds).  A value of E<.Cm -> is treated the same as 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:925
+#, no-wrap
+msgid "Cm ampdulimit Ar limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:934
+msgid ""
+"Set the limit on packet size for receiving AMPDU frames when operating with "
+"802.11n.  Legal values for E<.Ar limit> are 8192, 16384, 32768, and 65536 "
+"but one can also specify just the unique prefix: 8, 16, 32, 64.  Note the "
+"sender may limit the size of AMPDU frames to be less than the maximum "
+"specified by the receiving station."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:934
+#, no-wrap
+msgid "Cm amsdu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:945
+msgid ""
+"Enable sending and receiving AMSDU frames when using 802.11n.  By default "
+"AMSDU is received but not transmitted.  Use E<.Fl amsdu> to disable all use "
+"of AMSDU with 802.11n.  For testing and/or to work around interoperability "
+"problems one can use E<.Cm amsdutx> and E<.Cm amsdurx> to control use of "
+"AMSDU in one direction."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:945
+#, no-wrap
+msgid "Cm amsdulimit Ar limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:957
+msgid ""
+"Set the limit on packet size for sending and receiving AMSDU frames when "
+"operating with 802.11n.  Legal values for E<.Ar limit> are 7935 and 3839 "
+"(bytes).  Note the sender may limit the size of AMSDU frames to be less than "
+"the maximum specified by the receiving station.  Note also that devices are "
+"not required to support the 7935 limit, only 3839 is required by the "
+"specification and the larger value may require more memory to be dedicated "
+"to support functionality that is rarely used."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:957
+#, no-wrap
+msgid "Cm apbridge"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:966
+msgid ""
+"When operating as an access point, pass packets between wireless clients "
+"directly (default).  To instead let them pass up through the system and be "
+"forwarded using some other mechanism, use E<.Fl apbridge>.  Disabling the "
+"internal bridging is useful when traffic is to be processed with packet "
+"filtering."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:966
+#, no-wrap
+msgid "Cm authmode Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:986
+msgid ""
+"Set the desired authentication mode in infrastructure mode.  Not all "
+"adapters support all modes.  The set of valid modes is E<.Cm none , open , "
+"shared> (shared key), E<.Cm 8021x> (IEEE 802.1x), and E<.Cm wpa> (IEEE "
+"WPA/WPA2/802.11i).  The E<.Cm 8021x> and E<.Cm wpa> modes are only useful "
+"when using an authentication service (a supplicant for client operation or "
+"an authenticator when operating as an access point).  Modes are case "
+"insensitive."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:986
+#, no-wrap
+msgid "Cm bgscan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1009
+msgid ""
+"Enable background scanning when operating as a station.  Background scanning "
+"is a technique whereby a station associated to an access point will "
+"temporarily leave the channel to scan for neighboring stations.  This allows "
+"a station to maintain a cache of nearby access points so that roaming "
+"between access points can be done without a lengthy scan operation.  "
+"Background scanning is done only when a station is not busy and any outbound "
+"traffic will cancel a scan operation.  Background scanning should never "
+"cause packets to be lost though there may be some small latency if outbound "
+"traffic interrupts a scan operation.  By default background scanning is "
+"enabled if the device is capable.  To disable background scanning, use E<.Fl "
+"bgscan>.  Background scanning is controlled by the E<.Cm bgscanidle> and "
+"E<.Cm bgscanintvl> parameters.  Background scanning must be enabled for "
+"roaming; this is an artifact of the current implementation and may not be "
+"required in the future."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1009
+#, no-wrap
+msgid "Cm bgscanidle Ar idletime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1018
+msgid ""
+"Set the minimum time a station must be idle (not transmitting or receiving "
+"frames) before a background scan is initiated.  The E<.Ar idletime> "
+"parameter is specified in milliseconds.  By default a station must be idle "
+"at least 250 milliseconds before a background scan is initiated.  The idle "
+"time may not be set to less than 100 milliseconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1018
+#, no-wrap
+msgid "Cm bgscanintvl Ar interval"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1027
+msgid ""
+"Set the interval at which background scanning is attempted.  The E<.Ar "
+"interval> parameter is specified in seconds.  By default a background scan "
+"is considered every 300 seconds (5 minutes).  The E<.Ar interval> may not be "
+"set to less than 15 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1027
+#, no-wrap
+msgid "Cm bintval Ar interval"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1034
+msgid ""
+"Set the interval at which beacon frames are sent when operating in ad-hoc or "
+"ap mode.  The E<.Ar interval> parameter is specified in TU's (1024 usecs).  "
+"By default beacon frames are transmitted every 100 TU's."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1034
+#, no-wrap
+msgid "Cm bmissthreshold Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1047
+msgid ""
+"Set the number of consecutive missed beacons at which the station will "
+"attempt to roam (i.e., search for a new access point).  The E<.Ar count> "
+"parameter must be in the range 1 to 255; though the upper bound may be "
+"reduced according to device capabilities.  The default threshold is 7 "
+"consecutive missed beacons; but this may be overridden by the device "
+"driver.  Another name for the E<.Cm bmissthreshold> parameter is E<.Cm "
+"bmiss>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1047
+#, no-wrap
+msgid "Cm bssid Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1061
+msgid ""
+"Specify the MAC address of the access point to use when operating as a "
+"station in a BSS network.  This overrides any automatic selection done by "
+"the system.  To disable a previously selected access point, supply E<.Cm any "
+", none>, or E<.Cm -> for the address.  This option is useful when more than "
+"one access point uses the same SSID.  Another name for the E<.Cm bssid> "
+"parameter is E<.Cm ap>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1061
+#, no-wrap
+msgid "Cm burst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1074
+msgid ""
+"Enable packet bursting.  Packet bursting is a transmission technique whereby "
+"the wireless medium is acquired once to send multiple frames and the "
+"interframe spacing is reduced.  This technique can significantly increase "
+"throughput by reducing transmission overhead.  Packet bursting is supported "
+"by the 802.11e QoS specification and some devices that do not support QoS "
+"may still be capable.  By default packet bursting is enabled if a device is "
+"capable of doing it.  To disable packet bursting, use E<.Fl burst>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1074
+#, no-wrap
+msgid "Cm chanlist Ar channels"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1084
+msgid ""
+"Set the desired channels to use when scanning for access points, neighbors "
+"in an IBSS network, or looking for unoccupied channels when operating as an "
+"access point.  The set of channels is specified as a comma-separated list "
+"with each element in the list representing either a single channel number or "
+"a range of the form E<.Dq Li a-b>.  Channel numbers must be in the range 1 "
+"to 255 and be permissible according to the operating characteristics of the "
+"device."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1084
+#, no-wrap
+msgid "Cm channel Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1097
+msgid ""
+"Set a single desired channel.  Channels range from 1 to 255, but the exact "
+"selection available depends on the region your adaptor was manufactured "
+"for.  Setting the channel to E<.Li any>, or E<.Cm -> will clear any desired "
+"channel and, if the device is marked up, force a scan for a channel to "
+"operate on.  Alternatively the frequency, in megahertz, may be specified "
+"instead of the channel number."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1139
+msgid ""
+"When there are several ways to use a channel the channel number/frequency "
+"may be appended with attributes to clarify.  For example, if a device is "
+"capable of operating on channel 6 with 802.11n and 802.11g then one can "
+"specify that g-only use should be used by specifying ``6:g''.  Similarly the "
+"channel width can be specified by appending it with ``/''; e.g., ``6/40'' "
+"specifies a 40MHz wide channel, These attributes can be combined as in: "
+"``6:ht/40''.  The full set of flags specified following a ``:'' are: E<.Cm "
+"a> (802.11a), E<.Cm b> (802.11b), E<.Cm d> (Atheros Dynamic Turbo mode), "
+"E<.Cm g> (802.11g), E<.Cm h> or E<.Cm n> (802.11n aka HT), E<.Cm s> (Atheros "
+"Static Turbo mode), and E<.Cm t> (Atheros Dynamic Turbo mode, or appended to "
+"``st'' and ``dt'').  The full set of channel widths following a '/' are: "
+"E<.Cm 5> (5MHz aka quarter-rate channel), E<.Cm 10> (10MHz aka half-rate "
+"channel), E<.Cm 20> (20MHz mostly for use in specifying ht20), and E<.Cm 40> "
+"(40MHz mostly for use in specifying ht40).  In addition, a 40MHz HT channel "
+"specification may include the location of the extension channel by appending "
+"``+'' or ``-'' for above and below, respectively; e.g., ``2437:ht/40+'' "
+"specifies 40MHz wide HT operation with the center channel at frequency 2437 "
+"and the extension channel above."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1139
+#, no-wrap
+msgid "Cm country Ar name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1160
+msgid ""
+"Set the country code to use in calculating the regulatory constraints for "
+"operation.  In particular the set of available channels, how the wireless "
+"device will operation on the channels, and the maximum transmit power that "
+"can be used on a channel are defined by this setting.  Country/Region codes "
+"are specified as a 2-character abbreviation defined by ISO 3166 or using a "
+"longer, but possibly ambiguous, spelling; e.g., \"ES\" and \"Spain\".  The "
+"set of country codes are taken from E<.Pa /etc/regdomain.xml> and can also "
+"be viewed with the ``list countries'' request.  Note that not all devices "
+"support changing the country code from a default setting; typically stored "
+"in EEPROM.  See also E<.Cm regdomain>, E<.Cm indoor>, E<.Cm outdoor>, and "
+"E<.Cm anywhere>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1160
+#, no-wrap
+msgid "Cm dfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1179
+msgid ""
+"Enable Dynamic Frequency Selection (DFS) as specified in 802.11h.  DFS "
+"embodies several facilities including detection of overlapping radar "
+"signals, dynamic transmit power control, and channel selection according to "
+"a least-congested criteria.  DFS support is mandatory for some 5GHz "
+"frequencies in certain locales (e.g., ETSI).  By default DFS is enabled "
+"according to the regulatory definitions specified in E<.Pa "
+"/etc/regdomain.xml> and the current country code, regdomain, and channel.  "
+"Note the underlying device (and driver) must support radar detection for "
+"full DFS support to work.  To be fully compliant with the local regulatory "
+"agency frequencies that require DFS should not be used unless it is fully "
+"supported.  Use E<.Fl dfs> to disable this functionality for testing."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1179
+#, no-wrap
+msgid "Cm dotd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1191
+msgid ""
+"Enable support for the 802.11d specification (default).  When this support "
+"is enabled in station mode, beacon frames that advertise a country code "
+"different than the currently configured country code will cause an event to "
+"be dispatched to user applications.  This event can be used by the station "
+"to adopt that country code and operate according to the associated "
+"regulatory constraints.  When operating as an access point with 802.11d "
+"enabled the beacon and probe response frames transmitted will advertise the "
+"current regulatory domain settings.  To disable 802.11d use E<.Fl dotd>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1191
+#, no-wrap
+msgid "Cm doth"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1201
+msgid ""
+"Enable 802.11h support including spectrum management.  When 802.11h is "
+"enabled beacon and probe response frames will have the SpectrumMgt bit set "
+"in the capabilities field and country and power constraint information "
+"elements will be present.  802.11h support also includes handling Channel "
+"Switch Announcements (CSA)  which are a mechanism to coordinate channel "
+"changes by an access point.  By default 802.11h is enabled if the device is "
+"capable.  To disable 802.11h use E<.Fl doth>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1201
+#, no-wrap
+msgid "Cm deftxkey Ar index"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1209
+msgid ""
+"Set the default key to use for transmission.  Typically this is only set "
+"when using WEP encryption.  Note that you must set a default transmit key "
+"for the system to know which key to use in encrypting outbound traffic.  The "
+"E<.Cm weptxkey> is an alias for this request; it is provided for backwards "
+"compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1209
+#, no-wrap
+msgid "Cm dtimperiod Ar period"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1219
+msgid ""
+"Set the DTIM period for transmitting buffered multicast data frames when "
+"operating in ap mode.  The E<.Ar period> specifies the number of beacon "
+"intervals between DTIM and must be in the range 1 to 15.  By default DTIM is "
+"1 (i.e., DTIM occurs at each beacon)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1219
+#, no-wrap
+msgid "Cm quiet"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1227
+msgid ""
+"Enable the use of quiet IE.  Hostap will use this to silence other stations "
+"to reduce interference for radar detection when operating on 5GHz frequency "
+"and doth support is enabled.  Use E<.Fl quiet> to disable this "
+"functionality."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1227
+#, no-wrap
+msgid "Cm quiet_period Ar period"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1232
+msgid ""
+"Set the QUIET E<.Ar period> to the number of beacon intervals between the "
+"start of regularly scheduled quiet intervals defined by Quiet element."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1232
+#, no-wrap
+msgid "Cm quiet_count Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1241
+msgid ""
+"Set the QUIET E<.Ar count> to the number of TBTTs until the beacon interval "
+"during which the next quiet interval shall start.  A value of 1 indicates "
+"the quiet interval will start during the beacon interval starting at the "
+"next TBTT.  A value 0 is reserved."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1241
+#, no-wrap
+msgid "Cm quiet_offset Ar offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1249
+msgid ""
+"Set the QUIET E<.Ar offset> to the offset of the start of the quiet interval "
+"from the TBTT specified by the Quiet count, expressed in TUs.  The value of "
+"the E<.Ar offset> shall be less than one beacon interval."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1249
+#, no-wrap
+msgid "Cm quiet_duration Ar dur"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1254
+msgid ""
+"Set the QUIET E<.Ar dur> to the duration of the Quiet interval, expressed in "
+"TUs.  The value should be less than beacon interval."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1254
+#, no-wrap
+msgid "Cm dturbo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1271
+msgid ""
+"Enable the use of Atheros Dynamic Turbo mode when communicating with another "
+"Dynamic Turbo-capable station.  Dynamic Turbo mode is an Atheros-specific "
+"mechanism by which stations switch between normal 802.11 operation and a "
+"``boosted'' mode in which a 40MHz wide channel is used for communication.  "
+"Stations using Dynamic Turbo mode operate boosted only when the channel is "
+"free of non-dturbo stations; when a non-dturbo station is identified on the "
+"channel all stations will automatically drop back to normal operation.  By "
+"default, Dynamic Turbo mode is not enabled, even if the device is capable.  "
+"Note that turbo mode (dynamic or static) is only allowed on some channels "
+"depending on the regulatory constraints; use the E<.Cm list chan> command to "
+"identify the channels where turbo mode may be used.  To disable Dynamic "
+"Turbo mode use E<.Fl dturbo>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1271
+#, no-wrap
+msgid "Cm dwds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1281
+msgid ""
+"Enable Dynamic WDS (DWDS) support.  DWDS is a facility by which 4-address "
+"traffic can be carried between stations operating in infrastructure mode.  A "
+"station first associates to an access point and authenticates using normal "
+"procedures (e.g., WPA).  Then 4-address frames are passed to carry traffic "
+"for stations operating on either side of the wireless link.  DWDS extends "
+"the normal WDS mechanism by leveraging existing security protocols and "
+"eliminating static binding."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1289
+msgid ""
+"When DWDS is enabled on an access point 4-address frames received from an "
+"authorized station will generate a ``DWDS discovery'' event to user "
+"applications.  This event should be used to create a WDS interface that is "
+"bound to the remote station (and usually plumbed into a bridge).  Once the "
+"WDS interface is up and running 4-address traffic then logically flows "
+"through that interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1300
+msgid ""
+"When DWDS is enabled on a station, traffic with a destination address "
+"different from the peer station are encapsulated in a 4-address frame and "
+"transmitted to the peer.  All 4-address traffic uses the security "
+"information of the stations (e.g., cryptographic keys).  A station is "
+"associated using 802.11n facilities may transport 4-address traffic using "
+"these same mechanisms; this depends on available resources and capabilities "
+"of the device.  The DWDS implementation guards against layer 2 routing loops "
+"of multicast traffic."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1300
+#, no-wrap
+msgid "Cm ff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1313
+msgid ""
+"Enable the use of Atheros Fast Frames when communicating with another Fast "
+"Frames-capable station.  Fast Frames are an encapsulation technique by which "
+"two 802.3 frames are transmitted in a single 802.11 frame.  This can "
+"noticeably improve throughput but requires that the receiving station "
+"understand how to decapsulate the frame.  Fast frame use is negotiated using "
+"the Atheros 802.11 vendor-specific protocol extension so enabling use is "
+"safe when communicating with non-Atheros devices.  By default, use of fast "
+"frames is enabled if the device is capable.  To explicitly disable fast "
+"frames, use E<.Fl ff>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1313
+#, no-wrap
+msgid "Cm fragthreshold Ar length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1327
+msgid ""
+"Set the threshold for which transmitted frames are broken into fragments.  "
+"The E<.Ar length> argument is the frame size in bytes and must be in the "
+"range 256 to 2346.  Setting E<.Ar length> to E<.Li 2346>, E<.Cm any>, or "
+"E<.Cm -> disables transmit fragmentation.  Not all adapters honor the "
+"fragmentation threshold."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1327
+#, no-wrap
+msgid "Cm hidessid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1335
+msgid ""
+"When operating as an access point, do not broadcast the SSID in beacon "
+"frames or respond to probe request frames unless they are directed to the ap "
+"(i.e., they include the ap's SSID).  By default, the SSID is included in "
+"beacon frames and undirected probe request frames are answered.  To "
+"re-enable the broadcast of the SSID etc., use E<.Fl hidessid>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1335
+#, no-wrap
+msgid "Cm ht"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1348
+msgid ""
+"Enable use of High Throughput (HT) when using 802.11n (default).  The "
+"802.11n specification includes mechanisms for operation on 20MHz and 40MHz "
+"wide channels using different signalling mechanisms than specified in "
+"802.11b, 802.11g, and 802.11a.  Stations negotiate use of these facilities, "
+"termed HT20 and HT40, when they associate.  To disable all use of 802.11n "
+"use E<.Fl ht>.  To disable use of HT20 (e.g., to force only HT40 use) use "
+"E<.Fl ht20>.  To disable use of HT40 use E<.Fl ht40>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1360
+msgid ""
+"HT configuration is used to ``auto promote'' operation when several choices "
+"are available.  For example, if a station associates to an 11n-capable "
+"access point it controls whether the station uses legacy operation, HT20, or "
+"HT40.  When an 11n-capable device is setup as an access point and Auto "
+"Channel Selection is used to locate a channel to operate on, HT "
+"configuration controls whether legacy, HT20, or HT40 operation is setup on "
+"the selected channel.  If a fixed channel is specified for a station then HT "
+"configuration can be given as part of the channel specification; e.g., "
+"6:ht/20 to setup HT20 operation on channel 6."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1360
+#, no-wrap
+msgid "Cm htcompat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1373
+msgid ""
+"Enable use of compatibility support for pre-802.11n devices (default).  The "
+"802.11n protocol specification went through several incompatible "
+"iterations.  Some vendors implemented 11n support to older specifications "
+"that will not interoperate with a purely 11n-compliant station.  In "
+"particular the information elements included in management frames for old "
+"devices are different.  When compatibility support is enabled both standard "
+"and compatible data will be provided.  Stations that associate using the "
+"compatibility mechanisms are flagged in ``list sta''.  To disable "
+"compatibility support use E<.Fl htcompat>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1373
+#, no-wrap
+msgid "Cm htprotmode Ar technique"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1383
+msgid ""
+"For interfaces operating in 802.11n, use the specified E<.Ar technique> for "
+"protecting HT frames in a mixed legacy/HT network.  The set of valid "
+"techniques is E<.Cm off>, and E<.Cm rts> (RTS/CTS, default).  Technique "
+"names are case insensitive."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1383
+#, no-wrap
+msgid "Cm inact"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1394
+msgid ""
+"Enable inactivity processing for stations associated to an access point "
+"(default).  When operating as an access point the 802.11 layer monitors the "
+"activity of each associated station.  When a station is inactive for 5 "
+"minutes it will send several ``probe frames'' to see if the station is still "
+"present.  If no response is received then the station is deauthenticated.  "
+"Applications that prefer to handle this work can disable this facility by "
+"using E<.Fl inact>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1394
+#, no-wrap
+msgid "Cm indoor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1405
+msgid ""
+"Set the location to use in calculating regulatory constraints.  The location "
+"is also advertised in beacon and probe response frames when 802.11d is "
+"enabled with E<.Cm dotd>.  See also E<.Cm outdoor>, E<.Cm anywhere>, E<.Cm "
+"country>, and E<.Cm regdomain>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1405
+#, no-wrap
+msgid "Cm list active"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1413
+msgid ""
+"Display the list of channels available for use taking into account any "
+"restrictions set with the E<.Cm chanlist> directive.  See the description of "
+"E<.Cm list chan> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1413
+#, no-wrap
+msgid "Cm list caps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1416
+msgid "Display the adaptor's capabilities, including the operating modes supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1416
+#, no-wrap
+msgid "Cm list chan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1429
+msgid ""
+"Display the list of channels available for use.  Channels are shown with "
+"their IEEE channel number, equivalent frequency, and usage modes.  Channels "
+"identified as E<.Ql 11g> are also usable in E<.Ql 11b> mode.  Channels "
+"identified as E<.Ql 11a Turbo> may be used only for Atheros' Static Turbo "
+"mode (specified with"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1442
+msgid ""
+"Channels marked with a E<.Ql *> have a regulatory constraint that they be "
+"passively scanned.  This means a station is not permitted to transmit on the "
+"channel until it identifies the channel is being used for 802.11 "
+"communication; typically by hearing a beacon frame from an access point "
+"operating on the channel.  E<.Cm list freq> is another way of requesting "
+"this information.  By default a compacted list of channels is displayed; if "
+"the E<.Fl v> option is specified then all channels are shown."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1442
+#, no-wrap
+msgid "Cm list countries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1445
+msgid ""
+"Display the set of country codes and regulatory domains that can be used in "
+"regulatory configuration."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1445
+#, no-wrap
+msgid "Cm list mac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1456
+msgid ""
+"Display the current MAC Access Control List state.  Each address is prefixed "
+"with a character that indicates the current policy applied to it: E<.Ql +> "
+"indicates the address is allowed access, E<.Ql -> indicates the address is "
+"denied access, E<.Ql *> indicates the address is present but the current "
+"policy open (so the ACL is not consulted)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1456
+#, no-wrap
+msgid "Cm list mesh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1459
+msgid ""
+"Displays the mesh routing table, used for forwarding packets on a mesh "
+"network."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1459
+#, no-wrap
+msgid "Cm list regdomain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1462
+msgid ""
+"Display the current regulatory settings including the available channels and "
+"transmit power caps."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1462
+#, no-wrap
+msgid "Cm list roam"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1464
+msgid "Display the parameters that govern roaming operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1464
+#, no-wrap
+msgid "Cm list txparam"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1466
+msgid "Display the parameters that govern transmit operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1466
+#, no-wrap
+msgid "Cm list txpower"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1468
+msgid "Display the transmit power caps for each channel."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1468
+#, no-wrap
+msgid "Cm list scan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1477
+msgid ""
+"Display the access points and/or ad-hoc neighbors located in the vicinity.  "
+"This information may be updated automatically by the adapter with a E<.Cm "
+"scan> request or through background scanning.  Depending on the capabilities "
+"of the stations the following flags can be included in the output:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1478 /usr/src/sbin/ifconfig/ifconfig.8:1556
+#, no-wrap
+msgid "Li A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1481 /usr/src/sbin/ifconfig/ifconfig.8:1559
+msgid ""
+"Authorized.  Indicates that the station is permitted to send/receive data "
+"frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1481 /usr/src/sbin/ifconfig/ifconfig.8:1559
+#, no-wrap
+msgid "Li E"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1485 /usr/src/sbin/ifconfig/ifconfig.8:1563
+msgid ""
+"Extended Rate Phy (ERP).  Indicates that the station is operating in an "
+"802.11g network using extended transmit rates."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1485 /usr/src/sbin/ifconfig/ifconfig.8:1563
+#, no-wrap
+msgid "Li H"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1492 /usr/src/sbin/ifconfig/ifconfig.8:1570
+msgid ""
+"High Throughput (HT).  Indicates that the station is using HT transmit "
+"rates.  If a `+' follows immediately after then the station associated using "
+"deprecated mechanisms supported only when E<.Cm htcompat> is enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1492 /usr/src/sbin/ifconfig/ifconfig.8:1570
+#, no-wrap
+msgid "Li P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1495 /usr/src/sbin/ifconfig/ifconfig.8:1573
+msgid "Power Save.  Indicates that the station is operating in power save mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1495 /usr/src/sbin/ifconfig/ifconfig.8:1573
+#, no-wrap
+msgid "Li Q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1500 /usr/src/sbin/ifconfig/ifconfig.8:1578
+msgid ""
+"Quality of Service (QoS).  Indicates that the station is using QoS "
+"encapsulation for data frame.  QoS encapsulation is enabled only when WME "
+"mode is enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1500 /usr/src/sbin/ifconfig/ifconfig.8:1578
+#, no-wrap
+msgid "Li S"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1504 /usr/src/sbin/ifconfig/ifconfig.8:1582
+msgid ""
+"Short Preamble.  Indicates that the station is doing short preamble to "
+"optionally improve throughput performance with 802.11g and 802.11b."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1504 /usr/src/sbin/ifconfig/ifconfig.8:1582
+#, no-wrap
+msgid "Li T"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1509 /usr/src/sbin/ifconfig/ifconfig.8:1587
+msgid ""
+"Transitional Security Network (TSN).  Indicates that the station associated "
+"using TSN; see also E<.Cm tsn> below."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1509 /usr/src/sbin/ifconfig/ifconfig.8:1587
+#, no-wrap
+msgid "Li W"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1512 /usr/src/sbin/ifconfig/ifconfig.8:1590
+msgid ""
+"Wi-Fi Protected Setup (WPS).  Indicates that the station associated using "
+"WPS."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1541
+msgid ""
+"By default interesting information elements captured from the neighboring "
+"stations are displayed at the end of each row.  Possible elements include: "
+"E<.Cm WME> (station supports WME), E<.Cm WPA> (station supports WPA), E<.Cm "
+"WPS> (station supports WPS), E<.Cm RSN> (station supports 802.11i/RSN), "
+"E<.Cm HTCAP> (station supports 802.11n/HT communication), E<.Cm ATH> "
+"(station supports Atheros protocol extensions), E<.Cm VEN> (station supports "
+"unknown vendor-specific extensions).  If the E<.Fl v> flag is used all the "
+"information elements and their contents will be shown.  Specifying the E<.Fl "
+"v> flag also enables display of long SSIDs.  The E<.Cm list ap> command is "
+"another way of requesting this information."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1541
+#, no-wrap
+msgid "Cm list sta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1555
+msgid ""
+"When operating as an access point display the stations that are currently "
+"associated.  When operating in ad-hoc mode display stations identified as "
+"neighbors in the IBSS.  When operating in mesh mode display stations "
+"identified as neighbors in the MBSS.  When operating in station mode display "
+"the access point.  Capabilities advertised by the stations are described "
+"under the E<.Cm scan> request.  Depending on the capabilities of the "
+"stations the following flags can be included in the output:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1596
+msgid ""
+"By default information elements received from associated stations are "
+"displayed in a short form; the E<.Fl v> flag causes this information to be "
+"displayed symbolically."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1596
+#, no-wrap
+msgid "Cm list wme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1608
+msgid ""
+"Display the current channel parameters to use when operating in WME mode.  "
+"If the E<.Fl v> option is specified then both channel and BSS parameters are "
+"displayed for each AC (first channel, then BSS).  When WME mode is enabled "
+"for an adaptor this information will be displayed with the regular status; "
+"this command is mostly useful for examining parameters when WME mode is "
+"disabled.  See the description of the E<.Cm wme> directive for information "
+"on the various parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1608
+#, no-wrap
+msgid "Cm maxretry Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1612
+msgid ""
+"Set the maximum number of tries to use in sending unicast frames.  The "
+"default setting is 6 but drivers may override this with a value they choose."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1612
+#, no-wrap
+msgid "Cm mcastrate Ar rate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1618
+msgid ""
+"Set the rate for transmitting multicast/broadcast frames.  Rates are "
+"specified as megabits/second in decimal; e.g.,\\& 5.5 for 5.5 Mb/s.  This "
+"rate should be valid for the current operating conditions; if an invalid "
+"rate is specified drivers are free to chose an appropriate rate."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1618
+#, no-wrap
+msgid "Cm mgtrate Ar rate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1621
+msgid ""
+"Set the rate for transmitting management and/or control frames.  Rates are "
+"specified as megabits/second in decimal; e.g.,\\& 5.5 for 5.5 Mb/s."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1621
+#, no-wrap
+msgid "Cm outdoor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1632
+msgid ""
+"Set the location to use in calculating regulatory constraints.  The location "
+"is also advertised in beacon and probe response frames when 802.11d is "
+"enabled with E<.Cm dotd>.  See also E<.Cm anywhere>, E<.Cm country>, E<.Cm "
+"indoor>, and E<.Cm regdomain>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1632
+#, no-wrap
+msgid "Cm powersave"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1644
+msgid ""
+"Enable powersave operation.  When operating as a client, the station will "
+"conserve power by periodically turning off the radio and listening for "
+"messages from the access point telling it there are packets waiting.  The "
+"station must then retrieve the packets.  Not all devices support power save "
+"operation as a client.  The 802.11 specification requires that all access "
+"points support power save but some drivers do not.  Use E<.Fl powersave> to "
+"disable powersave operation when operating as a client."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1644
+#, no-wrap
+msgid "Cm powersavesleep Ar sleep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1647
+msgid ""
+"Set the desired max powersave sleep time in TU's (1024 usecs).  By default "
+"the max powersave sleep time is 100 TU's."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1647
+#, no-wrap
+msgid "Cm protmode Ar technique"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1661
+msgid ""
+"For interfaces operating in 802.11g, use the specified E<.Ar technique> for "
+"protecting OFDM frames in a mixed 11b/11g network.  The set of valid "
+"techniques is E<.Cm off , cts> (CTS to self), and E<.Cm rtscts> (RTS/CTS).  "
+"Technique names are case insensitive.  Not all devices support E<.Cm cts> as "
+"a protection technique."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1661
+#, no-wrap
+msgid "Cm pureg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1667
+msgid ""
+"When operating as an access point in 802.11g mode allow only 11g-capable "
+"stations to associate (11b-only stations are not permitted to associate).  "
+"To allow both 11g and 11b-only stations to associate, use E<.Fl pureg>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1667
+#, no-wrap
+msgid "Cm puren"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1673
+msgid ""
+"When operating as an access point in 802.11n mode allow only HT-capable "
+"stations to associate (legacy stations are not permitted to associate).  To "
+"allow both HT and legacy stations to associate, use E<.Fl puren>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1673
+#, no-wrap
+msgid "Cm regdomain Ar sku"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1691
+msgid ""
+"Set the regulatory domain to use in calculating the regulatory constraints "
+"for operation.  In particular the set of available channels, how the "
+"wireless device will operation on the channels, and the maximum transmit "
+"power that can be used on a channel are defined by this setting.  Regdomain "
+"codes (SKU's) are taken from E<.Pa /etc/regdomain.xml> and can also be "
+"viewed with the ``list countries'' request.  Note that not all devices "
+"support changing the regdomain from a default setting; typically stored in "
+"EEPROM.  See also E<.Cm country>, E<.Cm indoor>, E<.Cm outdoor>, and E<.Cm "
+"anywhere>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1691
+#, no-wrap
+msgid "Cm rifs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1698
+msgid ""
+"Enable use of Reduced InterFrame Spacing (RIFS) when operating in 802.11n on "
+"an HT channel.  Note that RIFS must be supported by both the station and "
+"access point for it to be used.  To disable RIFS use E<.Fl rifs>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1698
+#, no-wrap
+msgid "Cm roam:rate Ar rate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1714
+msgid ""
+"Set the threshold for controlling roaming when operating in a BSS.  The "
+"E<.Ar rate> parameter specifies the transmit rate in megabits at which "
+"roaming should be considered.  If the current transmit rate drops below this "
+"setting and background scanning is enabled, then the system will check if a "
+"more desirable access point is available and switch over to it.  The current "
+"scan cache contents are used if they are considered valid according to the "
+"E<.Cm scanvalid> parameter; otherwise a background scan operation is "
+"triggered before any selection occurs.  Each channel type has a separate "
+"rate threshold; the default values are: 12 Mb/s (11a), 2 Mb/s (11b), 2 Mb/s "
+"(11g), MCS 1 (11na, 11ng)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1714
+#, no-wrap
+msgid "Cm roam:rssi Ar rssi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1730
+msgid ""
+"Set the threshold for controlling roaming when operating in a BSS.  The "
+"E<.Ar rssi> parameter specifies the receive signal strength in dBm units at "
+"which roaming should be considered.  If the current rssi drops below this "
+"setting and background scanning is enabled, then the system will check if a "
+"more desirable access point is available and switch over to it.  The current "
+"scan cache contents are used if they are considered valid according to the "
+"E<.Cm scanvalid> parameter; otherwise a background scan operation is "
+"triggered before any selection occurs.  Each channel type has a separate "
+"rssi threshold; the default values are all 7 dBm."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1730
+#, no-wrap
+msgid "Cm roaming Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1749
+msgid ""
+"When operating as a station, control how the system will behave when "
+"communication with the current access point is broken.  The E<.Ar mode> "
+"argument may be one of E<.Cm device> (leave it to the hardware device to "
+"decide), E<.Cm auto> (handle either in the device or the operating "
+"system\\[em]as appropriate), E<.Cm manual> (do nothing until explicitly "
+"instructed).  By default, the device is left to handle this if it is "
+"capable; otherwise, the operating system will automatically attempt to "
+"reestablish communication.  Manual mode is used by applications such as "
+"E<.Xr wpa_supplicant 8> that want to control the selection of an access "
+"point."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1749
+#, no-wrap
+msgid "Cm rtsthreshold Ar length"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1767
+msgid ""
+"Set the threshold for which transmitted frames are preceded by transmission "
+"of an RTS control frame.  The E<.Ar length> argument is the frame size in "
+"bytes and must be in the range 1 to 2346.  Setting E<.Ar length> to E<.Li "
+"2346>, E<.Cm any>, or E<.Cm -> disables transmission of RTS frames.  Not all "
+"adapters support setting the RTS threshold."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1767
+#, no-wrap
+msgid "Cm scan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1780
+msgid ""
+"Initiate a scan of neighboring stations, wait for it to complete, and "
+"display all stations found.  Only the super-user can initiate a scan.  See "
+"E<.Cm list scan> for information on the display.  By default a background "
+"scan is done; otherwise a foreground scan is done and the station may roam "
+"to a different access point.  The E<.Cm list scan> request can be used to "
+"show recent scan results without initiating a new scan."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1780
+#, no-wrap
+msgid "Cm scanvalid Ar threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1793
+msgid ""
+"Set the maximum time the scan cache contents are considered valid; i.e., "
+"will be used without first triggering a scan operation to refresh the data.  "
+"The E<.Ar threshold> parameter is specified in seconds and defaults to 60 "
+"seconds.  The minimum setting for E<.Ar threshold> is 10 seconds.  One "
+"should take care setting this threshold; if it is set too low then attempts "
+"to roam to another access point may trigger unnecessary background scan "
+"operations."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1793
+#, no-wrap
+msgid "Cm shortgi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1799
+msgid ""
+"Enable use of Short Guard Interval when operating in 802.11n on an HT "
+"channel.  NB: this currently enables Short GI on both HT40 and HT20 "
+"channels.  To disable Short GI use E<.Fl shortgi>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1799
+#, no-wrap
+msgid "Cm smps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1806
+msgid ""
+"Enable use of Static Spatial Multiplexing Power Save (SMPS)  when operating "
+"in 802.11n.  A station operating with Static SMPS maintains only a single "
+"receive chain active (this can significantly reduce power consumption).  To "
+"disable SMPS use E<.Fl smps>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1806
+#, no-wrap
+msgid "Cm smpsdyn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1816
+msgid ""
+"Enable use of Dynamic Spatial Multiplexing Power Save (SMPS)  when operating "
+"in 802.11n.  A station operating with Dynamic SMPS maintains only a single "
+"receive chain active but switches to multiple receive chains when it "
+"receives an RTS frame (this can significantly reduce power consumption).  "
+"Note that stations cannot distinguish between RTS/CTS intended to enable "
+"multiple receive chains and those used for other purposes.  To disable SMPS "
+"use E<.Fl smps>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1816
+#, no-wrap
+msgid "Cm ssid Ar ssid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1824
+msgid ""
+"Set the desired Service Set Identifier (aka network name).  The SSID is a "
+"string up to 32 characters in length and may be specified as either a normal "
+"string or in hexadecimal when preceded by E<.Ql 0x>.  Additionally, the SSID "
+"may be cleared by setting it to E<.Ql ->."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1824
+#, no-wrap
+msgid "Cm tdmaslot Ar slot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1838
+msgid ""
+"When operating with TDMA, use the specified E<.Ar slot> configuration.  The "
+"E<.Ar slot> is a number between 0 and the maximum number of slots in the "
+"BSS.  Note that a station configured as slot 0 is a master and will "
+"broadcast beacon frames advertising the BSS; stations configured to use "
+"other slots will always scan to locate a master before they ever transmit.  "
+"By default E<.Cm tdmaslot> is set to 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1838
+#, no-wrap
+msgid "Cm tdmaslotcnt Ar cnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1850
+msgid ""
+"When operating with TDMA, setup a BSS with E<.Ar cnt> slots.  The slot count "
+"may be at most 8.  The current implementation is only tested with two "
+"stations (i.e., point to point applications).  This setting is only "
+"meaningful when a station is configured as slot 0; other stations adopt this "
+"setting from the BSS they join.  By default E<.Cm tdmaslotcnt> is set to 2."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1850
+#, no-wrap
+msgid "Cm tdmaslotlen Ar len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1864
+msgid ""
+"When operating with TDMA, setup a BSS such that each station has a slot "
+"E<.Ar len> microseconds long.  The slot length must be at least 150 "
+"microseconds (1/8 TU)  and no more than 65 milliseconds.  Note that setting "
+"too small a slot length may result in poor channel bandwidth utilization due "
+"to factors such as timer granularity and guard time.  This setting is only "
+"meaningful when a station is configured as slot 0; other stations adopt this "
+"setting from the BSS they join.  By default E<.Cm tdmaslotlen> is set to 10 "
+"milliseconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1864
+#, no-wrap
+msgid "Cm tdmabintval Ar intval"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1878
+msgid ""
+"When operating with TDMA, setup a BSS such that beacons are transmitted "
+"every E<.Ar intval> superframes to synchronize the TDMA slot timing.  A "
+"superframe is defined as the number of slots times the slot length; e.g., a "
+"BSS with two slots of 10 milliseconds has a 20 millisecond superframe.  The "
+"beacon interval may not be zero.  A lower setting of E<.Cm tdmabintval> "
+"causes the timers to be resynchronized more often; this can be help if "
+"significant timer drift is observed.  By default E<.Cm tdmabintval> is set "
+"to 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1878
+#, no-wrap
+msgid "Cm tsn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1883
+msgid ""
+"When operating as an access point with WPA/802.11i allow legacy stations to "
+"associate using static key WEP and open authentication.  To disallow legacy "
+"station use of WEP, use E<.Fl tsn>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1883
+#, no-wrap
+msgid "Cm txpower Ar power"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1892
+msgid ""
+"Set the power used to transmit frames.  The E<.Ar power> argument is "
+"specified in .5 dBm units.  Out of range values are truncated.  Typically "
+"only a few discreet power settings are available and the driver will use the "
+"setting closest to the specified value.  Not all adapters support changing "
+"the transmit power."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1892
+#, no-wrap
+msgid "Cm ucastrate Ar rate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1898
+msgid ""
+"Set a fixed rate for transmitting unicast frames.  Rates are specified as "
+"megabits/second in decimal; e.g.,\\& 5.5 for 5.5 Mb/s.  This rate should be "
+"valid for the current operating conditions; if an invalid rate is specified "
+"drivers are free to chose an appropriate rate."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1898
+#, no-wrap
+msgid "Cm wepmode Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1917
+msgid ""
+"Set the desired WEP mode.  Not all adapters support all modes.  The set of "
+"valid modes is E<.Cm off , on>, and E<.Cm mixed>.  The E<.Cm mixed> mode "
+"explicitly tells the adaptor to allow association with access points which "
+"allow both encrypted and unencrypted traffic.  On these adapters, E<.Cm on> "
+"means that the access point must only allow encrypted connections.  On other "
+"adapters, E<.Cm on> is generally another name for E<.Cm mixed>.  Modes are "
+"case insensitive."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1917
+#, no-wrap
+msgid "Cm weptxkey Ar index"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1921
+msgid ""
+"Set the WEP key to be used for transmission.  This is the same as setting "
+"the default transmission key with E<.Cm deftxkey>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1921
+#, no-wrap
+msgid "Cm wepkey Ar key Ns | Ns Ar index : Ns Ar key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1945
+msgid ""
+"Set the selected WEP key.  If an E<.Ar index> is not given, key 1 is set.  A "
+"WEP key will be either 5 or 13 characters (40 or 104 bits) depending on the "
+"local network and the capabilities of the adaptor.  It may be specified "
+"either as a plain string or as a string of hexadecimal digits preceded by "
+"E<.Ql 0x>.  For maximum portability, hex keys are recommended; the mapping "
+"of text keys to WEP encryption is usually driver-specific.  In particular, "
+"the E<.Tn Windows> drivers do this mapping differently to E<.Fx>.  A key may "
+"be cleared by setting it to E<.Ql ->.  If WEP is supported then there are at "
+"least four keys.  Some adapters support more than four keys.  If that is the "
+"case, then the first four keys (1-4) will be the standard temporary keys and "
+"any others will be adaptor specific keys such as permanent keys stored in "
+"NVRAM."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1949
+msgid ""
+"Note that you must set a default transmit key with E<.Cm deftxkey> for the "
+"system to know which key to use in encrypting outbound traffic."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1949
+#, no-wrap
+msgid "Cm wme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1958
+msgid ""
+"Enable Wireless Multimedia Extensions (WME) support, if available, for the "
+"specified interface.  WME is a subset of the IEEE 802.11e standard to "
+"support the efficient communication of realtime and multimedia data.  To "
+"disable WME support, use E<.Fl wme>.  Another name for this parameter is "
+"E<.Cm wmm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1966
+msgid ""
+"The following parameters are meaningful only when WME support is in use.  "
+"Parameters are specified per-AC (Access Category) and split into those that "
+"are used by a station when acting as an access point and those for client "
+"stations in the BSS.  The latter are received from the access point and may "
+"not be changed (at the station).  The following Access Categories are "
+"recognized:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1968
+#, no-wrap
+msgid "Cm AC_BE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1972
+msgid "(or E<.Cm BE>)  best effort delivery,"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1972
+#, no-wrap
+msgid "Cm AC_BK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1976
+msgid "(or E<.Cm BK>)  background traffic,"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1976
+#, no-wrap
+msgid "Cm AC_VI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1980
+msgid "(or E<.Cm VI>)  video traffic,"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1980
+#, no-wrap
+msgid "Cm AC_VO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1984
+msgid "(or E<.Cm VO>)  voice traffic."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:1992
+msgid ""
+"AC parameters are case-insensitive.  Traffic classification is done in the "
+"operating system using the vlan priority associated with data frames or the "
+"ToS (Type of Service) indication in IP-encapsulated frames.  If neither "
+"information is present, traffic is assigned to the Best Effort (BE) "
+"category."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:1993
+#, no-wrap
+msgid "Cm ack Ar ac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2000
+msgid ""
+"Set the ACK policy for QoS transmissions by the local station; this controls "
+"whether or not data frames transmitted by a station require an ACK response "
+"from the receiving station.  To disable waiting for an ACK use E<.Fl ack>.  "
+"This parameter is applied only to the local station."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2000
+#, no-wrap
+msgid "Cm acm Ar ac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2008
+msgid ""
+"Enable the Admission Control Mandatory (ACM) mechanism for transmissions by "
+"the local station.  To disable the ACM use E<.Fl acm>.  On stations in a BSS "
+"this parameter is read-only and indicates the setting received from the "
+"access point.  NB: ACM is not supported right now."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2008
+#, no-wrap
+msgid "Cm aifs Ar ac Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2014
+msgid ""
+"Set the Arbitration Inter Frame Spacing (AIFS)  channel access parameter to "
+"use for transmissions by the local station.  On stations in a BSS this "
+"parameter is read-only and indicates the setting received from the access "
+"point."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2014
+#, no-wrap
+msgid "Cm cwmin Ar ac Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2019
+msgid ""
+"Set the CWmin channel access parameter to use for transmissions by the local "
+"station.  On stations in a BSS this parameter is read-only and indicates the "
+"setting received from the access point."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2019
+#, no-wrap
+msgid "Cm cwmax Ar ac Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2024
+msgid ""
+"Set the CWmax channel access parameter to use for transmissions by the local "
+"station.  On stations in a BSS this parameter is read-only and indicates the "
+"setting received from the access point."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2024
+#, no-wrap
+msgid "Cm txoplimit Ar ac Ar limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2031
+msgid ""
+"Set the Transmission Opportunity Limit channel access parameter to use for "
+"transmissions by the local station.  This parameter defines an interval of "
+"time when a WME station has the right to initiate transmissions onto the "
+"wireless medium.  On stations in a BSS this parameter is read-only and "
+"indicates the setting received from the access point."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2031
+#, no-wrap
+msgid "Cm bss:aifs Ar ac Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2034
+msgid ""
+"Set the AIFS channel access parameter to send to stations in a BSS.  This "
+"parameter is meaningful only when operating in ap mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2034
+#, no-wrap
+msgid "Cm bss:cwmin Ar ac Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2037
+msgid ""
+"Set the CWmin channel access parameter to send to stations in a BSS.  This "
+"parameter is meaningful only when operating in ap mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2037
+#, no-wrap
+msgid "Cm bss:cwmax Ar ac Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2040
+msgid ""
+"Set the CWmax channel access parameter to send to stations in a BSS.  This "
+"parameter is meaningful only when operating in ap mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2040
+#, no-wrap
+msgid "Cm bss:txoplimit Ar ac Ar limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2043
+msgid ""
+"Set the TxOpLimit channel access parameter to send to stations in a BSS.  "
+"This parameter is meaningful only when operating in ap mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2044
+#, no-wrap
+msgid "Cm wps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2049
+msgid ""
+"Enable Wireless Privacy Subscriber support.  Note that WPS support requires "
+"a WPS-capable supplicant.  To disable this function use E<.Fl wps>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2058
+msgid ""
+"The following parameters support an optional access control list feature "
+"available with some adapters when operating in ap mode; see E<.Xr wlan_acl "
+"4>.  This facility allows an access point to accept/deny association "
+"requests based on the MAC address of the station.  Note that this feature "
+"does not significantly enhance security as MAC address spoofing is easy to "
+"do."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2059
+#, no-wrap
+msgid "Cm mac:add Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2063
+msgid ""
+"Add the specified MAC address to the database.  Depending on the policy "
+"setting association requests from the specified station will be allowed or "
+"denied."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2063
+#, no-wrap
+msgid "Cm mac:allow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2066
+msgid ""
+"Set the ACL policy to permit association only by stations registered in the "
+"database."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2066
+#, no-wrap
+msgid "Cm mac:del Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2068
+msgid "Delete the specified MAC address from the database."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2068
+#, no-wrap
+msgid "Cm mac:deny"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2071
+msgid ""
+"Set the ACL policy to deny association only by stations registered in the "
+"database."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2071
+#, no-wrap
+msgid "Cm mac:kick Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2075
+msgid ""
+"Force the specified station to be deauthenticated.  This typically is done "
+"to block a station after updating the address database."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2075
+#, no-wrap
+msgid "Cm mac:open"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2077
+msgid "Set the ACL policy to allow all stations to associate."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2077
+#, no-wrap
+msgid "Cm mac:flush"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2079
+msgid "Delete all entries in the database."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2079
+#, no-wrap
+msgid "Cm mac:radius"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2087
+msgid ""
+"Set the ACL policy to permit association only by stations approved by a "
+"RADIUS server.  Note that this feature requires the E<.Xr hostapd 8> program "
+"be configured to do the right thing as it handles the RADIUS processing (and "
+"marks stations as authorized)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2091
+msgid ""
+"The following parameters are related to a wireless interface operating in "
+"mesh mode:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2092
+#, no-wrap
+msgid "Cm meshid Ar meshid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2097
+msgid ""
+"Set the desired Mesh Identifier.  The Mesh ID is a string up to 32 "
+"characters in length.  A mesh interface must have a Mesh Identifier "
+"specified to reach an operational state."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2097
+#, no-wrap
+msgid "Cm meshttl Ar ttl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2104
+msgid ""
+"Set the desired ``time to live'' for mesh forwarded packets; this is the "
+"number of hops a packet may be forwarded before it is discarded.  The "
+"default setting for E<.Cm meshttl> is 31."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2104
+#, no-wrap
+msgid "Cm meshpeering"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2110
+msgid ""
+"Enable or disable peering with neighbor mesh stations.  Stations must peer "
+"before any data packets can be exchanged.  By default E<.Cm meshpeering> is "
+"enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2110
+#, no-wrap
+msgid "Cm meshforward"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2115
+msgid ""
+"Enable or disable forwarding packets by a mesh interface.  By default E<.Cm "
+"meshforward> is enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2115
+#, no-wrap
+msgid "Cm meshgate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2121
+msgid ""
+"This attribute specifies whether or not the mesh STA activates mesh gate "
+"announcements.  By default E<.Cm meshgate> is disabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2121
+#, no-wrap
+msgid "Cm meshmetric Ar protocol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2128
+msgid ""
+"Set the specified E<.Ar protocol> as the link metric protocol used on a mesh "
+"network.  The default protocol is called E<.Ar AIRTIME>.  The mesh interface "
+"will restart after changing this setting."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2128
+#, no-wrap
+msgid "Cm meshpath Ar protocol"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2136
+msgid ""
+"Set the specified E<.Ar protocol> as the path selection protocol used on a "
+"mesh network.  The only available protocol at the moment is called E<.Ar "
+"HWMP> (Hybrid Wireless Mesh Protocol).  The mesh interface will restart "
+"after changing this setting."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2136
+#, no-wrap
+msgid "Cm hwmprootmode Ar mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2146
+msgid ""
+"Stations on a mesh network can operate as ``root nodes.'' Root nodes try to "
+"find paths to all mesh nodes and advertise themselves regularly.  When there "
+"is a root mesh node on a network, other mesh nodes can setup paths between "
+"themselves faster because they can use the root node to find the "
+"destination.  This path may not be the best, but on-demand routing will "
+"eventually find the best path.  The following modes are recognized:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2148
+#, no-wrap
+msgid "Cm DISABLED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2150
+msgid "Disable root mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2150
+#, no-wrap
+msgid "Cm NORMAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2154
+msgid ""
+"Send broadcast path requests every two seconds.  Nodes on the mesh without a "
+"path to this root mesh station with try to discover a path to us."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2154
+#, no-wrap
+msgid "Cm PROACTIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2157
+msgid ""
+"Send broadcast path requests every two seconds and every node must reply "
+"with a path reply even if it already has a path to this root mesh station."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2157
+#, no-wrap
+msgid "Cm RANN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2161
+msgid ""
+"Send broadcast root announcement (RANN) frames.  Nodes on the mesh without a "
+"path to this root mesh station with try to discover a path to us."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2166
+msgid "By default E<.Cm hwmprootmode> is set to E<.Ar DISABLED>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2166
+#, no-wrap
+msgid "Cm hwmpmaxhops Ar cnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2172
+msgid ""
+"Set the maximum number of hops allowed in an HMWP path to E<.Ar cnt>.  The "
+"default setting for E<.Cm hwmpmaxhops> is 31."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2175
+msgid "The following parameters are for compatibility with other systems:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2176
+#, no-wrap
+msgid "Cm nwid Ar ssid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2183
+msgid ""
+"Another name for the E<.Cm ssid> parameter.  Included for E<.Nx> "
+"compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2183
+#, no-wrap
+msgid "Cm stationname Ar name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2195
+msgid ""
+"Set the name of this station.  The station name is not part of the IEEE "
+"802.11 protocol though some interfaces support it.  As such it only seems to "
+"be meaningful to identical or virtually identical equipment.  Setting the "
+"station name is identical in syntax to setting the SSID.  One can also use "
+"E<.Cm station> for E<.Bsx> compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2195
+#, no-wrap
+msgid "Cm wep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2201
+msgid ""
+"Another way of saying E<.Cm wepmode on>.  Included for E<.Bsx> "
+"compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2201
+#, no-wrap
+msgid "Fl wep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2207
+msgid ""
+"Another way of saying E<.Cm wepmode off>.  Included for E<.Bsx> "
+"compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2207
+#, no-wrap
+msgid "Cm nwkey key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2213
+msgid ""
+"Another way of saying: E<.Dq Li \"wepmode on weptxkey 1 wepkey 1:key wepkey "
+"2:- wepkey 3:- wepkey 4:-\">.  Included for E<.Nx> compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2213
+#, no-wrap
+msgid "Cm nwkey Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2223
+msgid ""
+"E<.Sm off> E<.Ar n : k1 , k2 , k3 , k4> E<.Sm on> E<.Xc> Another way of "
+"saying E<.Dq Li \"wepmode on weptxkey n wepkey 1:k1 wepkey 2:k2 wepkey 3:k3 "
+"wepkey 4:k4\">.  Included for E<.Nx> compatibility."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2223
+#, no-wrap
+msgid "Fl nwkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2229
+msgid ""
+"Another way of saying E<.Cm wepmode off>.  Included for E<.Nx> "
+"compatibility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2232
+msgid "The following parameters are specific to bridge interfaces:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2233
+#, no-wrap
+msgid "Cm addm Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2239
+msgid ""
+"Add the interface named by E<.Ar interface> as a member of the bridge.  The "
+"interface is put into promiscuous mode so that it can receive every packet "
+"sent on the network."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2239
+#, no-wrap
+msgid "Cm deletem Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2245
+msgid ""
+"Remove the interface named by E<.Ar interface> from the bridge.  Promiscuous "
+"mode is disabled on the interface when it is removed from the bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2245
+#, no-wrap
+msgid "Cm maxaddr Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2249
+msgid ""
+"Set the size of the bridge address cache to E<.Ar size>.  The default is "
+"2000 entries."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2249
+#, no-wrap
+msgid "Cm timeout Ar seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2257
+msgid ""
+"Set the timeout of address cache entries to E<.Ar seconds> seconds.  If "
+"E<.Ar seconds> is zero, then address cache entries will not be expired.  The "
+"default is 1200 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2257
+#, no-wrap
+msgid "Cm addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2259
+msgid "Display the addresses that have been learned by the bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2259
+#, no-wrap
+msgid "Cm static Ar interface-name Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2264
+msgid ""
+"Add a static entry into the address cache pointing to E<.Ar "
+"interface-name>.  Static entries are never aged out of the cache or "
+"re-placed, even if the address is seen on a different interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2264
+#, no-wrap
+msgid "Cm deladdr Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2268
+msgid "Delete E<.Ar address> from the address cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2268
+#, no-wrap
+msgid "Cm flush"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2270
+msgid "Delete all dynamically-learned addresses from the address cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2270
+#, no-wrap
+msgid "Cm flushall"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2272
+msgid "Delete all addresses, including static addresses, from the address cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2272
+#, no-wrap
+msgid "Cm discover Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2283
+msgid ""
+"Mark an interface as a E<.Dq discovering> interface.  When the bridge has no "
+"address cache entry (either dynamic or static)  for the destination address "
+"of a packet, the bridge will forward the packet to all member interfaces "
+"marked as E<.Dq discovering>.  This is the default for all interfaces added "
+"to a bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2283
+#, no-wrap
+msgid "Cm -discover Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2292
+msgid ""
+"Clear the E<.Dq discovering> attribute on a member interface.  For packets "
+"without the E<.Dq discovering> attribute, the only packets forwarded on the "
+"interface are broadcast or multicast packets and packets for which the "
+"destination address is known to be on the interface's segment."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2292
+#, no-wrap
+msgid "Cm learn Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2300
+msgid ""
+"Mark an interface as a E<.Dq learning> interface.  When a packet arrives on "
+"such an interface, the source address of the packet is entered into the "
+"address cache as being a destination address on the interface's segment.  "
+"This is the default for all interfaces added to a bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2300
+#, no-wrap
+msgid "Cm -learn Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2304
+msgid "Clear the E<.Dq learning> attribute on a member interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2304
+#, no-wrap
+msgid "Cm sticky Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2312
+msgid ""
+"Mark an interface as a E<.Dq sticky> interface.  Dynamically learned address "
+"entries are treated at static once entered into the cache.  Sticky entries "
+"are never aged out of the cache or replaced, even if the address is seen on "
+"a different interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2312
+#, no-wrap
+msgid "Cm -sticky Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2316
+msgid "Clear the E<.Dq sticky> attribute on a member interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2316
+#, no-wrap
+msgid "Cm private Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2322
+msgid ""
+"Mark an interface as a E<.Dq private> interface.  A private interface does "
+"not forward any traffic to any other port that is also a private interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2322
+#, no-wrap
+msgid "Cm -private Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2326
+msgid "Clear the E<.Dq private> attribute on a member interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2326
+#, no-wrap
+msgid "Cm span Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2333
+msgid ""
+"Add the interface named by E<.Ar interface> as a span port on the bridge.  "
+"Span ports transmit a copy of every frame received by the bridge.  This is "
+"most useful for snooping a bridged network passively on another host "
+"connected to one of the span ports of the bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2333
+#, no-wrap
+msgid "Cm -span Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2337
+msgid ""
+"Delete the interface named by E<.Ar interface> from the list of span ports "
+"of the bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2337
+#, no-wrap
+msgid "Cm stp Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2344
+msgid ""
+"Enable Spanning Tree protocol on E<.Ar interface>.  The E<.Xr if_bridge 4> "
+"driver has support for the IEEE 802.1D Spanning Tree protocol (STP).  "
+"Spanning Tree is used to detect and remove loops in a network topology."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2344
+#, no-wrap
+msgid "Cm -stp Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2348
+msgid ""
+"Disable Spanning Tree protocol on E<.Ar interface>.  This is the default for "
+"all interfaces added to a bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2348
+#, no-wrap
+msgid "Cm edge Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2354
+msgid ""
+"Set E<.Ar interface> as an edge port.  An edge port connects directly to end "
+"stations cannot create bridging loops in the network, this allows it to "
+"transition straight to forwarding."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2354
+#, no-wrap
+msgid "Cm -edge Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2357
+msgid "Disable edge status on E<.Ar interface>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2357
+#, no-wrap
+msgid "Cm autoedge Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2362
+msgid ""
+"Allow E<.Ar interface> to automatically detect edge status.  This is the "
+"default for all interfaces added to a bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2362
+#, no-wrap
+msgid "Cm -autoedge Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2365
+msgid "Disable automatic edge status on E<.Ar interface>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2365
+#, no-wrap
+msgid "Cm ptp Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2371
+msgid ""
+"Set the E<.Ar interface> as a point to point link.  This is required for "
+"straight transitions to forwarding and should be enabled on a direct link to "
+"another RSTP capable switch."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2371
+#, no-wrap
+msgid "Cm -ptp Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2377
+msgid ""
+"Disable point to point link status on E<.Ar interface>.  This should be "
+"disabled for a half duplex link and for an interface connected to a shared "
+"network segment, like a hub or a wireless network."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2377
+#, no-wrap
+msgid "Cm autoptp Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2382
+msgid ""
+"Automatically detect the point to point status on E<.Ar interface> by "
+"checking the full duplex link status.  This is the default for interfaces "
+"added to the bridge."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2382
+#, no-wrap
+msgid "Cm -autoptp Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2385
+msgid "Disable automatic point to point link detection on E<.Ar interface>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2385
+#, no-wrap
+msgid "Cm maxage Ar seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2389
+msgid ""
+"Set the time that a Spanning Tree protocol configuration is valid.  The "
+"default is 20 seconds.  The minimum is 6 seconds and the maximum is 40 "
+"seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2389
+#, no-wrap
+msgid "Cm fwddelay Ar seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2394
+msgid ""
+"Set the time that must pass before an interface begins forwarding packets "
+"when Spanning Tree is enabled.  The default is 15 seconds.  The minimum is 4 "
+"seconds and the maximum is 30 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2394
+#, no-wrap
+msgid "Cm hellotime Ar seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2400
+msgid ""
+"Set the time between broadcasting of Spanning Tree protocol configuration "
+"messages.  The hello time may only be changed when operating in legacy stp "
+"mode.  The default is 2 seconds.  The minimum is 1 second and the maximum is "
+"2 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2400
+#, no-wrap
+msgid "Cm priority Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2404
+msgid ""
+"Set the bridge priority for Spanning Tree.  The default is 32768.  The "
+"minimum is 0 and the maximum is 61440."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2404
+#, no-wrap
+msgid "Cm proto Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2408
+msgid ""
+"Set the Spanning Tree protocol.  The default is rstp.  The available options "
+"are stp and rstp."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2408
+#, no-wrap
+msgid "Cm holdcnt Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2413
+msgid ""
+"Set the transmit hold count for Spanning Tree.  This is the number of "
+"packets transmitted before being rate limited.  The default is 6.  The "
+"minimum is 1 and the maximum is 10."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2413
+#, no-wrap
+msgid "Cm ifpriority Ar interface Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2420
+msgid ""
+"Set the Spanning Tree priority of E<.Ar interface> to E<.Ar value>.  The "
+"default is 128.  The minimum is 0 and the maximum is 240."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2420
+#, no-wrap
+msgid "Cm ifpathcost Ar interface Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2429
+msgid ""
+"Set the Spanning Tree path cost of E<.Ar interface> to E<.Ar value>.  The "
+"default is calculated from the link speed.  To change a previously selected "
+"path cost back to automatic, set the cost to 0.  The minimum is 1 and the "
+"maximum is 200000000."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2429
+#, no-wrap
+msgid "Cm ifmaxaddr Ar interface Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2434
+msgid ""
+"Set the maximum number of hosts allowed from an interface, packets with "
+"unknown source addresses are dropped until an existing host cache entry "
+"expires or is removed.  Set to 0 to disable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2437
+msgid "The following parameters are specific to lagg interfaces:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2438
+#, no-wrap
+msgid "Cm laggport Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2442
+msgid ""
+"Add the interface named by E<.Ar interface> as a port of the aggregation "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2442
+#, no-wrap
+msgid "Cm -laggport Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2446
+msgid ""
+"Remove the interface named by E<.Ar interface> from the aggregation "
+"interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2446
+#, no-wrap
+msgid "Cm laggproto Ar proto"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2458
+msgid ""
+"Set the aggregation protocol.  The default is E<.Li failover>.  The "
+"available options are E<.Li failover>, E<.Li lacp>, E<.Li loadbalance>, "
+"E<.Li roundrobin>, E<.Li broadcast> and E<.Li none>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2458
+#, no-wrap
+msgid "Cm lagghash Ar option Ns Oo , Ns Ar option Oc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2463
+msgid ""
+"Set the packet layers to hash for aggregation protocols which load balance.  "
+"The default is E<.Dq l2,l3,l4>.  The options can be combined using commas."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2465
+#, no-wrap
+msgid "Cm l2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2467
+msgid "src/dst mac address and optional vlan number."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2467
+#, no-wrap
+msgid "Cm l3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2469
+msgid "src/dst address for IPv4 or IPv6."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2469
+#, no-wrap
+msgid "Cm l4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2471
+msgid "src/dst port for TCP/UDP/SCTP."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2472
+#, no-wrap
+msgid "Cm -use_flowid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2494
+msgid ""
+"Enable local hash computation for RSS hash on the interface.  The E<.Li "
+"loadbalance> and E<.Li lacp> modes will use the RSS hash from the network "
+"card if available to avoid computing one, this may give poor traffic "
+"distribution if the hash is invalid or uses less of the protocol header "
+"information.  E<.Cm -use_flowid> disables use of RSS hash from the network "
+"card.  The default value can be set via the E<.Va "
+"net.link.lagg.default_use_flowid> E<.Xr sysctl 8> variable.  E<.Li 0> means "
+"E<.Dq disabled> and E<.Li 1> means E<.Dq enabled>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2494
+#, no-wrap
+msgid "Cm use_flowid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2496
+msgid "Use the RSS hash from the network card if available."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2496
+#, no-wrap
+msgid "Cm flowid_shift Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2500
+msgid ""
+"Set a shift parameter for RSS local hash computation.  Hash is calculated by "
+"using flowid bits in a packet header mbuf which are shifted by the number of "
+"this parameter."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2500
+#, no-wrap
+msgid "Cm use_numa"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2512
+msgid ""
+"Enable selection of egress ports based on the native E<.Xr NUMA 4> domain "
+"for the packets being transmitted.  This is currently only implemented for "
+"lacp mode.  This works only on E<.Xr NUMA 4> hardware, running a kernel "
+"compiled with the E<.Xr NUMA 4> option, and when interfaces from multiple "
+"E<.Xr NUMA 4> domains are ports of the aggregation interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2512
+#, no-wrap
+msgid "Cm -use_numa"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2516
+msgid ""
+"Disable selection of egress ports based on the native E<.Xr NUMA 4> domain "
+"for the packets being transmitted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2516
+#, no-wrap
+msgid "Cm lacp_fast_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2518
+msgid "Enable lacp fast-timeout on the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2518
+#, no-wrap
+msgid "Cm -lacp_fast_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2520
+msgid "Disable lacp fast-timeout on the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2520
+#, no-wrap
+msgid "Cm lacp_strict"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2533
+msgid ""
+"Enable lacp strict compliance on the interface.  The default value can be "
+"set via the E<.Va net.link.lagg.lacp.default_strict_mode> E<.Xr sysctl 8> "
+"variable.  E<.Li 0> means E<.Dq disabled> and E<.Li 1> means E<.Dq enabled>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2533
+#, no-wrap
+msgid "Cm -lacp_strict"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2535
+msgid "Disable lacp strict compliance on the interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2539
+msgid "The following parameters apply to IP tunnel interfaces, E<.Xr gif 4>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2540 /usr/src/sbin/ifconfig/ifconfig.8:2590
+#, no-wrap
+msgid "Cm tunnel Ar src_addr dest_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2549
+msgid ""
+"Configure the physical source and destination address for IP tunnel "
+"interfaces.  The arguments E<.Ar src_addr> and E<.Ar dest_addr> are "
+"interpreted as the outer source/destination for the encapsulating IPv4/IPv6 "
+"header."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2549 /usr/src/sbin/ifconfig/ifconfig.8:2599
+#, no-wrap
+msgid "Fl tunnel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2553
+msgid ""
+"Unconfigure the physical source and destination address for IP tunnel "
+"interfaces previously configured with E<.Cm tunnel>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2553 /usr/src/sbin/ifconfig/ifconfig.8:2603
+#, no-wrap
+msgid "Cm deletetunnel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2557 /usr/src/sbin/ifconfig/ifconfig.8:2607
+msgid "Another name for the E<.Fl tunnel> parameter."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2557
+#, no-wrap
+msgid "Cm accept_rev_ethip_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2564
+msgid ""
+"Set a flag to accept both correct EtherIP packets and ones with reversed "
+"version field.  Enabled by default.  This is for backward compatibility with "
+"E<.Fx 6.1>, 6.2, 6.3, 7.0, and 7.1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2564
+#, no-wrap
+msgid "Cm -accept_rev_ethip_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2567
+msgid "Clear a flag E<.Cm accept_rev_ethip_ver>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2567
+#, no-wrap
+msgid "Cm ignore_source"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2572
+msgid ""
+"Set a flag to accept encapsulated packets destined to this host "
+"independently from source address.  This may be useful for hosts, that "
+"receive encapsulated packets from the load balancers."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2572
+#, no-wrap
+msgid "Cm -ignore_source"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2575
+msgid "Clear a flag E<.Cm ignore_source>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2575
+#, no-wrap
+msgid "Cm send_rev_ethip_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2582
+msgid ""
+"Set a flag to send EtherIP packets with reversed version field "
+"intentionally.  Disabled by default.  This is for backward compatibility "
+"with E<.Fx 6.1>, 6.2, 6.3, 7.0, and 7.1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2582
+#, no-wrap
+msgid "Cm -send_rev_ethip_ver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2585
+msgid "Clear a flag E<.Cm send_rev_ethip_ver>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2589
+msgid "The following parameters apply to GRE tunnel interfaces, E<.Xr gre 4>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2599
+msgid ""
+"Configure the physical source and destination address for GRE tunnel "
+"interfaces.  The arguments E<.Ar src_addr> and E<.Ar dest_addr> are "
+"interpreted as the outer source/destination for the encapsulating IPv4/IPv6 "
+"header."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2603
+msgid ""
+"Unconfigure the physical source and destination address for GRE tunnel "
+"interfaces previously configured with E<.Cm tunnel>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2607
+#, no-wrap
+msgid "Cm grekey Ar key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2612
+msgid ""
+"Configure the GRE key to be used for outgoing packets.  Note that E<.Xr gre "
+"4 will always accept GRE packets with invalid or absent keys.> This command "
+"will result in a four byte MTU reduction on the interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2617
+msgid "The following parameters are specific to E<.Xr pfsync 4> interfaces:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2618
+#, no-wrap
+msgid "Cm syncdev Ar iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2621
+msgid ""
+"Use the specified interface to send and receive pfsync state synchronisation "
+"messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2621
+#, no-wrap
+msgid "Fl syncdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2623
+msgid "Stop sending pfsync state synchronisation messages over the network."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2623
+#, no-wrap
+msgid "Cm syncpeer Ar peer_address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2628
+msgid ""
+"Make the pfsync link point-to-point rather than using multicast to broadcast "
+"the state synchronisation messages.  The peer_address is the IP address of "
+"the other host taking part in the pfsync cluster."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2628
+#, no-wrap
+msgid "Fl syncpeer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2630
+msgid "Broadcast the packets using multicast."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2630
+#, no-wrap
+msgid "Cm maxupd Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2634
+msgid ""
+"Set the maximum number of updates for a single state which can be collapsed "
+"into one.  This is an 8-bit number; the default value is 128."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2634
+#, no-wrap
+msgid "Cm defer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2637
+msgid ""
+"Defer transmission of the first packet in a state until a peer has "
+"acknowledged that the associated state has been inserted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2637
+#, no-wrap
+msgid "Fl defer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2640
+msgid "Do not defer the first packet in a state.  This is the default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2645
+msgid "The following parameters are specific to E<.Xr vlan 4> interfaces:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2646
+#, no-wrap
+msgid "Cm vlan Ar vlan_tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2658
+msgid ""
+"Set the VLAN tag value to E<.Ar vlan_tag>.  This value is a 12-bit VLAN "
+"Identifier (VID) which is used to create an 802.1Q VLAN header for packets "
+"sent from the E<.Xr vlan 4> interface.  Note that E<.Cm vlan> and E<.Cm "
+"vlandev> must both be set at the same time."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2658
+#, no-wrap
+msgid "Cm vlanpcp Ar priority_code_point"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2663
+msgid ""
+"Priority code point E<.Pq Dv PCP> is an 3-bit field which refers to the IEEE "
+"802.1p class of service and maps to the frame priority level."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2681
+msgid ""
+"Values in order of priority are: E<.Cm 1> E<.Pq Dv Background (lowest)>, "
+"E<.Cm 0> E<.Pq Dv Best effort (default)>, E<.Cm 2> E<.Pq Dv Excellent "
+"effort>, E<.Cm 3> E<.Pq Dv Critical applications>, E<.Cm 4> E<.Pq Dv Video, "
+"E<lt> 100ms latency>, E<.Cm 5> E<.Pq Dv Video, E<lt> 10ms latency>, E<.Cm 6> "
+"E<.Pq Dv Internetwork control>, E<.Cm 7> E<.Pq Dv Network control "
+"(highest)>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2681
+#, no-wrap
+msgid "Cm vlandev Ar iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2714
+msgid ""
+"Associate the physical interface E<.Ar iface> with a E<.Xr vlan 4> "
+"interface.  Packets transmitted through the E<.Xr vlan 4> interface will be "
+"diverted to the specified physical interface E<.Ar iface> with 802.1Q VLAN "
+"encapsulation.  Packets with 802.1Q encapsulation received by the parent "
+"interface with the correct VLAN Identifier will be diverted to the "
+"associated E<.Xr vlan 4> pseudo-interface.  The E<.Xr vlan 4> interface is "
+"assigned a copy of the parent interface's flags and the parent's Ethernet "
+"address.  The E<.Cm vlandev> and E<.Cm vlan> must both be set at the same "
+"time.  If the E<.Xr vlan 4> interface already has a physical interface "
+"associated with it, this command will fail.  To change the association to "
+"another physical interface, the existing association must be cleared first."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2726
+msgid ""
+"Note: if the hardware tagging capability is set on the parent interface, the "
+"E<.Xr vlan 4> pseudo interface's behavior changes: the E<.Xr vlan 4> "
+"interface recognizes that the parent interface supports insertion and "
+"extraction of VLAN tags on its own (usually in firmware) and that it should "
+"pass packets to and from the parent unaltered."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2726
+#, no-wrap
+msgid "Fl vlandev Op Ar iface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2738
+msgid ""
+"If the driver is a E<.Xr vlan 4> pseudo device, disassociate the parent "
+"interface from it.  This breaks the link between the E<.Xr vlan 4> interface "
+"and its parent, clears its VLAN Identifier, flags and its link address and "
+"shuts the interface down.  The E<.Ar iface> argument is useless and hence "
+"deprecated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2743
+msgid "The following parameters are used to configure E<.Xr vxlan 4> interfaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2744
+#, no-wrap
+msgid "Cm vxlanid Ar identifier"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2747
+msgid ""
+"This value is a 24-bit VXLAN Network Identifier (VNI) that identifies the "
+"virtual network segment membership of the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2747
+#, no-wrap
+msgid "Cm vxlanlocal Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2752
+msgid ""
+"The source address used in the encapsulating IPv4/IPv6 header.  The address "
+"should already be assigned to an existing interface.  When the interface is "
+"configured in unicast mode, the listening socket is bound to this address."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2752
+#, no-wrap
+msgid "Cm vxlanremote Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2756
+msgid ""
+"The interface can be configured in a unicast, or point-to-point, mode to "
+"create a tunnel between two hosts.  This is the IP address of the remote end "
+"of the tunnel."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2756
+#, no-wrap
+msgid "Cm vxlangroup Ar address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2760
+msgid ""
+"The interface can be configured in a multicast mode to create a virtual "
+"network of hosts.  This is the IP multicast group address the interface will "
+"join."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2760
+#, no-wrap
+msgid "Cm vxlanlocalport Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2763
+msgid ""
+"The port number the interface will listen on.  The default port number is "
+"4789."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2763
+#, no-wrap
+msgid "Cm vxlanremoteport Ar port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2770
+msgid ""
+"The destination port number used in the encapsulating IPv4/IPv6 header.  The "
+"remote host should be listening on this port.  The default port number is "
+"4789.  Note some other implementations, such as Linux, do not default to the "
+"IANA assigned port, but instead listen on port 8472."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2770
+#, no-wrap
+msgid "Cm vxlanportrange Ar low high"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2781
+msgid ""
+"The range of source ports used in the encapsulating IPv4/IPv6 header.  The "
+"port selected within the range is based on a hash of the inner frame.  A "
+"range is useful to provide entropy within the outer IP header for more "
+"effective load balancing.  The default range is between the E<.Xr sysctl 8> "
+"variables E<.Va net.inet.ip.portrange.first> and E<.Va "
+"net.inet.ip.portrange.last>"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2781
+#, no-wrap
+msgid "Cm vxlantimeout Ar timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2785
+msgid ""
+"The maximum time, in seconds, before an entry in the forwarding table is "
+"pruned.  The default is 1200 seconds (20 minutes)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2785
+#, no-wrap
+msgid "Cm vxlanmaxaddr Ar max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2788
+msgid "The maximum number of entries in the forwarding table.  The default is 2000."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2788
+#, no-wrap
+msgid "Cm vxlandev Ar dev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2792
+msgid ""
+"When the interface is configured in multicast mode, the E<.Cm dev> interface "
+"is used to transmit IP multicast packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2792
+#, no-wrap
+msgid "Cm vxlanttl Ar ttl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2795
+msgid "The TTL used in the encapsulating IPv4/IPv6 header.  The default is 64."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2795
+#, no-wrap
+msgid "Cm vxlanlearn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2802
+msgid ""
+"The source IP address and inner source Ethernet MAC address of received "
+"packets are used to dynamically populate the forwarding table.  When in "
+"multicast mode, an entry in the forwarding table allows the interface to "
+"send the frame directly to the remote host instead of broadcasting the frame "
+"to the multicast group.  This is the default."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2802
+#, no-wrap
+msgid "Fl vxlanlearn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2804
+msgid "The forwarding table is not populated by received packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2804
+#, no-wrap
+msgid "Cm vxlanflush"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2806
+msgid "Delete all dynamically-learned addresses from the forwarding table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2806
+#, no-wrap
+msgid "Cm vxlanflushall"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2808
+msgid "Delete all addresses, including static addresses, from the forwarding table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2813
+msgid ""
+"The following parameters are used to configure E<.Xr carp 4> protocol on an "
+"interface:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2814
+#, no-wrap
+msgid "Cm vhid Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2836
+msgid ""
+"Set the virtual host ID.  This is a required setting to initiate E<.Xr carp "
+"4>.  If the virtual host ID does not exist yet, it is created and attached "
+"to the interface, otherwise configuration of an existing vhid is adjusted.  "
+"If the E<.Cm vhid> keyword is supplied along with an E<.Dq inet6> or E<.Dq "
+"inet> address, then this address is configured to be run under control of "
+"the specified vhid.  Whenever a last address that refers to a particular "
+"vhid is removed from an interface, the vhid is automatically removed from "
+"interface and destroyed.  Any other configuration parameters for the E<.Xr "
+"carp 4> protocol should be supplied along with the E<.Cm vhid> keyword.  "
+"Acceptable values for vhid are 1 to 255."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2836
+#, no-wrap
+msgid "Cm advbase Ar seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2840
+msgid ""
+"Specifies the base of the advertisement interval in seconds.  The acceptable "
+"values are 1 to 255.  The default value is 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2840
+#, no-wrap
+msgid "Cm advskew Ar interval"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2846
+msgid ""
+"Specifies the skew to add to the base advertisement interval to make one "
+"host advertise slower than another host.  It is specified in 1/256 of "
+"seconds.  The acceptable values are 1 to 254.  The default value is 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2846
+#, no-wrap
+msgid "Cm pass Ar phrase"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2849
+msgid "Set the authentication key to E<.Ar phrase>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/ifconfig/ifconfig.8:2849
+#, no-wrap
+msgid "Cm state Ar MASTER|BACKUP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2851
+msgid "Forcibly change state of a given vhid."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2860
+msgid ""
+"The E<.Nm> utility displays the current configuration for a network "
+"interface when no optional parameters are supplied.  If a protocol family is "
+"specified, E<.Nm> will report only the details specific to that protocol "
+"family."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2871
+msgid ""
+"If the E<.Fl m> flag is passed before an interface name, E<.Nm> will display "
+"the capability list and all of the supported media for the specified "
+"interface.  If E<.Fl L> flag is supplied, address lifetime is displayed for "
+"IPv6 addresses, as time offset string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2886
+msgid ""
+"Optionally, the E<.Fl a> flag may be used instead of an interface name.  "
+"This flag instructs E<.Nm> to display information about all interfaces in "
+"the system.  The E<.Fl d> flag limits this to interfaces that are down, and "
+"E<.Fl u> limits this to interfaces that are up.  When no arguments are "
+"given, E<.Fl a> is implied."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2903
+msgid ""
+"The E<.Fl l> flag may be used to list all available interfaces on the "
+"system, with no other additional information.  If an E<.Ar address_family> "
+"is specified, only interfaces of that type will be listed.  E<.Fl l Dq "
+"ether> will list only Ethernet adapters, excluding the loopback interface.  "
+"Use of this flag is mutually exclusive with all other flags and commands, "
+"except for E<.Fl d> (only list interfaces that are down)  and E<.Fl u> (only "
+"list interfaces that are up)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2907
+msgid "The E<.Fl v> flag may be used to get more verbose status for an interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2913
+msgid ""
+"The E<.Fl C> flag may be used to list all of the interface cloners available "
+"on the system, with no additional information.  Use of this flag is mutually "
+"exclusive with all other flags and commands."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2923
+msgid ""
+"The E<.Fl k> flag causes keying information for the interface, if available, "
+"to be printed.  For example, the values of 802.11 WEP keys and E<.Xr carp 4> "
+"passphrases will be printed, if accessible to the current user.  This "
+"information is not printed by default, as it may be considered sensitive."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2930
+msgid ""
+"If the network interface driver is not present in the kernel then E<.Nm> "
+"will attempt to load it.  The E<.Fl n> flag disables this behavior."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2932
+msgid "Only the super-user may modify the configuration of a network interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:2932
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2939
+msgid ""
+"Assign the IPv4 address E<.Li 192.0.2.10>, with a network mask of E<.Li "
+"255.255.255.0>, to the interface E<.Li fxp0>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2939
+#, no-wrap
+msgid "# ifconfig fxp0 inet 192.0.2.10 netmask 255.255.255.0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2951
+msgid ""
+"Add the IPv4 address E<.Li 192.0.2.45>, with the CIDR network prefix E<.Li "
+"/28>, to the interface E<.Li ed0>, using E<.Cm add> as a synonym for the "
+"canonical form of the option E<.Cm alias>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2951
+#, no-wrap
+msgid "# ifconfig ed0 inet 192.0.2.45/28 add"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2957
+msgid "Remove the IPv4 address E<.Li 192.0.2.45> from the interface E<.Li ed0>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2957
+#, no-wrap
+msgid "# ifconfig ed0 inet 192.0.2.45 -alias"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2960
+msgid "Enable IPv6 functionality of the interface:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2960
+#, no-wrap
+msgid "# ifconfig em0 inet6 -ifdisabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2966
+msgid ""
+"Add the IPv6 address E<.Li 2001:DB8:DBDB::123/48> to the interface E<.Li "
+"em0>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2966
+#, no-wrap
+msgid "# ifconfig em0 inet6 2001:db8:bdbd::123 prefixlen 48 alias"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2968
+msgid "Note that lower case hexadecimal IPv6 addresses are acceptable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2977
+msgid ""
+"Remove the IPv6 address added in the above example, using the E<.Li /> "
+"character as shorthand for the network prefix, and using E<.Cm delete> as a "
+"synonym for the canonical form of the option E<.Fl alias>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2977
+#, no-wrap
+msgid "# ifconfig em0 inet6 2001:db8:bdbd::123/48 delete"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2981
+msgid ""
+"Configure a single CARP redundant address on igb0, and then switch it to be "
+"master:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2981
+#, no-wrap
+msgid "# ifconfig igb0 vhid 1 10.0.0.1/24 pass foobar up"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2982
+#, no-wrap
+msgid "# ifconfig igb0 vhid 1 state master"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2987
+msgid ""
+"Configure the interface E<.Li xl0>, to use 100baseTX, full duplex Ethernet "
+"media options:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2987
+#, no-wrap
+msgid "# ifconfig xl0 media 100baseTX mediaopt full-duplex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2990
+msgid "Label the em0 interface as an uplink:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2990
+#, no-wrap
+msgid "# ifconfig em0 description \\(dqUplink to Gigabit Switch 2\\(dq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2994
+msgid "Create the software network interface E<.Li gif1>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2994
+#, no-wrap
+msgid "# ifconfig gif1 create"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:2998
+msgid "Destroy the software network interface E<.Li gif1>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:2998
+#, no-wrap
+msgid "# ifconfig gif1 destroy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3002
+msgid "Display available wireless networks using E<.Li wlan0>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:3002
+#, no-wrap
+msgid "# ifconfig wlan0 list scan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3005
+msgid "Display inet and inet6 address subnet masks in CIDR notation"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/ifconfig/ifconfig.8:3005
+#, no-wrap
+msgid "# ifconfig -f inet:cidr,inet6:cidr"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:3006
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3010
+msgid ""
+"Messages indicating the specified interface does not exist, the requested "
+"address is unknown, or the user is not privileged and tried to alter an "
+"interface's configuration."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:3010
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#.  .Xr eon 5 ,
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3026
+msgid ""
+"E<.Xr netstat 1>, E<.Xr carp 4>, E<.Xr gif 4>, E<.Xr netintro 4>, E<.Xr "
+"pfsync 4>, E<.Xr polling 4>, E<.Xr vlan 4>, E<.Xr vxlan 4>, E<.Xr devd.conf "
+"5>, E<.Xr devd 8>, E<.Xr jail 8>, E<.Xr rc 8>, E<.Xr routed 8>, E<.Xr sysctl "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:3026
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3031
+msgid "The E<.Nm> utility appeared in E<.Bx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/ifconfig/ifconfig.8:3031
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3041
+msgid ""
+"Basic IPv6 node operation requires a link-local address on each interface "
+"configured for IPv6.  Normally, such an address is automatically configured "
+"by the kernel on each interface added to the system or enabled; this "
+"behavior may be disabled by setting per-interface flag E<.Cm "
+"-auto_linklocal>.  The default value of this flag is 1 and can be disabled "
+"by using the sysctl MIB variable E<.Va net.inet6.ip6.auto_linklocal>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/ifconfig/ifconfig.8:3044
+msgid ""
+"Do not configure IPv6 addresses with no link-local address by using E<.Nm>.  "
+"It can result in unexpected behaviors of the kernel."
+msgstr ""

@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/g_provider.9:27
+#, no-wrap
+msgid "January 16, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/g_provider.9:28
+#, no-wrap
+msgid "G_PROVIDER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:34
+msgid "E<.Nm g_new_providerf>, E<.Nm g_destroy_provider>, E<.Nm g_error_provider>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/g_provider.9:34
+#, no-wrap
+msgid "GEOM providers management"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/g_provider.9:36
+#, no-wrap
+msgid "geom/geom.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:43
+msgid ""
+"E<.Ft \"struct g_provider *\"> E<.Fn g_new_providerf \"struct g_geom *gp\" "
+"\"const char *fmt\" ...> E<.Ft void> E<.Fn g_destroy_provider \"struct "
+"g_provider *pp\"> E<.Ft void> E<.Fn g_error_provider \"struct g_provider "
+"*pp\" \"int error\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:49
+msgid ""
+"A GEOM provider is the front gate at which a geom offers service.  A "
+"provider is E<.Dq a disk-like thing which appears in Pa /dev> \\[en] a "
+"logical disk in other words.  All providers have three main properties: "
+"name, sectorsize and size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:69
+msgid ""
+"The E<.Fn g_new_providerf> function creates a new provider on given geom "
+"E<.Fa gp>.  The name of the provider, which will appear as device in E<.Xr "
+"devfs 5>, is created in a E<.Xr printf 3 Ns> -like way from the rest of the "
+"arguments.  After creation, the caller has to set the provider's E<.Va "
+"mediasize> and E<.Va sectorsize>, as well as other desired initializations, "
+"and then call E<.Fn g_error_provider> to reset the provider's error, which "
+"is initially set to E<.Er ENXIO>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:74
+msgid ""
+"The E<.Fn g_destroy_provider> function destroys the given provider, cancels "
+"all related pending events and removes the corresponding devfs entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:82
+msgid ""
+"The E<.Fn g_error_provider> function is used to set the provider's error "
+"value.  If set to a nonzero, all I/O requests will be denied, as well as "
+"increasing its access count will not be possible (error E<.Fa error> will be "
+"returned)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:82
+#, no-wrap
+msgid "RESTRICTIONS/CONDITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:84
+msgid "E<.Fn g_new_provider>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:89
+msgid ""
+"The provider name should be unique, but this is not enforced by GEOM.  If "
+"the name is not unique, one will end up with two (or more) files with the "
+"same name, which is a programmer error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:95
+msgid "The geom E<.Fa gp> has to have a E<.Fa start> method defined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:97 /usr/src/share/man/man9/g_provider.9:107
+msgid "The topology lock has to be held."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:100
+msgid "E<.Fn g_destroy_provider>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:103
+msgid "The provider must not have consumers attached."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:105
+msgid "The access count has to be 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:108
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:112
+msgid ""
+"The E<.Fn g_new_providerf> function returns a pointer to the newly created "
+"provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:112
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:114
+msgid "Create an example provider, set its parameters and make it usable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:119
+#, no-wrap
+msgid ""
+"struct g_provider *\n"
+"create_example_provider(struct g_geom *gp)\n"
+"{\n"
+"\tstruct g_provider *pp;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:126
+#, no-wrap
+msgid ""
+"\tg_topology_lock();\n"
+"\tpp = g_new_providerf(gp, \"example_provider\");\n"
+"\tg_topology_unlock();\n"
+"\tpp-E<gt>mediasize = 65536;\n"
+"\tpp-E<gt>sectorsize = 512;\n"
+"\tg_error_provider(pp, 0);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:129
+#, no-wrap
+msgid ""
+"\treturn (pp);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:130
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:142
+msgid ""
+"E<.Xr geom 4>, E<.Xr DECLARE_GEOM_CLASS 9>, E<.Xr g_access 9>, E<.Xr "
+"g_attach 9>, E<.Xr g_bio 9>, E<.Xr g_consumer 9>, E<.Xr g_data 9>, E<.Xr "
+"g_event 9>, E<.Xr g_geom 9>, E<.Xr g_provider_by_name 9>, E<.Xr "
+"g_wither_geom 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_provider.9:142
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_provider.9:145
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Pawel Jakub Dawidek Aq "
+"Mt pjd@FreeBSD.org>."
+msgstr ""

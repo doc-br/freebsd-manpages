@@ -1,0 +1,339 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/mac.9:36
+#, no-wrap
+msgid "July 25, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/mac.9:37
+#, no-wrap
+msgid "MAC 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:39
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:41
+msgid "E<.Nm mac>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/mac.9:41
+#, no-wrap
+msgid "TrustedBSD Mandatory Access Control framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:42
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mac.9:43
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mac.9:44
+#, no-wrap
+msgid "sys/mac.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:49
+msgid ""
+"In the kernel configuration file: E<.Cd \"options MAC\"> E<.Cd \"options "
+"MAC_DEBUG\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:50
+#, no-wrap
+msgid "Introduction"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:65
+msgid ""
+"The E<.Tn TrustedBSD> mandatory access control framework permits dynamically "
+"introduced system security modules to modify system security functionality.  "
+"This can be used to support a variety of new security services, including "
+"traditional labeled mandatory access control models.  The framework provides "
+"a series of entry points which must be called by code supporting various "
+"kernel services, especially with respects to access control points and "
+"object creation.  The framework then calls out to security modules to offer "
+"them the opportunity to modify security behavior at those MAC API entry "
+"points.  Both consumers of the API (normal kernel services) and security "
+"modules must be aware of the semantics of the API calls, particularly with "
+"respect to synchronization primitives (such as locking)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:65
+#, no-wrap
+msgid "Kernel Objects Supported by the Framework"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:73
+msgid ""
+"The MAC framework manages labels on a variety of types of in-kernel objects, "
+"including process credentials, vnodes, devfs_dirents, mount points, sockets, "
+"mbufs, bpf descriptors, network interfaces, IP fragment queues, and pipes.  "
+"Label data on kernel objects, represented by E<.Vt \"struct label\">, is "
+"policy-unaware, and may be used in the manner seen fit by policy modules."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:73
+#, no-wrap
+msgid "API for Consumers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:81
+msgid ""
+"The MAC API provides a large set of entry points, too broad to specifically "
+"document here.  In general, these entry points represent an access control "
+"check or other MAC-relevant operations, accept one or more subjects "
+"(credentials)  authorizing the activity, a set of objects on which the "
+"operation is to be performed, and a set of operation arguments providing "
+"information about the type of operation being requested."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:81
+#, no-wrap
+msgid "Locking for Consumers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:95
+msgid ""
+"Consumers of the MAC API must be aware of the locking requirements for each "
+"API entry point: generally, appropriate locks must be held over each subject "
+"or object being passed into the call, so that MAC modules may make use of "
+"various aspects of the object for access control purposes.  For example, "
+"vnode locks are frequently required in order that the MAC framework and "
+"modules may retrieve security labels and attributes from the vnodes for the "
+"purposes of access control.  Similarly, the caller must be aware of the "
+"reference counting semantics of any subject or object passed into the MAC "
+"API: all calls require that a valid reference to the object be held for the "
+"duration of the (potentially lengthy) MAC API call.  Under some "
+"circumstances, objects must be held in either a shared or exclusive manner."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:95
+#, no-wrap
+msgid "API for Module Writers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:105
+msgid ""
+"Each module exports a structure describing the MAC API operations that the "
+"module chooses to implement, including initialization and destruction API "
+"entry points, a variety of object creation and destruction calls, and a "
+"large set of access control check points.  In the future, additional audit "
+"entry points will also be present.  Module authors may choose to only "
+"implement a subset of the entry points, setting API function pointers in the "
+"description structure to E<.Dv NULL>, permitting the framework to avoid "
+"calling into the module."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:105
+#, no-wrap
+msgid "Locking for Module Writers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:112
+msgid ""
+"Module writers must be aware of the locking semantics of entry points that "
+"they implement: MAC API entry points will have specific locking or reference "
+"counting semantics for each argument, and modules must follow the locking "
+"and reference counting protocol or risk a variety of failure modes "
+"(including race conditions, inappropriate pointer dereferences, etc)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:121
+msgid ""
+"MAC module writers must also be aware that MAC API entry points will "
+"frequently be invoked from deep in a kernel stack, and as such must be "
+"careful to avoid violating more global locking requirements, such as global "
+"lock order requirements.  For example, it may be inappropriate to lock "
+"additional objects not specifically maintained and ordered by the policy "
+"module, or the policy module might violate a global ordering requirement "
+"relating to those additional objects."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:128
+msgid ""
+"Finally, MAC API module implementors must be careful to avoid "
+"inappropriately calling back into the MAC framework: the framework makes use "
+"of locking to prevent inconsistencies during policy module attachment and "
+"detachment.  MAC API modules should avoid producing scenarios in which "
+"deadlocks or inconsistencies might occur."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mac.9:128
+#, no-wrap
+msgid "Adding New MAC Entry Points"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:145
+msgid ""
+"The MAC API is intended to be easily expandable as new services are added to "
+"the kernel.  In order that policies may be guaranteed the opportunity to "
+"ubiquitously protect system subjects and objects, it is important that "
+"kernel developers maintain awareness of when security checks or relevant "
+"subject or object operations occur in newly written or modified kernel "
+"code.  New entry points must be carefully documented so as to prevent any "
+"confusion regarding lock orders and semantics.  Introducing new entry points "
+"requires four distinct pieces of work: introducing new MAC API entries "
+"reflecting the operation arguments, scattering these MAC API entry points "
+"throughout the new or modified kernel service, extending the front-end "
+"implementation of the MAC API framework, and modifying appropriate modules "
+"to take advantage of the new entry points so that they may consistently "
+"enforce their policies."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:145
+#, no-wrap
+msgid "ENTRY POINTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:149
+msgid ""
+"System service and module authors should reference the E<.%T \"FreeBSD "
+"Architecture Handbook\"> for information on the MAC Framework APIs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:149
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:170
+msgid ""
+"E<.Xr acl 3>, E<.Xr mac 3>, E<.Xr posix1e 3>, E<.Xr mac_biba 4>, E<.Xr "
+"mac_bsdextended 4>, E<.Xr mac_ifoff 4>, E<.Xr mac_lomac 4>, E<.Xr mac_mls "
+"4>, E<.Xr mac_none 4>, E<.Xr mac_partition 4>, E<.Xr mac_seeotheruids 4>, "
+"E<.Xr mac_test 4>, E<.Xr ucred 9>, E<.Xr vaccess 9>, E<.Xr "
+"vaccess_acl_posix1e 9>, E<.Xr VFS 9> E<.Rs> E<.%T \"The FreeBSD Architecture "
+"Handbook\"> E<.%U "
+"\"https://www.FreeBSD.org/doc/en_US.ISO8859-1/books/arch-handbook/\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:170
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:175
+msgid "The E<.Tn TrustedBSD> MAC Framework first appeared in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:175
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:185
+msgid ""
+"This manual page was written by E<.An Robert Watson>.  This software was "
+"contributed to the E<.Fx> Project by Network Associates Laboratories, the "
+"Security Research Division of Network Associates Inc.\\& under DARPA/SPAWAR "
+"contract N66001-01-C-8035 E<.Pq Dq CBOSS>, as part of the DARPA CHATS "
+"research program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:208
+msgid ""
+"E<.An -nosplit> The E<.Tn TrustedBSD> MAC Framework was designed by E<.An "
+"Robert Watson>, and implemented by the Network Associates Laboratories "
+"Network Security (NETSEC), Secure Execution Environment (SEE), and Adaptive "
+"Network Defense research groups.  Network Associates Laboratory staff "
+"contributing to the CBOSS Project include (in alphabetical order): E<.An Lee "
+"Badger>, E<.An Brian Feldman>, E<.An Hrishikesh Dandekar>, E<.An Tim "
+"Fraser>, E<.An Doug Kilpatrick>, E<.An Suresh Krishnaswamy>, E<.An Adam "
+"Migus>, E<.An Wayne Morrison>, E<.An Andrew Reisse>, E<.An Chris Vance>, and "
+"E<.An Robert Watson>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:215
+msgid ""
+"Sub-contracted staff include: E<.An Chris Costello>, E<.An Poul-Henning "
+"Kamp>, E<.An Jonathan Lemon>, E<.An Kirk McKusick>, E<.An Dag-Erling "
+"Sm\\(/orgrav>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:226
+msgid ""
+"Additional contributors include: E<.An Pawel Dawidek>, E<.An Chris "
+"Faulhaber>, E<.An Ilmar Habibulin>, E<.An Mike Halderman>, E<.An Bosko "
+"Milekic>, E<.An Thomas Moestl>, E<.An Andrew Reiter>, and E<.An Tim "
+"Robbins>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mac.9:226
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mac.9:231
+msgid ""
+"While the MAC Framework design is intended to support the containment of the "
+"root user, not all attack channels are currently protected by entry point "
+"checks.  As such, MAC Framework policies should not be relied on, in "
+"isolation, to protect against a malicious privileged user."
+msgstr ""

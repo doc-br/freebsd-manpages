@@ -1,0 +1,563 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/hv_vss.4:26
+#, no-wrap
+msgid "October 12, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/hv_vss.4:27
+#, no-wrap
+msgid "HV_VSS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:31
+msgid "E<.Nm hv_vss>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/hv_vss.4:31
+#, no-wrap
+msgid "Hyper-V Volume Shadow Copy Service API"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/hv_vss.4:33
+#, no-wrap
+msgid "dev/hyperv/hv_snapshot.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:37
+#, no-wrap
+msgid ""
+"#define VSS_SUCCESS\t\t0x00000000\n"
+"#define VSS_FAIL\t\t0x00000001\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:45
+#, no-wrap
+msgid ""
+"enum hv_vss_op_t {\n"
+"\tHV_VSS_NONE = 0,\n"
+"\tHV_VSS_CHECK,\n"
+"\tHV_VSS_FREEZE,\n"
+"\tHV_VSS_THAW,\n"
+"\tHV_VSS_COUNT\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:52
+#, no-wrap
+msgid ""
+"struct hv_vss_opt_msg {\n"
+"\tuint32_t\topt;\t\t/* operation */\n"
+"\tuint32_t\tstatus;\t\t/* 0 for success, 1 for error */\n"
+"\tuint64_t\tmsgid;\t\t/* an ID used to identify the transaction */\n"
+"\tuint8_t\t\treserved[48];\t/* reserved values are all zeroes */\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:53
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:66
+msgid ""
+"The freeze or thaw functionality of application is important to guarantee "
+"the application consistent backup. On windows platform, VSS is defined to do "
+"live backup. But for VM guest running on Hyper-V, the corresponding VSS is "
+"not defined yet. For example, a running database server instance, it knows "
+"when the applications' freeze/thaw should start or finish. But it is not "
+"aware of the freeze/thaw notification from Hyper-V host. The E<.Nm> is "
+"designed to notify application freeze/thaw request.  Thus, it plays a role "
+"of broker to forward the freeze/thaw command from Hyper-V host to userland "
+"application if it registered VSS service on E<.Fx> VM, and sends the result "
+"back to Hyper-V host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:91
+msgid ""
+"Generally, E<.Xr hv_vss_daemon 8> takes the responsibility to freeze/thaw "
+"UFS file system, and it is automatically launched after system boots. When "
+"Hyper-V host wants to take a snapshot of the E<.Fx> VM, it will first send "
+"VSS capability check to E<.Fx> VM. The E<.Nm> received the request and "
+"forward the request to userland application if it is registered. Only after "
+"E<.Nm> received the VSS_SUCCESS response from application, the E<.Xr "
+"hv_vss_daemon 8> will be informed to check whether file system freeze/thaw "
+"is supported. Any error occurs during this period, E<.Nm> will inform "
+"Hyper-V host that VSS is not supported. In addition, there is a default "
+"timeout limit before sending response to Hyper-V host.  If the total "
+"response time from application and E<.Xr hv_vss_daemon 8> exceeds this "
+"value, timeout will occurs and VSS unsupported is responsed to Hyper-V host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:110
+msgid ""
+"After Hyper-V host confirmed the E<.Fx> VM supports VSS, it will send freeze "
+"request to VM, and E<.Nm> will first forward it to application. After "
+"application finished freezing, it should inform E<.Nm> and file system level "
+"freezing will be triggered by E<.Xr hv_vss_daemon 8 . After all freezing> on "
+"both application and E<.Xr hv_vss_daemon 8> were finished, the E<.Nm> will "
+"inform Hyper-V host that freezing is done. Of course, there is a timeout "
+"limit as same as VSS capability is set to make sure freezing on E<.Fx> VM is "
+"not hang. If there is any error occurs or timeout happened, the freezing is "
+"failed on Hyper-V side."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:118
+msgid ""
+"Hyper-V host will send thaw request after taking the snapshot, typically, "
+"this period is very short in order not to block the running application.  "
+"E<.Nm> firstly thaw the file system by notifying E<.Xr hv_vss_daemon 8>, "
+"then notifies user registered application. There is also a timeout check "
+"before sending response to Hyper-V host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:121
+msgid ""
+"All the default timeout limit used in VSS capability check, freeze or thaw "
+"is the same.  It is 15 seconds currently."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:121
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:129
+msgid ""
+"E<.Nm> only support UFS currently. If any of file system partition is non "
+"UFS, the VSS capability check will fail. If application does not register "
+"VSS, E<.Nm> only support backup for file system level consistent. The device "
+"should be closed before it was opened again. If you want to simultaneously "
+"open \"/dev/hv_appvss_dev\" two or more times, an error (-1) will be "
+"returned, and errno was set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:133
+msgid ""
+"If E<.Xr hv_vss_daemon 8> was killed after system boots, the VSS "
+"functionality will not work."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:133
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:137
+msgid ""
+"The following is a complete example which does nothing except for waiting 2 "
+"seconds when receiving those notifications from E<.Nm>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:157
+#, no-wrap
+msgid ""
+"#include E<lt>string.hE<gt>\n"
+"#include E<lt>stdio.hE<gt>\n"
+"#include E<lt>sys/ioctl.hE<gt>\n"
+"#include E<lt>sys/param.hE<gt>\n"
+"#include E<lt>sys/ucred.hE<gt>\n"
+"#include E<lt>sys/mount.hE<gt>\n"
+"#include E<lt>sys/types.hE<gt>\n"
+"#include E<lt>unistd.hE<gt>\n"
+"#include E<lt>stdlib.hE<gt>\n"
+"#include E<lt>poll.hE<gt>\n"
+"#include E<lt>stdint.hE<gt>\n"
+"#include E<lt>syslog.hE<gt>\n"
+"#include E<lt>errno.hE<gt>\n"
+"#include E<lt>err.hE<gt>\n"
+"#include E<lt>fcntl.hE<gt>\n"
+"#include E<lt>ufs/ffs/fs.hE<gt>\n"
+"#include E<lt>paths.hE<gt>\n"
+"#include E<lt>sys/ioccom.hE<gt>\n"
+"#include E<lt>dev/hyperv/hv_snapshot.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:162
+#, no-wrap
+msgid ""
+"#define UNDEF_FREEZE_THAW\t(0)\n"
+"#define FREEZE\t\t\t(1)\n"
+"#define THAW\t\t\t(2)\n"
+"#define CHECK\t\t\t(3)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:178
+#, no-wrap
+msgid ""
+"#define\tVSS_LOG(priority, format, args...) do\t{\t\t\t\t\\e\n"
+"\t\tif (is_debugging == 1) {\t\t\t\t\t\\e\n"
+"\t\t\tif (is_daemon == 1)\t\t\t\t\t\\e\n"
+"\t\t\t\tsyslog(priority, format, ## args);\t\t\\e\n"
+"\t\t\telse\t\t\t\t\t\t\t\\e\n"
+"\t\t\t\tprintf(format, ## args);\t\t\t\\e\n"
+"\t\t} else {\t\t\t\t\t\t\t\\e\n"
+"\t\t\tif (priority E<lt> LOG_DEBUG) {\t\t\t\t\\e\n"
+"\t\t\t\tif (is_daemon == 1)\t\t\t\t\\e\n"
+"\t\t\t\t\tsyslog(priority, format, ## args);\t\\e\n"
+"\t\t\t\telse\t\t\t\t\t\t\\e\n"
+"\t\t\t\t\tprintf(format, ## args);\t\t\\e\n"
+"\t\t\t}\t\t\t\t\t\t\t\\e\n"
+"\t\t}\t\t\t\t\t\t\t\t\\e\n"
+"\t} while(0)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:185
+#, no-wrap
+msgid ""
+"#define CHECK_TIMEOUT\t\t1\n"
+"#define CHECK_FAIL\t\t2\n"
+"#define FREEZE_TIMEOUT\t\t1\n"
+"#define FREEZE_FAIL\t\t2\n"
+"#define THAW_TIMEOUT\t\t1\n"
+"#define THAW_FAIL\t\t2\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:189
+#, no-wrap
+msgid ""
+"static int is_daemon        = 1;\n"
+"static int is_debugging     = 0;\n"
+"static int simu_opt_waiting = 2; // seconds\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:208
+#, no-wrap
+msgid ""
+"#define GENERIC_OPT(TIMEOUT, FAIL)\t\t\t\t\t\t\\e\n"
+"\tdo {\t\t\t\t\t\t\t\t\t\\e\n"
+"\t\tsleep(simu_opt_waiting);\t\t\t\t\t\\e\n"
+"\t\tif (opt == CHECK_TIMEOUT) {\t\t\t\t\t\\e\n"
+"\t\t\tsleep(simu_opt_waiting * 10);\t\t\t\t\\e\n"
+"\t\t\tVSS_LOG(LOG_INFO, \"%s timeout simulation\\en\",\t\t\\e\n"
+"\t\t\t    __func__);\t\t\t\t\t\t\\e\n"
+"\t\t\treturn (0);\t\t\t\t\t\t\\e\n"
+"\t\t} else if (opt == CHECK_FAIL) {\t\t\t\t\t\\e\n"
+"\t\t\tVSS_LOG(LOG_INFO, \"%s failure simulation\\en\",\t\t\\e\n"
+"\t\t\t    __func__);\t\t\t\t\t\t\\e\n"
+"\t\t\treturn (CHECK_FAIL);\t\t\t\t\t\\e\n"
+"\t\t} else {\t\t\t\t\t\t\t\\e\n"
+"\t\t\tVSS_LOG(LOG_INFO, \"%s success simulation\\en\",\t\t\\e\n"
+"\t\t\t    __func__);\t\t\t\t\t\t\\e\n"
+"\t\t\treturn (0);\t\t\t\t\t\t\\e\n"
+"\t\t}\t\t\t\t\t\t\t\t\\e\n"
+"\t} while (0)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:214
+#, no-wrap
+msgid ""
+"static int\n"
+"check(int opt)\n"
+"{\n"
+"\tGENERIC_OPT(CHECK_TIMEOUT, CHECK_FAIL);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:220
+#, no-wrap
+msgid ""
+"static int\n"
+"freeze(int opt)\n"
+"{\n"
+"\tGENERIC_OPT(FREEZE_TIMEOUT, FREEZE_FAIL);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:226
+#, no-wrap
+msgid ""
+"static int\n"
+"thaw(int opt)\n"
+"{\n"
+"\tGENERIC_OPT(THAW_TIMEOUT, THAW_FAIL);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:237
+#, no-wrap
+msgid ""
+"static void usage(const char* cmd) {\n"
+"\tfprintf(stderr,\n"
+"\t    \"%s -f E<lt>0|1|2E<gt>: simulate app freeze.\"\n"
+"\t    \" 0: successful, 1: freeze timeout, 2: freeze failed\\en\"\n"
+"\t    \" -c E<lt>0|1|2E<gt>: simulate vss feature check\"\n"
+"\t    \" -t E<lt>0|1|2E<gt>: simulate app thaw.\"\n"
+"\t    \" 0: successful, 1: freeze timeout, 2: freeze failed\\en\"\n"
+"\t    \" -d : enable debug mode\\en\"\n"
+"\t    \" -n : run this tool under non-daemon mode\\en\", cmd);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:244
+#, no-wrap
+msgid ""
+"int\n"
+"main(int argc, char* argv[]) {\n"
+"\tint ch, freezesimuop = 0, thawsimuop = 0, checksimuop = 0, fd, r, error;\n"
+"\tuint32_t op;\n"
+"\tstruct pollfd app_vss_fd[1];\n"
+"\tstruct hv_vss_opt_msg  userdata;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:269
+#, no-wrap
+msgid ""
+"\twhile ((ch = getopt(argc, argv, \"f:c:t:dnh\")) != -1) {\n"
+"\t\tswitch (ch) {\n"
+"\t\tcase 'f':\n"
+"\t\t\t/* Run as regular process for debugging purpose. */\n"
+"\t\t\tfreezesimuop = (int)strtol(optarg, NULL, 10);\n"
+"\t\t\tbreak;\n"
+"\t\tcase 't':\n"
+"\t\t\tthawsimuop = (int)strtol(optarg, NULL, 10);\n"
+"\t\t\tbreak;\n"
+"\t\tcase 'c':\n"
+"\t\t\tchecksimuop = (int)strtol(optarg, NULL, 10);\n"
+"\t\t\tbreak;\n"
+"\t\tcase 'd':\n"
+"\t\t\tis_debugging = 1;\n"
+"\t\t\tbreak;\n"
+"\t\tcase 'n':\n"
+"\t\t\tis_daemon = 0;\n"
+"\t\t\tbreak;\n"
+"\t\tcase 'h':\n"
+"\t\tdefault:\n"
+"\t\t\tusage(argv[0]);\n"
+"\t\t\texit(0);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:276
+#, no-wrap
+msgid ""
+"\topenlog(\"APPVSS\", 0, LOG_USER);\n"
+"\t/* Become daemon first. */\n"
+"\tif (is_daemon == 1)\n"
+"\t\tdaemon(1, 0);\n"
+"\telse\n"
+"\t\tVSS_LOG(LOG_DEBUG, \"Run as regular process.\\en\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:278
+#, no-wrap
+msgid "\tVSS_LOG(LOG_INFO, \"HV_VSS starting; pid is: %d\\en\", getpid());\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:287
+#, no-wrap
+msgid ""
+"\tfd = open(VSS_DEV(APP_VSS_DEV_NAME), O_RDWR);\n"
+"\tif (fd E<lt> 0) {\n"
+"\t\tVSS_LOG(LOG_ERR, \"Fail to open %s, error: %d %s\\en\",\n"
+"\t\t    VSS_DEV(APP_VSS_DEV_NAME), errno, strerror(errno));\n"
+"\t\texit(EXIT_FAILURE);\n"
+"\t}\n"
+"\tapp_vss_fd[0].fd     = fd;\n"
+"\tapp_vss_fd[0].events = POLLIN | POLLRDNORM;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:290
+#, no-wrap
+msgid ""
+"\twhile (1) {\n"
+"\t\tr = poll(app_vss_fd, 1, INFTIM);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:293
+#, no-wrap
+msgid ""
+"\t\tVSS_LOG(LOG_DEBUG, \"poll returned r = %d, revent = 0x%x\\en\",\n"
+"\t\t    r, app_vss_fd[0].revents);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:299
+#, no-wrap
+msgid ""
+"\t\tif (r == 0 || (r E<lt> 0 && errno == EAGAIN) ||\n"
+"\t\t    (r E<lt> 0 && errno == EINTR)) {\n"
+"\t\t\t/* Nothing to read */\n"
+"\t\t\tcontinue;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:309
+#, no-wrap
+msgid ""
+"\t\tif (r E<lt> 0) {\n"
+"\t\t\t/*\n"
+"\t\t\t * For poll return failure other than EAGAIN,\n"
+"\t\t\t * we want to exit.\n"
+"\t\t\t */\n"
+"\t\t\tVSS_LOG(LOG_ERR, \"Poll failed.\\en\");\n"
+"\t\t\tperror(\"poll\");\n"
+"\t\t\texit(EIO);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:317
+#, no-wrap
+msgid ""
+"\t\t/* Read from character device */\n"
+"\t\terror = ioctl(fd, IOCHVVSSREAD, &userdata);\n"
+"\t\tif (error E<lt> 0) {\n"
+"\t\t\tVSS_LOG(LOG_ERR, \"Read failed.\\en\");\n"
+"\t\t\tperror(\"pread\");\n"
+"\t\t\texit(EIO);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:322
+#, no-wrap
+msgid ""
+"\t\tif (userdata.status != 0) {\n"
+"\t\t\tVSS_LOG(LOG_ERR, \"data read error\\en\");\n"
+"\t\t\tcontinue;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:324
+#, no-wrap
+msgid "\t\top = userdata.opt;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:355
+#, no-wrap
+msgid ""
+"\t\tswitch (op) {\n"
+"\t\tcase HV_VSS_CHECK:\n"
+"\t\t\terror = check(checksimuop);\n"
+"\t\t\tbreak;\n"
+"\t\tcase HV_VSS_FREEZE:\n"
+"\t\t\terror = freeze(freezesimuop);\n"
+"\t\t\tbreak;\n"
+"\t\tcase HV_VSS_THAW:\n"
+"\t\t\terror = thaw(thawsimuop);\n"
+"\t\t\tbreak;\n"
+"\t\tdefault:\n"
+"\t\t\tVSS_LOG(LOG_ERR, \"Illegal operation: %d\\en\", op);\n"
+"\t\t\terror = VSS_FAIL;\n"
+"\t\t}\n"
+"\t\tif (error)\n"
+"\t\t\tuserdata.status = VSS_FAIL;\n"
+"\t\telse\n"
+"\t\t\tuserdata.status = VSS_SUCCESS;\n"
+"\t\terror = ioctl(fd, IOCHVVSSWRITE, &userdata);\n"
+"\t\tif (error != 0) {\n"
+"\t\t\tVSS_LOG(LOG_ERR, \"Fail to write to device\\en\");\n"
+"\t\t\texit(EXIT_FAILURE);\n"
+"\t\t} else {\n"
+"\t\t\tVSS_LOG(LOG_INFO, \"Send response %d for %s to kernel\\en\",\n"
+"\t\t\t    userdata.status, op == HV_VSS_FREEZE ? \"Freeze\" :\n"
+"\t\t\t    (op == HV_VSS_THAW ? \"Thaw\" : \"Check\"));\n"
+"\t\t}\n"
+"\t}\n"
+"\treturn 0;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:356
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:359
+msgid "E<.Xr hv_utils 4>, E<.Xr hv_vss_daemon 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:359
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:361
+msgid "The daemon was introduced in October 2016 and developed by Microsoft Corp."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/hv_vss.4:361
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/hv_vss.4:367
+msgid ""
+"E<.An -nosplit> E<.Fx> support for E<.Nm> was first added by E<.An Microsoft "
+"BSD Integration Services Team Aq Mt bsdic@microsoft.com>."
+msgstr ""

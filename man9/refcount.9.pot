@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/refcount.9:29
+#, no-wrap
+msgid "January 20, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/refcount.9:30
+#, no-wrap
+msgid "REFCOUNT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/refcount.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:37
+msgid ""
+"E<.Nm refcount>, E<.Nm refcount_init>, E<.Nm refcount_acquire>, E<.Nm "
+"refcount_release>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/refcount.9:37
+#, no-wrap
+msgid "manage a simple reference counter"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/refcount.9:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/refcount.9:39
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/refcount.9:40
+#, no-wrap
+msgid "sys/refcount.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:47
+msgid ""
+"E<.Ft void> E<.Fn refcount_init \"volatile u_int *count\" \"u_int value\"> "
+"E<.Ft void> E<.Fn refcount_acquire \"volatile u_int *count\"> E<.Ft int> "
+"E<.Fn refcount_release \"volatile u_int *count\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/refcount.9:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:56
+msgid ""
+"The E<.Nm> functions provide an API to manage a simple reference counter.  "
+"The caller provides the storage for the counter in an unsigned integer.  A "
+"pointer to this integer is passed via E<.Fa count>.  Usually the counter is "
+"used to manage the lifetime of an object and is stored as a member of the "
+"object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:62
+msgid ""
+"The E<.Fn refcount_init> function is used to set the initial value of the "
+"counter to E<.Fa value>.  It is normally used when creating a "
+"reference-counted object."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:72
+msgid ""
+"The E<.Fn refcount_acquire> function is used to acquire a new reference.  "
+"The caller is responsible for ensuring that it holds a valid reference while "
+"obtaining a new reference.  For example, if an object is stored on a list "
+"and the list holds a reference on the object, then holding a lock that "
+"protects the list provides sufficient protection for acquiring a new "
+"reference."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:79
+msgid ""
+"The E<.Fn refcount_release> function is used to release an existing "
+"reference.  The function returns a non-zero value if the reference being "
+"released was the last reference; otherwise, it returns zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:89
+msgid ""
+"Note that these routines do not provide any inter-CPU synchronization, data "
+"protection, or memory ordering guarantees except for managing the counter.  "
+"The caller is responsible for any additional synchronization needed by "
+"consumers of any containing objects.  In addition, the caller is also "
+"responsible for managing the life cycle of any containing objects including "
+"explicitly releasing any resources when the last reference is released."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/refcount.9:89
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:94
+msgid ""
+"The E<.Nm refcount_release> function returns non-zero when releasing the "
+"last reference and zero when releasing any other reference."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/refcount.9:94
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/refcount.9:96
+msgid "These functions were introduced in E<.Fx 6.0>."
+msgstr ""

@@ -1,0 +1,660 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/locking.9:27
+#, no-wrap
+msgid "July 5, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/locking.9:28
+#, no-wrap
+msgid "LOCKING 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/locking.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:32
+msgid "E<.Nm locking>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/locking.9:32
+#, no-wrap
+msgid "kernel synchronization primitives"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/locking.9:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:39
+msgid ""
+"The E<.Em FreeBSD> kernel is written to run across multiple CPUs and as such "
+"provides several different synchronization primitives to allow developers to "
+"safely access and manipulate many data types."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:39
+#, no-wrap
+msgid "Mutexes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:50
+msgid ""
+"Mutexes (also called \"blocking mutexes\") are the most commonly used "
+"synchronization primitive in the kernel.  A thread acquires (locks) a mutex "
+"before accessing data shared with other threads (including interrupt "
+"threads), and releases (unlocks) it afterwards.  If the mutex cannot be "
+"acquired, the thread requesting it will wait.  Mutexes are adaptive by "
+"default, meaning that if the owner of a contended mutex is currently running "
+"on another CPU, then a thread attempting to acquire the mutex will spin "
+"rather than yielding the processor.  Mutexes fully support priority "
+"propagation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:54
+msgid "See E<.Xr mutex 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:54
+#, no-wrap
+msgid "Spin Mutexes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:68
+msgid ""
+"Spin mutexes are a variation of basic mutexes; the main difference between "
+"the two is that spin mutexes never block.  Instead, they spin while waiting "
+"for the lock to be released.  To avoid deadlock, a thread that holds a spin "
+"mutex must never yield its CPU.  Unlike ordinary mutexes, spin mutexes "
+"disable interrupts when acquired.  Since disabling interrupts can be "
+"expensive, they are generally slower to acquire and release.  Spin mutexes "
+"should be used only when absolutely necessary, e.g. to protect data shared "
+"with interrupt filter code (see E<.Xr bus_setup_intr 9> for details), or for "
+"scheduler internals."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:68
+#, no-wrap
+msgid "Mutex Pools"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:75
+msgid ""
+"With most synchronization primitives, such as mutexes, the programmer must "
+"provide memory to hold the primitive.  For example, a mutex may be embedded "
+"inside the structure it protects.  Mutex pools provide a preallocated set of "
+"mutexes to avoid this requirement.  Note that mutexes from a pool may only "
+"be used as leaf locks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:79
+msgid "See E<.Xr mtx_pool 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:79
+#, no-wrap
+msgid "Reader/Writer Locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:88
+msgid ""
+"Reader/writer locks allow shared access to protected data by multiple "
+"threads or exclusive access by a single thread.  The threads with shared "
+"access are known as E<.Em readers> since they should only read the protected "
+"data.  A thread with exclusive access is known as a E<.Em writer> since it "
+"may modify protected data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:96
+msgid ""
+"Reader/writer locks can be treated as mutexes (see above and E<.Xr mutex 9>)  "
+"with shared/exclusive semantics.  Reader/writer locks support priority "
+"propagation like mutexes, but priority is propagated only to an exclusive "
+"holder.  This limitation comes from the fact that shared owners are "
+"anonymous."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:100
+msgid "See E<.Xr rwlock 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:100
+#, no-wrap
+msgid "Read-Mostly Locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:109
+msgid ""
+"Read-mostly locks are similar to E<.Em reader/writer> locks but optimized "
+"for very infrequent write locking.  E<.Em Read-mostly> locks implement full "
+"priority propagation by tracking shared owners using a caller-supplied E<.Em "
+"tracker> data structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:113
+msgid "See E<.Xr rmlock 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:113
+#, no-wrap
+msgid "Sleepable Read-Mostly Locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:118
+msgid ""
+"Sleepable read-mostly locks are a variation on read-mostly locks.  Threads "
+"holding an exclusive lock may sleep, but threads holding a shared lock may "
+"not.  Priority is propagated to shared owners but not to exclusive owners."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:118
+#, no-wrap
+msgid "Shared/exclusive locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:123
+msgid ""
+"Shared/exclusive locks are similar to reader/writer locks; the main "
+"difference between them is that shared/exclusive locks may be held during "
+"unbounded sleep.  Acquiring a contested shared/exclusive lock can perform an "
+"unbounded sleep.  These locks do not support priority propagation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:127
+msgid "See E<.Xr sx 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:127
+#, no-wrap
+msgid "Lockmanager locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:144
+msgid ""
+"Lockmanager locks are sleepable shared/exclusive locks used mostly in E<.Xr "
+"VFS 9> E<.Po> as a E<.Xr vnode 9> lock E<.Pc> and in the buffer cache E<.Po> "
+"E<.Xr BUF_LOCK 9> E<.Pc>.  They have features other lock types do not have "
+"such as sleep timeouts, blocking upgrades, writer starvation avoidance, "
+"draining, and an interlock mutex, but this makes them complicated both to "
+"use and to implement; for this reason, they should be avoided."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:148
+msgid "See E<.Xr lock 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:148
+#, no-wrap
+msgid "Counting semaphores"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:155
+msgid ""
+"Counting semaphores provide a mechanism for synchronizing access to a pool "
+"of resources.  Unlike mutexes, semaphores do not have the concept of an "
+"owner, so they can be useful in situations where one thread needs to acquire "
+"a resource, and another thread needs to release it.  They are largely "
+"deprecated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:159
+msgid "See E<.Xr sema 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:159
+#, no-wrap
+msgid "Condition variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:170
+msgid ""
+"Condition variables are used in conjunction with locks to wait for a "
+"condition to become true.  A thread must hold the associated lock before "
+"calling one of the E<.Fn cv_wait>, functions.  When a thread waits on a "
+"condition, the lock is atomically released before the thread yields the "
+"processor and reacquired before the function call returns.  Condition "
+"variables may be used with blocking mutexes, reader/writer locks, "
+"read-mostly locks, and shared/exclusive locks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:174
+msgid "See E<.Xr condvar 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:174
+#, no-wrap
+msgid "Sleep/Wakeup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:200
+msgid ""
+"The functions E<.Fn tsleep>, E<.Fn msleep>, E<.Fn msleep_spin>, E<.Fn "
+"pause>, E<.Fn wakeup>, and E<.Fn wakeup_one> also handle event-based thread "
+"blocking.  Unlike condition variables, arbitrary addresses may be used as "
+"wait channels and a dedicated structure does not need to be allocated.  "
+"However, care must be taken to ensure that wait channel addresses are unique "
+"to an event.  If a thread must wait for an external event, it is put to "
+"sleep by E<.Fn tsleep>, E<.Fn msleep>, E<.Fn msleep_spin>, or E<.Fn pause>.  "
+"Threads may also wait using one of the locking primitive sleep routines "
+"E<.Xr mtx_sleep 9>, E<.Xr rw_sleep 9>, or E<.Xr sx_sleep 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:212
+msgid ""
+"The parameter E<.Fa chan> is an arbitrary address that uniquely identifies "
+"the event on which the thread is being put to sleep.  All threads sleeping "
+"on a single E<.Fa chan> are woken up later by E<.Fn wakeup> E<.Pq often "
+"called from inside an interrupt routine> to indicate that the event the "
+"thread was blocking on has occurred."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:237
+msgid ""
+"Several of the sleep functions including E<.Fn msleep>, E<.Fn msleep_spin>, "
+"and the locking primitive sleep routines specify an additional lock "
+"parameter.  The lock will be released before sleeping and reacquired before "
+"the sleep routine returns.  If E<.Fa priority> includes the E<.Dv PDROP> "
+"flag, then the lock will not be reacquired before returning.  The lock is "
+"used to ensure that a condition can be checked atomically, and that the "
+"current thread can be suspended without missing a change to the condition or "
+"an associated wakeup.  In addition, all of the sleep routines will fully "
+"drop the E<.Va Giant> mutex E<.Pq even if recursed> while the thread is "
+"suspended and will reacquire the E<.Va Giant> mutex E<.Pq restoring any "
+"recursion> before the function returns."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:245
+msgid ""
+"The E<.Fn pause> function is a special sleep function that waits for a "
+"specified amount of time to pass before the thread resumes execution.  This "
+"sleep cannot be terminated early by either an explicit E<.Fn wakeup> or a "
+"signal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:249
+msgid "See E<.Xr sleep 9> for details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:249
+#, no-wrap
+msgid "Giant"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:256
+msgid ""
+"Giant is a special mutex used to protect data structures that do not yet "
+"have their own locks.  Since it provides semantics akin to the old E<.Xr spl "
+"9> interface, Giant has special characteristics:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:259
+msgid "It is recursive."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:264
+msgid ""
+"Drivers can request that Giant be locked around them by not marking "
+"themselves MPSAFE.  Note that infrastructure to do this is slowly going away "
+"as non-MPSAFE drivers either became properly locked or disappear."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:266
+msgid "Giant must be locked before other non-sleepable locks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:268
+msgid "Giant is dropped during unbounded sleeps and reacquired after wakeup."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:275
+msgid ""
+"There are places in the kernel that drop Giant and pick it back up again.  "
+"Sleep locks will do this before sleeping.  Parts of the network or VM code "
+"may do this as well.  This means that you cannot count on Giant keeping "
+"other code from running if your code sleeps, even if you want it to."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/locking.9:276
+#, no-wrap
+msgid "INTERACTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:281
+msgid ""
+"The primitives can interact and have a number of rules regarding how they "
+"can and can not be combined.  Many of these rules are checked by E<.Xr "
+"witness 4>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:281
+#, no-wrap
+msgid "Bounded vs. Unbounded Sleep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:304
+msgid ""
+"In a bounded sleep E<.Po also referred to as> E<.Dq blocking> E<.Pc> the "
+"only resource needed to resume execution of a thread is CPU time for the "
+"owner of a lock that the thread is waiting to acquire.  In an unbounded "
+"sleep E<.Po> often referred to as simply E<.Dq sleeping> E<.Pc> a thread "
+"waits for an external event or for a condition to become true.  In "
+"particular, a dependency chain of threads in bounded sleeps should always "
+"make forward progress, since there is always CPU time available.  This "
+"requires that no thread in a bounded sleep is waiting for a lock held by a "
+"thread in an unbounded sleep.  To avoid priority inversions, a thread in a "
+"bounded sleep lends its priority to the owner of the lock that it is waiting "
+"for."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:307
+msgid ""
+"The following primitives perform bounded sleeps: mutexes, reader/writer "
+"locks and read-mostly locks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:311
+msgid ""
+"The following primitives perform unbounded sleeps: sleepable read-mostly "
+"locks, shared/exclusive locks, lockmanager locks, counting semaphores, "
+"condition variables, and sleep/wakeup."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:311
+#, no-wrap
+msgid "General Principles"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:316
+msgid ""
+"It is an error to do any operation that could result in yielding the "
+"processor while holding a spin mutex."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:322
+msgid ""
+"It is an error to do any operation that could result in unbounded sleep "
+"while holding any primitive from the 'bounded sleep' group.  For example, it "
+"is an error to try to acquire a shared/exclusive lock while holding a mutex, "
+"or to try to allocate memory with M_WAITOK while holding a reader/writer "
+"lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:329
+msgid ""
+"Note that the lock passed to one of the E<.Fn sleep> or E<.Fn cv_wait> "
+"functions is dropped before the thread enters the unbounded sleep and does "
+"not violate this rule."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:332
+msgid ""
+"It is an error to do any operation that could result in yielding of the "
+"processor when running inside an interrupt filter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:335
+msgid ""
+"It is an error to do any operation that could result in unbounded sleep when "
+"running inside an interrupt thread."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:336
+#, no-wrap
+msgid "Interaction table"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:350
+msgid ""
+"The following table shows what you can and can not do while holding one of "
+"the locking primitives discussed.  Note that E<.Dq sleep> includes E<.Fn "
+"sema_wait>, E<.Fn sema_timedwait>, any of the E<.Fn cv_wait> functions, and "
+"any of the E<.Fn sleep> functions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:351
+#, no-wrap
+msgid ""
+"Em \"       You want:\" Ta spin mtx Ta mutex/rw Ta rmlock Ta sleep rm Ta "
+"sx/lk Ta sleep"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:352
+#, no-wrap
+msgid ""
+"Em \"You have:     \" Ta -------- Ta -------- Ta ------ Ta -------- Ta "
+"------ Ta ------"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:353
+#, no-wrap
+msgid "spin mtx Ta \\&ok Ta \\&no Ta \\&no Ta \\&no Ta \\&no Ta \\&no-1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:354
+#, no-wrap
+msgid "mutex/rw Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&no Ta \\&no Ta \\&no-1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:355
+#, no-wrap
+msgid "rmlock Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&no Ta \\&no Ta \\&no-1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:356
+#, no-wrap
+msgid "sleep rm Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok-2 Ta \\&ok-2 Ta \\&ok-2/3"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:357
+#, no-wrap
+msgid "sx Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok-3"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:358
+#, no-wrap
+msgid "lockmgr Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:370
+msgid ""
+"E<.Em *1> There are calls that atomically release this primitive when going "
+"to sleep and reacquire it on wakeup E<.Po> E<.Fn mtx_sleep>, E<.Fn "
+"rw_sleep>, E<.Fn msleep_spin>, etc.  E<.Pc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:374
+msgid ""
+"E<.Em *2> These cases are only allowed while holding a write lock on a "
+"sleepable read-mostly lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:381
+msgid ""
+"E<.Em *3> Though one can sleep while holding this lock, one can also use a "
+"E<.Fn sleep> function to atomically release this primitive when going to "
+"sleep and reacquire it on wakeup."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:383
+msgid "Note that non-blocking try operations on locks are always permitted."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/locking.9:383
+#, no-wrap
+msgid "Context mode table"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:386
+msgid ""
+"The next table shows what can be used in different contexts.  At this time "
+"this is a rather easy to remember table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:387
+#, no-wrap
+msgid "Em Context: Ta spin mtx Ta mutex/rw Ta rmlock Ta sleep rm Ta sx/lk Ta sleep"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:388
+#, no-wrap
+msgid "interrupt filter: Ta \\&ok Ta \\&no Ta \\&no Ta \\&no Ta \\&no Ta \\&no"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:389
+#, no-wrap
+msgid "interrupt thread: Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&no Ta \\&no Ta \\&no"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:390
+#, no-wrap
+msgid "callout: Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&no Ta \\&no Ta \\&no"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:391
+#, no-wrap
+msgid "direct callout: Ta \\&ok Ta \\&no Ta \\&no Ta \\&no Ta \\&no Ta \\&no"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/locking.9:392
+#, no-wrap
+msgid "system call: Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok Ta \\&ok"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/locking.9:394
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:408
+msgid ""
+"E<.Xr witness 4>, E<.Xr BUS_SETUP_INTR 9>, E<.Xr condvar 9>, E<.Xr lock 9>, "
+"E<.Xr LOCK_PROFILING 9>, E<.Xr mtx_pool 9>, E<.Xr mutex 9>, E<.Xr rmlock 9>, "
+"E<.Xr rwlock 9>, E<.Xr sema 9>, E<.Xr sleep 9>, E<.Xr sx 9>, E<.Xr timeout "
+"9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/locking.9:408
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:414
+msgid "These functions appeared in E<.Bsx 4.1> through E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/locking.9:414
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/locking.9:415
+msgid "There are too many locking primitives to choose from."
+msgstr ""

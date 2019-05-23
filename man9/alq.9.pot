@@ -1,0 +1,373 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/alq.9:34
+#, no-wrap
+msgid "April 26, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/alq.9:35
+#, no-wrap
+msgid "ALQ 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:49
+msgid ""
+"E<.Nm alq>, E<.Nm alq_open_flags>, E<.Nm alq_open>, E<.Nm alq_writen>, E<.Nm "
+"alq_write>, E<.Nm alq_flush>, E<.Nm alq_close>, E<.Nm alq_getn>, E<.Nm "
+"alq_get>, E<.Nm alq_post_flags>, E<.Nm alq_post>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/alq.9:49
+#, no-wrap
+msgid "Asynchronous Logging Queues"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:50
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/alq.9:51
+#, no-wrap
+msgid "sys/alq.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:86
+msgid ""
+"E<.Ft int> E<.Fo alq_open_flags> E<.Fa \"struct alq **app\"> E<.Fa \"const "
+"char *file\"> E<.Fa \"struct ucred *cred\"> E<.Fa \"int cmode\"> E<.Fa \"int "
+"size\"> E<.Fa \"int flags\"> E<.Fc> E<.Ft int> E<.Fo alq_open> E<.Fa "
+"\"struct alq **app\"> E<.Fa \"const char *file\"> E<.Fa \"struct ucred "
+"*cred\"> E<.Fa \"int cmode\"> E<.Fa \"int size\"> E<.Fa \"int count\"> "
+"E<.Fc> E<.Ft int> E<.Fn alq_writen \"struct alq *alq\" \"void *data\" \"int "
+"len\" \"int flags\"> E<.Ft int> E<.Fn alq_write \"struct alq *alq\" \"void "
+"*data\" \"int flags\"> E<.Ft void> E<.Fn alq_flush \"struct alq *alq\"> "
+"E<.Ft void> E<.Fn alq_close \"struct alq *alq\"> E<.Ft struct ale *> E<.Fn "
+"alq_getn \"struct alq *alq\" \"int len\" \"int flags\"> E<.Ft struct ale *> "
+"E<.Fn alq_get \"struct alq *alq\" \"int flags\"> E<.Ft void> E<.Fn "
+"alq_post_flags \"struct alq *alq\" \"struct ale *ale\" \"int flags\"> E<.Ft "
+"void> E<.Fn alq_post \"struct alq *alq\" \"struct ale *ale\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:86
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:101
+msgid ""
+"The E<.Nm> facility provides an asynchronous fixed or variable length "
+"recording mechanism, known as Asynchronous Logging Queues.  It can record to "
+"any E<.Xr vnode 9>, thus providing the ability to journal logs to character "
+"devices as well as regular files.  All functions accept a E<.Vt \"struct "
+"alq\"> argument, which is an opaque type that maintains state information "
+"for an Asynchronous Logging Queue.  The logging facility runs in a separate "
+"kernel thread, which services all log entry requests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:107
+msgid ""
+"An E<.Dq asynchronous log entry> is defined as E<.Vt \"struct ale\">, which "
+"has the following members:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:113
+#, no-wrap
+msgid ""
+"struct ale {\n"
+"\tintptr_t\tae_bytesused;\t/* # bytes written to ALE. */\n"
+"\tchar\t\t*ae_data;\t/* Write ptr. */\n"
+"\tint\t\tae_pad;\t\t/* Unused, compat. */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:132
+msgid ""
+"An E<.Nm> can be created in either fixed or variable length mode.  A "
+"variable length E<.Nm> accommodates writes of varying length using E<.Fn "
+"alq_writen> and E<.Fn alq_getn>.  A fixed length E<.Nm> accommodates a fixed "
+"number of writes using E<.Fn alq_write> and E<.Fn alq_get>, each of fixed "
+"size (set at queue creation time).  Fixed length mode is deprecated in "
+"favour of variable length mode."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:132
+#, no-wrap
+msgid "FUNCTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:162
+msgid ""
+"The E<.Fn alq_open_flags> function creates a new variable length "
+"asynchronous logging queue.  The E<.Fa file> argument is the name of the "
+"file to open for logging.  If the file does not yet exist, E<.Fn alq_open> "
+"will attempt to create it.  The E<.Fa cmode> argument will be passed to "
+"E<.Fn vn_open> as the requested creation mode, to be used if the file will "
+"be created by E<.Fn alq_open>.  Consumers of this API may wish to pass E<.Dv "
+"ALQ_DEFAULT_CMODE>, a default creation mode suitable for most applications.  "
+"The E<.Fa cred> argument specifies the credentials to use when opening and "
+"performing I/O on the file.  The E<.Fa size> argument sets the size (in "
+"bytes) of the underlying queue.  The ALQ_ORDERED flag may be passed in via "
+"E<.Fa flags> to indicate that the ordering of writer threads waiting for a "
+"busy E<.Nm> to free up resources should be preserved."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:196
+msgid ""
+"The deprecated E<.Fn alq_open> function is implemented as a wrapper around "
+"E<.Fn alq_open_flags> to provide backwards compatibility to consumers that "
+"have not been updated to utilise the newer E<.Fn alq_open_flags> function.  "
+"It passes all arguments through to E<.Fn alq_open_flags> untouched except "
+"for E<.Fa size> and E<.Fa count>, and sets E<.Fa flags> to 0.  To create a "
+"variable length mode E<.Nm>, the E<.Fa size> argument should be set to the "
+"size (in bytes) of the underlying queue and the E<.Fa count> argument should "
+"be set to 0.  To create a fixed length mode E<.Nm>, the E<.Fa size> argument "
+"should be set to the size (in bytes) of each write and the E<.Fa count> "
+"argument should be set to the number of E<.Fa size> byte chunks to reserve "
+"capacity for."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:226
+msgid ""
+"The E<.Fn alq_writen> function writes E<.Fa len> bytes from E<.Fa data> to "
+"the designated variable length mode queue E<.Fa alq>.  If E<.Fn alq_writen> "
+"could not write the entry immediately and E<.Dv ALQ_WAITOK> is set in E<.Fa "
+"flags>, the function will be allowed to E<.Xr msleep_spin 9> with the E<.Dq "
+"Li alqwnord> or E<.Dq Li alqwnres> wait message.  A write will automatically "
+"schedule the queue E<.Fa alq> to be flushed to disk.  This behaviour can be "
+"controlled by passing ALQ_NOACTIVATE via E<.Fa flags> to indicate that the "
+"write should not schedule E<.Fa alq> to be flushed to disk."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:244
+msgid ""
+"The deprecated E<.Fn alq_write> function is implemented as a wrapper around "
+"E<.Fn alq_writen> to provide backwards compatibility to consumers that have "
+"not been updated to utilise variable length mode queues.  The function will "
+"write E<.Fa size> bytes of data (where E<.Fa size> was specified at queue "
+"creation time) from the E<.Fa data> buffer to the E<.Fa alq>.  Note that it "
+"is an error to call E<.Fn alq_write> on a variable length mode queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:256
+msgid ""
+"The E<.Fn alq_flush> function is used for flushing E<.Fa alq> to the log "
+"medium that was passed to E<.Fn alq_open>.  If E<.Fa alq> has data to flush "
+"and is not already in the process of being flushed, the function will block "
+"doing IO.  Otherwise, the function will return immediately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:263
+msgid ""
+"The E<.Fn alq_close> function will close the asynchronous logging queue "
+"E<.Fa alq> and flush all pending write requests to the log medium.  It will "
+"free all resources that were previously allocated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:299
+msgid ""
+"The E<.Fn alq_getn> function returns an asynchronous log entry from E<.Fa "
+"alq>, initialised to point at a buffer capable of receiving E<.Fa len> bytes "
+"of data.  This function leaves E<.Fa alq> in a locked state, until a "
+"subsequent E<.Fn alq_post> or E<.Fn alq_post_flags> call is made.  If E<.Fn "
+"alq_getn> could not obtain E<.Fa len> bytes of buffer immediately and E<.Dv "
+"ALQ_WAITOK> is set in E<.Fa flags>, the function will be allowed to E<.Xr "
+"msleep_spin 9> with the E<.Dq Li alqgnord> or E<.Dq Li alqgnres> wait "
+"message.  The caller can choose to write less than E<.Fa len> bytes of data "
+"to the returned asynchronous log entry by setting the entry's ae_bytesused "
+"field to the number of bytes actually written.  This must be done prior to "
+"calling E<.Fn alq_post>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:315
+msgid ""
+"The deprecated E<.Fn alq_get> function is implemented as a wrapper around "
+"E<.Fn alq_getn> to provide backwards compatibility to consumers that have "
+"not been updated to utilise variable length mode queues.  The asynchronous "
+"log entry returned will be initialised to point at a buffer capable of "
+"receiving E<.Fa size> bytes of data (where E<.Fa size> was specified at "
+"queue creation time).  Note that it is an error to call E<.Fn alq_get> on a "
+"variable length mode queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:333
+msgid ""
+"The E<.Fn alq_post_flags> function schedules the asynchronous log entry "
+"E<.Fa ale> (obtained from E<.Fn alq_getn> or E<.Fn alq_get>)  for writing to "
+"E<.Fa alq>.  The ALQ_NOACTIVATE flag may be passed in via E<.Fa flags> to "
+"indicate that the queue should not be immediately scheduled to be flushed to "
+"disk.  This function leaves E<.Fa alq> in an unlocked state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:347
+msgid ""
+"The E<.Fn alq_post> function is implemented as a wrapper around E<.Fn "
+"alq_post_flags> to provide backwards compatibility to consumers that have "
+"not been updated to utilise the newer E<.Fn alq_post_flags> function.  It "
+"simply passes all arguments through to E<.Fn alq_post_flags> untouched, and "
+"sets E<.Fa flags> to 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:347
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:374
+msgid ""
+"The E<.Fn alq_writen> and E<.Fn alq_write> functions both perform a E<.Xr "
+"bcopy 3> from the supplied E<.Fa data> buffer into the underlying E<.Nm> "
+"buffer.  Performance critical code paths may wish to consider using E<.Fn "
+"alq_getn> (variable length queues) or E<.Fn alq_get> (fixed length queues) "
+"to avoid the extra memory copy.  Note that a queue remains locked between "
+"calls to E<.Fn alq_getn> or E<.Fn alq_get> and E<.Fn alq_post> or E<.Fn "
+"alq_post_flags>, so this method of writing to a queue is unsuitable for "
+"situations where the time between calls may be substantial."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:374
+#, no-wrap
+msgid "LOCKING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:376
+msgid "Each asynchronous logging queue is protected by a spin mutex."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:384
+msgid ""
+"Functions E<.Fn alq_flush> and E<.Fn alq_open> may attempt to acquire an "
+"internal sleep mutex, and should consequently not be used in contexts where "
+"sleeping is not allowed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:384
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:392
+msgid ""
+"The E<.Fn alq_open> function returns one of the error codes listed in E<.Xr "
+"open 2>, if it fails to open E<.Fa file>, or else it returns 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:404
+msgid ""
+"The E<.Fn alq_writen> and E<.Fn alq_write> functions return E<.Er "
+"EWOULDBLOCK> if E<.Dv ALQ_NOWAIT> was set in E<.Fa flags> and either the "
+"queue is full or the system is shutting down."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:416
+msgid ""
+"The E<.Fn alq_getn> and E<.Fn alq_get> functions return E<.Dv NULL> if E<.Dv "
+"ALQ_NOWAIT> was set in E<.Fa flags> and either the queue is full or the "
+"system is shutting down."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:419
+msgid ""
+"NOTE: invalid arguments to non-void functions will result in undefined "
+"behaviour."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:419
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:425
+msgid ""
+"E<.Xr syslog 3>, E<.Xr kproc 9>, E<.Xr ktr 9>, E<.Xr msleep_spin 9>, E<.Xr "
+"vnode 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:425
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:429
+msgid "The Asynchronous Logging Queues (ALQ) facility first appeared in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/alq.9:429
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:437
+msgid ""
+"E<.An -nosplit> The E<.Nm> facility was written by E<.An Jeffrey Roberson Aq "
+"Mt jeff@FreeBSD.org> and extended by E<.An Lawrence Stewart Aq Mt "
+"lstewart@freebsd.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/alq.9:441
+msgid ""
+"This manual page was written by E<.An Hiten Pandya Aq Mt hmp@FreeBSD.org> "
+"and revised by E<.An Lawrence Stewart Aq Mt lstewart@freebsd.org>."
+msgstr ""

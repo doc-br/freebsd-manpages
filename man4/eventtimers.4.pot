@@ -1,0 +1,311 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/eventtimers.4:27
+#, no-wrap
+msgid "March 13, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/eventtimers.4:28
+#, no-wrap
+msgid "EVENTTIMERS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/eventtimers.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:32
+msgid "E<.Nm eventtimers>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/eventtimers.4:32
+#, no-wrap
+msgid "kernel event timers subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/eventtimers.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:43
+msgid ""
+"Kernel uses several types of time-related devices, such as: real time "
+"clocks, time counters and event timers.  Real time clocks responsible for "
+"tracking real world time, mostly when system is down.  Time counters are "
+"responsible for generation of monotonically increasing timestamps for "
+"precise uptime tracking purposes, when system is running.  Event timers are "
+"responsible for generating interrupts at specified time or periodically, to "
+"run different time-based events.  This page is about the last."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/eventtimers.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:49
+msgid ""
+"Kernel uses time-based events for many different purposes: scheduling, "
+"statistics, time keeping, profiling and many other things, based on E<.Xr "
+"callout 9> mechanism.  These purposes now grouped into three main callbacks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:50
+#, no-wrap
+msgid "Fn hardclock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:57
+msgid ""
+"E<.Xr callout 9> and timekeeping events entry.  Called with frequency "
+"defined by E<.Va hz> variable, usually 1000Hz."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:57
+#, no-wrap
+msgid "Fn statclock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:60
+msgid "statistics and scheduler events entry.  Called with frequency about 128Hz."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:60
+#, no-wrap
+msgid "Fn profclock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:63
+msgid "profiler events entry.  When enabled, called with frequency about 8KHz."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:69
+msgid ""
+"Different platforms provide different kinds of timer hardware.  The goal of "
+"the event timers subsystem is to provide unified way to control that "
+"hardware, and to use it, supplying kernel with all required time-based "
+"events."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:74
+msgid ""
+"Each driver implementing event timers, registers them at the subsystem.  It "
+"is possible to see the list of present event timers, like this, via E<.Va "
+"kern.eventtimer> sysctl:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:88
+#, no-wrap
+msgid ""
+"kern.eventtimer.choice: HPET(550) LAPIC(400) i8254(100) RTC(0)\n"
+"kern.eventtimer.et.LAPIC.flags: 15\n"
+"kern.eventtimer.et.LAPIC.frequency: 0\n"
+"kern.eventtimer.et.LAPIC.quality: 400\n"
+"kern.eventtimer.et.i8254.flags: 1\n"
+"kern.eventtimer.et.i8254.frequency: 1193182\n"
+"kern.eventtimer.et.i8254.quality: 100\n"
+"kern.eventtimer.et.RTC.flags: 17\n"
+"kern.eventtimer.et.RTC.frequency: 32768\n"
+"kern.eventtimer.et.RTC.quality: 0\n"
+"kern.eventtimer.et.HPET.flags: 7\n"
+"kern.eventtimer.et.HPET.frequency: 14318180\n"
+"kern.eventtimer.et.HPET.quality: 550\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:91
+msgid "where:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:92
+#, no-wrap
+msgid "Va kern.eventtimer.et. Ns Ar X Ns Va .flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:95
+msgid "is a bitmask, defining event timer capabilities:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:96
+#, no-wrap
+msgid "1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:98
+msgid "periodic mode supported,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:98
+#, no-wrap
+msgid "2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:100
+msgid "one-shot mode supported,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:100
+#, no-wrap
+msgid "4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:102
+msgid "timer is per-CPU,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:102
+#, no-wrap
+msgid "8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:104
+msgid "timer may stop when CPU goes to sleep state,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:104
+#, no-wrap
+msgid "16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:106
+msgid "timer supports only power-of-2 divisors."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:107
+#, no-wrap
+msgid "Va kern.eventtimer.et. Ns Ar X Ns Va .frequency"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:110
+msgid "is a timer base frequency,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:110
+#, no-wrap
+msgid "Va kern.eventtimer.et. Ns Ar X Ns Va .quality"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:113
+msgid "is an integral value, defining how good is this timer, comparing to others."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:120
+msgid ""
+"Timers management code of the kernel chooses one timer from that list.  "
+"Current choice can be read and affected via E<.Va kern.eventtimer.timer> "
+"tunable/sysctl.  Several other tunables/sysctls are affecting how exactly "
+"this timer is used:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:121
+#, no-wrap
+msgid "Va kern.eventtimer.periodic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:130
+msgid ""
+"allows to choose periodic and one-shot operation mode.  In periodic mode, "
+"periodic interrupts from timer hardware are taken as the only source of time "
+"for time events.  One-shot mode instead uses currently selected time counter "
+"to precisely schedule all needed events and programs event timer to generate "
+"interrupt exactly in specified time.  Default value depends of chosen timer "
+"capabilities, but one-shot mode is preferred, until other is forced by user "
+"or hardware."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:130
+#, no-wrap
+msgid "Va kern.eventtimer.singlemul"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:139
+msgid ""
+"in periodic mode specifies how much times higher timer frequency should be, "
+"to not strictly alias E<.Fn hardclock> and E<.Fn statclock> events.  Default "
+"values are 1, 2 or 4, depending on configured HZ value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/eventtimers.4:139
+#, no-wrap
+msgid "Va kern.eventtimer.idletick"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:146
+msgid ""
+"makes each CPU to receive every timer interrupt independently of whether "
+"they busy or not.  By default this options is disabled.  If chosen timer is "
+"per-CPU and runs in periodic mode, this option has no effect - all "
+"interrupts are always generating."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/eventtimers.4:147
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/eventtimers.4:153
+msgid ""
+"E<.Xr apic 4>, E<.Xr atrtc 4>, E<.Xr attimer 4>, E<.Xr hpet 4>, E<.Xr "
+"timecounters 4>, E<.Xr eventtimers 9>"
+msgstr ""

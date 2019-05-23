@@ -1,0 +1,482 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_proc.4:27
+#, no-wrap
+msgid "April 17, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_proc.4:28
+#, no-wrap
+msgid "DTRACE_PROC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:32
+msgid "E<.Nm dtrace_proc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_proc.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing events related to user processes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:42
+msgid ""
+"E<.Fn proc:::create \"struct proc *\" \"struct proc *\" \"int\"> E<.Fn "
+"proc:::exec \"char *\"> E<.Fn proc:::exec-failure \"int\"> E<.Fn "
+"proc:::exec-success \"char *\"> E<.Fn proc:::exit \"int\"> E<.Fn "
+"proc:::signal-clear \"int\" \"ksiginfo_t *\"> E<.Fn proc:::signal-discard "
+"\"struct thread *\" \"struct proc *\" \"int\"> E<.Fn proc:::signal-send "
+"\"struct thread *\" \"struct proc *\" \"int\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:47
+msgid ""
+"The DTrace E<.Nm proc> provider provides insight into events related to user "
+"processes: process and thread creation and termination events, and process "
+"signalling."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:68
+msgid ""
+"The E<.Fn proc:::create> probe fires when a user process is created via the "
+"E<.Xr fork 2>, E<.Xr vfork 2>, E<.Xr pdfork 2>, or E<.Xr rfork 2> system "
+"calls.  In particular, kernel processes created with the E<.Xr kproc 9> KPI "
+"will not trigger this probe.  The E<.Fn proc:::create> probe's first two "
+"arguments are the new child process and its parent, respectively.  The third "
+"argument is a mask of E<.Xr rfork 2> flags indicating which process "
+"resources are to be shared between the parent and child processes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:81
+msgid ""
+"The E<.Fn proc:::exec> probe fires when a process attempts to execute a "
+"file.  Its argument is the specified filename for the file.  If the attempt "
+"fails because of an error, the E<.Fn proc:::exec-failure> probe will "
+"subsequently fire, providing the corresponding E<.Xr errno 2> value in its "
+"first argument.  Otherwise, the E<.Fn proc:::exec-success> probe will fire."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:95
+msgid ""
+"The E<.Fn proc:::exit> probe fires when a process exits or is terminated.  "
+"Its argument is the corresponding E<.Dv SIGCHLD> signal code; valid values "
+"are documented in the E<.Xr siginfo 3> manual page and defined in E<.Pa "
+"signal.h>.  For example, when a process exits normally, the value of E<.Dv "
+"args[0]> will be E<.Dv CLD_EXITED>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:124
+msgid ""
+"The E<.Fn proc:::signal-send> probe fires when a signal is about to be sent "
+"to a process.  The E<.Fn proc:::signal-discard> probe fires when a signal is "
+"sent to a process that ignores it.  This probe will fire after the E<.Fn "
+"proc:::signal-send> probe for the signal in question.  The arguments to "
+"these probes are the thread and process to which the signal will be sent, "
+"and the signal number of the signal.  Valid signal numbers are defined in "
+"the E<.Xr signal 3> manual page.  The E<.Fn proc:::signal-clear> probe fires "
+"when a pending signal has been cleared by one of the E<.Xr sigwait 2>, E<.Xr "
+"sigtimedwait 2>, or E<.Xr sigwaitinfo 2> system calls.  Its arguments are "
+"the signal number of the cleared signal, and a pointer to the corresponding "
+"signal information.  The E<.Vt siginfo_t> for the signal can be obtained "
+"from E<.Dv args[1]-E<gt>ksi_info>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:124
+#, no-wrap
+msgid "ARGUMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:142
+msgid ""
+"Though the E<.Nm proc> provider probes use native E<.Fx> arguments types, "
+"standard D types for processes and threads are available.  These are E<.Vt "
+"psinfo_t> and E<.Vt lwpsinfo_t> respectively, and are defined in E<.Pa "
+"/usr/lib/dtrace/psinfo.d>.  This file also defines two global variables, "
+"E<.Va curpsinfo> and E<.Va curlwpsinfo>, which provide representations of "
+"the current process and thread using these types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:146
+msgid "The fields of E<.Vt psinfo_t> are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:147
+#, no-wrap
+msgid "Vt int pr_nlwp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:149
+msgid "Number of threads in the process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:149
+#, no-wrap
+msgid "Vt pid_t pr_pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:151
+msgid "Process ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:151
+#, no-wrap
+msgid "Vt pid_t pr_ppid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:153
+msgid ""
+"Process ID of the parent process, or 0 if the process does not have a "
+"parent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:153
+#, no-wrap
+msgid "Vt pid_t pr_pgid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:155
+msgid "Process ID of the process group leader."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:155
+#, no-wrap
+msgid "Vt pid_t pr_sid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:157
+msgid "Session ID, or 0 if the process does not belong to a session."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:157
+#, no-wrap
+msgid "Vt pid_t pr_uid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:159
+msgid "Real user ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:159
+#, no-wrap
+msgid "Vt pid_t pr_euid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:161
+msgid "Effective user ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:161
+#, no-wrap
+msgid "Vt pid_t pr_gid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:163
+msgid "Real group ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:163
+#, no-wrap
+msgid "Vt pid_t pr_egid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:165
+msgid "Effective group ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:165 /usr/src/share/man/man4/dtrace_proc.4:194
+#, no-wrap
+msgid "Vt uintptr_t pr_addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:169
+msgid "Pointer to the E<.Vt struct proc> for the process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:169
+#, no-wrap
+msgid "Vt string pr_psargs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:171
+msgid "Process arguments."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:171
+#, no-wrap
+msgid "Vt u_int pr_arglen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:173
+msgid "Length of the process argument string."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:173
+#, no-wrap
+msgid "Vt u_int pr_jailid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:175
+msgid "Jail ID of the process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:180
+msgid "The fields of E<.Vt lwpsinfo_t> are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:181
+#, no-wrap
+msgid "Vt id_t pr_lwpid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:183
+msgid "Thread ID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:183
+#, no-wrap
+msgid "Vt int pr_flag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:185
+msgid "Thread flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:185
+#, no-wrap
+msgid "Vt int pr_pri"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:187
+msgid "Real scheduling priority of the thread."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:187
+#, no-wrap
+msgid "Vt char pr_state"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:189 /usr/src/share/man/man4/dtrace_proc.4:194
+msgid "Currently always 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:189
+#, no-wrap
+msgid "Vt char pr_sname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:192
+msgid "Currently always E<.Ql ?>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:192
+#, no-wrap
+msgid "Vt short pr_syscall"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:198
+msgid "Pointer to the E<.Vt struct thread> for the thread."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:198
+#, no-wrap
+msgid "Vt uintptr_t pr_wchan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:200
+msgid "Current wait address on which the thread is sleeping."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:201
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_proc.4:203
+#, no-wrap
+msgid "Pa /usr/lib/dtrace/psinfo.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:207
+msgid "DTrace type and translator definitions for the E<.Nm proc> provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:208
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:210
+msgid "The following script logs process execution events as they occur:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:212
+#, no-wrap
+msgid "#pragma D option quiet\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:217
+#, no-wrap
+msgid ""
+"proc:::exec-success\n"
+"{\n"
+"        printf(\"%s\", curpsinfo-E<gt>pr_psargs);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:226
+msgid ""
+"Note that the E<.Dv pr_psargs> field is subject to the limit defined by the "
+"E<.Va kern.ps_arg_cache_limit> sysctl.  In particular, processes with an "
+"argument list longer than the value defined by this sysctl cannot be logged "
+"in this way."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:226
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:245
+msgid ""
+"The E<.Nm proc> provider in E<.Fx> is not compatible with the E<.Nm proc> "
+"provider in Solaris.  In particular, E<.Fx> uses the native E<.Vt \"struct "
+"proc\"> and E<.Vt \"struct thread\"> types for probe arguments rather than "
+"translated types.  Additionally, a number of E<.Nm proc> provider probes "
+"found in Solaris are not currently available on E<.Fx>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:245
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:256
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr errno 2>, E<.Xr fork 2>, E<.Xr pdfork 2>, E<.Xr rfork "
+"2>, E<.Xr vfork 2>, E<.Xr siginfo 3>, E<.Xr signal 3>, E<.Xr dtrace_sched "
+"4>, E<.Xr kproc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:256
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:262
+msgid "The E<.Nm proc> provider first appeared in E<.Fx> 7.1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_proc.4:262
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_proc.4:264
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""

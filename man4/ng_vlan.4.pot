@@ -1,0 +1,297 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_vlan.4:27
+#, no-wrap
+msgid "March 1, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_vlan.4:28
+#, no-wrap
+msgid "NG_VLAN 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:32
+msgid "E<.Nm ng_vlan>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_vlan.4:32
+#, no-wrap
+msgid "IEEE 802.1Q VLAN tagging netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vlan.4:34
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vlan.4:35
+#, no-wrap
+msgid "netgraph.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_vlan.4:36
+#, no-wrap
+msgid "netgraph/ng_vlan.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:42
+msgid ""
+"The E<.Nm vlan> node type multiplexes frames tagged according to the IEEE "
+"802.1Q standard between different hooks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:50
+msgid ""
+"Each node has two special hooks, E<.Va downstream> and E<.Va nomatch>, and "
+"an arbitrary number of E<.Dq vlan> hooks, each associated with a particular "
+"VLAN tag."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:67
+msgid ""
+"An E<.Dv ETHERTYPE_VLAN> frame received on the E<.Va downstream> hook with a "
+"tag that the node has been configured to filter is sent out the "
+"corresponding E<.Dq vlan> hook.  If it does not match any of the configured "
+"tags, or is not of a type E<.Dv ETHERTYPE_VLAN>, it is sent out the E<.Va "
+"nomatch> hook.  If the E<.Va nomatch> hook is not connected, the packet is "
+"dropped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:73
+msgid ""
+"An Ethernet frame received on the E<.Va nomatch> hook is passed unmodified "
+"to the E<.Va downstream> hook."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:79
+msgid ""
+"An Ethernet frame received on any of the E<.Dq vlan> hooks is tagged "
+"accordingly and sent out the E<.Va downstream> hook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:79
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:81
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vlan.4:82
+#, no-wrap
+msgid "Va downstream"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:88
+msgid ""
+"Typically this hook would be connected to a E<.Xr ng_ether 4> node, using "
+"the E<.Va lower> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vlan.4:88
+#, no-wrap
+msgid "Va nomatch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:94
+msgid ""
+"Typically this hook would also be connected to an E<.Xr ng_ether 4> type "
+"node using the E<.Va upper> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vlan.4:94
+#, no-wrap
+msgid "Aq Em \"any valid name\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:102
+msgid ""
+"Any other hook name will be accepted and should later be associated with a "
+"particular tag.  Typically this hook would be attached to an E<.Xr ng_eiface "
+"4> type node using the E<.Va ether> hook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:103
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:105
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vlan.4:106
+#, no-wrap
+msgid "Dv NGM_VLAN_ADD_FILTER Pq Ic addfilter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:108
+msgid "Associates a hook with the tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vlan.4:108
+#, no-wrap
+msgid "Dv NGM_VLAN_DEL_FILTER Pq Ic delfilter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:110
+msgid "Disassociates a hook from the tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_vlan.4:110
+#, no-wrap
+msgid "Dv NGM_VLAN_GET_TABLE Pq Ic gettable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:112
+msgid "Returns a table of all hook/tag associations."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:113
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:116
+#, no-wrap
+msgid "#!/bin/sh\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:118
+#, no-wrap
+msgid "ETHER_IF=rl0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:125
+#, no-wrap
+msgid ""
+"ngctl -f- E<lt>E<lt>EOF\n"
+"shutdown ${ETHER_IF}:\n"
+"mkpeer ${ETHER_IF}: vlan lower downstream\n"
+"name ${ETHER_IF}:lower vlan\n"
+"connect ${ETHER_IF}: vlan: upper nomatch\n"
+"EOF\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:128
+#, no-wrap
+msgid ""
+"ngctl mkpeer vlan: eiface vlan123 ether\n"
+"ngctl msg vlan: addfilter '{ vlan=123 hook=\"vlan123\" }'\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:129
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:133
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:133
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:139
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_eiface 4>, E<.Xr ng_ether 4>, E<.Xr ngctl 8>, "
+"E<.Xr nghook 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:139
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:144
+msgid "The E<.Nm> node type appeared in E<.Fx 4.10>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_vlan.4:144
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_vlan.4:145
+msgid "E<.An Ruslan Ermilov Aq Mt ru@FreeBSD.org>"
+msgstr ""

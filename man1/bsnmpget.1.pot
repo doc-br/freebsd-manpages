@@ -1,0 +1,950 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:36
+#, no-wrap
+msgid "January 10, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:37
+#, no-wrap
+msgid "BSNMPGET 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:39
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:43
+msgid "E<.Nm bsnmpget>, E<.Nm bsnmpwalk>, E<.Nm bsnmpset>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:43
+#, no-wrap
+msgid "simple tools for querying SNMP agents"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:64
+msgid ""
+"E<.Nm> E<.Op Fl aDdehnK> E<.Op Fl A Ar options> E<.Op Fl b Ar buffersize> "
+"E<.Op Fl C Ar options> E<.Op Fl I Ar options> E<.Op Fl i Ar filelist> E<.Op "
+"Fl l Ar filename> E<.Op Fl M Ar max-repetitions> E<.Op Fl N Ar "
+"non-repeaters> E<.Op Fl o Ar output> E<.Op Fl P Ar options> E<.Op Fl p Ar "
+"pdu> E<.Op Fl r Ar retries> E<.Op Fl s Ar "
+"[trans::][community@][server][:port]> E<.Op Fl t Ar timeout> E<.Op Fl U Ar "
+"options> E<.Op Fl v Ar version> E<.Op Ar OID ...>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:81
+msgid ""
+"E<.Nm bsnmpwalk> E<.Op Fl dhnK> E<.Op Fl A Ar options> E<.Op Fl b Ar "
+"buffersize> E<.Op Fl C Ar options> E<.Op Fl I Ar options> E<.Op Fl i Ar "
+"filelist> E<.Op Fl l Ar filename> E<.Op Fl o Ar output> E<.Op Fl P Ar "
+"options> E<.Op Fl r Ar retries> E<.Op Fl s Ar "
+"[trans::][community@][server][:port]> E<.Op Fl t Ar timeout> E<.Op Fl U Ar "
+"options> E<.Op Fl v Ar version> E<.Op Ar OID ...>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:99
+msgid ""
+"E<.Nm bsnmpset> E<.Op Fl adehnK> E<.Op Fl A Ar options> E<.Op Fl b Ar "
+"buffersize> E<.Op Fl C Ar options> E<.Op Fl I Ar options> E<.Op Fl i Ar "
+"filelist> E<.Op Fl l Ar filename> E<.Op Fl o Ar output> E<.Op Fl P Ar "
+"options> E<.Op Fl r Ar retries> E<.Op Fl s Ar "
+"[trans::][community@][server][:port]> E<.Op Fl t Ar timeout> E<.Op Fl U Ar "
+"options> E<.Op Fl v Ar version> E<.Ar OID Ns = Ar syntax Ns : Ns Ar value> "
+"E<.Op Ar OID Ns = Ar syntax Ns : Ns Ar value ...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:99
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:106
+msgid ""
+"E<.Nm>, E<.Nm bsnmpwalk> and E<.Nm bsnmpset> are simple tools for retrieving "
+"management information from and setting management information to a Simple "
+"Network Management Protocol (SNMP) agent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:113
+msgid ""
+"Depending on the options E<.Nm bsnmpget> constructs either a SNMP "
+"GetRequest, GetNextRequest or a GetBulkRequest packet, fills in the object "
+"identifiers (OIDs) of the objects whose values will be retrieved, waits for "
+"a response and prints it if received successfully."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:118
+msgid ""
+"E<.Nm Bsnmpwalk> queries an agent with ether SNMP GetNextRequest or "
+"GetBulkRequest packets, asking for values of OID instances that are a part "
+"of the object subtree rooted at the provided OIDs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:123
+msgid ""
+"E<.Nm Bsnmpset> constructs a SNMP SetRequest packet, fills in the OIDs "
+"(object identifiers), syntaxes and values of the objects whose values are to "
+"be set and waits for a response from server."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:123
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:125
+msgid "The options are as follows (not all apply to all three programs):"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:126
+#, no-wrap
+msgid "Fl A Ar options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:128
+msgid "Authentication options to use with SNMPv3 PDUs"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:129
+#, no-wrap
+msgid "Cm proto=[md5|sha]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:131
+msgid "The protocol to use when calculating the PDU message digest."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:131
+#, no-wrap
+msgid "Cm key=authkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:134
+msgid ""
+"A binary localized authentication key to use when calculating the PDU "
+"message digest."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:137
+msgid "By default SNMPv3 PDUs are sent unauthenticated."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:137
+#, no-wrap
+msgid "Fl a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:141
+msgid ""
+"Skip any sanity checks when adding OIDs to a Protocol Data Unit (PDU): "
+"ingore syntax/access type, allow adding of non-leaf objects for GetPdu and "
+"read-only objects to a SetPDU."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:141
+#, no-wrap
+msgid "Fl b Ar buffersize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:147
+msgid ""
+"Tune the size of buffers used to send and receive packets.  The default size "
+"is 10000 bytes which should be enough unless an agent sends a really large "
+"octetstring.  The maximum allowed length is 65535 according to the Structure "
+"of Management Information (SMIv2)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:147
+#, no-wrap
+msgid "Fl C Ar options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:149
+msgid "The context to query with SNMPv3 PDUs."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:150
+#, no-wrap
+msgid "Cm context=name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:152
+msgid "The context name. Default is \"\" (empty)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:152
+#, no-wrap
+msgid "Cm context-engine=engine-id"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:156
+msgid ""
+"The SNMP Engine ID of the context to query with SNMPv3 PDUs, represented as "
+"binary octet string.  By default, this is set to the Engine ID of the SNMP "
+"agent."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:157
+#, no-wrap
+msgid "Fl D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:160
+msgid ""
+"Perform SNMP USM Engine Discovery, rather than sending a request for the "
+"value of a specific object."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:160
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:164
+msgid ""
+"Turn on debugging.  This option will cause the packets sent and received to "
+"be dumped to the terminal."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:164
+#, no-wrap
+msgid "Fl e"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:169
+msgid ""
+"Retry on error.  If an error is returned in the response PDU, resend the "
+"request removing the variable that caused the error until a valid response "
+"is received.  This is only useful for a GetRequest- and a "
+"GetNextRequest-PDU."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:169
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:171
+msgid "Print a short help text with default values for various options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:171
+#, no-wrap
+msgid "Fl I Ar options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:175
+msgid ""
+"Load each MIB description file from the given list to translate symbolic "
+"object names to their numerical representation and vice versa.  Use the "
+"other options to obtain a non-default behaviour:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:176
+#, no-wrap
+msgid "Cm cut=OID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:187
+msgid ""
+"Specifies the initial OID that was cut by E<.Xr gensnmpdef 1> when producing "
+"the MIB description file.  The default value is .iso(1).org(3).dod(6) which "
+"is what should have been used for all the files installed under E<.Pa "
+"/usr/share/snmp/defs>.  Use this only if you generated your own files, "
+"providing a E<.Fl c> option to E<.Xr gensnmpdef 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:187
+#, no-wrap
+msgid "Cm path=filedir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:191
+msgid ""
+"The directory where files in the list will be searched.  The default is "
+"E<.Pa /usr/share/snmp/defs Ns>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:191
+#, no-wrap
+msgid "Cm file=filelist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:193
+msgid "A comma separated list of files to which the two options above will apply."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:201
+msgid ""
+"The file suboption has to come after the other suboptions so that their "
+"non-default values will be applied to the list of files.  The order of the "
+"other suboptions before each file suboption can be random.  Suboptions may "
+"be separated either by commas or by spaces.  If using spaces make sure the "
+"entire option string is one argument, for example using quotes."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:201
+#, no-wrap
+msgid "Fl i Ar filelist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:215
+msgid ""
+"List of MIB description files produced by E<.Xr gensnmpdef 1> which E<.Nm "
+"bsnmpget>, E<.Nm bsnmpwalk> or E<.Nm bsnmpset> will search to translate "
+"numerical OIDs to their symbolic object names.  Multiple files can be "
+"provided either giving this option multiple times or a comma separated list "
+"of file names.  If a filename begins with a letter the default directory, "
+"E<.Pa /usr/share/snmp/defs>, will be searched."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:215
+#, no-wrap
+msgid "Fl K"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:221
+msgid ""
+"Calculate and display the localized authentication and privacy keys "
+"corresponding to a plain text password.  The password is obtained via the "
+"environment.  Additionally, if one or more OIDs are specified, the "
+"calculated keys are used when processing the SNMPv3 requests."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:221
+#, no-wrap
+msgid "Fl l Ar filename"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:224
+msgid "The path of the posix local (unix domain) socket if local transport is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:224
+#, no-wrap
+msgid "Fl M Ar max-repetitions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:227
+msgid "The value for the max-repetitions field in a GetBulk PDU.  Default is 10."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:227
+#, no-wrap
+msgid "Fl N Ar non-repeaters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:230
+msgid "The value for the non-repeaters field in a GetBulk PDU.  Default is 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:230
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:240
+msgid ""
+"Only use numerical representations for input and output OIDs and do not try "
+"to resolve symbolic object names.  Note that E<.Nm bsnmpget>, E<.Nm "
+"bsnmpwalk> and E<.Nm bsnmpset> will print numerical OIDs anyway if the "
+"corresponding string representation is not found in the MIB description "
+"files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:240
+#, no-wrap
+msgid "Fl o Ar [quiet|short|verbose]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:245
+msgid ""
+"The format used to print the received response.  Quiet only prints values, "
+"short (default) prints an abbreviated OID representation and the value.  In "
+"addition to the short output verbose prints the type before the value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:245
+#, no-wrap
+msgid "Fl P Ar options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:247
+msgid "Privacy options to use with SNMPv3 PDUs"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:248
+#, no-wrap
+msgid "Cm proto=[aes|des]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:250
+msgid "The protocol to use when encrypting/decrypting SNMPv3 PDU data."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:250
+#, no-wrap
+msgid "Cm key=privkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:252
+msgid ""
+"A binary localized privacy key to use when encrypting/decrypting SNMPv3 PDU "
+"data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:255
+msgid "By default plain text SNMPv3 PDUs are sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:255
+#, no-wrap
+msgid "Fl p Ar [get|getnext|getbulk]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:268
+msgid ""
+"The PDU type to send by E<.Nm bsmpget> and E<.Nm bsnmpwalk>.  Default is get "
+"for E<.Nm bsmpget> and getnext for E<.Nm bsnmpwalk>.  Getbulk allows "
+"executing the so called SNMP \"bulkwalks\" allowing the values of multiple "
+"columns to be retrieved in a single PDU by E<.Nm bsnmpwalk>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:268
+#, no-wrap
+msgid "Fl r Ar retries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:272
+msgid ""
+"Number of resends of request packets before giving up if the agent does not "
+"respond after the first try.  Default is 3."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:272
+#, no-wrap
+msgid "Fl s Ar [trans::] Ns Ar [community@] Ns Ar [server] Ns Ar [:port]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:278
+msgid ""
+"Each of the server specification components is optional but at least one has "
+"to be provided if the E<.Ar s> option is used.  The server specification is "
+"constructed in the following manner:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:279
+#, no-wrap
+msgid "Cm trans::"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:285
+msgid ""
+"Transport type may be one of udp, stream or dgram.  If this option is not "
+"provided an UDP inet/inet6 socket will be used, which is the most common.  "
+"Stream stands for a posix local stream socket and a posix local datagram "
+"socket will be used if dgram is specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:285
+#, no-wrap
+msgid "Cm community@"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:293
+msgid ""
+"Specify an SNMP community string to be used when sending packets.  If the "
+"option is skipped the default \"public\" will be used for E<.Nm> and E<.Nm "
+"bsnmpwalk> and the default \"private\" community string will be used for "
+"E<.Nm bsnmpset>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:293
+#, no-wrap
+msgid "Cm server"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:298
+msgid ""
+"This might be either the IP address or the hostname where the agent is "
+"listening.  The default is E<.Qq localhost>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:298
+#, no-wrap
+msgid "Cm port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:306
+msgid ""
+"The destination port to send the requests to.  This is useful if the SNMP "
+"agent listens on a non-default port.  Default is given by the E<.Qq snmp> "
+"entry in E<.Pa /etc/services>, port 161."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:307
+#, no-wrap
+msgid "Fl t Ar timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:311
+msgid ""
+"Number of seconds before resending a request packet if the agent does not "
+"respond.  The default value is 3 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:311
+#, no-wrap
+msgid "Fl U Ar options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:313
+msgid "User credentials when sending SNMPv3 PDUs."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:314
+#, no-wrap
+msgid "Cm engine=id"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:316
+msgid "The Engine ID of the SNMP agent represented as a binary octet string."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:316
+#, no-wrap
+msgid "Cm engine-boots=value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:318
+msgid "The value of the snmpEngineBoots of the SNMP agent."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:318
+#, no-wrap
+msgid "Cm engine-time=value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:320
+msgid "The value of the snmpEngineTime of the SNMP agent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:323
+msgid ""
+"If any of the above is not specified, SNMP USM Engine Discovery is "
+"attempted.  This is also the default behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:323
+#, no-wrap
+msgid "Cm name=username"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:327
+msgid ""
+"The USM user name to include in the SNMPv3 PDUs.  By default, the user name "
+"is obtained via the environment."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:328
+#, no-wrap
+msgid "Fl v Ar version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:340
+msgid ""
+"The SNMP protocol version to use when sending requests.  SNMP versions 1, 2 "
+"and 3 are supported.  If no version option is provided E<.Nm bsnmpget>, "
+"E<.Nm bsnmpwalk> and E<.Nm bsnmpset> will use version 2.  Note that "
+"GetBulkRequest-PDUs were introduced in SNMPv2 thus setting the version to 1 "
+"is incompatible with sending a GetBulk PDU."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:340
+#, no-wrap
+msgid "OID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:345
+msgid ""
+"The object identifier whose value to retrieve.  At least one OID should be "
+"provided for E<.Nm bsnmpget> to be able to send a request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:354
+msgid ""
+"For E<.Nm bsnmpwalk> this is the root object identifier of the subtree whose "
+"values are to be retrieved.  If no OID is provided E<.Nm bsnmpwalk> will "
+"walk the mib2 subtree rooted at "
+".iso(1).org(3).dod(6).internet(1).mgmt(2).mib2(1) ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:357
+msgid "Any of the formats used to print a single variable is valid as input OID:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:358
+#, no-wrap
+msgid "1.3.6.1.2.1.25.1.1.0"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:359
+#, no-wrap
+msgid "sysDescr"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:360
+#, no-wrap
+msgid "ifPhysAddress.1"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:361
+#, no-wrap
+msgid "ifRcvAddressStatus.2.6.255.255.255.255.255.255"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:362
+#, no-wrap
+msgid "ifRcvAddressType[2,ff:ff:ff:ff:ff:ff]"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:363
+#, no-wrap
+msgid "ifRcvAddressStatus[Integer:1,OctetString:ff:ff:ff:ff:ff:ff]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:367
+msgid "(requires the E<.Fl o Ar verbose> option)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:373
+msgid ""
+"Square brackets are used to denote an entry's indexes.  When used in an "
+"input OID, the square brackets may have to be escaped or the OID has to be "
+"quoted to protect it from the shell.  Note there is no difference between "
+"ifName.1 and \"ifName[1]\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:373
+#, no-wrap
+msgid "OID Ns = Ns Ar [syntax Ns :] Ns Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:378
+msgid ""
+"The object identifier with its syntax type and value that is to be set.  At "
+"least one such string OID=[syntax:]value should be provided to E<.Nm "
+"bsnmpset> to be able to send a request."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:379
+#, no-wrap
+msgid "Cm OID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:390
+msgid ""
+"OID may be input as a string, a string followed by a random number of "
+"integers (suboids) separated by dots, a sequence of integers separated by "
+"dots - that is if the E<.Ar n> option is used - and in such case a syntax is "
+"required for every value, or a string followed by square brackets (used to "
+"denote an entry's indexes) and corresponding indexes.  Any of the formats "
+"used to print a single variable by E<.Nm bsnmpset> is valid as input OID as "
+"well:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:391
+#, no-wrap
+msgid "1.3.6.1.2.1.25.1.1.0=TimeTicks:537615486"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:392
+#, no-wrap
+msgid "sysLocation=OctetString:\"@ Home\" (with Fl o Ar verbose No option)"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:393
+#, no-wrap
+msgid "sysLocation.0=\"@ Home\""
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:394
+#, no-wrap
+msgid "1.3.6.1.2.1.2.2.1.6.1=OctetString:ffffffffffff"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:395
+#, no-wrap
+msgid "ifPhysAddress.1=\"00:02:b3:1d:1c:a3\""
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:396
+#, no-wrap
+msgid "ifRcvAddressStatus.1.6.255.255.255.255.255.255=1"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:397
+#, no-wrap
+msgid "ifRcvAddressStatus[Integer:1,OctetString:ff:ff:ff:ff:ff:ff]=Integer:1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:401
+msgid "(with the E<.Fl o Ar verbose> option)"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:402
+#, no-wrap
+msgid "Cm syntax"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:405
+msgid ""
+"where the syntax string is one of: Integer, OctetString, OID, IpAddress, "
+"Counter32, Gauge, TimeTicks, Counter64."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:405
+#, no-wrap
+msgid "Cm value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:409
+msgid ""
+"The value to be set - IP address in form of u.u.u.u - for example "
+"1.3.1.6.1.2.0=IpAddress:192.168.0.1, strings require inverted-commas if they "
+"contain any special characters or spaces, all other numeric types do not."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:411
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:417
+msgid ""
+"E<.Nm>, E<.Nm bsnmpwalk> and E<.Nm bsnmpset> use the following environment "
+"variables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:418
+#, no-wrap
+msgid "Ev SNMPAUTH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:420
+msgid "Specifies a default SNMP USM authentication protocol."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:420
+#, no-wrap
+msgid "Ev SNMPPRIV"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:422
+msgid "Specifies a default SNMP USM privacy protocol."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:422
+#, no-wrap
+msgid "Ev SNMPUSER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:424
+msgid "Specifies a default SNMP USM user name."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:424
+#, no-wrap
+msgid "Ev SNMPPASSWD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:429
+msgid ""
+"Specifies the SNMP USM plain text password to use when calculating localized "
+"authentication and privacy keys.  If this variable exists in the "
+"environment, SNMPv3 is the default version to use for outgoing requests."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:430
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:432
+msgid "E<.Xr gensnmpdef 1>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:432
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bsnmpd/tools/bsnmptools/bsnmpget.1:433
+msgid "E<.An Shteryana Shopova Aq Mt syrinx@FreeBSD.org>"
+msgstr ""

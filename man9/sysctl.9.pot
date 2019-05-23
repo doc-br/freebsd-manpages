@@ -1,0 +1,1504 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sysctl.9:28
+#, no-wrap
+msgid "February 25, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sysctl.9:29
+#, no-wrap
+msgid "SYSCTL 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:97
+msgid ""
+"E<.Nm SYSCTL_DECL>, E<.Nm SYSCTL_ADD_BOOL>, E<.Nm SYSCTL_ADD_COUNTER_U64>, "
+"E<.Nm SYSCTL_ADD_COUNTER_U64_ARRAY>, E<.Nm SYSCTL_ADD_INT>, E<.Nm "
+"SYSCTL_ADD_LONG>, E<.Nm SYSCTL_ADD_NODE>, E<.Nm SYSCTL_ADD_NODE_WITH_LABEL>, "
+"E<.Nm SYSCTL_ADD_OPAQUE>, E<.Nm SYSCTL_ADD_PROC>, E<.Nm SYSCTL_ADD_QUAD>, "
+"E<.Nm SYSCTL_ADD_ROOT_NODE>, E<.Nm SYSCTL_ADD_S8>, E<.Nm SYSCTL_ADD_S16>, "
+"E<.Nm SYSCTL_ADD_S32>, E<.Nm SYSCTL_ADD_S64>, E<.Nm "
+"SYSCTL_ADD_SBINTIME_MSEC>, E<.Nm SYSCTL_ADD_SBINTIME_USEC>, E<.Nm "
+"SYSCTL_ADD_STRING>, E<.Nm SYSCTL_ADD_CONST_STRING>, E<.Nm "
+"SYSCTL_ADD_STRUCT>, E<.Nm SYSCTL_ADD_U8>, E<.Nm SYSCTL_ADD_U16>, E<.Nm "
+"SYSCTL_ADD_U32>, E<.Nm SYSCTL_ADD_U64>, E<.Nm SYSCTL_ADD_UAUTO>, E<.Nm "
+"SYSCTL_ADD_UINT>, E<.Nm SYSCTL_ADD_ULONG>, E<.Nm SYSCTL_ADD_UQUAD>, E<.Nm "
+"SYSCTL_ADD_UMA_CUR>, E<.Nm SYSCTL_ADD_UMA_MAX>, E<.Nm SYSCTL_CHILDREN>, "
+"E<.Nm SYSCTL_STATIC_CHILDREN>, E<.Nm SYSCTL_NODE_CHILDREN>, E<.Nm "
+"SYSCTL_PARENT>, E<.Nm SYSCTL_BOOL>, E<.Nm SYSCTL_COUNTER_U64>, E<.Nm "
+"SYSCTL_COUNTER_U64_ARRAY>, E<.Nm SYSCTL_INT>, E<.Nm SYSCTL_INT_WITH_LABEL>, "
+"E<.Nm SYSCTL_LONG>, E<.Nm SYSCTL_NODE>, E<.Nm SYSCTL_NODE_WITH_LABEL>, E<.Nm "
+"SYSCTL_OPAQUE>, E<.Nm SYSCTL_PROC>, E<.Nm SYSCTL_QUAD>, E<.Nm "
+"SYSCTL_ROOT_NODE>, E<.Nm SYSCTL_S8>, E<.Nm SYSCTL_S16>, E<.Nm SYSCTL_S32>, "
+"E<.Nm SYSCTL_S64>, E<.Nm SYSCTL_SBINTIME_MSEC>, E<.Nm SYSCTL_SBINTIME_USEC>, "
+"E<.Nm SYSCTL_STRING>, E<.Nm SYSCTL_CONST_STRING>, E<.Nm SYSCTL_STRUCT>, "
+"E<.Nm SYSCTL_U8>, E<.Nm SYSCTL_U16>, E<.Nm SYSCTL_U32>, E<.Nm SYSCTL_U64>, "
+"E<.Nm SYSCTL_UINT>, E<.Nm SYSCTL_ULONG>, E<.Nm SYSCTL_UQUAD>, E<.Nm "
+"SYSCTL_UMA_CUR>, E<.Nm SYSCTL_UMA_MAX>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sysctl.9:97
+#, no-wrap
+msgid "Dynamic and static sysctl MIB creation functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:98
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sysctl.9:99
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sysctl.9:100
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:469
+msgid ""
+"E<.Fn SYSCTL_DECL name> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_BOOL> "
+"E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list "
+"*parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int "
+"ctlflags\"> E<.Fa \"bool *ptr\"> E<.Fa \"uint8_t val\"> E<.Fa \"const char "
+"*descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_COUNTER_U64> "
+"E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list "
+"*parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int "
+"ctlflags\"> E<.Fa \"counter_u64_t *ptr\"> E<.Fa \"const char *descr\"> "
+"E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_COUNTER_U64_ARRAY> E<.Fa "
+"\"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> "
+"E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> "
+"E<.Fa \"counter_u64_t *ptr\"> E<.Fa \"intmax_t len\"> E<.Fa \"const char "
+"*descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_INT> E<.Fa "
+"\"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> "
+"E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> "
+"E<.Fa \"int *ptr\"> E<.Fa \"int val\"> E<.Fa \"const char *descr\"> E<.Fc> "
+"E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_LONG> E<.Fa \"struct "
+"sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa "
+"\"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa "
+"\"long *ptr\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct sysctl_oid "
+"*> E<.Fo SYSCTL_ADD_NODE> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa "
+"\"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char "
+"*name\"> E<.Fa \"int ctlflags\"> E<.Fa \"int "
+"(*handler)(SYSCTL_HANDLER_ARGS)\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft "
+"struct sysctl_oid *> E<.Fo SYSCTL_ADD_NODE_WITH_LABEL> E<.Fa \"struct "
+"sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa "
+"\"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa "
+"\"int (*handler)(SYSCTL_HANDLER_ARGS)\"> E<.Fa \"const char *descr\"> E<.Fa "
+"\"const char *label\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo "
+"SYSCTL_ADD_OPAQUE> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct "
+"sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> "
+"E<.Fa \"int ctlflags\"> E<.Fa \"void *ptr\"> E<.Fa \"intptr_t len\"> E<.Fa "
+"\"const char *format\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_PROC> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"void *arg1\"> E<.Fa "
+"\"intptr_t arg2\"> E<.Fa \"int (*handler) (SYSCTL_HANDLER_ARGS)\"> E<.Fa "
+"\"const char *format\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_QUAD> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"int64_t *ptr\"> E<.Fa "
+"\"const char *descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo "
+"SYSCTL_ADD_ROOT_NODE> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"int "
+"number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"int "
+"(*handler)(SYSCTL_HANDLER_ARGS)\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft "
+"struct sysctl_oid *> E<.Fo SYSCTL_ADD_S8> E<.Fa \"struct sysctl_ctx_list "
+"*ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> "
+"E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"int8_t *ptr\"> "
+"E<.Fa \"int8_t val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_S16> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"int16_t *ptr\"> E<.Fa "
+"\"int16_t val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct sysctl_oid "
+"*> E<.Fo SYSCTL_ADD_S32> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa "
+"\"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char "
+"*name\"> E<.Fa \"int ctlflags\"> E<.Fa \"int32_t *ptr\"> E<.Fa \"int32_t "
+"val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo "
+"SYSCTL_ADD_S64> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct "
+"sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> "
+"E<.Fa \"int ctlflags\"> E<.Fa \"int64_t *ptr\"> E<.Fa \"int64_t val\"> E<.Fa "
+"\"const char *descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo "
+"SYSCTL_ADD_SBINTIME_MSEC> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa "
+"\"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char "
+"*name\"> E<.Fa \"int ctlflags\"> E<.Fa \"sbintime_t *ptr\"> E<.Fa \"const "
+"char *descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo "
+"SYSCTL_ADD_SBINTIME_USEC> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa "
+"\"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char "
+"*name\"> E<.Fa \"int ctlflags\"> E<.Fa \"sbintime_t *ptr\"> E<.Fa \"const "
+"char *descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_STRING> "
+"E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list "
+"*parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int "
+"ctlflags\"> E<.Fa \"char *ptr\"> E<.Fa \"intptr_t len\"> E<.Fa \"const char "
+"*descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_CONST_STRING> "
+"E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list "
+"*parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int "
+"ctlflags\"> E<.Fa \"const char *ptr\"> E<.Fa \"const char *descr\"> E<.Fc> "
+"E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_STRUCT> E<.Fa \"struct "
+"sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa "
+"\"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa "
+"\"void *ptr\"> E<.Fa struct_type> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft "
+"struct sysctl_oid *> E<.Fo SYSCTL_ADD_U8> E<.Fa \"struct sysctl_ctx_list "
+"*ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> "
+"E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"uint8_t *ptr\"> "
+"E<.Fa \"uint8_t val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_U16> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"uint16_t *ptr\"> E<.Fa "
+"\"uint16_t val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_U32> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"uint32_t *ptr\"> E<.Fa "
+"\"uint32_t val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_U64> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"uint64_t *ptr\"> E<.Fa "
+"\"uint64_t val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_UINT> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"unsigned int *ptr\"> "
+"E<.Fa \"unsigned int val\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_ULONG> E<.Fa \"struct sysctl_ctx_list *ctx\"> "
+"E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa "
+"\"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"unsigned long *ptr\"> "
+"E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo "
+"SYSCTL_ADD_UQUAD> E<.Fa \"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct "
+"sysctl_oid_list *parent\"> E<.Fa \"int number\"> E<.Fa \"const char *name\"> "
+"E<.Fa \"int ctlflags\"> E<.Fa \"uint64_t *ptr\"> E<.Fa \"const char "
+"*descr\"> E<.Fc> E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_UMA_CUR> E<.Fa "
+"\"struct sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> "
+"E<.Fa \"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> "
+"E<.Fa \"uma_zone_t ptr\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid *> E<.Fo SYSCTL_ADD_UMA_MAX> E<.Fa \"struct sysctl_ctx_list "
+"*ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa \"int number\"> "
+"E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa \"uma_zone_t "
+"ptr\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Fa \"const char *descr\"> "
+"E<.Ft struct sysctl_oid *> E<.Fo SYSCTL_ADD_UAUTO> E<.Fa \"struct "
+"sysctl_ctx_list *ctx\"> E<.Fa \"struct sysctl_oid_list *parent\"> E<.Fa "
+"\"int number\"> E<.Fa \"const char *name\"> E<.Fa \"int ctlflags\"> E<.Fa "
+"\"void *ptr\"> E<.Fa \"const char *descr\"> E<.Fc> E<.Ft struct "
+"sysctl_oid_list *> E<.Fo SYSCTL_CHILDREN> E<.Fa \"struct sysctl_oid *oidp\"> "
+"E<.Fc> E<.Ft struct sysctl_oid_list *> E<.Fo SYSCTL_STATIC_CHILDREN> E<.Fa "
+"\"struct sysctl_oid_list OID_NAME\"> E<.Fc> E<.Ft struct sysctl_oid_list *> "
+"E<.Fo SYSCTL_NODE_CHILDREN> E<.Fa \"parent\"> E<.Fa \"name\"> E<.Fc> E<.Ft "
+"struct sysctl_oid *> E<.Fo SYSCTL_PARENT> E<.Fa \"struct sysctl_oid *oid\"> "
+"E<.Fc> E<.Fn SYSCTL_BOOL parent number name ctlflags ptr val descr> E<.Fn "
+"SYSCTL_COUNTER_U64 parent number name ctlflags ptr descr> E<.Fn "
+"SYSCTL_COUNTER_U64_ARRAY parent number name ctlflags ptr len descr> E<.Fn "
+"SYSCTL_INT parent number name ctlflags ptr val descr> E<.Fn "
+"SYSCTL_INT_WITH_LABEL parent number name ctlflags ptr val descr label> E<.Fn "
+"SYSCTL_LONG parent number name ctlflags ptr val descr> E<.Fn SYSCTL_NODE "
+"parent number name ctlflags handler descr> E<.Fn SYSCTL_NODE_WITH_LABEL "
+"parent number name ctlflags handler descr label> E<.Fn SYSCTL_OPAQUE parent "
+"number name ctlflags ptr len format descr> E<.Fn SYSCTL_PROC parent number "
+"name ctlflags arg1 arg2 handler format descr> E<.Fn SYSCTL_QUAD parent "
+"number name ctlflags ptr val descr> E<.Fn SYSCTL_ROOT_NODE number name "
+"ctlflags handler descr> E<.Fn SYSCTL_S8 parent number name ctlflags ptr val "
+"descr> E<.Fn SYSCTL_S16 parent number name ctlflags ptr val descr> E<.Fn "
+"SYSCTL_S32 parent number name ctlflags ptr val descr> E<.Fn SYSCTL_S64 "
+"parent number name ctlflags ptr val descr> E<.Fn SYSCTL_SBINTIME_MSEC parent "
+"number name ctlflags ptr descr> E<.Fn SYSCTL_SBINTIME_USEC parent number "
+"name ctlflags ptr descr> E<.Fn SYSCTL_STRING parent number name ctlflags arg "
+"len descr> E<.Fn SYSCTL_CONST_STRING parent number name ctlflags arg descr> "
+"E<.Fn SYSCTL_STRUCT parent number name ctlflags ptr struct_type descr> E<.Fn "
+"SYSCTL_U8 parent number name ctlflags ptr val descr> E<.Fn SYSCTL_U16 parent "
+"number name ctlflags ptr val descr> E<.Fn SYSCTL_U32 parent number name "
+"ctlflags ptr val descr> E<.Fn SYSCTL_U64 parent number name ctlflags ptr val "
+"descr> E<.Fn SYSCTL_UINT parent number name ctlflags ptr val descr> E<.Fn "
+"SYSCTL_ULONG parent number name ctlflags ptr val descr> E<.Fn SYSCTL_UQUAD "
+"parent number name ctlflags ptr val descr> E<.Fn SYSCTL_UMA_MAX parent "
+"number name ctlflags ptr descr> E<.Fn SYSCTL_UMA_CUR parent number name "
+"ctlflags ptr descr>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:469
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:479
+msgid ""
+"The E<.Nm SYSCTL> kernel interface allows dynamic or static creation of "
+"E<.Xr sysctl 8> MIB entries.  All static sysctls are automatically destroyed "
+"when the module which they are part of is unloaded.  Most top level "
+"categories are created statically and are available to all kernel code and "
+"its modules."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:479
+#, no-wrap
+msgid "DESCRIPTION OF ARGUMENTS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:481
+#, no-wrap
+msgid "Fa ctx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:491
+msgid ""
+"Pointer to sysctl context or NULL, if no context.  See E<.Xr sysctl_ctx_init "
+"9> for how to create a new sysctl context.  Programmers are strongly advised "
+"to use contexts to organize the dynamic OIDs which they create because when "
+"a context is destroyed all belonging sysctls are destroyed as well.  This "
+"makes the sysctl cleanup code much simpler.  Else deletion of all created "
+"OIDs is required at module unload."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:491
+#, no-wrap
+msgid "Fa parent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:504
+msgid ""
+"A pointer to a E<.Li struct sysctl_oid_list>, which is the head of the "
+"parent's list of children.  This pointer is retrieved using the E<.Fn "
+"SYSCTL_STATIC_CHILDREN> macro for static sysctls and the E<.Fn "
+"SYSCTL_CHILDREN> macro for dynamic sysctls.  The E<.Fn SYSCTL_PARENT> macro "
+"can be used to get the parent of an OID.  The macro returns NULL if there is "
+"no parent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:504
+#, no-wrap
+msgid "Fa number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:509
+msgid ""
+"The OID number that will be assigned to this OID.  In almost all cases this "
+"should be set to E<.Dv OID_AUTO>, which will result in the assignment of the "
+"next available OID number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:509
+#, no-wrap
+msgid "Fa name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:512
+msgid "The name of the OID.  The newly created OID will contain a copy of the name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:512
+#, no-wrap
+msgid "Fa ctlflags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:515
+msgid ""
+"A bit mask of sysctl control flags.  See the section below describing all "
+"the control flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:515
+#, no-wrap
+msgid "Fa arg1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:517
+msgid "First callback argument for procedure sysctls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:517
+#, no-wrap
+msgid "Fa arg2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:519
+msgid "Second callback argument for procedure sysctls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:519
+#, no-wrap
+msgid "Fa len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:527
+msgid ""
+"The length of the data pointed to by the E<.Fa ptr> argument.  For string "
+"type OIDs a length of zero means that E<.Xr strlen 3> will be used to get "
+"the length of the string at each access to the OID.  For array type OIDs the "
+"length must be greater than zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:527
+#, no-wrap
+msgid "Fa ptr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:532
+msgid ""
+"Pointer to sysctl variable or string data.  For sysctl values the pointer "
+"can be SYSCTL_NULL_XXX_PTR which means the OID is read-only and the returned "
+"value should be taken from the E<.Fa val> argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:532
+#, no-wrap
+msgid "Fa val"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:537
+msgid ""
+"If the E<.Fa ptr> argument is SYSCTL_NULL_XXX_PTR, gives the constant value "
+"returned by this OID.  Else this argument is not used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:537
+#, no-wrap
+msgid "Fa struct_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:539
+msgid "Name of structure type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:539
+#, no-wrap
+msgid "Fa handler"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:551
+msgid ""
+"A pointer to the function that is responsible for handling read and write "
+"requests to this OID.  There are several standard handlers that support "
+"operations on nodes, integers, strings and opaque objects.  It is possible "
+"to define custom handlers using the E<.Fn SYSCTL_PROC> macro or the E<.Fn "
+"SYSCTL_ADD_PROC> function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:551
+#, no-wrap
+msgid "Fa format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:557
+msgid ""
+"A pointer to a string which specifies the format of the OID in a symbolic "
+"way.  This format is used as a hint by E<.Xr sysctl 8> to apply proper data "
+"formatting for display purposes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:559
+msgid "Current formats:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:560
+#, no-wrap
+msgid "Cm N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:562
+msgid "node"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:562
+#, no-wrap
+msgid "Cm A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:564
+msgid "E<.Li \"char *\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:564
+#, no-wrap
+msgid "Cm I"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:566
+msgid "E<.Li \"int\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:566
+#, no-wrap
+msgid "Cm IK Ns Op Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:570
+msgid ""
+"temperature in Kelvin, multiplied by an optional single digit power of ten "
+"scaling factor: 1 (default) gives deciKelvin, 0 gives Kelvin, 3 gives "
+"milliKelvin"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:570
+#, no-wrap
+msgid "Cm IU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:572
+msgid "E<.Li \"unsigned int\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:572
+#, no-wrap
+msgid "Cm L"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:574
+msgid "E<.Li \"long\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:574
+#, no-wrap
+msgid "Cm LU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:576
+msgid "E<.Li \"unsigned long\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:576
+#, no-wrap
+msgid "Cm Q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:578
+msgid "E<.Li \"quad_t\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:578
+#, no-wrap
+msgid "Cm QU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:580
+msgid "E<.Li \"u_quad_t\">"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:580
+#, no-wrap
+msgid "Cm S,TYPE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:583
+msgid "E<.Li \"struct TYPE\"> structures"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:584
+#, no-wrap
+msgid "Fa descr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:586
+msgid "A pointer to a textual description of the OID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:586
+#, no-wrap
+msgid "Fa label"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:594
+msgid ""
+"A pointer to an aggregation label for this component of the OID.  To make it "
+"easier to export sysctl data to monitoring systems that support aggregations "
+"through labels (e.g., Prometheus), this argument can be used to attach a "
+"label name to an OID.  The label acts as a hint that this component's name "
+"should not be part of the metric's name, but attached to the metric as a "
+"label instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:598
+msgid ""
+"Labels should only be applied to siblings that are structurally similar and "
+"encode the same type of value, as aggregation is of no use otherwise."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:599
+#, no-wrap
+msgid "CREATING ROOT NODES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:613
+msgid ""
+"Sysctl MIBs or OIDs are created in a hierarchical tree.  The nodes at the "
+"bottom of the tree are called root nodes, and have no parent OID.  To create "
+"bottom tree nodes the E<.Fn SYSCTL_ROOT_NODE> macro or the E<.Fn "
+"SYSCTL_ADD_ROOT_NODE> function needs to be used.  By default all static "
+"sysctl node OIDs are global and need a E<.Fn SYSCTL_DECL> statement prior to "
+"their E<.Fn SYSCTL_NODE> definition statement, typically in a so-called "
+"header file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:613
+#, no-wrap
+msgid "CREATING SYSCTL STRINGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:628
+msgid ""
+"Zero terminated character strings sysctls are created either using the E<.Fn "
+"SYSCTL_STRING> macro or the E<.Fn SYSCTL_ADD_STRING> function.  If the E<.Fa "
+"len> argument in zero, the string length is computed at every access to the "
+"OID using E<.Xr strlen 3>.  Use the E<.Fn SYSCTL_CONST_STRING> macro or the "
+"E<.Fn SYSCTL_ADD_CONST_STRING> function to add a sysctl for a constant "
+"string."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:628
+#, no-wrap
+msgid "CREATING OPAQUE SYSCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:645
+msgid ""
+"The E<.Fn SYSCTL_OPAQUE> or E<.Fn SYSCTL_STRUCT> macros or the E<.Fn "
+"SYSCTL_ADD_OPAQUE> or E<.Fn SYSCTL_ADD_STRUCT> functions create an OID that "
+"handle any chunk of data of the size specified by the E<.Fa len> argument "
+"and data pointed to by the E<.Fa ptr> argument.  When using the structure "
+"version the type is encoded as part of the created sysctl."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:645
+#, no-wrap
+msgid "CREATING CUSTOM SYSCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:658
+msgid ""
+"The E<.Fn SYSCTL_PROC> macro and the E<.Fn SYSCTL_ADD_PROC> function create "
+"OIDs with the specified E<.Pa handler> function.  The handler is responsible "
+"for handling all read and write requests to the OID.  This OID type is "
+"especially useful if the kernel data is not easily accessible, or needs to "
+"be processed before exporting."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:658
+#, no-wrap
+msgid "CREATING A STATIC SYSCTL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:692
+msgid ""
+"Static sysctls are declared using one of the E<.Fn SYSCTL_BOOL>, E<.Fn "
+"SYSCTL_COUNTER_U64>, E<.Fn SYSCTL_COUNTER_U64_ARRAY>, E<.Fn SYSCTL_INT>, "
+"E<.Fn SYSCTL_INT_WITH_LABEL>, E<.Fn SYSCTL_LONG>, E<.Fn SYSCTL_NODE>, E<.Fn "
+"SYSCTL_NODE_WITH_LABEL>, E<.Fn SYSCTL_OPAQUE>, E<.Fn SYSCTL_PROC>, E<.Fn "
+"SYSCTL_QUAD>, E<.Fn SYSCTL_ROOT_NODE>, E<.Fn SYSCTL_S8>, E<.Fn SYSCTL_S16>, "
+"E<.Fn SYSCTL_S32>, E<.Fn SYSCTL_S64>, E<.Fn SYSCTL_SBINTIME_MSEC>, E<.Fn "
+"SYSCTL_SBINTIME_USEC>, E<.Fn SYSCTL_STRING>, E<.Fn SYSCTL_CONST_STRING>, "
+"E<.Fn SYSCTL_STRUCT>, E<.Fn SYSCTL_U8>, E<.Fn SYSCTL_U16>, E<.Fn "
+"SYSCTL_U32>, E<.Fn SYSCTL_U64>, E<.Fn SYSCTL_UINT>, E<.Fn SYSCTL_ULONG>, "
+"E<.Fn SYSCTL_UQUAD>, E<.Fn SYSCTL_UMA_CUR> or E<.Fn SYSCTL_UMA_MAX> macros."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:692
+#, no-wrap
+msgid "CREATING A DYNAMIC SYSCTL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:731
+msgid ""
+"Dynamic nodes are created using one of the E<.Fn SYSCTL_ADD_BOOL>, E<.Fn "
+"SYSCTL_ADD_COUNTER_U64>, E<.Fn SYSCTL_ADD_COUNTER_U64_ARRAY>, E<.Fn "
+"SYSCTL_ADD_INT>, E<.Fn SYSCTL_ADD_LONG>, E<.Fn SYSCTL_ADD_NODE>, E<.Fn "
+"SYSCTL_ADD_NODE_WITH_LABEL>, E<.Fn SYSCTL_ADD_OPAQUE>, E<.Fn "
+"SYSCTL_ADD_PROC>, E<.Fn SYSCTL_ADD_QUAD>, E<.Fn SYSCTL_ADD_ROOT_NODE>, E<.Fn "
+"SYSCTL_ADD_S8>, E<.Fn SYSCTL_ADD_S16>, E<.Fn SYSCTL_ADD_S32>, E<.Fn "
+"SYSCTL_ADD_S64>, E<.Fn SYSCTL_ADD_SBINTIME_MSEC>, E<.Fn "
+"SYSCTL_ADD_SBINTIME_USEC>, E<.Fn SYSCTL_ADD_STRING>, E<.Fn "
+"SYSCTL_ADD_CONST_STRING>, E<.Fn SYSCTL_ADD_STRUCT>, E<.Fn SYSCTL_ADD_U8>, "
+"E<.Fn SYSCTL_ADD_U16>, E<.Fn SYSCTL_ADD_U32>, E<.Fn SYSCTL_ADD_U64>, E<.Fn "
+"SYSCTL_ADD_UAUTO>, E<.Fn SYSCTL_ADD_UINT>, E<.Fn SYSCTL_ADD_ULONG>, E<.Fn "
+"SYSCTL_ADD_UQUAD>, E<.Fn SYSCTL_ADD_UMA_CUR> or E<.Fn SYSCTL_ADD_UMA_MAX> "
+"functions.  See E<.Xr sysctl_remove_oid 9> or E<.Xr sysctl_ctx_free 9> for "
+"more information on how to destroy a dynamically created OID."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:731
+#, no-wrap
+msgid "CONTROL FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:736
+msgid ""
+"For most of the above functions and macros, declaring a type as part of the "
+"access flags is not necessary \\[em] however, when declaring a sysctl "
+"implemented by a function, including a type in the access mask is required:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:737
+#, no-wrap
+msgid "Dv CTLTYPE_NODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:739
+msgid "This is a node intended to be a parent for other nodes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:739
+#, no-wrap
+msgid "Dv CTLTYPE_INT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:741
+msgid "This is a signed integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:741
+#, no-wrap
+msgid "Dv CTLTYPE_STRING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:743
+msgid "This is a nul-terminated string stored in a character array."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:743
+#, no-wrap
+msgid "Dv CTLTYPE_S8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:745
+msgid "This is an 8-bit signed integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:745
+#, no-wrap
+msgid "Dv CTLTYPE_S16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:747
+msgid "This is a 16-bit signed integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:747
+#, no-wrap
+msgid "Dv CTLTYPE_S32"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:749
+msgid "This is a 32-bit signed integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:749
+#, no-wrap
+msgid "Dv CTLTYPE_S64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:751
+msgid "This is a 64-bit signed integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:751
+#, no-wrap
+msgid "Dv CTLTYPE_OPAQUE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:753
+msgid "This is an opaque data structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:753
+#, no-wrap
+msgid "Dv CTLTYPE_STRUCT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:756
+msgid "Alias for E<.Dv CTLTYPE_OPAQUE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:756
+#, no-wrap
+msgid "Dv CTLTYPE_U8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:758
+msgid "This is an 8-bit unsigned integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:758
+#, no-wrap
+msgid "Dv CTLTYPE_U16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:760
+msgid "This is a 16-bit unsigned integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:760
+#, no-wrap
+msgid "Dv CTLTYPE_U32"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:762
+msgid "This is a 32-bit unsigned integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:762
+#, no-wrap
+msgid "Dv CTLTYPE_U64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:764
+msgid "This is a 64-bit unsigned integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:764
+#, no-wrap
+msgid "Dv CTLTYPE_UINT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:766
+msgid "This is an unsigned integer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:766
+#, no-wrap
+msgid "Dv CTLTYPE_LONG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:768
+msgid "This is a signed long."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:768
+#, no-wrap
+msgid "Dv CTLTYPE_ULONG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:770
+msgid "This is an unsigned long."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:774
+msgid ""
+"All sysctl types except for new node declarations require one of the "
+"following flags to be set indicating the read and write disposition of the "
+"sysctl:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:775
+#, no-wrap
+msgid "Dv CTLFLAG_RD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:777
+msgid "This is a read-only sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:777
+#, no-wrap
+msgid "Dv CTLFLAG_RDTUN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:780
+msgid ""
+"This is a read-only sysctl and tunable which is tried fetched once from the "
+"system environment early during module load or system boot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:780
+#, no-wrap
+msgid "Dv CTLFLAG_WR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:782
+msgid "This is a writable sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:782
+#, no-wrap
+msgid "Dv CTLFLAG_RW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:784
+msgid "This sysctl is readable and writable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:784
+#, no-wrap
+msgid "Dv CTLFLAG_RWTUN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:788
+msgid ""
+"This is a readable and writeable sysctl and tunable which is tried fetched "
+"once from the system environment early during module load or system boot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:788
+#, no-wrap
+msgid "Dv CTLFLAG_NOFETCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:794
+msgid ""
+"In case the node is marked as a tunable using the CTLFLAG_[XX]TUN, this flag "
+"will prevent fetching the initial value from the system environment.  "
+"Typically this flag should only be used for very early low level system "
+"setup code, and not by common drivers and modules."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:794
+#, no-wrap
+msgid "Dv CTLFLAG_MPSAFE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:802
+msgid ""
+"This E<.Xr sysctl 9> handler is MP safe.  Do not grab Giant around calls to "
+"this handler.  This should only be used for E<.Fn SYSCTL_PROC> entries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:805
+msgid "Additionally, any of the following optional flags may also be specified:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:806
+#, no-wrap
+msgid "Dv CTLFLAG_ANYBODY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:808
+msgid "Any user or process can write to this sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:808
+#, no-wrap
+msgid "Dv CTLFLAG_CAPRD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:810
+msgid "A process in capability mode can read from this sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:810
+#, no-wrap
+msgid "Dv CTLFLAG_CAPWR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:812
+msgid "A process in capability mode can write to this sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:812
+#, no-wrap
+msgid "Dv CTLFLAG_SECURE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:815
+msgid ""
+"This sysctl can be written to only if the effective securelevel of the "
+"process is \\[E<lt>=] 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:815
+#, no-wrap
+msgid "Dv CTLFLAG_PRISON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:818
+msgid "This sysctl can be written to by processes in E<.Xr jail 2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:818
+#, no-wrap
+msgid "Dv CTLFLAG_SKIP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:820
+msgid "When iterating the sysctl name space, do not list this sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:820
+#, no-wrap
+msgid "Dv CTLFLAG_TUN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:824
+msgid ""
+"Advisory flag that a system tunable also exists for this variable.  The "
+"initial sysctl value is tried fetched once from the system environment early "
+"during module load or system boot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:824
+#, no-wrap
+msgid "Dv CTLFLAG_DYN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:826
+msgid "Dynamically created OIDs automatically get this flag set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:826
+#, no-wrap
+msgid "Dv CTLFLAG_VNET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:828
+msgid "OID references a VIMAGE-enabled variable."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:829
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:835
+msgid ""
+"Sample use of E<.Fn SYSCTL_DECL> to declare the E<.Va security> sysctl tree "
+"for use by new nodes:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:837
+#, no-wrap
+msgid "SYSCTL_DECL(_security);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:840
+msgid "Examples of integer, opaque, string, and procedure sysctls follow:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:848
+#, no-wrap
+msgid ""
+"/*\n"
+" * Example of a constant integer value.  Notice that the control\n"
+" * flags are CTLFLAG_RD, the variable pointer is SYSCTL_NULL_INT_PTR,\n"
+" * and the value is declared.\n"
+" */\n"
+"SYSCTL_INT(_debug_sizeof, OID_AUTO, bio, CTLFLAG_RD, SYSCTL_NULL_INT_PTR,\n"
+"    sizeof(struct bio), \"sizeof(struct bio)\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:857
+#, no-wrap
+msgid ""
+"/*\n"
+" * Example of a variable integer value.  Notice that the control\n"
+" * flags are CTLFLAG_RW, the variable pointer is set, and the\n"
+" * value is 0.\n"
+" */\n"
+"static int\tdoingcache = 1;\t\t/* 1 =E<gt> enable the cache */\n"
+"SYSCTL_INT(_debug, OID_AUTO, vfscache, CTLFLAG_RW, &doingcache, 0,\n"
+"    \"Enable name cache\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:867
+#, no-wrap
+msgid ""
+"/*\n"
+" * Example of a variable string value.  Notice that the control\n"
+" * flags are CTLFLAG_RW, that the variable pointer and string\n"
+" * size are set.  Unlike newer sysctls, this older sysctl uses a\n"
+" * static oid number.\n"
+" */\n"
+"char kernelname[MAXPATHLEN] = \"/kernel\";\t/* XXX bloat */\n"
+"SYSCTL_STRING(_kern, KERN_BOOTFILE, bootfile, CTLFLAG_RW,\n"
+"    kernelname, sizeof(kernelname), \"Name of kernel file booted\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:876
+#, no-wrap
+msgid ""
+"/*\n"
+" * Example of an opaque data type exported by sysctl.  Notice that\n"
+" * the variable pointer and size are provided, as well as a format\n"
+" * string for sysctl(8).\n"
+" */\n"
+"static l_fp pps_freq;\t/* scaled frequency offset (ns/s) */\n"
+"SYSCTL_OPAQUE(_kern_ntp_pll, OID_AUTO, pps_freq, CTLFLAG_RD,\n"
+"    &pps_freq, sizeof(pps_freq), \"I\", \"\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:886
+#, no-wrap
+msgid ""
+"/*\n"
+" * Example of a procedure based sysctl exporting string\n"
+" * information.  Notice that the data type is declared, the NULL\n"
+" * variable pointer and 0 size, the function pointer, and the\n"
+" * format string for sysctl(8).\n"
+" */\n"
+"SYSCTL_PROC(_kern_timecounter, OID_AUTO, hardware, CTLTYPE_STRING |\n"
+"    CTLFLAG_RW, NULL, 0, sysctl_kern_timecounter_hardware, \"A\",\n"
+"    \"\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:894
+msgid ""
+"The following is an example of how to create a new top-level category and "
+"how to hook up another subtree to an existing static node.  This example "
+"does not use contexts, which results in tedious management of all "
+"intermediate oids, as they need to be freed later on:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:907
+#, no-wrap
+msgid ""
+"#include E<lt>sys/sysctl.hE<gt>\n"
+" ...\n"
+"/*\n"
+" * Need to preserve pointers to newly created subtrees,\n"
+" * to be able to free them later:\n"
+" */\n"
+"static struct sysctl_oid *root1;\n"
+"static struct sysctl_oid *root2;\n"
+"static struct sysctl_oid *oidp;\n"
+"static int a_int;\n"
+"static char *string = \"dynamic sysctl\";\n"
+" ...\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:917
+#, no-wrap
+msgid ""
+"root1 = SYSCTL_ADD_ROOT_NODE(NULL,\n"
+"\tOID_AUTO, \"newtree\", CTLFLAG_RW, 0, \"new top level tree\");\n"
+"oidp = SYSCTL_ADD_INT(NULL, SYSCTL_CHILDREN(root1),\n"
+"\tOID_AUTO, \"newint\", CTLFLAG_RW, &a_int, 0, \"new int leaf\");\n"
+" ...\n"
+"root2 = SYSCTL_ADD_NODE(NULL, SYSCTL_STATIC_CHILDREN(_debug),\n"
+"\tOID_AUTO, \"newtree\", CTLFLAG_RW, 0, \"new tree under debug\");\n"
+"oidp = SYSCTL_ADD_STRING(NULL, SYSCTL_CHILDREN(root2),\n"
+"\tOID_AUTO, \"newstring\", CTLFLAG_RD, string, 0, \"new string leaf\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:920
+msgid "This example creates the following subtrees:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:923
+#, no-wrap
+msgid ""
+"debug.newtree.newstring\n"
+"newtree.newint\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:926
+msgid ""
+"E<.Em \"Care should be taken to free all OIDs once they are no longer "
+"needed!\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:926
+#, no-wrap
+msgid "SYSCTL NAMING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:934
+msgid ""
+"When adding, modifying, or removing sysctl names, it is important to be "
+"aware that these interfaces may be used by users, libraries, applications, "
+"or documentation (such as published books), and are implicitly published "
+"application interfaces.  As with other application interfaces, caution must "
+"be taken not to break existing applications, and to think about future use "
+"of new name spaces so as to avoid the need to rename or remove interfaces "
+"that might be depended on in the future."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:954
+msgid ""
+"The semantics chosen for a new sysctl should be as clear as possible, and "
+"the name of the sysctl must closely reflect its semantics.  Therefore the "
+"sysctl name deserves a fair amount of consideration.  It should be short but "
+"yet representative of the sysctl meaning.  If the name consists of several "
+"words, they should be separated by underscore characters, as in E<.Va "
+"compute_summary_at_mount>.  Underscore characters may be omitted only if the "
+"name consists of not more than two words, each being not longer than four "
+"characters, as in E<.Va bootfile>.  For boolean sysctls, negative logic "
+"should be totally avoided.  That is, do not use names like E<.Va no_foobar> "
+"or E<.Va foobar_disable>.  They are confusing and lead to configuration "
+"errors.  Use positive logic instead: E<.Va foobar>, E<.Va foobar_enable>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:959
+msgid ""
+"A temporary sysctl node OID that should not be relied upon must be "
+"designated as such by a leading underscore character in its name.  For "
+"example: E<.Va _dirty_hack>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:959
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:966
+msgid ""
+"E<.Xr sysctl 3>, E<.Xr sysctl 8>, E<.Xr sysctl_add_oid 9>, E<.Xr "
+"sysctl_ctx_free 9>, E<.Xr sysctl_ctx_init 9>, E<.Xr sysctl_remove_oid 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:966
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:971
+msgid "The E<.Xr sysctl 8> utility first appeared in E<.Bx 4.4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:971
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:981
+msgid ""
+"E<.An -nosplit> The E<.Nm sysctl> implementation originally found in E<.Bx> "
+"has been extensively rewritten by E<.An Poul-Henning Kamp> in order to add "
+"support for name lookups, name space iteration, and dynamic addition of MIB "
+"nodes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:984
+msgid "This man page was written by E<.An Robert N. M. Watson>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sysctl.9:984
+#, no-wrap
+msgid "SECURITY CONSIDERATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:993
+msgid ""
+"When creating new sysctls, careful attention should be paid to the security "
+"implications of the monitoring or management interface being created.  Most "
+"sysctls present in the kernel are read-only or writable only by the "
+"superuser.  Sysctls exporting extensive information on system data "
+"structures and operation, especially those implemented using procedures, "
+"will wish to implement access control to limit the undesired exposure of "
+"information about other processes, network connections, etc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:995
+msgid "The following top level sysctl name spaces are commonly used:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:996
+#, no-wrap
+msgid "Va compat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:998
+msgid "Compatibility layer information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:998
+#, no-wrap
+msgid "Va debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1002
+msgid "Debugging information.  Various name spaces exist under E<.Va debug>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1002
+#, no-wrap
+msgid "Va hw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1004
+msgid "Hardware and device driver information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1004
+#, no-wrap
+msgid "Va kern"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1007
+msgid ""
+"Kernel behavior tuning; generally deprecated in favor of more specific name "
+"spaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1007
+#, no-wrap
+msgid "Va machdep"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1009
+msgid "Machine-dependent configuration parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1009
+#, no-wrap
+msgid "Va net"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1013
+msgid "Network subsystem.  Various protocols have name spaces under E<.Va net>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1013
+#, no-wrap
+msgid "Va regression"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1015
+msgid "Regression test configuration and information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1015
+#, no-wrap
+msgid "Va security"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1017
+msgid "Security and security-policy configuration and information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1017
+#, no-wrap
+msgid "Va sysctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1019
+msgid "Reserved name space for the implementation of sysctl."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1019
+#, no-wrap
+msgid "Va user"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1022
+msgid ""
+"Configuration settings relating to user application behavior.  Generally, "
+"configuring applications using kernel sysctls is discouraged."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1022
+#, no-wrap
+msgid "Va vfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1024
+msgid "Virtual file system configuration and information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sysctl.9:1024
+#, no-wrap
+msgid "Va vm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sysctl.9:1026
+msgid "Virtual memory subsystem configuration and information."
+msgstr ""

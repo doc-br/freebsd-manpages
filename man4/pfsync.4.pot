@@ -1,0 +1,301 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/pfsync.4:29
+#, no-wrap
+msgid "December 6, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/pfsync.4:30
+#, no-wrap
+msgid "PFSYNC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:34
+msgid "E<.Nm pfsync>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/pfsync.4:34
+#, no-wrap
+msgid "packet filter state table sychronisation interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:37
+msgid "E<.Cd \"device pfsync\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:53
+msgid ""
+"The E<.Nm> interface is a pseudo-device which exposes certain changes to the "
+"state table used by E<.Xr pf 4>.  State changes can be viewed by invoking "
+"E<.Xr tcpdump 1> on the E<.Nm> interface.  If configured with a physical "
+"synchronisation interface, E<.Nm> will also send state changes out on that "
+"interface, and insert state changes received on that interface from other "
+"systems into the state table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:66
+msgid ""
+"By default, all local changes to the state table are exposed via E<.Nm>.  "
+"State changes from packets received by E<.Nm> over the network are not "
+"rebroadcast.  Updates to states created by a rule marked with the E<.Ar "
+"no-sync> keyword are ignored by the E<.Nm> interface (see E<.Xr pf.conf 5> "
+"for details)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:82
+msgid ""
+"The E<.Nm> interface will attempt to collapse multiple state updates into a "
+"single packet where possible.  The maximum number of times a single state "
+"can be updated before a E<.Nm> packet will be sent out is controlled by the "
+"E<.Ar maxupd> parameter to ifconfig (see E<.Xr ifconfig 8> and the example "
+"below for more details).  The sending out of a E<.Nm> packet will be delayed "
+"by a maximum of one second."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:82
+#, no-wrap
+msgid "NETWORK SYNCHRONISATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:88
+msgid ""
+"States can be synchronised between two or more firewalls using this "
+"interface, by specifying a synchronisation interface using E<.Xr ifconfig "
+"8>.  For example, the following command sets fxp0 as the synchronisation "
+"interface:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:90
+#, no-wrap
+msgid "# ifconfig pfsync0 syncdev fxp0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:106
+msgid ""
+"By default, state change messages are sent out on the synchronisation "
+"interface using IP multicast packets to the 224.0.0.240 group address.  An "
+"alternative destination address for E<.Nm> packets can be specified using "
+"the E<.Ic syncpeer> keyword.  This can be used in combination with E<.Xr "
+"ipsec 4> to protect the synchronisation traffic.  In such a configuration, "
+"the syncdev should be set to the E<.Xr enc 4> interface, as this is where "
+"the traffic arrives when it is decapsulated, e.g.:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:108
+#, no-wrap
+msgid "# ifconfig pfsync0 syncpeer 10.0.0.2 syncdev enc0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:117
+msgid ""
+"It is important that the pfsync traffic be well secured as there is no "
+"authentication on the protocol and it would be trivial to spoof packets "
+"which create states, bypassing the pf ruleset.  Either run the pfsync "
+"protocol on a trusted network \\- ideally a network dedicated to pfsync "
+"messages such as a crossover cable between two firewalls, or specify a peer "
+"address and protect the traffic with E<.Xr ipsec 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:122
+msgid "E<.Nm> has the following E<.Xr sysctl 8> tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pfsync.4:123
+#, no-wrap
+msgid "Va net.pfsync.carp_demotion_factor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:133
+msgid ""
+"Value added to E<.Va net.inet.carp.demotion> while E<.Nm> tries to perform "
+"its bulk update.  See E<.Xr carp 4> for more information.  Default value is "
+"240."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pfsync.4:133
+#, no-wrap
+msgid "Va net.pfsync.pfsync_buckets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:140
+msgid ""
+"The number of E<.Nm> buckets.  This affects the performance and memory "
+"tradeoff.  Defaults to twice the number of CPUs.  Change only if benchmarks "
+"show this helps on your workload."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:141
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:150
+msgid ""
+"E<.Nm> and E<.Xr carp 4> can be used together to provide automatic failover "
+"of a pair of firewalls configured in parallel.  One firewall will handle all "
+"traffic until it dies, is shut down, or is manually demoted, at which point "
+"the second firewall will take over automatically."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:163
+msgid ""
+"Both firewalls in this example have three E<.Xr sis 4> interfaces.  sis0 is "
+"the external interface, on the 10.0.0.0/24 subnet; sis1 is the internal "
+"interface, on the 192.168.0.0/24 subnet; and sis2 is the E<.Nm> interface, "
+"using the 192.168.254.0/24 subnet.  A crossover cable connects the two "
+"firewalls via their sis2 interfaces.  On all three interfaces, firewall A "
+"uses the .254 address, while firewall B uses .253.  The interfaces are "
+"configured as follows (firewall A unless otherwise indicated):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:166
+msgid "Interfaces configuration in E<.Pa /etc/rc.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:175
+#, no-wrap
+msgid ""
+"network_interfaces=\"lo0 sis0 sis1 sis2\"\n"
+"ifconfig_sis0=\"10.0.0.254/24\"\n"
+"ifconfig_sis0_alias0=\"inet 10.0.0.1/24 vhid 1 pass foo\"\n"
+"ifconfig_sis1=\"192.168.0.254/24\"\n"
+"ifconfig_sis1_alias0=\"inet 192.168.0.1/24 vhid 2 pass bar\"\n"
+"ifconfig_sis2=\"192.168.254.254/24\"\n"
+"pfsync_enable=\"YES\"\n"
+"pfsync_syncdev=\"sis2\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:185
+msgid ""
+"E<.Xr pf 4> must also be configured to allow E<.Nm> and E<.Xr carp 4> "
+"traffic through.  The following should be added to the top of E<.Pa "
+"/etc/pf.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:188
+#, no-wrap
+msgid ""
+"pass quick on { sis2 } proto pfsync keep state (no-sync)\n"
+"pass on { sis0 sis1 } proto carp keep state (no-sync)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:199
+msgid ""
+"It is preferable that one firewall handle the forwarding of all the traffic, "
+"therefore the E<.Ar advskew> on the backup firewall's E<.Xr carp 4> vhids "
+"should be set to something higher than the primary's.  For example, if "
+"firewall B is the backup, its carp1 configuration would look like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:201
+#, no-wrap
+msgid "ifconfig_sis1_alias0=\"inet 192.168.0.1/24 vhid 2 pass bar advskew 100\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:205
+msgid "The following must also be added to E<.Pa /etc/sysctl.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:207
+#, no-wrap
+msgid "net.inet.carp.preempt=1\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:208
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:222
+msgid ""
+"E<.Xr tcpdump 1>, E<.Xr bpf 4>, E<.Xr carp 4>, E<.Xr enc 4>, E<.Xr inet 4>, "
+"E<.Xr inet6 4>, E<.Xr ipsec 4>, E<.Xr netintro 4>, E<.Xr pf 4>, E<.Xr "
+"pf.conf 5>, E<.Xr protocols 5>, E<.Xr rc.conf 5>, E<.Xr ifconfig 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pfsync.4:222
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:229
+msgid ""
+"The E<.Nm> device first appeared in E<.Ox 3.3>.  It was first imported to "
+"E<.Fx 5.3>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pfsync.4:235
+msgid ""
+"The E<.Nm> protocol and kernel implementation were significantly modified in "
+"E<.Fx 9.0>.  The newer protocol is not compatible with older one and will "
+"not interoperate with it."
+msgstr ""

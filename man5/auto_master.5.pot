@@ -1,0 +1,585 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/autofs/auto_master.5:30
+#, no-wrap
+msgid "December 28, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/autofs/auto_master.5:31
+#, no-wrap
+msgid "AUTO_MASTER 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:35
+msgid "E<.Nm auto_master>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/autofs/auto_master.5:35
+#, no-wrap
+msgid "auto_master and map file format"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:49
+msgid ""
+"The automounter configuration consists of the E<.Nm> configuration file, "
+"which assigns filesystem paths to map names, and maps, which contain actual "
+"mount information.  The E<.Nm> configuration file is used by the E<.Xr "
+"automount 8> command.  Map files are read by the E<.Xr automountd 8> daemon."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:49
+#, no-wrap
+msgid "AUTO_MASTER SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:54
+msgid ""
+"The E<.Nm> file consists of lines with two or three entries separated by "
+"whitespace and terminated by newline character:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:56
+#, no-wrap
+msgid "E<.Pa mountpoint Pa map_name Op Ar -options>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:71
+msgid ""
+"E<.Pa mountpoint> is either a fully specified path, or E<.Li /->.  When "
+"E<.Pa mountpoint> is a full path, E<.Pa map_name> must reference an indirect "
+"map.  Otherwise, E<.Pa map_name> must reference a direct map.  See E<.Sx "
+"\"MAP SYNTAX\" below.>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:99
+msgid ""
+"E<.Pa map_name> specifies map to use.  If E<.Pa map_name> begins with E<.Li "
+"->, it specifies a special map.  See E<.Sx \"MAP SYNTAX\"> below.  If E<.Pa "
+"map_name> is not a fully specified path E<.Pq it does not start with Li />, "
+"E<.Xr automountd 8> will search for that name in E<.Li /etc>.  Otherwise it "
+"will use the path as given.  If the file indicated by E<.Pa map_name> is "
+"executable, E<.Xr automountd 8> will assume it is an executable map.  See "
+"E<.Sx \"MAP SYNTAX\"> below.  Otherwise, the file is opened and the contents "
+"parsed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:104
+msgid ""
+"E<.Pa -options> is an optional field that starts with E<.Li -> and can "
+"contain generic filesystem mount options."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:107
+msgid ""
+"The following example specifies that the /etc/auto_example indirect map will "
+"be mounted on /example."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:109
+#, no-wrap
+msgid "/example auto_example\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:110
+#, no-wrap
+msgid "MAP SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:113
+msgid ""
+"Map files consist of lines with a number of entries separated by whitespace "
+"and terminated by newline character:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:115
+#, no-wrap
+msgid ""
+"E<.Pa key Oo Ar -options Oc Oo Ar mountpoint Oo -options Oc Oc Ar location "
+"Op ...>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:118
+msgid "In most cases, it can be simplified to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:120
+#, no-wrap
+msgid "E<.Pa key Oo Ar -options Oc Ar location>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:133
+msgid ""
+"E<.Pa key> is the path component used by E<.Xr automountd 8> to find the "
+"right map entry to use.  It is also used to form the final mountpoint.  A "
+"wildcard E<.Pq Ql *> can be used for the key.  It matches every directory "
+"that does not match other keys.  Those directories will not be visible to "
+"the user until accessed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:155
+msgid ""
+"The E<.Ar options> field, if present, must begin with E<.Li ->.  When "
+"mounting the filesystem, options supplied to E<.Nm> and options specified in "
+"the map entry are concatenated together.  The special option E<.Li fstype> "
+"is used to specify filesystem type.  It is not passed to the mount program "
+"as an option.  Instead, it is passed as an argument to E<.Cm \"mount -t\".> "
+"The default E<.Li fstype> is E<.Ql nfs>.  The special option E<.Li nobrowse> "
+"is used to disable creation of top-level directories for special and "
+"executable maps."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:160
+msgid ""
+"The optional E<.Pa mountpoint> field is used to specify multiple mount "
+"points for a single key."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:171
+msgid ""
+"The E<.Ar location> field specifies the filesystem to be mounted.  "
+"Ampersands E<.Pq Ql &> in the E<.Ar location> field are replaced with the "
+"value of E<.Ar key>.  This is typically used with wildcards, like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:173
+#, no-wrap
+msgid "E<.Li *\t192.168.1.1:/share/&>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:178
+msgid "The E<.Ar location> field may contain references to variables, like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:180
+#, no-wrap
+msgid "E<.Li sys\t192.168.1.1:/sys/${OSNAME}>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:183
+msgid "Defined variables are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:185
+#, no-wrap
+msgid "Li ARCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:188
+msgid "Expands to the output of E<.Li \"uname -p\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:188
+#, no-wrap
+msgid "Li CPU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:190
+msgid "Same as ARCH."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:190
+#, no-wrap
+msgid "Li DOLLAR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:192
+msgid "A literal $ sign."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:192
+#, no-wrap
+msgid "Li HOST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:195
+msgid "Expands to the output of E<.Li \"uname -n\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:195
+#, no-wrap
+msgid "Li OSNAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:198
+msgid "Expands to the output of E<.Li \"uname -s\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:198
+#, no-wrap
+msgid "Li OSREL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:201
+msgid "Expands to the output of E<.Li \"uname -r\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:201
+#, no-wrap
+msgid "Li OSVERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:204
+msgid "Expands to the output of E<.Li \"uname -v\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:212
+msgid ""
+"Additional variables can be defined with the E<.Fl D> option of E<.Xr "
+"automount 8> and E<.Xr automountd 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:218
+msgid ""
+"To pass a location that begins with E<.Li />, prefix it with a colon.  For "
+"example, E<.Li :/dev/cd0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:233
+msgid ""
+"This example, when put into E<.Pa /etc/auto_example>, and with E<.Nm> "
+"referring to the map as described above, specifies that the NFS share E<.Li "
+"192.168.1.1:/share/example/x> will be mounted on E<.Pa /example/x/> when any "
+"process attempts to access that mountpoint, with E<.Li intr> and E<.Li "
+"nfsv4> mount options, described in E<.Xr mount_nfs 8>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:235
+#, no-wrap
+msgid "E<.Li x -intr,nfsv4 192.168.1.1:/share/example/x>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:239
+msgid ""
+"Automatically mount an SMB share on access, as a guest user, without "
+"prompting for a password:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:241
+#, no-wrap
+msgid "E<.Li share -fstype=smbfs,-N ://@server/share>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:244
+msgid "Automatically mount the CD drive on access:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:246
+#, no-wrap
+msgid "E<.Li cd -fstype=cd9660 :/dev/cd0>\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:247
+#, no-wrap
+msgid "SPECIAL MAPS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:251
+msgid ""
+"Special maps have names beginning with E<.Li ->.  Supported special maps "
+"are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:253
+#, no-wrap
+msgid "Li -hosts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:262
+msgid ""
+"Query the remote NFS server and map exported shares.  This map is "
+"traditionally mounted on E<.Pa /net>.  Access to files on a remote NFS "
+"server is provided through the E<.Pf /net/ Ar nfs-server-ip Ns / Ns Ar "
+"share-name Ns /> directory without any additional configuration.  "
+"Directories for individual NFS servers are not present until the first "
+"access, when they are automatically created."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:262
+#, no-wrap
+msgid "Li -media"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:265
+msgid ""
+"Query devices that are not yet mounted, but contain valid filesystems.  "
+"Generally used to access files on removable media."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:265
+#, no-wrap
+msgid "Li -noauto"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:270
+msgid ""
+"Mount filesystems configured in E<.Xr fstab 5> as \"noauto\".  This needs to "
+"be set up as a direct map."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:270
+#, no-wrap
+msgid "Li -null"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:274
+msgid "Prevent E<.Xr automountd 8> from mounting anything on the mountpoint."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:282
+msgid ""
+"It is possible to add custom special maps by adding them, as executable maps "
+"named E<.Pa special_foo>, to the E<.Pa /etc/autofs/> directory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:282
+#, no-wrap
+msgid "EXECUTABLE MAPS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:296
+msgid ""
+"If the map file specified in E<.Nm> has the execute bit set, E<.Xr "
+"automountd 8> will execute it and parse the standard output instead of "
+"parsing the file contents.  When called without command line arguments, the "
+"executable is expected to output a list of available map keys separated by "
+"newline characters.  Otherwise, the executable will be called with a key "
+"name as a command line argument.  Output from the executable is expected to "
+"be the entry for that key, not including the key itself."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:296
+#, no-wrap
+msgid "INDIRECT VERSUS DIRECT MAPS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:311
+msgid ""
+"Indirect maps are referred to in E<.Nm> by entries with a fully qualified "
+"path as a mount point, and must contain only relative paths as keys.  Direct "
+"maps are referred to in E<.Nm> by entries with E<.Li /-> as the mountpoint, "
+"and must contain only fully qualified paths as keys.  For indirect maps, the "
+"final mount point is determined by concatenating the E<.Nm> mountpoint with "
+"the map entry key and optional map entry mountpoint.  For direct maps, the "
+"final mount point is determined by concatenating the map entry key with the "
+"optional map entry mountpoint."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:314
+msgid ""
+"The example above could be rewritten using direct map, by placing this in "
+"E<.Nm>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:316
+#, no-wrap
+msgid "E<.Li /- auto_example>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:321
+msgid "and this in E<.Li /etc/auto_example> map file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:325
+#, no-wrap
+msgid ""
+"E<.Li /example/x -intr,nfsv4 192.168.1.1:/share/example/x>\n"
+"E<.Li /example/share -fstype=smbfs,-N ://@server/share>\n"
+"E<.Li /example/cd -fstype=cd9660 :/dev/cd0>\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:326
+#, no-wrap
+msgid "DIRECTORY SERVICES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:330
+msgid ""
+"Both E<.Nm> and maps may contain entries consisting of a plus sign and map "
+"name:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:332
+#, no-wrap
+msgid "E<.Li +auto_master>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:338
+msgid ""
+"Those entries cause E<.Xr automountd 8> daemon to retrieve the named map "
+"from directory services (like LDAP)  and include it where the entry was."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:342
+msgid ""
+"If the file containing the map referenced in E<.Nm> is not found, the map "
+"will be retrieved from directory services instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:356
+msgid ""
+"To retrieve entries from directory services, E<.Xr automountd 8> daemon runs "
+"E<.Pa /etc/autofs/include>, which is usually a shell script, with map name "
+"as the only command line parameter.  The script should output entries "
+"formatted according to E<.Nm> or automounter map syntax to standard output.  "
+"An example script to use LDAP is included in E<.Pa "
+"/etc/autofs/include_ldap>.  It can be symlinked to E<.Pa "
+"/etc/autofs/include>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:356
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:358
+#, no-wrap
+msgid "Pa /etc/auto_master"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:362
+msgid "The default location of the E<.Pa auto_master> file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/autofs/auto_master.5:362
+#, no-wrap
+msgid "Pa /etc/autofs/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:365
+msgid ""
+"Directory containing shell scripts to implement special maps and directory "
+"services."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:366
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:371
+msgid ""
+"E<.Xr autofs 5>, E<.Xr automount 8>, E<.Xr automountd 8>, E<.Xr autounmountd "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/autofs/auto_master.5:371
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/autofs/auto_master.5:376
+msgid ""
+"The E<.Nm> configuration file functionality was developed by E<.An Edward "
+"Tomasz Napierala Aq Mt trasz@FreeBSD.org> under sponsorship from the FreeBSD "
+"Foundation."
+msgstr ""

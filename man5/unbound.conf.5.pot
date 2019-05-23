@@ -1,0 +1,4670 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1
+#, no-wrap
+msgid "unbound.conf"
+msgstr ""
+
+#. type: TH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1
+#, no-wrap
+msgid "Oct  8, 2018"
+msgstr ""
+
+#. type: TH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1
+#, no-wrap
+msgid "NLnet Labs"
+msgstr ""
+
+#. type: TH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1
+#, no-wrap
+msgid "unbound 1.8.1"
+msgstr ""
+
+#
+#.  unbound.conf.5 -- unbound.conf manual
+#
+#.  Copyright (c) 2007, NLnet Labs. All rights reserved.
+#
+#.  See LICENSE for the license.
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:10
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:13
+msgid "B<unbound.conf> - Unbound configuration file."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:13
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:15
+msgid "B<unbound.conf>"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:15
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:22
+msgid ""
+"B<unbound.conf> is used to configure I<unbound>(8).  The file format has "
+"attributes and values. Some attributes have attributes inside them.  The "
+"notation is: attribute: value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:25
+msgid ""
+"Comments start with # and last to the end of line. Empty lines are ignored "
+"as is whitespace at the beginning of a line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:29
+msgid ""
+"The utility I<unbound-checkconf>(8)  can be used to check unbound.conf prior "
+"to usage."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:29
+#, no-wrap
+msgid "EXAMPLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:32
+msgid ""
+"An example config file is shown below. Copy this to "
+"/etc/unbound/unbound.conf and start the server with:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:35
+#, no-wrap
+msgid "\t$ unbound -c /etc/unbound/unbound.conf\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:38
+msgid "Most settings are the defaults. Stop the server with:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:41
+#, no-wrap
+msgid "\t$ kill `cat /etc/unbound/unbound.pid`\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:45
+msgid ""
+"Below is a minimal config file. The source distribution contains an "
+"extensive example.conf file with all the options."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:64
+#, no-wrap
+msgid ""
+"# unbound.conf(5) config file for unbound(8).\n"
+"server:\n"
+"\tdirectory: \"/etc/unbound\"\n"
+"\tusername: unbound\n"
+"\t# make sure unbound can access entropy from inside the chroot.\n"
+"\t# e.g. on linux the use these commands (on BSD, devfs(8) is used):\n"
+"\t#      mount --bind -n /dev/random /etc/unbound/dev/random\n"
+"\t# and  mount --bind -n /dev/log /etc/unbound/dev/log\n"
+"\tchroot: \"/etc/unbound\"\n"
+"\t# logfile: \"/etc/unbound/unbound.log\"  #uncomment to use logfile.\n"
+"\tpidfile: \"/etc/unbound/unbound.pid\"\n"
+"\t# verbosity: 1\t\t# uncomment and increase to get more logging.\n"
+"\t# listen on all interfaces, answer queries from the local subnet.\n"
+"\tinterface: 0.0.0.0\n"
+"\tinterface: ::0\n"
+"\taccess-control: 10.0.0.0/8 allow\n"
+"\taccess-control: 2001:DB8::/64 allow\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:65
+#, no-wrap
+msgid "FILE FORMAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:68
+msgid ""
+"There must be whitespace between keywords. Attribute keywords end with a "
+"colon ':'.  An attribute is followed by its containing attributes, or a "
+"value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:78
+msgid ""
+"Files can be included using the B<include:> directive. It can appear "
+"anywhere, it accepts a single file name as argument.  Processing continues "
+"as if the text from the included file was copied into the config file at "
+"that point.  If also using chroot, using full path names for the included "
+"files works, relative pathnames for the included names work if the directory "
+"where the daemon is started equals its chroot/working directory or is "
+"specified before the include statement with directory: dir.  Wildcards can "
+"be used to include multiple files, see I<glob>(7)."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:78
+#, no-wrap
+msgid "Server Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:82
+msgid "These options are part of the B<server:> clause."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:82
+#, no-wrap
+msgid "B<verbosity: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:90
+msgid ""
+"The verbosity number, level 0 means no verbosity, only errors. Level 1 gives "
+"operational information. Level 2 gives detailed operational "
+"information. Level 3 gives query level information, output per query.  Level "
+"4 gives algorithm level information.  Level 5 logs client identification for "
+"cache misses.  Default is level 1.  The verbosity can also be increased from "
+"the commandline, see I<unbound>(8)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:90
+#, no-wrap
+msgid "B<statistics-interval: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:97
+msgid ""
+"The number of seconds between printing statistics to the log for every "
+"thread.  Disable with value 0 or \"\". Default is disabled.  The histogram "
+"statistics are only printed if replies were sent during the statistics "
+"interval, requestlist statistics are printed for every interval (but can be "
+"0).  This is because the median calculation requires data to be present."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:97
+#, no-wrap
+msgid "B<statistics-cumulative: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:101
+msgid ""
+"If enabled, statistics are cumulative since starting unbound, without "
+"clearing the statistics counters after logging the statistics. Default is "
+"no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:101
+#, no-wrap
+msgid "B<extended-statistics: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:106
+msgid ""
+"If enabled, extended statistics are printed from I<unbound-control>(8).  "
+"Default is off, because keeping track of more statistics takes time.  The "
+"counters are listed in I<unbound-control>(8)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:106
+#, no-wrap
+msgid "B<num-threads: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:109
+msgid "The number of threads to create to serve clients. Use 1 for no threading."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:109
+#, no-wrap
+msgid "B<port: >I<E<lt>port numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:112
+msgid "The port number, default 53, on which the server responds to queries."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:112
+#, no-wrap
+msgid "B<interface: >I<E<lt>ip address[@port]E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:122
+msgid ""
+"Interface to use to connect to the network. This interface is listened to "
+"for queries from clients, and answers to clients are given from it.  Can be "
+"given multiple times to work on several interfaces. If none are given the "
+"default is to listen to localhost.  The interfaces are not changed on a "
+"reload (kill -HUP) but only on restart.  A port number can be specified with "
+"@port (without spaces between interface and port number), if not specified "
+"the default port (from B<port>) is used."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:122
+#, no-wrap
+msgid "B<ip-address: >I<E<lt>ip address[@port]E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:125
+msgid "Same as interface: (for ease of compatibility with nsd.conf)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:125
+#, no-wrap
+msgid "B<interface-automatic: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:130
+msgid ""
+"Detect source interface on UDP queries and copy them to replies.  This "
+"feature is experimental, and needs support in your OS for particular socket "
+"options.  Default value is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:130
+#, no-wrap
+msgid "B<outgoing-interface: >I<E<lt>ip address or ip6 netblockE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:141
+msgid ""
+"Interface to use to connect to the network. This interface is used to send "
+"queries to authoritative servers and receive their replies. Can be given "
+"multiple times to work on several interfaces. If none are given the default "
+"(all) is used. You can specify the same interfaces in B<interface:> and "
+"B<outgoing-interface:> lines, the interfaces are then used for both "
+"purposes. Outgoing queries are sent via a random outgoing interface to "
+"counter spoofing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:157
+msgid ""
+"If an IPv6 netblock is specified instead of an individual IPv6 address, "
+"outgoing UDP queries will use a randomised source address taken from the "
+"netblock to counter spoofing. Requires the IPv6 netblock to be routed to the "
+"host running unbound, and requires OS support for unprivileged non-local "
+"binds (currently only supported on Linux). Several netblocks may be "
+"specified with multiple B<outgoing-interface:> options, but do not specify "
+"both an individual IPv6 address and an IPv6 netblock, or the randomisation "
+"will be compromised.  Consider combining with B<prefer-ip6: yes> to increase "
+"the likelihood of IPv6 nameservers being selected for queries.  On Linux you "
+"need these two commands to be able to use the freebind socket option to "
+"receive traffic for the ip6 netblock: ip -6 addr add mynetblock/64 dev lo && "
+"ip -6 route add local mynetblock/64 dev lo"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:157
+#, no-wrap
+msgid "B<outgoing-range: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:163
+msgid ""
+"Number of ports to open. This number of file descriptors can be opened per "
+"thread. Must be at least 1. Default depends on compile options. Larger "
+"numbers need extra resources from the operating system.  For performance a "
+"very large value is best, use libevent to make this possible."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:163
+#, no-wrap
+msgid "B<outgoing-port-permit: >I<E<lt>port number or rangeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:170
+msgid ""
+"Permit unbound to open this port or range of ports for use to send queries.  "
+"A larger number of permitted outgoing ports increases resilience against "
+"spoofing attempts. Make sure these ports are not needed by other daemons.  "
+"By default only ports above 1024 that have not been assigned by IANA are "
+"used.  Give a port number or a range of the form \"low-high\", without "
+"spaces."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:176
+msgid ""
+"The B<outgoing-port-permit> and B<outgoing-port-avoid> statements are "
+"processed in the line order of the config file, adding the permitted ports "
+"and subtracting the avoided ports from the set of allowed ports.  The "
+"processing starts with the non IANA allocated ports above 1024 in the set of "
+"allowed ports."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:176
+#, no-wrap
+msgid "B<outgoing-port-avoid: >I<E<lt>port number or rangeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:183
+msgid ""
+"Do not permit unbound to open this port or range of ports for use to send "
+"queries. Use this to make sure unbound does not grab a port that another "
+"daemon needs. The port is avoided on all outgoing interfaces, both IP4 and "
+"IP6.  By default only ports above 1024 that have not been assigned by IANA "
+"are used.  Give a port number or a range of the form \"low-high\", without "
+"spaces."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:183
+#, no-wrap
+msgid "B<outgoing-num-tcp: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:188
+msgid ""
+"Number of outgoing TCP buffers to allocate per thread. Default is 10. If set "
+"to 0, or if do-tcp is \"no\", no TCP queries to authoritative servers are "
+"done.  For larger installations increasing this value is a good idea."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:188
+#, no-wrap
+msgid "B<incoming-num-tcp: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:193
+msgid ""
+"Number of incoming TCP buffers to allocate per thread. Default is 10. If set "
+"to 0, or if do-tcp is \"no\", no TCP queries from clients are accepted. For "
+"larger installations increasing this value is a good idea."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:193
+#, no-wrap
+msgid "B<edns-buffer-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:204
+msgid ""
+"Number of bytes size to advertise as the EDNS reassembly buffer size.  This "
+"is the value put into datagrams over UDP towards peers.  The actual buffer "
+"size is determined by msg-buffer-size (both for TCP and UDP).  Do not set "
+"higher than that value.  Default is 4096 which is RFC recommended.  If you "
+"have fragmentation reassembly problems, usually seen as timeouts, then a "
+"value of 1472 can fix it.  Setting to 512 bypasses even the most stringent "
+"path MTU problems, but is seen as extreme, since the amount of TCP fallback "
+"generated is excessive (probably also for this resolver, consider tuning the "
+"outgoing tcp number)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:204
+#, no-wrap
+msgid "B<max-udp-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:209
+msgid ""
+"Maximum UDP response size (not applied to TCP response).  65536 disables the "
+"udp response size maximum, and uses the choice from the client, always.  "
+"Suggested values are 512 to 4096. Default is 4096."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:209
+#, no-wrap
+msgid "B<msg-buffer-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:216
+msgid ""
+"Number of bytes size of the message buffers. Default is 65552 bytes, enough "
+"for 64 Kb packets, the maximum DNS message size. No message larger than this "
+"can be sent or received. Can be reduced to use less memory, but some "
+"requests for DNS data, such as for huge resource records, will result in a "
+"SERVFAIL reply to the client."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:216
+#, no-wrap
+msgid "B<msg-cache-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:221
+msgid ""
+"Number of bytes size of the message cache. Default is 4 megabytes.  A plain "
+"number is in bytes, append 'k', 'm' or 'g' for kilobytes, megabytes or "
+"gigabytes (1024*1024 bytes in a megabyte)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:221
+#, no-wrap
+msgid "B<msg-cache-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:226
+msgid ""
+"Number of slabs in the message cache. Slabs reduce lock contention by "
+"threads.  Must be set to a power of 2. Setting (close) to the number of cpus "
+"is a reasonable guess."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:226
+#, no-wrap
+msgid "B<num-queries-per-thread: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:233
+msgid ""
+"The number of queries that every thread will service simultaneously.  If "
+"more queries arrive that need servicing, and no queries can be jostled out "
+"(see I<jostle-timeout>), then the queries are dropped. This forces the "
+"client to resend after a timeout; allowing the server time to work on the "
+"existing queries. Default depends on compile options, 512 or 1024."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:233
+#, no-wrap
+msgid "B<jostle-timeout: >I<E<lt>msecE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:246
+msgid ""
+"Timeout used when the server is very busy.  Set to a value that usually "
+"results in one roundtrip to the authority servers.  If too many queries "
+"arrive, then 50% of the queries are allowed to run to completion, and the "
+"other 50% are replaced with the new incoming query if they have already "
+"spent more than their allowed time.  This protects against denial of service "
+"by slow queries or high query rates.  Default 200 milliseconds.  The effect "
+"is that the qps for long-lasting queries is about (numqueriesperthread / 2) "
+"/ (average time for such long queries) qps.  The qps for short queries can "
+"be about (numqueriesperthread / 2)  / (jostletimeout in whole seconds) qps "
+"per thread, about (1024/2)*5 = 2560 qps by default."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:246
+#, no-wrap
+msgid "B<delay-close: >I<E<lt>msecE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:255
+msgid ""
+"Extra delay for timeouted UDP ports before they are closed, in msec.  "
+"Default is 0, and that disables it.  This prevents very delayed answer "
+"packets from the upstream (recursive) servers from bouncing against closed "
+"ports and setting off all sort of close-port counters, with eg. 1500 msec.  "
+"When timeouts happen you need extra sockets, it checks the ID and remote IP "
+"of packets, and unwanted packets are added to the unwanted packet counter."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:255
+#, no-wrap
+msgid "B<so-rcvbuf: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:266
+msgid ""
+"If not 0, then set the SO_RCVBUF socket option to get more buffer space on "
+"UDP port 53 incoming queries.  So that short spikes on busy servers do not "
+"drop packets (see counter in netstat -su).  Default is 0 (use system "
+"value).  Otherwise, the number of bytes to ask for, try \"4m\" on a busy "
+"server.  The OS caps it at a maximum, on linux unbound needs root permission "
+"to bypass the limit, or the admin can use sysctl net.core.rmem_max.  On BSD "
+"change kern.ipc.maxsockbuf in /etc/sysctl.conf.  On OpenBSD change header "
+"and recompile kernel. On Solaris ndd -set /dev/udp udp_max_buf 8388608."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:266
+#, no-wrap
+msgid "B<so-sndbuf: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:277
+msgid ""
+"If not 0, then set the SO_SNDBUF socket option to get more buffer space on "
+"UDP port 53 outgoing queries.  This for very busy servers handles spikes in "
+"answer traffic, otherwise 'send: resource temporarily unavailable' can get "
+"logged, the buffer overrun is also visible by netstat -su.  Default is 0 "
+"(use system value).  Specify the number of bytes to ask for, try \"4m\" on a "
+"very busy server.  The OS caps it at a maximum, on linux unbound needs root "
+"permission to bypass the limit, or the admin can use sysctl "
+"net.core.wmem_max.  On BSD, Solaris changes are similar to so-rcvbuf."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:277
+#, no-wrap
+msgid "B<so-reuseport: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:287
+msgid ""
+"If yes, then open dedicated listening sockets for incoming queries for each "
+"thread and try to set the SO_REUSEPORT socket option on each socket.  May "
+"distribute incoming queries to threads more evenly.  Default is yes.  On "
+"Linux it is supported in kernels E<gt>= 3.9.  On other systems, FreeBSD, OSX "
+"it may also work.  You can enable it (on any platform and kernel), it then "
+"attempts to open the port and passes the option if it was available at "
+"compile time, if that works it is used, if it fails, it continues silently "
+"(unless verbosity 3) without the option."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:287
+#, no-wrap
+msgid "B<ip-transparent: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:298
+msgid ""
+"If yes, then use IP_TRANSPARENT socket option on sockets where unbound is "
+"listening for incoming traffic.  Default no.  Allows you to bind to "
+"non-local interfaces.  For example for non-existent IP addresses that are "
+"going to exist later on, with host failover configuration.  This is a lot "
+"like interface-automatic, but that one services all interfaces and with this "
+"option you can select which (future) interfaces unbound provides service "
+"on.  This option needs unbound to be started with root permissions on some "
+"systems.  The option uses IP_BINDANY on FreeBSD systems and SO_BINDANY on "
+"OpenBSD systems."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:298
+#, no-wrap
+msgid "B<ip-freebind: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:305
+msgid ""
+"If yes, then use IP_FREEBIND socket option on sockets where unbound is "
+"listening to incoming traffic.  Default no.  Allows you to bind to IP "
+"addresses that are nonlocal or do not exist, like when the network interface "
+"or IP address is down.  Exists only on Linux, where the similar "
+"ip-transparent option is also available."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:305
+#, no-wrap
+msgid "B<rrset-cache-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:310
+msgid ""
+"Number of bytes size of the RRset cache. Default is 4 megabytes.  A plain "
+"number is in bytes, append 'k', 'm' or 'g' for kilobytes, megabytes or "
+"gigabytes (1024*1024 bytes in a megabyte)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:310
+#, no-wrap
+msgid "B<rrset-cache-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:314
+msgid ""
+"Number of slabs in the RRset cache. Slabs reduce lock contention by "
+"threads.  Must be set to a power of 2."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:314
+#, no-wrap
+msgid "B<cache-max-ttl: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:322
+msgid ""
+"Time to live maximum for RRsets and messages in the cache. Default is 86400 "
+"seconds (1 day). If the maximum kicks in, responses to clients still get "
+"decrementing TTLs based on the original (larger) values.  When the internal "
+"TTL expires, the cache item has expired.  Can be set lower to force the "
+"resolver to query for data often, and not trust (very large) TTL values."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:322
+#, no-wrap
+msgid "B<cache-min-ttl: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:330
+msgid ""
+"Time to live minimum for RRsets and messages in the cache. Default is 0.  If "
+"the minimum kicks in, the data is cached for longer than the domain owner "
+"intended, and thus less queries are made to look up the data.  Zero makes "
+"sure the data in the cache is as the domain owner intended, higher values, "
+"especially more than an hour or so, can lead to trouble as the data in the "
+"cache does not match up with the actual data any more."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:330
+#, no-wrap
+msgid "B<cache-max-negative-ttl: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:335
+msgid ""
+"Time to live maximum for negative responses, these have a SOA in the "
+"authority section that is limited in time.  Default is 3600.  This applies "
+"to nxdomain and nodata answers."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:335
+#, no-wrap
+msgid "B<infra-host-ttl: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:339
+msgid ""
+"Time to live for entries in the host cache. The host cache contains "
+"roundtrip timing, lameness and EDNS support information. Default is 900."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:339
+#, no-wrap
+msgid "B<infra-cache-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:343
+msgid ""
+"Number of slabs in the infrastructure cache. Slabs reduce lock contention by "
+"threads. Must be set to a power of 2."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:343
+#, no-wrap
+msgid "B<infra-cache-numhosts: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:346
+msgid "Number of hosts for which information is cached. Default is 10000."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:346
+#, no-wrap
+msgid "B<infra-cache-min-rtt: >I<E<lt>msecE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:351
+msgid ""
+"Lower limit for dynamic retransmit timeout calculation in infrastructure "
+"cache. Default is 50 milliseconds. Increase this value if using forwarders "
+"needing more time to do recursive name resolution."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:351
+#, no-wrap
+msgid "B<define-tag: >I<E<lt>\"list of tags\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:355
+msgid ""
+"Define the tags that can be used with local-zone and access-control.  "
+"Enclose the list between quotes (\"\") and put spaces between tags."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:355
+#, no-wrap
+msgid "B<do-ip4: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:358
+msgid ""
+"Enable or disable whether ip4 queries are answered or issued. Default is "
+"yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:358
+#, no-wrap
+msgid "B<do-ip6: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:365
+msgid ""
+"Enable or disable whether ip6 queries are answered or issued. Default is "
+"yes.  If disabled, queries are not answered on IPv6, and queries are not "
+"sent on IPv6 to the internet nameservers.  With this option you can disable "
+"the ipv6 transport for sending DNS traffic, it does not impact the contents "
+"of the DNS traffic, which may have ip4 and ip6 addresses in it."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:365
+#, no-wrap
+msgid "B<prefer-ip6: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:369
+msgid ""
+"If enabled, prefer IPv6 transport for sending DNS queries to internet "
+"nameservers. Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:369
+#, no-wrap
+msgid "B<do-udp: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:372
+msgid ""
+"Enable or disable whether UDP queries are answered or issued. Default is "
+"yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:372
+#, no-wrap
+msgid "B<do-tcp: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:375
+msgid ""
+"Enable or disable whether TCP queries are answered or issued. Default is "
+"yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:375
+#, no-wrap
+msgid "B<tcp-mss: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:383
+msgid ""
+"Maximum segment size (MSS) of TCP socket on which the server responds to "
+"queries. Value lower than common MSS on Ethernet (1220 for example) will "
+"address path MTU problem.  Note that not all platform supports socket option "
+"to set MSS (TCP_MAXSEG).  Default is system default MSS determined by "
+"interface MTU and negotiation between server and client."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:383
+#, no-wrap
+msgid "B<outgoing-tcp-mss: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:391
+msgid ""
+"Maximum segment size (MSS) of TCP socket for outgoing queries (from Unbound "
+"to other servers). Value lower than common MSS on Ethernet (1220 for "
+"example) will address path MTU problem.  Note that not all platform supports "
+"socket option to set MSS (TCP_MAXSEG).  Default is system default MSS "
+"determined by interface MTU and negotiation between Unbound and other "
+"servers."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:391
+#, no-wrap
+msgid "B<tcp-idle-timeout: >I<E<lt>msecE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:403
+msgid ""
+"The period Unbound will wait for a query on a TCP connection.  If this "
+"timeout expires Unbound closes the connection.  This option defaults to "
+"30000 milliseconds.  When the number of free incoming TCP buffers falls "
+"below 50% of the total number configured, the option value used is "
+"progressively reduced, first to 1% of the configured value, then to 0.2% of "
+"the configured value if the number of free buffers falls below 35% of the "
+"total number configured, and finally to 0 if the number of free buffers "
+"falls below 20% of the total number configured. A minimum timeout of 200 "
+"milliseconds is observed regardless of the option value used."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:403
+#, no-wrap
+msgid "B<edns-tcp-keepalive: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:406
+msgid "Enable or disable EDNS TCP Keepalive. Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:406
+#, no-wrap
+msgid "B<edns-tcp-keepalive-timeout: >I<E<lt>msecE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:422
+msgid ""
+"The period Unbound will wait for a query on a TCP connection when EDNS TCP "
+"Keepalive is active. If this timeout expires Unbound closes the "
+"connection. If the client supports the EDNS TCP Keepalive option, Unbound "
+"sends the timeout value to the client to encourage it to close the "
+"connection before the server times out.  This option defaults to 120000 "
+"milliseconds.  When the number of free incoming TCP buffers falls below 50% "
+"of the total number configured, the advertised timeout is progressively "
+"reduced to 1% of the configured value, then to 0.2% of the configured value "
+"if the number of free buffers falls below 35% of the total number "
+"configured, and finally to 0 if the number of free buffers falls below 20% "
+"of the total number configured.  A minimum actual timeout of 200 "
+"milliseconds is observed regardless of the advertised timeout."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:422
+#, no-wrap
+msgid "B<tcp-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:426
+msgid ""
+"Enable or disable whether the upstream queries use TCP only for transport.  "
+"Default is no.  Useful in tunneling scenarios."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:426
+#, no-wrap
+msgid "B<udp-upstream-without-downstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:431
+msgid ""
+"Enable udp upstream even if do-udp is no.  Default is no, and this does not "
+"change anything.  Useful for TLS service providers, that want no udp "
+"downstream but use udp to fetch data upstream."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:431
+#, no-wrap
+msgid "B<tls-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:439
+msgid ""
+"Enabled or disable whether the upstream queries use TLS only for transport.  "
+"Default is no.  Useful in tunneling scenarios.  The TLS contains plain DNS "
+"in TCP wireformat.  The other server must support this (see "
+"B<tls-service-key>).  If you enable this, also configure a tls-cert-bundle "
+"or use tls-win-cert to load CA certs, otherwise the connections cannot be "
+"authenticated."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:439
+#, no-wrap
+msgid "B<ssl-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:443
+msgid ""
+"Alternate syntax for B<tls-upstream>.  If both are present in the config "
+"file the last is used."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:443
+#, no-wrap
+msgid "B<tls-service-key: >I<E<lt>fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:453
+msgid ""
+"If enabled, the server provider TLS service on its TCP sockets.  The clients "
+"have to use tls-upstream: yes.  The file is the private key for the TLS "
+"session.  The public certificate is in the tls-service-pem file.  Default is "
+"\"\", turned off.  Requires a restart (a reload is not enough) if changed, "
+"because the private key is read while root permissions are held and before "
+"chroot (if any).  Normal DNS TCP service is not provided and gives errors, "
+"this service is best run with a different B<port:> config or I<@port> "
+"suffixes in the B<interface> config."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:453
+#, no-wrap
+msgid "B<ssl-service-key: >I<E<lt>fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:456
+msgid "Alternate syntax for B<tls-service-key>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:456
+#, no-wrap
+msgid "B<tls-service-pem: >I<E<lt>fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:460
+msgid ""
+"The public key certificate pem file for the tls service.  Default is \"\", "
+"turned off."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:460
+#, no-wrap
+msgid "B<ssl-service-pem: >I<E<lt>fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:463
+msgid "Alternate syntax for B<tls-service-pem>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:463
+#, no-wrap
+msgid "B<tls-port: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:467
+msgid ""
+"The port number on which to provide TCP TLS service, default 853, only "
+"interfaces configured with that port number as @number get the TLS service."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:467
+#, no-wrap
+msgid "B<ssl-port: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:470
+msgid "Alternate syntax for B<tls-port>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:470
+#, no-wrap
+msgid "B<tls-cert-bundle: >I<E<lt>fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:476
+msgid ""
+"If null or \"\", no file is used.  Set it to the certificate bundle file, "
+"for example \"/etc/pki/tls/certs/ca-bundle.crt\".  These certificates are "
+"used for authenticating connections made to outside peers.  For example "
+"auth-zone urls, and also DNS over TLS connections."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:476
+#, no-wrap
+msgid "B<ssl-cert-bundle: >I<E<lt>fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:479
+msgid "Alternate syntax for B<tls-cert-bundle>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:479
+#, no-wrap
+msgid "B<tls-win-cert: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:485
+msgid ""
+"Add the system certificates to the cert bundle certificates for "
+"authentication.  If no cert bundle, it uses only these certificates.  "
+"Default is no.  On windows this option uses the certificates from the cert "
+"store.  Use the tls-cert-bundle option on other systems."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:485
+#, no-wrap
+msgid "B<tls-additional-port: >I<E<lt>portnrE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:490
+msgid ""
+"List portnumbers as tls-additional-port, and when interfaces are defined, "
+"eg. with the @port suffix, as this port number, they provide dns over TLS "
+"service.  Can list multiple, each on a new statement."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:490
+#, no-wrap
+msgid "B<use-systemd: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:494
+msgid "Enable or disable systemd socket activation.  Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:494
+#, no-wrap
+msgid "B<do-daemonize: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:499
+msgid ""
+"Enable or disable whether the unbound server forks into the background as a "
+"daemon.  Set the value to I<no> when unbound runs as systemd service.  "
+"Default is yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:499
+#, no-wrap
+msgid "B<tcp-connection-limit: >I<E<lt>IP netblockE<gt> E<lt>limitE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:504
+msgid ""
+"Allow up to I<limit> simultaneous TCP connections from the given netblock.  "
+"When at the limit, further connections are accepted but closed immediately.  "
+"This option is experimental at this time."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:504
+#, no-wrap
+msgid "B<access-control: >I<E<lt>IP netblockE<gt> E<lt>actionE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:511
+msgid ""
+"The netblock is given as an IP4 or IP6 address with /size appended for a "
+"classless network block. The action can be I<deny>, I<refuse>, I<allow>, "
+"I<allow_setrd>, I<allow_snoop>, I<deny_non_local> or I<refuse_non_local>.  "
+"The most specific netblock match is used, if none match I<deny> is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:513
+msgid "The action I<deny> stops queries from hosts from that netblock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:516
+msgid ""
+"The action I<refuse> stops queries too, but sends a DNS rcode REFUSED error "
+"message back."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:520
+msgid ""
+"The action I<allow> gives access to clients from that netblock.  It gives "
+"only access for recursion clients (which is what almost all clients need).  "
+"Nonrecursive queries are refused."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:527
+msgid ""
+"The I<allow> action does allow nonrecursive queries to access the local-data "
+"that is configured.  The reason is that this does not involve the unbound "
+"server recursive lookup algorithm, and static data is served in the reply.  "
+"This supports normal operations where nonrecursive queries are made for the "
+"authoritative data.  For nonrecursive queries any replies from the dynamic "
+"cache are refused."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:536
+msgid ""
+"The I<allow_setrd> action ignores the recursion desired (RD) bit and treats "
+"all requests as if the recursion desired bit is set.  Note that this "
+"behavior violates RFC 1034 which states that a name server should never "
+"perform recursive service unless asked via the RD bit since this interferes "
+"with trouble shooting of name servers and their databases. This prohibited "
+"behavior may be useful if another DNS server must forward requests for "
+"specific zones to a resolver DNS server, but only supports stub domains and "
+"sends queries to the resolver DNS server with the RD bit cleared."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:543
+msgid ""
+"The action I<allow_snoop> gives nonrecursive access too.  This give both "
+"recursive and non recursive access.  The name I<allow_snoop> refers to cache "
+"snooping, a technique to use nonrecursive queries to examine the cache "
+"contents (for malicious acts).  However, nonrecursive queries can also be a "
+"valuable debugging tool (when you want to examine the cache contents). In "
+"that case use I<allow_snoop> for your administration host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:548
+msgid ""
+"By default only localhost is I<allow>ed, the rest is I<refuse>d.  The "
+"default is I<refuse>d, because that is protocol-friendly. The DNS protocol "
+"is not designed to handle dropped packets due to policy, and dropping may "
+"result in (possibly excessive) retried queries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:554
+msgid ""
+"The deny_non_local and refuse_non_local settings are for hosts that are only "
+"allowed to query for the authoritative local-data, they are not allowed full "
+"recursion but only the static data.  With deny_non_local, messages that are "
+"disallowed are dropped, with refuse_non_local they receive error code "
+"REFUSED."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:554
+#, no-wrap
+msgid "B<access-control-tag: >I<E<lt>IP netblockE<gt> E<lt>\"list of tags\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:562
+msgid ""
+"Assign tags to access-control elements. Clients using this access control "
+"element use localzones that are tagged with one of these tags. Tags must be "
+"defined in I<define-tags>.  Enclose list of tags in quotes (\"\") and put "
+"spaces between tags. If access-control-tag is configured for a netblock that "
+"does not have an access-control, an access-control element with action "
+"I<allow> is configured for this netblock."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:562
+#, no-wrap
+msgid ""
+"B<access-control-tag-action: >I<E<lt>IP netblockE<gt> E<lt>tagE<gt> "
+"E<lt>actionE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:568
+msgid ""
+"Set action for particular tag for given access control element. If you have "
+"multiple tag values, the tag used to lookup the action is the first tag "
+"match between access-control-tag and local-zone-tag where \"first\" comes "
+"from the order of the define-tag values."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:568
+#, no-wrap
+msgid ""
+"B<access-control-tag-data: >I<E<lt>IP netblockE<gt> E<lt>tagE<gt> "
+"E<lt>\"resource record string\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:571
+msgid "Set redirect data for particular tag for given access control element."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:571
+#, no-wrap
+msgid "B<access-control-view: >I<E<lt>IP netblockE<gt> E<lt>view nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:574
+msgid "Set view for given access control element."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:574
+#, no-wrap
+msgid "B<chroot: >I<E<lt>directoryE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:580
+msgid ""
+"If chroot is enabled, you should pass the configfile (from the commandline) "
+"as a full path from the original root. After the chroot has been performed "
+"the now defunct portion of the config file path is removed to be able to "
+"reread the config after a reload."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:587
+msgid ""
+"All other file paths (working dir, logfile, roothints, and key files) can be "
+"specified in several ways: as an absolute path relative to the new root, as "
+"a relative path to the working directory, or as an absolute path relative to "
+"the original root.  In the last case the path is adjusted to remove the "
+"unused portion."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:592
+msgid ""
+"The pidfile can be either a relative path to the working directory, or an "
+"absolute path relative to the original root. It is written just prior to "
+"chroot and dropping permissions. This allows the pidfile to be "
+"/var/run/unbound.pid and the chroot to be /var/unbound, for example."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:595
+msgid ""
+"Additionally, unbound may need to access /dev/random (for entropy)  from "
+"inside the chroot."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:599
+msgid ""
+"If given a chroot is done to the given directory. By default chroot is "
+"enabled and the default is \"/var/unbound\". If you give \"\" no chroot is "
+"performed."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:599
+#, no-wrap
+msgid "B<username: >I<E<lt>nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:603
+msgid ""
+"If given, after binding the port the user privileges are dropped. Default is "
+"\"unbound\". If you give username: \"\" no user change is performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:608
+msgid ""
+"If this user is not capable of binding the port, reloads (by signal HUP) "
+"will still retain the opened ports.  If you change the port number in the "
+"config file, and that new port number requires privileges, then a reload "
+"will fail; a restart is needed."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:608
+#, no-wrap
+msgid "B<directory: >I<E<lt>directoryE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:615
+msgid ""
+"Sets the working directory for the program. Default is \"/var/unbound\".  On "
+"Windows the string \"%EXECUTABLE%\" tries to change to the directory that "
+"unbound.exe resides in.  If you give a server: directory: dir before "
+"include: file statements then those includes can be relative to the working "
+"directory."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:615
+#, no-wrap
+msgid "B<logfile: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:619
+msgid ""
+"If \"\" is given, logging goes to stderr, or nowhere once daemonized.  The "
+"logfile is appended to, in the following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:621
+#, no-wrap
+msgid "[seconds since 1970] unbound[pid:tid]: type: message.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:625
+msgid ""
+"If this option is given, the use-syslog is option is set to \"no\".  The "
+"logfile is reopened (for append) when the config file is reread, on SIGHUP."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:625
+#, no-wrap
+msgid "B<use-syslog: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:632
+msgid ""
+"Sets unbound to send log messages to the syslogd, using I<syslog>(3).  The "
+"log facility LOG_DAEMON is used, with identity \"unbound\".  The logfile "
+"setting is overridden when use-syslog is turned on.  The default is to log "
+"to syslog."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:632
+#, no-wrap
+msgid "B<log-identity: >I<E<lt>stringE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:639
+msgid ""
+"If \"\" is given (default), then the name of the executable, usually "
+"\"unbound\" is used to report to the log.  Enter a string to override it "
+"with that, which is useful on systems that run more than one instance of "
+"unbound, with different configurations, so that the logs can be easily "
+"distinguished against."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:639
+#, no-wrap
+msgid "B<log-time-ascii: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:644
+msgid ""
+"Sets logfile lines to use a timestamp in UTC ascii. Default is no, which "
+"prints the seconds since 1970 in brackets. No effect if using syslog, in "
+"that case syslog formats the timestamp printed into the log files."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:644
+#, no-wrap
+msgid "B<log-queries: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:650
+msgid ""
+"Prints one line per query to the log, with the log timestamp and IP address, "
+"name, type and class.  Default is no.  Note that it takes time to print "
+"these lines which makes the server (significantly) slower.  Odd "
+"(nonprintable)  characters in names are printed as '?'."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:650
+#, no-wrap
+msgid "B<log-replies: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:657
+msgid ""
+"Prints one line per reply to the log, with the log timestamp and IP address, "
+"name, type, class, return code, time to resolve, from cache and response "
+"size.  Default is no.  Note that it takes time to print these lines which "
+"makes the server (significantly) slower.  Odd (nonprintable)  characters in "
+"names are printed as '?'."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:657
+#, no-wrap
+msgid "B<log-local-actions: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:662
+msgid ""
+"Print log lines to inform about local zone actions.  These lines are like "
+"the local-zone type inform prints out, but they are also printed for the "
+"other types of local zones."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:662
+#, no-wrap
+msgid "B<log-servfail: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:667
+msgid ""
+"Print log lines that say why queries return SERVFAIL to clients.  This is "
+"separate from the verbosity debug logs, much smaller, and printed at the "
+"error level, not the info level of debug info from verbosity."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:667
+#, no-wrap
+msgid "B<pidfile: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:671
+msgid ""
+"The process id is written to the file. Default is "
+"\"/var/unbound/unbound.pid\".  So,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:673
+#, no-wrap
+msgid "kill -HUP `cat /var/unbound/unbound.pid`\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:675
+msgid "triggers a reload,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:677
+#, no-wrap
+msgid "kill -TERM `cat /var/unbound/unbound.pid`\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:679
+msgid "gracefully terminates."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:679
+#, no-wrap
+msgid "B<root-hints: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:685
+msgid ""
+"Read the root hints from this file. Default is nothing, using builtin hints "
+"for the IN class. The file has the format of zone files, with root "
+"nameserver names and addresses only. The default may become outdated, when "
+"servers change, therefore it is good practice to use a root-hints file."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:685
+#, no-wrap
+msgid "B<hide-identity: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:688
+msgid "If enabled id.server and hostname.bind queries are refused."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:688
+#, no-wrap
+msgid "B<identity: >I<E<lt>stringE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:692
+msgid ""
+"Set the identity to report. If set to \"\", the default, then the hostname "
+"of the server is returned."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:692
+#, no-wrap
+msgid "B<hide-version: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:695
+msgid "If enabled version.server and version.bind queries are refused."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:695
+#, no-wrap
+msgid "B<version: >I<E<lt>stringE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:699
+msgid ""
+"Set the version to report. If set to \"\", the default, then the package "
+"version is returned."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:699
+#, no-wrap
+msgid "B<hide-trustanchor: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:702
+msgid "If enabled trustanchor.unbound queries are refused."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:702
+#, no-wrap
+msgid "B<target-fetch-policy: >I<E<lt>\"list of numbers\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:707
+msgid ""
+"Set the target fetch policy used by unbound to determine if it should fetch "
+"nameserver target addresses opportunistically. The policy is described per "
+"dependency depth."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:713
+msgid ""
+"The number of values determines the maximum dependency depth that unbound "
+"will pursue in answering a query.  A value of -1 means to fetch all targets "
+"opportunistically for that dependency depth. A value of 0 means to fetch on "
+"demand only. A positive value fetches that many targets opportunistically."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:718
+msgid ""
+"Enclose the list between quotes (\"\") and put spaces between numbers.  The "
+"default is \"3 2 1 0 0\". Setting all zeroes, \"0 0 0 0 0\" gives behaviour "
+"closer to that of BIND 9, while setting \"-1 -1 -1 -1 -1\" gives behaviour "
+"rumoured to be closer to that of BIND 8."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:718
+#, no-wrap
+msgid "B<harden-short-bufsize: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:723
+msgid ""
+"Very small EDNS buffer sizes from queries are ignored. Default is off, since "
+"it is legal protocol wise to send these, and unbound tries to give very "
+"small answers to these queries, where possible."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:723
+#, no-wrap
+msgid "B<harden-large-queries: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:728
+msgid ""
+"Very large queries are ignored. Default is off, since it is legal protocol "
+"wise to send these, and could be necessary for operation if TSIG or EDNS "
+"payload is very large."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:728
+#, no-wrap
+msgid "B<harden-glue: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:731
+msgid "Will trust glue only if it is within the servers authority. Default is on."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:731
+#, no-wrap
+msgid "B<harden-dnssec-stripped: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:741
+msgid ""
+"Require DNSSEC data for trust-anchored zones, if such data is absent, the "
+"zone becomes bogus. If turned off, and no DNSSEC data is received (or the "
+"DNSKEY data fails to validate), then the zone is made insecure, this behaves "
+"like there is no trust anchor. You could turn this off if you are sometimes "
+"behind an intrusive firewall (of some sort) that removes DNSSEC data from "
+"packets, or a zone changes from signed to unsigned to badly signed often. If "
+"turned off you run the risk of a downgrade attack that disables security for "
+"a zone. Default is on."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:741
+#, no-wrap
+msgid "B<harden-below-nxdomain: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:752
+msgid ""
+"From RFC 8020 (with title \"NXDOMAIN: There Really Is Nothing Underneath\"), "
+"returns nxdomain to queries for a name below another name that is already "
+"known to be nxdomain.  DNSSEC mandates noerror for empty nonterminals, hence "
+"this is possible.  Very old software might return nxdomain for empty "
+"nonterminals (that usually happen for reverse IP address lookups), and thus "
+"may be incompatible with this.  To try to avoid this only DNSSEC-secure "
+"nxdomains are used, because the old software does not have DNSSEC.  Default "
+"is on.  The nxdomain must be secure, this means nsec3 with optout is "
+"insufficient."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:752
+#, no-wrap
+msgid "B<harden-referral-path: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:764
+msgid ""
+"Harden the referral path by performing additional queries for infrastructure "
+"data.  Validates the replies if trust anchors are configured and the zones "
+"are signed.  This enforces DNSSEC validation on nameserver NS sets and the "
+"nameserver addresses that are encountered on the referral path to the "
+"answer.  Default no, because it burdens the authority servers, and it is not "
+"RFC standard, and could lead to performance problems because of the extra "
+"query load that is generated.  Experimental option.  If you enable it "
+"consider adding more numbers after the target-fetch-policy to increase the "
+"max depth that is checked to."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:764
+#, no-wrap
+msgid "B<harden-algo-downgrade: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:771
+msgid ""
+"Harden against algorithm downgrade when multiple algorithms are advertised "
+"in the DS record.  If no, allows the weakest algorithm to validate the "
+"zone.  Default is no.  Zone signers must produce zones that allow this "
+"feature to work, but sometimes they do not, and turning this option off "
+"avoids that validation failure."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:771
+#, no-wrap
+msgid "B<use-caps-for-id: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:778
+msgid ""
+"Use 0x20-encoded random bits in the query to foil spoof attempts.  This "
+"perturbs the lowercase and uppercase of query names sent to authority "
+"servers and checks if the reply still has the correct casing.  Disabled by "
+"default.  This feature is an experimental implementation of draft dns-0x20."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:778
+#, no-wrap
+msgid "B<caps-whitelist: >I<E<lt>domainE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:784
+msgid ""
+"Whitelist the domain so that it does not receive caps-for-id perturbed "
+"queries.  For domains that do not support 0x20 and also fail with fallback "
+"because they keep sending different answers, like some load balancers.  Can "
+"be given multiple times, for different domains."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:784
+#, no-wrap
+msgid "B<qname-minimisation: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:791
+msgid ""
+"Send minimum amount of information to upstream servers to enhance privacy.  "
+"Only sent minimum required labels of the QNAME and set QTYPE to A when "
+"possible. Best effort approach; full QNAME and original QTYPE will be sent "
+"when upstream replies with a RCODE other than NOERROR, except when receiving "
+"NXDOMAIN from a DNSSEC signed zone. Default is yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:791
+#, no-wrap
+msgid "B<qname-minimisation-strict: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:797
+msgid ""
+"QNAME minimisation in strict mode. Do not fall-back to sending full QNAME to "
+"potentially broken nameservers. A lot of domains will not be resolvable when "
+"this option in enabled. Only use if you know what you are doing.  This "
+"option only has effect when qname-minimisation is enabled. Default is off."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:797
+#, no-wrap
+msgid "B<aggressive-nsec: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:803
+msgid ""
+"Aggressive NSEC uses the DNSSEC NSEC chain to synthesize NXDOMAIN and other "
+"denials, using information from previous NXDOMAINs answers.  Default is no.  "
+"It helps to reduce the query rate towards targets that get a very high "
+"nonexistent name lookup rate."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:803
+#, no-wrap
+msgid "B<private-address: >I<E<lt>IP address or subnetE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:822
+msgid ""
+"Give IPv4 of IPv6 addresses or classless subnets. These are addresses on "
+"your private network, and are not allowed to be returned for public internet "
+"names.  Any occurrence of such addresses are removed from DNS "
+"answers. Additionally, the DNSSEC validator may mark the answers bogus. This "
+"protects against so-called DNS Rebinding, where a user browser is turned "
+"into a network proxy, allowing remote access through the browser to other "
+"parts of your private network.  Some names can be allowed to contain your "
+"private addresses, by default all the B<local-data> that you configured is "
+"allowed to, and you can specify additional names using B<private-domain>.  "
+"No private addresses are enabled by default.  We consider to enable this for "
+"the RFC1918 private IP address space by default in later releases. That "
+"would enable private addresses for 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 "
+"169.254.0.0/16 fd00::/8 and fe80::/10, since the RFC standards say these "
+"addresses should not be visible on the public internet.  Turning on "
+"127.0.0.0/8 would hinder many spamblocklists as they use that.  Adding "
+"::ffff:0:0/96 stops IPv4-mapped IPv6 addresses from bypassing the filter."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:822
+#, no-wrap
+msgid "B<private-domain: >I<E<lt>domain nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:827
+msgid ""
+"Allow this domain, and all its subdomains to contain private addresses.  "
+"Give multiple times to allow multiple domain names to contain private "
+"addresses. Default is none."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:827
+#, no-wrap
+msgid "B<unwanted-reply-threshold: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:834
+msgid ""
+"If set, a total number of unwanted replies is kept track of in every "
+"thread.  When it reaches the threshold, a defensive action is taken and a "
+"warning is printed to the log.  The defensive action is to clear the rrset "
+"and message caches, hopefully flushing away any poison.  A value of 10 "
+"million is suggested.  Default is 0 (turned off)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:834
+#, no-wrap
+msgid "B<do-not-query-address: >I<E<lt>IP addressE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:839
+msgid ""
+"Do not query the given IP address. Can be IP4 or IP6. Append /num to "
+"indicate a classless delegation netblock, for example like 10.2.3.4/24 or "
+"2001::11/64."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:839
+#, no-wrap
+msgid "B<do-not-query-localhost: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:844
+msgid ""
+"If yes, localhost is added to the do-not-query-address entries, both IP6 ::1 "
+"and IP4 127.0.0.1/8. If no, then localhost can be used to send queries "
+"to. Default is yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:844
+#, no-wrap
+msgid "B<prefetch: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:850
+msgid ""
+"If yes, message cache elements are prefetched before they expire to keep the "
+"cache up to date.  Default is no.  Turning it on gives about 10 percent more "
+"traffic and load on the machine, but popular items do not expire from the "
+"cache."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:850
+#, no-wrap
+msgid "B<prefetch-key: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:855
+msgid ""
+"If yes, fetch the DNSKEYs earlier in the validation process, when a DS "
+"record is encountered.  This lowers the latency of requests.  It does use a "
+"little more CPU.  Also if the cache is set to 0, it is no use. Default is "
+"no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:855
+#, no-wrap
+msgid "B<rrset-roundrobin: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:859
+msgid ""
+"If yes, Unbound rotates RRSet order in response (the random number is taken "
+"from the query ID, for speed and thread safety).  Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:859
+#, no-wrap
+msgid "B<minimal-responses: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:869
+msgid ""
+"If yes, Unbound doesn't insert authority/additional sections into response "
+"messages when those sections are not required.  This reduces response size "
+"significantly, and may avoid TCP fallback for some responses.  This may "
+"cause a slight speedup.  The default is yes, even though the DNS protocol "
+"RFCs mandate these sections, and the additional content could be of use and "
+"save roundtrips for clients.  Because they are not used, and the saved "
+"roundtrips are easier saved with prefetch, whilst this is faster."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:869
+#, no-wrap
+msgid "B<disable-dnssec-lame-check: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:876
+msgid ""
+"If true, disables the DNSSEC lameness check in the iterator.  This check "
+"sees if RRSIGs are present in the answer, when dnssec is expected, and "
+"retries another authority if RRSIGs are unexpectedly missing.  The validator "
+"will insist in RRSIGs for DNSSEC signed domains regardless of this setting, "
+"if a trust anchor is loaded."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:876
+#, no-wrap
+msgid "B<module-config: >I<E<lt>\"module names\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:884
+msgid ""
+"Module configuration, a list of module names separated by spaces, surround "
+"the string with quotes (\"\"). The modules can be validator, iterator.  "
+"Setting this to \"iterator\" will result in a non-validating server.  "
+"Setting this to \"validator iterator\" will turn on DNSSEC validation.  The "
+"ordering of the modules is important.  You must also set trust-anchors for "
+"validation to be useful."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:884
+#, no-wrap
+msgid "B<trust-anchor-file: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:889
+msgid ""
+"File with trusted keys for validation. Both DS and DNSKEY entries can appear "
+"in the file. The format of the file is the standard DNS Zone file format.  "
+"Default is \"\", or no trust anchor file."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:889
+#, no-wrap
+msgid "B<auto-trust-anchor-file: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:899
+msgid ""
+"File with trust anchor for one zone, which is tracked with RFC5011 probes.  "
+"The probes are several times per month, thus the machine must be online "
+"frequently.  The initial file can be one with contents as described in "
+"B<trust-anchor-file>.  The file is written to when the anchor is updated, so "
+"the unbound user must have write permission.  Write permission to the file, "
+"but also to the directory it is in (to create a temporary file, which is "
+"necessary to deal with filesystem full events), it must also be inside the "
+"chroot (if that is used)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:899
+#, no-wrap
+msgid "B<trust-anchor: >I<E<lt>\"Resource Record\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:907
+msgid ""
+"A DS or DNSKEY RR for a key to use for validation. Multiple entries can be "
+"given to specify multiple trusted keys, in addition to the "
+"trust-anchor-files.  The resource record is entered in the same format as "
+"'dig' or 'drill' prints them, the same format as in the zone file. Has to be "
+"on a single line, with \"\" around it. A TTL can be specified for ease of "
+"cut and paste, but is ignored.  A class can be specified, but class IN is "
+"default."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:907
+#, no-wrap
+msgid "B<trusted-keys-file: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:915
+msgid ""
+"File with trusted keys for validation. Specify more than one file with "
+"several entries, one file per entry. Like B<trust-anchor-file> but has a "
+"different file format. Format is BIND-9 style format, the trusted-keys { "
+"name flag proto algo \"key\"; }; clauses are read.  It is possible to use "
+"wildcards with this statement, the wildcard is expanded on start and on "
+"reload."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:915
+#, no-wrap
+msgid "B<trust-anchor-signaling: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:918
+msgid "Send RFC8145 key tag query after trust anchor priming. Default is on."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:918
+#, no-wrap
+msgid "B<root-key-sentinel: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:921
+msgid "Root key trust anchor sentinel. Default is on."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:921
+#, no-wrap
+msgid "B<dlv-anchor-file: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:932
+msgid ""
+"This option was used during early days DNSSEC deployment when no parent-side "
+"DS record registrations were easily available.  Nowadays, it is best to have "
+"DS records registered with the parent zone (many top level zones are "
+"signed).  File with trusted keys for DLV (DNSSEC Lookaside Validation). Both "
+"DS and DNSKEY entries can be used in the file, in the same format as for "
+"I<trust-anchor-file:> statements. Only one DLV can be configured, more would "
+"be slow. The DLV configured is used as a root trusted DLV, this means that "
+"it is a lookaside for the root. Default is \"\", or no dlv anchor file. DLV "
+"is going to be decommissioned.  Please do not use it any more."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:932
+#, no-wrap
+msgid "B<dlv-anchor: >I<E<lt>\"Resource Record\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:936
+msgid ""
+"Much like trust-anchor, this is a DLV anchor with the DS or DNSKEY inline.  "
+"DLV is going to be decommissioned.  Please do not use it any more."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:936
+#, no-wrap
+msgid "B<domain-insecure: >I<E<lt>domain nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:945
+msgid ""
+"Sets domain name to be insecure, DNSSEC chain of trust is ignored towards "
+"the domain name.  So a trust anchor above the domain name can not make the "
+"domain secure with a DS record, such a DS record is then ignored.  Also keys "
+"from DLV are ignored for the domain.  Can be given multiple times to specify "
+"multiple domains that are treated as if unsigned.  If you set trust anchors "
+"for the domain they override this setting (and the domain is secured)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:949
+msgid ""
+"This can be useful if you want to make sure a trust anchor for external "
+"lookups does not affect an (unsigned) internal domain.  A DS record "
+"externally can create validation failures for that internal domain."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:949
+#, no-wrap
+msgid "B<val-override-date: >I<E<lt>rrsig-style date specE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:956
+msgid ""
+"Default is \"\" or \"0\", which disables this debugging feature. If enabled "
+"by giving a RRSIG style date, that date is used for verifying RRSIG "
+"inception and expiration dates, instead of the current date. Do not set this "
+"unless you are debugging signature inception and expiration. The value -1 "
+"ignores the date altogether, useful for some special applications."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:956
+#, no-wrap
+msgid "B<val-sig-skew-min: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:963
+msgid ""
+"Minimum number of seconds of clock skew to apply to validated signatures.  A "
+"value of 10% of the signature lifetime (expiration - inception) is used, "
+"capped by this setting.  Default is 3600 (1 hour) which allows for daylight "
+"savings differences.  Lower this value for more strict checking of short "
+"lived signatures."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:963
+#, no-wrap
+msgid "B<val-sig-skew-max: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:972
+msgid ""
+"Maximum number of seconds of clock skew to apply to validated signatures.  A "
+"value of 10% of the signature lifetime (expiration - inception)  is used, "
+"capped by this setting.  Default is 86400 (24 hours) which allows for "
+"timezone setting problems in stable domains.  Setting both min and max very "
+"low disables the clock skew allowances.  Setting both min and max very high "
+"makes the validator check the signature timestamps less strictly."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:972
+#, no-wrap
+msgid "B<val-bogus-ttl: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:978
+msgid ""
+"The time to live for bogus data. This is data that has failed validation; "
+"due to invalid signatures or other checks. The TTL from that data cannot be "
+"trusted, and this value is used instead. The value is in seconds, default "
+"60.  The time interval prevents repeated revalidation of bogus data."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:978
+#, no-wrap
+msgid "B<val-clean-additional: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:985
+msgid ""
+"Instruct the validator to remove data from the additional section of secure "
+"messages that are not signed properly. Messages that are insecure, bogus, "
+"indeterminate or unchecked are not affected. Default is yes. Use this "
+"setting to protect the users that rely on this validator for authentication "
+"from potentially bad data in the additional section."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:985
+#, no-wrap
+msgid "B<val-log-level: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:994
+msgid ""
+"Have the validator print validation failures to the log.  Regardless of the "
+"verbosity setting.  Default is 0, off.  At 1, for every user query that "
+"fails a line is printed to the logs.  This way you can monitor what happens "
+"with validation.  Use a diagnosis tool, such as dig or drill, to find out "
+"why validation is failing for these queries.  At 2, not only the query that "
+"failed is printed but also the reason why unbound thought it was wrong and "
+"which server sent the faulty data."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:994
+#, no-wrap
+msgid "B<val-permissive-mode: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1002
+msgid ""
+"Instruct the validator to mark bogus messages as indeterminate. The security "
+"checks are performed, but if the result is bogus (failed security), the "
+"reply is not withheld from the client with SERVFAIL as usual. The client "
+"receives the bogus data. For messages that are found to be secure the AD bit "
+"is set in replies. Also logging is performed as for full validation.  The "
+"default value is \"no\"."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1002
+#, no-wrap
+msgid "B<ignore-cd-flag: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1010
+msgid ""
+"Instruct unbound to ignore the CD flag from clients and refuse to return "
+"bogus answers to them.  Thus, the CD (Checking Disabled) flag does not "
+"disable checking any more.  This is useful if legacy (w2008)  servers that "
+"set the CD flag but cannot validate DNSSEC themselves are the clients, and "
+"then unbound provides them with DNSSEC protection.  The default value is "
+"\"no\"."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1010
+#, no-wrap
+msgid "B<serve-expired: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1015
+msgid ""
+"If enabled, unbound attempts to serve old responses from cache with a TTL of "
+"0 in the response without waiting for the actual resolution to finish.  The "
+"actual resolution answer ends up in the cache later on.  Default is \"no\"."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1015
+#, no-wrap
+msgid "B<serve-expired-ttl: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1020
+msgid ""
+"Limit serving of expired responses to configured seconds after expiration. 0 "
+"disables the limit. This option only applies when B<serve-expired> is "
+"enabled. The default is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1020
+#, no-wrap
+msgid "B<serve-expired-ttl-reset: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1026
+msgid ""
+"Set the TTL of expired records to the B<serve-expired-ttl> value after a "
+"failed attempt to retrieve the record from upstream. This makes sure that "
+"the expired records will be served as long as there are queries for "
+"it. Default is \"no\"."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1026
+#, no-wrap
+msgid "B<val-nsec3-keysize-iterations: >I<E<lt>\"list of values\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1035
+msgid ""
+"List of keysize and iteration count values, separated by spaces, surrounded "
+"by quotes. Default is \"1024 150 2048 500 4096 2500\". This determines the "
+"maximum allowed NSEC3 iteration count before a message is simply marked "
+"insecure instead of performing the many hashing iterations. The list must be "
+"in ascending order and have at least one entry. If you set it to \"1024 "
+"65535\" there is no restriction to NSEC3 iteration values.  This table must "
+"be kept short; a very long list could cause slower operation."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1035
+#, no-wrap
+msgid "B<add-holddown: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1040
+msgid ""
+"Instruct the B<auto-trust-anchor-file> probe mechanism for RFC5011 autotrust "
+"updates to add new trust anchors only after they have been visible for this "
+"time.  Default is 30 days as per the RFC."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1040
+#, no-wrap
+msgid "B<del-holddown: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1046
+msgid ""
+"Instruct the B<auto-trust-anchor-file> probe mechanism for RFC5011 autotrust "
+"updates to remove revoked trust anchors after they have been kept in the "
+"revoked list for this long.  Default is 30 days as per the RFC."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1046
+#, no-wrap
+msgid "B<keep-missing: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1055
+msgid ""
+"Instruct the B<auto-trust-anchor-file> probe mechanism for RFC5011 autotrust "
+"updates to remove missing trust anchors after they have been unseen for this "
+"long.  This cleans up the state file if the target zone does not perform "
+"trust anchor revocation, so this makes the auto probe mechanism work with "
+"zones that perform regular (non-5011) rollovers.  The default is 366 days.  "
+"The value 0 does not remove missing anchors, as per the RFC."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1055
+#, no-wrap
+msgid "B<permit-small-holddown: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1059
+msgid ""
+"Debug option that allows the autotrust 5011 rollover timers to assume very "
+"small values.  Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1059
+#, no-wrap
+msgid "B<key-cache-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1064
+msgid ""
+"Number of bytes size of the key cache. Default is 4 megabytes.  A plain "
+"number is in bytes, append 'k', 'm' or 'g' for kilobytes, megabytes or "
+"gigabytes (1024*1024 bytes in a megabyte)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1064
+#, no-wrap
+msgid "B<key-cache-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1069
+msgid ""
+"Number of slabs in the key cache. Slabs reduce lock contention by threads.  "
+"Must be set to a power of 2. Setting (close) to the number of cpus is a "
+"reasonable guess."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1069
+#, no-wrap
+msgid "B<neg-cache-size: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1074
+msgid ""
+"Number of bytes size of the aggressive negative cache. Default is 1 "
+"megabyte.  A plain number is in bytes, append 'k', 'm' or 'g' for kilobytes, "
+"megabytes or gigabytes (1024*1024 bytes in a megabyte)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1074
+#, no-wrap
+msgid "B<unblock-lan-zones: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1085
+msgid ""
+"Default is disabled.  If enabled, then for private address space, the "
+"reverse lookups are no longer filtered.  This allows unbound when running as "
+"dns service on a host where it provides service for that host, to put out "
+"all of the queries for the 'lan' upstream.  When enabled, only localhost, "
+"127.0.0.1 reverse and ::1 reverse zones are configured with default local "
+"zones.  Disable the option when unbound is running as a (DHCP-) DNS network "
+"resolver for a group of machines, where such lookups should be filtered (RFC "
+"compliance), this also stops potential data leakage about the local network "
+"to the upstream DNS servers."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1085
+#, no-wrap
+msgid "B<insecure-lan-zones: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1090
+msgid ""
+"Default is disabled.  If enabled, then reverse lookups in private address "
+"space are not validated.  This is usually required whenever "
+"I<unblock-lan-zones> is used."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1090 /usr/src/contrib/unbound/doc/unbound.conf.5:1673
+#, no-wrap
+msgid "B<local-zone: >I<E<lt>zoneE<gt> E<lt>typeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1099
+msgid ""
+"Configure a local zone. The type determines the answer to give if there is "
+"no match from local-data. The types are deny, refuse, static, transparent, "
+"redirect, nodefault, typetransparent, inform, inform_deny, "
+"always_transparent, always_refuse, always_nxdomain, noview, and are "
+"explained below. After that the default settings are listed. Use local-data: "
+"to enter data into the local zone. Answers for local zones are authoritative "
+"DNS answers. By default the zones are class IN."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1103 /usr/src/contrib/unbound/doc/unbound.conf.5:1301
+msgid ""
+"If you need more complicated authoritative data, with referrals, wildcards, "
+"CNAME/DNAME support, or DNSSEC authoritative service, setup a stub-zone for "
+"it as detailed in the stub zone section below."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1103
+#, no-wrap
+msgid "\\h'5'I<deny>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1107
+msgid ""
+"Do not send an answer, drop the query.  If there is a match from local data, "
+"the query is answered."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1107
+#, no-wrap
+msgid "\\h'5'I<refuse>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1111
+msgid ""
+"Send an error message reply, with rcode REFUSED.  If there is a match from "
+"local data, the query is answered."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1111
+#, no-wrap
+msgid "\\h'5'I<static>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1117
+msgid ""
+"If there is a match from local data, the query is answered.  Otherwise, the "
+"query is answered with nodata or nxdomain.  For a negative answer a SOA is "
+"included in the answer if present as local-data for the zone apex domain."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1117
+#, no-wrap
+msgid "\\h'5'I<transparent>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1125
+msgid ""
+"If there is a match from local data, the query is answered.  Otherwise if "
+"the query has a different name, the query is resolved normally.  If the "
+"query is for a name given in localdata but no such type of data is given in "
+"localdata, then a noerror nodata answer is returned.  If no local-zone is "
+"given local-data causes a transparent zone to be created by default."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1125
+#, no-wrap
+msgid "\\h'5'I<typetransparent>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1132
+msgid ""
+"If there is a match from local data, the query is answered.  If the query is "
+"for a different name, or for the same name but for a different type, the "
+"query is resolved normally.  So, similar to transparent but types that are "
+"not listed in local data are resolved normally, so if an A record is in the "
+"local data that does not cause a nodata reply for AAAA queries."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1132
+#, no-wrap
+msgid "\\h'5'I<redirect>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1144
+msgid ""
+"The query is answered from the local data for the zone name.  There may be "
+"no local data beneath the zone name.  This answers queries for the zone, and "
+"all subdomains of the zone with the local data for the zone.  It can be used "
+"to redirect a domain to return a different address record to the end user, "
+"with local-zone: \"example.com.\" redirect and local-data: \"example.com. A "
+"127.0.0.1\" queries for www.example.com and www.foo.example.com are "
+"redirected, so that users with web browsers cannot access sites with suffix "
+"example.com."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1144
+#, no-wrap
+msgid "\\h'5'I<inform>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1151
+msgid ""
+"The query is answered normally, same as transparent.  The client IP address "
+"(@portnumber) is printed to the logfile.  The log message is: timestamp, "
+"unbound-pid, info: zonename inform IP@port queryname type class.  This "
+"option can be used for normal resolution, but machines looking up infected "
+"names are logged, eg. to run antivirus on them."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1151
+#, no-wrap
+msgid "\\h'5'I<inform_deny>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1155
+msgid ""
+"The query is dropped, like 'deny', and logged, like 'inform'.  Ie. find "
+"infected machines without answering the queries."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1155
+#, no-wrap
+msgid "\\h'5'I<always_transparent>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1158
+msgid "Like transparent, but ignores local data and resolves normally."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1158
+#, no-wrap
+msgid "\\h'5'I<always_refuse>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1161
+msgid "Like refuse, but ignores local data and refuses the query."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1161
+#, no-wrap
+msgid "\\h'5'I<always_nxdomain>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1164
+msgid "Like static, but ignores local data and returns nxdomain for the query."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1164
+#, no-wrap
+msgid "\\h'5'I<noview>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1171
+msgid ""
+"Breaks out of that view and moves towards the global local zones for answer "
+"to the query.  If the view first is no, it'll resolve normally.  If view "
+"first is enabled, it'll break perform that step and check the global "
+"answers.  For when the view has view specific overrides but some zone has to "
+"be answered from global local zone contents."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1171
+#, no-wrap
+msgid "\\h'5'I<nodefault>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1178
+msgid ""
+"Used to turn off default contents for AS112 zones. The other types also turn "
+"off default contents for the zone. The 'nodefault' option has no other "
+"effect than turning off default contents for the given zone.  Use "
+"I<nodefault> if you use exactly that zone, if you want to use a subzone, use "
+"I<transparent>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1186
+msgid ""
+"The default zones are localhost, reverse 127.0.0.1 and ::1, the onion, test, "
+"invalid and the AS112 zones. The AS112 zones are reverse DNS zones for "
+"private use and reserved IP addresses for which the servers on the internet "
+"cannot provide correct answers. They are configured by default to give "
+"nxdomain (no reverse information) answers. The defaults can be turned off by "
+"specifying your own local-zone of that name, or using the 'nodefault' "
+"type. Below is a list of the default zone contents."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1186
+#, no-wrap
+msgid "\\h'5'I<localhost>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1190
+msgid ""
+"The IP4 and IP6 localhost information is given. NS and SOA records are "
+"provided for completeness and to satisfy some DNS update tools. Default "
+"content:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1197
+#, no-wrap
+msgid ""
+"local-zone: \"localhost.\" redirect\n"
+"local-data: \"localhost. 10800 IN NS localhost.\"\n"
+"local-data: \"localhost. 10800 IN\n"
+"    SOA localhost. nobody.invalid. 1 3600 1200 604800 10800\"\n"
+"local-data: \"localhost. 10800 IN A 127.0.0.1\"\n"
+"local-data: \"localhost. 10800 IN AAAA ::1\"\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1198
+#, no-wrap
+msgid "\\h'5'I<reverse IPv4 loopback>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1201 /usr/src/contrib/unbound/doc/unbound.conf.5:1212 /usr/src/contrib/unbound/doc/unbound.conf.5:1228 /usr/src/contrib/unbound/doc/unbound.conf.5:1237 /usr/src/contrib/unbound/doc/unbound.conf.5:1246
+msgid "Default content:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1208
+#, no-wrap
+msgid ""
+"local-zone: \"127.in-addr.arpa.\" static\n"
+"local-data: \"127.in-addr.arpa. 10800 IN NS localhost.\"\n"
+"local-data: \"127.in-addr.arpa. 10800 IN\n"
+"    SOA localhost. nobody.invalid. 1 3600 1200 604800 10800\"\n"
+"local-data: \"1.0.0.127.in-addr.arpa. 10800 IN\n"
+"    PTR localhost.\"\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1209
+#, no-wrap
+msgid "\\h'5'I<reverse IPv6 loopback>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1224
+#, no-wrap
+msgid ""
+"local-zone: \"1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n"
+"    0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa.\" static\n"
+"local-data: \"1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n"
+"    0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 10800 IN\n"
+"    NS localhost.\"\n"
+"local-data: \"1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n"
+"    0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 10800 IN\n"
+"    SOA localhost. nobody.invalid. 1 3600 1200 604800 10800\"\n"
+"local-data: \"1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n"
+"    0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 10800 IN\n"
+"    PTR localhost.\"\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1225
+#, no-wrap
+msgid "\\h'5'I<onion (RFC 7686)>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1233
+#, no-wrap
+msgid ""
+"local-zone: \"onion.\" static\n"
+"local-data: \"onion. 10800 IN NS localhost.\"\n"
+"local-data: \"onion. 10800 IN\n"
+"    SOA localhost. nobody.invalid. 1 3600 1200 604800 10800\"\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1234
+#, no-wrap
+msgid "\\h'5'I<test (RFC 2606)>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1242
+#, no-wrap
+msgid ""
+"local-zone: \"test.\" static\n"
+"local-data: \"test. 10800 IN NS localhost.\"\n"
+"local-data: \"test. 10800 IN\n"
+"    SOA localhost. nobody.invalid. 1 3600 1200 604800 10800\"\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1243
+#, no-wrap
+msgid "\\h'5'I<invalid (RFC 2606)>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1251
+#, no-wrap
+msgid ""
+"local-zone: \"invalid.\" static\n"
+"local-data: \"invalid. 10800 IN NS localhost.\"\n"
+"local-data: \"invalid. 10800 IN\n"
+"    SOA localhost. nobody.invalid. 1 3600 1200 604800 10800\"\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1252
+#, no-wrap
+msgid "\\h'5'I<reverse RFC1918 local use zones>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1258
+msgid ""
+"Reverse data for zones 10.in-addr.arpa, 16.172.in-addr.arpa to "
+"31.172.in-addr.arpa, 168.192.in-addr.arpa.  The B<local-zone:> is set static "
+"and as B<local-data:> SOA and NS records are provided."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1258
+#, no-wrap
+msgid "\\h'5'I<reverse RFC3330 IP4 this, link-local, testnet and broadcast>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1264
+msgid ""
+"Reverse data for zones 0.in-addr.arpa, 254.169.in-addr.arpa, "
+"2.0.192.in-addr.arpa (TEST NET 1), 100.51.198.in-addr.arpa (TEST NET 2), "
+"113.0.203.in-addr.arpa (TEST NET 3), 255.255.255.255.in-addr.arpa.  And from "
+"64.100.in-addr.arpa to 127.100.in-addr.arpa (Shared Address Space)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1264
+#, no-wrap
+msgid "\\h'5'I<reverse RFC4291 IP6 unspecified>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1267
+msgid "Reverse data for zone"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1270
+#, no-wrap
+msgid ""
+"0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n"
+"0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa.\n"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1271
+#, no-wrap
+msgid "\\h'5'I<reverse RFC4193 IPv6 Locally Assigned Local Addresses>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1274
+msgid "Reverse data for zone D.F.ip6.arpa."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1274
+#, no-wrap
+msgid "\\h'5'I<reverse RFC4291 IPv6 Link Local Addresses>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1277
+msgid "Reverse data for zones 8.E.F.ip6.arpa to B.E.F.ip6.arpa."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1277
+#, no-wrap
+msgid "\\h'5'I<reverse IPv6 Example Prefix>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1281
+msgid ""
+"Reverse data for zone 8.B.D.0.1.0.0.2.ip6.arpa. This zone is used for "
+"tutorials and examples. You can remove the block on this zone with:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1283
+#, no-wrap
+msgid "  local-zone: 8.B.D.0.1.0.0.2.ip6.arpa. nodefault\n"
+msgstr ""
+
+#.  End of local-zone listing.
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1288
+msgid ""
+"You can also selectively unblock a part of the zone by making that part "
+"transparent with a local-zone statement.  This also works with the other "
+"default zones."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1288 /usr/src/contrib/unbound/doc/unbound.conf.5:1681
+#, no-wrap
+msgid "B<local-data: >I<\"E<lt>resource record stringE<gt>\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1297
+msgid ""
+"Configure local data, which is served in reply to queries for it.  The query "
+"has to match exactly unless you configure the local-zone as redirect. If not "
+"matched exactly, the local-zone type determines further processing. If "
+"local-data is configured that is not a subdomain of a local-zone, a "
+"transparent local-zone is configured.  For record types such as TXT, use "
+"single quotes, as in local-data: 'example. TXT \"text\"'."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1301 /usr/src/contrib/unbound/doc/unbound.conf.5:1685
+#, no-wrap
+msgid "B<local-data-ptr: >I<\"IPaddr name\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1306
+msgid ""
+"Configure local data shorthand for a PTR record with the reversed IPv4 or "
+"IPv6 address and the host name.  For example \"192.0.2.4 www.example.com\".  "
+"TTL can be inserted like this: \"2001:DB8::4 7200 www.example.com\""
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1306
+#, no-wrap
+msgid "B<local-zone-tag: >I<E<lt>zoneE<gt> E<lt>\"list of tags\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1312
+msgid ""
+"Assign tags to localzones. Tagged localzones will only be applied when the "
+"used access-control element has a matching tag. Tags must be defined in "
+"I<define-tags>.  Enclose list of tags in quotes (\"\") and put spaces "
+"between tags."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1312
+#, no-wrap
+msgid ""
+"B<local-zone-override: >I<E<lt>zoneE<gt> E<lt>IP netblockE<gt> "
+"E<lt>typeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1318
+msgid ""
+"Override the localzone type for queries from addresses matching netblock.  "
+"Use this localzone type, regardless the type configured for the local-zone "
+"(both tagged and untagged) and regardless the type configured using "
+"access-control-tag-action."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1318
+#, no-wrap
+msgid "B<ratelimit: >I<E<lt>number or 0E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1330
+msgid ""
+"Enable ratelimiting of queries sent to nameserver for performing recursion.  "
+"If 0, the default, it is disabled.  This option is experimental at this "
+"time.  The ratelimit is in queries per second that are allowed.  More "
+"queries are turned away with an error (servfail).  This stops recursive "
+"floods, eg. random query names, but not spoofed reflection floods.  Cached "
+"responses are not ratelimited by this setting.  The zone of the query is "
+"determined by examining the nameservers for it, the zone name is used to "
+"keep track of the rate.  For example, 1000 may be a suitable value to stop "
+"the server from being overloaded with random names, and keeps unbound from "
+"sending traffic to the nameservers for those zones."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1330
+#, no-wrap
+msgid "B<ratelimit-size: >I<E<lt>memory sizeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1336
+msgid ""
+"Give the size of the data structure in which the current ongoing rates are "
+"kept track in.  Default 4m.  In bytes or use m(mega), k(kilo), g(giga).  The "
+"ratelimit structure is small, so this data structure likely does not need to "
+"be large."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1336
+#, no-wrap
+msgid "B<ratelimit-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1341
+msgid ""
+"Give power of 2 number of slabs, this is used to reduce lock contention in "
+"the ratelimit tracking data structure.  Close to the number of cpus is a "
+"fairly good setting."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1341
+#, no-wrap
+msgid "B<ratelimit-factor: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1350
+msgid ""
+"Set the amount of queries to rate limit when the limit is exceeded.  If set "
+"to 0, all queries are dropped for domains where the limit is exceeded.  If "
+"set to another value, 1 in that number is allowed through to complete.  "
+"Default is 10, allowing 1/10 traffic to flow normally.  This can make "
+"ordinary queries complete (if repeatedly queried for), and enter the cache, "
+"whilst also mitigating the traffic flow by the factor given."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1350
+#, no-wrap
+msgid "B<ratelimit-for-domain: >I<E<lt>domainE<gt> E<lt>number qps or 0E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1356
+msgid ""
+"Override the global ratelimit for an exact match domain name with the listed "
+"number.  You can give this for any number of names.  For example, for a "
+"top-level-domain you may want to have a higher limit than other names.  A "
+"value of 0 will disable ratelimiting for that domain."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1356
+#, no-wrap
+msgid "B<ratelimit-below-domain: >I<E<lt>domainE<gt> E<lt>number qps or 0E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1365
+msgid ""
+"Override the global ratelimit for a domain name that ends in this name.  You "
+"can give this multiple times, it then describes different settings in "
+"different parts of the namespace.  The closest matching suffix is used to "
+"determine the qps limit.  The rate for the exact matching domain name is not "
+"changed, use ratelimit-for-domain to set that, you might want to use "
+"different settings for a top-level-domain and subdomains.  A value of 0 will "
+"disable ratelimiting for domain names that end in this name."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1365
+#, no-wrap
+msgid "B<ip-ratelimit: >I<E<lt>number or 0E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1373
+msgid ""
+"Enable global ratelimiting of queries accepted per ip address.  If 0, the "
+"default, it is disabled.  This option is experimental at this time.  The "
+"ratelimit is in queries per second that are allowed.  More queries are "
+"completely dropped and will not receive a reply, SERVFAIL or otherwise.  IP "
+"ratelimiting happens before looking in the cache. This may be useful for "
+"mitigating amplification attacks."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1373
+#, no-wrap
+msgid "B<ip-ratelimit-size: >I<E<lt>memory sizeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1379
+msgid ""
+"Give the size of the data structure in which the current ongoing rates are "
+"kept track in.  Default 4m.  In bytes or use m(mega), k(kilo), g(giga).  The "
+"ip ratelimit structure is small, so this data structure likely does not need "
+"to be large."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1379
+#, no-wrap
+msgid "B<ip-ratelimit-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1384
+msgid ""
+"Give power of 2 number of slabs, this is used to reduce lock contention in "
+"the ip ratelimit tracking data structure.  Close to the number of cpus is a "
+"fairly good setting."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1384
+#, no-wrap
+msgid "B<ip-ratelimit-factor: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1393
+msgid ""
+"Set the amount of queries to rate limit when the limit is exceeded.  If set "
+"to 0, all queries are dropped for addresses where the limit is exceeded.  If "
+"set to another value, 1 in that number is allowed through to complete.  "
+"Default is 10, allowing 1/10 traffic to flow normally.  This can make "
+"ordinary queries complete (if repeatedly queried for), and enter the cache, "
+"whilst also mitigating the traffic flow by the factor given."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1393
+#, no-wrap
+msgid "B<low-rtt: >I<E<lt>msec timeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1398
+msgid ""
+"Set the time in millisecond that is considere a low ping time for fast "
+"server selection with the low-rtt-permil option, that turns this on or off.  "
+"The default is 45 msec, a number from IPv6 quick response documents."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1398
+#, no-wrap
+msgid "B<low-rtt-permil: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1410
+msgid ""
+"Specify how many times out of 1000 to pick the fast server from the low rtt "
+"band.  0 turns the feature off.  A value of 900 would pick the fast server "
+"when such fast servers are available 90 percent of the time, and the "
+"remaining time perform normal exploration of random servers.  When prefetch "
+"is enabled (or serve-expired), such prefetches are not sped up, because "
+"there is no one waiting for it, and it presents a good moment to perform "
+"server exploration.  The low-rtt option can be used to specify which servers "
+"are picked for fast server selection, servers with a ping roundtrip time "
+"below that value are considered.  The default for low-rtt-permil is 0."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1410
+#, no-wrap
+msgid "Remote Control Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1420
+msgid ""
+"In the B<remote-control:> clause are the declarations for the remote control "
+"facility.  If this is enabled, the I<unbound-control>(8) utility can be used "
+"to send commands to the running unbound server.  The server uses these "
+"clauses to setup TLSv1 security for the connection.  The "
+"I<unbound-control>(8) utility also reads the B<remote-control> section for "
+"options.  To setup the correct self-signed certificates use the "
+"I<unbound-control-setup>(8) utility."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1420
+#, no-wrap
+msgid "B<control-enable: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1424
+msgid ""
+"The option is used to enable remote control, default is \"no\".  If turned "
+"off, the server does not listen for control commands."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1424
+#, no-wrap
+msgid "B<control-interface: >I<E<lt>ip address or pathE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1432
+msgid ""
+"Give IPv4 or IPv6 addresses or local socket path to listen on for control "
+"commands.  By default localhost (127.0.0.1 and ::1) is listened to.  Use "
+"0.0.0.0 and ::0 to listen to all interfaces.  If you change this and "
+"permissions have been dropped, you must restart the server for the change to "
+"take effect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1440
+msgid ""
+"If you set it to an absolute path, a local socket is used.  The local socket "
+"does not use the certificates and keys, so those files need not be present.  "
+"To restrict access, unbound sets permissions on the file to the user and "
+"group that is configured, the access bits are set to allow the group members "
+"to access the control socket file.  Put users that need to access the socket "
+"in the that group.  To restrict access further, create a directory to put "
+"the control socket in and restrict access to that directory."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1440
+#, no-wrap
+msgid "B<control-port: >I<E<lt>port numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1446
+msgid ""
+"The port number to listen on for IPv4 or IPv6 control interfaces, default is "
+"8953.  If you change this and permissions have been dropped, you must "
+"restart the server for the change to take effect."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1446
+#, no-wrap
+msgid "B<control-use-cert: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1451
+msgid ""
+"For localhost control-interface you can disable the use of TLS by setting "
+"this option to \"no\", default is \"yes\".  For local sockets, TLS is "
+"disabled and the value of this option is ignored."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1451
+#, no-wrap
+msgid "B<server-key-file: >I<E<lt>private key fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1456
+msgid ""
+"Path to the server private key, by default unbound_server.key.  This file is "
+"generated by the I<unbound-control-setup> utility.  This file is used by the "
+"unbound server, but not by I<unbound-control>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1456
+#, no-wrap
+msgid "B<server-cert-file: >I<E<lt>certificate file.pemE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1461
+msgid ""
+"Path to the server self signed certificate, by default unbound_server.pem.  "
+"This file is generated by the I<unbound-control-setup> utility.  This file "
+"is used by the unbound server, and also by I<unbound-control>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1461
+#, no-wrap
+msgid "B<control-key-file: >I<E<lt>private key fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1466
+msgid ""
+"Path to the control client private key, by default unbound_control.key.  "
+"This file is generated by the I<unbound-control-setup> utility.  This file "
+"is used by I<unbound-control>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1466
+#, no-wrap
+msgid "B<control-cert-file: >I<E<lt>certificate file.pemE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1472
+msgid ""
+"Path to the control client certificate, by default unbound_control.pem.  "
+"This certificate has to be signed with the server certificate.  This file is "
+"generated by the I<unbound-control-setup> utility.  This file is used by "
+"I<unbound-control>."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1472
+#, no-wrap
+msgid "Stub Zone Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1480
+msgid ""
+"There may be multiple B<stub-zone:> clauses. Each with a name: and zero or "
+"more hostnames or IP addresses.  For the stub zone this list of nameservers "
+"is used. Class IN is assumed.  The servers should be authority servers, not "
+"recursors; unbound performs the recursive processing itself for stub zones."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1490
+msgid ""
+"The stub zone can be used to configure authoritative data to be used by the "
+"resolver that cannot be accessed using the public internet servers.  This is "
+"useful for company-local data or private zones. Setup an authoritative "
+"server on a different host (or different port). Enter a config entry for "
+"unbound with B<stub-addr:> E<lt>ip address of host[@port]E<gt>.  The unbound "
+"resolver can then access the data, without referring to the public internet "
+"for it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1498
+msgid ""
+"This setup allows DNSSEC signed zones to be served by that authoritative "
+"server, in which case a trusted key entry with the public key can be put in "
+"config, so that unbound can validate the data and set the AD bit on replies "
+"for the private zone (authoritative servers do not set the AD bit).  This "
+"setup makes unbound capable of answering queries for the private zone, and "
+"can even set the AD bit ('authentic'), but the AA ('authoritative') bit is "
+"not set on these replies."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1504
+msgid ""
+"Consider adding B<server:> statements for B<domain-insecure:> and for "
+"B<local-zone:>I< name nodefault> for the zone if it is a locally served "
+"zone.  The insecure clause stops DNSSEC from invalidating the zone.  The "
+"local zone nodefault (or I<transparent>) clause makes the (reverse-) zone "
+"bypass unbound's filtering of RFC1918 zones."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1504 /usr/src/contrib/unbound/doc/unbound.conf.5:1554
+#, no-wrap
+msgid "B<name: >I<E<lt>domain nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1507
+msgid "Name of the stub zone."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1507
+#, no-wrap
+msgid "B<stub-host: >I<E<lt>domain nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1510
+msgid "Name of stub zone nameserver. Is itself resolved before it is used."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1510
+#, no-wrap
+msgid "B<stub-addr: >I<E<lt>IP addressE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1514
+msgid ""
+"IP address of stub zone nameserver. Can be IP 4 or IP 6.  To use a "
+"nondefault port for DNS communication append '@' with the port number."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1514
+#, no-wrap
+msgid "B<stub-prime: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1520
+msgid ""
+"This option is by default no.  If enabled it performs NS set priming, which "
+"is similar to root hints, where it starts using the list of nameservers "
+"currently published by the zone.  Thus, if the hint list is slightly "
+"outdated, the resolver picks up a correct list online."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1520
+#, no-wrap
+msgid "B<stub-first: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1526
+msgid ""
+"If enabled, a query is attempted without the stub clause if it fails.  The "
+"data could not be retrieved and would have caused SERVFAIL because the "
+"servers are unreachable, instead it is tried without this clause.  The "
+"default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1526
+#, no-wrap
+msgid "B<stub-tls-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1530
+msgid ""
+"Enabled or disable whether the queries to this stub use TLS for transport.  "
+"Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1530
+#, no-wrap
+msgid "B<stub-ssl-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1533
+msgid "Alternate syntax for B<stub-tls-upstream>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1533
+#, no-wrap
+msgid "B<stub-no-cache: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1537
+msgid ""
+"Default is no.  If enabled, data inside the stub is not cached.  This is "
+"useful when you want immediate changes to be visible."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1537
+#, no-wrap
+msgid "Forward Zone Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1554
+msgid ""
+"There may be multiple B<forward-zone:> clauses. Each with a B<name:> and "
+"zero or more hostnames or IP addresses.  For the forward zone this list of "
+"nameservers is used to forward the queries to. The servers listed as "
+"B<forward-host:> and B<forward-addr:> have to handle further recursion for "
+"the query.  Thus, those servers are not authority servers, but are (just "
+"like unbound is)  recursive servers too; unbound does not perform recursion "
+"itself for the forward zone, it lets the remote server do it.  Class IN is "
+"assumed.  CNAMEs are chased by unbound itself, asking the remote server for "
+"every name in the indirection chain, to protect the local cache from illegal "
+"indirect referenced items.  A forward-zone entry with name \".\" and a "
+"forward-addr target will forward all queries to that other server (unless it "
+"can answer from the cache)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1557
+msgid "Name of the forward zone."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1557
+#, no-wrap
+msgid "B<forward-host: >I<E<lt>domain nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1560
+msgid "Name of server to forward to. Is itself resolved before it is used."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1560
+#, no-wrap
+msgid "B<forward-addr: >I<E<lt>IP addressE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1567
+msgid ""
+"IP address of server to forward to. Can be IP 4 or IP 6.  To use a "
+"nondefault port for DNS communication append '@' with the port number.  If "
+"tls is enabled, then you can append a '#' and a name, then it'll check the "
+"tls authentication certificates with that name.  If you combine the '@' and "
+"'#', the '@' comes first."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1572
+msgid ""
+"At high verbosity it logs the TLS certificate, with TLS enabled.  If you "
+"leave out the '#' and auth name from the forward-addr, any name is "
+"accepted.  The cert must also match a CA from the tls-cert-bundle.  The cert "
+"name match code needs OpenSSL 1.1.0 or later to be enabled."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1572
+#, no-wrap
+msgid "B<forward-first: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1578
+msgid ""
+"If enabled, a query is attempted without the forward clause if it fails.  "
+"The data could not be retrieved and would have caused SERVFAIL because the "
+"servers are unreachable, instead it is tried without this clause.  The "
+"default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1578
+#, no-wrap
+msgid "B<forward-tls-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1584
+msgid ""
+"Enabled or disable whether the queries to this forwarder use TLS for "
+"transport.  Default is no.  If you enable this, also configure a "
+"tls-cert-bundle or use tls-win-cert to load CA certs, otherwise the "
+"connections cannot be authenticated."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1584
+#, no-wrap
+msgid "B<forward-ssl-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1587
+msgid "Alternate syntax for B<forward-tls-upstream>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1587
+#, no-wrap
+msgid "B<forward-no-cache: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1591
+msgid ""
+"Default is no.  If enabled, data inside the forward is not cached.  This is "
+"useful when you want immediate changes to be visible."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1591
+#, no-wrap
+msgid "Authority Zone Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1603
+msgid ""
+"Authority zones are configured with B<auth-zone:>, and each one must have a "
+"B<name:>.  There can be multiple ones, by listing multiple auth-zone "
+"clauses, each with a different name, pertaining to that part of the "
+"namespace.  The authority zone with the name closest to the name looked up "
+"is used.  Authority zones are processed after B<local-zones> and before "
+"cache (B<for-downstream:> I<yes>), and when used in this manner make unbound "
+"respond like an authority server.  Authority zones are also processed after "
+"cache, just before going to the network to fetch information for recursion "
+"(B<for-upstream:> I<yes>), and when used in this manner provide a local copy "
+"of an authority server that speeds up lookups of that data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1607
+msgid ""
+"Authority zones can be read from zonefile.  And can be kept updated via AXFR "
+"and IXFR.  After update the zonefile is rewritten.  The update mechanism "
+"uses the SOA timer values and performs SOA UDP queries to detect zone "
+"changes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1607
+#, no-wrap
+msgid "B<name: >I<E<lt>zone nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1610
+msgid "Name of the authority zone."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1610
+#, no-wrap
+msgid "B<master: >I<E<lt>IP address or host nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1614
+msgid ""
+"Where to download a copy of the zone from, with AXFR and IXFR.  Multiple "
+"masters can be specified.  They are all tried if one fails."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1614
+#, no-wrap
+msgid "B<url: >I<E<lt>url to zonefileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1625
+msgid ""
+"Where to download a zonefile for the zone.  With http or https.  An example "
+"for the url is \"http://www.example.com/example.org.zone\".  Multiple url "
+"statements can be given, they are tried in turn.  If only urls are given the "
+"SOA refresh timer is used to wait for making new downloads.  If also masters "
+"are listed, the masters are first probed with UDP SOA queries to see if the "
+"SOA serial number has changed, reducing the number of downloads.  If none of "
+"the urls work, the masters are tried with IXFR and AXFR.  For https, the "
+"B<tls-cert-bundle> and the hostname from the url are used to authenticate "
+"the connection."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1625
+#, no-wrap
+msgid "B<allow-notify: >I<E<lt>IP address or host name or netblockIP/prefixE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1633
+msgid ""
+"With allow-notify you can specify additional sources of notifies.  When "
+"notified, the server attempts to first probe and then zone transfer.  If the "
+"notify is from a master, it first attempts that master.  Otherwise other "
+"masters are attempted.  If there are no masters, but only urls, the file is "
+"downloaded when notified.  The masters from master: statements are allowed "
+"notify by default."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1633
+#, no-wrap
+msgid "B<fallback-enabled: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1638
+msgid ""
+"Default no.  If enabled, unbound falls back to querying the internet as a "
+"resolver for this zone when lookups fail.  For example for DNSSEC validation "
+"failures."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1638
+#, no-wrap
+msgid "B<for-downstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1648
+msgid ""
+"Default yes.  If enabled, unbound serves authority responses to downstream "
+"clients for this zone.  This option makes unbound behave, for the queries "
+"with names in this zone, like one of the authority servers for that zone.  "
+"Turn it off if you want unbound to provide recursion for the zone but have a "
+"local copy of zone data.  If for-downstream is no and for-upstream is yes, "
+"then unbound will DNSSEC validate the contents of the zone before serving "
+"the zone contents to clients and store validation results in the cache."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1648
+#, no-wrap
+msgid "B<for-upstream: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1655
+msgid ""
+"Default yes.  If enabled, unbound fetches data from this data collection for "
+"answering recursion queries.  Instead of sending queries over the internet "
+"to the authority servers for this zone, it'll fetch the data directly from "
+"the zone data.  Turn it on when you want unbound to provide recursion for "
+"downstream clients, and use the zone data as a local copy to speed up "
+"lookups."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1655
+#, no-wrap
+msgid "B<zonefile: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1660
+msgid ""
+"The filename where the zone is stored.  If not given then no zonefile is "
+"used.  If the file does not exist or is empty, unbound will attempt to fetch "
+"zone data (eg. from the master servers)."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1660
+#, no-wrap
+msgid "View Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1669
+msgid ""
+"There may be multiple B<view:> clauses. Each with a B<name:> and zero or "
+"more B<local-zone> and B<local-data> elements. View can be mapped to "
+"requests by specifying the view name in an B<access-control-view> "
+"element. Options from matching views will override global options. Global "
+"options will be used if no matching view is found, or when the matching view "
+"does not have the option specified."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1669
+#, no-wrap
+msgid "B<name: >I<E<lt>view nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1673
+msgid ""
+"Name of the view. Must be unique. This name is used in access-control-view "
+"elements."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1681
+msgid ""
+"View specific local-zone elements. Has the same types and behaviour as the "
+"global local-zone elements. When there is at least one local-zone specified "
+"and view-first is no, the default local-zones will be added to this view.  "
+"Defaults can be disabled using the nodefault type. When view-first is yes or "
+"when a view does not have a local-zone, the global local-zone will be used "
+"including it's default zones."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1685
+msgid ""
+"View specific local-data elements. Has the same behaviour as the global "
+"local-data elements."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1689
+msgid ""
+"View specific local-data-ptr elements. Has the same behaviour as the global "
+"local-data-ptr elements."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1689
+#, no-wrap
+msgid "B<view-first: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1694
+msgid ""
+"If enabled, it attempts to use the global local-zone and local-data if there "
+"is no match in the view specific options.  The default is no."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1694
+#, no-wrap
+msgid "Python Module Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1703
+msgid ""
+"The B<python:> clause gives the settings for the I<python>(1) script "
+"module.  This module acts like the iterator and validator modules do, on "
+"queries and answers.  To enable the script module it has to be compiled into "
+"the daemon, and the word \"python\" has to be put in the B<module-config:> "
+"option (usually first, or between the validator and iterator)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1709
+msgid ""
+"If the B<chroot:> option is enabled, you should make sure Python's library "
+"directory structure is bind mounted in the new root environment, see "
+"I<mount>(8).  Also the B<python-script:> path should be specified as an "
+"absolute path relative to the new root, or as a relative path to the working "
+"directory."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1709
+#, no-wrap
+msgid "B<python-script: >I<E<lt>python fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1712
+msgid "The script file to load."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1712
+#, no-wrap
+msgid "DNS64 Module Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1717
+msgid ""
+"The dns64 module must be configured in the B<module-config:> \"dns64 "
+"validator iterator\" directive and be compiled into the daemon to be "
+"enabled.  These settings go in the B<server:> section."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1717
+#, no-wrap
+msgid "B<dns64-prefix: >I<E<lt>IPv6 prefixE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1721
+msgid ""
+"This sets the DNS64 prefix to use to synthesize AAAA records with.  It must "
+"be /96 or shorter.  The default prefix is 64:ff9b::/96."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1721
+#, no-wrap
+msgid "B<dns64-synthall: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1725
+msgid ""
+"Debug option, default no.  If enabled, synthesize all AAAA records despite "
+"the presence of actual AAAA records."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1725
+#, no-wrap
+msgid "B<dns64-ignore-aaaa: >I<E<lt>nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1731
+msgid ""
+"List domain for which the AAAA records are ignored and the A record is used "
+"by dns64 processing instead.  Can be entered multiple times, list a new "
+"domain for which it applies, one per line.  Applies also to names underneath "
+"the name given."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1731
+#, no-wrap
+msgid "DNSCrypt Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1741
+msgid ""
+"The B<dnscrypt:> clause gives the settings of the dnscrypt channel. While "
+"those options are available, they are only meaningful if unbound was "
+"compiled with B<--enable-dnscrypt>.  Currently certificate and secret/public "
+"keys cannot be generated by unbound.  You can use dnscrypt-wrapper to "
+"generate those: "
+"https://github.com/cofyc/dnscrypt-wrapper/blob/master/README.md#usage"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1741
+#, no-wrap
+msgid "B<dnscrypt-enable: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1746
+msgid ""
+"Whether or not the B<dnscrypt> config should be enabled. You may define "
+"configuration but not activate it.  The default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1746
+#, no-wrap
+msgid "B<dnscrypt-port: >I<E<lt>port numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1751
+msgid ""
+"On which port should B<dnscrypt> should be activated. Note that you should "
+"have a matching B<interface> option defined in the B<server> section for "
+"this port."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1751
+#, no-wrap
+msgid "B<dnscrypt-provider: >I<E<lt>provider nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1755
+msgid ""
+"The provider name to use to distribute certificates. This is of the form: "
+"B<2.dnscrypt-cert.example.com.>. The name I<MUST> end with a dot."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1755
+#, no-wrap
+msgid "B<dnscrypt-secret-key: >I<E<lt>path to secret key fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1759
+msgid ""
+"Path to the time limited secret key file. This option may be specified "
+"multiple times."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1759
+#, no-wrap
+msgid "B<dnscrypt-provider-cert: >I<E<lt>path to cert fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1763
+msgid ""
+"Path to the certificate related to the B<dnscrypt-secret-key>s.  This option "
+"may be specified multiple times."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1763
+#, no-wrap
+msgid "B<dnscrypt-provider-cert-rotated: >I<E<lt>path to cert fileE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1776
+msgid ""
+"Path to a certificate that we should be able to serve existing connection "
+"from but do not want to advertise over B<dnscrypt-provider>'s TXT record "
+"certs distribution.  A typical use case is when rotating certificates, "
+"existing clients may still use the client magic from the old cert in their "
+"queries until they fetch and update the new cert. Likewise, it would allow "
+"one to prime the new cert/key without distributing the new cert yet, this "
+"can be useful when using a network of servers using anycast and on which the "
+"configuration may not get updated at the exact same time. By priming the "
+"cert, the servers can handle both old and new certs traffic while "
+"distributing only one.  This option may be specified multiple times."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1776
+#, no-wrap
+msgid "B<dnscrypt-shared-secret-cache-size: >I<E<lt>memory sizeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1782
+msgid ""
+"Give the size of the data structure in which the shared secret keys are kept "
+"in.  Default 4m.  In bytes or use m(mega), k(kilo), g(giga).  The shared "
+"secret cache is used when a same client is making multiple queries using the "
+"same public key. It saves a substantial amount of CPU."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1782
+#, no-wrap
+msgid "B<dnscrypt-shared-secret-cache-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1787
+msgid ""
+"Give power of 2 number of slabs, this is used to reduce lock contention in "
+"the dnscrypt shared secrets cache.  Close to the number of cpus is a fairly "
+"good setting."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1787
+#, no-wrap
+msgid "B<dnscrypt-nonce-cache-size: >I<E<lt>memory sizeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1793
+msgid ""
+"Give the size of the data structure in which the client nonces are kept in.  "
+"Default 4m. In bytes or use m(mega), k(kilo), g(giga).  The nonce cache is "
+"used to prevent dnscrypt message replaying. Client nonce should be unique "
+"for any pair of client pk/server sk."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1793
+#, no-wrap
+msgid "B<dnscrypt-nonce-cache-slabs: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1798
+msgid ""
+"Give power of 2 number of slabs, this is used to reduce lock contention in "
+"the dnscrypt nonce cache.  Close to the number of cpus is a fairly good "
+"setting."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1798
+#, no-wrap
+msgid "EDNS Client Subnet Module Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1803
+msgid ""
+"The ECS module must be configured in the B<module-config:> \"subnetcache "
+"validator iterator\" directive and be compiled into the daemon to be "
+"enabled.  These settings go in the B<server:> section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1809
+msgid ""
+"If the destination address is whitelisted with Unbound will add the EDNS0 "
+"option to the query containing the relevant part of the client's "
+"address. When an answer contains the ECS option the response and the option "
+"are placed in a specialized cache. If the authority indicated no support, "
+"the response is stored in the regular cache."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1814
+msgid ""
+"Additionally, when a client includes the option in its queries, Unbound will "
+"forward the option to the authority if present in the whitelist, or "
+"B<client-subnet-always-forward> is set to yes. In this case the lookup in "
+"the regular cache is skipped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1819
+msgid ""
+"The maximum size of the ECS cache is controlled by 'msg-cache-size' in the "
+"configuration file. On top of that, for each query only 100 different "
+"subnets are allowed to be stored for each address family. Exceeding that "
+"number, older entries will be purged from cache."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1819
+#, no-wrap
+msgid "B<send-client-subnet: >I<E<lt>IP addressE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1825
+msgid ""
+"Send client source address to this authority. Append /num to indicate a "
+"classless delegation netblock, for example like 10.2.3.4/24 or "
+"2001::11/64. Can be given multiple times. Authorities not listed will not "
+"receive edns-subnet information, unless domain in query is specified in "
+"B<client-subnet-zone>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1825
+#, no-wrap
+msgid "B<client-subnet-zone: >I<E<lt>domainE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1830
+msgid ""
+"Send client source address in queries for this domain and its "
+"subdomains. Can be given multiple times. Zones not listed will not receive "
+"edns-subnet information, unless hosted by authority specified in "
+"B<send-client-subnet>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1830
+#, no-wrap
+msgid "B<client-subnet-always-forward: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1838
+msgid ""
+"Specify whether the ECS whitelist check (configured using "
+"B<send-client-subnet>) is applied for all queries, even if the triggering "
+"query contains an ECS record, or only for queries for which the ECS record "
+"is generated using the querier address (and therefore did not contain ECS "
+"data in the client query). If enabled, the whitelist check is skipped when "
+"the client query contains an ECS record. Default is no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1838
+#, no-wrap
+msgid "B<max-client-subnet-ipv6: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1842
+msgid ""
+"Specifies the maximum prefix length of the client source address we are "
+"willing to expose to third parties for IPv6.  Defaults to 56."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1842
+#, no-wrap
+msgid "B<max-client-subnet-ipv4: >I<E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1846
+msgid ""
+"Specifies the maximum prefix length of the client source address we are "
+"willing to expose to third parties for IPv4. Defaults to 24."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1846
+#, no-wrap
+msgid "Opportunistic IPsec Support Module Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1851
+msgid ""
+"The IPsec module must be configured in the B<module-config:> \"ipsecmod "
+"validator iterator\" directive and be compiled into the daemon to be "
+"enabled.  These settings go in the B<server:> section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1856
+msgid ""
+"When unbound receives an A/AAAA query that is not in the cache and finds a "
+"valid answer, it will withhold returning the answer and instead will "
+"generate an IPSECKEY subquery for the same domain name.  If an answer was "
+"found, unbound will call an external hook passing the following arguments:"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1856
+#, no-wrap
+msgid "\\h'5'I<QNAME>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1859
+msgid "Domain name of the A/AAAA and IPSECKEY query.  In string format."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1859
+#, no-wrap
+msgid "\\h'5'I<IPSECKEY TTL>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1862
+msgid "TTL of the IPSECKEY RRset."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1862
+#, no-wrap
+msgid "\\h'5'I<A/AAAA>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1866
+msgid ""
+"String of space separated IP addresses present in the A/AAAA RRset.  The IP "
+"addresses are in string format."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1866
+#, no-wrap
+msgid "\\h'5'I<IPSECKEY>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1870
+msgid ""
+"String of space separated IPSECKEY RDATA present in the IPSECKEY RRset.  The "
+"IPSECKEY RDATA are in DNS presentation format."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1874
+msgid ""
+"The A/AAAA answer is then cached and returned to the client.  If the "
+"external hook was called the TTL changes to ensure it doesn't surpass "
+"B<ipsecmod-max-ttl>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1879
+msgid ""
+"The same procedure is also followed when B<prefetch:> is used, but the "
+"A/AAAA answer is given to the client before the hook is called.  "
+"B<ipsecmod-max-ttl> ensures that the A/AAAA answer given from cache is still "
+"relevant for opportunistic IPsec."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1879
+#, no-wrap
+msgid "B<ipsecmod-enabled: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1885
+msgid ""
+"Specifies whether the IPsec module is enabled or not.  The IPsec module "
+"still needs to be defined in the B<module-config:> directive.  This option "
+"facilitates turning on/off the module without restarting/reloading unbound.  "
+"Defaults to yes."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1885
+#, no-wrap
+msgid "B<ipsecmod-hook: >I<E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1892
+msgid ""
+"Specifies the external hook that unbound will call with I<system>(3).  The "
+"file can be specified as an absolute/relative path.  The file needs the "
+"proper permissions to be able to be executed by the same user that runs "
+"unbound.  It must be present when the IPsec module is defined in the "
+"B<module-config:> directive."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1892
+#, no-wrap
+msgid "B<ipsecmod-strict: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1897
+msgid ""
+"If enabled unbound requires the external hook to return a success value of "
+"0.  Failing to do so unbound will reply with SERVFAIL.  The A/AAAA answer "
+"will also not be cached.  Defaults to no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1897
+#, no-wrap
+msgid "B<ipsecmod-max-ttl: >I<E<lt>secondsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1901
+msgid ""
+"Time to live maximum for A/AAAA cached records after calling the external "
+"hook.  Defaults to 3600."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1901
+#, no-wrap
+msgid "B<ipsecmod-ignore-bogus: >I<E<lt>yes or noE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1907
+msgid ""
+"Specifies the behaviour of unbound when the IPSECKEY answer is bogus.  If "
+"set to yes, the hook will be called and the A/AAAA answer will be returned "
+"to the client.  If set to no, the hook will not be called and the answer to "
+"the A/AAAA query will be SERVFAIL.  Mainly used for testing.  Defaults to "
+"no."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1907
+#, no-wrap
+msgid "B<ipsecmod-whitelist: >I<E<lt>domainE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1912
+msgid ""
+"Whitelist the domain so that the module logic will be executed.  Can be "
+"given multiple times, for different domains.  If the option is not "
+"specified, all domains are treated as being whitelisted (default)."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1912
+#, no-wrap
+msgid "Cache DB Module Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1925
+msgid ""
+"The Cache DB module must be configured in the B<module-config:> \"validator "
+"cachedb iterator\" directive and be compiled into the daemon with "
+"B<--enable-cachedb>.  If this module is enabled and configured, the "
+"specified backend database works as a second level cache: When Unbound "
+"cannot find an answer to a query in its built-in in-memory cache, it "
+"consults the specified backend.  If it finds a valid answer in the backend, "
+"Unbound uses it to respond to the query without performing iterative DNS "
+"resolution.  If Unbound cannot even find an answer in the backend, it "
+"resolves the query as usual, and stores the answer in the backend."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1950
+msgid ""
+"If Unbound was built with B<--with-libhiredis> on a system that has "
+"installed the hiredis C client library of Redis, then the \"redis\" backend "
+"can be used.  This backend communicates with the specified Redis server over "
+"a TCP connection to store and retrieve cache data.  It can be used as a "
+"persistent and/or shared cache backend.  It should be noted that Unbound "
+"never removes data stored in the Redis server, even if some data have "
+"expired in terms of DNS TTL or the Redis server has cached too much data; if "
+"necessary the Redis server must be configured to limit the cache size, "
+"preferably with some kind of least-recently-used eviction policy.  This "
+"backend uses synchronous communication with the Redis server based on the "
+"assumption that the communication is stable and sufficiently fast.  The "
+"thread waiting for a response from the Redis server cannot handle other DNS "
+"queries.  Although the backend has the ability to reconnect to the server "
+"when the connection is closed unexpectedly and there is a configurable "
+"timeout in case the server is overly slow or hangs up, these cases are "
+"assumed to be very rare.  If connection close or timeout happens too often, "
+"Unbound will be effectively unusable with this backend.  It's the "
+"administrator's responsibility to make the assumption hold."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1954
+msgid "The B<cachedb:> clause gives custom settings of the cache DB module."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1954
+#, no-wrap
+msgid "B<backend: >I<E<lt>backend nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1961
+msgid ""
+"Specify the backend database name.  The default database is the in-memory "
+"backend named \"testframe\", which, as the name suggests, is not of any "
+"practical use.  Depending on the build-time configuration, \"redis\" backend "
+"may also be used as described above."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1961
+#, no-wrap
+msgid "B<secret-seed: >I<E<lt>\"secret string\"E<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1970
+msgid ""
+"Specify a seed to calculate a hash value from query information.  This value "
+"will be used as the key of the corresponding answer for the backend database "
+"and can be customized if the hash should not be predictable operationally.  "
+"If the backend database is shared by multiple Unbound instances, all "
+"instances must use the same secret seed.  This option defaults to "
+"\"default\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1974
+msgid "The following B<cachedb> otions are specific to the redis backend."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1974
+#, no-wrap
+msgid "B<redis-server-host: >I<E<lt>server address or nameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1981
+msgid ""
+"The IP (either v6 or v4) address or domain name of the Redis server.  In "
+"general an IP address should be specified as otherwise Unbound will have to "
+"resolve the name of the server every time it establishes a connection to the "
+"server.  This option defaults to \"127.0.0.1\"."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1981
+#, no-wrap
+msgid "B<redis-server-port: >I<E<lt>port numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1985
+msgid "The TCP port number of the Redis server.  This option defaults to 6379."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1985
+#, no-wrap
+msgid "B<redis-timeout: >I<E<lt>msecE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1992
+msgid ""
+"The period until when Unbound waits for a response from the Redis sever.  If "
+"this timeout expires Unbound closes the connection, treats it as if the "
+"Redis server does not have the requested data, and will try to re-establish "
+"a new connection later.  This option defaults to 100 milliseconds."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:1992
+#, no-wrap
+msgid "MEMORY CONTROL EXAMPLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2000
+msgid ""
+"In the example config settings below memory usage is reduced. Some service "
+"levels are lower, notable very large data and a high TCP load are no longer "
+"supported. Very large data and high TCP loads are exceptional for the DNS.  "
+"DNSSEC validation is enabled, just add trust anchors.  If you do not have to "
+"worry about programs using more than 3 Mb of memory, the below example is "
+"not for you. Use the defaults to receive full service, which on BSD-32bit "
+"tops out at 30-40 Mb after heavy usage."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2022
+#, no-wrap
+msgid ""
+"# example settings that reduce memory usage\n"
+"server:\n"
+"\tnum-threads: 1\n"
+"\toutgoing-num-tcp: 1\t# this limits TCP service, uses less buffers.\n"
+"\tincoming-num-tcp: 1\n"
+"\toutgoing-range: 60\t# uses less memory, but less performance.\n"
+"\tmsg-buffer-size: 8192   # note this limits service, 'no huge stuff'.\n"
+"\tmsg-cache-size: 100k\n"
+"\tmsg-cache-slabs: 1\n"
+"\trrset-cache-size: 100k\n"
+"\trrset-cache-slabs: 1\n"
+"\tinfra-cache-numhosts: 200\n"
+"\tinfra-cache-slabs: 1\n"
+"\tkey-cache-size: 100k\n"
+"\tkey-cache-slabs: 1\n"
+"\tneg-cache-size: 10k\n"
+"\tnum-queries-per-thread: 30\n"
+"\ttarget-fetch-policy: \"2 1 0 0 0 0\"\n"
+"\tharden-large-queries: \"yes\"\n"
+"\tharden-short-bufsize: \"yes\"\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2023
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2024 /usr/src/contrib/unbound/doc/unbound.conf.5:2027
+#, no-wrap
+msgid "I</var/unbound>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2027
+msgid "default unbound working directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2032
+msgid "default I<chroot>(2)  location."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2032
+#, no-wrap
+msgid "I</var/unbound/unbound.conf>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2035
+msgid "unbound configuration file."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2035
+#, no-wrap
+msgid "I</var/unbound/unbound.pid>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2038
+msgid "default unbound pidfile with process ID of the running daemon."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2038
+#, no-wrap
+msgid "I<unbound.log>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2042
+msgid "unbound log file. default is to log to I<syslog>(3)."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2042
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2045
+msgid "I<unbound>(8), I<unbound-checkconf>(8)."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2045
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/unbound/doc/unbound.conf.5:2048
+msgid ""
+"B<Unbound> was written by NLnet Labs. Please see CREDITS file in the "
+"distribution for further details."
+msgstr ""

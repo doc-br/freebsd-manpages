@@ -1,0 +1,565 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:30
+#, no-wrap
+msgid "March 11, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:31
+#, no-wrap
+msgid "IEEE80211_RADIOTAP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:35
+msgid "E<.Nm ieee80211_radiotap>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:35
+#, no-wrap
+msgid "802.11 device packet capture support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:37
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:59
+msgid ""
+"E<.Ft void> E<.Fo ieee80211_radiotap_attach> E<.Fa \"struct ieee80211com "
+"*\"> E<.Fa \"struct ieee80211_radiotap_header *th\"> E<.Fa \"int tlen\"> "
+"E<.Fa \"uint32_t tx_radiotap\"> E<.Fa \"struct ieee80211_radiotap_header "
+"*rh\"> E<.Fa \"int rlen\"> E<.Fa \"uint32_t rx_radiotap\"> E<.Fc> E<.Ft int> "
+"E<.Fn ieee80211_radiotap_active_vap \"struct ieee80211vap *\"> E<.Ft int> "
+"E<.Fn ieee80211_radiotap_active \"struct ieee80211com *\"> E<.Ft void> E<.Fn "
+"ieee80211_radiotap_tx \"struct ieee80211vap *\" \"struct mbuf *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:59
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:69
+msgid ""
+"The E<.Nm net80211> layer used by 802.11 drivers includes support for a "
+"device-independent packet capture format called E<.Nm radiotap> that is "
+"understood by tools such as E<.Xr tcpdump 1>.  This facility is designed for "
+"capturing 802.11 traffic, including information that is not part of the "
+"normal 802.11 frame structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:94
+msgid ""
+"Radiotap was designed to balance the desire for a hardware-independent, "
+"extensible capture format against the need to conserve CPU and memory "
+"bandwidth on embedded systems.  These considerations led to a format "
+"consisting of a standard preamble followed by an extensible bitmap "
+"indicating the presence of optional capture fields.  A E<.Nm net80211> "
+"device driver supporting E<.Vt radiotap> defines two packed structures that "
+"it shares with E<.Nm net80211>.  These structures embed an instance of a "
+"E<.Vt ieee80211_radiotap_header> structure at the beginning, with subsequent "
+"fields in the appropriate order, and macros to set the bits of the E<.Va "
+"it_present> bitmap to indicate which fields exist and are filled in by the "
+"driver.  This information is then supplied through the E<.Fn "
+"ieee80211_radiotap_attach> call after a successful E<.Fn ieee80211_ifattach> "
+"request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:107
+msgid ""
+"With radiotap setup, drivers just need to fill in per-packet capture state "
+"for frames sent/received and dispatch capture state in the transmit path "
+"(since control is not returned to the E<.Nm net80211> layer before the "
+"packet is handed to the device).  To minimize overhead this work should be "
+"done only when one or more processes are actively capturing data; this is "
+"checked with one of E<.Fn ieee80211_radiotap_active_vap> and E<.Fn "
+"ieee80211_radiotap_active>.  In the transmit path capture work looks like "
+"this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:112
+#, no-wrap
+msgid ""
+"if (ieee80211_radiotap_active_vap(vap)) {\n"
+"\t... /* record transmit state */\n"
+"\tieee80211_radiotap_tx(vap, m); /* capture transmit event */\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:117
+msgid ""
+"While in the receive path capture is handled in E<.Nm net80211> but state "
+"must be captured before dispatching a frame:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:123
+#, no-wrap
+msgid ""
+"if (ieee80211_radiotap_active(ic)) {\n"
+"\t... /* record receive state */\n"
+"}\n"
+"\\&...\n"
+"ieee80211_input(...);\t/* packet capture handled in net80211 */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:131
+msgid ""
+"The following fields are defined for E<.Vt radiotap>, in the order in which "
+"they should appear in the buffer supplied to E<.Nm net80211>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:132
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_TSFT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:139
+msgid ""
+"This field contains the unsigned 64-bit value, in microseconds, of the MAC's "
+"802.11 Time Synchronization Function (TSF).  In theory, for each received "
+"frame, this value is recorded when the first bit of the MPDU arrived at the "
+"MAC.  In practice, hardware snapshots the TSF otherwise and one cannot "
+"assume this data is accurate without driver adjustment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:139
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:142
+msgid ""
+"This field contains a single unsigned 8-bit value, containing one or more of "
+"these bit flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:143
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_CFP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:145
+msgid "Frame was sent/received during the Contention Free Period (CFP)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:145
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_SHORTPRE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:147
+msgid "Frame was sent/received with short preamble."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:147
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_WEP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:149
+msgid "Frame was encrypted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:149
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_FRAG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:151
+msgid "Frame was an 802.11 fragment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:151
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_FCS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:153
+msgid "Frame contents includes the FCS."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:153
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_DATAPAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:156
+msgid ""
+"Frame contents potentially has padding between the 802.11 header and the "
+"data payload to align the payload to a 32-bit boundary."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:156
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_BADFCS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:158
+msgid "Frame was received with an invalid FCS."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:158
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_F_SHORTGI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:160
+msgid "Frame was sent/received with Short Guard Interval."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:161
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_RATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:166
+msgid ""
+"This field contains a single unsigned 8-bit value that is the data rate.  "
+"Legacy rates are in units of 500Kbps.  MCS rates (used on 802.11n/HT "
+"channels) have the high bit set and the MCS in the low 7 bits."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:166
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_CHANNEL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:171
+msgid ""
+"This field contains two unsigned 16-bit values.  The first value is the "
+"center frequency for the channel the frame was sent/received on.  The second "
+"value is a bitmap containing flags that specify channel properties."
+msgstr ""
+
+#. .It Dv IEEE80211_RADIOTAP_FHSS
+#. This field contains two 8-bit values.
+#. This field should be present only for frequency-hopping radios.
+#. The first byte is the hop set.
+#. The second byte is the pattern in use.
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:180
+msgid ""
+"This field is deprecated in favor of E<.Dv IEEE80211_RADIOTAP_XCHANNEL> but "
+"may be used to save space in the capture file for legacy devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:180
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_DBM_ANTSIGNAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:183
+msgid ""
+"This field contains a single signed 8-bit value that indicates the RF signal "
+"power at the antenna, in decibels difference from 1mW."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:183
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_DBM_ANTNOISE"
+msgstr ""
+
+#. .It Dv IEEE80211_RADIOTAP_LOCK_QUALITY
+#. This field contains a single unsigned 16-bit value, indicating the
+#. quality of the Barker Code lock.
+#. No unit is specified for this field.
+#. There does not appear to be a standard way of measuring this at this time;
+#. this quantity is often referred to as
+#. .Dq "Signal Quality"
+#. in some datasheets.
+#. .It Dv IEEE80211_RADIOTAP_TX_ATTENUATION
+#. This field contains a single unsigned 16-bit value, expressing transmit
+#. power as unitless distance from maximum power set at factory calibration.
+#. 0 indicates maximum transmit power.
+#. Monotonically nondecreasing with lower power levels.
+#. .It Dv IEEE80211_RADIOTAP_DB_TX_ATTENUATION
+#. This field contains a single unsigned 16-bit value, expressing transmit
+#. power as decibel distance from maximum power set at factory calibration.
+#. 0 indicates maximum transmit power.
+#. Monotonically nondecreasing with lower power levels.
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:204
+msgid ""
+"This field contains a single signed 8-bit value that indicates the RF noise "
+"power at the antenna, in decibels difference from 1mW."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:204
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_DBM_TX_POWER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:208
+msgid ""
+"Transmit power expressed as decibels from a 1mW reference.  This field is a "
+"single signed 8-bit value.  This is the absolute power level measured at the "
+"antenna port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:208
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_ANTENNA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:215
+msgid ""
+"This field contains a single unsigned 8-bit value that specifies which "
+"antenna was used to transmit or receive the frame.  Antenna numbering is "
+"device-specific but typically the primary antenna has the lowest number.  On "
+"transmit a value of zero may be seen which typically means antenna selection "
+"is left to the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:215
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_DB_ANTSIGNAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:219
+msgid ""
+"This field contains a single unsigned 8-bit value that indicates the RF "
+"signal power at the antenna, in decibels difference from an arbitrary, fixed "
+"reference."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:219
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_DB_ANTNOISE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:223
+msgid ""
+"This field contains a single unsigned 8-bit value that indicates the RF "
+"noise power at the antenna, in decibels difference from an arbitrary, fixed "
+"reference."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:223
+#, no-wrap
+msgid "Dv IEEE80211_RADIOTAP_XCHANNEL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:231
+msgid ""
+"This field contains four values: a 32-bit unsigned bitmap of flags that "
+"describe the channel attributes, a 16-bit unsigned frequency in MHz "
+"(typically the channel center), an 8-bit unsigned IEEE channel number, and a "
+"signed 8-bit value that holds the maximum regulatory transmit power cap in "
+".5 dBm (8 bytes total).  Channel flags are defined in:"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:231
+#, no-wrap
+msgid "net80211/_ieee80211.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:233
+msgid "(only a subset are found in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:233
+#, no-wrap
+msgid "net80211/ieee80211_radiotap.h )."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:239
+msgid ""
+"This property supersedes E<.Dv IEEE80211_RADIOTAP_CHANNEL> and is the only "
+"way to completely express all channel attributes and the mapping between "
+"channel frequency and IEEE channel number."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:240
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:242
+msgid "Radiotap receive definitions for the Intersil Prism driver:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:250
+#, no-wrap
+msgid ""
+"#define WI_RX_RADIOTAP_PRESENT \\e\n"
+"        ((1 E<lt>E<lt> IEEE80211_RADIOTAP_TSFT) \\e\n"
+"         (1 E<lt>E<lt> IEEE80211_RADIOTAP_FLAGS) | \\e\n"
+"         (1 E<lt>E<lt> IEEE80211_RADIOTAP_RATE) | \\e\n"
+"         (1 E<lt>E<lt> IEEE80211_RADIOTAP_CHANNEL) | \\e\n"
+"         (1 E<lt>E<lt> IEEE80211_RADIOTAP_DB_ANTSIGNAL) | \\e\n"
+"         (1 E<lt>E<lt> IEEE80211_RADIOTAP_DB_ANTNOISE))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:261
+#, no-wrap
+msgid ""
+"struct wi_rx_radiotap_header {\n"
+"        struct ieee80211_radiotap_header wr_ihdr;\n"
+"        uint64_t       wr_tsf;\n"
+"        uint8_t        wr_flags;\n"
+"        uint8_t        wr_rate;\n"
+"        uint16_t       wr_chan_freq;\n"
+"        uint16_t       wr_chan_flags;\n"
+"        uint8_t        wr_antsignal;\n"
+"        uint8_t        wr_antnoise;\n"
+"} __packed __aligned(8);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:264
+msgid "and transmit definitions for the Atheros driver:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:272
+#, no-wrap
+msgid ""
+"#define ATH_TX_RADIOTAP_PRESENT (               \\e\n"
+"        (1 E<lt>E<lt> IEEE80211_RADIOTAP_FLAGS)         | \\e\n"
+"        (1 E<lt>E<lt> IEEE80211_RADIOTAP_RATE)          | \\e\n"
+"        (1 E<lt>E<lt> IEEE80211_RADIOTAP_DBM_TX_POWER)  | \\e\n"
+"        (1 E<lt>E<lt> IEEE80211_RADIOTAP_ANTENNA)       | \\e\n"
+"        (1 E<lt>E<lt> IEEE80211_RADIOTAP_XCHANNEL)      | \\e\n"
+"        0)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:284
+#, no-wrap
+msgid ""
+"struct ath_tx_radiotap_header {\n"
+"        struct ieee80211_radiotap_header wt_ihdr;\n"
+"        uint8_t        wt_flags;\n"
+"        uint8_t        wt_rate;\n"
+"        uint8_t        wt_txpower;\n"
+"        uint8_t        wt_antenna;\n"
+"        uint32_t       wt_chan_flags;\n"
+"        uint16_t       wt_chan_freq;\n"
+"        uint8_t        wt_chan_ieee;\n"
+"        int8_t         wt_chan_maxpow;\n"
+"} __packed;\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:285
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:289
+msgid "E<.Xr tcpdump 1>, E<.Xr bpf 4>, E<.Xr ieee80211 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:289
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:295
+msgid "The E<.Nm> definitions first appeared in E<.Nx 1.5>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:295
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_radiotap.9:300
+msgid ""
+"E<.An -nosplit> The original version of this manual page was written by "
+"E<.An Bruce M. Simpson Aq Mt bms@FreeBSD.org> and E<.An Darron Broad Aq Mt "
+"darron@kewl.org>."
+msgstr ""

@@ -1,0 +1,1454 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211.9:30
+#, no-wrap
+msgid "December 31, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211.9:31
+#, no-wrap
+msgid "IEEE80211 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:35
+msgid "E<.Nm IEEE80211>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211.9:35
+#, no-wrap
+msgid "802.11 network layer"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211.9:37
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:64
+msgid ""
+"E<.Ft void> E<.Fn ieee80211_ifattach \"struct ieee80211com *ic\"> E<.Ft "
+"void> E<.Fn ieee80211_ifdetach \"struct ieee80211com *ic\"> E<.Ft int> E<.Fn "
+"ieee80211_mhz2ieee \"u_int freq\" \"u_int flags\"> E<.Ft int> E<.Fn "
+"ieee80211_chan2ieee \"struct ieee80211com *ic\" \"const struct "
+"ieee80211_channel *c\"> E<.Ft u_int> E<.Fn ieee80211_ieee2mhz \"u_int chan\" "
+"\"u_int flags\"> E<.Ft int> E<.Fn ieee80211_media_change \"struct ifnet "
+"*ifp\"> E<.Ft void> E<.Fn ieee80211_media_status \"struct ifnet *ifp\" "
+"\"struct ifmediareq *imr\"> E<.Ft int> E<.Fn ieee80211_setmode \"struct "
+"ieee80211com *ic\" \"enum ieee80211_phymode mode\"> E<.Ft enum "
+"ieee80211_phymode> E<.Fo ieee80211_chan2mode> E<.Fa \"const struct "
+"ieee80211_channel *chan\"> E<.Fc> E<.Ft int> E<.Fo ieee80211_rate2media> "
+"E<.Fa \"struct ieee80211com *ic\" \"int rate\" \"enum ieee80211_phymode "
+"mode\"> E<.Fc> E<.Ft int> E<.Fn ieee80211_media2rate \"int mword\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:64
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:79
+msgid ""
+"IEEE 802.11 device drivers are written to use the infrastructure provided by "
+"the E<.Nm> software layer.  This software provides a support framework for "
+"drivers that includes ifnet cloning, state management, and a user management "
+"API by which applications interact with 802.11 devices.  Most drivers depend "
+"on the E<.Nm> layer for protocol services but devices that off-load "
+"functionality may bypass the layer to connect directly to the device "
+"(e.g. the E<.Xr ndis 4> emulation support does this)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:110
+msgid ""
+"A E<.Nm> device driver implements a virtual radio API that is exported to "
+"users through network interfaces (aka vaps) that are cloned from the "
+"underlying device.  These interfaces have an operating mode (station, adhoc, "
+"hostap, wds, monitor, etc.\\&)  that is fixed for the lifetime of the "
+"interface.  Devices that can support multiple concurrent interfaces allow "
+"multiple vaps to be cloned.  This enables construction of interesting "
+"applications such as an AP vap and one or more WDS vaps or multiple AP vaps, "
+"each with a different security model.  The E<.Nm> layer virtualizes most "
+"802.11 state and coordinates vap state changes including scheduling multiple "
+"vaps.  State that is not virtualized includes the current channel and "
+"WME/WMM parameters.  Protocol processing is typically handled entirely in "
+"the E<.Nm> layer with drivers responsible purely for moving data between the "
+"host and device.  Similarly, E<.Nm> handles most E<.Xr ioctl 2> requests "
+"without entering the driver; instead drivers are notified of state changes "
+"that require their involvement."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:116
+msgid ""
+"The virtual radio interface defined by the E<.Nm> layer means that drivers "
+"must be structured to follow specific rules.  Drivers that support only a "
+"single interface at any time must still follow these rules."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:119
+msgid ""
+"Most of these functions require that attachment to the stack is performed "
+"before calling."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:129
+msgid ""
+"The E<.Fn ieee80211_ifattach> function attaches the wireless network "
+"interface E<.Fa ic> to the 802.11 network stack layer.  This function must "
+"be called before using any of the E<.Nm> functions which need to store "
+"driver state across invocations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:137
+msgid ""
+"The E<.Fn ieee80211_ifdetach> function frees any E<.Nm> structures "
+"associated with the driver, and performs Ethernet and BPF detachment on "
+"behalf of the caller."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:152
+msgid ""
+"The E<.Fn ieee80211_mhz2ieee> utility function converts the frequency E<.Fa "
+"freq> (specified in MHz) to an IEEE 802.11 channel number.  The E<.Fa flags> "
+"argument is a hint which specifies whether the frequency is in the 2GHz ISM "
+"band E<.Pq Vt IEEE80211_CHAN_2GHZ> or the 5GHz band E<.Pq Vt "
+"IEEE80211_CHAN_5GHZ>; appropriate clipping of the result is then performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:165
+msgid ""
+"The E<.Fn ieee80211_chan2ieee> function converts the channel specified in "
+"E<.Fa *c> to an IEEE channel number for the driver E<.Fa ic>.  If the "
+"conversion would be invalid, an error message is printed to the system "
+"console.  This function REQUIRES that the driver is hooked up to the E<.Nm> "
+"subsystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:180
+msgid ""
+"The E<.Fn ieee80211_ieee2mhz> utility function converts the IEEE channel "
+"number E<.Ft chan> to a frequency (in MHz).  The E<.Fa flags> argument is a "
+"hint which specifies whether the frequency is in the 2GHz ISM band E<.Pq Vt "
+"IEEE80211_CHAN_2GHZ> or the 5GHz band E<.Pq Vt IEEE80211_CHAN_5GHZ>; "
+"appropriate clipping of the result is then performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:189
+msgid ""
+"The E<.Fn ieee80211_media_status> and E<.Fn ieee80211_media_change> "
+"functions are device-independent handlers for E<.Vt ifmedia> commands and "
+"are not intended to be called directly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:195
+msgid ""
+"The E<.Fn ieee80211_setmode> function is called from within the 802.11 stack "
+"to change the mode of the driver's PHY; it is not intended to be called "
+"directly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:203
+msgid ""
+"The E<.Fn ieee80211_chan2mode> function returns the PHY mode required for "
+"use with the channel E<.Fa chan>.  This is typically used when selecting a "
+"rate set, to be advertised in beacons, for example."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:221
+msgid ""
+"The E<.Fn ieee80211_rate2media> function converts the bit rate E<.Fa rate> "
+"(measured in units of 0.5Mbps) to an E<.Vt ifmedia> sub-type, for the device "
+"E<.Fa ic> running in PHY mode E<.Fa mode>.  The E<.Fn ieee80211_media2rate> "
+"performs the reverse of this conversion, returning the bit rate (in 0.5Mbps "
+"units) corresponding to an E<.Vt ifmedia> sub-type."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:222
+#, no-wrap
+msgid "DATA STRUCTURES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:253
+msgid ""
+"The virtual radio architecture splits state between a single per-device "
+"E<.Vt ieee80211com> structure and one or more E<.Vt ieee80211vap> "
+"structures.  Drivers are expected to setup various shared state in these "
+"structures at device attach and during vap creation but otherwise should "
+"treat them as read-only.  The E<.Vt ieee80211com> structure is allocated by "
+"the E<.Nm> layer as adjunct data to a device's E<.Vt ifnet>; it is accessed "
+"through the E<.Vt if_l2com> structure member.  The E<.Vt ieee80211vap> "
+"structure is allocated by the driver in the E<.Dq vap create> method and "
+"should be extended with any driver-private state.  This technique of giving "
+"the driver control to allocate data structures is used for other E<.Nm> data "
+"structures and should be exploited to maintain driver-private state together "
+"with public E<.Nm> state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:264
+msgid ""
+"The other main data structures are the station, or node, table that tracks "
+"peers in the local BSS, and the channel table that defines the current set "
+"of available radio channels.  Both tables are bound to the E<.Vt "
+"ieee80211com> structure and shared by all vaps.  Long-lasting references to "
+"a node are counted to guard against premature reclamation.  In particular "
+"every packet sent/received holds a node reference (either explicitly for "
+"transmit or implicitly on receive)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:274
+msgid ""
+"The E<.Vt ieee80211com> and E<.Vt ieee80211vap> structures also hold a "
+"collection of method pointers that drivers fill-in and/or override to take "
+"control of certain operations.  These methods are the primary way drivers "
+"are bound to the E<.Nm> layer and are described below."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:274
+#, no-wrap
+msgid "DRIVER ATTACH/DETACH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:287
+msgid ""
+"Drivers attach to the E<.Nm> layer with the E<.Fn ieee80211_ifattach> "
+"function.  The driver is expected to allocate and setup any device-private "
+"data structures before passing control.  The E<.Vt ieee80211com> structure "
+"must be pre-initialized with state required to setup the E<.Nm> layer:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:288
+#, no-wrap
+msgid "Dv ic_ifp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:290
+msgid "Backpointer to the physical device's ifnet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:290
+#, no-wrap
+msgid "Dv ic_caps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:292
+msgid "Device/driver capabilities; see below for a complete description."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:292
+#, no-wrap
+msgid "Dv ic_channels"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:296
+msgid ""
+"Table of channels the device is capable of operating on.  This is initially "
+"provided by the driver but may be changed through calls that change the "
+"regulatory state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:296
+#, no-wrap
+msgid "Dv ic_nchan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:299
+msgid "Number of entries in E<.Dv ic_channels>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:309
+msgid ""
+"On return from E<.Fn ieee80211_ifattach> the driver is expected to override "
+"default callback functions in the E<.Vt ieee80211com> structure to register "
+"it's private routines.  Methods marked with a E<.Dq *> must be provided by "
+"the driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:310
+#, no-wrap
+msgid "Dv ic_vap_create*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:315
+msgid ""
+"Create a vap instance of the specified type (operating mode).  Any fixed "
+"BSSID and/or MAC address is provided.  Drivers that support multi-bssid "
+"operation may honor the requested BSSID or assign their own."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:315
+#, no-wrap
+msgid "Dv ic_vap_delete*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:318
+msgid "Destroy a vap instance created with E<.Dv ic_vap_create>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:318
+#, no-wrap
+msgid "Dv ic_getradiocaps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:322
+msgid ""
+"Return the list of calibrated channels for the radio.  The default method "
+"returns the current list of channels (space permitting)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:322
+#, no-wrap
+msgid "Dv ic_setregdomain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:327
+msgid ""
+"Process a request to change regulatory state.  The routine may reject a "
+"request or constrain changes (e.g. reduce transmit power caps).  The default "
+"method accepts all proposed changes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:327
+#, no-wrap
+msgid "Dv ic_send_mgmt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:334
+msgid ""
+"Send an 802.11 management frame.  The default method fabricates the frame "
+"using E<.Nm> state and passes it to the driver through the E<.Dv "
+"ic_raw_xmit> method."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:334
+#, no-wrap
+msgid "Dv ic_raw_xmit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:337
+msgid ""
+"Transmit a raw 802.11 frame.  The default method drops the frame and "
+"generates a message on the console."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:337
+#, no-wrap
+msgid "Dv ic_updateslot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:341
+msgid ""
+"Update hardware state after an 802.11 IFS slot time change.  There is no "
+"default method; the pointer may be NULL in which case it will not be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:341
+#, no-wrap
+msgid "Dv ic_update_mcast"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:344
+msgid ""
+"Update hardware for a change in the multicast packet filter.  The default "
+"method prints a console message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:344
+#, no-wrap
+msgid "Dv ic_update_promisc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:347
+msgid ""
+"Update hardware for a change in the promiscuous mode setting.  The default "
+"method prints a console message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:347
+#, no-wrap
+msgid "Dv ic_newassoc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:352
+msgid ""
+"Update driver/device state for association to a new AP (in station mode)  or "
+"when a new station associates (e.g. in AP mode).  There is no default "
+"method; the pointer may be NULL in which case it will not be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:352
+#, no-wrap
+msgid "Dv ic_node_alloc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:364
+msgid ""
+"Allocate and initialize a E<.Vt ieee80211_node> structure.  This method "
+"cannot sleep.  The default method allocates zero'd memory using E<.Xr malloc "
+"9>.  Drivers should override this method to allocate extended storage for "
+"their own needs.  Memory allocated by the driver must be tagged with E<.Dv "
+"M_80211_NODE> to balance the memory allocation statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:364
+#, no-wrap
+msgid "Dv ic_node_free"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:373
+msgid ""
+"Reclaim storage of a node allocated by E<.Dv ic_node_alloc>.  Drivers are "
+"expected to E<.Em interpose> their own method to cleanup private state but "
+"must call through this method to allow E<.Nm> to reclaim it's private state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:373
+#, no-wrap
+msgid "Dv ic_node_cleanup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:388
+msgid ""
+"Cleanup state in a E<.Vt ieee80211_node> created by E<.Dv ic_node_alloc>.  "
+"This operation is distinguished from E<.Dv ic_node_free> in that it may be "
+"called long before the node is actually reclaimed to cleanup adjunct state.  "
+"This can happen, for example, when a node must not be reclaimed due to "
+"references held by packets in the transmit queue.  Drivers typically "
+"interpose E<.Dv ic_node_cleanup> instead of E<.Dv ic_node_free>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:388
+#, no-wrap
+msgid "Dv ic_node_age"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:392
+msgid ""
+"Age, and potentially reclaim, resources associated with a node.  The default "
+"method ages frames on the power-save queue (in AP mode)  and pending frames "
+"in the receive reorder queues (for stations using A-MPDU)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:392
+#, no-wrap
+msgid "Dv ic_node_drain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:395
+msgid ""
+"Reclaim all optional resources associated with a node.  This call is used to "
+"free up resources when they are in short supply."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:395
+#, no-wrap
+msgid "Dv ic_node_getrssi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:406
+msgid ""
+"Return the Receive Signal Strength Indication (RSSI) in .5 dBm units for the "
+"specified node.  This interface returns a subset of the information returned "
+"by E<.Dv ic_node_getsignal>.  The default method calculates a filtered "
+"average over the last ten samples passed in to E<.Xr ieee80211_input 9> or "
+"E<.Xr ieee80211_input_all 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:406
+#, no-wrap
+msgid "Dv ic_node_getsignal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:413
+msgid ""
+"Return the RSSI and noise floor (in .5 dBm units) for a station.  The "
+"default method calculates RSSI as described above; the noise floor returned "
+"is the last value supplied to E<.Xr ieee80211_input 9> or E<.Xr "
+"ieee80211_input_all 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:413
+#, no-wrap
+msgid "Dv ic_node_getmimoinfo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:418
+msgid ""
+"Return MIMO radio state for a station in support of the E<.Dv "
+"IEEE80211_IOC_STA_INFO> ioctl request.  The default method returns nothing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:418
+#, no-wrap
+msgid "Dv ic_scan_start*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:421
+msgid ""
+"Prepare driver/hardware state for scanning.  This callback is done in a "
+"sleepable context."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:421
+#, no-wrap
+msgid "Dv ic_scan_end*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:424
+msgid ""
+"Restore driver/hardware state after scanning completes.  This callback is "
+"done in a sleepable context."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:424
+#, no-wrap
+msgid "Dv ic_set_channel*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:428
+msgid ""
+"Set the current radio channel using E<.Vt ic_curchan>.  This callback is "
+"done in a sleepable context."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:428
+#, no-wrap
+msgid "Dv ic_scan_curchan"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:440
+msgid ""
+"Start scanning on a channel.  This method is called immediately after each "
+"channel change and must initiate the work to scan a channel and schedule a "
+"timer to advance to the next channel in the scan list.  This callback is "
+"done in a sleepable context.  The default method handles active scan work "
+"(e.g. sending ProbeRequest frames), and schedules a call to E<.Xr "
+"ieee80211_scan_next 9> according to the maximum dwell time for the channel.  "
+"Drivers that off-load scan work to firmware typically use this method to "
+"trigger per-channel scan activity."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:440
+#, no-wrap
+msgid "Dv ic_scan_mindwell"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:450
+msgid ""
+"Handle reaching the minimum dwell time on a channel when scanning.  This "
+"event is triggered when one or more stations have been found on a channel "
+"and the minimum dwell time has been reached.  This callback is done in a "
+"sleepable context.  The default method signals the scan machinery to advance "
+"to the next channel as soon as possible.  Drivers can use this method to "
+"preempt further work (e.g. if scanning is handled by firmware) or ignore the "
+"request to force maximum dwell time on a channel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:450
+#, no-wrap
+msgid "Dv ic_recv_action"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:455
+msgid ""
+"Process a received Action frame.  The default method points to E<.Xr "
+"ieee80211_recv_action 9> which provides a mechanism for setting up handlers "
+"for each Action frame class."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:455
+#, no-wrap
+msgid "Dv ic_send_action"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:460
+msgid ""
+"Transmit an Action frame.  The default method points to E<.Xr "
+"ieee80211_send_action 9> which provides a mechanism for setting up handlers "
+"for each Action frame class."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:460
+#, no-wrap
+msgid "Dv ic_ampdu_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:466
+msgid ""
+"Check if transmit A-MPDU should be enabled for the specified station and "
+"AC.  The default method checks a per-AC traffic rate against a per-vap "
+"threshold to decide if A-MPDU should be enabled.  This method also "
+"rate-limits ADDBA requests so that requests are not made too frequently when "
+"a receiver has limited resources."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:466
+#, no-wrap
+msgid "Dv ic_addba_request"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:472
+msgid ""
+"Request A-MPDU transmit aggregation.  The default method sets up local state "
+"and issues an ADDBA Request Action frame.  Drivers may interpose this method "
+"if they need to setup private state for handling transmit A-MPDU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:472
+#, no-wrap
+msgid "Dv ic_addb_response"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:475
+msgid ""
+"Process a received ADDBA Response Action frame and setup resources as needed "
+"for doing transmit A-MPDU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:475
+#, no-wrap
+msgid "Dv ic_addb_stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:478
+msgid ""
+"Shutdown an A-MPDU transmit stream for the specified station and AC.  The "
+"default method reclaims local state after sending a DelBA Action frame."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:478
+#, no-wrap
+msgid "Dv ic_bar_response"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:480
+msgid "Process a response to a transmitted BAR control frame."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:480
+#, no-wrap
+msgid "Dv ic_ampdu_rx_start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:482
+msgid "Prepare to receive A-MPDU data from the specified station for the TID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:482
+#, no-wrap
+msgid "Dv ic_ampdu_rx_stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:484
+msgid "Terminate receipt of A-MPDU data from the specified station for the TID."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:490
+msgid ""
+"Once the E<.Nm> layer is attached to a driver there are two more steps "
+"typically done to complete the work:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:497
+msgid ""
+"Setup E<.Dq radiotap support> for capturing raw 802.11 packets that pass "
+"through the device.  This is done with a call to E<.Xr "
+"ieee80211_radiotap_attach 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:499
+msgid "Do any final device setup like enabling interrupts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:513
+msgid ""
+"State is torn down and reclaimed with a call to E<.Fn ieee80211_ifdetach>.  "
+"Note this call may result in multiple callbacks into the driver so it should "
+"be done before any critical driver state is reclaimed.  On return from E<.Fn "
+"ieee80211_ifdetach> all associated vaps and ifnet structures are reclaimed "
+"or inaccessible to user applications so it is safe to teardown driver state "
+"without worry about being re-entered.  The driver is responsible for calling "
+"E<.Xr if_free 9> on the ifnet it allocated for the physical device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:513
+#, no-wrap
+msgid "DRIVER CAPABILITIES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:533
+msgid ""
+"Driver/device capabilities are specified using several sets of flags in the "
+"E<.Vt ieee80211com> structure.  General capabilities are specified by E<.Vt "
+"ic_caps>.  Hardware cryptographic capabilities are specified by E<.Vt "
+"ic_cryptocaps>.  802.11n capabilities, if any, are specified by E<.Vt "
+"ic_htcaps>.  The E<.Nm> layer propagates a subset of these capabilities to "
+"each vap through the equivalent fields: E<.Vt iv_caps>, E<.Vt "
+"iv_cryptocaps>, and E<.Vt iv_htcaps>.  The following general capabilities "
+"are defined:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:534
+#, no-wrap
+msgid "Dv IEEE80211_C_STA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:536
+msgid "Device is capable of operating in station (aka Infrastructure) mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:536
+#, no-wrap
+msgid "Dv IEEE80211_C_8023ENCAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:541
+msgid ""
+"Device requires 802.3-encapsulated frames be passed for transmit.  By "
+"default E<.Nm> will encapsulate all outbound frames as 802.11 frames "
+"(without a PLCP header)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:541
+#, no-wrap
+msgid "Dv IEEE80211_C_FF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:543
+msgid "Device supports Atheros Fast-Frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:543
+#, no-wrap
+msgid "Dv IEEE80211_C_TURBOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:545
+msgid "Device supports Atheros Dynamic Turbo mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:545
+#, no-wrap
+msgid "Dv IEEE80211_C_IBSS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:547
+msgid "Device is capable of operating in adhoc/IBSS mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:547
+#, no-wrap
+msgid "Dv IEEE80211_C_PMGT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:549
+msgid "Device supports dynamic power-management (aka power save) in station mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:549
+#, no-wrap
+msgid "Dv IEEE80211_C_HOSTAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:551
+msgid "Device is capable of operating as an Access Point in Infrastructure mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:551
+#, no-wrap
+msgid "Dv IEEE80211_C_AHDEMO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:554
+msgid ""
+"Device is capable of operating in Adhoc Demo mode.  In this mode the device "
+"is used purely to send/receive raw 802.11 frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:554
+#, no-wrap
+msgid "Dv IEEE80211_C_SWRETRY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:556
+msgid "Device supports software retry of transmitted frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:556
+#, no-wrap
+msgid "Dv IEEE80211_C_TXPMGT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:559
+msgid ""
+"Device support dynamic transmit power changes on transmitted frames; also "
+"known as Transmit Power Control (TPC)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:559
+#, no-wrap
+msgid "Dv IEEE80211_C_SHSLOT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:561
+msgid "Device supports short slot time operation (for 802.11g)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:561
+#, no-wrap
+msgid "Dv IEEE80211_C_SHPREAMBLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:563
+msgid "Device supports short preamble operation (for 802.11g)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:563
+#, no-wrap
+msgid "Dv IEEE80211_C_MONITOR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:565
+msgid "Device is capable of operating in monitor mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:565
+#, no-wrap
+msgid "Dv IEEE80211_C_DFS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:570
+msgid ""
+"Device supports radar detection and/or DFS.  DFS protocol support can be "
+"handled by E<.Nm> but the device must be capable of detecting radar events."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:570
+#, no-wrap
+msgid "Dv IEEE80211_C_MBSS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:573
+msgid ""
+"Device is capable of operating in MeshBSS (MBSS) mode (as defined by 802.11s "
+"Draft 3.0)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:573
+#, no-wrap
+msgid "Dv IEEE80211_C_WPA1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:575
+msgid "Device supports WPA1 operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:575
+#, no-wrap
+msgid "Dv IEEE80211_C_WPA2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:577
+msgid "Device supports WPA2/802.11i operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:577
+#, no-wrap
+msgid "Dv IEEE80211_C_BURST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:579
+msgid "Device supports frame bursting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:579
+#, no-wrap
+msgid "Dv IEEE80211_C_WME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:583
+msgid ""
+"Device supports WME/WMM operation (at the moment this is mostly support for "
+"sending and receiving QoS frames with EDCF)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:583
+#, no-wrap
+msgid "Dv IEEE80211_C_WDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:585
+msgid "Device supports transmit/receive of 4-address frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:585
+#, no-wrap
+msgid "Dv IEEE80211_C_BGSCAN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:587
+msgid "Device supports background scanning."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:587
+#, no-wrap
+msgid "Dv IEEE80211_C_TXFRAG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:589
+msgid "Device supports transmit of fragmented 802.11 frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:589
+#, no-wrap
+msgid "Dv IEEE80211_C_TDMA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:591
+msgid "Device is capable of operating in TDMA mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:605
+msgid ""
+"The follow general crypto capabilities are defined.  In general E<.Nm> will "
+"fall-back to software support when a device is not capable of hardware "
+"acceleration of a cipher.  This can be done on a per-key basis.  E<.Nm> can "
+"also handle software E<.Dv Michael> calculation combined with hardware E<.Dv "
+"AES> acceleration."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:606
+#, no-wrap
+msgid "Dv IEEE80211_CRYPTO_WEP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:608
+msgid "Device supports hardware WEP cipher."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:608
+#, no-wrap
+msgid "Dv IEEE80211_CRYPTO_TKIP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:610
+msgid "Device supports hardware TKIP cipher."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:610
+#, no-wrap
+msgid "Dv IEEE80211_CRYPTO_AES_OCB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:612
+msgid "Device supports hardware AES-OCB cipher."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:612
+#, no-wrap
+msgid "Dv IEEE80211_CRYPTO_AES_CCM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:614
+msgid "Device supports hardware AES-CCM cipher."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:614
+#, no-wrap
+msgid "Dv IEEE80211_CRYPTO_TKIPMIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:616
+msgid "Device supports hardware Michael for use with TKIP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:616
+#, no-wrap
+msgid "Dv IEEE80211_CRYPTO_CKIP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:618
+msgid "Devices supports hardware CKIP cipher."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:626
+msgid ""
+"The follow general 802.11n capabilities are defined.  The first capabilities "
+"are defined exactly as they appear in the 802.11n specification.  "
+"Capabilities beginning with IEEE80211_HTC_AMPDU are used solely by the "
+"E<.Nm> layer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:627
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_CHWIDTH40"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:629
+msgid "Device supports 20/40 channel width operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:629
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_SMPS_DYNAMIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:631
+msgid "Device supports dynamic SM power save operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:631
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_SMPS_ENA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:633
+msgid "Device supports static SM power save operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:633
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_GREENFIELD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:635
+msgid "Device supports Greenfield preamble."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:635
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_SHORTGI20"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:637
+msgid "Device supports Short Guard Interval on 20MHz channels."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:637
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_SHORTGI40"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:639
+msgid "Device supports Short Guard Interval on 40MHz channels."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:639
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_TXSTBC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:641
+msgid "Device supports Space Time Block Convolution (STBC) for transmit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:641
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_RXSTBC_1STREAM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:643
+msgid "Device supports 1 spatial stream for STBC receive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:643
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_RXSTBC_2STREAM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:645
+msgid "Device supports 1-2 spatial streams for STBC receive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:645
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_RXSTBC_3STREAM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:647
+msgid "Device supports 1-3 spatial streams for STBC receive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:647
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_MAXAMSDU_7935"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:649
+msgid "Device supports A-MSDU frames up to 7935 octets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:649
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_MAXAMSDU_3839"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:651
+msgid "Device supports A-MSDU frames up to 3839 octets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:651
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_DSSSCCK40"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:653
+msgid "Device supports use of DSSS/CCK on 40MHz channels."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:653
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_PSMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:655
+msgid "Device supports PSMP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:655
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_40INTOLERANT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:657
+msgid "Device is intolerant of 40MHz wide channel use."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:657
+#, no-wrap
+msgid "Dv IEEE80211_HTCAP_LSIGTXOPPROT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:659
+msgid "Device supports L-SIG TXOP protection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:659
+#, no-wrap
+msgid "Dv IEEE80211_HTC_AMPDU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:665
+msgid ""
+"Device supports A-MPDU aggregation.  Note that any 802.11n compliant device "
+"must support A-MPDU receive so this implicitly means support for E<.Em "
+"transmit> of A-MPDU frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:665
+#, no-wrap
+msgid "Dv IEEE80211_HTC_AMSDU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:671
+msgid ""
+"Device supports A-MSDU aggregation.  Note that any 802.11n compliant device "
+"must support A-MSDU receive so this implicitly means support for E<.Em "
+"transmit> of A-MSDU frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:671
+#, no-wrap
+msgid "Dv IEEE80211_HTC_HT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:676
+msgid ""
+"Device supports High Throughput (HT) operation.  This capability must be set "
+"to enable 802.11n functionality in E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:676
+#, no-wrap
+msgid "Dv IEEE80211_HTC_SMPS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:678
+msgid "Device supports MIMO Power Save operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/ieee80211.9:678
+#, no-wrap
+msgid "Dv IEEE80211_HTC_RIFS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:680
+msgid "Device supports Reduced Inter Frame Spacing (RIFS)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:681
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:699
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr ndis 4>, E<.Xr ieee80211_amrr 9>, E<.Xr "
+"ieee80211_beacon 9>, E<.Xr ieee80211_bmiss 9>, E<.Xr ieee80211_crypto 9>, "
+"E<.Xr ieee80211_ddb 9>, E<.Xr ieee80211_input 9>, E<.Xr ieee80211_node 9>, "
+"E<.Xr ieee80211_output 9>, E<.Xr ieee80211_proto 9>, E<.Xr "
+"ieee80211_radiotap 9>, E<.Xr ieee80211_regdomain 9>, E<.Xr ieee80211_scan "
+"9>, E<.Xr ieee80211_vap 9>, E<.Xr ifnet 9>, E<.Xr malloc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:699
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:710
+msgid ""
+"The E<.Nm> series of functions first appeared in E<.Nx 1.5>, and were later "
+"ported to E<.Fx 4.6>.  This man page was updated with the information from "
+"E<.Nx> E<.Nm> man page."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211.9:710
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211.9:718
+msgid ""
+"E<.An -nosplit> The original E<.Nx> E<.Nm> man page was written by E<.An "
+"Bruce M. Simpson Aq Mt bms@FreeBSD.org> and E<.An Darron Broad Aq Mt "
+"darron@kewl.org>."
+msgstr ""

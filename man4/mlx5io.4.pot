@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mlx5io.4:28
+#, no-wrap
+msgid "May 7, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mlx5io.4:29
+#, no-wrap
+msgid "mlx5io 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mlx5io.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:33
+msgid "E<.Nm mlx5io>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mlx5io.4:33
+#, no-wrap
+msgid "IOCTL interface to manage Connect-X 4/5 Mellanox network adapters"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mlx5io.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/mlx5io.4:35
+#, no-wrap
+msgid "dev/mlx5/mlx5io.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mlx5io.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:47
+msgid ""
+"The E<.Nm> interface is provided for management of the Connect-X 4 and 5 "
+"network adapters in the aspects not covered by the generic network "
+"configuration, mostly related to the PCIe attachment and internal card "
+"working.  Interface consists of the commands, which are passed by means of "
+"E<.Xr ioctl 2> on the file descriptor, opened from the E<.Pa /dev/mlx5ctl> "
+"device node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:49
+msgid "The following commands are implemented:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mlx5io.4:50
+#, no-wrap
+msgid "Dv MLX5_FWDUMP_FORCE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:60
+msgid ""
+"Take the snapshot of the firmware registers state and store it in the kernel "
+"buffer.  The buffer must be empty, in other words, no dumps should be "
+"written so far, or existing dump cleared with the E<.Dv MLX5_FWDUMP_RESET> "
+"command for the specified device.  The argument for the command should point "
+"to the E<.Vt struct mlx5_tool_addr> structure, containing the PCIe bus "
+"address of the device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:67
+#, no-wrap
+msgid ""
+"struct mlx5_tool_addr {\n"
+"\tuint32_t domain;\n"
+"\tuint8_t bus;\n"
+"\tuint8_t slot;\n"
+"\tuint8_t func;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mlx5io.4:68
+#, no-wrap
+msgid "Dv MLX5_FWDUMP_RESET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:74
+msgid ""
+"Clear the stored firmware dump, preparing the kernel buffer for the next "
+"dump.  The argument for the command should point to the E<.Vt struct "
+"mlx5_tool_addr> structure, containing the PCIe bus address of the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mlx5io.4:74
+#, no-wrap
+msgid "Dv MLX5_FWDUMP_GET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:89
+msgid ""
+"Fetch the stored firmware dump into the user memory.  The argument to the "
+"command should point to the input/output E<.Vt struct mlx5_fwdump_get> "
+"structure.  Its E<.Dv devaddr> field specifies the address of the device, "
+"the E<.Dv buf> fields points to the array of E<.Vt struct mlx5_fwdump_reg> "
+"of records of the registers values, the size of the array is specified in "
+"the E<.Dv reg_cnt> field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:96
+#, no-wrap
+msgid ""
+"struct mlx5_fwdump_get {\n"
+"\tstruct mlx5_tool_addr devaddr;\n"
+"\tstruct mlx5_fwdump_reg *buf;\n"
+"\tsize_t reg_cnt;\n"
+"\tsize_t reg_filled; /* out */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:111
+msgid ""
+"On successfull return, the E<.Dv reg_filled> field reports the number of the "
+"E<.Dv buf> array elements actually filled with the registers values.  If "
+"E<.Dv buf> contains the E<.Dv NULL> pointer, no registers are filled, but "
+"E<.Dv reg_filled> still contains the number of registers that should be "
+"passed for the complete dump."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:118
+msgid ""
+"The E<.Vt struct mlx5_fwdump_reg> element contains the address of the "
+"register in the field E<.Dv addr>, and its value in the field E<.Dv val>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:123
+#, no-wrap
+msgid ""
+"struct mlx5_fwdump_reg {\n"
+"\tuint32_t addr;\n"
+"\tuint32_t val;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mlx5io.4:124
+#, no-wrap
+msgid "Dv MLX5_FW_UPDATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:133
+msgid ""
+"Requests firmware update (flash) on the adapter specified by the E<.Dv "
+"devaddr> using the firmware image in E<.Dv MFA2> format.  The argument for "
+"the ioctl command is the E<.Vt struct mlx5_fw_update> with the following "
+"definition."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:139
+#, no-wrap
+msgid ""
+"struct mlx5_fw_update {\n"
+"\tstruct mlx5_tool_addr devaddr;\n"
+"\tvoid *img_fw_data;\n"
+"\tsize_t img_fw_data_len;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:145
+msgid ""
+"Image address in memory is passed in E<.Dv img_fw_data>, the length of the "
+"image is specified in E<.Dv img_fw_data_len> field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mlx5io.4:145
+#, no-wrap
+msgid "Dv MLX5_FW_RESET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:150
+msgid ""
+"Requests PCIe link-level reset on the device.  The address of the device is "
+"specified by the E<.Vt struct mlx5_tool_addr> structure, which should be "
+"passed as an argument."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mlx5io.4:151
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:156
+msgid ""
+"The E<.Pa /dev/mlx5ctl> E<.Xr devfs 5> node is used to pass commands to the "
+"driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mlx5io.4:156
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:161
+msgid ""
+"If successful, the IOCTL returns zero.  Otherwise, -1 is returned and the "
+"global variable E<.Va errno> is set to indicate the error."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mlx5io.4:161
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mlx5io.4:168
+msgid ""
+"E<.Xr errno 2>, E<.Xr ioctl 2>, E<.Xr mlx5en 4>, E<.Xr mlx5ib 4>, E<.Xr "
+"mlx5tool 8> and E<.Xr pci 9>."
+msgstr ""

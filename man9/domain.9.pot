@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/domain.9:29
+#, no-wrap
+msgid "June 1, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/domain.9:30
+#, no-wrap
+msgid "DOMAIN 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domain.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:40
+msgid ""
+"E<.Nm domain_add>, E<.Nm pfctlinput>, E<.Nm pfctlinput2>, E<.Nm "
+"pffinddomain>, E<.Nm pffindproto>, E<.Nm pffindtype>, E<.Nm DOMAIN_SET>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/domain.9:40
+#, no-wrap
+msgid "network domain management"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domain.9:41
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/domain.9:42
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/domain.9:43
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/domain.9:44
+#, no-wrap
+msgid "sys/protosw.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/domain.9:45
+#, no-wrap
+msgid "sys/domain.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:60
+msgid ""
+"E<.Ft void> E<.Fn domain_add \"void *data\"> E<.Ft void> E<.Fn pfctlinput "
+"\"int cmd\" \"struct sockaddr *sa\"> E<.Ft void> E<.Fn pfctlinput2 \"int "
+"cmd\" \"struct sockaddr *sa\" \"void *ctlparam\"> E<.Ft struct domain *> "
+"E<.Fn pffinddomain \"int family\"> E<.Ft struct protosw *> E<.Fn pffindproto "
+"\"int family\" \"int protocol\" \"int type\"> E<.Ft struct protosw *> E<.Fn "
+"pffindtype \"int family\" \"int type\"> E<.Ft void> E<.Fn DOMAIN_SET "
+"\"name\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domain.9:60
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:67
+msgid ""
+"Network protocols installed in the system are maintained within what are "
+"called domains (for example the E<.Va inetdomain> and E<.Va localdomain>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:90
+#, no-wrap
+msgid ""
+"struct domain {\n"
+"\tint\tdom_family;\t\t/* AF_xxx */\n"
+"\tchar\t*dom_name;\n"
+"\tvoid\t(*dom_init)\t\t/* initialize domain data structures */\n"
+"\t\t(void);\n"
+"\tvoid\t(*dom_destroy)\t\t/* cleanup structures / state */\n"
+"\t\t(void);\n"
+"\tint\t(*dom_externalize)\t/* externalize access rights */\n"
+"\t\t(struct mbuf *, struct mbuf **);\n"
+"\tvoid\t(*dom_dispose)\t\t/* dispose of internalized rights */\n"
+"\t\t(struct mbuf *);\n"
+"\tstruct\tprotosw *dom_protosw, *dom_protoswNPROTOSW;\n"
+"\tstruct\tdomain *dom_next;\n"
+"\tint\t(*dom_rtattach)\t\t/* initialize routing table */\n"
+"\t\t(void **, int);\n"
+"\tint\t(*dom_rtdetach)\t\t/* clean up routing table */\n"
+"\t\t(void **, int);\n"
+"\tvoid\t*(*dom_ifattach)(struct ifnet *);\n"
+"\tvoid\t(*dom_ifdetach)(struct ifnet *, void *);\n"
+"\tint\t(*dom_ifmtu)(struct ifnet *);\n"
+"\t\t\t\t\t/* af-dependent data on ifnet */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:95
+msgid ""
+"Each domain contains an array of protocol switch structures E<.Pq Vt "
+"\"struct protosw *\">, one for each socket type supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:111
+#, no-wrap
+msgid ""
+"struct protosw {\n"
+"\tshort\tpr_type;\t\t/* socket type used for */\n"
+"\tstruct\tdomain *pr_domain;\t/* domain protocol a member of */\n"
+"\tshort\tpr_protocol;\t\t/* protocol number */\n"
+"\tshort\tpr_flags;\t\t/* see below */\n"
+"/* protocol-protocol hooks */\n"
+"\tpr_input_t *pr_input;\t\t/* input to protocol (from below) */\n"
+"\tpr_output_t *pr_output;\t\t/* output to protocol (from above) */\n"
+"\tpr_ctlinput_t *pr_ctlinput;\t/* control input (from below) */\n"
+"\tpr_ctloutput_t *pr_ctloutput;\t/* control output (from above) */\n"
+"/* utility hooks */\n"
+"\tpr_init_t *pr_init;\n"
+"\tpr_fasttimo_t *pr_fasttimo;\t/* fast timeout (200ms) */\n"
+"\tpr_slowtimo_t *pr_slowtimo;\t/* slow timeout (500ms) */\n"
+"\tpr_drain_t *pr_drain;\t\t/* flush any excess space possible */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:114
+#, no-wrap
+msgid ""
+"\tstruct\tpr_usrreqs *pr_usrreqs;\t/* user-protocol hook */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:119
+msgid ""
+"The following functions handle the registration of a new domain, lookups of "
+"specific protocols and protocol types within those domains, and handle "
+"control messages from the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:132
+msgid ""
+"E<.Fn pfctlinput> is called by the system whenever an event occurs that "
+"could affect every domain.  Examples of those types of events are routing "
+"table changes, interface shutdowns or certain E<.Tn ICMP> message types.  "
+"When called, E<.Fn pfctlinput> calls the protocol specific E<.Fn "
+"pr_ctlinput> function for each protocol in that has defined one, in every "
+"domain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:153
+msgid ""
+"E<.Fn pfctlinput2> provides that same functionality of E<.Fn pfctlinput>, "
+"but with a few additional checks and a new E<.Vt \"void *\"> argument that "
+"is passed directly to the protocol's E<.Fn pr_ctlinput> function.  Unlike "
+"E<.Fn pfctlinput>, E<.Fn pfctlinput2> verifies that E<.Fa sa> is not E<.Dv "
+"NULL>, and that only the protocol families that are the same as E<.Fa sa> "
+"have their E<.Fn pr_ctlinput> function called."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:169
+msgid ""
+"E<.Fn domain_add> adds a new protocol domain to the system.  The argument "
+"E<.Fa data> is cast directly to E<.Vt \"struct domain *\"> within the "
+"function, but is declared E<.Vt \"void *\"> in order to prevent compiler "
+"warnings when new domains are registered with E<.Fn SYSINIT>.  In most cases "
+"E<.Fn domain_add> is not called directly, instead E<.Fn DOMAIN_SET> is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:174
+msgid ""
+"If the new domain has defined an initialization routine, it is called by "
+"E<.Fn domain_add>; as well, each of the protocols within the domain that "
+"have defined an initialization routine will have theirs called."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:179
+msgid ""
+"Once a domain is added it cannot be unloaded.  This is because there is no "
+"reference counting system in place to determine if there are any active "
+"references from sockets within that domain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:185
+msgid ""
+"E<.Fn pffinddomain> finds a domain by family.  If the domain cannot be "
+"found, E<.Dv NULL> is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:199
+msgid ""
+"E<.Fn pffindtype> and E<.Fn pffindproto> look up a protocol by its number or "
+"by its type.  In most cases, if the protocol or type cannot be found, E<.Dv "
+"NULL> is returned, but E<.Fn pffindproto> may return the default if the "
+"requested type is E<.Dv SOCK_RAW>, a protocol switch type of E<.Dv SOCK_RAW> "
+"is found, and the domain has a default raw protocol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:203
+msgid ""
+"Both functions are called by E<.Fn socreate> in order to resolve the "
+"protocol for the socket currently being created."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:214
+msgid ""
+"E<.Fn DOMAIN_SET> is a macro that simplifies the registration of a domain "
+"via E<.Fn SYSINIT>.  The code resulting from the macro expects there to be a "
+"domain structure named E<.Dq Fa name Ns Li domain> where E<.Fa name> is the "
+"argument to E<.Fn DOMAIN_SET>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:218
+#, no-wrap
+msgid ""
+"struct domain localdomain =\n"
+"{ AF_LOCAL, \"local\", unp_init, unp_externalize, unp_dispose,\n"
+"  localsw, &localsw[sizeof(localsw)/sizeof(localsw[0])] };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:220
+#, no-wrap
+msgid "DOMAIN_SET(local);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domain.9:221
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:237
+msgid ""
+"Both E<.Fn pffindtype> and E<.Fn pffindproto> return a E<.Vt \"struct "
+"protosw *\"> for the protocol requested.  If the protocol or socket type is "
+"not found, E<.Dv NULL> is returned.  In the case of E<.Fn pffindproto>, the "
+"default protocol may be returned for E<.Dv SOCK_RAW> types if the domain has "
+"a default raw protocol."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domain.9:237
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:239
+msgid "E<.Xr socket 2>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domain.9:239
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domain.9:241
+msgid "This manual page was written by E<.An Chad David Aq Mt davidc@acns.ab.ca>."
+msgstr ""

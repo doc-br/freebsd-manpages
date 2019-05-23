@@ -1,0 +1,1418 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:14
+#, no-wrap
+msgid "Sep 26, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:15
+#, no-wrap
+msgid "CTF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:17
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:19
+msgid "E<.Nm ctf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:19
+#, no-wrap
+msgid "Compact C Type Format"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:20
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:21
+#, no-wrap
+msgid "sys/ctf.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:22
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:35
+msgid ""
+"E<.Nm> is designed to be a compact representation of the C programming "
+"language's type information focused on serving the needs of dynamic tracing, "
+"debuggers, and other in-situ and post-mortem introspection tools.  E<.Nm> "
+"data is generally included in E<.Sy ELF> objects and is tagged as E<.Sy "
+"SHT_PROGBITS> to ensure that the data is accessible in a running process and "
+"in subsequent core dumps, if generated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:47
+msgid ""
+"The E<.Nm> data contained in each file has information about the layout and "
+"sizes of C types, including intrinsic types, enumerations, structures, "
+"typedefs, and unions, that are used by the corresponding E<.Sy ELF> object.  "
+"The E<.Nm> data may also include information about the types of global "
+"objects and the return type and arguments of functions in the symbol table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:54
+msgid ""
+"Because a E<.Nm> file is often embedded inside a file, rather than being a "
+"standalone file itself, it may also be referred to as a E<.Nm> E<.Sy "
+"container>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:64
+msgid ""
+"On E<.Fx> systems, E<.Nm> data is consumed by E<.Xr dtrace 1>.  Programmatic "
+"access to E<.Nm> data can be obtained through libctf."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:99
+msgid ""
+"The E<.Nm> file format is broken down into seven different sections.  The "
+"first section is the E<.Sy preamble> and E<.Sy header>, which describes the "
+"version of the E<.Nm> file, the links it has to other E<.Nm> files, and the "
+"sizes of the other sections.  The next section is the E<.Sy label> section, "
+"which provides a way of identifying similar groups of E<.Nm> data across "
+"multiple files.  This is followed by the E<.Sy object> information section, "
+"which describes the types of global symbols.  The subsequent section is the "
+"E<.Sy function> information section, which describes the return types and "
+"arguments of functions.  The next section is the E<.Sy type> information "
+"section, which describes the format and layout of the C types themselves, "
+"and finally the last section is the E<.Sy string> section, which contains "
+"the names of types, enumerations, members, and labels."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:106
+msgid ""
+"While strictly speaking, only the E<.Sy preamble> and E<.Sy header> are "
+"required, to be actually useful, both the type and string sections are "
+"necessary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:132
+msgid ""
+"A E<.Nm> file may contain all of the type information that it requires, or "
+"it may optionally refer to another E<.Nm> file which holds the remaining "
+"types.  When a E<.Nm> file refers to another file, it is called the E<.Sy "
+"child> and the file it refers to is called the E<.Sy parent>.  A given file "
+"may only refer to one parent.  This process is called E<.Em uniquification> "
+"because it ensures each child only has type information that is unique to "
+"it.  A common example of this is that most kernel modules in illumos are "
+"uniquified against the kernel module E<.Sy genunix> and the type information "
+"that comes from the E<.Sy IP> module.  This means that a module only has "
+"types that are unique to itself and the most common types in the kernel are "
+"not duplicated."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:132
+#, no-wrap
+msgid "FILE FORMAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:141
+msgid ""
+"This documents version E<.Em two> of the E<.Nm> file format.  All "
+"applications and tools on E<.Fx> currently produce and operate on this "
+"version."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:144
+msgid ""
+"The file format can be summarized with the following image, the following "
+"sections will cover this in more detail."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:221
+#, no-wrap
+msgid ""
+"         +-------------+  0t0\n"
+"+--------| Preamble    |\n"
+"|        +-------------+  0t4\n"
+"|+-------| Header      |\n"
+"||       +-------------+  0t36 + cth_lbloff\n"
+"||+------| Labels      |\n"
+"|||      +-------------+  0t36 + cth_objtoff\n"
+"|||+-----| Objects     |\n"
+"||||     +-------------+  0t36 + cth_funcoff\n"
+"||||+----| Functions   |\n"
+"|||||    +-------------+  0t36 + cth_typeoff\n"
+"|||||+---| Types       |\n"
+"||||||   +-------------+  0t36 + cth_stroff\n"
+"||||||+--| Strings     |\n"
+"|||||||  +-------------+  0t36 + cth_stroff + cth_strlen\n"
+"|||||||\n"
+"|||||||\n"
+"|||||||\n"
+"|||||||    +-- magic -   vers   flags\n"
+"|||||||    |          |    |      |\n"
+"|||||||   +------+------+------+------+\n"
+"+---------| 0xcf | 0xf1 | 0x02 | 0x00 |\n"
+" ||||||   +------+------+------+------+\n"
+" ||||||   0      1      2      3      4\n"
+" ||||||\n"
+" ||||||    + parent label        + objects\n"
+" ||||||    |       + parent name |     + functions    + strings\n"
+" ||||||    |       |     + label |     |      + types |       + strlen\n"
+" ||||||    |       |     |       |     |      |       |       |\n"
+" ||||||   +------+------+------+------+------+-------+-------+-------+\n"
+" +--------| 0x00 | 0x00 | 0x00 | 0x08 | 0x36 | 0x110 | 0x5f4 | 0x611 |\n"
+"  |||||   +------+------+------+------+------+-------+-------+-------+\n"
+"  |||||   0x04   0x08   0x0c   0x10   0x14    0x18    0x1c    0x20   0x24\n"
+"  |||||\n"
+"  |||||         + Label name\n"
+"  |||||         |       + Label type\n"
+"  |||||         |       |       + Next label\n"
+"  |||||         |       |       |\n"
+"  |||||       +-------+------+-----+\n"
+"  +-----------| 0x01  | 0x42 | ... |\n"
+"   ||||       +-------+------+-----+\n"
+"   ||||  cth_lbloff   +0x4   +0x8  cth_objtoff\n"
+"   ||||\n"
+"   ||||\n"
+"   |||| Symidx  0t15   0t43   0t44\n"
+"   ||||       +------+------+------+-----+\n"
+"   +----------| 0x00 | 0x42 | 0x36 | ... |\n"
+"    |||       +------+------+------+-----+\n"
+"    ||| cth_objtoff  +0x2   +0x4   +0x6   cth_funcoff\n"
+"    |||\n"
+"    |||        + CTF_TYPE_INFO         + CTF_TYPE_INFO\n"
+"    |||        |        + Return type  |\n"
+"    |||        |        |       + arg0 |\n"
+"    |||       +--------+------+------+-----+\n"
+"    +---------| 0x2c10 | 0x08 | 0x0c | ... |\n"
+"     ||       +--------+------+------+-----+\n"
+"     || cth_funcff     +0x2   +0x4   +0x6  cth_typeoff\n"
+"     ||\n"
+"     ||         + ctf_stype_t for type 1\n"
+"     ||         |  integer           + integer encoding\n"
+"     ||         |                    |          + ctf_stype_t for type 2\n"
+"     ||         |                    |          |\n"
+"     ||       +--------------------+-----------+-----+\n"
+"     +--------| 0x19 * 0xc01 * 0x0 | 0x1000000 | ... |\n"
+"      |       +--------------------+-----------+-----+\n"
+"      | cth_typeoff               +0x08      +0x0c  cth_stroff\n"
+"      |\n"
+"      |     +--- str 0\n"
+"      |     |    +--- str 1       + str 2\n"
+"      |     |    |                |\n"
+"      |     v    v                v\n"
+"      |   +----+---+---+---+----+---+---+---+---+---+----+\n"
+"      +---| \\e0 | i | n | t | \\e0 | f | o | o | _ | t | \\e0 |\n"
+"          +----+---+---+---+----+---+---+---+---+---+----+\n"
+"          0    1   2   3   4    5   6   7   8   9   10   11\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:232
+msgid ""
+"Every E<.Nm> file begins with a E<.Sy preamble>, followed by a E<.Sy "
+"header>.  The E<.Sy preamble> is defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:238
+#, no-wrap
+msgid ""
+"typedef struct ctf_preamble {\n"
+"\tushort_t ctp_magic;\t/* magic number (CTF_MAGIC) */\n"
+"\tuchar_t ctp_version;\t/* data format version number (CTF_VERSION) */\n"
+"\tuchar_t ctp_flags;\t/* flags (see below) */\n"
+"} ctf_preamble_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:276
+msgid ""
+"The E<.Sy preamble> is four bytes long and must be four byte aligned.  This "
+"E<.Sy preamble> defines the version of the E<.Nm> file which defines the "
+"format of the rest of the header.  While the header may change in subsequent "
+"versions, the preamble will not change across versions, though the "
+"interpretation of its flags may change from version to version.  The E<.Em "
+"ctp_magic> member defines the magic number for the E<.Nm> file format.  This "
+"must always be E<.Li 0xcff1>.  If another value is encountered, then the "
+"file should not be treated as a E<.Nm> file.  The E<.Em ctp_version> member "
+"defines the version of the E<.Nm> file.  The current version is E<.Li 2>.  "
+"It is possible to encounter an unsupported version.  In that case, software "
+"should not try to parse the format, as it may have changed.  Finally, the "
+"E<.Em ctp_flags> member describes aspects of the file which modify its "
+"interpretation.  The following flags are currently defined:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:278
+#, no-wrap
+msgid "#define\tCTF_F_COMPRESS\t\t0x01\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:298
+msgid ""
+"The flag E<.Sy CTF_F_COMPRESS> indicates that the body of the E<.Nm> file, "
+"all the data following the E<.Sy header>, has been compressed through the "
+"E<.Sy zlib> library and its E<.Sy deflate> algorithm.  If this flag is not "
+"present, then the body has not been compressed and no special action is "
+"needed to interpret it.  All offsets into the data as described by E<.Sy "
+"header>, always refer to the E<.Sy uncompressed> data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:313
+msgid ""
+"In version two of the E<.Nm> file format, the E<.Sy header> denotes whether "
+"or not this E<.Nm> file is the child of another E<.Nm> file and also "
+"indicates the size of the remaining sections.  The structure for the E<.Sy "
+"header> logically contains a copy of the E<.Sy preamble> and the two have a "
+"combined size of 36 bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:325
+#, no-wrap
+msgid ""
+"typedef struct ctf_header {\n"
+"\tctf_preamble_t cth_preamble;\n"
+"\tuint_t cth_parlabel;\t/* ref to name of parent lbl uniq'd against */\n"
+"\tuint_t cth_parname;\t/* ref to basename of parent */\n"
+"\tuint_t cth_lbloff;\t/* offset of label section */\n"
+"\tuint_t cth_objtoff;\t/* offset of object section */\n"
+"\tuint_t cth_funcoff;\t/* offset of function section */\n"
+"\tuint_t cth_typeoff;\t/* offset of type section */\n"
+"\tuint_t cth_stroff;\t/* offset of string section */\n"
+"\tuint_t cth_strlen;\t/* length of string section in bytes */\n"
+"} ctf_header_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:354
+msgid ""
+"After the E<.Sy preamble>, the next two members E<.Em cth_parlablel> and "
+"E<.Em cth_parname>, are used to identify the parent.  The value of both "
+"members are offsets into the E<.Sy string> section which point to the start "
+"of a null-terminated string.  For more information on the encoding of "
+"strings, see the subsection on E<.Sx String Identifiers>.  If the value of "
+"either is zero, then there is no entry for that member.  If the member E<.Em "
+"cth_parlabel> is set, then the E<.Em ctf_parname> member must be set, "
+"otherwise it will not be possible to find the parent.  If E<.Em ctf_parname> "
+"is set, it is not necessary to define E<.Em cth_parlabel>, as the parent may "
+"not have a label.  For more information on labels and their interpretation, "
+"see E<.Sx The Label Section>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:387
+msgid ""
+"The remaining members (excepting E<.Em cth_strlen>)  describe the beginning "
+"of the corresponding sections.  These offsets are relative to the end of the "
+"E<.Sy header>.  Therefore, something with an offset of 0 is at an offset of "
+"thirty-six bytes relative to the start of the E<.Nm> file.  The difference "
+"between members indicates the size of the section itself.  Different offsets "
+"have different alignment requirements.  The start of the E<.Em cth_objotoff> "
+"and E<.Em cth_funcoff> must be two byte aligned, while the sections E<.Em "
+"cth_lbloff> and E<.Em cth_typeoff> must be four-byte aligned.  The section "
+"E<.Em cth_stroff> has no alignment requirements.  To calculate the size of a "
+"given section, excepting the E<.Sy string> section, one should subtract the "
+"offset of the section from the following one.  For example, the size of the "
+"E<.Sy types> section can be calculated by subtracting E<.Em cth_stroff> from "
+"E<.Em cth_typeoff>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:399
+msgid ""
+"Finally, the member E<.Em cth_strlen> describes the length of the string "
+"section itself.  From it, you can also calculate the size of the entire "
+"E<.Nm> file by adding together the size of the E<.Sy ctf_header_t>, the "
+"offset of the string section in E<.Em cth_stroff>, and the size of the "
+"string section in E<.Em cth_srlen>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:399
+#, no-wrap
+msgid "Type Identifiers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:415
+msgid ""
+"Through the E<.Nm ctf> data, types are referred to by identifiers.  A given "
+"E<.Nm> file supports up to 32767 (0x7fff) types.  The first valid type "
+"identifier is 0x1.  When a given E<.Nm> file is a child, indicated by a "
+"non-zero entry for the E<.Sy header Ns 's> E<.Em cth_parname>, then the "
+"first valid type identifier is 0x8000 and the last is 0xffff.  In this case, "
+"type identifiers 0x1 through 0x7fff are references to the parent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:418
+msgid ""
+"The type identifier zero is a sentinel value used to indicate that there is "
+"no type information available or it is an unknown type."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:425
+msgid ""
+"Throughout the file format, the identifier is stored in different sized "
+"values; however, the minimum size to represent a given identifier is a E<.Sy "
+"uint16_t>.  Other consumers of E<.Nm> information may use larger or opaque "
+"identifiers."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:425
+#, no-wrap
+msgid "String Identifiers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:435
+msgid ""
+"String identifiers are always encoded as four byte unsigned integers which "
+"are an offset into a string table.  The E<.Nm> format supports two different "
+"string tables which have an identifier of zero or one.  This identifier is "
+"stored in the high-order bit of the unsigned four byte offset.  Therefore, "
+"the maximum supported offset into one of these tables is 0x7ffffffff."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:443
+msgid ""
+"Table identifier zero, always refers to the E<.Sy string> section in the CTF "
+"file itself.  String table identifier one refers to an external string table "
+"which is the ELF string table for the ELF symbol table associated with the "
+"E<.Nm> container."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:443
+#, no-wrap
+msgid "Type Encoding"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:449
+msgid ""
+"Every E<.Nm> type begins with metadata encoded into a E<.Sy uint16_t>.  This "
+"encoded information tells us three different pieces of information:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:452
+msgid "The kind of the type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:454
+msgid "Whether this type is a root type or not"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:456
+msgid "The length of the variable data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:462
+msgid ""
+"The 16 bits that make up the encoding are broken down such that you have "
+"five bits for the kind, one bit for indicating whether or not it is a root "
+"type, and 10 bits for the variable length.  This is laid out as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:467
+#, no-wrap
+msgid ""
+"+--------------------+\n"
+"| kind | root | vlen |\n"
+"+--------------------+\n"
+"15   11   10   9    0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:476
+msgid ""
+"The current version of the file format defines 14 different kinds.  The "
+"interpretation of these different kinds will be discussed in the section "
+"E<.Sx The Type Section>.  If a kind is encountered that is not listed below, "
+"then it is not a valid E<.Nm> file.  The kinds are defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:491
+#, no-wrap
+msgid ""
+"#define\tCTF_K_UNKNOWN\t0\n"
+"#define\tCTF_K_INTEGER\t1\n"
+"#define\tCTF_K_FLOAT\t2\n"
+"#define\tCTF_K_POINTER\t3\n"
+"#define\tCTF_K_ARRAY\t4\n"
+"#define\tCTF_K_FUNCTION\t5\n"
+"#define\tCTF_K_STRUCT\t6\n"
+"#define\tCTF_K_UNION\t7\n"
+"#define\tCTF_K_ENUM\t8\n"
+"#define\tCTF_K_FORWARD\t9\n"
+"#define\tCTF_K_TYPEDEF\t10\n"
+"#define\tCTF_K_VOLATILE\t11\n"
+"#define\tCTF_K_CONST\t12\n"
+"#define\tCTF_K_RESTRICT\t13\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:506
+msgid ""
+"Programs directly reference many types; however, other types are referenced "
+"indirectly because they are part of some other structure.  These types that "
+"are referenced directly and used are called E<.Sy root> types.  Other types "
+"may be used indirectly, for example, a program may reference a structure "
+"directly, but not one of its members which has a type.  That type is not "
+"considered a E<.Sy root> type.  If a type is a E<.Sy root> type, then it "
+"will have bit 10 set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:510
+msgid ""
+"The variable length section is specific to each kind and is discussed in the "
+"section E<.Sx The Type Section>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:513
+msgid ""
+"The following macros are useful for constructing and deconstructing the "
+"encoded type information:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:519
+#, no-wrap
+msgid ""
+"#define\tCTF_MAX_VLEN\t0x3ff\n"
+"#define\tCTF_INFO_KIND(info)\t(((info) & 0xf800) E<gt>E<gt> 11)\n"
+"#define\tCTF_INFO_ISROOT(info)\t(((info) & 0x0400) E<gt>E<gt> 10)\n"
+"#define\tCTF_INFO_VLEN(info)\t(((info) & CTF_MAX_VLEN))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:522
+#, no-wrap
+msgid ""
+"#define\tCTF_TYPE_INFO(kind, isroot, vlen) \\e\n"
+"\t(((kind) E<lt>E<lt> 11) | (((isroot) ? 1 : 0) E<lt>E<lt> 10) | ((vlen) & "
+"CTF_MAX_VLEN))\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:523
+#, no-wrap
+msgid "The Label Section"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:539
+msgid ""
+"When consuming E<.Nm> data, it is often useful to know whether two different "
+"E<.Nm> containers come from the same source base and version.  For example, "
+"when building illumos, there are many kernel modules that are built against "
+"a single collection of source code.  A label is encoded into the E<.Nm> "
+"files that corresponds with the particular build.  This ensures that if "
+"files on the system were to become mixed up from multiple releases, that "
+"they are not used together by tools, particularly when a child needs to "
+"refer to a type in the parent.  Because they are linked using the type "
+"identifiers, if the wrong parent is used then the wrong type will be "
+"encountered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:542
+msgid ""
+"Each label is encoded in the file format using the following eight byte "
+"structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:547
+#, no-wrap
+msgid ""
+"typedef struct ctf_lblent {\n"
+"\tuint_t ctl_label;\t/* ref to name of label */\n"
+"\tuint_t ctl_typeidx;\t/* last type associated with this label */\n"
+"} ctf_lblent_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:556
+msgid ""
+"Each label has two different components, a name and a type identifier.  The "
+"name is encoded in the E<.Em ctl_label> member which is in the format "
+"defined in the section E<.Sx String Identifiers>.  Generally, the names of "
+"all labels are found in the internal string section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:565
+msgid ""
+"The type identifier encoded in the member E<.Em ctl_typeidx> refers to the "
+"last type identifier that a label refers to in the current file.  Labels "
+"only refer to types in the current file, if the E<.Nm> file is a child, then "
+"it will have the same label as its parent; however, its label will only "
+"refer to its types, not its parent's."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:571
+msgid ""
+"It is also possible, though rather uncommon, for a E<.Nm> file to have "
+"multiple labels.  Labels are placed one after another, every eight bytes.  "
+"When multiple labels are present, types may only belong to a single label."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:571
+#, no-wrap
+msgid "The Object Section"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:581
+msgid ""
+"The object section provides a mapping from ELF symbols of type E<.Sy "
+"STT_OBJECT> in the symbol table to a type identifier.  Every entry in this "
+"section is a E<.Sy uint16_t> which contains a type identifier as described "
+"in the section E<.Sx Type Identifiers>.  If there is no information for an "
+"object, then the type identifier 0x0 is stored for that entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:590
+msgid ""
+"To walk the object section, you need to have a corresponding E<.Sy symbol "
+"table> in the ELF object that contains the E<.Nm> data.  Not every object is "
+"included in this section.  Specifically, when walking the symbol table, an "
+"entry is skipped if it matches any of the following conditions:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:595
+msgid "The symbol type is not E<.Sy STT_OBJECT>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:598 /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:707
+msgid "The symbol's section index is E<.Sy SHN_UNDEF>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:600 /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:709
+msgid "The symbol's name offset is zero"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:604
+msgid ""
+"The symbol's section index is E<.Sy SHN_ABS> and the value of the symbol is "
+"zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:611 /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:716
+msgid ""
+"The symbol's name is E<.Li _START_> or E<.Li _END_>.  These are skipped "
+"because they are used for scoping local symbols in ELF."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:615
+msgid ""
+"The following sample code shows an example of iterating the object section "
+"and skipping the correct symbols:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:618
+#, no-wrap
+msgid ""
+"#include E<lt>gelf.hE<gt>\n"
+"#include E<lt>stdio.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:632
+#, no-wrap
+msgid ""
+"/*\n"
+" * Given the start of the object section in the CTF file, the number of "
+"symbols,\n"
+" * and the ELF Data sections for the symbol table and the string table, "
+"this\n"
+" * prints the type identifiers that correspond to objects. Note, a more "
+"robust\n"
+" * implementation should ensure that they don't walk beyond the end of the "
+"CTF\n"
+" * object section.\n"
+" */\n"
+"static int\n"
+"walk_symbols(uint16_t *objtoff, Elf_Data *symdata, Elf_Data *strdata,\n"
+"    long nsyms)\n"
+"{\n"
+"\tlong i;\n"
+"\tuintptr_t strbase = strdata-E<gt>d_buf;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:636
+#, no-wrap
+msgid ""
+"\tfor (i = 1; i E<lt> nsyms; i++, objftoff++) {\n"
+"\t\tconst char *name;\n"
+"\t\tGElf_Sym sym;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:639
+#, no-wrap
+msgid ""
+"\t\tif (gelf_getsym(symdata, i, &sym) == NULL)\n"
+"\t\t\treturn (1);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:649
+#, no-wrap
+msgid ""
+"\t\tif (GELF_ST_TYPE(sym.st_info) != STT_OBJECT)\n"
+"\t\t\tcontinue;\n"
+"\t\tif (sym.st_shndx == SHN_UNDEF || sym.st_name == 0)\n"
+"\t\t\tcontinue;\n"
+"\t\tif (sym.st_shndx == SHN_ABS && sym.st_value == 0)\n"
+"\t\t\tcontinue;\n"
+"\t\tname = (const char *)(strbase + sym.st_name);\n"
+"\t\tif (strcmp(name, \"_START_\") == 0 || strcmp(name, \"_END_\") == 0)\n"
+"\t\t\tcontinue;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:652
+#, no-wrap
+msgid ""
+"\t\t(void) printf(\"Symbol %d has type %d\\n\", i, *objtoff);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:655
+#, no-wrap
+msgid ""
+"\treturn (0);\n"
+"}\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:656
+#, no-wrap
+msgid "The Function Section"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:681
+msgid ""
+"The function section of the E<.Nm> file encodes the types of both the "
+"function's arguments and the function's return value.  Similar to E<.Sx The "
+"Object Section>, the function section encodes information for all symbols of "
+"type E<.Sy STT_FUNCTION>, excepting those that fit specific criteria.  "
+"Unlike with objects, because functions have a variable number of arguments, "
+"they start with a type encoding as defined in E<.Sx Type Encoding>, which is "
+"the size of a E<.Sy uint16_t>.  For functions which have no type information "
+"available, they are encoded as E<.Li CTF_TYPE_INFO(CTF_K_UNKNOWN, 0, 0)>.  "
+"Functions with arguments are encoded differently.  Here, the variable length "
+"is turned into the number of arguments in the function.  If a function is a "
+"E<.Sy varargs> type function, then the number of arguments is increased by "
+"one.  Functions with type information are encoded as: E<.Li "
+"CTF_TYPE_INFO(CTF_K_FUNCTION, 0, nargs)>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:692
+msgid ""
+"For functions that have no type information, nothing else is encoded, and "
+"the next function is encoded.  For functions with type information, the next "
+"E<.Sy uint16_t> is encoded with the type identifier of the return type of "
+"the function.  It is followed by each of the type identifiers of the "
+"arguments, if any exist, in the order that they appear in the function.  "
+"Therefore, argument 0 is the first type identifier and so on.  When a "
+"function has a final varargs argument, that is encoded with the type "
+"identifier of zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:699
+msgid ""
+"Like E<.Sx The Object Section>, the function section is encoded in the order "
+"of the symbol table.  It has similar, but slightly different considerations "
+"from objects.  While iterating the symbol table, if any of the following "
+"conditions are true, then the entry is skipped and no corresponding entry is "
+"written:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:704
+msgid "The symbol type is not E<.Sy STT_FUNCTION>"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:717
+#, no-wrap
+msgid "The Type Section"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:725
+msgid ""
+"The type section is the heart of the E<.Nm> data.  It encodes all of the "
+"information about the types themselves.  The base of the type information "
+"comes in two forms, a short form and a long form, each of which may be "
+"followed by a variable number of arguments.  The following definitions "
+"describe the short and long forms:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:729
+#, no-wrap
+msgid ""
+"#define\tCTF_MAX_SIZE\t0xfffe\t/* max size of a type in bytes */\n"
+"#define\tCTF_LSIZE_SENT\t0xffff\t/* sentinel for ctt_size */\n"
+"#define\tCTF_MAX_LSIZE\tUINT64_MAX\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:738
+#, no-wrap
+msgid ""
+"typedef struct ctf_stype {\n"
+"\tuint_t ctt_name;\t/* reference to name in string table */\n"
+"\tushort_t ctt_info;\t/* encoded kind, variant length */\n"
+"\tunion {\n"
+"\t\tushort_t _size;\t/* size of entire type in bytes */\n"
+"\t\tushort_t _type;\t/* reference to another type */\n"
+"\t} _u;\n"
+"} ctf_stype_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:749
+#, no-wrap
+msgid ""
+"typedef struct ctf_type {\n"
+"\tuint_t ctt_name;\t/* reference to name in string table */\n"
+"\tushort_t ctt_info;\t/* encoded kind, variant length */\n"
+"\tunion {\n"
+"\t\tushort_t _size;\t/* always CTF_LSIZE_SENT */\n"
+"\t\tushort_t _type; /* do not use */\n"
+"\t} _u;\n"
+"\tuint_t ctt_lsizehi;\t/* high 32 bits of type size in bytes */\n"
+"\tuint_t ctt_lsizelo;\t/* low 32 bits of type size in bytes */\n"
+"} ctf_type_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:752
+#, no-wrap
+msgid ""
+"#define\tctt_size _u._size\t/* for fundamental types that have a size */\n"
+"#define\tctt_type _u._type\t/* for types that reference another type */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:782
+msgid ""
+"Type sizes are stored in E<.Sy bytes>.  The basic small form uses a E<.Sy "
+"ushort_t> to store the number of bytes.  If the number of bytes in a "
+"structure would exceed 0xfffe, then the alternate form, the E<.Sy "
+"ctf_type_t>, is used instead.  To indicate that the larger form is being "
+"used, the member E<.Em ctt_size> is set to value of E<.Sy CTF_LSIZE_SENT> "
+"(0xffff).  In general, when going through the type section, consumers use "
+"the E<.Sy ctf_type_t> structure, but pay attention to the value of the "
+"member E<.Em ctt_size> to determine whether they should increment their scan "
+"by the size of the E<.Sy ctf_stype_t> or E<.Sy ctf_type_t>.  Not all kinds "
+"of types use E<.Sy ctt_size>.  Those which do not, will always use the E<.Sy "
+"ctf_stype_t> structure.  The individual sections for each kind have more "
+"information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:795
+msgid ""
+"Types are written out in order.  Therefore the first entry encountered has a "
+"type id of 0x1, or 0x8000 if a child.  The member E<.Em ctt_name> is encoded "
+"as described in the section E<.Sx String Identifiers>.  The string that it "
+"points to is the name of the type.  If the identifier points to an empty "
+"string (one that consists solely of a null terminator) then the type does "
+"not have a name, this is common with anonymous structures and unions that "
+"only have a typedef to name them, as well as pointers and qualifiers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:805
+msgid ""
+"The next member, the E<.Em ctt_info>, is encoded as described in the section "
+"E<.Sx Type Encoding>.  The type's kind tells us how to interpret the "
+"remaining data in the E<.Sy ctf_type_t> and any variable length data that "
+"may exist.  The rest of this section will be broken down into the "
+"interpretation of the various kinds."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:805
+#, no-wrap
+msgid "Encoding of Integers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:817
+msgid ""
+"Integers, which are of type E<.Sy CTF_K_INTEGER>, have no variable length "
+"arguments.  Instead, they are followed by a four byte E<.Sy uint_t> which "
+"describes their encoding.  All integers must be encoded with a variable "
+"length of zero.  The E<.Em ctt_size> member describes the length of the "
+"integer in bytes.  In general, integer sizes will be rounded up to the "
+"closest power of two."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:819
+msgid "The integer encoding contains three different pieces of information:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:822
+msgid "The encoding of the integer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:826
+msgid "The offset in E<.Sy bits> of the type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:830
+msgid "The size in E<.Sy bits> of the type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:833 /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:898
+msgid "This encoding can be expressed through the following macros:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:837
+#, no-wrap
+msgid ""
+"#define\tCTF_INT_ENCODING(data)\t(((data) & 0xff000000) E<gt>E<gt> 24)\n"
+"#define\tCTF_INT_OFFSET(data)\t(((data) & 0x00ff0000) E<gt>E<gt> 16)\n"
+"#define\tCTF_INT_BITS(data)\t(((data) & 0x0000ffff))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:840
+#, no-wrap
+msgid ""
+"#define\tCTF_INT_DATA(encoding, offset, bits) \\e\n"
+"\t(((encoding) E<lt>E<lt> 24) | ((offset) E<lt>E<lt> 16) | (bits))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:843
+msgid "The following flags are defined for the encoding at this time:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:848
+#, no-wrap
+msgid ""
+"#define\tCTF_INT_SIGNED\t\t0x01\n"
+"#define\tCTF_INT_CHAR\t\t0x02\n"
+"#define\tCTF_INT_BOOL\t\t0x04\n"
+"#define\tCTF_INT_VARARGS\t\t0x08\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:873
+msgid ""
+"By default, an integer is considered to be unsigned, unless it has the E<.Sy "
+"CTF_INT_SIGNED> flag set.  If the flag E<.Sy CTF_INT_CHAR> is set, that "
+"indicates that the integer is of a type that stores character data, for "
+"example the intrinsic C type E<.Sy char> would have the E<.Sy CTF_INT_CHAR> "
+"flag set.  If the flag E<.Sy CTF_INT_BOOL> is set, that indicates that the "
+"integer represents a boolean type.  For example, the intrinsic C type E<.Sy "
+"_Bool> would have the E<.Sy CTF_INT_BOOL> flag set.  Finally, the flag E<.Sy "
+"CTF_INT_VARARGS> indicates that the integer is used as part of a variable "
+"number of arguments.  This encoding is rather uncommon."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:873
+#, no-wrap
+msgid "Encoding of Floats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:883
+msgid ""
+"Floats, which are of type E<.Sy CTF_K_FLOAT>, are similar to their integer "
+"counterparts.  They have no variable length arguments and are followed by a "
+"four byte encoding which describes the kind of float that exists.  The E<.Em "
+"ctt_size> member is the size, in bytes, of the float.  The float encoding "
+"has three different pieces of information inside of it:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:887
+msgid "The specific kind of float that exists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:891
+msgid "The offset in E<.Sy bits> of the float"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:895
+msgid "The size in E<.Sy bits> of the float"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:902
+#, no-wrap
+msgid ""
+"#define\tCTF_FP_ENCODING(data)\t(((data) & 0xff000000) E<gt>E<gt> 24)\n"
+"#define\tCTF_FP_OFFSET(data)\t(((data) & 0x00ff0000) E<gt>E<gt> 16)\n"
+"#define\tCTF_FP_BITS(data)\t(((data) & 0x0000ffff))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:905
+#, no-wrap
+msgid ""
+"#define\tCTF_FP_DATA(encoding, offset, bits) \\e\n"
+"\t(((encoding) E<lt>E<lt> 24) | ((offset) E<lt>E<lt> 16) | (bits))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:913
+msgid ""
+"Where as the encoding for integers is a series of flags, the encoding for "
+"floats maps to a specific kind of float.  It is not a flag-based value.  The "
+"kinds of floats correspond to both their size, and the encoding.  This "
+"covers all of the basic C intrinsic floating point types.  The following are "
+"the different kinds of floats represented in the encoding:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:926
+#, no-wrap
+msgid ""
+"#define\tCTF_FP_SINGLE\t1\t/* IEEE 32-bit float encoding */\n"
+"#define\tCTF_FP_DOUBLE\t2\t/* IEEE 64-bit float encoding */\n"
+"#define\tCTF_FP_CPLX\t3\t/* Complex encoding */\n"
+"#define\tCTF_FP_DCPLX\t4\t/* Double complex encoding */\n"
+"#define\tCTF_FP_LDCPLX\t5\t/* Long double complex encoding */\n"
+"#define\tCTF_FP_LDOUBLE\t6\t/* Long double encoding */\n"
+"#define\tCTF_FP_INTRVL\t7\t/* Interval (2x32-bit) encoding */\n"
+"#define\tCTF_FP_DINTRVL\t8\t/* Double interval (2x64-bit) encoding */\n"
+"#define\tCTF_FP_LDINTRVL\t9\t/* Long double interval (2x128-bit) encoding "
+"*/\n"
+"#define\tCTF_FP_IMAGRY\t10\t/* Imaginary (32-bit) encoding */\n"
+"#define\tCTF_FP_DIMAGRY\t11\t/* Long imaginary (64-bit) encoding */\n"
+"#define\tCTF_FP_LDIMAGRY\t12\t/* Long double imaginary (128-bit) encoding "
+"*/\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:927
+#, no-wrap
+msgid "Encoding of Arrays"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:938
+msgid ""
+"Arrays, which are of type E<.Sy CTF_K_ARRAY>, have no variable length "
+"arguments.  They are followed by a structure which describes the number of "
+"elements in the array, the type identifier of the elements in the array, and "
+"the type identifier of the index of the array.  With arrays, the E<.Em "
+"ctt_size> member is set to zero.  The structure that follows an array is "
+"defined as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:944
+#, no-wrap
+msgid ""
+"typedef struct ctf_array {\n"
+"\tushort_t cta_contents;\t/* reference to type of array contents */\n"
+"\tushort_t cta_index;\t/* reference to type of array index */\n"
+"\tuint_t cta_nelems;\t/* number of elements */\n"
+"} ctf_array_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:958
+msgid ""
+"The E<.Em cta_contents> and E<.Em cta_index> members of the E<.Sy "
+"ctf_array_t> are type identifiers which are encoded as per the section E<.Sx "
+"Type Identifiers>.  The member E<.Em cta_nelems> is a simple four byte "
+"unsigned count of the number of elements.  This count may be zero when "
+"encountering C99's flexible array members."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:958
+#, no-wrap
+msgid "Encoding of Functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:970
+msgid ""
+"Function types, which are of type E<.Sy CTF_K_FUNCTION>, use the variable "
+"length list to be the number of arguments in the function.  When the "
+"function has a final member which is a varargs, then the argument count is "
+"incremented by one to account for the variable argument.  Here, the E<.Em "
+"ctt_type> member is encoded with the type identifier of the return type of "
+"the function.  Note that the E<.Em ctt_size> member is not used here."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:985
+msgid ""
+"The variable argument list contains the type identifiers for the arguments "
+"of the function, if any.  Each one is represented by a E<.Sy uint16_t> and "
+"encoded according to the E<.Sx Type Identifiers> section.  If the function's "
+"last argument is of type varargs, then it is also written out, but the type "
+"identifier is zero.  This is included in the count of the function's "
+"arguments.  An extra type identifier may follow the argument and return type "
+"identifiers in order to maintain four-byte alignment for the following type "
+"definition.  Such a type identifier is not included in the argument count "
+"and has a value of zero."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:985
+#, no-wrap
+msgid "Encoding of Structures and Unions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1006
+msgid ""
+"Structures and Unions, which are encoded with E<.Sy CTF_K_STRUCT> and E<.Sy "
+"CTF_K_UNION> respectively, are very similar constructs in C.  The main "
+"difference between them is the fact that members of a structure follow one "
+"another, where as in a union, all members share the same memory.  They are "
+"also very similar in terms of their encoding in E<.Nm>.  The variable length "
+"argument for structures and unions represents the number of members that "
+"they have.  The value of the member E<.Em ctt_size> is the size of the "
+"structure and union.  There are two different structures which are used to "
+"encode members in the variable list.  When the size of a structure or union "
+"is greater than or equal to the large member threshold, 8192, then a "
+"different structure is used to encode the member, all members are encoded "
+"using the same structure.  The structure for members is as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1012
+#, no-wrap
+msgid ""
+"typedef struct ctf_member {\n"
+"\tuint_t ctm_name;\t/* reference to name in string table */\n"
+"\tushort_t ctm_type;\t/* reference to type of member */\n"
+"\tushort_t ctm_offset;\t/* offset of this member in bits */\n"
+"} ctf_member_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1020
+#, no-wrap
+msgid ""
+"typedef struct ctf_lmember {\n"
+"\tuint_t ctlm_name;\t/* reference to name in string table */\n"
+"\tushort_t ctlm_type;\t/* reference to type of member */\n"
+"\tushort_t ctlm_pad;\t/* padding */\n"
+"\tuint_t ctlm_offsethi;\t/* high 32 bits of member offset in bits */\n"
+"\tuint_t ctlm_offsetlo;\t/* low 32 bits of member offset in bits */\n"
+"} ctf_lmember_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1037
+msgid ""
+"Both the E<.Em ctm_name> and E<.Em ctlm_name> refer to the name of the "
+"member.  The name is encoded as an offset into the string table as described "
+"by the section E<.Sx String Identifiers>.  The members E<.Sy ctm_type> and "
+"E<.Sy ctlm_type> both refer to the type of the member.  They are encoded as "
+"per the section E<.Sx Type Identifiers>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1065
+msgid ""
+"The last piece of information that is present is the offset which describes "
+"the offset in memory at which the member begins.  For unions, this value "
+"will always be zero because each member of a union has an offset of zero.  "
+"For structures, this is the offset in E<.Sy bits> at which the member "
+"begins.  Note that a compiler may lay out a type with padding.  This means "
+"that the difference in offset between two consecutive members may be larger "
+"than the size of the member.  When the size of the overall structure is "
+"strictly less than 8192 bytes, the normal structure, E<.Sy ctf_member_t>, is "
+"used and the offset in bits is stored in the member E<.Em ctm_offset>.  "
+"However, when the size of the structure is greater than or equal to 8192 "
+"bytes, then the number of bits is split into two 32-bit quantities.  One "
+"member, E<.Em ctlm_offsethi>, represents the upper 32 bits of the offset, "
+"while the other member, E<.Em ctlm_offsetlo>, represents the lower 32 bits "
+"of the offset.  These can be joined together to get a 64-bit sized offset in "
+"bits by shifting the member E<.Em ctlm_offsethi> to the left by thirty two "
+"and then doing a binary or of E<.Em ctlm_offsetlo>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1065
+#, no-wrap
+msgid "Encoding of Enumerations"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1086
+msgid ""
+"Enumerations, noted by the type E<.Sy CTF_K_ENUM>, are similar to "
+"structures.  Enumerations use the variable list to note the number of values "
+"that the enumeration contains, which we'll term enumerators.  In C, an "
+"enumeration is always equivalent to the intrinsic type E<.Sy int>, thus the "
+"value of the member E<.Em ctt_size> is always the size of an integer which "
+"is determined based on the current model.  For E<.Fx> systems, this will "
+"always be 4, as an integer is always defined to be 4 bytes large in both "
+"E<.Sy ILP32> and E<.Sy LP64>, regardless of the architecture.  For further "
+"details, see E<.Xr arch 7>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1089
+msgid ""
+"The enumerators encoded in an enumeration have the following structure in "
+"the variable list:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1094
+#, no-wrap
+msgid ""
+"typedef struct ctf_enum {\n"
+"\tuint_t cte_name;\t/* reference to name in string table */\n"
+"\tint cte_value;\t\t/* value associated with this name */\n"
+"} ctf_enum_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1104
+msgid ""
+"The member E<.Em cte_name> refers to the name of the enumerator's value, it "
+"is encoded according to the rules in the section E<.Sx String Identifiers>.  "
+"The member E<.Em cte_value> contains the integer value of this enumerator."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1104
+#, no-wrap
+msgid "Encoding of Forward References"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1123
+msgid ""
+"Forward references, types of kind E<.Sy CTF_K_FORWARD>, in a E<.Nm> file "
+"refer to types which may not have a definition at all, only a name.  If the "
+"E<.Nm> file is a child, then it may be that the forward is resolved to an "
+"actual type in the parent, otherwise the definition may be in another E<.Nm> "
+"container or may not be known at all.  The only member of the E<.Sy "
+"ctf_type_t> that matters for a forward declaration is the E<.Em ctt_name> "
+"which points to the name of the forward reference in the string table as "
+"described earlier.  There is no other information recorded for forward "
+"references."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1123
+#, no-wrap
+msgid "Encoding of Pointers, Typedefs, Volatile, Const, and Restrict"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1138
+msgid ""
+"Pointers, typedefs, volatile, const, and restrict are all similar in "
+"E<.Nm>.  They all refer to another type.  In the case of typedefs, they "
+"provide an alternate name, while volatile, const, and restrict change how "
+"the type is interpreted in the C programming language.  This covers the "
+"E<.Nm> kinds E<.Sy CTF_K_POINTER>, E<.Sy CTF_K_TYPEDEF>, E<.Sy "
+"CTF_K_VOLATILE>, E<.Sy CTF_K_RESTRICT>, and E<.Sy CTF_K_CONST>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1142
+msgid ""
+"These types have no variable list entries and use the member E<.Em ctt_type> "
+"to refer to the base type that they modify."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1142
+#, no-wrap
+msgid "Encoding of Unknown Types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1148
+msgid ""
+"Types with the kind E<.Sy CTF_K_UNKNOWN> are used to indicate gaps in the "
+"type identifier space.  These entries consume an identifier, but do not "
+"define anything.  Nothing should refer to these gap identifiers."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1148
+#, no-wrap
+msgid "Dependencies Between Types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1155
+msgid ""
+"C types can be imagined as a directed, cyclic, graph.  Structures and unions "
+"may refer to each other in a way that creates a cyclic dependency.  In cases "
+"such as these, the entire type section must be read in and processed.  "
+"Consumers must not assume that every type can be laid out in dependency "
+"order; they cannot."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1155
+#, no-wrap
+msgid "The String Section"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1168
+msgid ""
+"The last section of the E<.Nm> file is the E<.Sy string> section.  This "
+"section encodes all of the strings that appear throughout the other "
+"sections.  It is laid out as a series of characters followed by a null "
+"terminator.  Generally, all names are written out in ASCII, as most C "
+"compilers do not allow any characters to appear in identifiers outside of a "
+"subset of ASCII.  However, any extended characters sets should be written "
+"out as a series of UTF-8 bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1177
+msgid ""
+"The first entry in the section, at offset zero, is a single null terminator "
+"to reference the empty string.  Following that, each C string should be "
+"written out, including the null terminator.  Offsets that refer to something "
+"in this section should refer to the first byte which begins a string.  "
+"Beyond the first byte in the section being the null terminator, the order of "
+"strings is unimportant."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1177
+#, no-wrap
+msgid "Data Encoding and ELF Considerations"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1197
+msgid ""
+"E<.Nm> data is generally included in ELF objects which specify information "
+"to identify the architecture and endianness of the file.  A E<.Nm> container "
+"inside such an object must match the endianness of the ELF object.  Aside "
+"from the question of the endian encoding of data, there should be no other "
+"differences between architectures.  While many of the types in this document "
+"refer to non-fixed size C integral types, they are equivalent in the models "
+"E<.Sy ILP32> and E<.Sy LP64>.  If any other model is being used with E<.Nm> "
+"data that has different sizes, then it must not use the model's sizes for "
+"those integral types and instead use the fixed size equivalents based on an "
+"E<.Sy ILP32> environment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1208
+msgid ""
+"When placing a E<.Nm> container inside of an ELF object, there are certain "
+"conventions that are expected for the purposes of tooling being able to find "
+"the E<.Nm> data.  In particular, a given ELF object should only contain a "
+"single E<.Nm> section.  Multiple containers should be merged together into a "
+"single one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1218
+msgid ""
+"The E<.Nm> file should be included in its own ELF section.  The section's "
+"name must be E<.Ql .SUNW_ctf>.  The type of the section must be E<.Sy "
+"SHT_PROGBITS>.  The section should have a link set to the symbol table and "
+"its address alignment must be 4."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1218
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/lib/libctf/common/ctf.5:1224
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr elf 3>, E<.Xr gelf 3>, E<.Xr a.out 5>, E<.Xr elf 5>, "
+"E<.Xr arch 7>"
+msgstr ""

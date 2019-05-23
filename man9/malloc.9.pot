@@ -1,0 +1,439 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/malloc.9:32
+#, no-wrap
+msgid "October 30, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/malloc.9:33
+#, no-wrap
+msgid "MALLOC 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:42
+msgid ""
+"E<.Nm malloc>, E<.Nm free>, E<.Nm realloc>, E<.Nm reallocf>, E<.Nm "
+"MALLOC_DEFINE>, E<.Nm MALLOC_DECLARE>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/malloc.9:42
+#, no-wrap
+msgid "kernel memory management routines"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:44
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:45 /usr/src/share/man/man9/malloc.9:58
+#, no-wrap
+msgid "sys/malloc.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:57
+msgid ""
+"E<.Ft void *> E<.Fn malloc \"size_t size\" \"struct malloc_type *type\" "
+"\"int flags\"> E<.Ft void *> E<.Fn mallocarray \"size_t nmemb\" \"size_t "
+"size\" \"struct malloc_type *type\" \"int flags\"> E<.Ft void> E<.Fn free "
+"\"void *addr\" \"struct malloc_type *type\"> E<.Ft void *> E<.Fn realloc "
+"\"void *addr\" \"size_t size\" \"struct malloc_type *type\" \"int flags\"> "
+"E<.Ft void *> E<.Fn reallocf \"void *addr\" \"size_t size\" \"struct "
+"malloc_type *type\" \"int flags\"> E<.Fn MALLOC_DECLARE type>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:57 /usr/src/share/man/man9/malloc.9:61 /usr/src/share/man/man9/malloc.9:246
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:59
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:61
+msgid "E<.Fn MALLOC_DEFINE type shortdesc longdesc>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:62
+#, no-wrap
+msgid "sys/domainset.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:67
+msgid ""
+"E<.Ft void *> E<.Fn malloc_domainset \"size_t size\" \"struct malloc_type "
+"*type\" \"struct domainset *ds\" \"int flags\"> E<.Ft void> E<.Fn "
+"free_domain \"void *addr\" \"struct malloc_type *type\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:67
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:73
+msgid ""
+"The E<.Fn malloc> function allocates uninitialized memory in kernel address "
+"space for an object whose size is specified by E<.Fa size>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:84
+msgid ""
+"The E<.Fn malloc_domainset> variant allocates memory from a specific E<.Xr "
+"numa 4> domain using the specified domain selection policy.  See E<.Xr "
+"domainset 9> for some example policies.  Memory allocated with this function "
+"should be returned with E<.Fn free_domain>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:92
+msgid ""
+"The E<.Fn mallocarray> function allocates uninitialized memory in kernel "
+"address space for an array of E<.Fa nmemb> entries whose size is specified "
+"by E<.Fa size>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:108
+msgid ""
+"The E<.Fn free> function releases memory at address E<.Fa addr> that was "
+"previously allocated by E<.Fn malloc> for re-use.  The memory is not "
+"zeroed.  If E<.Fa addr> is E<.Dv NULL>, then E<.Fn free> does nothing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:134
+msgid ""
+"The E<.Fn realloc> function changes the size of the previously allocated "
+"memory referenced by E<.Fa addr> to E<.Fa size> bytes.  The contents of the "
+"memory are unchanged up to the lesser of the new and old sizes.  Note that "
+"the returned value may differ from E<.Fa addr>.  If the requested memory "
+"cannot be allocated, E<.Dv NULL> is returned and the memory referenced by "
+"E<.Fa addr> is valid and unchanged.  If E<.Fa addr> is E<.Dv NULL>, the "
+"E<.Fn realloc> function behaves identically to E<.Fn malloc> for the "
+"specified size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:141
+msgid ""
+"The E<.Fn reallocf> function is identical to E<.Fn realloc> except that it "
+"will free the passed pointer when the requested memory cannot be allocated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:150
+msgid ""
+"Unlike its standard C library counterpart E<.Pq Xr malloc 3>, the kernel "
+"version takes two more arguments.  The E<.Fa flags> argument further "
+"qualifies E<.Fn malloc Ns 's> operational characteristics as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/malloc.9:151
+#, no-wrap
+msgid "Dv M_ZERO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:153
+msgid "Causes the allocated memory to be set to all zeros."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/malloc.9:153
+#, no-wrap
+msgid "Dv M_NODUMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:156
+msgid ""
+"For allocations greater than page size, causes the allocated memory to be "
+"excluded from kernel core dumps."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/malloc.9:156
+#, no-wrap
+msgid "Dv M_NOWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:168
+msgid ""
+"Causes E<.Fn malloc>, E<.Fn realloc>, and E<.Fn reallocf> to return E<.Dv "
+"NULL> if the request cannot be immediately fulfilled due to resource "
+"shortage.  Note that E<.Dv M_NOWAIT> is required when running in an "
+"interrupt context."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/malloc.9:168
+#, no-wrap
+msgid "Dv M_WAITOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:190
+msgid ""
+"Indicates that it is OK to wait for resources.  If the request cannot be "
+"immediately fulfilled, the current process is put to sleep to wait for "
+"resources to be released by other processes.  The E<.Fn malloc>, E<.Fn "
+"mallocarray>, E<.Fn realloc>, and E<.Fn reallocf> functions cannot return "
+"E<.Dv NULL> if E<.Dv M_WAITOK> is specified.  If the multiplication of E<.Fa "
+"nmemb> and E<.Fa size> would cause an integer overflow, the E<.Fn "
+"mallocarray> function induces a panic."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/malloc.9:190
+#, no-wrap
+msgid "Dv M_USE_RESERVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:197
+msgid ""
+"Indicates that the system can use its reserve of memory to satisfy the "
+"request.  This option should only be used in combination with E<.Dv "
+"M_NOWAIT> when an allocation failure cannot be tolerated by the caller "
+"without catastrophic effects on the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/malloc.9:197
+#, no-wrap
+msgid "Dv M_EXEC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:202
+msgid ""
+"Indicates that the system should allocate executable memory.  If this flag "
+"is not set, the system will not allocate executable memory.  Not all "
+"platforms enforce a distinction between executable and non-executable "
+"memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:209
+msgid "Exactly one of either E<.Dv M_WAITOK> or E<.Dv M_NOWAIT> must be specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:217
+msgid ""
+"The E<.Fa type> argument is used to perform statistics on memory usage, and "
+"for basic sanity checks.  It can be used to identify multiple allocations.  "
+"The statistics can be examined by E<.Sq vmstat -m>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:227
+msgid ""
+"A E<.Fa type> is defined using E<.Vt \"struct malloc_type\"> via the E<.Fn "
+"MALLOC_DECLARE> and E<.Fn MALLOC_DEFINE> macros."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:229
+#, no-wrap
+msgid "/* sys/something/foo_extern.h */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:231
+#, no-wrap
+msgid "MALLOC_DECLARE(M_FOOBUF);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:233
+#, no-wrap
+msgid "/* sys/something/foo_main.c */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:235
+#, no-wrap
+msgid ""
+"MALLOC_DEFINE(M_FOOBUF, \"foobuffers\", \"Buffers to foo data into the "
+"ether\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:237
+#, no-wrap
+msgid "/* sys/something/foo_subr.c */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:240
+#, no-wrap
+msgid ""
+"\\&...\n"
+"buf = malloc(sizeof(*buf), M_FOOBUF, M_NOWAIT);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:246
+msgid "In order to use E<.Fn MALLOC_DEFINE>, one must include"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:248
+msgid "(instead of"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:248
+#, no-wrap
+msgid "sys/types.h )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:250
+msgid "and"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/malloc.9:250
+#, no-wrap
+msgid "sys/kernel.h ."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:251
+#, no-wrap
+msgid "CONTEXT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:261
+msgid ""
+"E<.Fn malloc>, E<.Fn realloc> and E<.Fn reallocf> may not be called from "
+"fast interrupts handlers.  When called from threaded interrupts, E<.Fa "
+"flags> must contain E<.Dv M_NOWAIT>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:277
+msgid ""
+"E<.Fn malloc>, E<.Fn realloc> and E<.Fn reallocf> may sleep when called with "
+"E<.Dv M_WAITOK>.  E<.Fn free> never sleeps.  However, E<.Fn malloc>, E<.Fn "
+"realloc>, E<.Fn reallocf> and E<.Fn free> may not be called in a critical "
+"section or while holding a spin lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:288
+msgid ""
+"Any calls to E<.Fn malloc> (even with E<.Dv M_NOWAIT>)  or E<.Fn free> when "
+"holding a E<.Xr vnode 9> interlock, will cause a LOR (Lock Order Reversal) "
+"due to the intertwining of VM Objects and Vnodes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:288
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:294
+msgid ""
+"The memory allocator allocates memory in chunks that have size a power of "
+"two for requests up to the size of a page of memory.  For larger requests, "
+"one or more pages is allocated.  While it should not be relied upon, this "
+"information may be useful for optimizing the efficiency of memory use."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:294
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:306
+msgid ""
+"The E<.Fn malloc>, E<.Fn realloc>, and E<.Fn reallocf> functions return a "
+"kernel virtual address that is suitably aligned for storage of any type of "
+"object, or E<.Dv NULL> if the request could not be satisfied (implying that "
+"E<.Dv M_NOWAIT> was set)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:306
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:317
+msgid ""
+"A kernel compiled with the E<.Dv INVARIANTS> configuration option attempts "
+"to detect memory corruption caused by such things as writing outside the "
+"allocated area and imbalanced calls to the E<.Fn malloc> and E<.Fn free> "
+"functions.  Failing consistency checks will cause a panic or a system "
+"console message."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/malloc.9:317
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/malloc.9:323
+msgid ""
+"E<.Xr numa 4>, E<.Xr vmstat 8>, E<.Xr contigmalloc 9>, E<.Xr domainset 9>, "
+"E<.Xr memguard 9>, E<.Xr vnode 9>"
+msgstr ""

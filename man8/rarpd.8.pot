@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/rarpd/rarpd.8:19
+#, no-wrap
+msgid "July 9, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/rarpd/rarpd.8:20
+#, no-wrap
+msgid "RARPD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:22
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:24
+msgid "E<.Nm rarpd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/rarpd/rarpd.8:24
+#, no-wrap
+msgid "reverse ARP daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:25
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:36
+msgid ""
+"E<.Nm> E<.Fl a> E<.Op Fl dfsv> E<.Op Fl t Ar directory> E<.Op Fl P Ar "
+"pidfile> E<.Nm> E<.Op Fl dfsv> E<.Op Fl t Ar directory> E<.Op Fl P Ar "
+"pidfile> E<.Ar interface>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:51
+msgid ""
+"The E<.Nm> utility services Reverse ARP requests on the Ethernet connected "
+"to E<.Ar interface>.  Upon receiving a request, E<.Nm> maps the target "
+"hardware address to an IP address via its name, which must be present in "
+"both the E<.Xr ethers 5> and E<.Xr hosts 5> databases.  If a host does not "
+"exist in both databases, the translation cannot proceed and a reply will not "
+"be sent."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:70
+msgid ""
+"By default, a request is honored only if the server (i.e., the host that "
+"E<.Nm> is running on)  can \"boot\" the target; that is, a file or directory "
+"matching the glob E<.Pa /tftpboot/\\fIipaddr\\fP*> exists, where E<.Em "
+"ipaddr> is the target IP address in hex.  For example, the IP address "
+"204.216.27.18 will be replied to if any of E<.Pa /tftpboot/CCD81B12>, E<.Pa "
+"/tftpboot/CCD81B12.SUN3>, or E<.Pa /tftpboot/CCD81B12-boot> exist.  This "
+"requirement can be overridden with the E<.Fl s> flag (see below)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:76
+msgid ""
+"In normal operation, E<.Nm> forks a copy of itself and runs in the "
+"background.  Anomalies and errors are reported via E<.Xr syslog 3>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:78
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:79
+#, no-wrap
+msgid "Fl a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:84
+msgid ""
+"Listen on all the Ethernets attached to the system.  If E<.Fl a> is omitted, "
+"an interface must be specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:84
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:95
+msgid ""
+"If E<.Fl f> is also specified, E<.Nm> logs messages to E<.Em stdout> and "
+"E<.Em stderr> instead of via E<.Xr syslog 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:95
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:97
+msgid "Run in the foreground."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:97
+#, no-wrap
+msgid "Fl P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:106
+msgid ""
+"Specify the pathname of the PID file.  If not specified, E<.Pa "
+"/var/run/rarpd.pid> or E<.Pa /var/run/rarpd.ifname.pid> will be used "
+"depending on the E<.Fl a> flag or the specified interface name."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:106
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:110
+msgid ""
+"Supply a response to any RARP request for which an ethernet to IP address "
+"mapping exists; do not depend on the existence of E<.Pa "
+"/tftpboot/\\fIipaddr\\fP*>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:110
+#, no-wrap
+msgid "Fl t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:121
+msgid ""
+"Supply an alternate tftp root directory to E<.Pa /tftpboot>, similar to the "
+"E<.Fl s> option of E<.Xr tftpd 8>.  This permits E<.Nm> to selectively "
+"respond to RARP requests, but use an alternate directory for IP checking."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:121
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:123
+msgid "Enable verbose syslogging."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:124
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:126
+#, no-wrap
+msgid "Pa /etc/ethers"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:127
+#, no-wrap
+msgid "Pa /etc/hosts"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:128
+#, no-wrap
+msgid "Pa /tftpboot"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rarpd/rarpd.8:129
+#, no-wrap
+msgid "Pa /var/run/rarpd.pid"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:131
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:142
+msgid ""
+"E<.Xr bpf 4> E<.Rs> E<.%A \"Finlayson, R.\"> E<.%A \"Mann, T.\"> E<.%A "
+"\"Mogul, J.C.\"> E<.%A \"Theimer, M.\"> E<.%T \"RFC 903: Reverse Address "
+"Resolution Protocol\"> E<.%D \"June 1984\"> E<.%O \"4 p\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:142
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:148
+msgid ""
+"E<.An -nosplit> E<.An Craig Leres Aq Mt leres@ee.lbl.gov> and E<.An Steven "
+"McCanne Aq Mt mccanne@ee.lbl.gov>.  Lawrence Berkeley Laboratory, University "
+"of California, Berkeley, CA."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rarpd/rarpd.8:148
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rarpd/rarpd.8:160
+msgid ""
+"The E<.Nm> utility can depend on the DNS to resolve the name discovered from "
+"E<.Pa /etc/ethers>.  If this name is not in the DNS but is in E<.Pa "
+"/etc/hosts>, the DNS lookup can cause a delayed RARP response, so in this "
+"situation it is recommended to configure E<.Xr nsswitch.conf 5> to read "
+"E<.Pa /etc/hosts> first."
+msgstr ""

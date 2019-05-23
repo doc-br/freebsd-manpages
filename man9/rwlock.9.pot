@@ -1,0 +1,580 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/rwlock.9:27
+#, no-wrap
+msgid "November 11, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/rwlock.9:28
+#, no-wrap
+msgid "RWLOCK 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:50
+msgid ""
+"E<.Nm rwlock>, E<.Nm rw_init>, E<.Nm rw_init_flags>, E<.Nm rw_destroy>, "
+"E<.Nm rw_rlock>, E<.Nm rw_wlock>, E<.Nm rw_runlock>, E<.Nm rw_wunlock>, "
+"E<.Nm rw_unlock>, E<.Nm rw_try_rlock>, E<.Nm rw_try_upgrade>, E<.Nm "
+"rw_try_wlock>, E<.Nm rw_downgrade>, E<.Nm rw_sleep>, E<.Nm rw_initialized>, "
+"E<.Nm rw_wowned>, E<.Nm rw_assert>, E<.Nm RW_SYSINIT>, E<.Nm "
+"RW_SYSINIT_FLAGS>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/rwlock.9:50
+#, no-wrap
+msgid "kernel reader/writer lock"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:51
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rwlock.9:52
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rwlock.9:53
+#, no-wrap
+msgid "sys/lock.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rwlock.9:54
+#, no-wrap
+msgid "sys/rwlock.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:85
+msgid ""
+"E<.Ft void> E<.Fn rw_init \"struct rwlock *rw\" \"const char *name\"> E<.Ft "
+"void> E<.Fn rw_init_flags \"struct rwlock *rw\" \"const char *name\" \"int "
+"opts\"> E<.Ft void> E<.Fn rw_destroy \"struct rwlock *rw\"> E<.Ft void> "
+"E<.Fn rw_rlock \"struct rwlock *rw\"> E<.Ft void> E<.Fn rw_wlock \"struct "
+"rwlock *rw\"> E<.Ft int> E<.Fn rw_try_rlock \"struct rwlock *rw\"> E<.Ft "
+"int> E<.Fn rw_try_wlock \"struct rwlock *rw\"> E<.Ft void> E<.Fn rw_runlock "
+"\"struct rwlock *rw\"> E<.Ft void> E<.Fn rw_wunlock \"struct rwlock *rw\"> "
+"E<.Ft void> E<.Fn rw_unlock \"struct rwlock *rw\"> E<.Ft int> E<.Fn "
+"rw_try_upgrade \"struct rwlock *rw\"> E<.Ft void> E<.Fn rw_downgrade "
+"\"struct rwlock *rw\"> E<.Ft int> E<.Fn rw_sleep \"void *chan\" \"struct "
+"rwlock *rw\" \"int priority\" \"const char *wmesg\" \"int timo\"> E<.Ft int> "
+"E<.Fn rw_initialized \"const struct rwlock *rw\"> E<.Ft int> E<.Fn rw_wowned "
+"\"const struct rwlock *rw\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:90
+msgid ""
+"E<.Cd \"options INVARIANTS\"> E<.Cd \"options INVARIANT_SUPPORT\"> E<.Ft "
+"void> E<.Fn rw_assert \"const struct rwlock *rw\" \"int what\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/rwlock.9:90
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:93
+msgid ""
+"E<.Fn RW_SYSINIT \"name\" \"struct rwlock *rw\" \"const char *desc\"> E<.Fn "
+"RW_SYSINIT_FLAGS \"name\" \"struct rwlock *rw\" \"const char *desc\" \"int "
+"flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:93
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:102
+msgid ""
+"Reader/writer locks allow shared access to protected data by multiple "
+"threads, or exclusive access by a single thread.  The threads with shared "
+"access are known as E<.Em readers> since they only read the protected data.  "
+"A thread with exclusive access is known as a E<.Em writer> since it can "
+"modify protected data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:124
+msgid ""
+"Although reader/writer locks look very similar to E<.Xr sx 9> locks, their "
+"usage pattern is different.  Reader/writer locks can be treated as mutexes "
+"(see E<.Xr mutex 9>)  with shared/exclusive semantics.  Unlike E<.Xr sx 9>, "
+"an E<.Nm> can be locked while holding a non-spin mutex, and an E<.Nm> cannot "
+"be held while sleeping.  The E<.Nm> locks have priority propagation like "
+"mutexes, but priority can be propagated only to writers.  This limitation "
+"comes from the fact that readers are anonymous.  Another important property "
+"is that readers can always recurse, and exclusive locks can be made "
+"recursive selectively."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/rwlock.9:124
+#, no-wrap
+msgid "Macros and Functions"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:126
+#, no-wrap
+msgid "Fn rw_init \"struct rwlock *rw\" \"const char *name\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:134
+msgid ""
+"Initialize structure located at E<.Fa rw> as reader/writer lock, described "
+"by name E<.Fa name>.  The description is used solely for debugging "
+"purposes.  This function must be called before any other operations on the "
+"lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:134
+#, no-wrap
+msgid "Fn rw_init_flags \"struct rwlock *rw\" \"const char *name\" \"int opts\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:144
+msgid ""
+"Initialize the rw lock just like the E<.Fn rw_init> function, but specifying "
+"a set of optional flags to alter the behaviour of E<.Fa rw>, through the "
+"E<.Fa opts> argument.  It contains one or more of the following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:145
+#, no-wrap
+msgid "Dv RW_DUPOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:147
+msgid "Witness should not log messages about duplicate locks being acquired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:147
+#, no-wrap
+msgid "Dv RW_NOPROFILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:149
+msgid "Do not profile this lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:149
+#, no-wrap
+msgid "Dv RW_NOWITNESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:153
+msgid "Instruct E<.Xr witness 4> to ignore this lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:153
+#, no-wrap
+msgid "Dv RW_QUIET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:156
+msgid "Do not log any operations for this lock via E<.Xr ktr 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:156
+#, no-wrap
+msgid "Dv RW_RECURSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:159
+msgid "Allow threads to recursively acquire exclusive locks for E<.Fa rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:159
+#, no-wrap
+msgid "Dv RW_NEW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:168
+msgid ""
+"If the kernel has been compiled with E<.Cd \"option INVARIANTS\">, E<.Fn "
+"rw_init_flags> will assert that the E<.Fa rw> has not been initialized "
+"multiple times without intervening calls to E<.Fn rw_destroy> unless this "
+"option is specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:169
+#, no-wrap
+msgid "Fn rw_rlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:182
+msgid ""
+"Lock E<.Fa rw> as a reader.  If any thread holds this lock exclusively, the "
+"current thread blocks, and its priority is propagated to the exclusive "
+"holder.  The E<.Fn rw_rlock> function can be called when the thread has "
+"already acquired reader access on E<.Fa rw>.  This is called E<.Dq "
+"\"recursing on a lock\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:182
+#, no-wrap
+msgid "Fn rw_wlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:194
+msgid ""
+"Lock E<.Fa rw> as a writer.  If there are any shared owners of the lock, the "
+"current thread blocks.  The E<.Fn rw_wlock> function can be called "
+"recursively only if E<.Fa rw> has been initialized with the E<.Dv "
+"RW_RECURSE> option enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:194
+#, no-wrap
+msgid "Fn rw_try_rlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:200
+msgid ""
+"Try to lock E<.Fa rw> as a reader.  This function will return true if the "
+"operation succeeds, otherwise 0 will be returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:200
+#, no-wrap
+msgid "Fn rw_try_wlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:206
+msgid ""
+"Try to lock E<.Fa rw> as a writer.  This function will return true if the "
+"operation succeeds, otherwise 0 will be returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:206
+#, no-wrap
+msgid "Fn rw_runlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:209
+msgid "This function releases a shared lock previously acquired by E<.Fn rw_rlock>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:209
+#, no-wrap
+msgid "Fn rw_wunlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:212
+msgid ""
+"This function releases an exclusive lock previously acquired by E<.Fn "
+"rw_wlock>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:212
+#, no-wrap
+msgid "Fn rw_unlock \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:217
+msgid ""
+"This function releases a shared lock previously acquired by E<.Fn rw_rlock> "
+"or an exclusive lock previously acquired by E<.Fn rw_wlock>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:217
+#, no-wrap
+msgid "Fn rw_try_upgrade \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:232
+msgid ""
+"Attempt to upgrade a single shared lock to an exclusive lock.  The current "
+"thread must hold a shared lock of E<.Fa rw>.  This will only succeed if the "
+"current thread holds the only shared lock on E<.Fa rw>, and it only holds a "
+"single shared lock.  If the attempt succeeds E<.Fn rw_try_upgrade> will "
+"return a non-zero value, and the current thread will hold an exclusive "
+"lock.  If the attempt fails E<.Fn rw_try_upgrade> will return zero, and the "
+"current thread will still hold a shared lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:232
+#, no-wrap
+msgid "Fn rw_downgrade \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:236
+msgid ""
+"Convert an exclusive lock into a single shared lock.  The current thread "
+"must hold an exclusive lock of E<.Fa rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:236
+#, no-wrap
+msgid ""
+"Fn rw_sleep \"void *chan\" \"struct rwlock *rw\" \"int priority\" \"const "
+"char *wmesg\" \"int timo\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:243
+msgid ""
+"Atomically release E<.Fa rw> while waiting for an event.  For more details "
+"on the parameters to this function, see E<.Xr sleep 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:243
+#, no-wrap
+msgid "Fn rw_initialized \"const struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:247
+msgid ""
+"This function returns non-zero if E<.Fa rw> has been initialized, and zero "
+"otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:247
+#, no-wrap
+msgid "Fn rw_destroy \"struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:253
+msgid ""
+"This functions destroys a lock previously initialized with E<.Fn rw_init>.  "
+"The E<.Fa rw> lock must be unlocked."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:253
+#, no-wrap
+msgid "Fn rw_wowned \"const struct rwlock *rw\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:257
+msgid ""
+"This function returns a non-zero value if the current thread owns an "
+"exclusive lock on E<.Fa rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:257
+#, no-wrap
+msgid "Fn rw_assert \"const struct rwlock *rw\" \"int what\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:269
+msgid ""
+"This function allows assertions specified in E<.Fa what> to be made about "
+"E<.Fa rw>.  If the assertions are not true and the kernel is compiled with "
+"E<.Cd \"options INVARIANTS\"> and E<.Cd \"options INVARIANT_SUPPORT\">, the "
+"kernel will panic.  Currently the following base assertions are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:270
+#, no-wrap
+msgid "Dv RA_LOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:274
+msgid ""
+"Assert that current thread holds either a shared or exclusive lock of E<.Fa "
+"rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:274
+#, no-wrap
+msgid "Dv RA_RLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:277
+msgid "Assert that current thread holds a shared lock of E<.Fa rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:277
+#, no-wrap
+msgid "Dv RA_WLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:280
+msgid "Assert that current thread holds an exclusive lock of E<.Fa rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:280
+#, no-wrap
+msgid "Dv RA_UNLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:283
+msgid ""
+"Assert that current thread holds neither a shared nor exclusive lock of "
+"E<.Fa rw>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:290
+msgid ""
+"In addition, one of the following optional flags may be specified with E<.Dv "
+"RA_LOCKED>, E<.Dv RA_RLOCKED>, or E<.Dv RA_WLOCKED>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:291
+#, no-wrap
+msgid "Dv RA_RECURSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:294
+msgid "Assert that the current thread holds a recursive lock of E<.Fa rw>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/rwlock.9:294
+#, no-wrap
+msgid "Dv RA_NOTRECURSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:297
+msgid "Assert that the current thread does not hold a recursive lock of E<.Fa rw>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:299
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:305
+msgid "E<.Xr locking 9>, E<.Xr mutex 9>, E<.Xr panic 9>, E<.Xr sema 9>, E<.Xr sx 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:305
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:309
+msgid "These functions appeared in E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:309
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:317
+msgid ""
+"E<.An -nosplit> The E<.Nm> facility was written by E<.An \"John Baldwin\">.  "
+"This manual page was written by E<.An \"Gleb Smirnoff\">."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/rwlock.9:317
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:331
+msgid ""
+"A kernel without E<.Dv WITNESS> cannot assert whether the current thread "
+"does or does not hold a read lock.  E<.Dv RA_LOCKED> and E<.Dv RA_RLOCKED> "
+"can only assert that E<.Em any> thread holds a read lock.  They cannot "
+"ensure that the current thread holds a read lock.  Further, E<.Dv "
+"RA_UNLOCKED> can only assert that the current thread does not hold a write "
+"lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/rwlock.9:337
+msgid ""
+"Reader/writer is a bit of an awkward name.  An E<.Nm> can also be called a "
+"E<.Dq Robert Watson> lock if desired."
+msgstr ""

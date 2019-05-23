@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/vxlan.4:27
+#, no-wrap
+msgid "December 31, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/vxlan.4:28
+#, no-wrap
+msgid "VXLAN 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:32
+msgid "E<.Nm vxlan>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/vxlan.4:32
+#, no-wrap
+msgid "Virtual eXtensible LAN interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:37
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:39
+#, no-wrap
+msgid "E<.Cd \"device vxlan\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:44
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:46
+#, no-wrap
+msgid "if_vxlan_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:62
+msgid ""
+"The E<.Nm> driver creates a virtual tunnel endpoint in a E<.Nm> segment.  A "
+"E<.Nm> segment is a virtual Layer 2 (Ethernet) network that is overlaid in a "
+"Layer 3 (IP/UDP) network.  E<.Nm> is analogous to E<.Xr vlan 4> but is "
+"designed to be better suited for large, multiple tenant data center "
+"environments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:77
+msgid ""
+"Each E<.Nm> interface is created at runtime using interface cloning.  This "
+"is most easily done with the E<.Xr ifconfig 8> E<.Cm create> command or "
+"using the E<.Va cloned_interfaces> variable in E<.Xr rc.conf 5>.  The "
+"interface may be removed with the E<.Xr ifconfig 8> E<.Cm destroy> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:94
+msgid ""
+"The E<.Nm> driver creates a pseudo Ethernet network interface that supports "
+"the usual network E<.Xr ioctl 2 Ns s> and is thus can be used with E<.Xr "
+"ifconfig 8> like any other Ethernet interface.  The E<.Nm> interface "
+"encapsulates the Ethernet frame by prepending IP/UDP and E<.Nm> headers.  "
+"Thus, the encapsulated (inner) frame is able to transmitted over a routed, "
+"Layer 3 network to the remote host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:107
+msgid ""
+"The E<.Nm> interface may be configured in either unicast or multicast mode.  "
+"When in unicast mode, the interface creates a tunnel to a single remote "
+"host, and all traffic is transmitted to that host.  When in multicast mode, "
+"the interface joins an IP multicast group, and receives packets sent to the "
+"group address, and transmits packets to either the multicast group address, "
+"or directly the remote host if there is an appropriate forwarding table "
+"entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:140
+msgid ""
+"When the E<.Nm> interface is brought up, a E<.Xr udp 4> E<.Xr socket 9> is "
+"created based on the configuration, such as the local address for unicast "
+"mode or the group address for multicast mode, and the listening (local) port "
+"number.  Since multiple E<.Nm> interfaces may be created that either use the "
+"same local address or join the same group address, and use the same port, "
+"the driver may share a socket among multiple interfaces.  However, each "
+"interface within a socket must belong to a unique E<.Nm> segment.  The "
+"analogous E<.Xr vlan 4> configuration would be a physical interface "
+"configured as the parent device for multiple VLAN interfaces, each with a "
+"unique VLAN tag.  Each E<.Nm> segment is identified by a 24-bit value in the "
+"E<.Nm> header called the E<.Dq VXLAN Network Identifier>, or VNI."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:167
+msgid ""
+"When configured with the E<.Xr ifconfig 8> E<.Cm vxlanlearn> parameter, the "
+"interface dynamically creates forwarding table entries from received "
+"packets.  An entry in the forwarding table maps the inner source MAC address "
+"to the outer remote IP address.  During transmit, the interface attempts to "
+"lookup an entry for the encapsulated destination MAC address.  If an entry "
+"is found, the IP address in the entry is used to directly transmit the "
+"encapsulated frame to the destination.  Otherwise, when configured in "
+"multicast mode, the interface must flood the frame to all hosts in the "
+"group.  The maximum number of entries in the table is configurable with the "
+"E<.Xr ifconfig 8> E<.Cm vxlanmaxaddr> command.  Stale entries in the table "
+"periodically pruned.  The timeout is configurable with the E<.Xr ifconfig 8> "
+"E<.Cm vxlantimeout> command.  The table may be viewed with the E<.Xr sysctl "
+"8> E<.Cm net.link.vxlan.N.ftable.dump> command."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:167
+#, no-wrap
+msgid "MTU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:185
+msgid ""
+"Since the E<.Nm> interface encapsulates the Ethernet frame with an IP, UDP, "
+"and E<.Nm> header, the resulting frame may be larger than the MTU of the "
+"physical network.  The E<.Nm> specification recommends the physical network "
+"MTU be configured to use jumbo frames to accommodate the encapsulated frame "
+"size.  Alternatively, the E<.Xr ifconfig 8> E<.Cm mtu> command may be used "
+"to reduce the MTU size on the E<.Nm> interface to allow the encapsulated "
+"frame to fit in the current MTU of the physical network."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:185
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:195
+msgid ""
+"Create a E<.Nm> interface in unicast mode with the E<.Cm vxlanlocal> tunnel "
+"address of 192.168.100.1, and the E<.Cm vxlanremote> tunnel address of "
+"192.168.100.2."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:197
+#, no-wrap
+msgid ""
+"ifconfig vxlan create vxlanid 108 vxlanlocal 192.168.100.1 vxlanremote "
+"192.168.100.2\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:209
+msgid ""
+"Create a E<.Nm> interface in multicast mode, with the E<.Cm local> address "
+"of 192.168.10.95, and the E<.Cm group> address of 224.0.2.6.  The em0 "
+"interface will be used to transmit multicast packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:211
+#, no-wrap
+msgid ""
+"ifconfig vxlan create vxlanid 42 vxlanlocal 192.168.10.95 vxlangroup "
+"224.0.2.6 vxlandev em0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:217
+msgid "Once created, the E<.Nm> interface can be configured with E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:223
+msgid ""
+"The following when placed in the file E<.Pa /etc/rc.conf> will cause a vxlan "
+"interface called E<.Dq Li vxlan0> to be created, and will configure the "
+"interface in unicast mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:226
+#, no-wrap
+msgid ""
+"cloned_interfaces=\"vxlan0\"\n"
+"create_args_vxlan0=\"vxlanid 108 vxlanlocal 192.168.100.1 vxlanremote "
+"192.168.100.2\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:227
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:241
+msgid ""
+"E<.Xr inet 4>, E<.Xr inet6 4>, E<.Xr vlan 4>, E<.Xr rc.conf 5>, E<.Xr "
+"ifconfig 8>, E<.Xr sysctl 8> E<.Rs> E<.%A \"M. Mahalingam\"> E<.%A \"et "
+"al\"> E<.%T \"Virtual eXtensible Local Area Network (VXLAN): A Framework for "
+"Overlaying Virtualized Layer 2 Networks over Layer 3 Networks\"> E<.%D "
+"August 2014> E<.%O \"RFC 7348\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vxlan.4:241
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vxlan.4:246
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Bryan Venteicher Aq "
+"bryanv@freebsd.org>."
+msgstr ""

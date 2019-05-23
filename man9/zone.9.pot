@@ -1,0 +1,525 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/zone.9:28
+#, no-wrap
+msgid "June 13, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/zone.9:29
+#, no-wrap
+msgid "ZONE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:45
+msgid ""
+"E<.Nm uma_zcreate>, E<.Nm uma_zalloc>, E<.Nm uma_zalloc_arg>, E<.Nm "
+"uma_zalloc_domain>, E<.Nm uma_zfree>, E<.Nm uma_zfree_arg>, E<.Nm "
+"uma_zfree_domain>, E<.Nm uma_zdestroy>, E<.Nm uma_zone_set_max>, E<.Nm "
+"uma_zone_get_max>, E<.Nm uma_zone_get_cur>, E<.Nm uma_zone_set_warning>, "
+"E<.Nm uma_zone_set_maxaction>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/zone.9:45
+#, no-wrap
+msgid "zone allocator"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:46
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/zone.9:47
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/zone.9:48
+#, no-wrap
+msgid "sys/queue.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/zone.9:49
+#, no-wrap
+msgid "vm/uma.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:80
+msgid ""
+"E<.Ft uma_zone_t> E<.Fo uma_zcreate> E<.Fa \"char *name\" \"int size\"> "
+"E<.Fa \"uma_ctor ctor\" \"uma_dtor dtor\" \"uma_init uminit\" \"uma_fini "
+"fini\"> E<.Fa \"int align\" \"uint16_t flags\"> E<.Fc> E<.Ft \"void *\"> "
+"E<.Fn uma_zalloc \"uma_zone_t zone\" \"int flags\"> E<.Ft \"void *\"> E<.Fn "
+"uma_zalloc_arg \"uma_zone_t zone\" \"void *arg\" \"int flags\"> E<.Ft \"void "
+"*\"> E<.Fn uma_zalloc_domain \"uma_zone_t zone\" \"void *arg\" \"int "
+"domain\" \"int flags\"> E<.Ft void> E<.Fn uma_zfree \"uma_zone_t zone\" "
+"\"void *item\"> E<.Ft void> E<.Fn uma_zfree_arg \"uma_zone_t zone\" \"void "
+"*item\" \"void *arg\"> E<.Ft void> E<.Fn uma_zfree_domain \"uma_zone_t "
+"zone\" \"void *item\" \"void *arg\"> E<.Ft void> E<.Fn uma_zdestroy "
+"\"uma_zone_t zone\"> E<.Ft int> E<.Fn uma_zone_set_max \"uma_zone_t zone\" "
+"\"int nitems\"> E<.Ft int> E<.Fn uma_zone_get_max \"uma_zone_t zone\"> E<.Ft "
+"int> E<.Fn uma_zone_get_cur \"uma_zone_t zone\"> E<.Ft void> E<.Fn "
+"uma_zone_set_warning \"uma_zone_t zone\" \"const char *warning\"> E<.Ft "
+"void> E<.Fn uma_zone_set_maxaction \"uma_zone_t zone\" \"void "
+"(*maxaction)(uma_zone_t)\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/zone.9:80
+#, no-wrap
+msgid "sys/sysctl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:85
+msgid ""
+"E<.Fn SYSCTL_UMA_MAX parent nbr name access zone descr> E<.Fn "
+"SYSCTL_ADD_UMA_MAX ctx parent nbr name access zone descr> E<.Fn "
+"SYSCTL_UMA_CUR parent nbr name access zone descr> E<.Fn SYSCTL_ADD_UMA_CUR "
+"ctx parent nbr name access zone descr>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:85
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:94
+msgid ""
+"The zone allocator provides an efficient interface for managing "
+"dynamically-sized collections of items of identical size.  The zone "
+"allocator can work with preallocated zones as well as with runtime-allocated "
+"ones, and is therefore available much earlier in the boot process than other "
+"memory management routines.  The zone allocator provides per-cpu allocation "
+"caches with linear scalability on SMP systems as well as round-robin and "
+"first-touch policies for NUMA systems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:99
+msgid ""
+"A zone is an extensible collection of items of identical size.  The zone "
+"allocator keeps track of which items are in use and which are not, and "
+"provides functions for allocating items from the zone and for releasing them "
+"back (which makes them available for later use)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:103
+msgid ""
+"After the first allocation of an item, it will have been cleared to zeroes, "
+"however subsequent allocations will retain the contents as of the last free."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:111
+msgid ""
+"The E<.Fn uma_zcreate> function creates a new zone from which items may then "
+"be allocated from.  The E<.Fa name> argument is a text name of the zone for "
+"debugging and stats; this memory should not be freed until the zone has been "
+"deallocated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:131
+msgid ""
+"The E<.Fa ctor> and E<.Fa dtor> arguments are callback functions that are "
+"called by the uma subsystem at the time of the call to E<.Fn uma_zalloc> and "
+"E<.Fn uma_zfree> respectively.  Their purpose is to provide hooks for "
+"initializing or destroying things that need to be done at the time of the "
+"allocation or release of a resource.  A good usage for the E<.Fa ctor> and "
+"E<.Fa dtor> callbacks might be to adjust a global count of the number of "
+"objects allocated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:155
+msgid ""
+"The E<.Fa uminit> and E<.Fa fini> arguments are used to optimize the "
+"allocation of objects from the zone.  They are called by the uma subsystem "
+"whenever it needs to allocate or free several items to satisfy requests or "
+"memory pressure.  A good use for the E<.Fa uminit> and E<.Fa fini> callbacks "
+"might be to initialize and destroy mutexes contained within the object.  "
+"This would allow one to re-use already initialized mutexes when an object is "
+"returned from the uma subsystem's object cache.  They are not called on each "
+"call to E<.Fn uma_zalloc> and E<.Fn uma_zfree> but rather in a batch mode on "
+"several objects."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:161
+msgid ""
+"The E<.Fa flags> argument of the E<.Fn uma_zcreate> is a subset of the "
+"following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:162
+#, no-wrap
+msgid "Dv UMA_ZONE_NOFREE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:164
+msgid "Slabs of the zone are never returned back to VM."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:164
+#, no-wrap
+msgid "Dv UMA_ZONE_NODUMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:166
+msgid "Pages belonging to the zone will not be included into mini-dumps."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:166
+#, no-wrap
+msgid "Dv UMA_ZONE_PCPU"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:173
+msgid ""
+"An allocation from zone would have E<.Va mp_ncpu> shadow copies, that are "
+"privately assigned to CPUs.  A CPU can address its private copy using base "
+"allocation address plus multiple of current CPU id and E<.Fn sizeof \"struct "
+"pcpu\">:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:182
+#, no-wrap
+msgid ""
+"foo_zone = uma_zcreate(..., UMA_ZONE_PCPU);\n"
+" ...\n"
+"foo_base = uma_zalloc(foo_zone, ...);\n"
+" ...\n"
+"critical_enter();\n"
+"foo_pcpu = (foo_t *)zpcpu_get(foo_base);\n"
+"/* do something with foo_pcpu */\n"
+"critical_exit();\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:183
+#, no-wrap
+msgid "Dv UMA_ZONE_OFFPAGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:195
+msgid ""
+"By default book-keeping of items within a slab is done in the slab page "
+"itself.  This flag explicitly tells subsystem that book-keeping structure "
+"should be allocated separately from special internal zone.  This flag "
+"requires either E<.Dv UMA_ZONE_VTOSLAB> or E<.Dv UMA_ZONE_HASH>, since "
+"subsystem requires a mechanism to find a book-keeping structure to an item "
+"being freed.  The subsystem may choose to prefer offpage book-keeping for "
+"certain zones implicitly."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:195
+#, no-wrap
+msgid "Dv UMA_ZONE_ZINIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:208
+msgid ""
+"The zone will have its E<.Ft uma_init> method set to internal method that "
+"initializes a new allocated slab to all zeros.  Do not mistake E<.Ft "
+"uma_init> method with E<.Ft uma_ctor>.  A zone with E<.Dv UMA_ZONE_ZINIT> "
+"flag would not return zeroed memory on every E<.Fn uma_zalloc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:208
+#, no-wrap
+msgid "Dv UMA_ZONE_HASH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:211
+msgid ""
+"The zone should use an internal hash table to find slab book-keeping "
+"structure where an allocation being freed belongs to."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:211
+#, no-wrap
+msgid "Dv UMA_ZONE_VTOSLAB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:215
+msgid ""
+"The zone should use special field of E<.Vt vm_page_t> to find slab "
+"book-keeping structure where an allocation being freed belongs to."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:215
+#, no-wrap
+msgid "Dv UMA_ZONE_MALLOC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:219
+msgid "The zone is for the E<.Xr malloc 9> subsystem."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:219
+#, no-wrap
+msgid "Dv UMA_ZONE_VM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:221
+msgid "The zone is for the VM subsystem."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/zone.9:221
+#, no-wrap
+msgid "Dv UMA_ZONE_NUMA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:226
+msgid ""
+"The zone should use a first-touch NUMA policy rather than the round-robin "
+"default. Callers that do not free memory on the same domain it is allocated "
+"from will cause mixing in per-cpu caches.  See E<.Xr numa 9 for more "
+"details.>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:243
+msgid ""
+"To allocate an item from a zone, simply call E<.Fn uma_zalloc> with a "
+"pointer to that zone and set the E<.Fa flags> argument to selected flags as "
+"documented in E<.Xr malloc 9>.  It will return a pointer to an item if "
+"successful, or E<.Dv NULL> in the rare case where all items in the zone are "
+"in use and the allocator is unable to grow the zone and E<.Dv M_NOWAIT> is "
+"specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:255
+msgid ""
+"Items are released back to the zone from which they were allocated by "
+"calling E<.Fn uma_zfree> with a pointer to the zone and a pointer to the "
+"item.  If E<.Fa item> is E<.Dv NULL>, then E<.Fn uma_zfree> does nothing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:275
+msgid ""
+"The variations E<.Fn uma_zalloc_arg> and E<.Fn uma_zfree_arg> allow callers "
+"to specify an argument for the E<.Dv ctor> and E<.Dv dtor> functions, "
+"respectively.  The E<.Fn uma_zalloc_domain> function allows callers to "
+"specify a fixed E<.Xr numa 9 domain to allocate from.  This uses a "
+"guaranteed but slow path in> the allocator which reduces concurrency.  The "
+"E<.Fn uma_zfree_domain> function should be used to return memory allocated "
+"in this fashion.  This function infers the domain from the pointer and does "
+"not require it as an argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:286
+msgid ""
+"Created zones, which are empty, can be destroyed using E<.Fn uma_zdestroy>, "
+"freeing all memory that was allocated for the zone.  All items allocated "
+"from the zone with E<.Fn uma_zalloc> must have been freed with E<.Fn "
+"uma_zfree> before."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:305
+msgid ""
+"The E<.Fn uma_zone_set_max> function limits the number of items E<.Pq and "
+"therefore memory> that can be allocated to E<.Fa zone>.  The E<.Fa nitems> "
+"argument specifies the requested upper limit number of items.  The effective "
+"limit is returned to the caller, as it may end up being higher than "
+"requested due to the implementation rounding up to ensure all memory pages "
+"allocated to the zone are utilised to capacity.  The limit applies to the "
+"total number of items in the zone, which includes allocated items, free "
+"items and free items in the per-cpu caches.  On systems with more than one "
+"CPU it may not be possible to allocate the specified number of items even "
+"when there is no shortage of memory, because all of the remaining free items "
+"may be in the caches of the other CPUs when the limit is hit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:309
+msgid ""
+"The E<.Fn uma_zone_get_max> function returns the effective upper limit "
+"number of items for a zone."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:317
+msgid ""
+"The E<.Fn uma_zone_get_cur> function returns the approximate current "
+"occupancy of the zone.  The returned value is approximate because "
+"appropriate synchronisation to determine an exact value is not performed by "
+"the implementation.  This ensures low overhead at the expense of potentially "
+"stale data being used in the calculation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:327
+msgid ""
+"The E<.Fn uma_zone_set_warning> function sets a warning that will be printed "
+"on the system console when the given zone becomes full and fails to allocate "
+"an item.  The warning will be printed no more often than every five "
+"minutes.  Warnings can be turned off globally by setting the E<.Va "
+"vm.zone_warnings> sysctl tunable to E<.Va 0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:337
+msgid ""
+"The E<.Fn uma_zone_set_maxaction> function sets a function that will be "
+"called when the given zone becomes full and fails to allocate an item.  The "
+"function will be called with the zone locked.  Also, the function that "
+"called the allocation function may have held additional locks.  Therefore, "
+"this function should do very little work (similar to a signal handler)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:354
+msgid ""
+"The E<.Fn SYSCTL_UMA_MAX parent nbr name access zone descr> macro declares a "
+"static E<.Xr sysctl> oid that exports the effective upper limit number of "
+"items for a zone.  The E<.Fa zone> argument should be a pointer to E<.Vt "
+"uma_zone_t>.  A read of the oid returns value obtained through E<.Fn "
+"uma_zone_get_max>.  A write to the oid sets new value via E<.Fn "
+"uma_zone_set_max>.  The E<.Fn SYSCTL_ADD_UMA_MAX ctx parent nbr name access "
+"zone descr> macro is provided to create this type of oid dynamically."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:369
+msgid ""
+"The E<.Fn SYSCTL_UMA_CUR parent nbr name access zone descr> macro declares a "
+"static read-only E<.Xr sysctl> oid that exports the approximate current "
+"occupancy of the zone.  The E<.Fa zone> argument should be a pointer to "
+"E<.Vt uma_zone_t>.  A read of the oid returns value obtained through E<.Fn "
+"uma_zone_get_cur>.  The E<.Fn SYSCTL_ADD_UMA_CUR ctx parent nbr name zone "
+"descr> macro is provided to create this type of oid dynamically."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:369
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:378
+msgid ""
+"The E<.Fn uma_zalloc> function returns a pointer to an item, or E<.Dv NULL> "
+"if the zone ran out of unused items and E<.Dv M_NOWAIT> was specified."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:378
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:387
+msgid ""
+"The memory that these allocation calls return is not executable.  The E<.Fn "
+"uma_zalloc> function does not support the E<.Dv M_EXEC> flag to allocate "
+"executable memory.  Not all platforms enforce a distinction between "
+"executable and non-executable memory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:387
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:389
+msgid "E<.Xr malloc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:389
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:395
+msgid ""
+"The zone allocator first appeared in E<.Fx 3.0>.  It was radically changed "
+"in E<.Fx 5.0> to function as a slab allocator."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/zone.9:395
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:402
+msgid ""
+"E<.An -nosplit> The zone allocator was written by E<.An John S. Dyson>.  The "
+"zone allocator was rewritten in large parts by E<.An Jeff Roberson Aq Mt "
+"jeff@FreeBSD.org> to function as a slab allocator."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/zone.9:406
+msgid ""
+"This manual page was written by E<.An Dag-Erling Sm\\(/orgrav Aq Mt "
+"des@FreeBSD.org>.  Changes for UMA by E<.An Jeroen Ruigrok van der Werven Aq "
+"Mt asmodai@FreeBSD.org>."
+msgstr ""

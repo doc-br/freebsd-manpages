@@ -1,0 +1,428 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/pciconf/pciconf.8:28
+#, no-wrap
+msgid "June 14, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/pciconf/pciconf.8:29
+#, no-wrap
+msgid "PCICONF 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:33
+msgid "E<.Nm pciconf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/pciconf/pciconf.8:33
+#, no-wrap
+msgid "diagnostic utility for the PCI bus"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:45
+msgid ""
+"E<.Nm> E<.Fl l Oo Fl BbceVv Oc Op Ar device> E<.Nm> E<.Fl a Ar device> "
+"E<.Nm> E<.Fl r Oo Fl b | h Oc Ar device addr Ns Op : Ns Ar addr2> E<.Nm> "
+"E<.Fl w Oo Fl b | h Oc Ar device addr value> E<.Nm> E<.Fl D Oo Fl b | h | x "
+"Oc Ar device addr Op start Ns Op : Ns Ar count>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:56
+msgid ""
+"The E<.Nm> utility provides a command line interface to functionality "
+"provided by the E<.Xr pci 4> E<.Xr ioctl 2> interface.  As such, some of the "
+"functions are only available to users with write access to E<.Pa /dev/pci>, "
+"normally only the super-user."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:62
+msgid "With the E<.Fl l> option, E<.Nm> lists PCI devices in the following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:69
+#, no-wrap
+msgid ""
+"foo0@pci0:0:4:0: class=0x010000 card=0x00000000 chip=0x000f1000 rev=0x01 "
+"hdr=0x00\n"
+"bar0@pci0:0:5:0: class=0x000100 card=0x00000000 chip=0x88c15333 rev=0x00 "
+"hdr=0x00\n"
+"none0@pci0:0:6:0: class=0x020000 card=0x00000000 chip=0x802910ec rev=0x00 "
+"hdr=0x00\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:90
+msgid ""
+"The first column gives the driver name, unit number, and selector .  If "
+"there is no driver attached to the E<.Tn PCI> device in question, the driver "
+"name will be E<.Dq none>.  Unit numbers for detached devices start at zero "
+"and are incremented for each detached device that is encountered.  The "
+"selector is in a form which may directly be used for the other forms of the "
+"command.  The second column is the class code, with the class byte printed "
+"as two hex digits, followed by the sub-class and the interface bytes.  The "
+"third column gives the contents of the subvendorid register, introduced in "
+"revision 2.1 of the E<.Tn PCI> standard.  Note that it will be 0 for older "
+"cards.  The field consists of the card ID in the upper half and the card "
+"vendor ID in the lower half of the value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:115
+msgid ""
+"The fourth column contains the chip device ID, which identifies the chip "
+"this card is based on.  It consists of two fields, identifying the chip and "
+"its vendor, as above.  The fifth column prints the chip's revision.  The "
+"sixth column describes the header type.  Currently assigned header types "
+"include 0 for most devices, 1 for E<.Tn PCI> to E<.Tn PCI> bridges, and 2 "
+"for E<.Tn PCI> to E<.Tn CardBus> bridges.  If the most significant bit of "
+"the header type register is set for function 0 of a E<.Tn PCI> device, it is "
+"a E<.Em multi-function> device, which contains several (similar or "
+"independent) functions on one chip."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:135
+msgid ""
+"If the E<.Fl B> option is supplied, E<.Nm> will list additional information "
+"for E<.Tn PCI> to E<.Tn PCI> and E<.Tn PCI> to E<.Tn CardBus> bridges, "
+"specifically the resource ranges decoded by the bridge for use by devices "
+"behind the bridge.  Each bridge lists a range of bus numbers handled by the "
+"bridge and its downstream devices.  Memory and I/O port decoding windows are "
+"enumerated via a line in the following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:137
+#, no-wrap
+msgid "    window[1c] = type I/O Port, range 16, addr 0x5000-0x8fff, enabled\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:151
+msgid ""
+"The first value after the E<.Dq Li window> prefix in the square brackets is "
+"the offset of the decoding window in config space in hexadecimal.  The type "
+"of a window is one of E<.Dq Memory>, E<.Dq Prefetchable Memory>, or E<.Dq "
+"I/O Port>.  The range indicates the binary log of the maximum address the "
+"window decodes.  The address field indicates the start and end addresses of "
+"the decoded range.  Finally, the last flag indicates if the window is "
+"enabled or disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:160
+msgid ""
+"If the E<.Fl b> option is supplied, E<.Nm> will list any base address "
+"registers E<.Pq BARs> that are assigned resources for each device.  Each BAR "
+"will be enumerated via a line in the following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:162
+#, no-wrap
+msgid ""
+"    bar   [10] = type Memory, range 32, base 0xda060000, size 131072, "
+"enabled\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:177
+msgid ""
+"The first value after the E<.Dq Li bar> prefix in the square brackets is the "
+"offset of the BAR in config space in hexadecimal.  The type of a BAR is one "
+"of E<.Dq Memory>, E<.Dq Prefetchable Memory>, or E<.Dq I/O Port>.  The range "
+"indicates the binary log of the maximum address the BAR decodes.  The base "
+"and size indicate the start and length of the BAR's address window, "
+"respectively.  Finally, the last flag indicates if the BAR is enabled or "
+"disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:184
+msgid ""
+"If the E<.Fl c> option is supplied, E<.Nm> will list any capabilities "
+"supported by each device.  Each capability is enumerated via a line in the "
+"following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:186
+#, no-wrap
+msgid "    cap 10[40] = PCI-Express 1 root port\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:194
+msgid ""
+"The first value after the E<.Dq Li cap> prefix is the capability ID in "
+"hexadecimal.  The second value in the square brackets is the offset of the "
+"capability in config space in hexadecimal.  The format of the text after the "
+"equals sign is capability-specific."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:196
+msgid "Each extended capability is enumerated via a line in a similar format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:198
+#, no-wrap
+msgid "ecap 0002[100] = VC 1 max VC0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:206
+msgid ""
+"The first value after the E<.Dq Li ecap> prefix is the extended capability "
+"ID in hexadecimal.  The second value in the square brackets is the offset of "
+"the extended capability in config space in hexadecimal.  The format of the "
+"text after the equals sign is capability-specific."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:215
+msgid ""
+"If the E<.Fl e> option is supplied, E<.Nm> will list any errors reported for "
+"this device in standard PCI error registers.  Errors are checked for in the "
+"PCI status register, the PCI-express device status register, and the "
+"Advanced Error Reporting status registers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:222
+msgid ""
+"If the E<.Fl v> option is supplied, E<.Nm> will attempt to load the "
+"vendor/device information database, and print vendor, device, class and "
+"subclass identification strings for each device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:231
+msgid ""
+"If the E<.Fl V> option is supplied, E<.Nm> will list any vital product data "
+"E<.Pq VPD> provided by each device.  Each VPD keyword is enumerated via a "
+"line in the following format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:233
+#, no-wrap
+msgid "    VPD ro PN  = '110114640C0     '\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:244
+msgid ""
+"The first string after the E<.Dq Li VPD> prefix indicates if the keyword is "
+"read-only E<.Dq ro> or read-write E<.Dq rw>.  The second string provides the "
+"keyword name.  The text after the equals sign lists the value of the keyword "
+"which is usually an ASCII string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:252
+msgid ""
+"If the optional E<.Ar device> argument is given with the E<.Fl l> flag, "
+"E<.Nm> will only list details about a single device instead of all devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:263
+msgid ""
+"All invocations of E<.Nm> except for E<.Fl l> require a E<.Ar device>.  The "
+"device can be identified either by a device name if the device is attached "
+"to a driver or by a selector.  Selectors identify a PCI device by its "
+"address in PCI config space and can take one of the following forms:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:268
+msgid ""
+"E<.Li pci Ns Va domain Ns \\&: Ns Va bus Ns \\&: Ns Va device Ns \\&: Ns Va "
+"function Ns>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:270
+msgid "E<.Li pci Ns Va bus Ns \\&: Ns Va device Ns \\&: Ns Va function Ns>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:272
+msgid "E<.Li pci Ns Va bus Ns \\&: Ns Va device Ns>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:281
+msgid ""
+"In the case of an abridged form, omitted selector components are assumed to "
+"be 0.  An optional leading device name followed by @ and an optional final "
+"colon will be ignored; this is so that the first column in the output of "
+"E<.Nm> E<.Fl l> can be used without modification.  All numbers are base 10."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:291
+msgid ""
+"With the E<.Fl a> flag, E<.Nm> determines whether any driver has been "
+"assigned to the device identified by E<.Ar selector>.  An exit status of "
+"zero indicates that the device has a driver; non-zero indicates that it does "
+"not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:310
+msgid ""
+"The E<.Fl r> option reads a configuration space register at byte offset "
+"E<.Ar addr> of device E<.Ar selector> and prints out its value in "
+"hexadecimal.  The optional second address E<.Ar addr2> specifies a range to "
+"read.  The E<.Fl w> option writes the E<.Ar value> into a configuration "
+"space register at byte offset E<.Ar addr> of device E<.Ar selector>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:326
+msgid ""
+"The E<.Fl D> option request a dump of the specified BAR.  Dump is performed "
+"to the standard output, raw register values are written.  Use E<.Xr hexdump "
+"1> to convert them to human-readable dump, or redirect into a file to save "
+"the snapshot of the device state.  Optionally, the E<.Ar start> and E<.Ar "
+"count> of the registers dumped can be specified, in multiple of the "
+"operation width, see next paragraph."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:342
+msgid ""
+"For read, write, and dump operations, the flags E<.Fl b>, E<.Fl h>, and "
+"E<.Fl x> select the width of the operation; E<.Fl b> indicates a byte "
+"operation, and E<.Fl h> indicates a halfword (two-byte) operation.  E<.Fl x> "
+"indicates a quadword (four-byte) operation.  The default is to read or write "
+"a longword (four bytes).  The quadword mode is only valid for BAR dump."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:342
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:349
+msgid ""
+"PCI vendor and device information is read from E<.Pa "
+"/usr/local/share/pciids/pci.ids>.  If that file is not present, it is read "
+"from E<.Pa /usr/share/misc/pci_vendors>.  This path can be overridden by "
+"setting the environment variable E<.Ev PCICONF_VENDOR_DATABASE>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:349
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#.  .Xr pci 4 ,
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:354
+msgid "E<.Xr ioctl 2>, E<.Xr devinfo 8>, E<.Xr kldload 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:354
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:365
+msgid ""
+"The E<.Nm> utility appeared first in E<.Fx 2.2>.  The E<.Fl a> option was "
+"added for E<.Tn PCI> KLD support in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:365
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:373
+msgid ""
+"E<.An -nosplit> The E<.Nm> utility was written by E<.An Stefan Esser> and "
+"E<.An Garrett Wollman>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pciconf/pciconf.8:373
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:382
+msgid ""
+"The E<.Fl b> and E<.Fl h> options are implemented in E<.Nm>, but not in the "
+"underlying E<.Xr ioctl 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:394
+msgid ""
+"It might be useful to give non-root users access to the E<.Fl a> and E<.Fl "
+"r> options.  But only root will be able to execute a E<.Nm kldload> to "
+"provide the device with a driver KLD, and reading of configuration space "
+"registers may cause a failure in badly designed E<.Tn PCI> chips."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pciconf/pciconf.8:401
+msgid ""
+"There is currently no way to specify the caching mode for the mapping "
+"established by the E<.Fl D> option, E<.Nm> always uses uncached access.  "
+"This is fine for control register BARs."
+msgstr ""

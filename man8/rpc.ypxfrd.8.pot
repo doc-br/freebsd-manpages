@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:33
+#, no-wrap
+msgid "June 2, 1996"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:34
+#, no-wrap
+msgid "RPC.YPXFRD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:38
+msgid "E<.Nm rpc.ypxfrd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:38
+#, no-wrap
+msgid "NIS map transfer server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:42
+msgid "E<.Nm> E<.Op Fl p Ar path>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:49
+msgid ""
+"The E<.Nm> utility is used to speed up the distribution of very large NIS "
+"maps from NIS master to NIS slave servers.  The normal method for "
+"transferring maps involves several steps:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:54
+msgid ""
+"The master server calls E<.Xr yppush 8> to inform the slave servers to start "
+"a transfer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:59
+msgid ""
+"The slave servers invoke E<.Xr ypxfr 8>, which reads the entire contents of "
+"a map from the master server using the yp_all() function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:65
+msgid ""
+"The E<.Xr ypxfr 8> program then creates a new map database file by using the "
+"E<.Xr db 3> library hash method to store the data that it receives from the "
+"server."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:72
+msgid ""
+"When all the data has been retrieved, E<.Xr ypxfr 8> moves the new file into "
+"place and sends E<.Xr ypserv 8> on the local machine a YPPROC_CLEAR to tell "
+"it to refresh its database handles."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:87
+msgid ""
+"This process can take several minutes when there are very large maps "
+"involved.  For example: a passwd database with several tens of thousands of "
+"entries can consume several megabytes of disk space, and it can take the "
+"E<.Xr db 3> library package a long time to sort and store all the records in "
+"a hash database.  Consider also that there are two sets of map files: E<.Pa "
+"master.passwd.by{name,uid}> and E<.Pa passwd.by{name,uid}>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:100
+msgid ""
+"The E<.Nm> utility speeds up the transfer process by allowing NIS slave "
+"servers to simply copy the master server's map files rather than building "
+"their own from scratch.  Simply put, E<.Nm> implements an RPC-based file "
+"transfer protocol.  Transferring even a multi-megabyte file in this fashion "
+"takes only a few seconds compared to the several minutes it would take even "
+"a reasonably fast slave server to build a new map from scratch."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:116
+msgid ""
+"The E<.Nm> utility uses the same access restriction mechanism as E<.Xr "
+"ypserv 8>.  This means that slave servers will only be permitted to transfer "
+"files if the rules in the E<.Pa securenets> database permit it (see E<.Xr "
+"ypserv 8> for more information on E<.Pa securenets>).  Furthermore, only "
+"slave servers using reserved ports will be allowed to transfer the E<.Pa "
+"master.passwd> maps."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:116
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:118
+msgid "The following option is available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:119
+#, no-wrap
+msgid "Fl p Ar path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:125
+msgid ""
+"This option can be used to override the default path to the location of the "
+"NIS map databases.  The compiled-in default path is E<.Pa /var/yp>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:126
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:128
+#, no-wrap
+msgid "Pa /var/yp/[domainname]/[maps]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:130
+msgid "The NIS maps for a particular NIS domain."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:131
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:136
+msgid "E<.Xr yp 8>, E<.Xr yppush 8>, E<.Xr ypserv 8>, E<.Xr ypxfr 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:136
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:138
+msgid "E<.An Bill Paul Aq Mt wpaul@ctr.columbia.edu>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:138
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rpc.ypxfrd/rpc.ypxfrd.8:153
+msgid ""
+"The E<.Fx> E<.Nm ypxfrd> protocol is not compatible with that used by "
+"SunOS.  This is unfortunate but unavoidable: Sun's protocol is not freely "
+"available, and even if it were it would probably not be useful since the "
+"SunOS NIS v2 implementation uses the original ndbm package for its map "
+"databases whereas the E<.Fx> implementation uses Berkeley DB.  These two "
+"packages use vastly different file formats.  Furthermore, ndbm is byte-order "
+"sensitive and not very smart about it, meaning that am ndbm database created "
+"on a big endian system cannot be read on a little endian system."
+msgstr ""

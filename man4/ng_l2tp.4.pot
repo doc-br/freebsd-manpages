@@ -1,0 +1,492 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_l2tp.4:40
+#, no-wrap
+msgid "November 13, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_l2tp.4:41
+#, no-wrap
+msgid "NG_L2TP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:43
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:45
+msgid "E<.Nm ng_l2tp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_l2tp.4:45
+#, no-wrap
+msgid "L2TP protocol netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:46
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_l2tp.4:47
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_l2tp.4:48
+#, no-wrap
+msgid "netgraph/ng_l2tp.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:58
+msgid ""
+"The E<.Nm l2tp> node type implements the encapsulation layer of the L2TP "
+"protocol as described in RFC 2661.  This includes adding the L2TP packet "
+"header for outgoing packets and verifying and removing it for incoming "
+"packets.  The node maintains the L2TP sequence number state and handles "
+"control session packet acknowledgment and retransmission."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:58
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:62
+msgid "The E<.Nm l2tp> node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:63
+#, no-wrap
+msgid "Va lower"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:65
+msgid "L2TP frames."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:65
+#, no-wrap
+msgid "Va ctrl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:67
+msgid "Control packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:67
+#, no-wrap
+msgid "Va session_hhhh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:69
+msgid "Session 0xhhhh data packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:80
+msgid ""
+"L2TP control and data packets are transmitted to, and received from, the "
+"L2TP peer via the E<.Dv lower> hook.  Typically this hook would be connected "
+"to the E<.Dv \"inet/dgram/udp\"> hook of an E<.Xr ng_ksocket 4> node for "
+"L2TP over UDP."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:88
+msgid ""
+"The E<.Dv ctrl> hook connects to the local L2TP management entity.  L2TP "
+"control messages (without any L2TP headers) are transmitted and received on "
+"this hook.  Messages written to this hook are guaranteed to be delivered to "
+"the peer reliably, in order, and without duplicates."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:97
+msgid ""
+"Packets written to the E<.Dv ctrl> hook must contain a two byte session ID "
+"prepended to the frame (in network order).  This session ID is copied to the "
+"outgoing L2TP header.  Similarly, packets read from the E<.Dv ctrl> hook "
+"will have the received session ID prepended."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:104
+msgid ""
+"Once an L2TP session has been created, the corresponding session hook may be "
+"used to transmit and receive the session's data frames: for the session with "
+"session ID E<.Dv 0xabcd>, the hook is named E<.Dv session_abcd>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:104
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:106
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:107
+#, no-wrap
+msgid "Dv NGM_L2TP_SET_CONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:112
+msgid ""
+"This command updates the configuration of the node.  It takes a E<.Vt "
+"\"struct ng_l2tp_config\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:123
+#, no-wrap
+msgid ""
+"/* Configuration for a node */\n"
+"struct ng_l2tp_config {\n"
+"    u_char      enabled;        /* enables traffic flow */\n"
+"    u_char      match_id;       /* tunnel id must match 'tunnel_id' */\n"
+"    uint16_t    tunnel_id;      /* local tunnel id */\n"
+"    uint16_t    peer_id;        /* peer's tunnel id */\n"
+"    uint16_t    peer_win;       /* peer's max recv window size */\n"
+"    uint16_t    rexmit_max;     /* max retransmits before failure */\n"
+"    uint16_t    rexmit_max_to;  /* max delay between retransmits */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:131
+msgid ""
+"The E<.Va enabled> field enables packet processing.  Each time this field is "
+"changed back to zero the sequence number state is reset.  In this way, reuse "
+"of a node is possible."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:150
+msgid ""
+"The E<.Va tunnel_id> field configures the local tunnel ID for the control "
+"connection.  The E<.Va match_id> field determines how incoming L2TP packets "
+"with a tunnel ID field different from E<.Va tunnel_id> are handled.  If "
+"E<.Va match_id> is non-zero, they will be dropped; otherwise, they will be "
+"dropped only if the tunnel ID is non-zero.  Typically E<.Va tunnel_id> is "
+"set to the local tunnel ID as soon as it is known and E<.Va match_id> is set "
+"to non-zero after receipt of the SCCRP or SCCCN control message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:156
+msgid ""
+"The peer's tunnel ID should be set in E<.Va peer_id> as soon as it is "
+"learned, typically after receipt of a SCCRQ or SCCRP control message.  This "
+"value is copied into the L2TP header for outgoing packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:166
+msgid ""
+"The E<.Va peer_win> field should be set from the E<.Dq \"Receive Window "
+"Size\"> AVP received from the peer.  The default value for this field is "
+"one; zero is an invalid value.  As long as E<.Va enabled> is non-zero, this "
+"value may not be decreased."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:188
+msgid ""
+"The E<.Va rexmit_max> and E<.Va rexmit_max_to> fields configure packet "
+"retransmission.  E<.Va rexmit_max_to> is the maximum retransmission delay "
+"between packets, in seconds.  The retransmit delay will start at a small "
+"value and increase exponentially up to this limit.  The E<.Va rexmit_max> "
+"sets the maximum number of times a packet will be retransmitted without "
+"being acknowledged before a failure condition is declared.  Once a failure "
+"condition is declared, each additional retransmission will cause the E<.Nm "
+"l2tp> node to send a E<.Dv NGM_L2TP_ACK_FAILURE Pq Ic ackfailure> control "
+"message back to the node that sent the last E<.Dv NGM_L2TP_SET_CONFIG>.  "
+"Appropriate action should then be taken to shutdown the control connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:188
+#, no-wrap
+msgid "Dv NGM_L2TP_GET_CONFIG Pq Ic getconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:191
+msgid "Returns the current configuration as a E<.Vt \"struct ng_l2tp_config\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:191
+#, no-wrap
+msgid "Dv NGM_L2TP_SET_SESS_CONFIG Pq Ic setsessconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:196
+msgid ""
+"This control message configures a single data session.  The corresponding "
+"hook must already be connected before sending this command.  The argument is "
+"a E<.Vt \"struct ng_l2tp_sess_config\">:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:205
+#, no-wrap
+msgid ""
+"/* Configuration for a session hook */\n"
+"struct ng_l2tp_sess_config {\n"
+"    uint16_t    session_id;     /* local session id */\n"
+"    uint16_t    peer_id;        /* peer's session id */\n"
+"    u_char      control_dseq;   /* whether we control data sequencing */\n"
+"    u_char      enable_dseq;    /* whether to enable data sequencing */\n"
+"    u_char      include_length; /* whether to include length field */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:212
+msgid ""
+"The E<.Va session_id> and E<.Va peer_id> fields configure the local and "
+"remote session IDs, respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:224
+msgid ""
+"The E<.Va control_dseq> and E<.Va enable_dseq> fields determine whether "
+"sequence numbers are used with L2TP data packets.  If E<.Va enable_dseq> is "
+"zero, then no sequence numbers are sent and incoming sequence numbers are "
+"ignored.  Otherwise, sequence numbers are included on outgoing packets and "
+"checked on incoming packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:252
+msgid ""
+"If E<.Va control_dseq> is non-zero, then the setting of E<.Va enable_dseq> "
+"will never change except by another E<.Dv NGM_L2TP_SET_SESS_CONFIG> control "
+"message.  If E<.Va control_dseq> is zero, then the peer controls whether "
+"sequence numbers are used: if an incoming L2TP data packet contains sequence "
+"numbers, E<.Va enable_dseq> is set to one, and conversely if an incoming "
+"L2TP data packet does not contain sequence numbers, E<.Va enable_dseq> is "
+"set to zero.  The current value of E<.Va enable_dseq> is always accessible "
+"via the E<.Dv NGM_L2TP_GET_SESS_CONFIG> control message (see below).  "
+"Typically an LNS would set E<.Va control_dseq> to one while a LAC would set "
+"E<.Va control_dseq> to zero (if the Sequencing Required AVP were not sent), "
+"thus giving control of data packet sequencing to the LNS."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:258
+msgid ""
+"The E<.Va include_length> field determines whether the L2TP header length "
+"field is included in outgoing L2TP data packets.  For incoming packets, the "
+"L2TP length field is always checked when present."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:258
+#, no-wrap
+msgid "Dv NGM_L2TP_GET_SESS_CONFIG Pq Ic getsessconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:263
+msgid ""
+"This command takes a two byte session ID as an argument and returns the "
+"current configuration for the corresponding data session as a E<.Vt \"struct "
+"ng_l2tp_sess_config\">.  The corresponding session hook must be connected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:263
+#, no-wrap
+msgid "Dv NGM_L2TP_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:267
+msgid ""
+"This command returns a E<.Vt \"struct ng_l2tp_stats\"> containing statistics "
+"of the L2TP tunnel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:267
+#, no-wrap
+msgid "Dv NGM_L2TP_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:269
+msgid "This command clears the statistics for the L2TP tunnel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:269
+#, no-wrap
+msgid "Dv NGM_L2TP_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:273
+msgid ""
+"Same as E<.Dv NGM_L2TP_GET_STATS>, but also atomically clears the statistics "
+"as well."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:273
+#, no-wrap
+msgid "Dv NGM_L2TP_GET_SESSION_STATS Pq Ic getsessstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:278
+msgid ""
+"This command takes a two byte session ID as an argument and returns a E<.Vt "
+"\"struct ng_l2tp_session_stats\"> containing statistics for the "
+"corresponding data session.  The corresponding session hook must be "
+"connected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:278
+#, no-wrap
+msgid "Dv NGM_L2TP_CLR_SESSION_STATS Pq Ic clrsessstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:282
+msgid ""
+"This command takes a two byte session ID as an argument and clears the "
+"statistics for that data session.  The corresponding session hook must be "
+"connected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:282
+#, no-wrap
+msgid "Dv NGM_L2TP_GETCLR_SESSION_STATS Pq Ic getclrsessstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:286
+msgid ""
+"Same as E<.Dv NGM_L2TP_GET_SESSION_STATS>, but also atomically clears the "
+"statistics as well."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2tp.4:286
+#, no-wrap
+msgid "Dv NGM_L2TP_SET_SEQ Pq Ic setsequence"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:302
+msgid ""
+"This command sets the sequence numbers of a not yet enabled node.  It takes "
+"a E<.Vt \"struct ng_l2tp_seq_config\"> as argument, where E<.Va xack> and "
+"E<.Va nr> respectively E<.Va ns> and E<.Va rack> must be the same.  This "
+"option is particularly useful if one receives and processes the first packet "
+"entirely in userspace and wants to hand over further processing to the node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:303
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:307
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:307
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:323
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_ksocket 4>, E<.Xr ng_ppp 4>, E<.Xr ng_pptpgre "
+"4>, E<.Xr ngctl 8> E<.Rs> E<.%A W. Townsley> E<.%A A. Valencia> E<.%A "
+"A. Rubens> E<.%A G. Pall> E<.%A G. Zorn> E<.%A B. Palter> E<.%T \"Layer Two "
+"Tunneling Protocol L2TP\"> E<.%O RFC 2661> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:323
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:328
+msgid ""
+"The E<.Nm l2tp> node type was developed at Packet Design, LLC, E<.Pa "
+"http://www.packetdesign.com/>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2tp.4:328
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2tp.4:329
+msgid "E<.An Archie Cobbs Aq Mt archie@packetdesign.com>"
+msgstr ""

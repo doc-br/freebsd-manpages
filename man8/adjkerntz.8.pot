@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:27
+#, no-wrap
+msgid "March 8, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:28
+#, no-wrap
+msgid "ADJKERNTZ 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:32
+msgid "E<.Nm adjkerntz>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:32
+#, no-wrap
+msgid ""
+"adjust the local time CMOS clock to reflect time zone changes and keep the "
+"current timezone offset for the kernel"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:38
+msgid "E<.Nm> E<.Fl i> E<.Nm> E<.Fl a Op Fl s>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:64
+msgid ""
+"The E<.Nm> utility maintains the proper relationship between the kernel "
+"clock, which is always set to UTC and the CMOS clock, which may be set to "
+"local time.  The E<.Nm> utility also informs the kernel about machine "
+"timezone shifts in order to maintain proper timestamps for local time file "
+"systems such as the MS-DOS file system.  The main purpose of maintaining "
+"these timestamps properly is to keep the timestamps of a E<.Fx> MS-DOS file "
+"system and an MS-DOS operating system synchronized when they are installed "
+"on the same system rather than fixing broken MS-DOS file timestamps.  If the "
+"file E<.Pa /etc/wall_cmos_clock> exists, it means that the CMOS clock keeps "
+"local time (MS-DOS and MS-Windows compatible mode).  If that file does not "
+"exist, it means that the CMOS clock keeps UTC time.  The E<.Nm> utility "
+"passes this state to the E<.Pa machdep.wall_cmos_clock> kernel variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:70
+msgid ""
+"Adjustments may be needed at system startup and shutdown, and whenever a "
+"time zone change occurs.  To handle these different situations, E<.Nm> is "
+"invoked in two ways:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:71
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:92
+msgid ""
+"This form handles system startups and shutdowns.  The E<.Nm> utility is "
+"invoked with this option from E<.Pa /etc/rc> on entry to multi-user mode, "
+"before any other daemons have been started.  The E<.Nm> utility puts itself "
+"into the background.  Then, for a local time CMOS clock, E<.Nm> reads the "
+"local time from it and sets the kernel clock to the corresponding UTC time.  "
+"The E<.Nm> utility also stores the local time zone offset in the E<.Pa "
+"machdep.adjkerntz> kernel variable, for use by subsequent invocations of "
+"E<.Em \"'adjkerntz -a'\"> and by local time file systems."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:108
+msgid ""
+"For a local time CMOS clock E<.Em \"'adjkerntz -i'\"> pauses and remains "
+"inactive as a background daemon until it receives a SIGTERM.  The SIGTERM "
+"will normally be sent by E<.Xr init 8> when the system leaves multi-user "
+"mode (usually, because the system is being shut down).  After receiving the "
+"SIGTERM, E<.Nm> reads the UTC kernel clock and updates the CMOS clock, if "
+"necessary, to ensure that it reflects the current local time zone.  Then "
+"E<.Nm> exits."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:108
+#, no-wrap
+msgid "Fl a Op Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:130
+msgid ""
+"This form is used to update the local time CMOS clock and kernel E<.Pa "
+"machdep.adjkerntz> variable when time zone changes occur, e.g., when "
+"entering or leaving daylight savings time.  The E<.Nm> utility uses the "
+"kernel clock's UTC time, the previously stored time zone offset, and the "
+"changed time zone rule to calculate a new time zone offset.  It stores the "
+"new offset into the E<.Pa machdep.adjkerntz> kernel variable and updates the "
+"wall CMOS clock to the new local time.  If E<.Em \"'adjkerntz -a'\"> was "
+"started at a nonexistent time (during a timezone change), it exits with a "
+"warning diagnostic unless the E<.Fl s> option was used, in which case E<.Nm> "
+"sleeps 30 minutes and tries again."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:142
+msgid ""
+"This form should be invoked from root's E<.Xr crontab 5> every half hour "
+"between midnight and 5am, when most modern time zone changes occur.  "
+"Warning: do not use the E<.Fl s> option in a E<.Xr crontab 5> command line, "
+"or multiple E<.Em \"'adjkerntz -a'\"> instances could conflict with each "
+"other."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:149
+msgid ""
+"The E<.Nm> utility clears the kernel timezone structure and makes the kernel "
+"clock run in the UTC time zone.  Super-user privileges are required for all "
+"operations."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:149
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:151
+#, no-wrap
+msgid "Ev TZ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:159
+msgid ""
+"Time zone change rule, see E<.Xr tzset 3>; not needed when E<.Xr tzsetup 8> "
+"or E<.Xr zic 8> is used."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:160
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:162
+#, no-wrap
+msgid "Pa /etc/localtime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:167
+msgid "Current zoneinfo file, see E<.Xr tzsetup 8> and E<.Xr zic 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:167
+#, no-wrap
+msgid "Pa /etc/wall_cmos_clock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:171
+msgid ""
+"Empty file.  Its presence indicates that the machine's CMOS clock is set to "
+"local time, while its absence indicates a UTC CMOS clock."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:172
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:179
+msgid ""
+"No diagnostics.  If an error occurs, E<.Nm> logs an error message via E<.Xr "
+"syslog 3> and exits with a nonzero return code."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:179
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:187
+msgid ""
+"E<.Xr tzset 3>, E<.Xr crontab 5>, E<.Xr mount_msdosfs 8>, E<.Xr rc 8>, E<.Xr "
+"sysctl 8>, E<.Xr tzsetup 8>, E<.Xr zic 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:187
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:192
+msgid "The E<.Nm> utility appeared in E<.Fx 1.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:192
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/adjkerntz/adjkerntz.8:193
+msgid "E<.An Andrey A. Chernov Aq Mt ache@astral.msk.su>"
+msgstr ""

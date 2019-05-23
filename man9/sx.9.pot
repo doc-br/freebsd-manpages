@@ -1,0 +1,462 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sx.9:29
+#, no-wrap
+msgid "November 11, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sx.9:30
+#, no-wrap
+msgid "SX 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sx.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:54
+msgid ""
+"E<.Nm sx>, E<.Nm sx_init>, E<.Nm sx_init_flags>, E<.Nm sx_destroy>, E<.Nm "
+"sx_slock>, E<.Nm sx_xlock>, E<.Nm sx_slock_sig>, E<.Nm sx_xlock_sig>, E<.Nm "
+"sx_try_slock>, E<.Nm sx_try_xlock>, E<.Nm sx_sunlock>, E<.Nm sx_xunlock>, "
+"E<.Nm sx_unlock>, E<.Nm sx_try_upgrade>, E<.Nm sx_downgrade>, E<.Nm "
+"sx_sleep>, E<.Nm sx_xholder>, E<.Nm sx_xlocked>, E<.Nm sx_assert>, E<.Nm "
+"SX_SYSINIT>, E<.Nm SX_SYSINIT_FLAGS>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sx.9:54
+#, no-wrap
+msgid "kernel shared/exclusive lock"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sx.9:55
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sx.9:56
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sx.9:57
+#, no-wrap
+msgid "sys/lock.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sx.9:58
+#, no-wrap
+msgid "sys/sx.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:93
+msgid ""
+"E<.Ft void> E<.Fn sx_init \"struct sx *sx\" \"const char *description\"> "
+"E<.Ft void> E<.Fn sx_init_flags \"struct sx *sx\" \"const char "
+"*description\" \"int opts\"> E<.Ft void> E<.Fn sx_destroy \"struct sx *sx\"> "
+"E<.Ft void> E<.Fn sx_slock \"struct sx *sx\"> E<.Ft void> E<.Fn sx_xlock "
+"\"struct sx *sx\"> E<.Ft int> E<.Fn sx_slock_sig \"struct sx *sx\"> E<.Ft "
+"int> E<.Fn sx_xlock_sig \"struct sx *sx\"> E<.Ft int> E<.Fn sx_try_slock "
+"\"struct sx *sx\"> E<.Ft int> E<.Fn sx_try_xlock \"struct sx *sx\"> E<.Ft "
+"void> E<.Fn sx_sunlock \"struct sx *sx\"> E<.Ft void> E<.Fn sx_xunlock "
+"\"struct sx *sx\"> E<.Ft void> E<.Fn sx_unlock \"struct sx *sx\"> E<.Ft int> "
+"E<.Fn sx_try_upgrade \"struct sx *sx\"> E<.Ft void> E<.Fn sx_downgrade "
+"\"struct sx *sx\"> E<.Ft int> E<.Fn sx_sleep \"void *chan\" \"struct sx "
+"*sx\" \"int priority\" \"const char *wmesg\" \"int timo\"> E<.Ft \"struct "
+"thread *\"> E<.Fn sx_xholder \"struct sx *sx\"> E<.Ft int> E<.Fn sx_xlocked "
+"\"const struct sx *sx\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:98
+msgid ""
+"E<.Cd \"options INVARIANTS\"> E<.Cd \"options INVARIANT_SUPPORT\"> E<.Ft "
+"void> E<.Fn sx_assert \"const struct sx *sx\" \"int what\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sx.9:98
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:101
+msgid ""
+"E<.Fn SX_SYSINIT \"name\" \"struct sx *sx\" \"const char *desc\"> E<.Fn "
+"SX_SYSINIT_FLAGS \"name\" \"struct sx *sx\" \"const char *desc\" \"int "
+"flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sx.9:101
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:107
+msgid ""
+"Shared/exclusive locks are used to protect data that are read far more often "
+"than they are written.  Shared/exclusive locks do not implement priority "
+"propagation like mutexes and reader/writer locks to prevent priority "
+"inversions, so shared/exclusive locks should be used prudently."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:127
+msgid ""
+"Shared/exclusive locks are created with either E<.Fn sx_init> or E<.Fn "
+"sx_init_flags> where E<.Fa sx> is a pointer to space for a E<.Vt struct sx>, "
+"and E<.Fa description> is a pointer to a null-terminated character string "
+"that describes the shared/exclusive lock.  The E<.Fa opts> argument to E<.Fn "
+"sx_init_flags> specifies a set of optional flags to alter the behavior of "
+"E<.Fa sx>.  It contains one or more of the following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:128
+#, no-wrap
+msgid "Dv SX_NOADAPTIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:133
+msgid ""
+"Disable adaptive spinning, rather than sleeping, for lock operations while "
+"an exclusive lock holder is executing on another CPU.  Adaptive spinning is "
+"the default unless the kernel is compiled with E<.Cd \"options "
+"NO_ADAPTIVE_SX\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:133
+#, no-wrap
+msgid "Dv SX_DUPOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:135
+msgid "Witness should not log messages about duplicate locks being acquired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:135
+#, no-wrap
+msgid "Dv SX_NOWITNESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:139
+msgid "Instruct E<.Xr witness 4> to ignore this lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:139
+#, no-wrap
+msgid "Dv SX_NOPROFILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:141
+msgid "Do not profile this lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:141
+#, no-wrap
+msgid "Dv SX_RECURSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:144
+msgid "Allow threads to recursively acquire exclusive locks for E<.Fa sx>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:144
+#, no-wrap
+msgid "Dv SX_QUIET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:147
+msgid "Do not log any operations for this lock via E<.Xr ktr 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:147
+#, no-wrap
+msgid "Dv SX_NEW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:156
+msgid ""
+"If the kernel has been compiled with E<.Cd \"options INVARIANTS\">, E<.Fn "
+"sx_init> will assert that the E<.Fa sx> has not been initialized multiple "
+"times without intervening calls to E<.Fn sx_destroy> unless this option is "
+"specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:163
+msgid ""
+"Shared/exclusive locks are destroyed with E<.Fn sx_destroy>.  The lock E<.Fa "
+"sx> must not be locked by any thread when it is destroyed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:188
+msgid ""
+"Threads acquire and release a shared lock by calling E<.Fn sx_slock>, E<.Fn "
+"sx_slock_sig> or E<.Fn sx_try_slock> and E<.Fn sx_sunlock> or E<.Fn "
+"sx_unlock>.  Threads acquire and release an exclusive lock by calling E<.Fn "
+"sx_xlock>, E<.Fn sx_xlock_sig> or E<.Fn sx_try_xlock> and E<.Fn sx_xunlock> "
+"or E<.Fn sx_unlock>.  A thread can attempt to upgrade a currently held "
+"shared lock to an exclusive lock by calling E<.Fn sx_try_upgrade>.  A thread "
+"that has an exclusive lock can downgrade it to a shared lock by calling "
+"E<.Fn sx_downgrade>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:195
+msgid ""
+"E<.Fn sx_try_slock> and E<.Fn sx_try_xlock> will return 0 if the "
+"shared/exclusive lock cannot be acquired immediately; otherwise the "
+"shared/exclusive lock will be acquired and a non-zero value will be "
+"returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:200
+msgid ""
+"E<.Fn sx_try_upgrade> will return 0 if the shared lock cannot be upgraded to "
+"an exclusive lock immediately; otherwise the exclusive lock will be acquired "
+"and a non-zero value will be returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:207
+msgid ""
+"E<.Fn sx_slock_sig> and E<.Fn sx_xlock_sig> do the same as their normal "
+"versions but performing an interruptible sleep.  They return a non-zero "
+"value if the sleep has been interrupted by a signal or an interrupt, "
+"otherwise 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:214
+msgid ""
+"A thread can atomically release a shared/exclusive lock while waiting for an "
+"event by calling E<.Fn sx_sleep>.  For more details on the parameters to "
+"this function, see E<.Xr sleep 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:227
+msgid ""
+"When compiled with E<.Cd \"options INVARIANTS\"> and E<.Cd \"options "
+"INVARIANT_SUPPORT\">, the E<.Fn sx_assert> function tests E<.Fa sx> for the "
+"assertions specified in E<.Fa what>, and panics if they are not met.  One of "
+"the following assertions must be specified:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:228
+#, no-wrap
+msgid "Dv SA_LOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:232
+msgid ""
+"Assert that the current thread has either a shared or an exclusive lock on "
+"the E<.Vt sx> lock pointed to by the first argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:232
+#, no-wrap
+msgid "Dv SA_SLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:237
+msgid ""
+"Assert that the current thread has a shared lock on the E<.Vt sx> lock "
+"pointed to by the first argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:237
+#, no-wrap
+msgid "Dv SA_XLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:242
+msgid ""
+"Assert that the current thread has an exclusive lock on the E<.Vt sx> lock "
+"pointed to by the first argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:242
+#, no-wrap
+msgid "Dv SA_UNLOCKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:247
+msgid ""
+"Assert that the current thread has no lock on the E<.Vt sx> lock pointed to "
+"by the first argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:256
+msgid ""
+"In addition, one of the following optional assertions may be included with "
+"either an E<.Dv SA_LOCKED>, E<.Dv SA_SLOCKED>, or E<.Dv SA_XLOCKED> "
+"assertion:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:257
+#, no-wrap
+msgid "Dv SA_RECURSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:260
+msgid "Assert that the current thread has a recursed lock on E<.Fa sx>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sx.9:260
+#, no-wrap
+msgid "Dv SA_NOTRECURSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:263
+msgid "Assert that the current thread does not have a recursed lock on E<.Fa sx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:273
+msgid ""
+"E<.Fn sx_xholder> will return a pointer to the thread which currently holds "
+"an exclusive lock on E<.Fa sx>.  If no thread holds an exclusive lock on "
+"E<.Fa sx>, then E<.Dv NULL> is returned instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:277
+msgid ""
+"E<.Fn sx_xlocked> will return non-zero if the current thread holds the "
+"exclusive lock; otherwise, it will return zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:286
+msgid ""
+"For ease of programming, E<.Fn sx_unlock> is provided as a macro frontend to "
+"the respective functions, E<.Fn sx_sunlock> and E<.Fn sx_xunlock>.  "
+"Algorithms that are aware of what state the lock is in should use either of "
+"the two specific functions for a minor performance benefit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:306
+msgid ""
+"The E<.Fn SX_SYSINIT> macro is used to generate a call to the E<.Fn "
+"sx_sysinit> routine at system startup in order to initialize a given E<.Fa "
+"sx> lock.  The parameters are the same as E<.Fn sx_init> but with an "
+"additional argument, E<.Fa name>, that is used in generating unique variable "
+"names for the related structures associated with the lock and the sysinit "
+"routine.  The E<.Fn SX_SYSINIT_FLAGS> macro can similarly be used to "
+"initialize a given E<.Fa sx> lock using E<.Fn sx_init_flags>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:310
+msgid ""
+"A thread may not hold both a shared lock and an exclusive lock on the same "
+"lock simultaneously; attempting to do so will result in deadlock."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sx.9:310
+#, no-wrap
+msgid "CONTEXT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:323
+msgid ""
+"A thread may hold a shared or exclusive lock on an E<.Nm> lock while "
+"sleeping.  As a result, an E<.Nm> lock may not be acquired while holding a "
+"mutex.  Otherwise, if one thread slept while holding an E<.Nm> lock while "
+"another thread blocked on the same E<.Nm> lock after acquiring a mutex, then "
+"the second thread would effectively end up sleeping while holding a mutex, "
+"which is not allowed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sx.9:323
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:330
+msgid ""
+"E<.Xr lock 9>, E<.Xr locking 9>, E<.Xr mutex 9>, E<.Xr panic 9>, E<.Xr "
+"rwlock 9>, E<.Xr sema 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sx.9:330
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sx.9:343
+msgid ""
+"A kernel without E<.Dv WITNESS> cannot assert whether the current thread "
+"does or does not hold a shared lock.  E<.Dv SA_LOCKED> and E<.Dv SA_SLOCKED> "
+"can only assert that E<.Em any> thread holds a shared lock.  They cannot "
+"ensure that the current thread holds a shared lock.  Further, E<.Dv "
+"SA_UNLOCKED> can only assert that the current thread does not hold an "
+"exclusive lock."
+msgstr ""

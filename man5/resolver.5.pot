@@ -1,0 +1,366 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/resolver.5:31
+#, no-wrap
+msgid "August 16, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/resolver.5:32
+#, no-wrap
+msgid "RESOLVER 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/resolver.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:36
+msgid "E<.Nm resolver>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/resolver.5:36
+#, no-wrap
+msgid "resolver configuration file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/resolver.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:39
+msgid "E<.Nm resolv.conf>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/resolver.5:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:48
+msgid ""
+"The E<.Xr resolver 3> is a set of routines in the C library which provide "
+"access to the Internet Domain Name System.  The resolver configuration file "
+"contains information that is read by the resolver routines the first time "
+"they are invoked by a process.  The file is designed to be human readable "
+"and contains a list of keywords with values that provide various types of "
+"resolver information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:53
+msgid ""
+"On a normally configured system this file should not be necessary.  The only "
+"name server to be queried will be on the local machine, the domain name is "
+"determined from the host name, and the domain search path is constructed "
+"from the domain name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:55
+msgid "The different configuration options are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:56
+#, no-wrap
+msgid "Sy nameserver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:73
+msgid ""
+"Internet address (in dot notation) of a name server that the resolver should "
+"query.  Up to E<.Dv MAXNS> (currently 3) name servers may be listed, one per "
+"keyword.  If there are multiple servers, the resolver library queries them "
+"in the order listed.  If no E<.Sy nameserver> entries are present, the "
+"default is to use the name server on the local machine.  (The algorithm used "
+"is to try a name server, and if the query times out, try the next, until out "
+"of name servers, then repeat trying all the name servers until a maximum "
+"number of retries are made)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:73
+#, no-wrap
+msgid "Sy domain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:86
+msgid ""
+"Local domain name.  Most queries for names within this domain can use short "
+"names relative to the local domain.  If no E<.Sy domain> entry is present, "
+"the domain is determined from the local host name returned by E<.Xr "
+"gethostname 3>; the domain part is taken to be everything after the first "
+"E<.Ql \\&.>.  Finally, if the host name does not contain a domain part, the "
+"root domain is assumed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:86
+#, no-wrap
+msgid "Sy search"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:101
+msgid ""
+"Search list for host-name lookup.  The search list is normally determined "
+"from the local domain name; by default, it contains only the local domain "
+"name.  This may be changed by listing the desired domain search path "
+"following the E<.Sy search> keyword with spaces or tabs separating the "
+"names.  Most resolver queries will be attempted using each component of the "
+"search path in turn until a match is found.  Note that this process may be "
+"slow and will generate a lot of network traffic if the servers for the "
+"listed domains are not local, and that queries will time out if no server is "
+"available for one of the domains."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:104
+msgid ""
+"The search list is currently limited to six domains with a total of 256 "
+"characters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:104
+#, no-wrap
+msgid "Sy sortlist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:114
+msgid ""
+"Sortlist allows addresses returned by gethostbyname to be sorted.  A "
+"sortlist is specified by IP address netmask pairs.  The netmask is optional "
+"and defaults to the natural netmask of the net.  The IP address and optional "
+"network pairs are separated by slashes.  Up to 10 pairs may be specified.  "
+"E.g.,"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/resolver.5:115
+#, no-wrap
+msgid "sortlist 130.155.160.0/255.255.240.0 130.155.0.0"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:116
+#, no-wrap
+msgid "Sy options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:119
+msgid ""
+"Options allows certain internal resolver variables to be modified.  The "
+"syntax is"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:121
+msgid "B<options> I<option> I<...>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:125
+msgid "where E<.Sy option> is one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:126
+#, no-wrap
+msgid "Sy debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:130
+msgid "sets E<.Dv RES_DEBUG> in _res.options."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:130
+#, no-wrap
+msgid "Sy usevc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:134
+msgid "sets E<.Dv RES_USEVC> to use TCP instead of UDP for queries."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:134
+#, no-wrap
+msgid "Sy ndots: Ns Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:150
+msgid ""
+"sets a threshold for the number of dots which must appear in a name given to "
+"E<.Fn res_query> (see E<.Xr resolver 3>)  before an E<.Em initial absolute "
+"query> will be made.  The default for E<.Em n> is E<.Dq 1>, meaning that if "
+"there are any dots in a name, the name will be tried first as an absolute "
+"name before any E<.Em search list> elements are appended to it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:150
+#, no-wrap
+msgid "Sy timeout: Ns Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:162
+msgid ""
+"sets the initial amount of time the resolver will wait for a response from a "
+"remote name server before retrying the query via a different name server.  "
+"The resolver may wait longer during subsequent retries of the current query "
+"since an exponential back-off is applied to the timeout value.  Measured in "
+"seconds, the default is E<.Dv RES_TIMEOUT>, the allowed maximum is E<.Dv "
+"RES_MAXRETRANS> (see"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/resolver.5:162 /usr/src/share/man/man5/resolver.5:172
+#, no-wrap
+msgid "resolv.h ) ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:163
+#, no-wrap
+msgid "Sy attempts: Ns Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:172
+msgid ""
+"sets the number of times the resolver will send a query to each of its name "
+"servers before giving up and returning an error to the calling application.  "
+"The default is E<.Dv RES_DFLRETRY>, the allowed maximum is E<.Dv "
+"RES_MAXRETRY> (see"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:173
+#, no-wrap
+msgid "Sy no_tld_query"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:182
+msgid ""
+"tells the resolver not to attempt to resolve a top level domain name, that "
+"is, a name that contains no dots.  Use of this option does not prevent the "
+"resolver from obeying the standard E<.Sy domain> and E<.Sy search> rules "
+"with the given name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:182
+#, no-wrap
+msgid "Sy reload-period: Ns Ar n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:195
+msgid ""
+"The resolver checks the modification time of E<.Pa /etc/resolv.conf> every "
+"E<.Ar n> seconds.  If E<.Pa /etc/resolv.conf> has changed, it is "
+"automatically reloaded.  The default for E<.Ar n> is two seconds.  Setting "
+"it to zero disables the file check."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:200
+msgid ""
+"Options may also be specified as a space or tab separated list using the "
+"E<.Dv RES_OPTIONS> environment variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:209
+msgid ""
+"The E<.Sy domain> and E<.Sy search> keywords are mutually exclusive.  If "
+"more than one instance of these keywords is present, the last instance will "
+"override."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:214
+msgid ""
+"The keyword and value must appear on a single line, and the keyword E<.Pq "
+"for example, Sy nameserver> must start the line.  The value follows the "
+"keyword, separated by white space."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/resolver.5:214
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/resolver.5:216
+#, no-wrap
+msgid "Pa /etc/resolv.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:221
+msgid "The file E<.Nm resolv.conf> resides in E<.Pa /etc>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/resolver.5:222
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:230
+msgid ""
+"E<.Xr gethostbyname 3>, E<.Xr resolver 3>, E<.Xr hostname 7>, E<.Xr "
+"resolvconf 8> E<.Rs> E<.%T \"Name Server Operations Guide for BIND\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/resolver.5:230
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/resolver.5:234
+msgid "The E<.Nm resolv.conf> file format appeared in E<.Bx 4.3>."
+msgstr ""

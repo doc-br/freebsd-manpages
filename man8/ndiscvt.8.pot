@@ -1,0 +1,297 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:33
+#, no-wrap
+msgid "December 10, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:34
+#, no-wrap
+msgid "NDISCVT 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:38
+msgid "E<.Nm ndiscvt>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:38
+#, no-wrap
+msgid "convert"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:41
+msgid "E<.Tn Windows\\[rg]> NDIS drivers for use with FreeBSD"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:41
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:50
+msgid ""
+"E<.Nm> E<.Op Fl O> E<.Op Fl i Ar inffile> E<.Fl s Ar sysfile> E<.Op Fl n Ar "
+"devname> E<.Op Fl o Ar outfile> E<.Nm> E<.Op Fl f Ar firmfile>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:78
+msgid ""
+"The E<.Nm> utility transforms a E<.Tn Windows\\[rg]> NDIS driver into a data "
+"file which is used to build an E<.Xr ndis 4> compatibility driver module.  "
+"E<.Tn Windows\\[rg]> drivers consist of two main parts: a E<.Pa .SYS> file, "
+"which contains the actual driver executable code, and an E<.Pa .INF> file, "
+"which provides the E<.Tn Windows\\[rg]> installer with device identifier "
+"information and a list of driver-specific registry keys.  The E<.Nm> utility "
+"can convert these files into a header file that is compiled into E<.Pa "
+"if_ndis.c> to create an object code module that can be linked into the "
+"E<.Fx> kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:93
+msgid ""
+"The E<.Pa .INF> file is typically required since only it contains device "
+"identification data such as PCI vendor and device IDs or PCMCIA identifier "
+"strings.  The E<.Pa .INF> file may be optionally omitted however, in which "
+"case the E<.Nm> utility will only perform the conversion of the E<.Pa .SYS> "
+"file.  This is useful for debugging purposes only."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:93
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:95
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:96
+#, no-wrap
+msgid "Fl i Ar inffile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:112
+msgid ""
+"Open and parse the specified E<.Pa .INF> file when performing conversion.  "
+"The E<.Nm> utility will parse this file and emit a device identification "
+"structure and registry key configuration structures which will be used by "
+"the E<.Xr ndis 4> driver and E<.Xr ndisapi 9> kernel subsystem.  If this is "
+"omitted, E<.Nm> will emit a dummy configuration structure only."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:112
+#, no-wrap
+msgid "Fl s Ar sysfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:124
+msgid ""
+"Open and parse the specified E<.Pa .SYS> file.  This file must contain a "
+"E<.Tn Windows\\[rg]> driver image.  The E<.Nm> utility will perform some "
+"manipulation of the sections within the executable file to make runtime "
+"linking within the kernel a little easier and then convert the image into a "
+"data array."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:124
+#, no-wrap
+msgid "Fl n Ar devname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:136
+msgid ""
+"Specify an alternate name for the network device/interface which will be "
+"created when the driver is instantiated.  If you need to load more than one "
+"NDIS driver into your system (i.e., if you have two different network cards "
+"in your system which require NDIS driver support), each module you create "
+"must have a unique name.  Device can not be larger than E<.Dv IFNAMSIZ>.  If "
+"no name is specified, the driver will use the default a default name E<.Pq "
+"Dq Li ndis>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:136
+#, no-wrap
+msgid "Fl o Ar outfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:149
+msgid ""
+"Specify the output file in which to place the resulting data.  This can be "
+"any file pathname.  If E<.Ar outfile> is a single dash E<.Pq Sq Fl>, the "
+"data will be written to the standard output.  The E<.Pa if_ndis.c> module "
+"expects to find the driver data in a file called E<.Pa ndis_driver_data.h>, "
+"so it is recommended that this name be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:149
+#, no-wrap
+msgid "Fl O"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:168
+msgid ""
+"Generate both an E<.Pa ndis_driver_data.h> file and an E<.Pa "
+"ndis_driver.data.o> file.  The latter file will contain a copy of the E<.Tn "
+"Windows\\[rg]> E<.Pa .SYS> driver image encoded as a E<.Fx> ELF object file "
+"(created with E<.Xr objcopy 1>).  Turning the E<.Tn Windows\\[rg]> driver "
+"image directly into an object code file saves disk space and compilation "
+"time."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:168
+#, no-wrap
+msgid "Fl f Ar firmfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:178
+msgid ""
+"A few NDIS drivers come with additional files that the core driver module "
+"will load during initialization time.  Typically, these files contain "
+"firmware which the driver will transfer to the device in order to make it "
+"fully operational.  In E<.Tn Windows\\[rg]>, these files are usually just "
+"copied into one of the system directories along with the driver itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:191
+msgid ""
+"In E<.Fx> there are two mechanism for loading these files.  If the driver is "
+"built as a loadable kernel module which is loaded after the kernel has "
+"finished booting (and after the root file system has been mounted), the "
+"extra files can simply be copied to the E<.Pa /compat/ndis> directory, and "
+"they will be loaded into the kernel on demand when the driver needs them."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:203
+msgid ""
+"If however the driver is required to bootstrap the system (i.e., if the "
+"NDIS-based network interface is to be used for diskless/PXE booting), the "
+"files need to be pre-loaded by the bootstrap loader in order to be "
+"accessible, since the driver will need them before the root file system has "
+"been mounted.  However, the bootstrap loader is only able to load files that "
+"are shared E<.Fx> binary objects."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:225
+msgid ""
+"The E<.Fl f> flag can be used to convert an arbitrary file E<.Ar firmfile> "
+"into shared object format (the actual conversion is done using the E<.Xr "
+"objcopy 1> and E<.Xr ld 1> commands).  The resulting files can then be "
+"copied to the E<.Pa /boot/kernel> directory, and can be pre-loaded directly "
+"from the boot loader prompt, or automatically by editing the E<.Xr "
+"loader.conf 5> file.  If desired, the files can also be loaded into memory "
+"at runtime using the E<.Xr kldload 8> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:237
+msgid ""
+"When an NDIS driver tries to open an external file, the E<.Xr ndisapi 9> "
+"code will first search for a loaded kernel module that matches the name "
+"specified in the open request, and if that fails, it will then try to open "
+"the file from the E<.Pa /compat/ndis> directory as well.  Note that during "
+"kernel bootstrap, the ability to open files from E<.Pa /compat/ndis> is "
+"disabled: only the module search will be performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:260
+msgid ""
+"When using the E<.Fl f> flag, E<.Nm> will generate both a relocatable object "
+"file (with a E<.Pa .o> extension)  and a shared object file (with a E<.Pa "
+".ko> extension).  The shared object is the one that should be placed in the "
+"E<.Pa /boot/kernel> directory.  The relocatable object file is useful if the "
+"user wishes to create a completely static kernel image: the object file can "
+"be linked into the kernel directly along with the driver itself.  Some "
+"editing of the kernel configuration files will be necessary in order to have "
+"the extra object included in the build."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:261
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:266
+msgid "E<.Xr ld 1>, E<.Xr objcopy 1>, E<.Xr ndis 4>, E<.Xr kldload 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:266
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:271
+msgid "The E<.Nm> utility first appeared in E<.Fx 5.3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:271
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ndiscvt/ndiscvt.8:283
+msgid ""
+"E<.An -nosplit> The E<.Nm> utility was written by E<.An Bill Paul Aq Mt "
+"wpaul@windriver.com>.  The E<.Xr lex 1> and E<.Xr yacc 1> E<.Pa INF> file "
+"parser was written by E<.An Matthew Dodd Aq Mt mdodd@FreeBSD.org>."
+msgstr ""

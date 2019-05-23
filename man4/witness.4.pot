@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/witness.4:26
+#, no-wrap
+msgid "November 18, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/witness.4:27
+#, no-wrap
+msgid "WITNESS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/witness.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:31
+msgid "E<.Nm witness>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/witness.4:31
+#, no-wrap
+msgid "lock validation facility"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/witness.4:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:38
+msgid ""
+"E<.Cd options WITNESS> E<.Cd options WITNESS_COUNT> E<.Cd options "
+"WITNESS_KDB> E<.Cd options WITNESS_NO_VNODE> E<.Cd options WITNESS_SKIPSPIN>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/witness.4:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:53
+msgid ""
+"The E<.Nm> module keeps track of the locks acquired and released by each "
+"thread.  It also keeps track of the order in which locks are acquired with "
+"respect to each other.  Each time a lock is acquired, E<.Nm> uses these two "
+"lists to verify that a lock is not being acquired in the wrong order.  If a "
+"lock order violation is detected, then a message is output to the kernel "
+"console or log detailing the locks involved and the locations in question.  "
+"Witness can also be configured to drop into the kernel debugger when an "
+"order violation occurs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:60
+msgid ""
+"The E<.Nm> code also checks various other conditions such as verifying that "
+"one does not recurse on a non-recursive lock, or attempt an upgrade on a "
+"shared lock held by another thread.  If any of these checks fail, then the "
+"kernel will panic."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:74
+msgid ""
+"The E<.Dv WITNESS_COUNT> kernel option controls the maximum number of E<.Nm> "
+"entries that are tracked in the kernel.  The maximum number of entries can "
+"be queried via the E<.Va debug.witness.count> sysctl.  It can also be set "
+"from the E<.Xr loader 8> via the E<.Va debug.witness.count> environment "
+"variable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:82
+msgid ""
+"The E<.Dv WITNESS_NO_VNODE> kernel option tells E<.Nm> to ignore locking "
+"issues between E<.Xr vnode 9> objects."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:98
+msgid ""
+"The flag that controls whether or not the kernel debugger is entered when a "
+"lock order violation is detected can be set in a variety of ways.  By "
+"default, the flag is off, but if the E<.Dv WITNESS_KDB> kernel option is "
+"specified, then the flag will default to on.  It can also be set from the "
+"E<.Xr loader 8> via the E<.Va debug.witness.kdb> environment variable or "
+"after the kernel has booted via the E<.Va debug.witness.kdb> sysctl.  If the "
+"flag is set to zero, then the debugger will not be entered.  If the flag is "
+"non-zero, then the debugger will be entered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:114
+msgid ""
+"The E<.Nm> code can also be configured to skip all checks on spin mutexes.  "
+"By default, this flag defaults to off, but it can be turned on by specifying "
+"the E<.Dv WITNESS_SKIPSPIN> kernel option.  The flag can also be set via the "
+"E<.Xr loader 8> environment variable E<.Va debug.witness.skipspin>.  If the "
+"variable is set to a non-zero value, then spin mutexes are skipped.  Once "
+"the kernel has booted, the status of this flag can be examined but not set "
+"via the read-only sysctl E<.Va debug.witness.skipspin>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:128
+msgid ""
+"The sysctl E<.Va debug.witness.watch> specifies the level of witness "
+"involvement in the system.  A value of 1 specifies that witness is enabled.  "
+"A value of 0 specifies that witness is disabled, but that can be enabled "
+"again.  This will maintain a small amount of overhead in the system.  A "
+"value of -1 specifies that witness is disabled permanently and cannot be "
+"enabled again.  The sysctl E<.Va debug.witness.watch> can be set via E<.Xr "
+"loader 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:143
+msgid ""
+"The sysctl E<.Va debug.witness.output_channel> specifies the output channel "
+"used to display warnings emitted by E<.Nm>.  The possible values are E<.Ql "
+"console>, indicating that warnings are to be printed to the system console, "
+"E<.Ql log>, indicating that warnings are to be logged via E<.Xr log 9>, and "
+"E<.Ql none>.  This sysctl can be set via E<.Xr loader 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:153
+msgid ""
+"The E<.Nm> code also provides three extra E<.Xr ddb 4> commands if both "
+"E<.Nm> and E<.Xr ddb 4> are compiled into the kernel:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/witness.4:154
+#, no-wrap
+msgid "Ic show locks Op thread"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:167
+msgid ""
+"Outputs the list of locks held by a thread to the kernel console along with "
+"the filename and line number at which each lock was last acquired by the "
+"thread.  The optional E<.Ar thread> argument may be either a TID, PID, or "
+"pointer to a thread structure.  If E<.Ar thread> is not specified, then the "
+"locks held by the current thread are displayed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/witness.4:167
+#, no-wrap
+msgid "Ic show all locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:170
+msgid ""
+"Outputs the list of locks held by all threads in the system to the kernel "
+"console."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/witness.4:170
+#, no-wrap
+msgid "Ic show witness"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:175
+msgid ""
+"Dump the current order list to the kernel console.  The code first displays "
+"the lock order tree for all of the sleep locks.  Then it displays the lock "
+"order tree for all of the spin locks.  Finally, it displays a list of locks "
+"that have not yet been acquired."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/witness.4:176
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:181
+msgid "E<.Xr ddb 4>, E<.Xr loader 8>, E<.Xr sysctl 8>, E<.Xr mutex 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/witness.4:181
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/witness.4:187
+msgid ""
+"The E<.Nm> code first appeared in E<.Bsx 5.0> and was imported from there "
+"into E<.Fx 5.0>."
+msgstr ""

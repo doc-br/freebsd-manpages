@@ -1,0 +1,657 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/ipfilter/man/ippool.5:3
+#, no-wrap
+msgid "IPPOOL"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:4
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:6
+msgid "ippool, ippool.conf - IP Pool file format"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:6
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:9
+msgid ""
+"The file ippool.conf is used with ippool(8) to configure address pools for "
+"use with ipnat(8) and ipf(8)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:13
+msgid ""
+"There are four different types of address pools that can be configured "
+"through ippool.conf. The various types are presented below with a brief "
+"description of how they are used:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:15
+msgid "dstlist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:20
+msgid ""
+"destination list - is a collection of IP addresses with an optional network "
+"interface name that can be used with either redirect (rdr) rules in "
+"ipnat.conf(5) or as the destination in ipf.conf(5) for policy based routing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:22
+msgid "group-map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:26
+msgid ""
+"group maps - support the srcgrpmap and dstgrpmap call functions in "
+"ipf.conf(5) by providing a list of addresses or networks rule group numbers "
+"to start processing them with."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:28 /usr/src/contrib/ipfilter/man/ippool.5:209
+msgid "hash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:33
+msgid ""
+"hash tables - provide the means for performing a very efficient lookup "
+"address or network when there is expected to be only one exact match. These "
+"are best used with more static sets of addresses so they can be sized "
+"optimally."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:35
+msgid "pool"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:40
+msgid ""
+"address pools - are an alternative to hash tables that can perform just as "
+"well in most circumstances. In addition, the address pools allow for "
+"heirarchical matching, so it is possible to define a subnet as matching but "
+"then exclude specific addresses from it."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/ipfilter/man/ippool.5:40
+#, no-wrap
+msgid "Evolving Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:46
+msgid ""
+"Over time the configuration syntax used by ippool.conf(5) has evolved.  "
+"Originally the syntax used was more verbose about what a particular value "
+"was being used for, for example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:50
+#, no-wrap
+msgid ""
+"table role = ipf type = tree number = 100\n"
+"        { 1.1.1.1/32; !2.2.0.0/16; 2.2.2.0/24; ef00::5/128; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:55
+msgid ""
+"This is rather long winded. The evolution of the configuration syntax has "
+"also replaced the use of numbers with names, although numbers can still be "
+"used as can be seen here:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:59
+#, no-wrap
+msgid ""
+"pool ipf/tree (name \"100\";)\n"
+"\t{ 1.1.1.1/32; !2.2.0.0/16; 2.2.2.0/24; ef00::5/128; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:63
+msgid ""
+"Both of the above examples produce the same configuration in the kernel for "
+"use with ipf.conf(5)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:67
+msgid ""
+"Newer options for use in ippool.conf(5) will only be offered in the new "
+"configuration syntax and all output using \"ippool -l\" will also be in the "
+"new configuration syntax."
+msgstr ""
+
+#. type: SS
+#: /usr/src/contrib/ipfilter/man/ippool.5:67
+#, no-wrap
+msgid "IPFilter devices and pools"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:72
+msgid ""
+"To cater to different administration styles, ipool.conf(5) allows you to tie "
+"a pool to a specific role in IPFilter. The recognised role names are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:74
+msgid "ipf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:77
+msgid ""
+"pools defined for role \"ipf\" are available for use with all rules that are "
+"found in ipf.conf(5) except for auth rules."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:79
+msgid "nat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:82
+msgid ""
+"pools defined for role \"nat\" are available for use with all rules that are "
+"found in ipnat.conf(5)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:84
+msgid "auth"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:87
+msgid ""
+"pools defined for role \"auth\" are available only for use with \"auth\" "
+"rules that are found in ipf.conf(5)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:89
+msgid "all"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:92
+msgid ""
+"pools that are defined for the \"all\" role are available to all types of "
+"rules, be they NAT rules in ipnat.conf(5) or firewall rules in ipf.conf(5)."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:92
+#, no-wrap
+msgid "Address Pools"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:98
+msgid ""
+"An address pool can be used in ipf.conf(5) and ipnat.conf(5) for matching "
+"the source or destination address of packets. They can be referred to either "
+"by name or number and can hold an arbitrary number of address patterns to "
+"match."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:104
+msgid ""
+"An address pool is considered to be a \"tree type\". In the older "
+"configuration style, it was necessary to have \"type=tree\" in "
+"ippool.conf(5). In the new style configuration, it follows the IPFilter "
+"device with which the pool is being configured.  Now it is the default if "
+"left out."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:108
+msgid ""
+"For convenience, both IPv4 and IPv6 addresses can be stored in the same "
+"address pool. It should go without saying that either type of packet can "
+"only ever match an entry in a pool that is of the same address family."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:118
+msgid ""
+"The address pool searches the list of addresses configured for the best "
+"match. The \"best match\" is considered to be the match that has the highest "
+"number of bits set in the mask. Thus if both 2.2.0.0/16 and 2.2.2.0/24 are "
+"present in an address pool, the addres 2.2.2.1 will match 2.2.2.0/24 and "
+"2.2.1.1 will match 2.2.0.0/16. The reason for this is to allow exceptions to "
+"be added through the use of negative matching. In the following example, the "
+"pool contains \"2.2.0.0/16\" and \"!2.2.2.0/24\", meaning that all packets "
+"that match 2.2.0.0/16, except those that match 2.2.2.0/24, will be "
+"considered as a match for this pool."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:121
+#, no-wrap
+msgid ""
+"table role = ipf type = tree number = 100\n"
+"        { 1.1.1.1/32; 2.2.0.0/16; !2.2.2.0/24; ef00::5/128; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:126
+msgid ""
+"For the sake of clarity and to aid in managing large numbers of addresses "
+"inside address pools, it is possible to specify a location to load the "
+"addresses from. To do this simply use a \"file://\" URL where you would "
+"specify an actual IP address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:129
+#, no-wrap
+msgid "pool ipf/tree (name rfc1918;) { file:///etc/ipf/rfc1918; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:132
+msgid "The contents of the file might look something like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:139
+#, no-wrap
+msgid ""
+"# RFC 1918 networks\n"
+"10.0.0.0/8\n"
+"!127.0.0.0/8\n"
+"172.16.0.0/12\n"
+"192.168.0.0/24\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:144
+msgid ""
+"In this example, the inclusion of the line \"!127.0.0.0/8\" is, strictly "
+"speaking not correct and serves only as an example to show that negative "
+"matching is also supported in this file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:152
+msgid ""
+"Another format that ippool(8) recognises for input from a file is that from "
+"whois servers. In the following example, output from a query to a WHOIS "
+"server for information about which networks are associated with the name "
+"\"microsoft\" has been saved in a file named \"ms-networks\".  There is no "
+"need to modify the output from the whois server, so using either the whois "
+"command or dumping data directly from it over a TCP connection works "
+"perfectly file as input."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:155
+#, no-wrap
+msgid "pool ipf/tree (name microsoft;) { whois file \"/etc/ipf/ms-networks\"; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:159
+msgid ""
+"And to then block all packets to/from networks defined in that file, a rule "
+"like this might be used:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:162
+#, no-wrap
+msgid "block in from pool/microsoft to any\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:166
+msgid ""
+"Note that there are limitations on the output returned by whois servers so "
+"be aware that their output may not be 100% perfect for your goal."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:166
+#, no-wrap
+msgid "Destination Lists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:172
+msgid ""
+"Destination lists are provided for use primarily with NAT redirect rules "
+"(rdr). Their purpose is to allow more sophisticated methods of selecting "
+"which host to send traffic to next than the simple round-robin technique "
+"that is present with with \"round-robin\" rules in ipnat.conf(5)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:180
+msgid ""
+"When building a list of hosts to use as a redirection list, it is necessary "
+"to list each host to be used explicitly. Expressing a collection of hosts as "
+"a range or a subnet is not supported. With each address it is also possible "
+"to specify a network interface name. The network interface name is ignored "
+"by NAT when using destination lists.  The network itnerface name is "
+"currently only used with policy based routing (use of \"to\"/\"dup-to\" in "
+"ipf.conf(5))."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:186
+msgid ""
+"Unlike the other directives that can be expressed in this file, destination "
+"lists must be written using the new configuration syntax. Each destination "
+"list must have a name associated with it and a next hop selection policy.  "
+"Some policies have further options. The currently available selection "
+"policies are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:188
+msgid "round-robin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:191
+msgid ""
+"steps through the list of hosts configured with the destination list one by "
+"one"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:193
+msgid "random"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:195
+msgid "the next hop is chosen by random selection from the list available"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:197
+msgid "src-hash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:201
+msgid ""
+"a hash is made of the source address components of the packet (address and "
+"port number) and this is used to select which next hop address is used"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:203
+msgid "dst-hash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:207
+msgid ""
+"a hash is made of the destination address components of the packet (address "
+"and port number) and this is used to select which next hop address is used"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:213
+msgid ""
+"a hash is made of all the address components in the packet (addresses and "
+"port numbers) and this is used to select which next hop address is used"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:215
+msgid "weighted"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:219
+msgid ""
+"selecting a weighted policy for destination selection needs further "
+"clarification as to what type of weighted selection will be used.  The "
+"sub-options to a weighted policy are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:222
+msgid "connection"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:226
+msgid ""
+"the host that has received the least number of connections is selected to be "
+"the next hop. When all hosts have the same connection count, the last one "
+"used will be the next address selected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:230
+msgid ""
+"The first example here shows 4 destinations that are used with a round-robin "
+"selection policy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:234
+#, no-wrap
+msgid ""
+"pool nat/dstlist (name servers; policy round-robin;)\n"
+"        { 1.1.1.2; 1.1.1.4; 1.1.1.5; 1.1.1.9; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:240
+msgid ""
+"In the following example, the destination is chosen by whichever has had the "
+"least number of connections. By placing the interface name with each address "
+"and saying \"all/dstlist\", the destination list can be used with both "
+"ipnat.conf(5) and ipf.conf(5)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:244
+#, no-wrap
+msgid ""
+"pool all/dstlist (name servers; policy weighted connection;)\n"
+"        { bge0:1.1.1.2; bge0:1.1.1.4; bge1:1.1.1.5; bge1:1.1.1.9; };\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:245
+#, no-wrap
+msgid "Group maps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:251
+msgid ""
+"Group maps are provided to allow more efficient processing of packets where "
+"there are a larger number of subnets and groups of rules for those "
+"subnets. Group maps are used with \"call\" rules in ipf.conf(5) that use the "
+"\"srcgrpmap\" and \"dstgrpmap\" functions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:258
+msgid ""
+"A group map declaration must mention which group is the default group for "
+"all matching addresses to be applied to. Then inside the list of addresses "
+"and networks for the group, each one may optionally have a group number "
+"associated with it. A simple example like this, where the first two entries "
+"would map to group 2020 but 5.0.0.0/8 sends rule processing to group 2040."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:262
+#, no-wrap
+msgid ""
+"group-map out role = ipf number = 2010 group = 2020\n"
+"        { 2.2.2.2/32; 4.4.0.0/16; 5.0.0.0/8, group = 2040; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:270
+msgid ""
+"An example that outlines the real purpose of group maps is below, where each "
+"one of the 12 subnets is mapped to a different group number. This might be "
+"because each subnet has its own policy and rather than write a list of "
+"twelve rules in ipf.conf(5) that match the subnet and branch off with a head "
+"statement, a single rule can be used with this group map to achieve the same "
+"result."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:280
+#, no-wrap
+msgid ""
+"group-map ( name \"2010\"; in; )\n"
+"    { 192.168.1.0/24, group = 10010; 192.168.2.0/24, group = 10020;\n"
+"      192.168.3.0/24, group = 10030; 192.168.4.0/24, group = 10040;\n"
+"      192.168.5.0/24, group = 10050; 192.168.6.0/24, group = 10060;\n"
+"      192.168.7.0/24, group = 10070; 192.168.8.0/24, group = 10080;\n"
+"      192.168.9.0/24, group = 10090; 192.168.10.0/24, group = 10100;\n"
+"      192.168.11.0/24, group = 10110; 192.168.12.0/24, group = 10120;\n"
+"    };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:285
+msgid ""
+"The limitation with group maps is that only the source address or the "
+"destination address can be used to map the packet to the starting group, not "
+"both, in your ipf.conf(5) file."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:285
+#, no-wrap
+msgid "Hash Tables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:292
+msgid ""
+"The hash table is operationally similar to the address pool. It is used as a "
+"store for a collection of address to match on, saving the need to write a "
+"lengthy list of rules. As with address pools, searching will attempt to find "
+"the best match - an address specification with the largest contiguous "
+"netmask."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:297
+msgid ""
+"Hash tables are best used where the list of addresses, subnets and networks "
+"is relatively static, which is something of a contrast to the address pool "
+"that can work with either static or changing address list sizes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:302
+msgid ""
+"Further work is still needed to have IPFilter correctly size and tune the "
+"hash table to optimise searching. The goal is to allow for small to medium "
+"sized tables to achieve close to O(1) for either a positive or negative "
+"match, in contrast to the address pool, which is O(logn)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:305
+msgid ""
+"The following two examples build the same table in the kernel, using the old "
+"configuration format (first) and the new one (second)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:309
+#, no-wrap
+msgid ""
+"table role=all type=hash name=servers size=5\n"
+"        { 1.1.1.2/32; 1.1.1.3/32; 11.23.44.66/32; };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:312
+#, no-wrap
+msgid ""
+"pool all/hash (name servers; size 5;)\n"
+"\t{ 1.1.1.2; 1.1.1.3; 11.23.44.66; };\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:313
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:315
+msgid "/dev/iplookup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:317
+msgid "/etc/ippool.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:319
+msgid "/etc/hosts"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ippool.5:319
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ippool.5:320
+msgid "ippool(8), hosts(5), ipf(5), ipf(8), ipnat(8)"
+msgstr ""

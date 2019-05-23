@@ -1,0 +1,892 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_l2cap.4:28
+#, no-wrap
+msgid "July 4, 2002"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_l2cap.4:29
+#, no-wrap
+msgid "NG_L2CAP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:33
+msgid "E<.Nm ng_l2cap>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_l2cap.4:33
+#, no-wrap
+msgid "Netgraph node type that implements Bluetooth Logical Link Control and"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:35
+msgid "Adaptation Protocol (L2CAP)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_l2cap.4:36
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_l2cap.4:37
+#, no-wrap
+msgid "netgraph/bluetooth/include/ng_hci.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_l2cap.4:38
+#, no-wrap
+msgid "netgraph/bluetooth/include/ng_l2cap.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:45
+msgid ""
+"The E<.Nm l2cap> node type is a Netgraph node type that implements Bluetooth "
+"Logical Link Control and Adaptation Protocol as per chapter D of the "
+"Bluetooth Specification Book v1.1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:52
+msgid ""
+"L2CAP provides connection-oriented and connectionless data services to upper "
+"layer protocols with protocol multiplexing capability, segmentation and "
+"reassembly operation, and group abstractions.  L2CAP permits higher level "
+"protocols and applications to transmit and receive L2CAP data packets up to "
+"64 kilobytes in length."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_l2cap.4:52
+#, no-wrap
+msgid "L2CAP Assumptions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:60
+msgid ""
+"The ACL link between two units is set up.  The Baseband provides orderly "
+"delivery of data packets, although there might be individual packet "
+"corruption and duplicates.  No more than one ACL link exists between any two "
+"devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:66
+msgid ""
+"The Baseband always provides the impression of full-duplex communication "
+"channels.  This does not imply that all L2CAP communications are "
+"bi-directional.  Multicasts and unidirectional traffic (e.g., video) do not "
+"require duplex channels."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:74
+msgid ""
+"L2CAP provides a reliable channel using the mechanisms available at the "
+"Baseband layer.  The Baseband always performs data integrity checks when "
+"requested and resends data until it has been successfully acknowledged or a "
+"timeout occurs.  As acknowledgements may be lost, timeouts may occur even "
+"after the data has been successfully sent."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:75
+#, no-wrap
+msgid "L2CAP GENERAL OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:85
+msgid ""
+"The Logical Link Control and Adaptation Protocol (L2CAP) is based around the "
+"concept of E<.Dq channels>.  Each channel is bound to a single protocol in a "
+"many-to-one fashion.  Multiple channels can be bound to the same protocol, "
+"but a channel cannot be bound to multiple protocols.  Each L2CAP packet "
+"received on a channel is directed to the appropriate higher level protocol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:99
+msgid ""
+"Each one of the end-points of an L2CAP channel is referred to by a channel "
+"identifier.  Channel identifiers (CIDs) are local names representing a "
+"logical channel end-point on the device.  Identifiers from 0x0001 to 0x003F "
+"are reserved for specific L2CAP functions.  The null identifier (0x0000) is "
+"defined as an illegal identifier and must never be used as a destination "
+"end-point.  All L2CAP signalling commands are sent to CID 0x0001.  CID "
+"0x0002 is reserved for group-oriented channel.  The same CID must not be "
+"reused as a local L2CAP channel endpoint for multiple simultaneous L2CAP "
+"channels between a local device and some remote device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:106
+msgid ""
+"CID assignment is relative to a particular device and a device can assign "
+"CIDs independently from other devices.  Thus, even if the same CID value has "
+"been assigned to (remote) channel endpoints by several remote devices "
+"connected to a single local device, the local device can still uniquely "
+"associate each remote CID with a different device."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_l2cap.4:106
+#, no-wrap
+msgid "Channel Operational States"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:108
+#, no-wrap
+msgid "Dv NG_L2CAP_CLOSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:116
+msgid ""
+"In this state, there is no channel associated with this CID.  This is the "
+"only state when a link level connection (Baseband) may not exist.  Link "
+"disconnection forces all other states into the E<.Dv NG_L2CAP_CLOSED> state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:116
+#, no-wrap
+msgid "Dv NG_L2CAP_W4_L2CAP_CON_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:120
+msgid ""
+"In this state, the CID represents a local end-point and an L2CAP Connect "
+"Request message has been sent referencing this endpoint and it is now "
+"waiting for the corresponding L2CAP Connect Response message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:120
+#, no-wrap
+msgid "Dv NG_L2CAP_W4_L2CA_CON_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:127
+msgid ""
+"In this state, the remote end-point exists and an L2CAP Connect Request has "
+"been received by the local L2CAP entity.  An L2CA Connect Indication has "
+"been sent to the upper layer and the part of the local L2CAP entity "
+"processing the received L2CAP Connect Request waits for the corresponding "
+"response.  The response may require a security check to be performed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:127
+#, no-wrap
+msgid "Dv NG_L2CAP_CONFIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:157
+msgid ""
+"In this state, the connection has been established but both sides are still "
+"negotiating the channel parameters.  The Configuration state may also be "
+"entered when the channel parameters are being renegotiated.  Prior to "
+"entering the E<.Dv NG_L2CAP_CONFIG> state, all outgoing data traffic is "
+"suspended since the traffic parameters of the data traffic are to be "
+"renegotiated.  Incoming data traffic is accepted until the remote channel "
+"endpoint has entered the E<.Dv NG_L2CAP_CONFIG> state.  In the E<.Dv "
+"NG_L2CAP_CONFIG> state, both sides will issue L2CAP Configuration Request "
+"messages if only defaults are being used, a null message will be sent.  If a "
+"large amount of parameters need to be negotiated, multiple messages will be "
+"sent to avoid any MTU limitations and negotiate incrementally.  Moving from "
+"the E<.Dv NG_L2CAP_CONFIG> state to the E<.Dv NG_L2CAP_OPEN> state requires "
+"both sides to be ready.  An L2CAP entity is ready when it has received a "
+"positive response to its final request and it has positively responded to "
+"the final request from the remote device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:157
+#, no-wrap
+msgid "Dv NG_L2CAP_OPEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:160
+msgid ""
+"In this state, the connection has been established and configured, and data "
+"flow may proceed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:160
+#, no-wrap
+msgid "Dv NG_L2CAP_W4_L2CAP_DISCON_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:164
+msgid ""
+"In this state, the connection is shutting down and an L2CAP Disconnect "
+"Request message has been sent.  This state is now waiting for the "
+"corresponding response."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:164
+#, no-wrap
+msgid "Dv NG_L2CAP_W4_L2CA_DISCON_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:173
+msgid ""
+"In this state, the connection on the remote endpoint is shutting down and an "
+"L2CAP Disconnect Request message has been received.  An L2CA Disconnect "
+"Indication has been sent to the upper layer to notify the owner of the CID "
+"that the remote endpoint is being closed.  This state is now waiting for the "
+"corresponding response from the upper layer before responding to the remote "
+"endpoint."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_l2cap.4:174
+#, no-wrap
+msgid "Protocol Multiplexing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:181
+msgid ""
+"L2CAP supports protocol multiplexing because the Baseband Protocol does not "
+"support any E<.Dq type> field identifying the higher layer protocol being "
+"multiplexed above it.  L2CAP is able to distinguish between upper layer "
+"protocols such as the Service Discovery Protocol, RFCOMM and Telephony "
+"Control."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_l2cap.4:181
+#, no-wrap
+msgid "Segmentation and Reassembly"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:188
+msgid ""
+"The data packets defined by the Baseband Protocol are limited in size.  "
+"Large L2CAP packets must be segmented into multiple smaller Baseband packets "
+"prior to their transmission over the air.  Similarly, multiple received "
+"Baseband packets may be reassembled into a single larger L2CAP packet."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_l2cap.4:188
+#, no-wrap
+msgid "Quality of Service"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:191
+msgid ""
+"The L2CAP connection establishment process allows the exchange of "
+"information regarding the quality of service (QoS) expected between two "
+"Bluetooth units."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ng_l2cap.4:191
+#, no-wrap
+msgid "Groups"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:197
+msgid ""
+"The Baseband Protocol supports the concept of a piconet, a group of devices "
+"synchronously hopping together using the same clock.  The L2CAP group "
+"abstraction permits implementations to efficiently map protocol groups on to "
+"piconets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:199
+msgid "The following features are outside the scope of L2CAP responsibilities:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:202
+msgid "L2CAP does not transport audio designated for SCO links."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:205
+msgid ""
+"L2CAP does not enforce a reliable channel or ensure data integrity, that is, "
+"L2CAP performs no retransmissions or checksum calculations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:207
+msgid "L2CAP does not support a reliable multicast channel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:209
+msgid "L2CAP does not support the concept of a global group name."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:210
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:212
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:213
+#, no-wrap
+msgid "Va hci"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:215
+msgid "Bluetooth Host Controller Interface downstream hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:215
+#, no-wrap
+msgid "Va l2c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:218
+msgid ""
+"Upper layer protocol upstream hook.  Usually the Bluetooth L2CAP socket "
+"layer is connected to the hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:218
+#, no-wrap
+msgid "Va ctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:221
+msgid ""
+"Control hook.  Usually the Bluetooth raw L2CAP sockets layer is connected to "
+"the hook."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:222
+#, no-wrap
+msgid "INTERFACE TO THE UPPER LAYER PROTOCOLS (L2CA CONTROL MESSAGES)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:245
+msgid ""
+"Bluetooth specification says that L2CA request must block until response is "
+"ready.  L2CAP node uses E<.Va token> field from Netgraph message header to "
+"match L2CA request and response.  The upper layer protocol must populate "
+"E<.Va token>.  L2CAP node will queue request and start processing.  Later, "
+"when response is ready or timeout has occurred, L2CAP node will create new "
+"Netgraph message, set E<.Va token> and E<.Dv NFG_RESP> flag and send message "
+"to the upper layer.  Note that L2CA indication messages will not populate "
+"E<.Va token> and will not set E<.Dv NGF_RESP> flag.  There is no reason for "
+"this, because they are just notifications and do not require acknowledgment."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:246
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_CON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:256
+msgid ""
+"Requests the creation of a channel representing a logical connection to a "
+"physical address.  Input parameters are the target protocol (PSM) and remote "
+"device's 48-bit address (BD_ADDR).  Output parameters are the local CID "
+"(LCID)  allocated by the local L2CAP entity, and Result of the request.  If "
+"Result indicates a pending notification, the Status value may contain more "
+"information of what processing is delaying the establishment of the "
+"connection."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:256
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_CON_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:261
+msgid ""
+"This message includes the parameters for the address of the remote device "
+"that issued the connection request, the local CID representing the channel "
+"being requested, the Identifier contained in the request, and the PSM value "
+"the request is targeting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:261
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_CON_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:269
+msgid ""
+"Issues a response to a connection request event indication.  Input "
+"parameters are the remote device's 48-bit address, Identifier sent in the "
+"request, local CID, the Response code, and the Status attached to the "
+"Response code.  The output parameter is the Result of the service request.  "
+"This primitive must be called no more than once after receiving the "
+"indication."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:269
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_CFG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:277
+msgid ""
+"Requests the initial configuration (or reconfiguration) of a channel to a "
+"new set of channel parameters.  Input parameters are the local CID endpoint, "
+"new incoming receivable MTU (InMTU), new outgoing flow spec-ification, and "
+"flush and link timeouts.  Output parameters are the Result, accepted "
+"incoming MTU (InMTU), the remote side's flow requests, and flush and link "
+"timeouts."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:277
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_CFG_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:284
+msgid ""
+"This message includes the parameters indicating the local CID of the channel "
+"the request has been sent to, the outgoing MTU size (maximum packet that can "
+"be sent across the channel) and the flowspec describing the characteristics "
+"of the incoming data.  All other channel parameters are set to their default "
+"values if not provided by the remote device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:284
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_CFG_RSP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:291
+msgid ""
+"Issues a response to a configuration request event indication.  Input "
+"parameters include the local CID of the endpoint being configured, outgoing "
+"transmit MTU (which may be equal or less to the OutMTU parameter in the "
+"configuration indication event) and the accepted flowspec for incoming "
+"traffic.  The output parameter is the Result value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:291
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_QOS_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:294
+msgid ""
+"This message includes the parameter indicating the address of the remote "
+"Bluetooth device where the QoS contract has been violated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:294
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_DISCON"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:303
+msgid ""
+"Requests the disconnection of the channel.  Input parameter is the CID "
+"representing the local channel endpoint.  Output parameter is Result.  "
+"Result is zero if an L2CAP Disconnect Response is received, otherwise a "
+"non-zero value is returned.  Once disconnection has been requested, no "
+"process will be able to successfully read or write from the CID."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:303
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_DISCON_IND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:306
+msgid ""
+"This message includes the parameter indicating the local CID the request has "
+"been sent to."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:306
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_WRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:310
+msgid ""
+"Response to transfer of data request.  Actual data must be received from "
+"appropriate upstream hook and must be prepended with header defined as "
+"follows."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:317
+#, no-wrap
+msgid ""
+"/* L2CA data packet header */\n"
+"typedef struct {\n"
+"        uint32_t token;  /* token to use in L2CAP_L2CA_WRITE */\n"
+"        uint16_t length; /* length of the data */\n"
+"        uint16_t lcid;   /* local channel ID */\n"
+"} __attribute__ ((packed)) ng_l2cap_l2ca_hdr_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:320
+msgid "The output parameters are Result and Length of data written."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:320
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_GRP_CREATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:331
+msgid ""
+"Requests the creation of a CID to represent a logical connection to multiple "
+"devices.  Input parameter is the PSM value that the outgoing connectionless "
+"traffic is labelled with, and the filter used for incoming traffic.  Output "
+"parameter is the CID representing the local endpoint.  On creation, the "
+"group is empty but incoming traffic destined for the PSM value is readable.  "
+"E<.Bf -emphasis> This request has not been implemented.  E<.Ef>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:331
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_GRP_CLOSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:336
+msgid ""
+"The use of this message closes down a Group.  E<.Bf -emphasis> This request "
+"has not been implemented.  E<.Ef>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:336
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_GRP_ADD_MEMBER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:344
+msgid ""
+"Requests the addition of a member to a group.  The input parameter includes "
+"the CID representing the group and the BD_ADDR of the group member to be "
+"added.  The output parameter Result confirms the success or failure of the "
+"request.  E<.Bf -emphasis> This request has not been implemented.  E<.Ef>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:344
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_GRP_REM_MEMBER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:352
+msgid ""
+"Requests the removal of a member from a group.  The input parameters include "
+"the CID representing the group and BD_ADDR of the group member to be "
+"removed.  The output parameter Result confirms the success or failure of the "
+"request.  E<.Bf -emphasis> This request has not been implemented.  E<.Ef>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:352
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_GRP_MEMBERSHIP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:362
+msgid ""
+"Requests a report of the members of a group.  The input parameter CID "
+"represents the group being queried.  The output parameter Result confirms "
+"the success or failure of the operation.  If the Result is successful, "
+"BD_ADDR_Lst is a list of the Bluetooth addresses of the N members of the "
+"group.  E<.Bf -emphasis> This request has not been implemented.  E<.Ef>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:362
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_PING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:369
+msgid ""
+"Initiates an L2CA Echo Request message and the reception of the "
+"corresponding L2CAP Echo Response message.  The input parameters are remote "
+"Bluetooth device BD_ADDR, Echo Data and Length of the echo data.  The output "
+"parameters are Result, Echo Data and Length of the echo data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:369
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_GET_INFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:375
+msgid ""
+"Initiates an L2CA Information Request message and the reception of the "
+"corresponding L2CAP Info Response message.  The input parameters are remote "
+"Bluetooth device BD_ADDR and Information Type.  The output parameters are "
+"Result, Information Data and Size of the information data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:375
+#, no-wrap
+msgid "Dv NGM_L2CAP_L2CA_ENABLE_CLT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:380
+msgid ""
+"Request to disable (enable) the reception of connectionless packets.  The "
+"input parameter is the PSM value indicating service that should be blocked "
+"(unblocked) and Enable flag."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:381
+#, no-wrap
+msgid "NETGRAPH CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:383
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:384
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_GET_FLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:386
+msgid "Returns current state for the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:386
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_GET_DEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:388
+msgid "Returns an integer containing the current debug level for the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:388
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_SET_DEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:391
+msgid ""
+"This command takes an integer argument and sets current debug level for the "
+"node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:391
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_GET_CON_LIST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:393
+msgid "Returns list of active baseband connections (i.e., ACL links)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:393
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_GET_CHAN_LIST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:395
+msgid "Returns list of active L2CAP channels."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:395
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_GET_AUTO_DISCON_TIMO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:398
+msgid ""
+"Returns an integer containing the current value of the auto disconnect "
+"timeout (in sec)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_l2cap.4:398
+#, no-wrap
+msgid "Dv NGM_L2CAP_NODE_SET_AUTO_DISCON_TIMO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:402
+msgid ""
+"This command accepts an integer and sets the value of the auto disconnect "
+"timeout (in sec).  The special value of 0 (zero) disables auto disconnect "
+"timeout."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:403
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:408
+msgid ""
+"This node shuts down upon receipt of an E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:408
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:413
+msgid "E<.Xr netgraph 4>, E<.Xr l2control 8>, E<.Xr l2ping 8>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:413
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:418
+msgid "The E<.Nm l2cap> node type was implemented in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:418
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:420
+msgid "E<.An Maksim Yevmenkin Aq Mt m_evmenkin@yahoo.com>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_l2cap.4:420
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_l2cap.4:422
+msgid "Most likely.  Please report if found."
+msgstr ""

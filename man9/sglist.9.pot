@@ -1,0 +1,552 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sglist.9:29
+#, no-wrap
+msgid "May 16, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sglist.9:30
+#, no-wrap
+msgid "SGLIST 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:56
+msgid ""
+"E<.Nm sglist>, E<.Nm sglist_alloc>, E<.Nm sglist_append>, E<.Nm "
+"sglist_append_bio>, E<.Nm sglist_append_mbuf>, E<.Nm sglist_append_phys>, "
+"E<.Nm sglist_append_sglist>, E<.Nm sglist_append_uio>, E<.Nm "
+"sglist_append_user>, E<.Nm sglist_append_vmpages>, E<.Nm sglist_build>, "
+"E<.Nm sglist_clone>, E<.Nm sglist_consume_uio>, E<.Nm sglist_count>, E<.Nm "
+"sglist_count_vmpages>, E<.Nm sglist_free>, E<.Nm sglist_hold>, E<.Nm "
+"sglist_init>, E<.Nm sglist_join>, E<.Nm sglist_length>, E<.Nm sglist_reset>, "
+"E<.Nm sglist_slice>, E<.Nm sglist_split>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sglist.9:56
+#, no-wrap
+msgid "manage a scatter/gather list of physical memory addresses"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:57
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sglist.9:58
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sglist.9:59
+#, no-wrap
+msgid "sys/sglist.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:104
+msgid ""
+"E<.Ft struct sglist *> E<.Fn sglist_alloc \"int nsegs\" \"int mflags\"> "
+"E<.Ft int> E<.Fn sglist_append \"struct sglist *sg\" \"void *buf\" \"size_t "
+"len\"> E<.Ft int> E<.Fn sglist_append_bio \"struct sglist *sg\" \"struct bio "
+"*bp\"> E<.Ft int> E<.Fn sglist_append_mbuf \"struct sglist *sg\" \"struct "
+"mbuf *m\"> E<.Ft int> E<.Fn sglist_append_phys \"struct sglist *sg\" "
+"\"vm_paddr_t paddr\" \"size_t len\"> E<.Ft int> E<.Fn sglist_append_sglist "
+"\"struct sglist *sg\" \"struct sglist *source\" \"size_t offset\" \"size_t "
+"len\"> E<.Ft int> E<.Fn sglist_append_uio \"struct sglist *sg\" \"struct uio "
+"*uio\"> E<.Ft int> E<.Fn sglist_append_user \"struct sglist *sg\" \"void "
+"*buf\" \"size_t len\" \"struct thread *td\"> E<.Ft int> E<.Fn "
+"sglist_append_vmpages \"struct sglist *sg\" \"vm_page_t *m\" \"size_t "
+"pgoff\" \"size_t len\"> E<.Ft struct sglist *> E<.Fn sglist_build \"void "
+"*buf\" \"size_t len\" \"int mflags\"> E<.Ft struct sglist *> E<.Fn "
+"sglist_clone \"struct sglist *sg\" \"int mflags\"> E<.Ft int> E<.Fn "
+"sglist_consume_uio \"struct sglist *sg\" \"struct uio *uio\" \"size_t "
+"resid\"> E<.Ft int> E<.Fn sglist_count \"void *buf\" \"size_t len\"> E<.Ft "
+"int> E<.Fn sglist_count_vmpages \"vm_page_t *m\" \"size_t pgoff\" \"size_t "
+"len\"> E<.Ft void> E<.Fn sglist_free \"struct sglist *sg\"> E<.Ft struct "
+"sglist *> E<.Fn sglist_hold \"struct sglist *sg\"> E<.Ft void> E<.Fn "
+"sglist_init \"struct sglist *sg\" \"int maxsegs\" \"struct sglist_seg "
+"*segs\"> E<.Ft int> E<.Fn sglist_join \"struct sglist *first\" \"struct "
+"sglist *second\"> E<.Ft size_t> E<.Fn sglist_length \"struct sglist *sg\"> "
+"E<.Ft void> E<.Fn sglist_reset \"struct sglist *sg\"> E<.Ft int> E<.Fn "
+"sglist_slice \"struct sglist *original\" \"struct sglist **slice\" \"size_t "
+"offset\" \"size_t length\" \"int mflags\"> E<.Ft int> E<.Fn sglist_split "
+"\"struct sglist *original\" \"struct sglist **head\" \"size_t length\" \"int "
+"mflags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:104
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:114
+msgid ""
+"The E<.Nm> API manages physical address ranges.  Each list contains one or "
+"more elements.  Each element contains a starting physical address and a "
+"length.  Scatter/gather lists are read-only while they are shared.  If one "
+"wishes to alter an existing scatter/gather list and does not hold the sole "
+"reference to the list, then one should create a new list instead of "
+"modifying the existing list."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:121
+msgid ""
+"Each scatter/gather list object contains a reference count.  New lists are "
+"created with a single reference.  New references are obtained by calling "
+"E<.Nm sglist_hold> and are released by calling E<.Nm sglist_free>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/sglist.9:121
+#, no-wrap
+msgid "Allocating and Initializing Lists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:137
+msgid ""
+"Each E<.Nm> object consists of a header structure and a variable-length "
+"array of scatter/gather list elements.  The E<.Nm sglist_alloc> function "
+"allocates a new list that contains a header and E<.Fa nsegs> scatter/gather "
+"list elements.  The E<.Fa mflags> argument can be set to either E<.Dv "
+"M_NOWAIT> or E<.Dv M_WAITOK>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:147
+msgid ""
+"The E<.Nm sglist_count> function returns the number of scatter/gather list "
+"elements needed to describe the physical address ranges mapped by a single "
+"kernel virtual address range.  The kernel virtual address range starts at "
+"E<.Fa buf> and is E<.Fa len> bytes long."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:159
+msgid ""
+"The E<.Nm sglist_count_vmpages> function returns the number of "
+"scatter/gather list elements needed to describe the physical address ranges "
+"of a buffer backed by an array of virtual memory pages E<.Fa m>.  The buffer "
+"starts at an offset of E<.Fa pgoff> bytes relative to the first page and is "
+"E<.Fa len> bytes long."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:175
+msgid ""
+"The E<.Nm sglist_build> function allocates a new scatter/gather list object "
+"that describes the physical address ranges mapped by a single kernel virtual "
+"address range.  The kernel virtual address range starts at E<.Fa buf> and is "
+"E<.Fa len> bytes long.  The E<.Fa mflags> argument can be set to either "
+"E<.Dv M_NOWAIT> or E<.Dv M_WAITOK>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:188
+msgid ""
+"The E<.Nm sglist_clone> function returns a copy of an existing "
+"scatter/gather list object E<.Fa sg>.  The E<.Fa mflags> argument can be set "
+"to either E<.Dv M_NOWAIT> or E<.Dv M_WAITOK>.  This can be used to obtain a "
+"private copy of a scatter/gather list before modifying it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:208
+msgid ""
+"The E<.Nm sglist_init> function initializes a scatter/gather list header.  "
+"The header is pointed to by E<.Fa sg> and is initialized to manage an array "
+"of E<.Fa maxsegs> scatter/gather list elements pointed to by E<.Fa segs>.  "
+"This can be used to initialize a scatter/gather list header whose storage is "
+"not provided by E<.Nm sglist_alloc>.  In that case, the caller should not "
+"call E<.Nm sglist_free> to release its own reference and is responsible for "
+"ensuring all other references to the list are dropped before it releases the "
+"storage for E<.Fa sg> and E<.Fa segs>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/sglist.9:208
+#, no-wrap
+msgid "Constructing Scatter/Gather Lists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:220
+msgid ""
+"The E<.Nm> API provides several routines for building a scatter/gather list "
+"to describe one or more objects.  Specifically, the E<.Nm sglist_append> "
+"family of routines can be used to append the physical address ranges "
+"described by an object to the end of a scatter/gather list.  All of these "
+"routines return 0 on success or an error on failure.  If a request to append "
+"an address range to a scatter/gather list fails, the scatter/gather list "
+"will remain unchanged."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:231
+msgid ""
+"The E<.Nm sglist_append> function appends the physical address ranges "
+"described by a single kernel virtual address range to the scatter/gather "
+"list E<.Fa sg>.  The kernel virtual address range starts at E<.Fa buf> and "
+"is E<.Fa len> bytes long."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:238
+msgid ""
+"The E<.Nm sglist_append_bio> function appends the physical address ranges "
+"described by a single bio E<.Fa bp> to the scatter/gather list E<.Fa sg>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:246
+msgid ""
+"The E<.Nm sglist_append_mbuf> function appends the physical address ranges "
+"described by an entire mbuf chain E<.Fa m> to the scatter/gather list E<.Fa "
+"sg>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:256
+msgid ""
+"The E<.Nm sglist_append_phys> function appends a single physical address "
+"range to the scatter/gather list E<.Fa sg>.  The physical address range "
+"starts at E<.Fa paddr> and is E<.Fa len> bytes long."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:270
+msgid ""
+"The E<.Nm sglist_append_sglist> function appends physical address ranges "
+"described by the scatter/gather list E<.Fa source> to the scatter/gather "
+"list E<.Fa sg>.  The physical address ranges start at offset E<.Fa offset> "
+"within E<.Fa source> and continue for E<.Fa len> bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:282
+msgid ""
+"The E<.Nm sglist_append_uio> function appends the physical address ranges "
+"described by a E<.Xr uio 9> object to the scatter/gather list E<.Fa sg>.  "
+"Note that it is the caller's responsibility to ensure that the pages backing "
+"the I/O request are wired for the lifetime of E<.Fa sg>.  Note also that "
+"this routine does not modify E<.Fa uio>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:298
+msgid ""
+"The E<.Nm sglist_append_user> function appends the physical address ranges "
+"described by a single user virtual address range to the scatter/gather list "
+"E<.Fa sg>.  The user virtual address range is relative to the address space "
+"of the thread E<.Fa td>.  It starts at E<.Fa buf> and is E<.Fa len> bytes "
+"long.  Note that it is the caller's responsibility to ensure that the pages "
+"backing the user buffer are wired for the lifetime of E<.Fa sg>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:309
+msgid ""
+"The E<.Nm sglist_append_vmpages> function appends the physical address "
+"ranges of a buffer backed by an array of virtual memory pages E<.Fa m>.  The "
+"buffer starts at an offset of E<.Fa pgoff> bytes relative to the first page "
+"and is E<.Fa len> bytes long."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:347
+msgid ""
+"The E<.Nm sglist_consume_uio> function is a variation of E<.Nm "
+"sglist_append_uio>.  As with E<.Nm sglist_append_uio>, it appends the "
+"physical address ranges described by E<.Fa uio> to the scatter/gather list "
+"E<.Fa sg>.  Unlike E<.Nm sglist_append_uio>, however, E<.Nm "
+"sglist_consume_uio> modifies the I/O request to indicate that the appended "
+"address ranges have been processed similar to calling E<.Xr uiomove 9>.  "
+"This routine will only append ranges that describe up to E<.Fa resid> total "
+"bytes in length.  If the available segments in the scatter/gather list are "
+"exhausted before E<.Fa resid> bytes are processed, then the E<.Fa uio> "
+"structure will be updated to reflect the actual number of bytes processed, "
+"and E<.Nm sglist_consume_io> will return zero to indicate success.  In "
+"effect, this function will perform partial reads or writes.  The caller can "
+"compare the E<.Fa uio_resid> member of E<.Fa uio> before and after calling "
+"E<.Nm sglist_consume_uio> to determine the actual number of bytes processed."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/sglist.9:347
+#, no-wrap
+msgid "Manipulating Scatter/Gather Lists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:358
+msgid ""
+"The E<.Nm sglist_join> function appends physical address ranges from the "
+"scatter/gather list E<.Fa second> onto E<.Fa first> and then resets E<.Fa "
+"second> to an empty list.  It returns zero on success or an error on "
+"failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:399
+msgid ""
+"The E<.Nm sglist_split> function splits an existing scatter/gather list into "
+"two lists.  The first E<.Fa length> bytes described by the list E<.Fa "
+"original> are moved to a new list E<.Fa *head>.  If E<.Fa original> "
+"describes a total address range that is smaller than E<.Fa length> bytes, "
+"then all of the address ranges will be moved to the new list at E<.Fa *head> "
+"and E<.Fa original> will be an empty list.  The caller may supply an "
+"existing scatter/gather list in E<.Fa *head>.  If so, the list must be "
+"empty.  Otherwise, the caller may set E<.Fa *head> to E<.Dv NULL> in which "
+"case a new scatter/gather list will be allocated.  In that case, E<.Fa "
+"mflags> may be set to either E<.Dv M_NOWAIT> or E<.Dv M_WAITOK>.  Note that "
+"since the E<.Fa original> list is modified by this call, it must be a "
+"private list with no other references.  The E<.Nm sglist_split> function "
+"returns zero on success or an error on failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:434
+msgid ""
+"The E<.Nm sglist_slice> function generates a new scatter/gather list from a "
+"sub-range of an existing scatter/gather list E<.Fa original>.  The sub-range "
+"to extract is specified by the E<.Fa offset> and E<.Fa length> parameters.  "
+"The new scatter/gather list is stored in E<.Fa *slice>.  As with E<.Fa head> "
+"for E<.Nm sglist_join>, the caller may either provide an empty "
+"scatter/gather list, or it may set E<.Fa *slice> to E<.Dv NULL> in which "
+"case E<.Nm sglist_slice> will allocate a new list subject to E<.Fa mflags>.  "
+"Unlike E<.Nm sglist_split>, E<.Nm sglist_slice> does not modify E<.Fa "
+"original> and does not require it to be a private list.  The E<.Nm "
+"sglist_split> function returns zero on success or an error on failure."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/sglist.9:434
+#, no-wrap
+msgid "Miscellaneous Routines"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:442
+msgid ""
+"The E<.Nm sglist_reset> function clears the scatter/gather list E<.Fa sg> so "
+"that it no longer maps any address ranges.  This can allow reuse of a single "
+"scatter/gather list object for multiple requests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:448
+msgid ""
+"The E<.Nm sglist_length> function returns the total length of the physical "
+"address ranges described by the scatter/gather list E<.Fa sg>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:448
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:457
+msgid ""
+"The E<.Nm sglist_alloc>, E<.Nm sglist_build>, and E<.Nm sglist_clone> "
+"functions return a new scatter/gather list on success or E<.Dv NULL> on "
+"failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:467
+msgid ""
+"The E<.Nm sglist_append> family of functions and the E<.Nm "
+"sglist_consume_uio>, E<.Nm sglist_join>, E<.Nm sglist_slice>, and E<.Nm "
+"sglist_split> functions return zero on success or an error on failure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:473
+msgid ""
+"The E<.Nm sglist_count> and E<.Nm sglist_count_vmpages> functions return a "
+"count of scatter/gather list elements."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:478
+msgid ""
+"The E<.Nm sglist_length> function returns a count of address space described "
+"by a scatter/gather list in bytes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:478
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:482
+msgid "The E<.Nm sglist_append> functions return the following errors on failure:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sglist.9:483 /usr/src/share/man/man9/sglist.9:494 /usr/src/share/man/man9/sglist.9:513 /usr/src/share/man/man9/sglist.9:518 /usr/src/share/man/man9/sglist.9:543
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:485 /usr/src/share/man/man9/sglist.9:496
+msgid "The scatter/gather list has zero segments."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sglist.9:485 /usr/src/share/man/man9/sglist.9:502 /usr/src/share/man/man9/sglist.9:528 /usr/src/share/man/man9/sglist.9:553
+#, no-wrap
+msgid "Bq Er EFBIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:488
+msgid ""
+"There are not enough available segments in the scatter/gather list to append "
+"the specified physical address ranges."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:493
+msgid ""
+"The E<.Nm sglist_consume_uio> function returns the following error on "
+"failure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:501
+msgid "The E<.Nm sglist_join> function returns the following error on failure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:507
+msgid ""
+"There are not enough available segments in the scatter/gather list E<.Fa "
+"first> to append the physical address ranges from E<.Fa second>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:512
+msgid "The E<.Nm sglist_slice> function returns the following errors on failure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:518
+msgid ""
+"The E<.Fa original> scatter/gather list does not describe enough address "
+"space to cover the requested sub-range."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:522
+msgid "The caller-supplied scatter/gather list in E<.Fa *slice> is not empty."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sglist.9:522 /usr/src/share/man/man9/sglist.9:547
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:528 /usr/src/share/man/man9/sglist.9:553
+msgid ""
+"An attempt to allocate a new scatter/gather list with E<.Dv M_NOWAIT> set in "
+"E<.Fa mflags> failed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:533
+msgid ""
+"There are not enough available segments in the caller-supplied "
+"scatter/gather list in E<.Fa *slice> to describe the requested physical "
+"address ranges."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:538
+msgid "The E<.Nm sglist_split> function returns the following errors on failure:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sglist.9:539
+#, no-wrap
+msgid "Bq Er EDOOFUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:543
+msgid "The E<.Fa original> scatter/gather list has more than one reference."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:547
+msgid "The caller-supplied scatter/gather list in E<.Fa *head> is not empty."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:558
+msgid ""
+"There are not enough available segments in the caller-supplied "
+"scatter/gather list in E<.Fa *head> to describe the requested physical "
+"address ranges."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:559
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:564
+msgid "E<.Xr g_bio 9>, E<.Xr malloc 9>, E<.Xr mbuf 9>, E<.Xr uio 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sglist.9:564
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sglist.9:566
+msgid "This API was first introduced in E<.Fx 8.0>."
+msgstr ""

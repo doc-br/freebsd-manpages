@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_io.4:27
+#, no-wrap
+msgid "April 18, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_io.4:28
+#, no-wrap
+msgid "DTRACE_IO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:32
+msgid "E<.Nm dtrace_io>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_io.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing events related to disk I/O"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:36
+msgid ""
+"E<.Fn io:::start \"struct bio *\" \"struct devstat *\"> E<.Fn io:::done "
+"\"struct bio *\" \"struct devstat *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:59
+msgid ""
+"The E<.Nm io> provider allows the tracing of disk I/O events.  The E<.Fn "
+"io:::start> probe fires when a I/O request is about to be sent to the "
+"backing driver of a E<.Xr disk 9> object.  This occurs after all E<.Xr GEOM "
+"4> transformations have been performed on the request.  The E<.Fn io:::done> "
+"probe fires when a I/O request is completed.  Both probes take a E<.Vt "
+"\"struct bio *\"> representing the I/O request as their first argument.  The "
+"second argument is a E<.Vt \"struct devstat *\"> for the underlying E<.Xr "
+"disk 9> object."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:59
+#, no-wrap
+msgid "ARGUMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:75
+msgid ""
+"The fields of E<.Vt \"struct bio\"> are described in the E<.Xr g_bio 9> "
+"manual page, and the fields of E<.Vt \"struct devstat\"> are described in "
+"the E<.Xr devstat 9> manual page.  Translators for the E<.Vt bufinfo_t> and "
+"E<.Vt devinfo_t> D types are defined in E<.Pa /usr/lib/dtrace/io.d>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:75
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/dtrace_io.4:77
+#, no-wrap
+msgid "Pa /usr/lib/dtrace/io.d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:81
+msgid "DTrace type and translator definitions for the E<.Nm io> provider."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:82
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:84
+msgid ""
+"The following script shows a per-process breakdown of total I/O by disk "
+"device:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:86
+#, no-wrap
+msgid "#pragma D option quiet\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:91
+#, no-wrap
+msgid ""
+"io:::start\n"
+"{\n"
+"        @[args[1]-E<gt>device_name, execname, pid] = "
+"sum(args[0]-E<gt>bio_bcount);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:97
+#, no-wrap
+msgid ""
+"END\n"
+"{\n"
+"        printf(\"%10s %20s %10s %15s\\en\", \"DEVICE\", \"APP\", \"PID\", "
+"\"BYTES\");\n"
+"        printa(\"%10s %20s %10d %15@d\\en\", @);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:98
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:104
+msgid ""
+"This provider is not compatible with the E<.Nm io> provider found in "
+"Solaris, as its probes use native E<.Fx> argument types."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:104
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:108
+msgid "E<.Xr dtrace 1>, E<.Xr devstat 9>, E<.Xr SDT 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:108
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:114
+msgid "The E<.Nm io> provider first appeared in E<.Fx> 9.2 and 10.0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:114
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:117
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_io.4:117
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_io.4:123
+msgid ""
+"The E<.Fn io:::wait-start> and E<.Fn io:::wait-done> probes are not "
+"currently implemented on E<.Fx>."
+msgstr ""

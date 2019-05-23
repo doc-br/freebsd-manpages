@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/dtrace_lockstat.4:27
+#, no-wrap
+msgid "March 2, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/dtrace_lockstat.4:28
+#, no-wrap
+msgid "DTRACE_LOCKSTAT 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:32
+msgid "E<.Nm dtrace_lockstat>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/dtrace_lockstat.4:32
+#, no-wrap
+msgid "a DTrace provider for tracing CPU scheduling events"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:54
+msgid ""
+"E<.Fn lockstat:::adaptive-acquire \"struct mtx *\"> E<.Fn "
+"lockstat:::adaptive-release \"struct mtx *\"> E<.Fn lockstat:::adaptive-spin "
+"\"struct mtx *\" \"uint64_t\"> E<.Fn lockstat:::adaptive-block \"struct mtx "
+"*\" \"uint64_t\"> E<.Fn lockstat:::spin-acquire \"struct mtx *\"> E<.Fn "
+"lockstat:::spin-release \"struct mtx *\"> E<.Fn lockstat:::spin-spin "
+"\"struct mtx *\" \"uint64_t\"> E<.Fn lockstat:::rw-acquire \"struct rwlock "
+"*\" \"int\"> E<.Fn lockstat:::rw-release \"struct rwlock *\" \"int\"> E<.Fn "
+"lockstat:::rw-block \"struct rwlock *\" \"uint64_t\" \"int\" \"int\" "
+"\"int\"> E<.Fn lockstat:::rw-spin \"struct rwlock *\" \"uint64_t\"> E<.Fn "
+"lockstat:::rw-upgrade \"struct rwlock *\"> E<.Fn lockstat:::rw-downgrade "
+"\"struct rwlock *\"> E<.Fn lockstat:::sx-acquire \"struct sx *\" \"int\"> "
+"E<.Fn lockstat:::sx-release \"struct sx *\" \"int\"> E<.Fn "
+"lockstat:::sx-block \"struct sx *\" \"uint64_t\" \"int\" \"int\" \"int\"> "
+"E<.Fn lockstat:::sx-spin \"struct sx *\" \"uint64_t\"> E<.Fn "
+"lockstat:::sx-upgrade \"struct sx *\"> E<.Fn lockstat:::sx-downgrade "
+"\"struct sx *\"> E<.Fn lockstat:::thread-spin \"struct mtx *\" \"uint64\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:59
+msgid ""
+"The DTrace E<.Nm lockstat> provider allows the tracing of events related to "
+"locking on E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:82
+msgid ""
+"The E<.Nm> provider contains DTrace probes for inspecting kernel lock state "
+"transitions.  Probes exist for the E<.Xr mutex 9>, E<.Xr rwlock 9>, and "
+"E<.Xr sx 9> lock types.  The E<.Xr lockstat 1> utility can be used to "
+"collect and display data collected from the E<.Nm> provider.  Each type of "
+"lock has E<.Fn acquire> and E<.Fn release> probes which expose the lock "
+"structure being operated upon, as well as probes which fire when a thread "
+"contends with other threads for ownership of a lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:93
+msgid ""
+"The E<.Fn lockstat:::adaptive-acquire> and E<.Fn "
+"lockstat:::adaptive-release> probes fire when an E<.Dv MTX_DEF> E<.Xr mutex "
+"9> is acquired and released, respectively.  The only argument is a pointer "
+"to the lock structure which describes the lock being acquired or released."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:120
+msgid ""
+"The E<.Fn lockstat:::adaptive-spin> probe fires when a thread spins while "
+"waiting for a E<.Dv MTX_DEF> E<.Xr mutex 9> to be released by another "
+"thread.  The first argument is a pointer to the lock structure that "
+"describes the lock and the second argument is the amount of time, in "
+"nanoseconds, that the mutex spent spinning.  The E<.Fn "
+"lockstat:::adaptive-block> probe fires when a thread takes itself off the "
+"CPU while trying to acquire an E<.Dv MTX_DEF> E<.Xr mutex 9> that is owned "
+"by another thread.  The first argument is a pointer to the lock structure "
+"that describes the lock and the second argument is the length of time, in "
+"nanoseconds, that the waiting thread was blocked.  The E<.Fn "
+"lockstat:::adaptive-block> and E<.Fn lockstat:::adaptive-spin> probes fire "
+"only after the lock has been successfully acquired, and in particular, after "
+"the E<.Fn lockstat:::adaptive-acquire> probe fires."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:131
+msgid ""
+"The E<.Fn lockstat:::spin-acquire> and E<.Fn lockstat:::spin-release> probes "
+"fire when a E<.Dv MTX_SPIN> E<.Xr mutex 9> is acquired or released, "
+"respectively.  The only argument is a pointer to the lock structure which "
+"describes the lock being acquired or released."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:147
+msgid ""
+"The E<.Fn lockstat:::spin-spin> probe fires when a thread spins while "
+"waiting for a E<.Dv MTX_SPIN> E<.Xr mutex 9> to be released by another "
+"thread.  The first argument is a pointer to the lock structure that "
+"describes the lock and the second argument is the length of the time spent "
+"spinning, in nanoseconds.  The E<.Fn lockstat:::spin-spin> probe fires only "
+"after the lock has been successfully acquired, and in particular, after the "
+"E<.Fn lockstat:::spin-acquire> probe fires."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:162
+msgid ""
+"The E<.Fn lockstat:::rw-acquire> and E<.Fn lockstat:::rw-release> probes "
+"fire when a E<.Xr rwlock 9> is acquired or released, respectively.  The "
+"first argument is a pointer to the structure which describes the lock being "
+"acquired.  The second argument is E<.Dv 0> if the lock is being acquired or "
+"released as a writer, and E<.Dv 1> if it is being acquired or released as a "
+"reader."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:193
+msgid ""
+"The E<.Fn lockstat:::rw-block> probe fires when a thread removes itself from "
+"the CPU while waiting to acquire a E<.Xr rwlock 9>.  The E<.Fn "
+"lockstat:::rw-spin> probe fires when a thread spins while waiting to acquire "
+"a E<.Xr rwlock 9>.  Both probes take the same set of arguments.  The first "
+"argument is a pointer to the lock structure that describes the lock.  The "
+"second argument is the length of time, in nanoseconds, that the waiting "
+"thread was off the CPU or spinning for the lock.  The third argument is "
+"E<.Dv 0> if the thread is attempting to acquire the lock as a writer, and "
+"E<.Dv 1> if the thread is attempting to acquire the lock as a reader.  The "
+"fourth argument is E<.Dv 0> if the thread is waiting for a writer to release "
+"the lock, and E<.Dv 1> if the thread is waiting for a reader to release the "
+"lock.  The fifth argument is the number of readers that held the lock when "
+"the thread first attempted to acquire the lock.  This argument will be E<.Dv "
+"0> if the fourth argument is E<.Dv 0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:206
+msgid ""
+"The E<.Fn lockstat:::rw-upgrade> probe fires when a thread successfully "
+"upgrades a held E<.Xr rwlock 9> read lock to a write lock.  The E<.Fn "
+"lockstat:::rw-downgrade> probe fires when a thread downgrades a held E<.Xr "
+"rwlock 9> write lock to a read lock.  The only argument is a pointer to the "
+"structure which describes the lock being acquired."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:221
+msgid ""
+"The E<.Fn lockstat:::sx-acquire> and E<.Fn lockstat:::sx-release> probes "
+"fire when a E<.Xr sx 9> is acquired or released, respectively.  The first "
+"argument is a pointer to the structure which describes the lock being "
+"acquired.  The second argument is E<.Dv 0> if the shared lock is being "
+"acquired or released, and E<.Dv 1> if the exclusive lock is being acquired "
+"or released."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:252
+msgid ""
+"The E<.Fn lockstat:::sx-block> probe fires when a thread takes itself off "
+"the CPU while waiting to acquire a E<.Xr sx 9>.  The E<.Fn "
+"lockstat:::sx-spin> probe fires when a thread spins while waiting to acquire "
+"a E<.Xr sx 9>.  Both probes take the same set of arguments.  The first "
+"argument is a pointer to the lock structure that describes the lock.  The "
+"second argument is the length of time, in nanoseconds, that the waiting "
+"thread was off the CPU or spinning for the lock.  The third argument is "
+"E<.Dv 0> if the thread is attempting to acquire the lock as a writer, and "
+"E<.Dv 1> if the thread is attempting to acquire the lock as a reader.  The "
+"fourth argument is E<.Dv 0> if the thread is waiting for a writer to release "
+"the lock, and E<.Dv 1> if the thread is waiting for a reader to release the "
+"lock.  The fifth argument is the number of readers that held the lock when "
+"the thread first attempted to acquire the lock.  This argument will be E<.Dv "
+"0> if the fourth argument is E<.Dv 0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:265
+msgid ""
+"The E<.Fn lockstat:::sx-upgrade> probe fires when a thread successfully "
+"upgrades a held E<.Xr sx 9> shared lock to an exclusive lock.  The only "
+"argument is a pointer to the structure which describes the lock being "
+"acquired.  The E<.Fn lockstat:::sx-downgrade> probe fires when a thread "
+"downgrades a held E<.Xr sx 9> exclusive lock to a shared lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:274
+msgid ""
+"The E<.Fn lockstat:::thread-spin> probe fires when a thread spins on a "
+"thread lock, which is a specialized E<.Dv MTX_SPIN> E<.Xr mutex 9>.  The "
+"first argument is a pointer to the structure that describes the lock and the "
+"second argument is the length of time, in nanoseconds, that the thread was "
+"spinning."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:274
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:282
+msgid ""
+"E<.Xr dtrace 1>, E<.Xr lockstat 1>, E<.Xr locking 9>, E<.Xr mutex 9>, E<.Xr "
+"rwlock 9>, E<.Xr SDT 9>, E<.Xr sx 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:282
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:292
+msgid ""
+"The E<.Nm> provider first appeared in Solaris.  The E<.Fx> implementation of "
+"the E<.Nm> provider first appeared in E<.Fx 9>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:292
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:295
+msgid ""
+"This manual page was written by E<.An George V. Neville-Neil Aq Mt "
+"gnn@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/dtrace_lockstat.4:295
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/dtrace_lockstat.4:300
+msgid ""
+"Probes for E<.Xr lockmgr 9> and E<.Xr rmlock 9> locks have not yet been "
+"added."
+msgstr ""

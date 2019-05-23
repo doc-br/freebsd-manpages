@@ -1,0 +1,453 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.bin/mkimg/mkimg.1:27
+#, no-wrap
+msgid "April 26, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.bin/mkimg/mkimg.1:28
+#, no-wrap
+msgid "MKIMG 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:32
+msgid "E<.Nm mkimg>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.bin/mkimg/mkimg.1:32
+#, no-wrap
+msgid "utility to make disk images"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:51
+msgid ""
+"E<.Nm> E<.Op Fl H Ar heads> E<.Op Fl P Ar blksz> E<.Op Fl S Ar secsz> E<.Op "
+"Fl T Ar tracksz> E<.Op Fl b Ar bootcode> E<.Op Fl c Ar min_capacity> E<.Op "
+"Fl C Ar max_capacity> E<.Op Fl -capacity Ar capacity> E<.Op Fl f Ar format> "
+"E<.Op Fl o Ar outfile> E<.Op Fl a Ar active> E<.Op Fl v> E<.Op Fl y> E<.Op "
+"Fl s Ar scheme Op Fl p Ar partition ...> E<.Nm> E<.Ar --formats | --schemes "
+"| --version>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:51
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:69
+msgid ""
+"The E<.Nm> utility creates a disk image from the raw partition contents "
+"specified with the E<.Ar partition> argument(s) and using the partitioning "
+"scheme specified with the E<.Ar scheme> argument.  The disk image is written "
+"to E<.Ar stdout> by default or the file specified with the E<.Ar outfile> "
+"argument.  The image file is a raw disk image by default, but the format of "
+"the image file can be specified with the E<.Ar format> argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:80
+msgid ""
+"The disk image can be made bootable by specifying the scheme-specific boot "
+"block contents with the E<.Ar bootcode> argument and, depending on the "
+"scheme, with a boot partition.  The contents of such a boot partition is "
+"provided like any other partition and the E<.Nm> utility does not treat it "
+"any differently from other partitions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:89
+msgid ""
+"Some partitioning schemes need a disk geometry and for those the E<.Nm> "
+"utility accepts the E<.Ar tracksz> and E<.Ar heads> arguments, specifying "
+"the number of sectors per track and the number of heads per cylinder (resp.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:112
+msgid ""
+"Both the logical and physical sector size can be specified and for that the "
+"E<.Nm> utility accepts the E<.Ar secsz> and E<.Ar blksz> arguments.  The "
+"E<.Ar secsz> argument is used to specify the logical sector size.  This is "
+"the sector size reported by a disk when queried for its capacity.  Modern "
+"disks use a larger sector size internally, referred to as block size by the "
+"E<.Nm> utility and this can be specified by the E<.Ar blksz> argument.  The "
+"E<.Nm> utility will use the (physical) block size to determine the start of "
+"partitions and to round the size of the disk image."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:128
+msgid ""
+"The E<.Fl c> option can be used to specify a minimal capacity for the disk "
+"image.  Use this option without the E<.Fl s> and E<.Fl p> options to create "
+"an empty disk image with the given (virtual) size.  An empty partition table "
+"can be written to the disk when specifying a partitioning scheme with the "
+"E<.Fl s> option, but without specifying any partitions.  When the size "
+"required for all the partitions is larger than the given capacity, then the "
+"disk image will be larger than the capacity given."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:135
+msgid ""
+"The E<.Fl C> option specifies a maximum capacity for the disk image.  If the "
+"combined sizes of the given partitions exceed the size given with E<.Fl C>, "
+"image creation fails."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:140
+msgid ""
+"The E<.Fl -capacity> option is a shorthand to specify the minimum and "
+"maximum capacity at the same time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:146
+msgid ""
+"The E<.Fl v> option increases the level of output that the E<.Nm> utility "
+"prints."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:156
+msgid ""
+"The E<.Fl y> option is used for testing purposes only and is not to be used "
+"in production.  When present, the E<.Nm> utility will generate predictable "
+"values for Universally Unique Identifiers (UUIDs) and time stamps so that "
+"consecutive runs of the E<.Nm> utility will create images that are "
+"identical."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:176
+msgid ""
+"The E<.Ar active> option marks a partition as active, if the partitioning "
+"scheme supports it.  Currently, only the E<.Ar mbr> scheme supports this "
+"concept.  By default, E<.Nm> will only mark the first partition as active "
+"when boot code is specified.  Use the E<.Ar active> option to override the "
+"active partition.  The number specified corresponds to the number after the "
+"'s' in the partition's E<.Xr geom 8> name.  No partitions are marked active "
+"when the value is 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:196
+msgid ""
+"A set of long options exist to query about the E<.Nm> utility itself.  "
+"Options in this set should be given by themselves because the E<.Nm> utility "
+"exits immediately after providing the requested information.  The version of "
+"the E<.Nm> utility is printed when the E<.Ar --version> option is given.  "
+"The list of supported output formats is printed when the E<.Ar --formats> "
+"option is given and the list of supported partitioning schemes is printed "
+"when the E<.Ar --schemes> option is given.  Both the format and scheme lists "
+"a space-separated lists for easy handling in scripts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:203
+msgid ""
+"For a more descriptive list of supported partitioning schemes or supported "
+"output format, or for a detailed description of how to specify partitions, "
+"run the E<.Nm> utility without any arguments.  This will print a usage "
+"message with all the necessary details."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:203
+#, no-wrap
+msgid "DISK FORMATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:208
+msgid ""
+"The E<.Nm> utility supports a number of output file formats.  A short "
+"description of these is given below."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.bin/mkimg/mkimg.1:208
+#, no-wrap
+msgid "QCOW and QCOW2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:224
+msgid ""
+"QCOW stands for \"QEMU Copy On Write\".  It's a sparse file format akin to "
+"VHD and VMDK and QCOW represents the first version.  QCOW2 represents "
+"version 2 of the file format.  Version 2 is not backward compatible with "
+"version 1 and adds support for snapshots among other things.  The QCOW file "
+"formats are natively supported by QEMU and Xen.  To write QCOW, specify "
+"E<.Fl f Ar qcow> on the command line.  To write version 2 QCOW, specify "
+"E<.Fl f Ar qcow2> on the command line.  The preferred file extension is "
+"\".qcow\" and \".qcow2\" for QCOW and QCOW2 (resp.), but \".qcow\" is "
+"sometimes used for version 2 files as well."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.bin/mkimg/mkimg.1:224
+#, no-wrap
+msgid "RAW file format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:238
+msgid ""
+"This file format is a sector by sector representation of an actual disk.  "
+"There is no extra information that describes or relates to the format "
+"itself. The size of the file is the size of the (virtual) disk.  This file "
+"format is suitable for being copyied onto a disk with utilities like E<.Nm "
+"dd>.  To write a raw disk file, either omit the E<.Fl f> option, or specify "
+"E<.Fl f Ar raw> on the command line.  The preferred file extension is one of "
+"\".img\" or \".raw\", but there's no real convention for it."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.bin/mkimg/mkimg.1:238
+#, no-wrap
+msgid "Dynamic VHD and Fixed VHD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:260
+msgid ""
+"Microsoft's \"Virtual Hard Disk\" file formats.  The dynamic format is a "
+"sparse format akin to QCOW and VMDK.  The fixed format is effectively a raw "
+"format with a footer appended to the file and as such it's often "
+"indistinguishable from the raw format.  The fixed file format has been added "
+"to support Microsoft's Azure platform and due to inconsistencies in "
+"interpretation of the footer is not compatible with utilities like E<.Nm "
+"qemu> when it is specifically instructed to interpreted the file as a VHD "
+"file.  By default E<.Nm qemu> will treat the file as a raw disk file, which "
+"mostly works fine.  To have E<.Nm> create a dynamic VHD file, specify E<.Fl "
+"f Ar vhd> on the command line.  To create a fixed VHD file for use by Azure, "
+"specify E<.Fl f Ar vhdf> on the command line.  The preferred file extension "
+"is \".vhd\"."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.bin/mkimg/mkimg.1:260
+#, no-wrap
+msgid "VMDK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:268
+msgid ""
+"VMware's \"Virtual Machine Disk\" file format.  It's a sparse file format "
+"akin to QCOW and VHD and supported by many virtualization solutions.  To "
+"create a VMDK file, specify E<.Fl f Ar vmdk> on the command line.  The "
+"preferred file extension is \".vmdk\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:282
+msgid ""
+"Not all virtualization solutions support all file formats, but often those "
+"virtualization environments have utilities to convert from one format to "
+"another.  Note however that conversion may require that the virtual disk "
+"size is changed to match the constraints of the output format and this may "
+"invalidate the contents of the disk image.  For example, the GUID Partition "
+"Table (GPT) scheme has a header in the last sector on the disk.  When "
+"changing the disk size, the GPT must be changed so that the last header is "
+"moved accordingly.  This is typically not part of the conversion process.  "
+"If possible, use an output format specifically for the environment in which "
+"the file is intended to be used."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:282
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkimg/mkimg.1:284
+#, no-wrap
+msgid "Ev TMPDIR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:287
+msgid "Directory to put temporary files in; default is E<.Pa /tmp>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:288
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:295
+msgid ""
+"To create a bootable disk image that is partitioned using the GPT scheme and "
+"containing a root file system that was previously created using E<.Xr makefs "
+"8> and also containing a swap partition, run the E<.Nm> utility as follows:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.bin/mkimg/mkimg.1:295
+#, no-wrap
+msgid ""
+"% mkimg -s gpt -b /boot/pmbr -p freebsd-boot:=/boot/gptboot -p "
+"freebsd-ufs:=root-file-system.ufs -p freebsd-swap::1G -o gpt.img"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:306
+msgid ""
+"The command line given above results in a raw image file.  This is because "
+"no output format was given.  To create a VMDK image for example, add the "
+"E<.Fl f Ar vmdk> argument to the E<.Nm> utility and name the output file "
+"accordingly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:313
+msgid ""
+"A nested partitioning scheme is created by running the E<.Nm> utility "
+"twice.  The output of the first will be fed as the contents of a partition "
+"to the second.  This can be done using a temporary file, like so:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.bin/mkimg/mkimg.1:313
+#, no-wrap
+msgid ""
+"% mkimg -s bsd -b /boot/boot -p freebsd-ufs:=root-file-system.ufs -p "
+"freebsd-swap::1G -o /tmp/bsd.img"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.bin/mkimg/mkimg.1:315
+#, no-wrap
+msgid "% mkimg -s mbr -b /boot/mbr -p freebsd:=/tmp/bsd.img -o mbr-bsd.img"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:324
+msgid ""
+"Alternatively, the E<.Nm> utility can be run in a cascaded fashion, whereby "
+"the output of the first is fed directly into the second.  To do this, run "
+"the E<.Nm> utility as follows:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.bin/mkimg/mkimg.1:324
+#, no-wrap
+msgid ""
+"% mkimg -s mbr -b /boot/mbr -p freebsd:-'mkimg -s bsd -b /boot/boot -p "
+"freebsd-ufs:=root-file-system.ufs -p freebsd-swap::1G' -o mbr-bsd.img"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:342
+msgid ""
+"To accommodate the need to have partitions named or numbered in a certain "
+"way, the E<.Nm> utility allows for the specification of empty partitions.  "
+"For example, to create an image that is compatible with partition layouts "
+"found in E<.Pa /etc/disktab>, the 'd' partition often needs to be skipped.  "
+"This is accomplished by inserting an unused partition after the first 2 "
+"partition specifications.  It is worth noting at this time that the BSD "
+"scheme will automatically skip the 'c' partition by virtue of it referring "
+"to the entire disk.  To create an image that is compatible with the qp120at "
+"disk, use the E<.Nm> utility as follows:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.bin/mkimg/mkimg.1:342
+#, no-wrap
+msgid ""
+"% mkimg -s bsd -b /boot/boot -p freebsd-ufs:=root-file-system.ufs -p "
+"freebsd-swap::20M -p- -p- -p- -p- -p freebsd-ufs:=usr-file-system.ufs -o "
+"bsd.img"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:350
+msgid ""
+"For partitioning schemes that feature partition labels, the E<.Nm> utility "
+"supports assigning labels to the partitions specified.  In the following "
+"example the file system partition is labeled as 'backup':"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.bin/mkimg/mkimg.1:350
+#, no-wrap
+msgid "% mkimg -s gpt -p freebsd-ufs/backup:=file-system.ufs -o gpt.img"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:351
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:357
+msgid ""
+"E<.Xr dd 1>, E<.Xr gpart 8>, E<.Xr makefs 8>, E<.Xr mdconfig 8>, E<.Xr newfs "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:357
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:362
+msgid "The E<.Nm> utility first appeared in E<.Fx 10.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkimg/mkimg.1:362
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkimg/mkimg.1:366
+msgid ""
+"The E<.Nm> utility and manpage were written by E<.An Marcel Moolenaar Aq Mt "
+"marcel@FreeBSD.org>."
+msgstr ""

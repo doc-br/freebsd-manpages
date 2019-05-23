@@ -1,0 +1,444 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/tun.4:5
+#, no-wrap
+msgid "April 29, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/tun.4:6
+#, no-wrap
+msgid "TUN 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tun.4:8
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:10
+msgid "E<.Nm tun>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/tun.4:10
+#, no-wrap
+msgid "tunnel software network interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tun.4:11
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:13
+msgid "E<.Cd device tuntap>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tun.4:13
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:24
+msgid ""
+"The E<.Nm> interface is a software loopback mechanism that can be loosely "
+"described as the network interface analog of the E<.Xr pty 4>, that is, "
+"E<.Nm> does for network interfaces what the E<.Xr pty 4> driver does for "
+"terminals."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:49
+msgid ""
+"The E<.Nm> driver, like the E<.Xr pty 4> driver, provides two interfaces: an "
+"interface like the usual facility it is simulating (a network interface in "
+"the case of E<.Nm>, or a terminal for E<.Xr pty 4>), and a character-special "
+"device E<.Dq control> interface.  A client program transfers IP (by default) "
+"packets to or from the E<.Nm> E<.Dq control> interface.  The E<.Xr tap 4> "
+"interface provides similar functionality at the Ethernet layer: a client "
+"will transfer Ethernet frames to or from a E<.Xr tap 4> E<.Dq control> "
+"interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:59
+msgid ""
+"The network interfaces are named E<.Dq Li tun0>, E<.Dq Li tun1>, etc., one "
+"for each control device that has been opened.  These network interfaces "
+"persist until the E<.Pa if_tuntap.ko> module is unloaded, or until removed "
+"with the E<.Xr ifconfig 8> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:72
+msgid ""
+"E<.Nm> devices are created using interface cloning.  This is done using the "
+"E<.Dq ifconfig tun Ns Sy N No create> command.  This is the preferred method "
+"of creating E<.Nm> devices.  The same method allows removal of interfaces.  "
+"For this, use the E<.Dq ifconfig tun Ns Sy N No destroy> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:89
+msgid ""
+"If the E<.Xr sysctl 8> variable E<.Va net.link.tun.devfs_cloning> is "
+"non-zero, the E<.Nm> interface permits opens on the special control device "
+"E<.Pa /dev/tun>.  When this device is opened, E<.Nm> will return a handle "
+"for the lowest unused E<.Nm> device (use E<.Xr devname 3> to determine "
+"which)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:100
+msgid ""
+"E<.Bf Em> Disabling the legacy devfs cloning functionality may break "
+"existing applications which use E<.Nm>, such as E<.Xr ppp 8> and E<.Xr ssh "
+"1>.  It therefore defaults to being enabled until further notice.  E<.Ef>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:104
+msgid ""
+"Control devices (once successfully opened) persist until E<.Pa if_tuntap.ko> "
+"is unloaded in the same way that network interfaces persist (see above)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:124
+msgid ""
+"Each interface supports the usual network-interface E<.Xr ioctl 2 Ns s>, "
+"such as E<.Dv SIOCAIFADDR> and thus can be used with E<.Xr ifconfig 8> like "
+"any other interface.  At boot time, they are E<.Dv POINTOPOINT> interfaces, "
+"but this can be changed; see the description of the control device, below.  "
+"When the system chooses to transmit a packet on the network interface, the "
+"packet can be read from the control device (it appears as E<.Dq input> "
+"there); writing a packet to the control device generates an input packet on "
+"the network interface, as if the (non-existent)  hardware had just received "
+"it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:137
+msgid ""
+"The tunnel device E<.Pq Pa /dev/tun Ns Ar N> is exclusive-open (it cannot be "
+"opened if it is already open).  A E<.Xr read 2> call will return an error "
+"E<.Pq Er EHOSTDOWN> if the interface is not E<.Dq ready> (which means that "
+"the control device is open and the interface's address has been set)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:147
+msgid ""
+"Once the interface is ready, E<.Xr read 2> will return a packet if one is "
+"available; if not, it will either block until one is or return E<.Er "
+"EWOULDBLOCK>, depending on whether non-blocking I/O has been enabled.  If "
+"the packet is longer than is allowed for in the buffer passed to E<.Xr read "
+"2>, the extra data will be silently dropped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:168
+msgid ""
+"If the E<.Dv TUNSLMODE> ioctl has been set, packets read from the control "
+"device will be prepended with the destination address as presented to the "
+"network interface output routine, E<.Fn tunoutput>.  The destination address "
+"is in E<.Vt struct sockaddr> format.  The actual length of the prepended "
+"address is in the member E<.Va sa_len>.  If the E<.Dv TUNSIFHEAD> ioctl has "
+"been set, packets will be prepended with a four byte address family in "
+"network byte order.  E<.Dv TUNSLMODE> and E<.Dv TUNSIFHEAD> are mutually "
+"exclusive.  In any case, the packet data follows immediately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:191
+msgid ""
+"A E<.Xr write 2> call passes a packet in to be E<.Dq received> on the "
+"pseudo-interface.  If the E<.Dv TUNSIFHEAD> ioctl has been set, the address "
+"family must be prepended, otherwise the packet is assumed to be of type "
+"E<.Dv AF_INET>.  Each E<.Xr write 2> call supplies exactly one packet; the "
+"packet length is taken from the amount of data provided to E<.Xr write 2> "
+"(minus any supplied address family).  Writes will not block; if the packet "
+"cannot be accepted for a transient reason (e.g., no buffer space available), "
+"it is silently dropped; if the reason is not transient (e.g., packet too "
+"large), an error is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:196
+msgid "The following E<.Xr ioctl 2> calls are supported (defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tun.4:196
+#, no-wrap
+msgid "net/if_tun.h ) :"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:198
+#, no-wrap
+msgid "Dv TUNSDEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:204
+msgid ""
+"The argument should be a pointer to an E<.Vt int>; this sets the internal "
+"debugging variable to that value.  What, if anything, this variable controls "
+"is not documented here; see the source code."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:204
+#, no-wrap
+msgid "Dv TUNGDEBUG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:208
+msgid ""
+"The argument should be a pointer to an E<.Vt int>; this stores the internal "
+"debugging variable's value into it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:208
+#, no-wrap
+msgid "Dv TUNSIFINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:223
+msgid ""
+"The argument should be a pointer to an E<.Vt struct tuninfo> and allows "
+"setting the MTU and the baudrate of the tunnel device.  The type must be the "
+"same as returned by E<.Dv TUNGIFINFO> or set to E<.Dv IFT_PPP> else the "
+"E<.Xr ioctl 2> call will fail.  The E<.Vt struct tuninfo> is declared in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tun.4:223
+#, no-wrap
+msgid "net/if_tun.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:226
+msgid "The use of this ioctl is restricted to the super-user."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:226
+#, no-wrap
+msgid "Dv TUNGIFINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:230
+msgid ""
+"The argument should be a pointer to an E<.Vt struct tuninfo>, where the "
+"current MTU, type, and baudrate will be stored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:230
+#, no-wrap
+msgid "Dv TUNSIFMODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:249
+msgid ""
+"The argument should be a pointer to an E<.Vt int>; its value must be either "
+"E<.Dv IFF_POINTOPOINT> or E<.Dv IFF_BROADCAST> and should have E<.Dv "
+"IFF_MULTICAST> OR'd into the value if multicast support is required.  The "
+"type of the corresponding E<.Dq Li tun Ns Ar N> interface is set to the "
+"supplied type.  If the value is outside the above range, an E<.Er EINVAL> "
+"error is returned.  The interface must be down at the time; if it is up, an "
+"E<.Er EBUSY> error is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:249
+#, no-wrap
+msgid "Dv TUNSLMODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:258
+msgid ""
+"The argument should be a pointer to an E<.Vt int>; a non-zero value turns "
+"off E<.Dq multi-af> mode and turns on E<.Dq link-layer> mode, causing "
+"packets read from the tunnel device to be prepended with the network "
+"destination address (see above)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:258
+#, no-wrap
+msgid "Dv TUNSIFPID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:260
+msgid "Will set the pid owning the tunnel device to the current process's pid."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:260
+#, no-wrap
+msgid "Dv TUNSIFHEAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:268
+msgid ""
+"The argument should be a pointer to an E<.Vt int>; a non-zero value turns "
+"off E<.Dq link-layer> mode, and enables E<.Dq multi-af> mode, where every "
+"packet is preceded with a four byte address family."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:268
+#, no-wrap
+msgid "Dv TUNGIFHEAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:274
+msgid ""
+"The argument should be a pointer to an E<.Vt int>; the ioctl sets the value "
+"to one if the device is in E<.Dq multi-af> mode, and zero otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:274
+#, no-wrap
+msgid "Dv FIONBIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:279
+msgid ""
+"Turn non-blocking I/O for reads off or on, according as the argument E<.Vt "
+"int Ns 's> value is or is not zero.  (Writes are always non-blocking.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:279
+#, no-wrap
+msgid "Dv FIOASYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:287
+msgid ""
+"Turn asynchronous I/O for reads (i.e., generation of E<.Dv SIGIO> when data "
+"is available to be read)  off or on, according as the argument E<.Vt int Ns "
+"'s> value is or is not zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:287
+#, no-wrap
+msgid "Dv FIONREAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:292
+msgid ""
+"If any packets are queued to be read, store the size of the first one into "
+"the argument E<.Vt int>; otherwise, store zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:292
+#, no-wrap
+msgid "Dv TIOCSPGRP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:298
+msgid ""
+"Set the process group to receive E<.Dv SIGIO> signals, when asynchronous I/O "
+"is enabled, to the argument E<.Vt int> value."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tun.4:298
+#, no-wrap
+msgid "Dv TIOCGPGRP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:304
+msgid ""
+"Retrieve the process group value for E<.Dv SIGIO> signals into the argument "
+"E<.Vt int> value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:310
+msgid ""
+"The control device also supports E<.Xr select 2> for read; selecting for "
+"write is pointless, and always succeeds, since writes are always "
+"non-blocking."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:319
+msgid ""
+"On the last close of the data device, by default, the interface is brought "
+"down (as if with E<.Nm ifconfig Ar tunN Cm down>).  All queued packets are "
+"thrown away.  If the interface is up when the data device is not open output "
+"packets are always thrown away rather than letting them pile up."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tun.4:319
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:330
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr read 2>, E<.Xr select 2>, E<.Xr write 2>, E<.Xr "
+"devname 3>, E<.Xr inet 4>, E<.Xr intro 4>, E<.Xr pty 4>, E<.Xr tap 4>, E<.Xr "
+"ifconfig 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tun.4:330
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tun.4:332
+msgid "This manual page was originally obtained from E<.Nx>."
+msgstr ""

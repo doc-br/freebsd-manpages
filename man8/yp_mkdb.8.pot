@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:33
+#, no-wrap
+msgid "March 12, 1996"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:34
+#, no-wrap
+msgid "YP_MKDB 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:38
+msgid "E<.Nm yp_mkdb>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:38
+#, no-wrap
+msgid "generate the NIS databases"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:55
+msgid ""
+"E<.Nm> E<.Fl c> E<.Nm> E<.Fl u Ar dbname> E<.Nm> E<.Op Fl c> E<.Op Fl b> "
+"E<.Op Fl s> E<.Op Fl f> E<.Op Fl i Ar inputfile> E<.Op Fl o Ar outputfile> "
+"E<.Op Fl d Ar domainname> E<.Op Fl m Ar mastername> E<.Ar inputfile> E<.Ar "
+"dbname>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:55
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:96
+msgid ""
+"The E<.Nm> utility creates E<.Xr db 3> style databases for use with E<.Fx Ns "
+"'s> NIS server.  The E<.Nm> utility reads data from E<.Ar inputfile>, and "
+"writes it to E<.Ar dbname> in E<.Xr db 3> format (using the hash table "
+"method).  The input should be in 'key data' format, which is to say two "
+"fields of E<.Tn ASCII> data separated by white space.  The first field is "
+"assumed to be the key, and everything else is assumed to be the data.  These "
+"databases are typically stored in E<.Pa /var/yp/[domainname]> where E<.Ar "
+"domainname> is the name of the NIS domain being served.  The E<.Nm> utility "
+"is usually invoked by E<.Pa /var/yp/Makefile>.  The E<.Nm> utility can also "
+"be used to dump an NIS database file so that its contents can be examined.  "
+"For security reasons, all databases that E<.Nm> creates are readable and "
+"writable by owner only (and usually the owner is root)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:98
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:99
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:114
+msgid ""
+"Cause E<.Nm> to send a YPPROC_CLEAR request to E<.Xr ypserv 8> on the local "
+"host.  This signal tells the server to close any open database descriptors "
+"and flush out its database cache.  If used alone, this flag signals the "
+"server and does nothing else.  If used as part of a database creation "
+"command, E<.Nm> will send the signal only after the new database has been "
+"successfully created."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:114
+#, no-wrap
+msgid "Fl b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:137
+msgid ""
+"Cause E<.Nm> to add a special entry to the database with a key of E<.Em "
+"YP_INTERDOMAIN> and an empty data field.  If this key is present in a map, "
+"it alters the behavior of the 'match' procedure in E<.Xr ypserv 8> "
+"slightly.  If a match query fails (because the server could not find a "
+"record that matched the supplied key), and the E<.Em YP_INTERDOMAIN> key "
+"exists within the queried map, E<.Xr ypserv 8> will try to match the entry "
+"again using a DNS lookup.  Note that this special behavior only applies to "
+"the E<.Em hosts> maps.  Using the E<.Fl b> flag for other maps has no "
+"effect."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:137
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:148
+msgid ""
+"This flag is used to add a special entry to the database with a key of E<.Em "
+"YP_SECURE> and an empty data field.  If this key is present in a map, E<.Xr "
+"ypserv 8> will deny access to the map to any client that is not using a "
+"reserved port for its query.  This is used mainly for the E<.Em "
+"master.passwd> maps, which should be restricted to privileged access only."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:148
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:166
+msgid ""
+"This flag is used to turn on filtering of lines in the source file input "
+"that start with ``+'' or ``-'' characters.  These characters have special "
+"meaning for the E<.Pa group>, E<.Pa passwd> and E<.Pa master.passwd> maps "
+"and hence should not be allowed to appear in them as the first character of "
+"a key or datum.  If the E<.Fl f> flag is used, E<.Nm> will reject any source "
+"line that starts with a ``+'' or ``-'' character and issue a warning message "
+"displaying the line that was dropped."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:166
+#, no-wrap
+msgid "Fl u Ar dbname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:170
+msgid ""
+"Dump (or 'unwind') an NIS database.  This option can be used to inspect the "
+"contents of an existing NIS database."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:170
+#, no-wrap
+msgid "Fl i Ar inputfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:175
+msgid ""
+"When generating an NIS map, encode E<.Ar inputfile> as a special entry in "
+"the database with a key of E<.Em YP_INPUT_FILE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:175
+#, no-wrap
+msgid "Fl o Ar outputfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:180
+msgid ""
+"When generating an NIS map, encode E<.Ar outputfile> as a special entry in "
+"the database with a key of E<.Em YP_OUTPUT_FILE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:180
+#, no-wrap
+msgid "Fl d Ar domainname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:185
+msgid ""
+"When generating an NIS map, encode E<.Ar domainname> as a special entry in "
+"the database with a key of E<.Em YP_DOMAIN_NAME>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:185
+#, no-wrap
+msgid "Fl m Ar mastername"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:197
+msgid ""
+"When generating an NIS map, encode E<.Ar mastername> as a special entry in "
+"the database with a key of E<.Em YP_MASTER_NAME>.  This entry in the "
+"database is frequently used by various NIS utilities to determine the name "
+"of an NIS master server for a domain.  By default, E<.Nm> assumes that the "
+"local host is the NIS master; the E<.Fl m> option is used to override this "
+"default."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:198
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:200
+#, no-wrap
+msgid "Pa /var/yp/Makefile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:204
+msgid "the Makefile that calls E<.Nm> to build the NIS databases"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:205
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:208
+msgid "E<.Xr db 3>, E<.Xr ypserv 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:208
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/yp_mkdb/yp_mkdb.8:209
+msgid "E<.An Bill Paul Aq Mt wpaul@ctr.columbia.edu>"
+msgstr ""

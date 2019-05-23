@@ -1,0 +1,345 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/PCBGROUP.9:29
+#, no-wrap
+msgid "July 23, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/PCBGROUP.9:30
+#, no-wrap
+msgid "PCBGROUP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:34
+msgid "E<.Nm PCBGROUP>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/PCBGROUP.9:34
+#, no-wrap
+msgid "Distributed Protocol Control Block Groups"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:37
+msgid "E<.Cd \"options PCBGROUP\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCBGROUP.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCBGROUP.9:39
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCBGROUP.9:40
+#, no-wrap
+msgid "netinet/in_pcb.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:61
+msgid ""
+"E<.Ft void> E<.Fo in_pcbgroup_init> E<.Fa \"struct inpcbinfo *pcbinfo\" "
+"\"u_int hashfields\" \"int hash_nelements\"> E<.Fc> E<.Ft void> E<.Fn "
+"in_pcbgroup_destroy \"struct inpcbinfo *pcbinfo\"> E<.Ft struct inpcbgroup "
+"*> E<.Fo in_pcbgroup_byhash> E<.Fa \"struct inpcbinfo *pcbinfo\" \"u_int "
+"hashtype\" \"uint32_t hash\"> E<.Fc> E<.Ft struct inpcbgroup *> E<.Fn "
+"in_pcbgroup_byinpcb \"struct inpcb *inp\"> E<.Ft void> E<.Fn "
+"in_pcbgroup_update \"struct inpcb *inp\"> E<.Ft void> E<.Fn "
+"in_pcbgroup_update_mbuf \"struct inpcb *inp\" \"struct mbuf *m\"> E<.Ft "
+"void> E<.Fn in_pcbgroup_remove \"struct inpcb *inp\"> E<.Ft int> E<.Fn "
+"in_pcbgroup_enabled \"struct inpcbinfo *pcbinfo\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/PCBGROUP.9:61
+#, no-wrap
+msgid "netinet6/in6_pcb.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:66
+msgid ""
+"E<.Ft struct inpcbgroup *> E<.Fo in6_pcbgroup_byhash> E<.Fa \"struct "
+"inpcbinfo *pcbinfo\" \"u_int hashtype\" \"uint32_t hash\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:66
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:75
+msgid ""
+"This implementation introduces notions of affinity for connections and "
+"distribute work so as to reduce lock contention, with hardware work "
+"distribution strategies such as RSS.  In this construction, connection "
+"groups supplement, rather than replace, existing reservation tables for "
+"protocol 4-tuples, offering CPU-affine lookup tables with minimal cache line "
+"migration and lock contention during steady state operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:89
+msgid ""
+"Internet protocols like UDP and TCP register to use connection groups by "
+"providing an ipi_hashfields value other than IPI_HASHFIELDS_NONE.  This "
+"indicates to the connection group code whether a 2-tuple or 4-tuple is used "
+"as an argument to hashes that assign a connection to a particular group.  "
+"This must be aligned with any hardware-offloaded distribution model, such as "
+"RSS or similar approaches taken in embedded network boards.  Wildcard "
+"sockets require special handling, as in Willmann 2006, and are shared "
+"between connection groups while being protected by group-local locks.  "
+"Connection establishment and teardown can be signficantly more expensive "
+"than without connection groups, but that steady-state processing can be "
+"significantly faster."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:94
+msgid ""
+"Enabling PCBGROUP in the kernel only provides the infrastructure required to "
+"create and manage multiple PCB groups.  An implementation needs to fill in a "
+"few functions to provide PCB group hash information in order for PCBs to be "
+"placed in a PCB group."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/PCBGROUP.9:94
+#, no-wrap
+msgid "Operation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:124
+msgid ""
+"By default, each PCB info block (struct pcbinfo) has a single hash for all "
+"PCB entries for the given protocol with a single lock protecting it.  This "
+"can be a significant source of lock contention on SMP hardware.  When a "
+"PCBGROUP is created, an array of separate hash tables are created, each with "
+"its own lock.  A separate table for wildcard PCBs is provided.  By default, "
+"a PCBGROUP table is created for each available CPU.  The PCBGROUP code "
+"attempts to calculate a hash value from the given PCB or mbuf when looking "
+"up a PCBGROUP.  While processing a received frame, E<.Fn in_pcbgroup_byhash> "
+"can be used in conjunction with either a hardware-provided hash value E<.Po> "
+"eg the E<.Xr RSS 9> calculated hash value provided by some NICs E<.Pc> or a "
+"software-provided hash value in order to choose a PCBGROUP table to query.  "
+"A single table lock is held while performing a wildcard match.  However, all "
+"of the table locks are acquired before modifying the wildcard table.  The "
+"PCBGROUP tables operate in conjunction with the normal single PCB list in a "
+"PCB info block.  Thus, inserting and removing a PCB will still incur the "
+"same costs as without PCBGROUP.  A protocol which uses PCBGROUP should fall "
+"back to the normal PCB list lookup if a call to the PCBGROUP layer does not "
+"yield a lookup hit."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/PCBGROUP.9:124
+#, no-wrap
+msgid "Usage"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:129
+msgid ""
+"Initialize a PCBGROUP in a PCB info block E<.Pq Vt \"struct pcbinfo\"> by "
+"calling E<.Fn in_pcbgroup_init>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:136
+msgid ""
+"Add a connection to a PCBGROUP with E<.Fn in_pcbgroup_update>.  Connections "
+"are removed by with E<.Fn in_pcbgroup_remove>.  These in turn will determine "
+"which PCBGROUP bucket the given PCB is placed into and calculate the hash "
+"value appropriately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:148
+msgid ""
+"Wildcard PCBs are hashed differently and placed in a single wildcard PCB "
+"list.  If E<.Xr RSS 9> is enabled and in use, RSS-aware wildcard PCBs are "
+"placed in a single PCBGROUP based on RSS information.  Protocols may look up "
+"the PCB entry in a PCBGROUP by using the lookup functions E<.Fn "
+"in_pcbgroup_byhash> and E<.Fn in_pcbgroup_byinpcb>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:148
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:156
+msgid ""
+"The PCB code in E<.Pa sys/netinet> and E<.Pa sys/netinet6> is aware of "
+"PCBGROUP and will call into the PCBGROUP code to do PCBGROUP assignment and "
+"lookup, preferring a PCBGROUP lookup to the default global PCB info table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:159
+msgid ""
+"An implementor wishing to experiment or modify the PCBGROUP assignment "
+"should modify this set of functions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/PCBGROUP.9:160
+#, no-wrap
+msgid "Fn in_pcbgroup_getbucket No and Fn in6_pcbgroup_getbucket"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:167
+msgid ""
+"Map a given 32 bit hash value to a PCBGROUP.  By default this is hash % "
+"number_of_pcbgroups.  However, this distribution may not align with NIC "
+"receive queues or the E<.Xr netisr 9> configuration."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/PCBGROUP.9:167
+#, no-wrap
+msgid "Fn in_pcbgroup_byhash No and Fn in6_pcbgroup_byhash"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:175
+msgid ""
+"Map a 32 bit hash value and a hash type identifier to a PCBGROUP.  By "
+"default, this simply returns NULL.  This function is used by the E<.Xr mbuf "
+"9> receive path in E<.Pa sys/netinet/in_pcb.c> to map an mbuf to a PCBGROUP."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/PCBGROUP.9:175
+#, no-wrap
+msgid "Fn in_pcbgroup_bytuple No and Fn in6_pcbgroup_bytuple"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:183
+msgid ""
+"Map the source and destination address and port details to a PCBGROUP.  By "
+"default, this does a very simple XOR hash.  This function is used by both "
+"the PCB lookup code and as a fallback in the E<.Xr mbuf 9> receive path in "
+"E<.Pa sys/netinet/in_pcb.c>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:184
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:197
+msgid ""
+"E<.Xr mbuf 9>, E<.Xr netisr 9>, E<.Xr RSS 9> E<.Rs> E<.%A Paul Willmann> "
+"E<.%A Scott Rixner> E<.%A Alan L. Cox> E<.%T \"An Evaluation of Network "
+"Stack Parallelization Strategies in Modern Operating Systems\"> E<.%J \"2006 "
+"USENIX Annual Technical Conference\"> E<.%D 2006> E<.%U "
+"http://www.ece.rice.edu/~willmann/pubs/paranet_usenix.pdf> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:197
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:200
+msgid "PCBGROUP first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:200
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:205
+msgid ""
+"E<.An -nosplit> The PCBGROUP implementation was written by E<.An Robert "
+"N. M. Watson Aq Mt rwatson@FreeBSD.org> under contract to Juniper Networks, "
+"Inc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:208
+msgid "This manual page written by E<.An Adrian Chadd Aq Mt adrian@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/PCBGROUP.9:208
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:215
+msgid ""
+"The E<.Xr RSS 9> implementation currently uses E<.Ic #ifdef> blocks to tie "
+"into PCBGROUP.  This is a sign that a more abstract programming API is "
+"needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:219
+msgid ""
+"There is currently no support for re-balancing the PCBGROUP assignment, nor "
+"is there any support for overriding which PCBGROUP a socket/PCB should be "
+"in."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/PCBGROUP.9:221
+msgid ""
+"No statistics are kept to indicate how often PCBGROUP lookups succeed or "
+"fail."
+msgstr ""

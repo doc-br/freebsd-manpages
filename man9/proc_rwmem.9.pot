@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/proc_rwmem.9:26
+#, no-wrap
+msgid "December 7, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/proc_rwmem.9:27
+#, no-wrap
+msgid "PROC_RWMEM 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/proc_rwmem.9:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:33
+msgid "E<.Nm proc_rwmem>, E<.Nm proc_readmem>, E<.Nm proc_writemem>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/proc_rwmem.9:33
+#, no-wrap
+msgid "read from or write to a process address space"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/proc_rwmem.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/proc_rwmem.9:35
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/proc_rwmem.9:36
+#, no-wrap
+msgid "sys/ptrace.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:43
+msgid ""
+"E<.Ft int> E<.Fn proc_rwmem \"struct proc *p\" \"struct uio *uio\"> E<.Ft "
+"ssize_t> E<.Fn proc_readmem \"struct thread *td\" \"struct proc *p\" "
+"\"vm_offset_t va\" \"void *buf\" \"size_t len\"> E<.Ft ssize_t> E<.Fn "
+"proc_writemem \"struct thread *td\" \"struct proc *p\" \"vm_offset_t va\" "
+"\"void *buf\" \"size_t len\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/proc_rwmem.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:69
+msgid ""
+"These functions are used to read to or write from the address space of the "
+"process E<.Fa p>.  The E<.Fn proc_rwmem> function requires the caller to "
+"specify the I/O parameters using a E<.Vt \"struct uio\">, described in E<.Xr "
+"uio 9>.  The E<.Fn proc_readmem> and E<.Fn proc_writemem> functions provide "
+"a simpler, less general interface which allows the caller to read into or "
+"write the kernel buffer E<.Fa buf> of size E<.Fa len> from or to the memory "
+"at offset E<.Fa va> in the address space of E<.Fa p>.  The operation is "
+"performed on behalf of thread E<.Fa td>, which will most often be the "
+"current thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:76
+msgid ""
+"These functions may sleep and thus may not be called with any non-sleepable "
+"locks held.  The process E<.Fa p> must be held by the caller using E<.Xr "
+"PHOLD 9>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/proc_rwmem.9:76
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:87
+msgid ""
+"The E<.Fn proc_rwmem> function returns E<.Dv 0> on success.  E<.Dv EFAULT> "
+"is returned if the specified user address is invalid, and E<.Dv ENOMEM> is "
+"returned if the target pages could not be faulted in due to a resource "
+"shortage."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:97
+msgid ""
+"The E<.Fn proc_readmem> and E<.Fn proc_writemem> functions return the number "
+"of bytes read or written, respectively.  This may be smaller than the number "
+"of bytes requested, for example if the request spans multiple pages in the "
+"process address space and one of them after the first is not mapped.  "
+"Otherwise, -1 is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/proc_rwmem.9:97
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:102
+msgid "E<.Xr copyin 9>, E<.Xr locking 9>, E<.Xr PHOLD 9>, E<.Xr uio 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/proc_rwmem.9:102
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/proc_rwmem.9:104
+msgid ""
+"This manual page was written by E<.An Mark Johnston Aq Mt "
+"markj@FreeBSD.org>."
+msgstr ""

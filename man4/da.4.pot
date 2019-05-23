@@ -1,0 +1,414 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/da.4:28
+#, no-wrap
+msgid "December 20, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/da.4:29
+#, no-wrap
+msgid "DA 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:33
+msgid "E<.Nm da>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/da.4:33
+#, no-wrap
+msgid "SCSI Direct Access device driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:36
+msgid "E<.Cd device da>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:47
+msgid ""
+"The E<.Nm> driver provides support for all E<.Tn SCSI> devices of the direct "
+"access class that are attached to the system through a supported E<.Tn SCSI> "
+"Host Adapter.  The direct access class includes disk, magneto-optical, and "
+"solid-state devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:55
+msgid ""
+"A E<.Tn SCSI> Host adapter must also be separately configured into the "
+"system before a E<.Tn SCSI> direct access device can be configured."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:55
+#, no-wrap
+msgid "CACHE EFFECTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:62
+msgid ""
+"Many direct access devices are equipped with read and/or write caches.  "
+"Parameters affecting the device's cache are stored in mode page 8, the "
+"caching control page.  Mode pages can be examined and modified via the E<.Xr "
+"camcontrol 8> utility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:72
+msgid ""
+"The read cache is used to store data from device-initiated read ahead "
+"operations as well as frequently used data.  The read cache is transparent "
+"to the user and can be enabled without any adverse effect.  Most devices "
+"with a read cache come from the factory with it enabled.  The read cache can "
+"be disabled by setting the E<.Tn RCD> (Read Cache Disable) bit in the "
+"caching control mode page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:96
+msgid ""
+"The write cache can greatly decrease the latency of write operations and "
+"allows the device to reorganize writes to increase efficiency and "
+"performance.  This performance gain comes at a price.  Should the device "
+"lose power while its cache contains uncommitted write operations, these "
+"writes will be lost.  The effect of a loss of write transactions on a file "
+"system is non-deterministic and can cause corruption.  Most devices age "
+"write transactions to limit vulnerability to a few transactions recently "
+"reported as complete, but it is none-the-less recommended that systems with "
+"write cache enabled devices reside on an Uninterruptible Power Supply "
+"(UPS).  The E<.Nm> device driver ensures that the cache and media are "
+"synchronized upon final close of the device or an unexpected shutdown "
+"(panic) event.  This ensures that it is safe to disconnect power once the "
+"operating system has reported that it has halted.  The write cache can be "
+"enabled by setting the E<.Tn WCE> (Write Cache Enable) bit in the caching "
+"control mode page."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:96
+#, no-wrap
+msgid "TAGGED QUEUING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:108
+msgid ""
+"The E<.Nm> device driver will take full advantage of the SCSI feature known "
+"as tagged queueing.  Tagged queueing allows the device to process multiple "
+"transactions concurrently, often re-ordering them to reduce the number and "
+"length of seeks.  To ensure that transactions to distant portions of the "
+"media, which may be deferred indefinitely by servicing requests nearer the "
+"current head position, are completed in a timely fashion, an ordered tagged "
+"transaction is sent every 15 seconds during continuous device operation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:108
+#, no-wrap
+msgid "BAD BLOCK RECOVERY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:122
+msgid ""
+"Direct Access devices have the capability of mapping out portions of "
+"defective media.  Media recovery parameters are located in mode page 1, the "
+"Read-Write Error Recovery mode page.  The most important media remapping "
+"features are 'Auto Write Reallocation' and 'Auto Read Reallocation' which "
+"can be enabled via the AWRE and ARRE bits, respectively, of the Read-Write "
+"Error Recovery page.  Many devices do not ship from the factory with these "
+"feature enabled.  Mode pages can be examined and modified via the E<.Xr "
+"camcontrol 8> utility."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:122
+#, no-wrap
+msgid "KERNEL CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:129
+msgid ""
+"It is only necessary to explicitly configure one E<.Nm> device; data "
+"structures are dynamically allocated as disks are found on the E<.Tn SCSI> "
+"bus."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:129
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:135
+msgid ""
+"The following variables are available as both E<.Xr sysctl 8> variables and "
+"E<.Xr loader 8> tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:136
+#, no-wrap
+msgid "Va kern.cam.da.retry_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:145
+msgid ""
+"This variable determines how many times the E<.Nm> driver will retry a READ "
+"or WRITE command.  This does not affect the number of retries used during "
+"probe time or for the E<.Nm> driver dump routine.  This value currently "
+"defaults to 4."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:145
+#, no-wrap
+msgid "Va kern.cam.da.default_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:151
+msgid ""
+"This variable determines how long the E<.Nm> driver will wait before timing "
+"out an outstanding command.  The units for this value are seconds, and the "
+"default is currently 60 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:151
+#, no-wrap
+msgid "Va kern.cam.sort_io_queue"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:152
+#, no-wrap
+msgid "Va kern.cam.da. Ns Ar X Ns Va .sort_io_queue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:157
+msgid ""
+"These variables determine whether request queue should be sorted trying to "
+"optimize head seeks.  Set to 1 to enable sorting, 0 to disable, -1 to leave "
+"it as-is.  The default is sorting enabled for HDDs and disabled for SSDs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:157
+#, no-wrap
+msgid "Va kern.cam.da. Ns Ar X Ns Va .delete_method"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:159
+msgid "This variable specifies method to handle BIO_DELETE requests:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:160
+#, no-wrap
+msgid "ATA_TRIM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:162
+msgid "ATA TRIM via ATA COMMAND PASS THROUGH command,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:162
+#, no-wrap
+msgid "UNMAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:164
+msgid "UNMAP command,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:164
+#, no-wrap
+msgid "WS16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:166
+msgid "WRITE SAME(16) command with UNMAP flag,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:166
+#, no-wrap
+msgid "WS10"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:168
+msgid "WRITE SAME(10) command with UNMAP flag,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:168
+#, no-wrap
+msgid "ZERO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:170
+msgid "WRITE SAME(10) command without UNMAP flag,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:170
+#, no-wrap
+msgid "DISABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:172
+msgid "disable BIO_DELETE support."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:173
+#, no-wrap
+msgid "Va kern.cam.da. Ns Ar X Ns Va .minimum_cmd_size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:180
+msgid ""
+"This variable determines what the minimum READ/WRITE CDB size is for a given "
+"E<.Nm> unit.  Valid minimum command size values are 6, 10, 12 and 16 bytes.  "
+"The default is 6 bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:197
+msgid ""
+"The E<.Nm> driver issues a CAM Path Inquiry CCB at probe time to determine "
+"whether the protocol the device in question speaks (e.g.\\& ATAPI) typically "
+"does not allow 6 byte commands.  If it does not, the E<.Nm> driver will "
+"default to using at least 10 byte CDBs.  If a 6 byte READ or WRITE fails "
+"with an ILLEGAL REQUEST error, the E<.Nm> driver will then increase the "
+"default CDB size for the device to 10 bytes and retry the command.  CDB size "
+"is always chosen as the smallest READ/WRITE CDB that will satisfy the "
+"specified minimum command size, and the LBA and length of the READ or WRITE "
+"in question.  (e.g., a write to an LBA larger than 2^32 will require a 16 "
+"byte CDB.)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:198
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:206
+msgid ""
+"If a device becomes invalidated (media is removed, device becomes "
+"unresponsive)  the disklabel and information held within the kernel about "
+"the device will be invalidated.  To avoid corruption of a newly inserted "
+"piece of media or a replacement device, all accesses to the device will be "
+"discarded until the last file descriptor referencing the old device is "
+"closed.  During this period, all new open attempts will be rejected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:206
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/da.4:208
+#, no-wrap
+msgid "Pa /dev/da*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:210
+msgid "SCSI disk device nodes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:211
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:213
+msgid "None."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:213
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:219
+msgid "E<.Xr ada 4>, E<.Xr cam 4>, E<.Xr geom 4>, E<.Xr nda 4>, E<.Xr gpart 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/da.4:219
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/da.4:233
+msgid ""
+"The E<.Nm> driver was written for the E<.Tn CAM> E<.Tn SCSI> subsystem by "
+"E<.An Justin T. Gibbs>.  Many ideas were gleaned from the E<.Nm sd> device "
+"driver written and ported from E<.Tn Mach> 2.5 by E<.An Julian Elischer>."
+msgstr ""

@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/runqueue.9:25
+#, no-wrap
+msgid "August 15, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/runqueue.9:26
+#, no-wrap
+msgid "RUNQUEUE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/runqueue.9:28
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:33
+msgid ""
+"E<.Nm choosethread>, E<.Nm procrunnable>, E<.Nm remrunqueue>, E<.Nm "
+"setrunqueue>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/runqueue.9:33
+#, no-wrap
+msgid "manage the queue of runnable processes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/runqueue.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/runqueue.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/runqueue.9:36
+#, no-wrap
+msgid "sys/proc.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:49
+msgid ""
+"E<.Vt \"extern struct rq itqueues[]\">; E<.Vt \"extern struct rq "
+"rtqueues[]\">; E<.Vt \"extern struct rq queues[]\">; E<.Vt \"extern struct "
+"rq idqueues[]\">; E<.Ft struct thread *> E<.Fn choosethread \"void\"> E<.Ft "
+"int> E<.Fn procrunnable \"void\"> E<.Ft void> E<.Fn remrunqueue \"struct "
+"thread *td\"> E<.Ft void> E<.Fn setrunqueue \"struct thread *td\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/runqueue.9:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:74
+msgid ""
+"The run queue consists of four priority queues: E<.Va itqueues> for "
+"interrupt threads, E<.Va rtqueues> for realtime priority processes, E<.Va "
+"queues> for time sharing processes, and E<.Va idqueues> for idle priority "
+"processes.  Each priority queue consists of an array of E<.Dv NQS> queue "
+"header structures.  Each queue header identifies a list of runnable "
+"processes of equal priority.  Each queue also has a single word that "
+"contains a bit mask identifying non-empty queues to assist in selecting a "
+"process quickly.  These are named E<.Va itqueuebits>, E<.Va rtqueuebits>, "
+"E<.Va queuebits>, and E<.Va idqueuebits>.  The run queues are protected by "
+"the E<.Va sched_lock> mutex."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:96
+msgid ""
+"E<.Fn procrunnable> returns zero if there are no runnable processes other "
+"than the idle process.  If there is at least one runnable process other than "
+"the idle process, it will return a non-zero value.  Note that the E<.Va "
+"sched_lock> mutex does E<.Em not> need to be held when this function is "
+"called.  There is a small race window where one CPU may place a process on "
+"the run queue when there are currently no other runnable processes while "
+"another CPU is calling this function.  In that case the second CPU will "
+"simply travel through the idle loop one additional time before noticing that "
+"there is a runnable process.  This works because idle CPUs are not halted in "
+"SMP systems.  If idle CPUs are halted in SMP systems, then this race "
+"condition might have more serious repercussions in the losing case, and "
+"E<.Fn procrunnable> may have to require that the E<.Va sched_lock> mutex be "
+"acquired."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:109
+msgid ""
+"E<.Fn choosethread> returns the highest priority runnable thread.  If there "
+"are no runnable threads, then the idle thread is returned.  This function is "
+"called by E<.Fn cpu_switch> and E<.Fn cpu_throw> to determine which thread "
+"to switch to.  E<.Fn choosethread> must be called with the E<.Va sched_lock> "
+"mutex held."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:121
+msgid ""
+"E<.Fn setrunqueue> adds the thread E<.Fa td> to the tail of the appropriate "
+"queue in the proper priority queue.  The thread must be runnable, i.e.\\& "
+"E<.Va p_stat> must be set to E<.Dv SRUN>.  This function must be called with "
+"the E<.Va sched_lock> mutex held."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:133
+msgid ""
+"E<.Fn remrunqueue> removes thread E<.Fa td> from its run queue.  If E<.Fa "
+"td> is not on a run queue, then the kernel will E<.Xr panic 9>.  This "
+"function must be called with the E<.Va sched_lock> mutex held."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/runqueue.9:133
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/runqueue.9:136
+msgid "E<.Xr cpu_switch 9>, E<.Xr scheduler 9>, E<.Xr sleepqueue 9>"
+msgstr ""

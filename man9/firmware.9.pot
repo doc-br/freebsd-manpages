@@ -1,0 +1,387 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/firmware.9:26
+#, no-wrap
+msgid "March 14, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/firmware.9:27
+#, no-wrap
+msgid "FIRMWARE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:34
+msgid ""
+"E<.Nm firmware_register>, E<.Nm firmware_unregister>, E<.Nm firmware_get>, "
+"E<.Nm firmware_put>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/firmware.9:34
+#, no-wrap
+msgid "firmware image loading and management"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/firmware.9:36
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/firmware.9:37
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/firmware.9:38
+#, no-wrap
+msgid "sys/linker.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/firmware.9:39
+#, no-wrap
+msgid "sys/firmware.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:47
+#, no-wrap
+msgid ""
+"struct firmware {\n"
+"\tconst char\t*name;\t\t/* system-wide name */\n"
+"\tconst void\t*data;\t\t/* location of image */\n"
+"\tsize_t\t\tdatasize;\t/* size of image in bytes */\n"
+"\tunsigned int\tversion;\t/* version of the image */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:62
+msgid ""
+"E<.Ft \"const struct firmware *\"> E<.Fo firmware_register> E<.Fa \"const "
+"char *imagename\"> E<.Fa \"const void *data\"> E<.Fa \"size_t datasize\"> "
+"E<.Fa \"unsigned int version\"> E<.Fa \"const struct firmware *parent\"> "
+"E<.Fc> E<.Ft int> E<.Fn firmware_unregister \"const char *imagename\"> E<.Ft "
+"\"const struct firmware *\"> E<.Fn firmware_get \"const char *imagename\"> "
+"E<.Ft void> E<.Fn firmware_put \"const struct firmware *fp\" \"int flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:62
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:68
+msgid ""
+"The E<.Nm firmware> abstraction provides a convenient interface for loading "
+"E<.Nm firmware images> into the kernel, and for accessing such images from "
+"kernel components."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:81
+msgid ""
+"A E<.Nm firmware image> (or E<.Nm image> for brevity)  is an opaque block of "
+"data residing in kernel memory.  It is associated to a unique E<.Nm "
+"imagename> which constitutes a search key, and to an integer E<.Nm version> "
+"number, which is also an opaque piece of information for the firmware "
+"subsystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:93
+msgid ""
+"An image is registered with the E<.Nm firmware> subsystem by calling the "
+"function E<.Fn firmware_register>, and unregistered by calling E<.Fn "
+"firmware_unregister>.  These functions are usually (but not exclusively) "
+"called by specially crafted kernel modules that contain the firmware image.  "
+"The modules can be statically compiled in the kernel, or loaded by E<.Nm "
+"/boot/loader>, manually at runtime, or on demand by the firmware subsystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:108
+msgid ""
+"E<.Nm Clients> of the firmware subsystem can request access to a given image "
+"by calling the function E<.Fn firmware_get> with the E<.Nm imagename> they "
+"want as an argument.  If a matching image is not already registered, the "
+"firmware subsystem will try to load it using the mechanisms specified below "
+"(typically, a kernel module with E<.Nm> the same name as the image)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:108
+#, no-wrap
+msgid "API DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:113
+msgid "The kernel E<.Nm> firmware API is made of the following functions:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:121
+msgid ""
+"E<.Fn firmware_register> registers with the kernel an image of size E<.Nm "
+"datasize> located at address E<.Nm data>, under the name E<.Nm imagename>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:127
+msgid ""
+"The function returns NULL on error (e.g. because an image with the same name "
+"already exists, or the image table is full), or a E<.Ft const struct "
+"firmware *> pointer to the image requested."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:135
+msgid ""
+"E<.Fn firmware_unregister> tries to unregister the firmware image E<.Nm "
+"imagename> from the system.  The function is successful and returns 0 if "
+"there are no pending references to the image, otherwise it does not "
+"unregister the image and returns EBUSY."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:149
+msgid ""
+"E<.Fn firmware_get> returns the requested firmware image.  If the image is "
+"not yet registered with the system, the function tries to load it.  This "
+"involves the linker subsystem and disk access, so E<.Fn firmware_get> must "
+"not be called with any locks (except for E<.Va Giant>).  Note also that if "
+"the firmware image is loaded from a filesystem it must already be mounted.  "
+"In particular this means that it may be necessary to defer requests from a "
+"driver attach method unless it is known the root filesystem is already "
+"mounted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:155
+msgid ""
+"On success, E<.Fn firmware_get> returns a pointer to the image description "
+"and increases the reference count for this image.  On failure, the function "
+"returns NULL."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:169
+msgid ""
+"E<.Fn firmware_put> drops a reference to a firmware image.  The E<.Fa flags> "
+"argument may be set to E<.Dv FIRMWARE_UNLOAD> to indicate that firmware_put "
+"is free to reclaim resources associated with the firmware image if this is "
+"the last reference.  By default a firmware image will be deferred to a E<.Xr "
+"taskqueue 9> thread so the call may be done while holding a lock.  In "
+"certain cases, such as on driver detach, this cannot be allowed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:169
+#, no-wrap
+msgid "FIRMWARE LOADING MECHANISMS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:173
+msgid ""
+"As mentioned before, any component of the system can register firmware "
+"images at any time by simply calling E<.Fn firmware_register>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:183
+msgid ""
+"This is typically done when a module containing a firmware image is given "
+"control, whether compiled in, or preloaded by E<.Nm /boot/loader>, or "
+"manually loaded with E<.Xr kldload 8>.  However, a system can implement "
+"additional mechanisms to bring these images in memory before calling E<.Fn "
+"firmware_register>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:190
+msgid ""
+"When E<.Fn firmware_get> does not find the requested image, it tries to load "
+"it using one of the available loading mechanisms.  At the moment, there is "
+"only one, namely E<.Nm Loadable kernel modules>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:202
+msgid ""
+"A firmware image named E<.Nm foo> is looked up by trying to load the module "
+"named E<.Nm foo.ko>, using the facilities described in E<.Xr kld 4>.  In "
+"particular, images are looked up in the directories specified by the sysctl "
+"variable E<.Nm kern.module_path> which on most systems defaults to E<.Nm "
+"/boot/kernel;/boot/modules>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:208
+msgid ""
+"Note that in case a module contains multiple images, the caller should first "
+"request a E<.Fn firmware_get> for the first image contained in the module, "
+"followed by requests for the other images."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:208
+#, no-wrap
+msgid "BUILDING FIRMWARE LOADABLE MODULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:216
+msgid ""
+"A firmware module is built by embedding the E<.Nm firmware image> into a "
+"suitable loadable kernel module that calls E<.Fn firmware_register> on "
+"loading, and E<.Fn firmware_unregister> on unloading."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:219
+msgid ""
+"Various system scripts and makefiles let you build a module by simply "
+"writing a Makefile with the following entries:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:224
+#, no-wrap
+msgid ""
+"        KMOD=   imagename\n"
+"        FIRMWS= image_file:imagename[:version]\n"
+"        .include E<lt>bsd.kmod.mkE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:229
+msgid ""
+"where KMOD is the basename of the module; FIRMWS is a list of "
+"colon-separated tuples indicating the image_file's to be embedded in the "
+"module, the imagename and version of each firmware image."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:234
+msgid ""
+"If you need to embed firmware images into a system, you should write "
+"appropriate entries in the E<lt>files.archE<gt> file, e.g. this example is "
+"from E<.Nm sys/arm/xscale/ixp425/files.ixp425>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:251
+#, no-wrap
+msgid ""
+"ixp425_npe_fw.c                         optional npe_fw                 "
+"\\e\n"
+"        compile-with    \"${AWK} -f $S/tools/fw_stub.awk\t\t\t\\e\n"
+"\t\t\tIxNpeMicrocode.dat:npe_fw -mnpe -c${.TARGET}\"\t\\e\n"
+"        no-implicit-rule before-depend local                            "
+"\\e\n"
+"        clean           \"ixp425_npe_fw.c\"\n"
+"#\n"
+"# NB: ld encodes the path in the binary symbols generated for the\n"
+"#     firmware image so link the file to the object directory to\n"
+"#     get known values for reference in the _fw.c file.\n"
+"#\n"
+"IxNpeMicrocode.fwo  optional npe_fw\t\t\t\t\t\\e\n"
+"        dependency      \"IxNpeMicrocode.dat\"\t\t\t\t\\e\n"
+"        compile-with    \"${LD} -b binary -d -warn-common\t\t\\e\n"
+"\t\t\t    -r -d -o ${.TARGET} IxNpeMicrocode.dat\"\t\\e\n"
+"        no-implicit-rule                                                "
+"\\e\n"
+"        clean           \"IxNpeMicrocode.fwo\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:256
+msgid ""
+"Firmware was previously committed to the source tree as uuencoded files, but "
+"this is no longer required; the binary firmware file should be committed to "
+"the tree as provided by the vendor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:262
+msgid ""
+"Note that generating the firmware modules in this way requires the "
+"availability of the following tools: E<.Xr awk 1>, E<.Xr make 1>, the "
+"compiler and the linker."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:262
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:265
+msgid "E<.Xr kld 4>, E<.Xr module 9>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:267
+msgid "E<.Pa /usr/share/examples/kld/firmware>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:267
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:272
+msgid "The E<.Nm firmware> system was introduced in E<.Fx 6.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/firmware.9:272
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/firmware.9:274
+msgid "This manual page was written by E<.An Max Laier Aq Mt mlaier@FreeBSD.org>."
+msgstr ""

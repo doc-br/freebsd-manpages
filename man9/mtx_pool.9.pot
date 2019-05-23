@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/mtx_pool.9:30
+#, no-wrap
+msgid "February 6, 2010"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/mtx_pool.9:31
+#, no-wrap
+msgid "MTX_POOL 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mtx_pool.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:43
+msgid ""
+"E<.Nm mtx_pool>, E<.Nm mtx_pool_alloc>, E<.Nm mtx_pool_find>, E<.Nm "
+"mtx_pool_lock>, E<.Nm mtx_pool_lock_spin>, E<.Nm mtx_pool_unlock>, E<.Nm "
+"mtx_pool_unlock_spin>, E<.Nm mtx_pool_create>, E<.Nm mtx_pool_destroy>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/mtx_pool.9:43
+#, no-wrap
+msgid "mutex pool routines"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mtx_pool.9:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mtx_pool.9:45
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mtx_pool.9:46
+#, no-wrap
+msgid "sys/lock.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mtx_pool.9:47
+#, no-wrap
+msgid "sys/mutex.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:64
+msgid ""
+"E<.Ft \"struct mtx *\"> E<.Fn mtx_pool_alloc \"struct mtx_pool *pool\"> "
+"E<.Ft \"struct mtx *\"> E<.Fn mtx_pool_find \"struct mtx_pool *pool\" \"void "
+"*ptr\"> E<.Ft void> E<.Fn mtx_pool_lock \"struct mtx_pool *pool\" \"void "
+"*ptr\"> E<.Ft void> E<.Fn mtx_pool_lock_spin \"struct mtx_pool *pool\" "
+"\"void *ptr\"> E<.Ft void> E<.Fn mtx_pool_unlock \"struct mtx_pool *pool\" "
+"\"void *ptr\"> E<.Ft void> E<.Fn mtx_pool_unlock_spin \"struct mtx_pool "
+"*pool\" \"void *ptr\"> E<.Ft \"struct mtx_pool *\"> E<.Fn mtx_pool_create "
+"\"const char *mtx_name\" \"int pool_size\" \"int opts\"> E<.Ft \"void\"> "
+"E<.Fn mtx_pool_destroy \"struct mtx_pool **poolp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mtx_pool.9:64
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:73
+msgid ""
+"Mutex pools are designed to be used as short term leaf mutexes; i.e., the "
+"last mutex one might acquire before calling E<.Xr mtx_sleep 9>.  They "
+"operate using a shared pool of mutexes.  A mutex may be chosen from the pool "
+"based on a supplied pointer, which may or may not point to anything valid, "
+"or the caller may allocate an arbitrary shared mutex from the pool and save "
+"the returned mutex pointer for later use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:86
+msgid ""
+"The shared mutexes in the E<.Va mtxpool_sleep> mutex pool, which is created "
+"by default, are standard, non-recursive, blockable mutexes, and should only "
+"be used in appropriate situations.  The mutexes in the E<.Va "
+"mtxpool_lockbuilder> mutex pool are similar, except that they are "
+"initialized with the MTX_NOWITNESS flag so that they may be used to build "
+"higher-level locks.  Other mutex pools may be created that contain mutexes "
+"with different properties, such as spin mutexes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:99
+msgid ""
+"The caller can lock and unlock mutexes returned by the pool routines, but "
+"since the mutexes are shared, the caller should not attempt to destroy them "
+"or modify their characteristics.  While pool mutexes are normally leaf "
+"mutexes (meaning that one cannot depend on any ordering guarantees after "
+"obtaining one), one can still obtain other mutexes under carefully "
+"controlled circumstances.  Specifically, if one has a private mutex (one "
+"that was allocated and initialized by the caller), one can obtain it after "
+"obtaining a pool mutex if ordering issues are carefully accounted for.  In "
+"these cases the private mutex winds up being the true leaf mutex."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:101
+msgid "Pool mutexes have the following advantages:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:106
+msgid ""
+"No structural overhead; i.e., they can be associated with a structure "
+"without adding bloat to it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:109
+msgid ""
+"Mutexes can be obtained for invalid pointers, which is useful when one uses "
+"mutexes to interlock destructor operations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:111
+msgid "No initialization or destruction overhead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:114
+msgid "Can be used with E<.Xr mtx_sleep 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:117
+msgid "And the following disadvantages:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:121
+msgid "Should generally only be used as leaf mutexes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:123
+msgid "Pool/pool dependency ordering cannot be guaranteed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:125
+msgid "Possible L1 cache mastership contention between CPUs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:133
+msgid ""
+"E<.Fn mtx_pool_alloc> obtains a shared mutex from the specified pool.  This "
+"routine uses a simple rover to choose one of the shared mutexes managed by "
+"the E<.Nm> subsystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:139
+msgid ""
+"E<.Fn mtx_pool_find> returns the shared mutex associated with the specified "
+"address.  This routine will create a hash out of the pointer passed into it "
+"and will choose a shared mutex from the specified pool based on that hash.  "
+"The pointer does not need to point to anything real."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:162
+msgid ""
+"E<.Fn mtx_pool_lock>, E<.Fn mtx_pool_lock_spin>, E<.Fn mtx_pool_unlock>, and "
+"E<.Fn mtx_pool_unlock_spin> lock and unlock the shared mutex from the "
+"specified pool associated with the specified address; they are a combination "
+"of E<.Fn mtx_pool_find> and E<.Xr mtx_lock 9>, E<.Xr mtx_lock_spin 9>, E<.Xr "
+"mtx_unlock 9>, and E<.Xr mtx_unlock_spin 9>, respectively.  Since these "
+"routines must first find the mutex to operate on, they are not as fast as "
+"directly using the mutex pointer returned by a previous invocation of E<.Fn "
+"mtx_pool_find> or E<.Fn mtx_pool_alloc>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:172
+msgid ""
+"E<.Fn mtx_pool_create> allocates and initializes a new mutex pool of the "
+"specified size.  The pool size must be a power of two.  The E<.Fa opts> "
+"argument is passed to E<.Xr mtx_init 9> to set the options for each mutex in "
+"the pool."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:179
+msgid ""
+"E<.Fn mtx_pool_destroy> calls E<.Xr mtx_destroy 9> on each mutex in the "
+"specified pool, deallocates the memory associated with the pool, and assigns "
+"NULL to the pool pointer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mtx_pool.9:179
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:182
+msgid "E<.Xr locking 9>, E<.Xr mutex 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mtx_pool.9:182
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mtx_pool.9:184
+msgid "These routines first appeared in E<.Fx 5.0>."
+msgstr ""

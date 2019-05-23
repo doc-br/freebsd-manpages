@@ -1,0 +1,337 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/geom_fox.4:28
+#, no-wrap
+msgid "September 12, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/geom_fox.4:29
+#, no-wrap
+msgid "GEOM_FOX 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:33
+msgid "E<.Nm geom_fox>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/geom_fox.4:33
+#, no-wrap
+msgid "GEOM based basic disk multipathing"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:38
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:40
+#, no-wrap
+msgid "E<.Cd \"options GEOM_FOX\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:45
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:47
+#, no-wrap
+msgid "geom_fox_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:57
+msgid ""
+"E<.Bf -symbolic> This driver is obsolete.  Users are advised to use E<.Xr "
+"gmultipath 8> instead.  This driver will be removed in E<.Fx 12>.  E<.Ef>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:69
+msgid ""
+"The intent of the E<.Nm> framework is to provide basic multipathing support "
+"to access direct access devices.  Basic in the above sentence should be read "
+"as: E<.Nm> only provides path failover functionality, not load balancing "
+"over the available paths etc.  Using suitable hardware like SCSI or "
+"FibreChannel disks it is possible to have multiple (typically 2) host bus "
+"adapters access the same physical disk drive."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:82
+msgid ""
+"Without a multipathing driver the E<.Fx> kernel would probe the disks "
+"multiple times, resulting in the creation of multiple E<.Pa /dev> entries "
+"for the same underlying physical device.  A unique label written in the GEOM "
+"label area allows E<.Nm> to detect multiple paths.  Using this information "
+"it creates a unique E<.Pa da#.fox> device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:91
+msgid ""
+"The E<.Nm> device is subsequently used by the E<.Fx> kernel to access the "
+"disks.  Multiple physical access paths ensure that even in case of a path "
+"failure the E<.Fx> kernel can continue to access the data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:96
+msgid ""
+"The E<.Nm> driver will disallow write operations to the underlying devices "
+"once the fox device has been opened for writing."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:96
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:101
+msgid "E<.Nm> needs a label on the disk as follows in order to work properly:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:104
+#, no-wrap
+msgid ""
+"\"0123456789abcdef0123456789abcdef\"\n"
+"\"GEOM::FOX       E<lt>--unique--id--E<gt>\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:112
+msgid ""
+"For the unique ID 16 bytes are available.  The E<.Dq Li GEOM::FOX> is the "
+"magic to mark a E<.Nm> device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:114
+msgid "The actual labelling is accomplished by"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:116
+#, no-wrap
+msgid "echo \"GEOM::FOX       someid\" | dd of=/dev/da2 conv=sync\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:123
+msgid ""
+"For FibreChannel devices it is suggested to use the Node World Wide Name "
+"(Node WWN) as this is guaranteed by the FibreChannel standard to be "
+"worldwide unique.  The use of the Port WWN not recommended as each port of a "
+"given device has a different WWN, thereby confusing things."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:125
+msgid "The Node WWN can be obtained from a verbose boot as in for example"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:129
+#, no-wrap
+msgid ""
+"isp1: Target 1 (Loop 0x1) Port ID 0xe8 (role Target) Arrived\n"
+" Port WWN 0x21000004cfc8aca2\n"
+" Node WWN 0x20000004cfc8aca2\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:132
+msgid "This Node WWN would then be used like so:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:134
+#, no-wrap
+msgid "echo \"GEOM::FOX       20000004cfc8aca2\" | dd of=/dev/da2 conv=sync\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:139
+msgid ""
+"For non-FibreChannel devices you could for example use the serial number of "
+"the device.  Regardless of what you use, make sure the label is unique."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:145
+msgid ""
+"Once the labelling has been performed and assuming the E<.Nm> module is "
+"loaded the kernel will inform you that it has found a new E<.Nm> device with "
+"a message similar to"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:148
+#, no-wrap
+msgid ""
+"Creating new fox (da2)\n"
+"fox da2.fox lock 0xfffffc0000fdba20\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:154
+msgid "To check which physical devices match a given E<.Nm> device:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:171
+#, no-wrap
+msgid ""
+"# geom fox list\n"
+"Geom name: da2.fox\n"
+"Providers:\n"
+"1. Name: da2.fox\n"
+"   Mediasize: 73407865344 (68G)\n"
+"   Sectorsize: 512\n"
+"   Mode: r0w0e0\n"
+"Consumers:\n"
+"1. Name: da2\n"
+"   Mediasize: 73407865856 (68G)\n"
+"   Sectorsize: 512\n"
+"   Mode: r0w0e0\n"
+"2. Name: da6\n"
+"   Mediasize: 73407865856 (68G)\n"
+"   Sectorsize: 512\n"
+"   Mode: r0w0e0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:177
+msgid "To check the status of the E<.Nm> components:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:182
+#, no-wrap
+msgid ""
+"# geom fox status\n"
+"   Name  Status  Components\n"
+"da2.fox     N/A  da2\n"
+"                 da6\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:184
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:188
+msgid "E<.Xr GEOM 4>, E<.Xr geom 8>, E<.Xr gmultipath 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:188
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:196
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Poul-Henning Kamp Aq "
+"Mt phk@FreeBSD.org>.  This manual page was written by E<.An Wilko Bulte Aq "
+"Mt wilko@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:196
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:204
+msgid ""
+"The E<.Nm> driver depends on the underlying hardware drivers to do the right "
+"thing in case of a path failure.  If for example a hardware driver continues "
+"to retry forever, E<.Nm> is not able to re-initiate the I/O to an "
+"alternative physical path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:212
+msgid ""
+"You have to be very sure to provide a unique label for each of the E<.Nm> "
+"devices.  Safety belts are not provided.  For FibreChannel devices it is "
+"suggested to use the Port WWN of the device.  The World Wide Name is "
+"guaranteed to be worldwide unique per the FibreChannel standard."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/geom_fox.4:212
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:217
+msgid ""
+"The E<.Nm> framework has only seen light testing.  There definitely might be "
+"dragons here."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:222
+msgid ""
+"The name E<.Nm> is completely obscure.  Just remember that any sly fox has "
+"multiple exits from its hole."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/geom_fox.4:223
+msgid "The examples provided are too FibreChannel-centric."
+msgstr ""

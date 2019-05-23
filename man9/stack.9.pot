@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/stack.9:30
+#, no-wrap
+msgid "October 6, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/stack.9:31
+#, no-wrap
+msgid "STACK 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/stack.9:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:35
+msgid "E<.Nm stack>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/stack.9:35
+#, no-wrap
+msgid "kernel thread stack tracing routines"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/stack.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/stack.9:37
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/stack.9:38
+#, no-wrap
+msgid "sys/stack.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:43
+msgid ""
+"In the kernel configuration file: E<.Cd \"options DDB\"> E<.Cd \"options "
+"STACK\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:72
+msgid ""
+"E<.Ft struct stack *> E<.Fn stack_create \"int flags\"> E<.Ft void> E<.Fn "
+"stack_destroy \"struct stack *st\"> E<.Ft int> E<.Fn stack_put \"struct "
+"stack *st\" \"vm_offset_t pc\"> E<.Ft void> E<.Fn stack_copy \"const struct "
+"stack *src\" \"struct stack dst\"> E<.Ft void> E<.Fn stack_zero \"struct "
+"stack *st\"> E<.Ft void> E<.Fn stack_print \"const struct stack *st\"> E<.Ft "
+"void> E<.Fn stack_print_ddb \"const struct stack *st\"> E<.Ft void> E<.Fn "
+"stack_print_short \"const struct stack *st\"> E<.Ft void> E<.Fn "
+"stack_print_short_ddb \"const struct stack *st\"> E<.Ft void> E<.Fn "
+"stack_sbuf_print \"struct sbuf sb*\" \"const struct stack *st\"> E<.Ft void> "
+"E<.Fn stack_sbuf_print_ddb \"struct sbuf sb*\" \"const struct stack *st\"> "
+"E<.Ft void> E<.Fn stack_save \"struct stack *st\"> E<.Ft void> E<.Fn "
+"stack_save_td \"struct stack *st\" \"struct thread *td\"> E<.Ft int> E<.Fn "
+"stack_save_td_running \"struct stack *st\" \"struct thread *td\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/stack.9:72
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:83
+msgid ""
+"The E<.Nm> KPI allows querying of kernel stack trace information and the "
+"automated generation of kernel stack trace strings for the purposes of "
+"debugging and tracing.  To use the KPI, at least one of E<.Cd \"options "
+"DDB\"> and E<.Cd \"options STACK\"> must be compiled into the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:95
+msgid ""
+"Each stack trace is described by a E<.Vt \"struct stack\">.  Before a trace "
+"may be created or otherwise manipulated, storage for the trace must be "
+"allocated with E<.Fn stack_create>.  The E<.Ar flags> argument is passed to "
+"E<.Xr malloc 9>.  Memory associated with a trace is freed by calling E<.Fn "
+"stack_destroy>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:108
+msgid ""
+"A trace of the current kernel thread's call stack may be captured using "
+"E<.Fn stack_save>.  E<.Fn stack_save_td> and E<.Fn stack_save_td_running> "
+"can also be used to capture the stack of a caller-specified thread.  Callers "
+"of these functions must own the thread lock of the specified thread.  E<.Fn "
+"stack_save_td> can capture the stack of a kernel thread that is not running "
+"or swapped out at the time of the call.  E<.Fn stack_save_td_running> can "
+"capture the stack of a running kernel thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:125
+msgid ""
+"E<.Fn stack_print> and E<.Fn stack_print_short> may be used to print a stack "
+"trace using the kernel E<.Xr printf 9>, and may sleep as a result of "
+"acquiring E<.Xr sx 9> locks in the kernel linker while looking up symbol "
+"names.  In locking-sensitive environments, the unsynchronized E<.Fn "
+"stack_print_ddb> and E<.Fn stack_print_short_ddb> variants may be invoked.  "
+"This function bypasses kernel linker locking, making it usable in E<.Xr ddb "
+"4>, but not in a live system where linker data structures may change."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:145
+msgid ""
+"E<.Fn stack_sbuf_print> may be used to construct a human-readable string, "
+"including conversion (where possible) from a simple kernel instruction "
+"pointer to a named symbol and offset.  The argument E<.Ar sb> must be an "
+"initialized E<.Dv struct sbuf> as described in E<.Xr sbuf 9>.  This function "
+"may sleep if an auto-extending E<.Dv struct sbuf> is used, or due to kernel "
+"linker locking.  In locking-sensitive environments, such as E<.Xr ddb 4>, "
+"the unsynchronized E<.Fn stack_sbuf_print_ddb> variant may be invoked to "
+"avoid kernel linker locking; it should be used with a fixed-length sbuf."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:152
+msgid ""
+"The utility functions E<.Nm stack_zero>, E<.Nm stack_copy>, and E<.Nm "
+"stack_put> may be used to manipulate stack data structures directly."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/stack.9:152
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:159
+msgid ""
+"E<.Fn stack_put> returns 0 on success.  Otherwise the E<.Dv struct stack> "
+"does not contain space to record additional frames, and a non-zero value is "
+"returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:169
+msgid ""
+"E<.Fn stack_save_td_running> returns 0 when the stack capture was successful "
+"and a non-zero error number otherwise.  In particular, E<.Er EAGAIN> is "
+"returned if the thread was running in user mode at the time that the capture "
+"was attempted, and E<.Er EOPNOTSUPP> is returned if the operation is not "
+"implemented."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/stack.9:169
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:174
+msgid "E<.Xr ddb 4>, E<.Xr printf 9>, E<.Xr sbuf 9>, E<.Xr sx 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/stack.9:174
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/stack.9:184
+msgid ""
+"E<.An -nosplit> The E<.Nm> function suite was created by E<.An Antoine "
+"Brodin>.  E<.Nm> was extended by E<.An Robert Watson> for general-purpose "
+"use outside of E<.Xr ddb 4>."
+msgstr ""

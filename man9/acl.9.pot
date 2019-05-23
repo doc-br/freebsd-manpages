@@ -1,0 +1,559 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/acl.9:28
+#, no-wrap
+msgid "September 4, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/acl.9:29
+#, no-wrap
+msgid "ACL 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/acl.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:33
+msgid "E<.Nm acl>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/acl.9:33
+#, no-wrap
+msgid "virtual file system access control lists"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/acl.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/acl.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/acl.9:36
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/acl.9:37
+#, no-wrap
+msgid "sys/acl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:41
+msgid "In the kernel configuration file: E<.Cd \"options UFS_ACL\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/acl.9:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:56
+msgid ""
+"Access control lists, or ACLs, allow fine-grained specification of rights "
+"for vnodes representing files and directories.  However, as there are a "
+"plethora of file systems with differing ACL semantics, the vnode interface "
+"is aware only of the syntax of ACLs, relying on the underlying file system "
+"to implement the details.  Depending on the underlying file system, each "
+"file or directory may have zero or more ACLs associated with it, named using "
+"the E<.Fa type> field of the appropriate vnode ACL calls: E<.Xr VOP_ACLCHECK "
+"9>, E<.Xr VOP_GETACL 9>, and E<.Xr VOP_SETACL 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:60
+msgid ""
+"Currently, each ACL is represented in-kernel by a fixed-size E<.Vt acl> "
+"structure, defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:67
+#, no-wrap
+msgid ""
+"struct acl {\n"
+"        unsigned int            acl_maxcnt;\n"
+"        unsigned int            acl_cnt;\n"
+"        int                     acl_spare[4];\n"
+"        struct acl_entry        acl_entry[ACL_MAX_ENTRIES];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:76
+msgid ""
+"An ACL is constructed from a fixed size array of ACL entries, each of which "
+"consists of a set of permissions, principal namespace, and principal "
+"identifier.  In this implementation, the E<.Vt acl_maxcnt> field is always "
+"set to E<.Dv ACL_MAX_ENTRIES>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:80
+msgid ""
+"Each individual ACL entry is of the type E<.Vt acl_entry_t>, which is a "
+"structure with the following members:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:81
+#, no-wrap
+msgid "Vt acl_tag_t Va ae_tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:85
+msgid ""
+"The following is a list of definitions of ACL types to be set in E<.Va "
+"ae_tag>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:87
+#, no-wrap
+msgid "Dv ACL_UNDEFINED_FIELD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:89
+msgid "Undefined ACL type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:89
+#, no-wrap
+msgid "Dv ACL_USER_OBJ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:92
+msgid ""
+"Discretionary access rights for processes whose effective user ID matches "
+"the user ID of the file's owner."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:92
+#, no-wrap
+msgid "Dv ACL_USER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:95
+msgid ""
+"Discretionary access rights for processes whose effective user ID matches "
+"the ACL entry qualifier."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:95
+#, no-wrap
+msgid "Dv ACL_GROUP_OBJ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:99
+msgid ""
+"Discretionary access rights for processes whose effective group ID or any "
+"supplemental groups match the group ID of the file's owner."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:99
+#, no-wrap
+msgid "Dv ACL_GROUP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:103
+msgid ""
+"Discretionary access rights for processes whose effective group ID or any "
+"supplemental groups match the ACL entry qualifier."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:103
+#, no-wrap
+msgid "Dv ACL_MASK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:107
+msgid ""
+"The maximum discretionary access rights that can be granted to a process in "
+"the file group class.  This is only valid for POSIX.1e ACLs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:107
+#, no-wrap
+msgid "Dv ACL_OTHER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:111
+msgid ""
+"Discretionary access rights for processes not covered by any other ACL "
+"entry.  This is only valid for POSIX.1e ACLs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:111
+#, no-wrap
+msgid "Dv ACL_OTHER_OBJ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:114
+msgid "Same as E<.Dv ACL_OTHER>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:114
+#, no-wrap
+msgid "Dv ACL_EVERYONE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:117
+msgid ""
+"Discretionary access rights for all users.  This is only valid for NFSv4 "
+"ACLs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:133
+msgid ""
+"Each POSIX.1e ACL must contain exactly one E<.Dv ACL_USER_OBJ>, one E<.Dv "
+"ACL_GROUP_OBJ>, and one E<.Dv ACL_OTHER>.  If any of E<.Dv ACL_USER>, E<.Dv "
+"ACL_GROUP>, or E<.Dv ACL_OTHER> are present, then exactly one E<.Dv "
+"ACL_MASK> entry should be present."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:133
+#, no-wrap
+msgid "Vt uid_t Va ae_id"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:141
+msgid ""
+"The ID of user for whom this ACL describes access permissions.  For entries "
+"other than E<.Dv ACL_USER> and E<.Dv ACL_GROUP>, this field should be set to "
+"E<.Dv ACL_UNDEFINED_ID>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:141
+#, no-wrap
+msgid "Vt acl_perm_t Va ae_perm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:145
+msgid ""
+"This field defines what kind of access the process matching this ACL has for "
+"accessing the associated file.  For POSIX.1e ACLs, the following are valid:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:146 /usr/src/share/man/man9/acl.9:177
+#, no-wrap
+msgid "Dv ACL_EXECUTE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:148 /usr/src/share/man/man9/acl.9:179
+msgid "The process may execute the associated file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:148
+#, no-wrap
+msgid "Dv ACL_WRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:150 /usr/src/share/man/man9/acl.9:166
+msgid "The process may write to the associated file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:150
+#, no-wrap
+msgid "Dv ACL_READ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:152 /usr/src/share/man/man9/acl.9:161
+msgid "The process may read from the associated file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:152
+#, no-wrap
+msgid "Dv ACL_PERM_NONE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:155
+msgid ""
+"The process has no read, write or execute permissions to the associated "
+"file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:158
+msgid "For NFSv4 ACLs, the following are valid:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:159
+#, no-wrap
+msgid "Dv ACL_READ_DATA"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:161
+#, no-wrap
+msgid "Dv ACL_LIST_DIRECTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:164
+msgid "Same as E<.Dv ACL_READ_DATA>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:164
+#, no-wrap
+msgid "Dv ACL_WRITE_DATA"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:166
+#, no-wrap
+msgid "Dv ACL_ADD_FILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:169
+msgid "Same as E<.Dv ACL_ACL_WRITE_DATA>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:169
+#, no-wrap
+msgid "Dv ACL_APPEND_DATA"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:170
+#, no-wrap
+msgid "Dv ACL_ADD_SUBDIRECTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:173
+msgid "Same as E<.Dv ACL_APPEND_DATA>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:173
+#, no-wrap
+msgid "Dv ACL_READ_NAMED_ATTRS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:175 /usr/src/share/man/man9/acl.9:177 /usr/src/share/man/man9/acl.9:188
+msgid "Ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:175
+#, no-wrap
+msgid "Dv ACL_WRITE_NAMED_ATTRS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:179
+#, no-wrap
+msgid "Dv ACL_DELETE_CHILD"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:180
+#, no-wrap
+msgid "Dv ACL_READ_ATTRIBUTES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:181
+#, no-wrap
+msgid "Dv ACL_WRITE_ATTRIBUTES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:182
+#, no-wrap
+msgid "Dv ACL_DELETE"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:183
+#, no-wrap
+msgid "Dv ACL_READ_ACL"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:184
+#, no-wrap
+msgid "Dv ACL_WRITE_ACL"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:185
+#, no-wrap
+msgid "Dv ACL_WRITE_OWNER"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:186
+#, no-wrap
+msgid "Dv ACL_SYNCHRONIZE"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:189
+#, no-wrap
+msgid "Vt acl_entry_type_t Va ae_entry_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:193
+msgid ""
+"This field defines the type of NFSv4 ACL entry.  It is not used with "
+"POSIX.1e ACLs.  The following values are valid:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:194
+#, no-wrap
+msgid "Dv ACL_ENTRY_TYPE_ALLOW"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:195
+#, no-wrap
+msgid "Dv ACL_ENTRY_TYPE_DENY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:197
+#, no-wrap
+msgid "Vt acl_flag_t Va ae_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:201
+msgid ""
+"This field defines the inheritance flags of NFSv4 ACL entry.  It is not used "
+"with POSIX.1e ACLs.  The following values are valid:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:202
+#, no-wrap
+msgid "Dv ACL_ENTRY_FILE_INHERIT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:203
+#, no-wrap
+msgid "Dv ACL_ENTRY_DIRECTORY_INHERIT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:204
+#, no-wrap
+msgid "Dv ACL_ENTRY_NO_PROPAGATE_INHERIT"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:205
+#, no-wrap
+msgid "Dv ACL_ENTRY_INHERIT_ONLY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/acl.9:206
+#, no-wrap
+msgid "Dv ACL_ENTRY_INHERITED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:213
+msgid ""
+"The E<.Dv ACL_ENTRY_INHERITED> flag is set on an ACE that has been inherited "
+"from its parent.  It may also be set programmatically, and is valid on both "
+"files and directories."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/acl.9:214
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:223
+msgid ""
+"E<.Xr acl 3>, E<.Xr vaccess 9>, E<.Xr vaccess_acl_nfs4 9>, E<.Xr "
+"vaccess_acl_posix1e 9>, E<.Xr VFS 9>, E<.Xr VOP_ACLCHECK 9>, E<.Xr "
+"VOP_GETACL 9>, E<.Xr VOP_SETACL 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/acl.9:223
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/acl.9:225
+msgid "This manual page was written by E<.An Robert Watson>."
+msgstr ""

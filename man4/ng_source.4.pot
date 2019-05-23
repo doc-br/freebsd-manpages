@@ -1,0 +1,670 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_source.4:35
+#, no-wrap
+msgid "March 1, 2007"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_source.4:36
+#, no-wrap
+msgid "NG_SOURCE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:38
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:40
+msgid "E<.Nm ng_source>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_source.4:40
+#, no-wrap
+msgid "netgraph node for traffic generation"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:41
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_source.4:42
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_source.4:43
+#, no-wrap
+msgid "netgraph/ng_source.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:44
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:52
+msgid ""
+"The E<.Nm source> node acts as a source of packets according to the "
+"parameters set up using control messages and input packets.  The E<.Nm> node "
+"type is used primarily for testing and benchmarking."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:52
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:62
+msgid ""
+"The E<.Nm source> node has two hooks: E<.Va input> and E<.Va output>.  The "
+"E<.Va output> hook must remain connected, its disconnection will shutdown "
+"the node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:62
+#, no-wrap
+msgid "OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:93
+msgid ""
+"The operation of the node is as follows.  Packets received on the E<.Va "
+"input> hook are queued internally.  When E<.Va output> hook is connected, "
+"E<.Nm> node assumes that its neighbour node is of E<.Xr ng_ether 4> node "
+"type.  The neighbour is queried for its interface name.  The E<.Nm> node "
+"then uses queue of the interface for its evil purposes.  The E<.Nm> node "
+"also disables E<.Va autosrc> option on neighbour E<.Xr ng_ether 4> node.  If "
+"interface name cannot be obtained automatically, it should be configured "
+"explicitly with the E<.Dv NGM_SOURCE_SETIFACE> control message, and E<.Va "
+"autosrc> should be turned off on E<.Xr ng_ether 4> node manually."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:109
+msgid ""
+"Once interface is configured, upon receipt of a E<.Dv NGM_SOURCE_START> "
+"control message the node starts sending the previously queued packets out "
+"the E<.Va output> hook on every clock tick as fast as the connected "
+"interface will take them.  While active, on every clock tick the node checks "
+"the available space in the interface queue and sends that many packets out "
+"its E<.Va output> hook.  Once the number of packets indicated in the start "
+"message has been sent, or upon receipt of a E<.Dv NGM_SOURCE_STOP> message, "
+"the node stops sending data."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:109
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:114
+msgid ""
+"This node type supports the generic control messages as well as the "
+"following, which must be sent with the E<.Dv NGM_SOURCE_COOKIE> attached."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:115
+#, no-wrap
+msgid "Dv NGM_SOURCE_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:117
+msgid "Returns a structure containing the following fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:118
+#, no-wrap
+msgid "Va outOctets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:122
+msgid "The number of octets/bytes sent out the E<.Va output> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:122
+#, no-wrap
+msgid "Va outFrames"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:126
+msgid "The number of frames/packets sent out the E<.Va output> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:126
+#, no-wrap
+msgid "Va queueOctets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:130
+msgid "The number of octets queued from the E<.Va input> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:130
+#, no-wrap
+msgid "Va queueFrames"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:134
+msgid "The number of frames queued from the E<.Va input> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:134
+#, no-wrap
+msgid "Va startTime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:136
+msgid "The time the last start message was received."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:136
+#, no-wrap
+msgid "Va endTime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:139
+msgid ""
+"The time the last end message was received or the output packet count was "
+"reached."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:139
+#, no-wrap
+msgid "Va elapsedTime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:145
+msgid ""
+"Either E<.Va endTime Li \\- Va startTime> or current time \\- E<.Va "
+"startTime>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:146
+#, no-wrap
+msgid "Dv NGM_SOURCE_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:153
+msgid ""
+"Clears and resets the statistics returned by E<.Ic getstats> (except E<.Va "
+"queueOctets> and E<.Va queueFrames>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:153
+#, no-wrap
+msgid "Dv NGM_SOURCE_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:157
+msgid "As E<.Ic getstats> but clears the statistics at the same time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:157
+#, no-wrap
+msgid "Dv NGM_SOURCE_START Pq Ic start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:169
+msgid ""
+"This message requires a single E<.Vt uint64_t> parameter which is the number "
+"of packets to send before stopping.  Node starts sending the queued packets "
+"out the E<.Va output> hook.  The E<.Va output> hook must be connected and "
+"node must have interface configured."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:169
+#, no-wrap
+msgid "Dv NGM_SOURCE_STOP Pq Ic stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:171
+msgid "Stops the node if it is active."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:171
+#, no-wrap
+msgid "Dv NGM_SOURCE_CLR_DATA Pq Ic clrdata"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:175
+msgid "Clears the packets queued from the E<.Va input> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:175
+#, no-wrap
+msgid "Dv NGM_SOURCE_SETIFACE Pq Ic setiface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:178
+msgid ""
+"This message requires the name of the interface to be configured as an "
+"argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:178
+#, no-wrap
+msgid "Dv NGM_SOURCE_SETPPS Pq Ic setpps"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:183
+msgid ""
+"This message requires a single E<.Vt uint32_t> parameter which puts upper "
+"limit on the amount of packets sent per second."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:183
+#, no-wrap
+msgid "Dv NGM_SOURCE_SET_TIMESTAMP Pq Ic settimestamp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:188
+msgid ""
+"This message specifies that a timestamp (in the format of a E<.Vt \"struct "
+"timeval\">)  should be inserted in the transmitted packets.  This message "
+"requires a structure containing the following fields:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:189 /usr/src/share/man/man4/ng_source.4:204
+#, no-wrap
+msgid "Va offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:192
+msgid ""
+"The offset from the beginning of the packet at which the timestamp is to be "
+"inserted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:192 /usr/src/share/man/man4/ng_source.4:207
+#, no-wrap
+msgid "Va flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:194
+msgid "Set to 1 to enable the timestamp."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:195
+#, no-wrap
+msgid "Dv NGM_SOURCE_GET_TIMESTAMP Pq Ic gettimestamp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:198
+msgid ""
+"Returns the current timestamp settings in the form of the structure "
+"described above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:198
+#, no-wrap
+msgid "Dv NGM_SOURCE_SET_COUNTER Pq Ic setcounter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:203
+msgid ""
+"This message specifies that a counter should be embedded in transmitted "
+"packets.  Up to four counters may be independently configured.  This message "
+"requires a structure containing the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:207
+msgid ""
+"The offset from the beginning of the packet at which the counter is to be "
+"inserted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:209
+msgid "Set to 1 to enable the counter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:209
+#, no-wrap
+msgid "Va width"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:212
+msgid "The byte width of the counter.  It may be 1, 2, or 4."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:212
+#, no-wrap
+msgid "Va next_val"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:214
+msgid "The value for the next insertion of the counter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:214
+#, no-wrap
+msgid "Va min_val"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:216
+msgid "The minimum value to be used by the counter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:216
+#, no-wrap
+msgid "Va max_val"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:218
+msgid "The maximum value to be used by the counter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:218
+#, no-wrap
+msgid "Va increment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:221
+msgid ""
+"The value to be added to the counter after each insertion.  It may be "
+"negative."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:221
+#, no-wrap
+msgid "Va index"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:223
+msgid "The counter to be configured, from 0 to 3."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_source.4:224
+#, no-wrap
+msgid "Dv NGM_SOURCE_GET_COUNTER Pq Ic getcounter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:230
+msgid ""
+"This message requires a single E<.Vt uint8_t> parameter which specifies the "
+"counter to query.  Returns the current counter settings in the form of the "
+"structure described above."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:231
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:237
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"when all hooks have been disconnected, or when the E<.Va output> hook has "
+"been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:237
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:258
+msgid ""
+"Attach the node to an E<.Xr ng_ether 4> node for an interface.  If E<.Nm "
+"ng_ether> is not already loaded you will need to do so.  For example, these "
+"commands load the E<.Nm ng_ether> module and attach the E<.Va output> hook "
+"of a new E<.Nm source> node to E<.Va orphans> hook of the E<.Li bge0:> E<.Nm "
+"ng_ether> node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:261
+#, no-wrap
+msgid ""
+"kldload ng_ether\n"
+"ngctl mkpeer bge0: source orphans output\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:267
+msgid ""
+"At this point the new node can be referred to as E<.Dq Li bge0:orphans>.  "
+"The node can be given its own name like this:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/ng_source.4:268
+#, no-wrap
+msgid "ngctl name bge0:orphans src0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:272
+msgid "After which it can be referred to as E<.Dq Li src0:>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:275
+msgid ""
+"Once created, packets can be sent to the node as raw binary data.  Each "
+"packet must be delivered in a separate netgraph message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:283
+msgid ""
+"The following example uses a short Perl script to convert the hex "
+"representation of an ICMP packet to binary and deliver it to the E<.Nm "
+"source> node's E<.Va input> hook via E<.Xr nghook 8>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:293
+#, no-wrap
+msgid ""
+"perl -pe 's/(..)[ \\et\\en]*/chr(hex($1))/ge' E<lt>E<lt>EOF | nghook src0: "
+"input\n"
+"ff ff ff ff ff ff 00 00 00 00 00 00 08 00 45 00\n"
+"00 54 cb 13 00 00 40 01 b9 87 c0 a8 2b 65 0a 00\n"
+"00 01 08 00 f8 d0 c9 76 00 00 45 37 01 73 00 01\n"
+"04 0a 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14 15\n"
+"16 17 18 19 1a 1b 1c 1d 1e 1f 20 21 22 23 24 25\n"
+"26 27 28 29 2a 2b 2c 2d 2e 2f 30 31 32 33 34 35\n"
+"36 37\n"
+"EOF\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:297
+msgid ""
+"To check that the node has queued these packets you can get the node "
+"statistics:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:300
+#, no-wrap
+msgid ""
+"ngctl msg bge0:orphans getstats\n"
+"Args:   { queueOctets=64 queueFrames=1 }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:305
+msgid "Send as many packets as required out the E<.Va output> hook:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/ng_source.4:306
+#, no-wrap
+msgid "ngctl msg bge0:orphans start 16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:310
+msgid ""
+"Either wait for them to be sent (periodically fetching stats if desired)  or "
+"send the stop message:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/ng_source.4:311
+#, no-wrap
+msgid "ngctl msg bge0:orphans stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:316
+msgid ""
+"Check the statistics (here we use E<.Ic getclrstats> to also clear the "
+"statistics):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:321
+#, no-wrap
+msgid ""
+"ngctl msg bge0:orphans getclrstats\n"
+"Args:   { outOctets=1024 outFrames=16 queueOctets=64 queueFrames=1\n"
+"startTime={ tv_sec=1035305880 tv_usec=758036 } endTime={ tv_sec=1035305880\n"
+"tv_usec=759041 } elapsedTime={ tv_usec=1005 } }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:332
+msgid ""
+"The times are from E<.Vt \"struct timeval\" Ns s>, the E<.Va tv_sec> field "
+"is seconds since the Epoch and can be converted into a date string via TCL's "
+"[clock format] or via the E<.Xr date 1> command:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:335
+#, no-wrap
+msgid ""
+"date -r 1035305880\n"
+"Tue Oct 22 12:58:00 EDT 2002\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:336
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:343
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_echo 4>, E<.Xr ng_hole 4>, E<.Xr ng_tee 4>, "
+"E<.Xr ngctl 8>, E<.Xr nghook 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:343
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:348
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_source.4:348
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_source.4:349
+msgid "E<.An Dave Chapeskie>"
+msgstr ""

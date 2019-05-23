@@ -1,0 +1,328 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ccd.4:37
+#, no-wrap
+msgid "August 9, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ccd.4:38
+#, no-wrap
+msgid "CCD 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:42
+msgid "E<.Nm ccd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ccd.4:42
+#, no-wrap
+msgid "Concatenated Disk driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:45
+msgid "E<.Cd \"device ccd\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:50
+msgid ""
+"The E<.Nm> driver provides the capability of combining one or more "
+"disks/partitions into one virtual disk."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:54
+msgid ""
+"This document assumes that you are familiar with how to generate kernels, "
+"how to properly configure disks and devices in a kernel configuration file, "
+"and how to partition disks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:59
+msgid ""
+"In order to compile in support for the E<.Nm>, you must add a line similar "
+"to the following to your kernel configuration file:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/ccd.4:60
+#, no-wrap
+msgid "device\tccd\t\t# concatenated disk devices"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:72
+msgid ""
+"As of the E<.Fx 3.0> release, you do not need to configure your kernel with "
+"E<.Nm> but may instead use it as a kernel loadable module.  Simply running "
+"E<.Xr ccdconfig 8> will load the module into the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:79
+msgid ""
+"A E<.Nm> may be either serially concatenated or interleaved.  To serially "
+"concatenate the partitions, specify the interleave factor of 0.  Note that "
+"mirroring may not be used with an interleave factor of 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:85
+msgid ""
+"There is a run-time utility that is used for configuring E<.Nm Ns s>.  See "
+"E<.Xr ccdconfig 8> for more information."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ccd.4:85
+#, no-wrap
+msgid "The Interleave Factor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:109
+msgid ""
+"If a E<.Nm> is interleaved correctly, a E<.Dq striping> effect is achieved, "
+"which can increase sequential read/write performance.  The interleave factor "
+"is expressed in units of E<.Dv DEV_BSIZE> (usually 512 bytes).  For large "
+"writes, the optimum interleave factor is typically the size of a track, "
+"while for large reads, it is about a quarter of a track.  (Note that this "
+"changes greatly depending on the number and speed of disks.)  For instance, "
+"with eight 7,200 RPM drives on two Fast-Wide SCSI buses, this translates to "
+"about 128 for writes and 32 for reads.  A larger interleave tends to work "
+"better when the disk is taking a multitasking load by localizing the file "
+"I/O from any given process onto a single disk.  You lose sequential "
+"performance when you do this, but sequential performance is not usually an "
+"issue with a multitasking load."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:115
+msgid ""
+"An interleave factor must be specified when using a mirroring configuration, "
+"even when you have only two disks (i.e., the layout winds up being the same "
+"no matter what the interleave factor).  The interleave factor will determine "
+"how I/O is broken up, however, and a value 128 or greater is recommended."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:118
+msgid "E<.Nm> has an option for a parity disk, but does not currently implement it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:123
+msgid ""
+"The best performance is achieved if all component disks have the same "
+"geometry and size.  Optimum striping cannot occur with different disk types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:133
+msgid ""
+"For random-access oriented workloads, such as news servers, a larger "
+"interleave factor (e.g., 65,536) is more desirable.  Note that there is not "
+"much E<.Nm> can do to speed up applications that are seek-time limited.  "
+"Larger interleave factors will at least reduce the chance of having to seek "
+"two disk-heads to read one directory or a file."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ccd.4:133
+#, no-wrap
+msgid "Disk Mirroring"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:157
+msgid ""
+"You can configure the E<.Nm> to E<.Dq mirror> any even number of disks.  See "
+"E<.Xr ccdconfig 8> for how to specify the necessary flags.  For example, if "
+"you have a E<.Nm> configuration specifying four disks, the first two disks "
+"will be mirrored with the second two disks.  A write will be run to both "
+"sides of the mirror.  A read will be run to either side of the mirror "
+"depending on what the driver believes to be most optimal.  If the read "
+"fails, the driver will automatically attempt to read the same sector from "
+"the other side of the mirror.  Currently E<.Nm> uses a dual seek zone model "
+"to optimize reads for a multi-tasking load rather than a sequential load."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:162
+msgid ""
+"In an event of a disk failure, you can use E<.Xr dd 1> to recover the failed "
+"disk."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:176
+msgid ""
+"Note that a one-disk E<.Nm> is not the same as the original partition.  In "
+"particular, this means if you have a file system on a two-disk mirrored "
+"E<.Nm> and one of the disks fail, you cannot mount and use the remaining "
+"partition as itself; you have to configure it as a one-disk E<.Nm>.  You "
+"cannot replace a disk in a mirrored E<.Nm> partition without first backing "
+"up the partition, then replacing the disk, then restoring the partition."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/ccd.4:176
+#, no-wrap
+msgid "Linux Compatibility"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:195
+msgid ""
+"The E<.Tn Linux> compatibility mode does not try to read the label that "
+"E<.Tn Linux Ns '> E<.Xr md 4> driver leaves on the raw devices.  You will "
+"have to give the order of devices and the interleave factor on your own.  "
+"When in E<.Tn Linux> compatibility mode, E<.Nm> will convert the interleave "
+"factor from E<.Tn Linux> terminology.  That means you give the same "
+"interleave factor that you gave as chunk size in E<.Tn Linux>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:212
+msgid ""
+"If you have a E<.Tn Linux> E<.Xr md 4> device in E<.Dq legacy> mode, do not "
+"use the E<.Dv CCDF_LINUX> flag in E<.Xr ccdconfig 8>.  Use the E<.Dv "
+"CCDF_NO_OFFSET> flag instead.  In that case you have to convert the "
+"interleave factor on your own, usually it is E<.Tn Linux Ns '> chunk size "
+"multiplied by two."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:224
+msgid ""
+"Using a E<.Tn Linux> RAID this way is potentially dangerous and can destroy "
+"the data in there.  Since E<.Fx> does not read the label used by E<.Tn "
+"Linux>, changes in E<.Tn Linux> might invalidate the compatibility layer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:251
+msgid ""
+"However, using this is reasonably safe if you test the compatibility before "
+"mounting a RAID read-write for the first time.  Just using E<.Xr ccdconfig "
+"8> without mounting does not write anything to the E<.Tn Linux> RAID.  Then "
+"you do a E<.Nm fsck.ext2fs Pq Pa ports/sysutils/e2fsprogs> on the E<.Nm> "
+"device using the E<.Fl n> flag.  You can mount the file system read-only to "
+"check files in there.  If all this works, it is unlikely that there is a "
+"problem with E<.Nm>.  Keep in mind that even when the E<.Tn Linux> "
+"compatibility mode in E<.Nm> is working correctly, bugs in E<.Fx Ap s> E<.Nm "
+"ex2fs> implementation would still destroy your data."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:251
+#, no-wrap
+msgid "WARNINGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:256
+msgid ""
+"If just one (or more) of the disks in a E<.Nm> fails, the entire file system "
+"will be lost unless you are mirroring the disks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:266
+msgid ""
+"If one of the disks in a mirror is lost, you should still be able to back up "
+"your data.  If a write error occurs, however, data read from that sector may "
+"be non-deterministic.  It may return the data prior to the write or it may "
+"return the data that was written.  When a write error occurs, you should "
+"recover and regenerate the data as soon as possible."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:270
+msgid ""
+"Changing the interleave or other parameters for a E<.Nm> disk usually "
+"destroys whatever data previously existed on that disk."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:270
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ccd.4:272
+#, no-wrap
+msgid "Pa /dev/ccd*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:275
+msgid "E<.Nm> device special files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:276
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:285
+msgid ""
+"E<.Xr dd 1>, E<.Xr ccdconfig 8>, E<.Xr config 8>, E<.Xr disklabel 8>, E<.Xr "
+"fsck 8>, E<.Xr gvinum 8>, E<.Xr mount 8>, E<.Xr newfs 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ccd.4:285
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ccd.4:287
+msgid ""
+"The concatenated disk driver was originally written at the University of "
+"Utah."
+msgstr ""

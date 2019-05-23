@@ -1,0 +1,327 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/lua/drawer.lua.8:29
+#, no-wrap
+msgid "August 19, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/lua/drawer.lua.8:30
+#, no-wrap
+msgid "DRAWER.LUA 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/lua/drawer.lua.8:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:34
+msgid "E<.Nm drawer.lua>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/lua/drawer.lua.8:34
+#, no-wrap
+msgid "FreeBSD menu/screen drawer module"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/lua/drawer.lua.8:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:39
+msgid ""
+"E<.Nm> contains functionality for drawing and manipulating the menu, logo, "
+"and brand to the screen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:43
+msgid ""
+"Before using the functionality provided by E<.Nm>, it must be included with "
+"a statement such as the following:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/stand/lua/drawer.lua.8:44
+#, no-wrap
+msgid "local drawer = require(\"drawer\")"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/lua/drawer.lua.8:45
+#, no-wrap
+msgid "BRAND DEFINITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:56
+msgid ""
+"Brand definitions describe a E<.Dq brand>, traditionally drawn above the "
+"menu.  The exact position may be controlled by using the E<.Xr loader.conf "
+"5> variables E<.Va loader_brand_x> and E<.Va loader_brand_y>.  The following "
+"keys may be defined for a brand definition:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:57 /usr/src/stand/lua/drawer.lua.8:79
+#, no-wrap
+msgid "Ic graphic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:59 /usr/src/stand/lua/drawer.lua.8:81
+msgid "A table of strings containing rows of text to be drawn to the screen."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/lua/drawer.lua.8:60
+#, no-wrap
+msgid "LOGO DEFINITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:71
+msgid ""
+"Logo definitions describe a E<.Dq logo>, traditionally to the right of the "
+"menu.  The exact position may be controlled by using the E<.Xr loader.conf "
+"5> variables E<.Va loader_logo_x> and E<.Va loader_logo_y>.  The following "
+"keys may be defined for a logo definition:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:72
+#, no-wrap
+msgid "Ic requires_color"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:79
+msgid ""
+"A boolean describing whether or not this logo definition requires color.  If "
+"it is chosen to be drawn and it requires color on a color-disabled boot, "
+"E<.Nm> will elect to use the default E<.Dq orbbw> logo rather than the "
+"chosen logo."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:81
+#, no-wrap
+msgid "Ic shift"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:89
+msgid ""
+"A table describing the E<.Va x> and E<.Va y> shift that should be applied to "
+"all elements should this logo be selected.  This is typically used for "
+"shifting the menu and brand if an empty or minimal logo are selected."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/lua/drawer.lua.8:90
+#, no-wrap
+msgid "CUSTOM BRANDS AND LOGOS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:112
+msgid ""
+"The brand and logo system is designed to allow brands and logos to be easily "
+"plugged in.  When an unrecognized E<.Ev loader_brand> or E<.Ev loader_logo> "
+"are encountered, E<.Nm> will attempt to include E<.Pa "
+"brand-${loader_brand}.lua> or E<.Pa logo-${loader_logo}.lua> respectively.  "
+"These files are expected to call either E<.Fn drawer.addBrand> or E<.Fn "
+"drawer.addLogo> to add the requested branddef or logodef.  E<.Nm> will "
+"attempt to do another lookup for the requested brand or logo before falling "
+"back to one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:113
+#, no-wrap
+msgid "Ic drawer.default_brand"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:115
+msgid "The default brand to be used if the requested brand cannot be located."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:115
+#, no-wrap
+msgid "Ic drawer.default_color_logodef"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:119
+msgid ""
+"The default logodef to be used if an invalid logodef is requested and E<.Xr "
+"loader 8> has been configured to allow output of color."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:119
+#, no-wrap
+msgid "Ic drawer.default_bw_logodef"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:124
+msgid ""
+"The default logodef to be used if either an invalid logodef has been "
+"requested, or a logodef has been requested that requires color and E<.Xr "
+"loader 8> has been configured to not output color."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/lua/drawer.lua.8:125
+#, no-wrap
+msgid "FRAME STYLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:132
+msgid ""
+"E<.Nm> contains the definitions for the different frame styles that may be "
+"drawn around the menu.  Frame styles define the characters drawn for "
+"horizontal lines, vertical aligns, and each of the four corner styles.  The "
+"following keys may be defined for a frame style:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:135
+msgid "horizontal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:137
+msgid "vertical"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:139
+msgid "top_left"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:141
+msgid "bottom_left"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:143
+msgid "top_right"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:145
+msgid "bottom_right"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:151
+msgid ""
+"Frame styles are currently defined in the table E<.Ic drawer.frame_styles> "
+"indexed by the name used for E<.Ev loader_menu_frame>.  No API currently "
+"exists for manipulating this table indirectly."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/lua/drawer.lua.8:151
+#, no-wrap
+msgid "Exported functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:154
+msgid "The following functions are exported from E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:155
+#, no-wrap
+msgid "Fn drawer.addBrand name def"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:160
+msgid ""
+"Add the brand definition described by E<.Fa def> to the table of known brand "
+"definitions, indexed by E<.Fa name>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:160
+#, no-wrap
+msgid "Fn drawer.addLogo name def"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:165
+msgid ""
+"Add the logo definition described by E<.Fa def> to the table of known logo "
+"definitions, indexed by E<.Fa name>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/lua/drawer.lua.8:165
+#, no-wrap
+msgid "Fn drawer.drawscreen menudef"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:170
+msgid ""
+"Draws the logo, brand, menu frame, and the current menu as described in "
+"E<.Fa menudef>, formatted as defined by E<.Xr menu.lua 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/lua/drawer.lua.8:171
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:173
+msgid "E<.Xr menu.lua 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/lua/drawer.lua.8:173
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/lua/drawer.lua.8:179
+msgid ""
+"The E<.Nm> file was originally written by E<.An Pedro Souza Aq Mt "
+"pedrosouza@FreeBSD.org>.  Later work and this manual page was done by E<.An "
+"Kyle Evans Aq Mt kevans@FreeBSD.org>."
+msgstr ""

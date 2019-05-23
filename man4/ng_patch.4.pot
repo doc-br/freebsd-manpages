@@ -1,0 +1,459 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_patch.4:29
+#, no-wrap
+msgid "November 17, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_patch.4:30
+#, no-wrap
+msgid "NG_PATCH 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:34
+msgid "E<.Nm ng_patch>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_patch.4:34
+#, no-wrap
+msgid "trivial mbuf data modifying netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_patch.4:36
+#, no-wrap
+msgid "netgraph/ng_patch.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:60
+msgid ""
+"The E<.Nm patch> node performs data modification of packets passing through "
+"it.  Modifications are restricted to a subset of C language operations on "
+"unsigned integers of 8, 16, 32 or 64 bit size.  These are: set to new value "
+"(=), addition (+=), subtraction (-=), multiplication (*=), division (/=), "
+"negation (= -), bitwise AND (&=), bitwise OR (|=), bitwise eXclusive OR "
+"(^=), shift left (E<lt>E<lt>=), shift right (E<gt>E<gt>=).  A negation "
+"operation is the one exception: integer is treated as signed and second "
+"operand (the E<.Va value>)  is not used.  If there is more than one "
+"modification operation, they are applied to packets sequentially in the "
+"order they were specified by the user.  The data payload of a packet is "
+"viewed as an array of bytes, with a zero offset corresponding to the very "
+"first byte of packet headers, and the E<.Va length> bytes beginning from "
+"E<.Va offset> as a single integer in network byte order. An additional "
+"offset can be optionally requested at configuration time to account for "
+"packet type."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:60
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:62
+msgid "This node type has two hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:63
+#, no-wrap
+msgid "Va in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:71
+msgid ""
+"Packets received on this hook are modified according to rules specified in "
+"the configuration and then forwarded to the E<.Ar out> hook, if it exists.  "
+"Otherwise they are reflected back to the E<.Ar in> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:71
+#, no-wrap
+msgid "Va out"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:75
+msgid ""
+"Packets received on this hook are forwarded to the E<.Ar in> hook without "
+"any changes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:76
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:78
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:79
+#, no-wrap
+msgid "Dv NGM_PATCH_SETDLT Pq Ic setdlt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:87
+msgid ""
+"Sets the data link type on the E<.Va in> hook (to help calculate relative "
+"offset). Currently, supported types are E<.Cm DLT_RAW> (raw IP datagrams , "
+"no offset applied, the default) and E<.Cm DLT_EN10MB> (Ethernet). DLT_ "
+"definitions can be found in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_patch.4:87
+#, no-wrap
+msgid "net/bpf.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:93
+msgid ""
+"If you want to work on the link layer header you must use no additional "
+"offset by specifying E<.Cm DLT_RAW>.  If E<.Cm EN10MB > is specified, then "
+"the optional additional offset will take into account the Ethernet header "
+"and a QinQ header if present."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:93
+#, no-wrap
+msgid "Dv NGM_PATCH_GETDLT Pq Ic getdlt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:97
+msgid "This control message returns the data link type of the E<.Va in> hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:97
+#, no-wrap
+msgid "Dv NGM_PATCH_SETCONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:103
+msgid ""
+"This command sets the sequence of modify operations that will be applied to "
+"incoming data on a hook.  The following E<.Vt \"struct ng_patch_config\"> "
+"must be supplied as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:122
+#, no-wrap
+msgid ""
+"struct ng_patch_op {\n"
+"\tuint32_t\toffset;\n"
+"\tuint16_t\tlength; /* 1,2,4 or 8 bytes */\n"
+"\tuint16_t\tmode;\n"
+"\tuint64_t\tvalue;\n"
+"};\n"
+"/* Patching modes */\n"
+"#define NG_PATCH_MODE_SET\t1\n"
+"#define NG_PATCH_MODE_ADD\t2\n"
+"#define NG_PATCH_MODE_SUB\t3\n"
+"#define NG_PATCH_MODE_MUL\t4\n"
+"#define NG_PATCH_MODE_DIV\t5\n"
+"#define NG_PATCH_MODE_NEG\t6\n"
+"#define NG_PATCH_MODE_AND\t7\n"
+"#define NG_PATCH_MODE_OR\t8\n"
+"#define NG_PATCH_MODE_XOR\t9\n"
+"#define NG_PATCH_MODE_SHL\t10\n"
+"#define NG_PATCH_MODE_SHR\t11\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:129
+#, no-wrap
+msgid ""
+"struct ng_patch_config {\n"
+"\tuint32_t\tcount;\n"
+"\tuint32_t\tcsum_flags;\n"
+"\tuint32_t\trelative_offset;\n"
+"\tstruct ng_patch_op ops[];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:139
+msgid ""
+"The E<.Va csum_flags> can be set to any combination of CSUM_IP, CSUM_TCP, "
+"CSUM_SCTP and CSUM_UDP (other values are ignored) for instructing the IP "
+"stack to recalculate the corresponding checksum before transmitting packet "
+"on output interface.  The E<.Nm> node does not do any checksum correction by "
+"itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:139
+#, no-wrap
+msgid "Dv NGM_PATCH_GETCONFIG Pq Ic getconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:143
+msgid ""
+"This control message returns the current set of modify operations, in the "
+"form of a E<.Vt \"struct ng_patch_config\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:143
+#, no-wrap
+msgid "Dv NGM_PATCH_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:146
+msgid "Returns the node's statistics as a E<.Vt \"struct ng_patch_stats\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:146
+#, no-wrap
+msgid "Dv NGM_PATCH_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:148
+msgid "Clears the node's statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_patch.4:148
+#, no-wrap
+msgid "Dv NGM_PATCH_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:152
+msgid ""
+"This command is identical to E<.Dv NGM_PATCH_GET_STATS>, except that the "
+"statistics are also atomically cleared."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:153
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:157
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:157
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:175
+msgid ""
+"This E<.Nm> node was designed to modify TTL and TOS/DSCP fields in IP "
+"packets.  As an example, suppose you have two adjacent simplex links to a "
+"remote network (e.g.\\& satellite), so that the packets expiring in between "
+"will generate unwanted ICMP-replies which have to go forth, not back.  Thus "
+"you need to raise TTL of every packet entering link by 2 to ensure the TTL "
+"will not reach zero there.  To achieve this you can set an E<.Xr ipfw 8> "
+"rule to use the E<.Cm netgraph> action to inject packets which are going to "
+"the simplex link into the patch node, by using the following E<.Xr ngctl 8> "
+"script:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:183
+#, no-wrap
+msgid ""
+"/usr/sbin/ngctl -f- E<lt>E<lt>-SEQ\n"
+"\tmkpeer ipfw: patch 200 in\n"
+"\tname ipfw:200 ttl_add\n"
+"\tmsg ttl_add: setconfig { count=1 csum_flags=1 ops=[\t\\e\n"
+"\t\t{ mode=2 value=3 length=1 offset=8 } ] }\n"
+"SEQ\n"
+"/sbin/ipfw add 150 netgraph 200 ip from any to simplex.remote.net\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:194
+msgid ""
+"Here the E<.Dq Li ttl_add> node of type E<.Nm> is configured to add (mode "
+"E<.Dv NG_PATCH_MODE_ADD>)  a E<.Va value> of 3 to a one-byte TTL field, "
+"which is 9th byte of IP packet header."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:202
+msgid ""
+"Another example would be two consecutive modifications of packet TOS field: "
+"say, you need to clear the E<.Dv IPTOS_THROUGHPUT> bit and set the E<.Dv "
+"IPTOS_MINCOST> bit.  So you do:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:211
+#, no-wrap
+msgid ""
+"/usr/sbin/ngctl -f- E<lt>E<lt>-SEQ\n"
+"\tmkpeer ipfw: patch 300 in\n"
+"\tname ipfw:300 tos_chg\n"
+"\tmsg tos_chg: setconfig { count=2 csum_flags=1 ops=[\t\\e\n"
+"\t\t{ mode=7 value=0xf7 length=1 offset=1 }\t\t\\e\n"
+"\t\t{ mode=8 value=0x02 length=1 offset=1 } ] }\n"
+"SEQ\n"
+"/sbin/ipfw add 160 netgraph 300 ip from any to any not dst-port 80\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:218
+msgid ""
+"This first does E<.Dv NG_PATCH_MODE_AND> clearing the fourth bit and then "
+"E<.Dv NG_PATCH_MODE_OR> setting the third bit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:223
+msgid ""
+"In both examples the E<.Va csum_flags> field indicates that IP checksum (but "
+"not TCP or UDP checksum) should be recalculated before transmit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:230
+msgid ""
+"Note: one should ensure that packets are returned to ipfw after processing "
+"inside E<.Xr netgraph 4>, by setting appropriate E<.Xr sysctl 8> variable:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:232
+#, no-wrap
+msgid "sysctl net.inet.ip.fw.one_pass=0\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:233
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:237
+msgid "E<.Xr netgraph 4>, E<.Xr ng_ipfw 4>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:237
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:242
+msgid "The E<.Nm> node type was implemented in E<.Fx 8.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:242
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:244
+msgid "E<.An \"Maxim Ignatenko\" Aq gelraen.ua@gmail.com>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:247
+msgid "Relative offset code by E<.An \"DMitry Vagin\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:250
+msgid ""
+"This manual page was written by E<.An \"Vadim Goncharov\" Aq "
+"vadimnuclight@tpu.ru>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_patch.4:250
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:256
+msgid ""
+"The node blindly tries to apply every patching operation to each packet "
+"(except those which offset if greater than length of the packet), so be sure "
+"that you supply only the right packets to it (e.g. changing bytes in the ARP "
+"packets meant to be in IP header could corrupt them and make your machine "
+"unreachable from the network)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:258
+msgid "E<.Em !!! WARNING !!!>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_patch.4:261
+msgid ""
+"The output path of the IP stack assumes correct fields and lengths in the "
+"packets - changing them by to incorrect values can cause unpredictable "
+"results including kernel panics."
+msgstr ""

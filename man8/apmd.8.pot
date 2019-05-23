@@ -1,0 +1,557 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/apmd/apmd.8:31
+#, no-wrap
+msgid "June 28, 1999"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/apmd/apmd.8:32
+#, no-wrap
+msgid "APMD 8 i386"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:36
+msgid "E<.Nm apmd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/apmd/apmd.8:36
+#, no-wrap
+msgid "Advanced Power Management monitor daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:43
+msgid "E<.Nm> E<.Op Fl d> E<.Op Fl f file> E<.Op Fl s> E<.Op Fl v>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:65
+msgid ""
+"The E<.Nm> utility monitors the occurrence of the specified Advanced Power "
+"Management E<.Pq Tn APM> events and, if one of the events occurs, it "
+"executes the sequence of commands corresponding to the event.  Only the "
+"events specified in the configuration file are notified to E<.Nm>; all other "
+"events are ignored.  For each event posted by the APM BIOS, E<.Nm> invokes "
+"the sequence of commands specified in the configuration file.  When E<.Nm> "
+"is running with monitoring suspend/standby requests, the kernel will not "
+"process those requests.  Therefore, if you wish action to be taken when "
+"these events occur, you need to explicitly configure the appropriate "
+"commands or built-in functions in the configuration file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:69
+msgid "The E<.Nm> utility recognizes the following runtime options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:70
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:75
+msgid ""
+"Starts in debug mode.  This causes E<.Nm> to execute in the foreground "
+"instead of in daemon mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:75
+#, no-wrap
+msgid "Fl f Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:80
+msgid ""
+"Specifies a different configuration file E<.Ar file> to be used in place of "
+"the default E<.Pa /etc/apmd.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:80
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:87
+msgid ""
+"Causes E<.Nm> to simulate a POWERSTATECHANGE event when a power state change "
+"is detected (AC_POWER_STATE) but the bios of the laptop does not report it.  "
+"This enables you to do things like dimming the LCD backlight when you unplug "
+"the power cord."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:87
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:89
+msgid "Verbose mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:99
+msgid ""
+"When E<.Nm> starts, it reads the configuration file E<.Pa ( /etc/apmd.conf> "
+"as default)  and notifies the set of events to be monitored to the APM "
+"device driver.  When it terminates, the APM device driver automatically "
+"cancels monitored events."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:106
+msgid ""
+"If the E<.Nm> process receives a E<.Dv SIGHUP>, it will reread its "
+"configuration file and notify the APM device driver of any changes to its "
+"configuration."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:117
+msgid ""
+"The E<.Nm> utility uses the device E<.Pa /dev/apmctl> to issue E<.Xr ioctl "
+"2> requests for monitoring events and for controlling the APM system.  This "
+"device file is opened exclusively, so only a single E<.Nm> process can be "
+"running at any time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:125
+msgid ""
+"When E<.Nm> receives an APM event, it forks a child process to execute the "
+"commands specified in the configuration file and then continues listening "
+"for more events.  The child process executes the commands specified, one at "
+"a time and in the order that they are listed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:132
+msgid ""
+"While E<.Nm> is processing the command list for SUSPEND/STANDBY requests, "
+"the APM kernel device driver issues notifications to APM BIOS once per "
+"second so that the BIOS knows that there are still some commands pending, "
+"and that it should not complete the request just yet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:141
+msgid ""
+"The E<.Nm> utility creates the file E<.Pa /var/run/apmd.pid>, and stores its "
+"process id there.  This can be used to kill or reconfigure E<.Nm>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:141
+#, no-wrap
+msgid "CONFIGURATION FILE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:146
+msgid ""
+"The structure of the E<.Nm> configuration file is quite simple.  For "
+"example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:152
+#, no-wrap
+msgid ""
+"apm_event SUSPENDREQ {\n"
+"       exec \"sync && sync && sync\";\n"
+"       exec \"sleep 1\";\n"
+"       exec \"zzz\";\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:163
+msgid ""
+"will cause E<.Nm> to receive the APM event E<.Ql SUSPENDREQ> (which may be "
+"posted by an LCD close), run the E<.Ql sync> command 3 times and wait for a "
+"while, then execute E<.Nm zzz ( Ns Nm apm Fl z>)  to put the system in the "
+"suspend state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:166
+msgid "The apm_event keyword"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:170
+#, no-wrap
+msgid ""
+"E<.Ql apm_event>\n"
+"is the keyword which indicates the start of configuration for\n"
+"each event.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:173
+msgid "APM events"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:178
+#, no-wrap
+msgid ""
+"If you wish to execute the same commands for different events, the\n"
+"event names should be delimited by a comma.\n"
+"The following are\n"
+"valid event names:\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:183
+#, no-wrap
+msgid ""
+"- Events ignored by the kernel if\n"
+"E<.Nm>\n"
+"is running:\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:185
+#, no-wrap
+msgid "STANDBYREQ"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:186
+#, no-wrap
+msgid "USERSTANDBYREQ"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:187
+#, no-wrap
+msgid "SUSPENDREQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:189 /usr/src/usr.sbin/apmd/apmd.8:191
+#, no-wrap
+msgid "should include sync in the command list,\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:189
+#, no-wrap
+msgid "USERSUSPENDREQ"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:191
+#, no-wrap
+msgid "BATTERYLOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:193
+#, no-wrap
+msgid "only zzz should be specified in the command list.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:198
+#, no-wrap
+msgid ""
+"- Events passed to\n"
+"E<.Nm>\n"
+"after kernel handling:\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:200
+#, no-wrap
+msgid "NORMRESUME"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:201
+#, no-wrap
+msgid "CRITRESUME"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:202
+#, no-wrap
+msgid "STANDBYRESUME"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:203
+#, no-wrap
+msgid "POWERSTATECHANGE"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:204
+#, no-wrap
+msgid "UPDATETIME"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:205
+#, no-wrap
+msgid "CAPABILITIESCHANGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:210
+#, no-wrap
+msgid ""
+"Other events will not be sent to\n"
+"E<.Nm>.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:214
+msgid "command line syntax"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:236
+#, no-wrap
+msgid ""
+"In the example above, the three lines beginning with\n"
+"E<.Ql exec>\n"
+"are commands for the event.\n"
+"Each line should be terminated with a semicolon.\n"
+"The command list for the event should be enclosed by\n"
+"E<.Ql {>\n"
+"and\n"
+"E<.Ql }>.\n"
+"The\n"
+"E<.Nm>\n"
+"utility uses\n"
+"E<.Pa /bin/sh>\n"
+"for double-quotation enclosed command execution, just as with\n"
+"E<.Xr system 3>.\n"
+"Each command is executed in order until the end of\n"
+"the list is reached or a command finishes with a non-zero status code.\n"
+"The\n"
+"E<.Nm>\n"
+"utility will report any failed command's status code via\n"
+"E<.Xr syslog 3>\n"
+"and will then reject the request event posted by the APM BIOS.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:239
+msgid "Built-in functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:246
+#, no-wrap
+msgid ""
+"You can also specify\n"
+"E<.Nm>\n"
+"built-in functions instead of command lines.\n"
+"A built-in function name should be terminated with a semicolon,\n"
+"just as with a command line.\n"
+"The following built-in functions are currently supported:\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:249
+#, no-wrap
+msgid "- reject"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:254
+#, no-wrap
+msgid ""
+"Reject last request posted by APM BIOS.\n"
+"This can be used to reject\n"
+"a SUSPEND request when the LCD is closed and put the system in a\n"
+"STANDBY state instead.\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:258
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:260
+#, no-wrap
+msgid "Pa /etc/apmd.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:261
+#, no-wrap
+msgid "Pa /dev/apmctl"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/apmd/apmd.8:262
+#, no-wrap
+msgid "Pa /var/run/apmd.pid"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:264
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:266
+msgid "Sample configuration commands include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:270
+#, no-wrap
+msgid ""
+"apm_event SUSPENDREQ {\n"
+"        exec \"/etc/rc.suspend apm suspend\";\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:276
+#, no-wrap
+msgid ""
+"apm_event USERSUSPENDREQ {\n"
+"        exec \"sync && sync && sync\";\n"
+"        exec \"sleep 1\";\n"
+"        exec \"apm -z\";\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:280
+#, no-wrap
+msgid ""
+"apm_event NORMRESUME {\n"
+"        exec \"/etc/rc.resume apm suspend\";\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:284
+#, no-wrap
+msgid ""
+"apm_event STANDBYRESUME {\n"
+"        exec \"/etc/rc.resume apm standby\";\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:301
+#, no-wrap
+msgid ""
+"# resume event configuration for serial mouse users by\n"
+"# reinitializing a moused(8) connected to a serial port.\n"
+"#\n"
+"#apm_event NORMRESUME {\n"
+"#       exec \"kill -HUP `cat /var/run/moused.pid`\";\n"
+"#}\n"
+"#\n"
+"# suspend request event configuration for ATA HDD users:\n"
+"# execute standby instead of suspend.\n"
+"#\n"
+"#apm_event SUSPENDREQ {\n"
+"#       reject;\n"
+"#       exec \"sync && sync && sync\";\n"
+"#       exec \"sleep 1\";\n"
+"#       exec \"apm -Z\";\n"
+"#}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:302
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:305
+msgid "E<.Xr apm 4>, E<.Xr apm 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:305
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:310
+msgid "The E<.Nm> utility appeared in E<.Fx 3.3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/apmd/apmd.8:310
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:313
+msgid ""
+"E<.An Mitsuru IWASAKI Aq Mt iwasaki@FreeBSD.org> E<.An KOIE Hidetaka Aq Mt "
+"koie@suri.co.jp>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/apmd/apmd.8:322
+msgid ""
+"E<.An -nosplit> Some contributions made by E<.An Warner Losh Aq Mt "
+"imp@FreeBSD.org>, E<.An Hiroshi Yamashita Aq Mt bluemoon@msj.biglobe.ne.jp>, "
+"E<.An Yoshihiko SARUMARU Aq Mt mistral@imasy.or.jp>, E<.An Norihiro Kumagai "
+"Aq Mt kuma@nk.rim.or.jp>, E<.An NAKAGAWA Yoshihisa Aq Mt "
+"nakagawa@jp.FreeBSD.org>, and E<.An Nick Hilliard Aq Mt nick@foobar.org>."
+msgstr ""

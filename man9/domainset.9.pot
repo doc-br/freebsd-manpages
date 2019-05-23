@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/domainset.9:27
+#, no-wrap
+msgid "October 30, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/domainset.9:28
+#, no-wrap
+msgid "DOMAINSET 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domainset.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:32
+msgid "E<.Nm domainset(9)>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/domainset.9:32
+#, no-wrap
+msgid "domainset functions and operation"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domainset.9:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/domainset.9:34
+#, no-wrap
+msgid "sys/_domainset.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/domainset.9:35 /usr/src/share/man/man9/domainset.9:150
+#, no-wrap
+msgid "sys/domainset.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:44
+#, no-wrap
+msgid ""
+"struct domainset {\n"
+"        domainset_t     ds_mask;\n"
+"        uint16_t        ds_policy;\n"
+"        domainid_t      ds_prefer;\n"
+"\t...\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:56
+msgid ""
+"E<.Ft struct domainset *> E<.Fn DOMAINSET_FIXED domain> E<.Ft struct "
+"domainset *> E<.Fn DOMAINSET_RR> E<.Ft struct domainset *> E<.Fn "
+"DOMAINSET_PREF domain> E<.Ft struct domainset *> E<.Fn domainset_create "
+"\"const struct domainset *key\"> E<.Ft int> E<.Fn sysctl_handle_domainset "
+"\"SYSCTL_HANDLER_ARGS\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domainset.9:56
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:67
+msgid ""
+"The E<.Nm> API provides memory domain allocation policy for NUMA machines.  "
+"Each E<.Vt domainset> contains a bitmask of allowed domains, an integer "
+"policy, and an optional preferred domain.  Together, these specify a search "
+"order for memory allocations as well as the ability to restrict threads and "
+"objects to a subset of available memory domains for system partitioning and "
+"resource management."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:75
+msgid ""
+"Every thread in the system and optionally every E<.Vt vm_object_t>, which is "
+"used to represent files and other memory sources, has a reference to a E<.Vt "
+"struct domainset>.  The domainset associated with the object is consulted "
+"first and the system falls back to the thread policy if none exists."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:77
+msgid "The allocation policy has the following possible values:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/domainset.9:78
+#, no-wrap
+msgid "Dv DOMAINSET_POLICY_ROUNDROBIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:82
+msgid ""
+"Memory is allocated from each domain in the mask in a round-robin fashion.  "
+"This distributes bandwidth evenly among available domains.  This policy can "
+"specify a single domain for a fixed allocation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/domainset.9:82
+#, no-wrap
+msgid "Dv DOMAINSET_POLICY_FIRSTTOUCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:88
+msgid ""
+"Memory is allocated from the node that it is first accessed on.  Allocation "
+"falls back to round-robin if the current domain is not in the allowed set or "
+"is out of memory.  This policy optimizes for locality but may give pessimal "
+"results if the memory is accessed from many CPUs that are not in the local "
+"domain."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/domainset.9:88
+#, no-wrap
+msgid "Dv DOMAINSET_POLICY_PREFER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:94
+msgid ""
+"Memory is allocated from the node in the E<.Vt prefer> member.  The "
+"preferred node must be set in the allowed mask.  If the preferred node is "
+"out of memory the allocation falls back to round-robin among allowed sets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/domainset.9:94
+#, no-wrap
+msgid "Dv DOMAINSET_POLICY_INTERLEAVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:102
+msgid ""
+"Memory is allocated in a striped fashion with multiple pages allocated to "
+"each domain in the set according to the offset within the object.  The strip "
+"width is object dependent and may be as large as a super-page (2MB on "
+"amd64).  This gives good distribution among memory domains while keeping "
+"system efficiency higher and is preferential to round-robin for general use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:135
+msgid ""
+"The E<.Fn DOMAINSET_FIXED>, E<.Fn DOMAINSET_RR> and E<.Fn DOMAINSET_PREF> "
+"macros provide pointers to global pre-defined policies for use when the "
+"desired policy is known at compile time.  E<.Fn DOMAINSET_FIXED> is a policy "
+"which only permits allocations from the specified domain.  E<.Fn "
+"DOMAINSET_RR> provides round-robin selection among all domains in the "
+"system.  The E<.Fn DOMAINSET_PREF> policies attempt allocation from the "
+"specified domain, but unlike E<.Fn DOMAINSET_FIXED> will fall back to other "
+"domains to satisfy the request.  These policies should be used in preference "
+"to E<.Fn DOMAINSET_FIXED> to avoid blocking indefinitely on a E<.Dv "
+"M_WAITOK> request.  The E<.Fn domainset_create> function takes a partially "
+"filled in domainset as a key and returns a valid domainset or NULL.  It is "
+"critical that consumers not use domainsets that have not been returned by "
+"this function.  E<.Vt> domainset is an immutable type that is shared among "
+"all matching keys and must not be modified after return."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:143
+msgid ""
+"The E<.Fn sysctl_handle_domainset> function is provided as a convenience for "
+"modifying or viewing domainsets that are not accessible via E<.Xr cpuset "
+"2>.  It is intended for use with E<.Xr sysctl 9>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domainset.9:144
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:149
+msgid "E<.Xr cpuset 1>, E<.Xr cpuset 2>, E<.Xr cpuset_setdomain 2>, E<.Xr bitset 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/domainset.9:149
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/domainset.9:152
+msgid "first appeared in E<.Fx 12.0>."
+msgstr ""

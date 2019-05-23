@@ -1,0 +1,397 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/nvme.4:36
+#, no-wrap
+msgid "December 7, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/nvme.4:37
+#, no-wrap
+msgid "NVME 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:39
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:41
+msgid "E<.Nm nvme>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/nvme.4:41
+#, no-wrap
+msgid "NVM Express core driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:42
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:45
+msgid ""
+"To compile this driver into your kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:47
+#, no-wrap
+msgid "E<.Cd \"device nvme\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:51
+msgid ""
+"Or, to load the driver as a module at boot, place the following line in "
+"E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:53
+#, no-wrap
+msgid "nvme_load=\"YES\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:61
+msgid ""
+"Most users will also want to enable E<.Xr nvd 4> to expose NVM Express "
+"namespaces as disk devices which can be partitioned.  Note that in NVM "
+"Express terms, a namespace is roughly equivalent to a SCSI LUN."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:61
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:65
+msgid ""
+"The E<.Nm> driver provides support for NVM Express (NVMe) controllers, such "
+"as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:68
+msgid "Hardware initialization"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:70
+msgid "Per-CPU IO queue pairs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:75
+msgid ""
+"API for registering NVMe namespace consumers such as E<.Xr nvd 4> or E<.Xr "
+"nda 4>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:77
+msgid "API for submitting NVM commands to namespaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:79
+msgid "Ioctls for controller and namespace configuration and management"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:90
+msgid ""
+"The E<.Nm> driver creates controller device nodes in the format E<.Pa "
+"/dev/nvmeX> and namespace device nodes in the format E<.Pa /dev/nvmeXnsY>.  "
+"Note that the NVM Express specification starts numbering namespaces at 1, "
+"not 0, and this driver follows that convention."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:90
+#, no-wrap
+msgid "CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:98
+msgid ""
+"By default, E<.Nm> will create an I/O queue pair for each CPU, provided "
+"enough MSI-X vectors and NVMe queue pairs can be allocated.  If not enough "
+"vectors or queue pairs are available, nvme(4) will use a smaller number of "
+"queue pairs and assign multiple CPUs per queue pair."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:102
+msgid ""
+"To force a single I/O queue pair shared by all CPUs, set the following "
+"tunable value in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:104
+#, no-wrap
+msgid "hw.nvme.per_cpu_io_queues=0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:109
+msgid ""
+"To assign more than one CPU per I/O queue pair, thereby reducing the number "
+"of MSI-X vectors consumed by the device, set the following tunable value in "
+"E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:111
+#, no-wrap
+msgid "hw.nvme.min_cpus_per_ioq=X\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:117
+msgid ""
+"To force legacy interrupts for all E<.Nm> driver instances, set the "
+"following tunable value in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:119
+#, no-wrap
+msgid "hw.nvme.force_intx=1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:122
+msgid "Note that use of INTx implies disabling of per-CPU I/O queue pairs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:122
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:124
+msgid "The following controller-level sysctls are currently implemented:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:125
+#, no-wrap
+msgid "Va dev.nvme.0.num_cpus_per_ioq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:127
+msgid "(R) Number of CPUs associated with each I/O queue pair."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:127
+#, no-wrap
+msgid "Va dev.nvme.0.int_coal_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:130
+msgid ""
+"(R/W) Interrupt coalescing timer period in microseconds.  Set to 0 to "
+"disable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:130
+#, no-wrap
+msgid "Va dev.nvme.0.int_coal_threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:133
+msgid ""
+"(R/W) Interrupt coalescing threshold in number of command completions.  Set "
+"to 0 to disable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:138
+msgid ""
+"The following queue pair-level sysctls are currently implemented.  Admin "
+"queue sysctls take the format of dev.nvme.0.adminq and I/O queue sysctls "
+"take the format of dev.nvme.0.ioq0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:139
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.num_entries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:141
+msgid "(R) Number of entries in this queue pair's command and completion queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:141
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.num_tr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:143
+msgid ""
+"(R) Number of nvme_tracker structures currently allocated for this queue "
+"pair."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:143
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.num_prp_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:145
+msgid ""
+"(R) Number of nvme_prp_list structures currently allocated for this queue "
+"pair."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:145
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.sq_head"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:150
+msgid ""
+"(R) Current location of the submission queue head pointer as observed by the "
+"driver.  The head pointer is incremented by the controller as it takes "
+"commands off of the submission queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:150
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.sq_tail"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:156
+msgid ""
+"(R) Current location of the submission queue tail pointer as observed by the "
+"driver.  The driver increments the tail pointer after writing a command into "
+"the submission queue to signal that a new command is ready to be processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:156
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.cq_head"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:161
+msgid ""
+"(R) Current location of the completion queue head pointer as observed by the "
+"driver.  The driver increments the head pointer after finishing with a "
+"completion entry that was posted by the controller."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:161
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.num_cmds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:163
+msgid "(R) Number of commands that have been submitted on this queue pair."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/nvme.4:163
+#, no-wrap
+msgid "Va dev.nvme.0.ioq0.dump_debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:166
+msgid ""
+"(W) Writing 1 to this sysctl will dump the full contents of the submission "
+"and completion queues to the console."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:167
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:173
+msgid ""
+"E<.Xr nda 4>, E<.Xr nvd 4>, E<.Xr pci 4>, E<.Xr nvmecontrol 8>, E<.Xr disk "
+"9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:173
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:178
+msgid "The E<.Nm> driver first appeared in E<.Fx 9.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/nvme.4:178
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:187
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was developed by Intel and originally "
+"written by E<.An Jim Harris Aq Mt jimharris@FreeBSD.org>, with contributions "
+"from E<.An Joe Golio> at EMC."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/nvme.4:189
+msgid "This man page was written by E<.An Jim Harris Aq Mt jimharris@FreeBSD.org>."
+msgstr ""

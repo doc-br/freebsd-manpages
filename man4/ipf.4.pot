@@ -1,0 +1,464 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/ipfilter/man/ipf.4:2
+#, no-wrap
+msgid "IPF"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipf.4:3
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:5
+msgid "ipf - packet filtering kernel interface"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipf.4:5
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:7
+msgid "#include E<lt>netinet/ip_compat.hE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:9
+msgid "#include E<lt>netinet/ip_fil.hE<gt>"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipf.4:9
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:13
+msgid ""
+"To add and delete rules to the filter list, three 'basic' ioctls are "
+"provided for use.  The ioctl's are called as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:18
+#, no-wrap
+msgid ""
+"\tioctl(fd, SIOCADDFR, struct frentry **)\n"
+"\tioctl(fd, SIOCDELFR, struct frentry **)\n"
+"\tioctl(fd, SIOCIPFFL, int *)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:21
+msgid "However, the full complement is as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:42
+#, no-wrap
+msgid ""
+"\tioctl(fd, SIOCADAFR, struct frentry **) (same as SIOCADDFR)\n"
+"\tioctl(fd, SIOCRMAFR, struct frentry **) (same as SIOCDELFR)\n"
+"\tioctl(fd, SIOCADIFR, struct frentry **)\n"
+"\tioctl(fd, SIOCRMIFR, struct frentry **)\n"
+"\tioctl(fd, SIOCINAFR, struct frentry **)\n"
+"\tioctl(fd, SIOCINIFR, struct frentry **)\n"
+"\tioctl(fd, SIOCSETFF, u_int *)\n"
+"\tioctl(fd, SIOGGETFF, u_int *)\n"
+"\tioctl(fd, SIOCGETFS, struct friostat **)\n"
+"\tioctl(fd, SIOCIPFFL, int *)\n"
+"\tioctl(fd, SIOCIPFFB, int *)\n"
+"\tioctl(fd, SIOCSWAPA, u_int *)\n"
+"\tioctl(fd, SIOCFRENB, u_int *)\n"
+"\tioctl(fd, SIOCFRSYN, u_int *)\n"
+"\tioctl(fd, SIOCFRZST, struct friostat **)\n"
+"\tioctl(fd, SIOCZRLST, struct frentry **)\n"
+"\tioctl(fd, SIOCAUTHW, struct fr_info **)\n"
+"\tioctl(fd, SIOCAUTHR, struct fr_info **)\n"
+"\tioctl(fd, SIOCATHST, struct fr_authstat **)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:49
+msgid ""
+"The variations, SIOCADAFR vs. SIOCADIFR, allow operation on the two lists, "
+"active and inactive, respectively.  All of these ioctl's are implemented as "
+"being routing ioctls and thus the same rules for the various routing ioctls "
+"and the file descriptor are employed, mainly being that the fd must be that "
+"of the device associated with the module (i.e., /dev/ipl)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:54
+msgid ""
+"The three groups of ioctls above perform adding rules to the end of the list "
+"(SIOCAD*), deletion of rules from any place in the list (SIOCRM*)  and "
+"insertion of a rule into the list (SIOCIN*).  The rule place into which it "
+"is inserted is stored in the \"fr_hits\" field, below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:77
+#, no-wrap
+msgid ""
+"typedef struct  frentry {\n"
+"        struct  frentry *fr_next;\n"
+"        u_short fr_group;       /* group to which this rule belongs */\n"
+"        u_short fr_grhead;      /* group # which this rule starts */\n"
+"        struct  frentry *fr_grp;\n"
+"        int     fr_ref;         /* reference count - for grouping */\n"
+"        void    *fr_ifa;\n"
+"#if BSD E<gt>= 199306\n"
+"        void    *fr_oifa;\n"
+"#endif\n"
+"        /*\n"
+"         * These are only incremented when a packet  matches this rule and\n"
+"         * it is the last match\n"
+"         */\n"
+"        U_QUAD_T        fr_hits;\n"
+"        U_QUAD_T        fr_bytes;\n"
+"        /*\n"
+"         * Fields after this may not change whilst in the kernel.\n"
+"         */\n"
+"        struct  fr_ip   fr_ip;\n"
+"        struct  fr_ip   fr_mip; /* mask structure */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:80
+#, no-wrap
+msgid ""
+"        u_char  fr_tcpfm;       /* tcp flags mask */\n"
+"        u_char  fr_tcpf;        /* tcp flags */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:83
+#, no-wrap
+msgid ""
+"        u_short fr_icmpm;       /* data for ICMP packets (mask) */\n"
+"        u_short fr_icmp;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:102
+#, no-wrap
+msgid ""
+"        u_char  fr_scmp;        /* data for port comparisons */\n"
+"        u_char  fr_dcmp;\n"
+"        u_short fr_dport;\n"
+"        u_short fr_sport;\n"
+"        u_short fr_stop;        /* top port for E<lt>E<gt> and E<gt>E<lt> "
+"*/\n"
+"        u_short fr_dtop;        /* top port for E<lt>E<gt> and E<gt>E<lt> "
+"*/\n"
+"        u_32_t  fr_flags;       /* per-rule flags && options (see below) "
+"*/\n"
+"        u_short fr_skip;        /* # of rules to skip */\n"
+"        u_short fr_loglevel;    /* syslog log facility + priority */\n"
+"        int     (*fr_func) __P((int, ip_t *, fr_info_t *));\n"
+"        char    fr_icode;       /* return ICMP code */\n"
+"        char    fr_ifname[IFNAMSIZ];\n"
+"#if BSD E<gt> 199306\n"
+"        char    fr_oifname[IFNAMSIZ];\n"
+"#endif\n"
+"        struct  frdest  fr_tif; /* \"to\" interface */\n"
+"        struct  frdest  fr_dif; /* duplicate packet interfaces */\n"
+"} frentry_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:108
+msgid ""
+"When adding a new rule, all unused fields (in the filter rule) should be "
+"initialised to be zero.  To insert a rule, at a particular position in the "
+"filter list, the number of the rule which it is to be inserted before must "
+"be put in the \"fr_hits\" field (the first rule is number 0)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:110
+msgid "Flags which are recognised in fr_flags:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:138
+#, no-wrap
+msgid ""
+"     FR_BLOCK        0x000001   /* do not allow packet to pass */\n"
+"     FR_PASS         0x000002   /* allow packet to pass */\n"
+"     FR_OUTQUE       0x000004   /* outgoing packets */\n"
+"     FR_INQUE        0x000008   /* ingoing packets */\n"
+"     FR_LOG          0x000010   /* Log */\n"
+"     FR_LOGB         0x000011   /* Log-fail */\n"
+"     FR_LOGP         0x000012   /* Log-pass */\n"
+"     FR_LOGBODY      0x000020   /* log the body of packets too */\n"
+"     FR_LOGFIRST     0x000040   /* log only the first packet to match */\n"
+"     FR_RETRST       0x000080   /* return a TCP RST packet if blocked */\n"
+"     FR_RETICMP      0x000100   /* return an ICMP packet if blocked */\n"
+"     FR_FAKEICMP     0x00180    /* Return ICMP unreachable with fake source "
+"*/\n"
+"     FR_NOMATCH      0x000200   /* no match occured */\n"
+"     FR_ACCOUNT      0x000400   /* count packet bytes */\n"
+"     FR_KEEPFRAG     0x000800   /* keep fragment information */\n"
+"     FR_KEEPSTATE    0x001000   /* keep `connection' state information */\n"
+"     FR_INACTIVE     0x002000\n"
+"     FR_QUICK        0x004000   /* match & stop processing list */\n"
+"     FR_FASTROUTE    0x008000   /* bypass normal routing */\n"
+"     FR_CALLNOW      0x010000   /* call another function (fr_func) if "
+"matches */\n"
+"     FR_DUP          0x020000   /* duplicate the packet */\n"
+"     FR_LOGORBLOCK   0x040000   /* block the packet if it can't be logged "
+"*/\n"
+"     FR_NOTSRCIP     0x080000   /* not the src IP# */\n"
+"     FR_NOTDSTIP     0x100000   /* not the dst IP# */\n"
+"     FR_AUTH         0x200000   /* use authentication */\n"
+"     FR_PREAUTH      0x400000   /* require preauthentication */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:143
+msgid ""
+"Values for fr_scomp and fr_dcomp (source and destination port value "
+"comparisons) :"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:154
+#, no-wrap
+msgid ""
+"\tFR_NONE         0\n"
+"\tFR_EQUAL        1\n"
+"\tFR_NEQUAL       2\n"
+"\tFR_LESST        3\n"
+"\tFR_GREATERT     4\n"
+"\tFR_LESSTE       5\n"
+"\tFR_GREATERTE    6\n"
+"\tFR_OUTRANGE     7\n"
+"\tFR_INRANGE      8\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:162
+msgid ""
+"The third ioctl, SIOCIPFFL, flushes either the input filter list, the output "
+"filter list or both and it returns the number of filters removed from the "
+"list(s).  The values which it will take and recognise are FR_INQUE and "
+"FR_OUTQUE (see above).  This ioctl is also implemented for B</dev/ipstate> "
+"and will flush all state tables entries if passed 0 or just all those which "
+"are not established if passed 1."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/ipfilter/man/ipf.4:163
+#, no-wrap
+msgid "B<General Logging Flags>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:168
+msgid ""
+"There are two flags which can be set to log packets independently of the "
+"rules used.  These allow for packets which are either passed or blocked to "
+"be logged.  To set (and clear)/get these flags, two ioctls are provided:"
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/ipfilter/man/ipf.4:168
+#, no-wrap
+msgid "SIOCSETFF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:171
+msgid ""
+"Takes an unsigned integer as the parameter.  The flags are then set to those "
+"provided (clearing/setting all in one)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:177
+#, no-wrap
+msgid ""
+"\tFF_LOGPASS\t0x10000000\n"
+"\tFF_LOGBLOCK\t0x20000000\n"
+"\tFF_LOGNOMATCH\t0x40000000\n"
+"\tFF_BLOCKNONIP\t0x80000000    /* Solaris 2.x only */\n"
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/ipfilter/man/ipf.4:178
+#, no-wrap
+msgid "SIOCGETFF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:181
+msgid ""
+"Takes a pointer to an unsigned integer as the parameter.  A copy of the "
+"flags currently in used is copied to user space."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/ipfilter/man/ipf.4:181
+#, no-wrap
+msgid "B<Filter statistics>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:185
+msgid ""
+"Statistics on the various operations performed by this package on packets is "
+"kept inside the kernel.  These statistics apply to packets traversing "
+"through the kernel.  To retrieve this structure, use this ioctl:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:188
+#, no-wrap
+msgid "\tioctl(fd, SIOCGETFS, struct friostat *)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:203
+#, no-wrap
+msgid ""
+"struct  friostat        {\n"
+"        struct  filterstats     f_st[2];\n"
+"        struct  frentry         *f_fin[2];\n"
+"        struct  frentry         *f_fout[2];\n"
+"        struct  frentry         *f_acctin[2];\n"
+"        struct  frentry         *f_acctout[2];\n"
+"        struct  frentry         *f_auth;\n"
+"        u_long  f_froute[2];\n"
+"        int     f_active;       /* 1 or 0 - active rule set */\n"
+"        int     f_defpass;      /* default pass - from fr_pass */\n"
+"        int     f_running;      /* 1 if running, else 0 */\n"
+"        int     f_logging;      /* 1 if enabled, else 0 */\n"
+"        char    f_version[32];  /* version string */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:230
+#, no-wrap
+msgid ""
+"struct\tfilterstats {\n"
+"        u_long  fr_pass;        /* packets allowed */\n"
+"        u_long  fr_block;       /* packets denied */\n"
+"        u_long  fr_nom;         /* packets which don't match any rule */\n"
+"        u_long  fr_ppkl;        /* packets allowed and logged */\n"
+"        u_long  fr_bpkl;        /* packets denied and logged */\n"
+"        u_long  fr_npkl;        /* packets unmatched and logged */\n"
+"        u_long  fr_pkl;         /* packets logged */\n"
+"        u_long  fr_skip;        /* packets to be logged but buffer full */\n"
+"        u_long  fr_ret;         /* packets for which a return is sent */\n"
+"        u_long  fr_acct;        /* packets for which counting was performed "
+"*/\n"
+"        u_long  fr_bnfr;        /* bad attempts to allocate fragment state "
+"*/\n"
+"        u_long  fr_nfr;         /* new fragment state kept */\n"
+"        u_long  fr_cfr;         /* add new fragment state but complete pkt "
+"*/\n"
+"        u_long  fr_bads;        /* bad attempts to allocate packet state "
+"*/\n"
+"        u_long  fr_ads;         /* new packet state kept */\n"
+"        u_long  fr_chit;        /* cached hit */\n"
+"        u_long  fr_pull[2];     /* good and bad pullup attempts */\n"
+"#if SOLARIS\n"
+"        u_long  fr_notdata;     /* PROTO/PCPROTO that have no data */\n"
+"        u_long  fr_nodata;      /* mblks that have no data */\n"
+"        u_long  fr_bad;         /* bad IP packets to the filter */\n"
+"        u_long  fr_notip;       /* packets passed through no on ip queue "
+"*/\n"
+"        u_long  fr_drop;        /* packets dropped - no info for them! */\n"
+"#endif\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:237
+msgid ""
+"If we wanted to retrieve all the statistics and reset the counters back to "
+"0, then the ioctl() call would be made to SIOCFRZST rather than SIOCGETFS.  "
+"In addition to the statistics above, each rule keeps a hit count, counting "
+"both number of packets and bytes.  To reset these counters for a rule, load "
+"the various rule information into a frentry structure and call SIOCZRLST."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/ipfilter/man/ipf.4:237
+#, no-wrap
+msgid "Swapping Active lists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:244
+msgid ""
+"IP Filter supports two lists of rules for filtering and accounting: an "
+"active list and an inactive list.  This allows for large scale rule base "
+"changes to be put in place atomically with otherwise minimal interruption.  "
+"Which of the two is active can be changed using the SIOCSWAPA ioctl.  It is "
+"important to note that no passed argument is recognised and that the value "
+"returned is that of the list which is now inactive."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipf.4:245
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:247
+msgid "/dev/ipauth"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:249
+msgid "/dev/ipl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:251
+msgid "/dev/ipnat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:253
+msgid "/dev/ipstate"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipf.4:253
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipf.4:254
+msgid "ipl(4), ipnat(4), ipf(5), ipf(8), ipfstat(8)"
+msgstr ""

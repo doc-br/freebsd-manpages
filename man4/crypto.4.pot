@@ -1,0 +1,620 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/crypto.4:63
+#, no-wrap
+msgid "September 21, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/crypto.4:64
+#, no-wrap
+msgid "CRYPTO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:66
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:69
+msgid "E<.Nm crypto>, E<.Nm cryptodev>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/crypto.4:69
+#, no-wrap
+msgid "user-mode access to hardware-accelerated cryptography"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:70
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:73
+msgid "E<.Cd device crypto> E<.Cd device cryptodev>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/crypto.4:74
+#, no-wrap
+msgid "sys/ioctl.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/crypto.4:75
+#, no-wrap
+msgid "sys/time.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/crypto.4:76
+#, no-wrap
+msgid "crypto/cryptodev.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:77
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:84
+msgid ""
+"The E<.Nm> driver gives user-mode applications access to "
+"hardware-accelerated cryptographic transforms, as implemented by the E<.Xr "
+"crypto 9> in-kernel interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:102
+msgid ""
+"The E<.Pa /dev/crypto> special device provides an E<.Xr ioctl 2> based "
+"interface.  User-mode applications should open the special device, then "
+"issue E<.Xr ioctl 2> calls on the descriptor.  User-mode access to E<.Pa "
+"/dev/crypto> is controlled by three E<.Xr sysctl 8> variables, E<.Ic "
+"kern.userasymcrypto> and E<.Ic kern.cryptodevallowsoft>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:111
+msgid ""
+"The E<.Nm> device provides two distinct modes of operation: one mode for "
+"symmetric-keyed cryptographic requests, and a second mode for both "
+"asymmetric-key (public-key/private-key) requests, and for modular arithmetic "
+"(for Diffie-Hellman key exchange and other cryptographic protocols).  The "
+"two modes are described separately below."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:111
+#, no-wrap
+msgid "THEORY OF OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:114
+msgid ""
+"Regardless of whether symmetric-key or asymmetric-key operations are to be "
+"performed, use of the device requires a basic series of steps:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:119
+msgid "Open a file descriptor for the device.  See E<.Xr open 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:127
+msgid ""
+"If any symmetric operation will be performed, create one session, with E<.Dv "
+"CIOCGSESSION>.  Most applications will require at least one symmetric "
+"session.  Since cipher and MAC keys are tied to sessions, many applications "
+"will require more.  Asymmetric operations do not use sessions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:136
+msgid ""
+"Submit requests, synchronously with E<.Dv CIOCCRYPT> (symmetric), E<.Dv "
+"CIOCCRYPTAEAD> (symmetric), or E<.Dv CIOCKEY> (asymmetric)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:139
+msgid "Destroy one session with E<.Dv CIOCFSESSION>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:142
+msgid "Close the device with E<.Xr close 2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:143
+#, no-wrap
+msgid "SYMMETRIC-KEY OPERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:151
+msgid ""
+"The symmetric-key operation mode provides a context-based API to traditional "
+"symmetric-key encryption (or privacy) algorithms, or to keyed and unkeyed "
+"one-way hash (HMAC and MAC) algorithms.  The symmetric-key mode also permits "
+"fused operation, where the hardware performs both a privacy algorithm and an "
+"integrity-check algorithm in a single pass over the data: either a fused "
+"encrypt/HMAC-generate operation, or a fused HMAC-verify/decrypt operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:155
+msgid ""
+"To use symmetric mode, you must first create a session specifying the "
+"algorithm(s) and key(s) to use; then issue encrypt or decrypt requests "
+"against the session."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/crypto.4:155
+#, no-wrap
+msgid "Algorithms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:160
+msgid "For a list of supported algorithms, see E<.Xr crypto 7> and E<.Xr crypto 9>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/crypto.4:160
+#, no-wrap
+msgid "IOCTL Request Descriptions"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:164
+#, no-wrap
+msgid "Dv CRIOGET Fa int *fd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:169
+msgid ""
+"Clone the fd argument to E<.Xr ioctl 2>, yielding a new file descriptor for "
+"the creation of sessions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:169
+#, no-wrap
+msgid "Dv CIOCFINDDEV Fa struct crypt_find_op *fop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:175
+#, no-wrap
+msgid ""
+"struct crypt_find_op {\n"
+"    int     crid;       /* driver id + flags */\n"
+"    char    name[32];   /* device/driver name */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:192
+msgid ""
+"If E<.Fa crid> is -1, then find the driver named E<.Fa name> and return the "
+"id in E<.Fa crid>.  If E<.Fa crid> is not -1, return the name of the driver "
+"with E<.Fa crid> in E<.Fa name>.  In either case, if the driver is not "
+"found, E<.Dv ENOENT> is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:192
+#, no-wrap
+msgid "Dv CIOCGSESSION Fa struct session_op *sessp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:197
+#, no-wrap
+msgid ""
+"struct session_op {\n"
+"    u_int32_t cipher;\t/* e.g. CRYPTO_DES_CBC */\n"
+"    u_int32_t mac;\t/* e.g. CRYPTO_MD5_HMAC */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:202
+#, no-wrap
+msgid ""
+"    u_int32_t keylen;\t/* cipher key */\n"
+"    void * key;\n"
+"    int mackeylen;\t/* mac key */\n"
+"    void * mackey;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:205
+#, no-wrap
+msgid ""
+"    u_int32_t ses;\t/* returns: ses # */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:214
+msgid ""
+"Create a new cryptographic session on a file descriptor for the device; that "
+"is, a persistent object specific to the chosen privacy algorithm, integrity "
+"algorithm, and keys specified in E<.Fa sessp>.  The special value 0 for "
+"either privacy or integrity is reserved to indicate that the indicated "
+"operation (privacy or integrity)  is not desired for this session."
+msgstr ""
+
+#.  .Pp
+#.  This implementation will never return a session ID of 0 for a successful
+#.  creation of a session, which is a
+#.  .Nx
+#.  extension.
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:226
+msgid ""
+"Multiple sessions may be bound to a single file descriptor.  The session ID "
+"returned in E<.Fa sessp-\\*[Gt]ses> is supplied as a required field in the "
+"symmetric-operation structure E<.Fa crypt_op> for future encryption or "
+"hashing requests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:234
+msgid ""
+"For non-zero symmetric-key privacy algorithms, the privacy algorithm must be "
+"specified in E<.Fa sessp-\\*[Gt]cipher>, the key length in E<.Fa "
+"sessp-\\*[Gt]keylen>, and the key value in the octets addressed by E<.Fa "
+"sessp-\\*[Gt]key>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:243
+msgid ""
+"For keyed one-way hash algorithms, the one-way hash must be specified in "
+"E<.Fa sessp-\\*[Gt]mac>, the key length in E<.Fa sessp-\\*[Gt]mackey>, and "
+"the key value in the octets addressed by E<.Fa sessp-\\*[Gt]mackeylen>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:250
+msgid ""
+"Support for a specific combination of fused privacy and integrity-check "
+"algorithms depends on whether the underlying hardware supports that "
+"combination.  Not all combinations are supported by all hardware, even if "
+"the hardware supports each operation as a stand-alone non-fused operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:250
+#, no-wrap
+msgid "Dv CIOCCRYPT Fa struct crypt_op *cr_op"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:261
+#, no-wrap
+msgid ""
+"struct crypt_op {\n"
+"    u_int32_t ses;\n"
+"    u_int16_t op;\t/* e.g. COP_ENCRYPT */\n"
+"    u_int16_t flags;\n"
+"    u_int len;\n"
+"    caddr_t src, dst;\n"
+"    caddr_t mac;\t\t/* must be large enough for result */\n"
+"    caddr_t iv;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:294
+msgid ""
+"Request a symmetric-key (or hash) operation.  The file descriptor argument "
+"to E<.Xr ioctl 2> must have been bound to a valid session.  To encrypt, set "
+"E<.Fa cr_op-\\*[Gt]op> to E<.Dv COP_ENCRYPT>.  To decrypt, set E<.Fa "
+"cr_op-\\*[Gt]op> to E<.Dv COP_DECRYPT>.  The field E<.Fa cr_op-\\*[Gt]len> "
+"supplies the length of the input buffer; the fields E<.Fa cr_op-\\*[Gt]src>, "
+"E<.Fa cr_op-\\*[Gt]dst>, E<.Fa cr_op-\\*[Gt]mac>, E<.Fa cr_op-\\*[Gt]iv> "
+"supply the addresses of the input buffer, output buffer, one-way hash, and "
+"initialization vector, respectively.  If a session is using both a privacy "
+"algorithm and a hash algorithm, the request will generate a hash of the "
+"input buffer before generating the output buffer by default.  If the E<.Dv "
+"COP_F_CIPHER_FIRST> flag is included in the E<.Fa cr_op-\\*[Gt]flags> field, "
+"then the request will generate a hash of the output buffer after executing "
+"the privacy algorithm."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:294
+#, no-wrap
+msgid "Dv CIOCCRYPTAEAD Fa struct crypt_aead *cr_aead"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:308
+#, no-wrap
+msgid ""
+"struct crypt_aead {\n"
+"    u_int32_t ses;\n"
+"    u_int16_t op;\t/* e.g. COP_ENCRYPT */\n"
+"    u_int16_t flags;\n"
+"    u_int len;\n"
+"    u_int aadlen;\n"
+"    u_int ivlen;\n"
+"    caddr_t src, dst;\n"
+"    caddr_t aad;\n"
+"    caddr_t tag;\t\t/* must be large enough for result */\n"
+"    caddr_t iv;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:317
+msgid ""
+"The E<.Dv CIOCCRYPTAEAD> is similar to the E<.Dv CIOCCRYPT> but provides "
+"additional data in E<.Fa cr_aead-\\*[Gt]aad> to include in the "
+"authentication mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:317
+#, no-wrap
+msgid "Dv CIOCFSESSION Fa u_int32_t ses_id"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:320
+msgid ""
+"Destroys the /dev/crypto session associated with the file-descriptor "
+"argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:320
+#, no-wrap
+msgid "Dv CIOCNFSESSION Fa struct crypt_sfop *sfop ;"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:326
+#, no-wrap
+msgid ""
+"struct crypt_sfop {\n"
+"    size_t count;\n"
+"    u_int32_t *sesid;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:333
+msgid ""
+"Destroys the E<.Fa sfop-\\*[Gt]count> sessions specified by the E<.Fa sfop> "
+"array of session identifiers."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:335
+#, no-wrap
+msgid "ASYMMETRIC-KEY OPERATION"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/crypto.4:336
+#, no-wrap
+msgid "Asymmetric-key algorithms"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:340
+msgid ""
+"Contingent upon hardware support, the following asymmetric "
+"(public-key/private-key; or key-exchange subroutine) operations may also be "
+"available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:342
+#, no-wrap
+msgid "Em Algorithm Ta \"Input parameter\" Ta \"Output parameter\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:343
+#, no-wrap
+msgid "Em \" \" Ta Count Ta Count"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:344
+#, no-wrap
+msgid "Dv CRK_MOD_EXP Ta 3 Ta 1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:345
+#, no-wrap
+msgid "Dv CRK_MOD_EXP_CRT Ta 6 Ta 1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:346
+#, no-wrap
+msgid "Dv CRK_DSA_SIGN Ta 5 Ta 2"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:347
+#, no-wrap
+msgid "Dv CRK_DSA_VERIFY Ta 7 Ta 0"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:348
+#, no-wrap
+msgid "Dv CRK_DH_COMPUTE_KEY Ta 3 Ta 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:352
+msgid "See below for discussion of the input and output parameter counts."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/crypto.4:352
+#, no-wrap
+msgid "Asymmetric-key commands"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:354
+#, no-wrap
+msgid "Dv CIOCASYMFEAT Fa int *feature_mask"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:364
+msgid ""
+"Returns a bitmask of supported asymmetric-key operations.  Each of the "
+"above-listed asymmetric operations is present if and only if the bit "
+"position numbered by the code for that operation is set.  For example, E<.Dv "
+"CRK_MOD_EXP> is available if and only if the bit E<.Pq 1 \\*[Lt]\\*[Lt] Dv "
+"CRK_MOD_EXP> is set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/crypto.4:364
+#, no-wrap
+msgid "Dv CIOCKEY Fa struct crypt_kop *kop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:374
+#, no-wrap
+msgid ""
+"struct crypt_kop {\n"
+"    u_int crk_op;\t\t/* e.g. CRK_MOD_EXP */\n"
+"    u_int crk_status;\t\t/* return status */\n"
+"    u_short crk_iparams;\t/* # of input params */\n"
+"    u_short crk_oparams;\t/* # of output params */\n"
+"    u_int crk_pad1;\n"
+"    struct crparam crk_param[CRK_MAXPARAM];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:380
+#, no-wrap
+msgid ""
+"/* Bignum parameter, in packed bytes. */\n"
+"struct crparam {\n"
+"    void * crp_p;\n"
+"    u_int crp_nbits;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:400
+msgid ""
+"Performs an asymmetric-key operation from the list above.  The specific "
+"operation is supplied in E<.Fa kop-\\*[Gt]crk_op>; final status for the "
+"operation is returned in E<.Fa kop-\\*[Gt]crk_status>.  The number of input "
+"arguments and the number of output arguments is specified in E<.Fa "
+"kop-\\*[Gt]crk_iparams> and E<.Fa kop-\\*[Gt]crk_iparams>, respectively.  "
+"The field E<.Fa crk_param[]> must be filled in with exactly E<.Fa "
+"kop-\\*[Gt]crk_iparams + kop-\\*[Gt]crk_oparams> arguments, each encoded as "
+"a E<.Fa struct crparam> (address, bitlength) pair."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:402
+msgid "The semantics of these arguments are currently undocumented."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:403
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:413
+msgid ""
+"E<.Xr aesni 4>, E<.Xr hifn 4>, E<.Xr ipsec 4>, E<.Xr padlock 4>, E<.Xr safe "
+"4>, E<.Xr ubsec 4>, E<.Xr crypto 7>, E<.Xr geli 8>, E<.Xr crypto 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:413
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:422
+msgid ""
+"The E<.Nm> driver first appeared in E<.Ox 3.0>.  The E<.Nm> driver was "
+"imported to E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/crypto.4:422
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:424
+msgid "Error checking and reporting is weak."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:435
+msgid ""
+"The values specified for symmetric-key key sizes to E<.Dv CIOCGSESSION> must "
+"exactly match the values expected by E<.Xr opencrypto 9>.  The output buffer "
+"and MAC buffers supplied to E<.Dv CIOCCRYPT> must follow whether privacy or "
+"integrity algorithms were specified for session: if you request a E<.No non- "
+"Ns Dv NULL> algorithm, you must supply a suitably-sized buffer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:437
+msgid "The scheme for passing arguments for asymmetric requests is baroque."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/crypto.4:442
+msgid ""
+"The naming inconsistency between E<.Dv CRIOGET> and the various E<.Dv CIOC "
+"Ns \\&*> names is an unfortunate historical artifact."
+msgstr ""

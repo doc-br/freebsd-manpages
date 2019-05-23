@@ -1,0 +1,1521 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/periodic.conf.5:28
+#, no-wrap
+msgid "March 7, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/periodic.conf.5:29
+#, no-wrap
+msgid "PERIODIC.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/periodic.conf.5:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:33
+msgid "E<.Nm periodic.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/periodic.conf.5:33
+#, no-wrap
+msgid "periodic job configuration information"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/periodic.conf.5:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:46
+msgid ""
+"The file E<.Nm> contains a description of how daily, weekly and monthly "
+"system maintenance jobs should run.  It resides in the E<.Pa /etc/defaults> "
+"directory and parts may be overridden by a file of the same name in E<.Pa "
+"/etc>, which itself may be overridden by the E<.Pa /etc/periodic.conf.local> "
+"file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:52
+msgid ""
+"The E<.Nm> file is actually sourced as a shell script from each of the "
+"periodic scripts and is intended to simply provide default configuration "
+"variables."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:56
+msgid "The following variables are used by E<.Xr periodic 8> itself:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:57
+#, no-wrap
+msgid "Va local_periodic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:65
+msgid ""
+"E<.Pq Vt str> List of directories to search for periodic scripts.  This list "
+"is always prefixed with E<.Pa /etc/periodic>, and is only used when an "
+"argument to E<.Xr periodic 8> is not an absolute directory name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:65
+#, no-wrap
+msgid "Ao Ar dir Ac Ns Va _output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:74
+msgid ""
+"E<.Pq Vt path No or Vt list> What to do with the output of the scripts "
+"executed from the directory E<.Ar dir>.  If this variable is set to an "
+"absolute path name, output is logged to that file, otherwise it is taken as "
+"one or more space separated email addresses and mailed to those users.  If "
+"this variable is not set or is empty, output is sent to standard output."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:88
+msgid ""
+"For an unattended machine, suitable values for E<.Va daily_output>, E<.Va "
+"weekly_output>, and E<.Va monthly_output> might be E<.Dq Li "
+"/var/log/daily.log>, E<.Dq Li /var/log/weekly.log>, and E<.Dq Li "
+"/var/log/monthly.log> respectively, as E<.Xr newsyslog 8> will rotate these "
+"files (if they exists) at the appropriate times."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:88
+#, no-wrap
+msgid "Ao Ar dir Ac Ns Va _show_success"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:89
+#, no-wrap
+msgid "Ao Ar dir Ac Ns Va _show_info"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:90
+#, no-wrap
+msgid "Ao Ar dir Ac Ns Va _show_badconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:132
+msgid ""
+"E<.Pq Vt bool> These variables control whether E<.Xr periodic 8> will mask "
+"the output of the executed scripts based on their return code (where E<.Ar "
+"dir> is the base directory name in which each script resides).  If the "
+"return code of a script is E<.Sq 0> and E<.Ao Ar dir Ac Ns Va _show_success> "
+"is set to E<.Dq Li NO>, E<.Xr periodic 8> will mask the script's output.  If "
+"the return code of a script is E<.Sq 1> and E<.Ao Ar dir Ac Ns Va "
+"_show_info> is set to E<.Dq Li NO>, E<.Xr periodic 8> will mask the script's "
+"output.  If the return code of a script is E<.Sq 2> and E<.Ao Ar dir Ac Ns "
+"Va _show_badconfig> is set to E<.Dq Li NO>, E<.Xr periodic 8> will mask the "
+"script's output.  If these variables are set to neither E<.Dq Li YES> nor "
+"E<.Dq Li NO>, they default to E<.Dq Li YES>, E<.Dq Li YES> and E<.Dq Li NO> "
+"respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:136
+msgid ""
+"Refer to the E<.Xr periodic 8> manual page for how script return codes are "
+"interpreted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:136
+#, no-wrap
+msgid "Va anticongestion_sleeptime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:140
+msgid ""
+"E<.Pq Vt int> The maximum number of seconds to randomly sleep in order to "
+"smooth bursty loads on a shared resource, such as a download mirror."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:144
+msgid ""
+"The following variables are used by the standard scripts that reside in "
+"E<.Pa /etc/periodic/daily>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:145
+#, no-wrap
+msgid "Va daily_clean_disks_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:152
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to remove all files matching "
+"E<.Va daily_clean_disks_files> daily."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:152
+#, no-wrap
+msgid "Va daily_clean_disks_files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:156
+msgid ""
+"E<.Pq Vt str> Set to a list of file names to match.  Wild cards are "
+"permitted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:156
+#, no-wrap
+msgid "Va daily_clean_disks_days"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:164
+msgid ""
+"E<.Pq Vt num> When E<.Va daily_clean_disks_enable> is set to E<.Dq Li YES>, "
+"this must also be set to the number of days old that a file's access and "
+"modification times must be before it is deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:164
+#, no-wrap
+msgid "Va daily_clean_disks_verbose"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:169 /usr/src/share/man/man5/periodic.conf.5:198 /usr/src/share/man/man5/periodic.conf.5:213 /usr/src/share/man/man5/periodic.conf.5:241
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want the removed files to be "
+"reported in your daily output."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:169
+#, no-wrap
+msgid "Va daily_clean_tmps_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:174
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to clear temporary "
+"directories daily."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:174
+#, no-wrap
+msgid "Va daily_clean_tmps_dirs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:180
+msgid ""
+"E<.Pq Vt str> Set to the list of directories to clear if E<.Va "
+"daily_clean_tmps_enable> is set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:180
+#, no-wrap
+msgid "Va daily_clean_tmps_days"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:186
+msgid ""
+"E<.Pq Vt num> When E<.Va daily_clean_tmps_enable> is set, this must also be "
+"set to the number of days old that a file's access and modification times "
+"must be before it is deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:186
+#, no-wrap
+msgid "Va daily_clean_tmps_ignore"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:193
+msgid ""
+"E<.Pq Vt str> Set to the list of files that should not be deleted when E<.Va "
+"daily_clean_tmps_enable> is set to E<.Dq Li YES>.  Wild card characters are "
+"permitted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:193
+#, no-wrap
+msgid "Va daily_clean_tmps_verbose"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:198
+#, no-wrap
+msgid "Va daily_clean_preserve_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:204
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you wish to remove old files from "
+"E<.Pa /var/preserve>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:204
+#, no-wrap
+msgid "Va daily_clean_preserve_days"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:208 /usr/src/share/man/man5/periodic.conf.5:236
+msgid ""
+"E<.Pq Vt num> Set to the number of days that files must not have been "
+"modified before they are deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:208
+#, no-wrap
+msgid "Va daily_clean_preserve_verbose"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:213
+#, no-wrap
+msgid "Va daily_clean_msgs_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:218
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you wish old system messages to be "
+"purged."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:218
+#, no-wrap
+msgid "Va daily_clean_msgs_days"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:225
+msgid ""
+"E<.Pq Vt num> Set to the number of days that files must not have been "
+"modified before they are deleted.  If this variable is left blank, the E<.Xr "
+"msgs 1> default is used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:225
+#, no-wrap
+msgid "Va daily_clean_rwho_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:232
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you wish old files in E<.Pa /var/who> "
+"to be purged."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:232
+#, no-wrap
+msgid "Va daily_clean_rwho_days"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:236
+#, no-wrap
+msgid "Va daily_clean_rwho_verbose"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:241
+#, no-wrap
+msgid "Va daily_clean_hoststat_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:255
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to run E<.Nm sendmail Fl bH> to "
+"automatically purge stale entries from E<.Xr sendmail 8 Ns 's> host status "
+"cache.  Files will be deleted using the same criteria as E<.Xr sendmail 8> "
+"would normally use when determining whether to believe the cached "
+"information, as configured in E<.Pa /etc/mail/sendmail.cf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:255
+#, no-wrap
+msgid "Va daily_backup_passwd_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:269
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want the E<.Pa "
+"/etc/master.passwd> and E<.Pa /etc/group> files backed up and reported on.  "
+"Reporting consists of checking both files for modifications and running "
+"E<.Xr chkgrp 8> on the E<.Pa group> file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:269
+#, no-wrap
+msgid "Va daily_backup_aliases_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:276
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want the E<.Pa /etc/mail/aliases> "
+"file backed up and modifications to be displayed in your daily output."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:276
+#, no-wrap
+msgid "Va daily_calendar_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:283
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm calendar Fl a> "
+"daily."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:283
+#, no-wrap
+msgid "Va daily_accounting_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:292
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to rotate your daily "
+"accounting files.  No rotations are necessary unless E<.Va "
+"accounting_enable> is enabled in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:292
+#, no-wrap
+msgid "Va daily_accounting_compress"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:298
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want your daily accounting files "
+"to be compressed using E<.Xr gzip 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:298
+#, no-wrap
+msgid "Va daily_accounting_save"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:306
+msgid ""
+"E<.Pq Vt num> When E<.Va daily_accounting_enable> is set, this may also be "
+"set to the number of daily accounting files that are to be saved.  The "
+"default is E<.Dq Li 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:306
+#, no-wrap
+msgid "Va daily_accounting_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:318
+msgid ""
+"E<.Pq Vt str> Set to the arguments to pass to the E<.Xr sa 8> utility (in "
+"addition to E<.Fl s>)  when E<.Va daily_accounting_enable> is set to E<.Dq "
+"Li YES>.  The default is E<.Fl q>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:318
+#, no-wrap
+msgid "Va daily_news_expire_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:324
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Pa "
+"/etc/news.expire>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:324
+#, no-wrap
+msgid "Va daily_status_disks_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:334
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Xr df 1> (with the "
+"arguments supplied in E<.Va daily_status_disks_df_flags>)  and E<.Nm dump Fl "
+"W>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:334
+#, no-wrap
+msgid "Va daily_status_disks_df_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:344
+msgid ""
+"E<.Pq Vt str> Set to the arguments for the E<.Xr df 1> utility when E<.Va "
+"daily_status_disks_enable> is set to E<.Dq Li YES>.  The default is E<.Fl l "
+"Fl h>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:344
+#, no-wrap
+msgid "Va daily_status_zfs_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:353
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm zpool Cm "
+"status> on your E<.Xr zfs 8> pools."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:353
+#, no-wrap
+msgid "Va daily_status_zfs_zpool_list_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:366
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm zpool Cm list> "
+"on your E<.Xr zfs 8> pools.  Requires E<.Va daily_status_zfs_enable> to be "
+"set to E<.Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:366
+#, no-wrap
+msgid "Va daily_status_gmirror_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:375
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm gmirror Cm "
+"status> on your E<.Xr gmirror 8> devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:375
+#, no-wrap
+msgid "Va daily_status_graid3_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:384
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm graid3 Cm "
+"status> on your E<.Xr graid3 8> devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:384
+#, no-wrap
+msgid "Va daily_status_gstripe_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:393
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm gstripe Cm "
+"status> on your E<.Xr gstripe 8> devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:393
+#, no-wrap
+msgid "Va daily_status_gconcat_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:402
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm gconcat Cm "
+"status> on your E<.Xr gconcat 8> devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:402
+#, no-wrap
+msgid "Va daily_status_mfi_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:411
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm mfiutil Cm "
+"status> on your E<.Xr mfi 4> devices."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:411
+#, no-wrap
+msgid "Va daily_status_network_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:417
+msgid "E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Nm netstat Fl i>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:417
+#, no-wrap
+msgid "Va daily_status_network_netstat_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:427
+msgid ""
+"E<.Pq Vt str> Set to additional arguments for the E<.Xr netstat 1> utility "
+"when E<.Va daily_status_network_enable> is set to E<.Dq Li YES>.  The "
+"default is E<.Fl d>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:427
+#, no-wrap
+msgid "Va daily_status_network_usedns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:436
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Xr netstat 1> "
+"without the E<.Fl n> option (to do DNS lookups)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:436
+#, no-wrap
+msgid "Va daily_status_uptime_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:450
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Xr uptime 1> (or "
+"E<.Xr ruptime 1> if E<.Va rwhod_enable> is set to E<.Dq Li YES> in E<.Pa "
+"/etc/rc.conf>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:450
+#, no-wrap
+msgid "Va daily_status_mailq_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:456
+msgid "E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Xr mailq 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:456
+#, no-wrap
+msgid "Va daily_status_mailq_shorten"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:466
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to shorten the E<.Xr mailq "
+"1> output when E<.Va daily_status_mailq_enable> is set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:466
+#, no-wrap
+msgid "Va daily_status_include_submit_mailq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:478
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you also want to run E<.Xr mailq 1> "
+"on the submit mail queue when E<.Va daily_status_mailq_enable> is set to "
+"E<.Dq Li YES>.  This may not work with MTAs other than E<.Xr sendmail 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:478
+#, no-wrap
+msgid "Va daily_status_security_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:493
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run the security check.  "
+"The security check is another set of E<.Xr periodic 8> scripts.  The system "
+"defaults are in E<.Pa /etc/periodic/security>.  Local scripts should be "
+"placed in E<.Pa /usr/local/etc/periodic/security>.  See the E<.Xr periodic "
+"8> manual page for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:493
+#, no-wrap
+msgid "Va daily_status_security_inline"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:500
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want the security check output "
+"inline.  The default is to either mail or log the output according to the "
+"value of E<.Va daily_status_security_output>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:500
+#, no-wrap
+msgid "Va daily_status_security_output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:510
+msgid ""
+"E<.Pq Vt str> Where to send the output of the security check if E<.Va "
+"daily_status_security_inline> is set to E<.Dq Li NO>.  This variable behaves "
+"in the same way as the E<.Va *_output> variables above, namely it can be set "
+"either to one or more email addresses or to an absolute file name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:510
+#, no-wrap
+msgid "Va daily_status_mail_rejects_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:517
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to summarise mail rejections "
+"logged to E<.Pa /var/log/maillog> for the previous day."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:517
+#, no-wrap
+msgid "Va daily_status_mail_rejects_logs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:521
+msgid ""
+"E<.Pq Vt num> Set to the number of maillog files that should be checked for "
+"yesterday's mail rejects."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:521
+#, no-wrap
+msgid "Va daily_status_ntpd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:526
+msgid "E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to enable NTP status check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:526
+#, no-wrap
+msgid "Va daily_status_world_kernel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:531
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to check the running userland and kernel "
+"are in sync."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:531
+#, no-wrap
+msgid "Va daily_queuerun_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:536
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to manually run the mail "
+"queue at least once a day."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:536
+#, no-wrap
+msgid "Va daily_submit_queuerun"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:545
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you also want to manually run the "
+"submit mail queue at least once a day when E<.Va daily_queuerun_enable> is "
+"set to E<.Dq Li YES>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:545
+#, no-wrap
+msgid "Va daily_scrub_zfs_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:550
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run a zfs scrub "
+"periodically."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:550
+#, no-wrap
+msgid "Va daily_scrub_zfs_pools"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:554
+msgid ""
+"E<.Pq Vt str> A space separated list of names of zfs pools to scrub.  If the "
+"list is empty or not set, all zfs pools are scrubbed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:554
+#, no-wrap
+msgid "Va daily_scrub_zfs_default_threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:558
+msgid ""
+"E<.Pq Vt int> Number of days between a scrub if no pool-specific threshold "
+"is set.  If not set, the default value is 35, corresponding to 5 weeks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:558
+#, no-wrap
+msgid "Va daily_scrub_zfs_ Ns Ao Ar poolname Ac Ns Va _threshold"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:564
+msgid ""
+"E<.Pq Vt int> The same as E<.Va daily_scrub_zfs_default_threshold> but "
+"specific to the pool E<.Ao Ar poolname Ac Ns>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:564
+#, no-wrap
+msgid "Va daily_local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:569
+msgid ""
+"E<.Pq Vt str> Set to a list of extra scripts that should be run after all "
+"other daily scripts.  All scripts must be absolute path names."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:573
+msgid ""
+"The following variables are used by the standard scripts that reside in "
+"E<.Pa /etc/periodic/weekly>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:574
+#, no-wrap
+msgid "Va weekly_locate_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:587
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Pa "
+"/usr/libexec/locate.updatedb>.  This script is run using E<.Nm nice Fl 5> as "
+"user E<.Dq Li nobody>, and generates the table used by the E<.Xr locate 1> "
+"command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:587
+#, no-wrap
+msgid "Va weekly_whatis_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:596
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to run E<.Pa "
+"/usr/libexec/makewhatis.local>.  This script regenerates the database used "
+"by the E<.Xr apropos 1> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:596
+#, no-wrap
+msgid "Va weekly_noid_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:602
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to locate orphaned files on "
+"the system.  An orphaned file is one with an invalid owner or group."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:602
+#, no-wrap
+msgid "Va weekly_noid_dirs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:607
+msgid ""
+"E<.Pq Vt str> A list of directories under which orphaned files are searched "
+"for.  This would usually be set to E<.Pa />."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:607
+#, no-wrap
+msgid "Va weekly_status_security_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:611
+msgid "E<.Pq Vt bool> Weekly counterpart of E<.Va daily_status_security_enable>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:611
+#, no-wrap
+msgid "Va weekly_status_security_inline"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:615
+msgid "E<.Pq Vt bool> Weekly counterpart of E<.Va daily_status_security_inline>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:615
+#, no-wrap
+msgid "Va weekly_status_security_output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:619
+msgid "E<.Pq Vt str> Weekly counterpart of E<.Va daily_status_security_output>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:619
+#, no-wrap
+msgid "Va weekly_status_pkg_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:626
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to use E<.Xr pkg-version 8> "
+"to list installed packages which are out of date."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:626
+#, no-wrap
+msgid "Va pkg_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:642
+msgid ""
+"E<.Pq Vt str> When E<.Va weekly_status_pkg_enable> is set to E<.Dq Li YES>, "
+"this variable specifies the program that is used to determine the out of "
+"date packages.  If unset, the E<.Xr pkg-version 8> program is used.  As an "
+"example, this variable might be set to E<.Dq Li portversion> if the E<.Pa "
+"ports/sysutils/portupgrade> port has been installed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:642
+#, no-wrap
+msgid "Va pkg_version_index"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:656
+msgid ""
+"E<.Pq Vt str> This variable specifies the E<.Pa INDEX> file from E<.Pa "
+"/usr/ports> that should be used by E<.Xr pkg-version 8>.  Because the "
+"dependency tree may be substantially different between versions of E<.Fx>, "
+"there may be more than one E<.Pa INDEX> file in E<.Pa /usr/ports>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:669
+msgid ""
+"Note, if the E<.Va pkg_version> variable is set to E<.Dq Li portversion>, it "
+"will also be necessary to arrange that the correct E<.Pa INDEX> file is "
+"specified using environment variables and that E<.Va pkg_version_index> is "
+"cleared in E<.Pa /etc/periodic.conf> E<.Pq Dq Li pkg_version_index=>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:669
+#, no-wrap
+msgid "Va weekly_local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:674
+msgid ""
+"E<.Pq Vt str> Set to a list of extra scripts that should be run after all "
+"other weekly scripts.  All scripts must be absolute path names."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:678
+msgid ""
+"The following variables are used by the standard scripts that reside in "
+"E<.Pa /etc/periodic/monthly>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:679
+#, no-wrap
+msgid "Va monthly_accounting_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:686
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to do login accounting using "
+"the E<.Xr ac 8> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:686
+#, no-wrap
+msgid "Va monthly_status_security_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:690
+msgid "E<.Pq Vt bool> Monthly counterpart of E<.Va daily_status_security_enable>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:690
+#, no-wrap
+msgid "Va monthly_status_security_inline"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:694
+msgid "E<.Pq Vt bool> Monthly counterpart of E<.Va daily_status_security_inline>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:694
+#, no-wrap
+msgid "Va monthly_status_security_output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:698
+msgid "E<.Pq Vt str> Monthly counterpart of E<.Va daily_status_security_output>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:698
+#, no-wrap
+msgid "Va monthly_local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:703
+msgid ""
+"E<.Pq Vt str> Set to a list of extra scripts that should be run after all "
+"other monthly scripts.  All scripts must be absolute path names."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:730
+msgid ""
+"The following variables are used by the standard scripts that reside in "
+"E<.Pa /etc/periodic/security>.  Those scripts are usually run from daily "
+"E<.Pq Va daily_status_security_enable>, weekly E<.Pq Va "
+"weekly_status_security_enable>, and monthly E<.Pq Va "
+"monthly_status_security_enable> periodic hooks.  The E<.Va ..._period> of "
+"each script can be configured as E<.Dq daily>, E<.Dq weekly>, E<.Dq monthly> "
+"or E<.Dq NO>.  Note that when periodic security scripts are run from E<.Xr "
+"crontab 5>, they will be always run unless their E<.Va ..._enable> or E<.Va "
+"..._period> variable is set to E<.Dq NO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:731
+#, no-wrap
+msgid "Va security_status_diff_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:738
+msgid ""
+"E<.Pq Vt str> Set to the arguments to pass to the E<.Xr diff 1> utility when "
+"generating differences.  The default is E<.Fl b u>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:738
+#, no-wrap
+msgid "Va security_status_chksetuid_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:744
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to compare the modes and modification "
+"times of setuid executables with the previous day's values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:744
+#, no-wrap
+msgid "Va security_status_chksetuid_period"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:752 /usr/src/share/man/man5/periodic.conf.5:766 /usr/src/share/man/man5/periodic.conf.5:782 /usr/src/share/man/man5/periodic.conf.5:795 /usr/src/share/man/man5/periodic.conf.5:819 /usr/src/share/man/man5/periodic.conf.5:834 /usr/src/share/man/man5/periodic.conf.5:851 /usr/src/share/man/man5/periodic.conf.5:866 /usr/src/share/man/man5/periodic.conf.5:881 /usr/src/share/man/man5/periodic.conf.5:896 /usr/src/share/man/man5/periodic.conf.5:911 /usr/src/share/man/man5/periodic.conf.5:926 /usr/src/share/man/man5/periodic.conf.5:941 /usr/src/share/man/man5/periodic.conf.5:958
+msgid ""
+"E<.Pq Vt str> Set to either E<.Dq Li daily>, E<.Dq Li weekly>, E<.Dq Li "
+"monthly> or E<.Dq Li NO>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:752
+#, no-wrap
+msgid "Va security_status_chkportsum_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:758
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to verify checksums of all installed "
+"packages against the known checksums in E<.Pa /var/db/pkg>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:758
+#, no-wrap
+msgid "Va security_status_chkportsum_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:766
+#, no-wrap
+msgid "Va security_status_neggrpperm_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:774
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to check for files where the group of a "
+"file has less permissions than the world at large.  When users are in more "
+"than 14 supplemental groups these negative permissions may not be enforced "
+"via NFS shares."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:774
+#, no-wrap
+msgid "Va security_status_neggrpperm_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:782
+#, no-wrap
+msgid "Va security_status_chkmounts_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:787
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to check for changes mounted file "
+"systems to the previous day's values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:787
+#, no-wrap
+msgid "Va security_status_chkmounts_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:795
+#, no-wrap
+msgid "Va security_status_noamd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:804
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> if you want to ignore E<.Xr amd 8> "
+"mounts when comparing against yesterday's file system mounts in the E<.Va "
+"security_status_chkmounts_enable> check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:804
+#, no-wrap
+msgid "Va security_status_chkuid0_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:811
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to check E<.Pa /etc/master.passwd> for "
+"accounts with UID 0."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:811
+#, no-wrap
+msgid "Va security_status_chkuid0_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:819
+#, no-wrap
+msgid "Va security_status_passwdless_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:826
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to check E<.Pa /etc/master.passwd> for "
+"accounts with empty passwords."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:826
+#, no-wrap
+msgid "Va security_status_passwdless_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:834
+#, no-wrap
+msgid "Va security_status_logincheck_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:843
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to check E<.Pa /etc/login.conf> "
+"ownership, see E<.Xr login.conf 5> for more information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:843
+#, no-wrap
+msgid "Va security_status_logincheck_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:851
+#, no-wrap
+msgid "Va security_status_ipfwdenied_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:858
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to show log entries for packets denied "
+"by E<.Xr ipfw 8> since yesterday's check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:858
+#, no-wrap
+msgid "Va security_status_ipfwdenied_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:866
+#, no-wrap
+msgid "Va security_status_ipfdenied_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:873
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to show log entries for packets denied "
+"by E<.Xr ipf 8> since yesterday's check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:873
+#, no-wrap
+msgid "Va security_status_ipfdenied_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:881
+#, no-wrap
+msgid "Va security_status_pfdenied_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:888
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to show log entries for packets denied "
+"by E<.Xr pf 4> since yesterday's check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:888
+#, no-wrap
+msgid "Va security_status_pfdenied_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:896
+#, no-wrap
+msgid "Va security_status_ipfwlimit_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:903
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to display E<.Xr ipfw 8> rules that have "
+"reached their verbosity limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:903
+#, no-wrap
+msgid "Va security_status_ipfwlimit_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:911
+#, no-wrap
+msgid "Va security_status_kernelmsg_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:918
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to show new E<.Xr dmesg 8> entries since "
+"yesterday's check."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:918
+#, no-wrap
+msgid "Va security_status_kernelmsg_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:926
+#, no-wrap
+msgid "Va security_status_loginfail_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:933
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to display failed logins from E<.Pa "
+"/var/log/messages> in the previous day."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:933
+#, no-wrap
+msgid "Va security_status_loginfail_period"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:941
+#, no-wrap
+msgid "Va security_status_tcpwrap_enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:950
+msgid ""
+"E<.Pq Vt bool> Set to E<.Dq Li YES> to display connections denied by "
+"tcpwrappers (see E<.Xr hosts_access 5>)  from E<.Pa /var/log/messages> "
+"during the previous day."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:950
+#, no-wrap
+msgid "Va security_status_tcpwrap_period"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/periodic.conf.5:959
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:961
+#, no-wrap
+msgid "Pa /etc/defaults/periodic.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:964
+msgid ""
+"The default configuration file.  This file contains all default variables "
+"and values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:964
+#, no-wrap
+msgid "Pa /etc/periodic.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:966
+msgid "The usual system specific variable override file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/periodic.conf.5:966
+#, no-wrap
+msgid "Pa /etc/periodic.conf.local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:970
+msgid ""
+"An additional override file, useful when E<.Pa /etc/periodic.conf> is shared "
+"or distributed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/periodic.conf.5:971
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:991
+msgid ""
+"E<.Xr apropos 1>, E<.Xr calendar 1>, E<.Xr df 1>, E<.Xr diff 1>, E<.Xr gzip "
+"1>, E<.Xr locate 1>, E<.Xr man 1>, E<.Xr msgs 1>, E<.Xr netstat 1>, E<.Xr "
+"nice 1>, E<.Xr login.conf 5>, E<.Xr rc.conf 5>, E<.Xr ac 8>, E<.Xr chkgrp "
+"8>, E<.Xr dump 8>, E<.Xr newsyslog 8>, E<.Xr periodic 8>, E<.Xr pkg-version "
+"8>, E<.Xr sendmail 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/periodic.conf.5:991
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:996
+msgid "The E<.Nm> file appeared in E<.Fx 4.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/periodic.conf.5:996
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/periodic.conf.5:997
+msgid "E<.An Brian Somers Aq Mt brian@Awfulhak.org>"
+msgstr ""

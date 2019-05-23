@@ -1,0 +1,1102 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:13
+#, no-wrap
+msgid "October 02, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:14
+#, no-wrap
+msgid "ZFS-PROGRAM 1M"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:16
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:18
+msgid "E<.Nm zfs program>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:18
+#, no-wrap
+msgid "executes ZFS channel programs"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:19
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. .Op Ar optional arguments to channel program
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:27
+msgid ""
+"E<.Cm zfs program> E<.Op Fl n> E<.Op Fl t Ar instruction-limit> E<.Op Fl m "
+"Ar memory-limit> E<.Ar pool> E<.Ar script>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:27
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:34
+msgid ""
+"The ZFS channel program interface allows ZFS administrative operations to be "
+"run programmatically as a Lua script.  The entire script is executed "
+"atomically, with no other administrative operations taking effect "
+"concurrently.  A library of ZFS calls is made available to channel program "
+"scripts.  Channel programs may only be run with root privileges."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:38
+msgid ""
+"A modified version of the Lua 5.2 interpreter is used to run channel program "
+"scripts.  The Lua 5.2 manual can be found at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:47
+msgid ""
+"The channel program given by E<.Ar script> will be run on E<.Ar pool>, and "
+"any attempts to access or modify other pools will cause an error."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:47
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:49
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:57
+msgid ""
+"Executes a read-only channel program, which runs faster.  The program cannot "
+"change on-disk state by calling functions from the zfs.sync submodule.  The "
+"program can be used to gather information such as properties and determining "
+"if changes would succeed (zfs.check.*).  Without this flag, all pending "
+"changes must be synced to disk before a channel program can complete."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:57
+#, no-wrap
+msgid "Fl t Ar instruction-limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:63
+msgid ""
+"Execution time limit, in number of Lua instructions to execute.  If a "
+"channel program executes more than the specified number of instructions, it "
+"will be stopped and an error will be returned.  The default limit is 10 "
+"million instructions, and it can be set to a maximum of 100 million "
+"instructions."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:63
+#, no-wrap
+msgid "Fl m Ar memory-limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:68
+msgid ""
+"Memory limit, in bytes.  If a channel program attempts to allocate more "
+"memory than the given limit, it will be stopped and an error returned.  The "
+"default memory limit is 10 MB, and can be set to a maximum of 100 MB."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:74
+msgid ""
+"All remaining argument strings will be passed directly to the Lua script as "
+"described in the E<.Sx LUA INTERFACE> section below."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:74
+#, no-wrap
+msgid "LUA INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:78
+msgid ""
+"A channel program can be invoked either from the command line, or via a "
+"library call to E<.Fn lzc_channel_program>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:78
+#, no-wrap
+msgid "Arguments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:82
+msgid ""
+"Arguments passed to the channel program are converted to a Lua table.  If "
+"invoked from the command line, extra arguments to the Lua script will be "
+"accessible as an array stored in the argument table with the key 'argv':"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:86
+#, no-wrap
+msgid ""
+"args = ...\n"
+"argv = args[\"argv\"]\n"
+"-- argv == {1=\"arg1\", 2=\"arg2\", ...}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:91
+msgid ""
+"If invoked from the libZFS interface, an arbitrary argument list can be "
+"passed to the channel program, which is accessible via the same \"...\" "
+"syntax in Lua:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:94
+#, no-wrap
+msgid ""
+"args = ...\n"
+"-- args == {\"foo\"=\"bar\", \"baz\"={...}, ...}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:104
+msgid ""
+"Note that because Lua arrays are 1-indexed, arrays passed to Lua from the "
+"libZFS interface will have their indices incremented by 1.  That is, the "
+"element in E<.Va arr[0]> in a C array passed to a channel program will be "
+"stored in E<.Va arr[1]> when accessed from Lua."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:104
+#, no-wrap
+msgid "Return Values"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:106
+msgid "Lua return statements take the form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:108
+#, no-wrap
+msgid "return ret0, ret1, ret2, ...\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:115
+msgid ""
+"Return statements returning multiple values are permitted internally in a "
+"channel program script, but attempting to return more than one value from "
+"the top level of the channel program is not permitted and will throw an "
+"error.  However, tables containing multiple values can still be returned.  "
+"If invoked from the command line, a return statement:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:118
+#, no-wrap
+msgid ""
+"a = {foo=\"bar\", baz=2}\n"
+"return a\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:121
+msgid "Will be output formatted as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:126
+#, no-wrap
+msgid ""
+"Channel program fully executed with return value:\n"
+"    return:\n"
+"        baz: 2\n"
+"        foo: 'bar'\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:127
+#, no-wrap
+msgid "Fatal Errors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:132
+msgid ""
+"If the channel program encounters a fatal error while running, a non-zero "
+"exit status will be returned.  If more information about the error is "
+"available, a singleton list will be returned detailing the error:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:134
+#, no-wrap
+msgid "error: \"error string, including Lua stack trace\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:139
+msgid ""
+"If a fatal error is returned, the channel program may have not executed at "
+"all, may have partially executed, or may have fully executed but failed to "
+"pass a return value back to userland."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:148
+msgid ""
+"If the channel program exhausts an instruction or memory limit, a fatal "
+"error will be generated and the program will be stopped, leaving the program "
+"partially executed.  No attempt is made to reverse or undo any operations "
+"already performed.  Note that because both the instruction count and amount "
+"of memory used by a channel program are deterministic when run against the "
+"same inputs and filesystem state, as long as a channel program has run "
+"successfully once, you can guarantee that it will finish successfully "
+"against a similar size system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:151
+msgid ""
+"If a channel program attempts to return too large a value, the program will "
+"fully execute but exit with a nonzero status code and no return value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:158
+msgid ""
+"E<.Em Note:> ZFS API functions do not generate Fatal Errors when correctly "
+"invoked, they return an error code and the channel program continues "
+"executing.  See the E<.Sx ZFS API> section below for function-specific "
+"details on error return codes."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:158
+#, no-wrap
+msgid "Lua to C Value Conversion"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:162
+msgid ""
+"When invoking a channel program via the libZFS interface, it is necessary to "
+"translate arguments and return values from Lua values to their C "
+"equivalents, and vice-versa."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:167
+msgid ""
+"There is a correspondence between nvlist values in C and Lua tables.  A Lua "
+"table which is returned from the channel program will be recursively "
+"converted to an nvlist, with table values converted to their natural "
+"equivalents:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:173
+#, no-wrap
+msgid ""
+"string -E<gt> string\n"
+"number -E<gt> int64\n"
+"boolean -E<gt> boolean_value\n"
+"nil -E<gt> boolean (no value)\n"
+"table -E<gt> nvlist\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:176
+msgid "Likewise, table keys are replaced by string equivalents as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:180
+#, no-wrap
+msgid ""
+"string -E<gt> no change\n"
+"number -E<gt> signed decimal string (\"%lld\")\n"
+"boolean -E<gt> \"true\" | \"false\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:184
+msgid ""
+"Any collision of table key strings (for example, the string \"true\" and a "
+"true boolean value) will cause a fatal error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:186
+msgid "Lua numbers are represented internally as signed 64-bit integers."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:186
+#, no-wrap
+msgid "LUA STANDARD LIBRARY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:188
+msgid "The following Lua built-in base library functions are available:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:197
+#, no-wrap
+msgid ""
+"assert                  rawlen\n"
+"collectgarbage          rawget\n"
+"error                   rawset\n"
+"getmetatable            select\n"
+"ipairs                  setmetatable\n"
+"next                    tonumber\n"
+"pairs                   tostring\n"
+"rawequal                type\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:207
+msgid ""
+"All functions in the E<.Em coroutine>, E<.Em string>, and E<.Em table> "
+"built-in submodules are also available.  A complete list and documentation "
+"of these modules is available in the Lua manual."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:210
+msgid ""
+"The following functions base library functions have been disabled and are "
+"not available for use in channel programs:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:217
+#, no-wrap
+msgid ""
+"dofile\n"
+"loadfile\n"
+"load\n"
+"pcall\n"
+"print\n"
+"xpcall\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:218
+#, no-wrap
+msgid "ZFS API"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:219
+#, no-wrap
+msgid "Function Arguments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:227
+msgid ""
+"Each API function takes a fixed set of required positional arguments and "
+"optional keyword arguments.  For example, the destroy function takes a "
+"single positional string argument (the name of the dataset to destroy) and "
+"an optional \"defer\" keyword boolean argument.  When using parentheses to "
+"specify the arguments to a Lua function, only positional arguments can be "
+"used:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:229
+#, no-wrap
+msgid "zfs.sync.destroy(\"rpool@snap\")\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:234
+msgid ""
+"To use keyword arguments, functions must be called with a single argument "
+"that is a Lua table containing entries mapping integers to positional "
+"arguments and strings to keyword arguments:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:236
+#, no-wrap
+msgid "zfs.sync.destroy({1=\"rpool@snap\", defer=true})\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:240
+msgid ""
+"The Lua language allows curly braces to be used in place of parenthesis as "
+"syntactic sugar for this calling convention:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:242
+#, no-wrap
+msgid "zfs.sync.snapshot{\"rpool@snap\", defer=true}\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:243
+#, no-wrap
+msgid "Function Return Values"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:249
+msgid ""
+"If an API function succeeds, it returns 0.  If it fails, it returns an error "
+"code and the channel program continues executing.  API functions do not "
+"generate Fatal Errors except in the case of an unrecoverable internal file "
+"system error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:257
+msgid ""
+"In addition to returning an error code, some functions also return extra "
+"details describing what caused the error.  This extra description is given "
+"as a second return value, and will always be a Lua table, or Nil if no error "
+"details were returned.  Different keys will exist in the error details table "
+"depending on the function and error case.  Any such function may be called "
+"expecting a single return value:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:259
+#, no-wrap
+msgid "errno = zfs.sync.promote(dataset)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:262
+msgid "Or, the error details can be retrieved:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:268
+#, no-wrap
+msgid ""
+"errno, details = zfs.sync.promote(dataset)\n"
+"if (errno == EEXIST) then\n"
+"    assert(details ~= Nil)\n"
+"    list_of_conflicting_snapshots = details\n"
+"end\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:272
+msgid ""
+"The following global aliases for API function error return codes are defined "
+"for use in channel programs:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:282
+#, no-wrap
+msgid ""
+"EPERM     ECHILD      ENODEV      ENOSPC\n"
+"ENOENT    EAGAIN      ENOTDIR     ESPIPE\n"
+"ESRCH     ENOMEM      EISDIR      EROFS\n"
+"EINTR     EACCES      EINVAL      EMLINK\n"
+"EIO       EFAULT      ENFILE      EPIPE\n"
+"ENXIO     ENOTBLK     EMFILE      EDOM\n"
+"E2BIG     EBUSY       ENOTTY      ERANGE\n"
+"ENOEXEC   EEXIST      ETXTBSY     EDQUOT\n"
+"EBADF     EXDEV       EFBIG\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:283
+#, no-wrap
+msgid "API Functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:288
+msgid ""
+"For detailed descriptions of the exact behavior of any zfs administrative "
+"operations, see the main E<.Xr zfs 1> manual page."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:289
+#, no-wrap
+msgid "Em zfs.debug(msg)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:293
+msgid ""
+"Record a debug message in the zfs_dbgmsg log.  A log of these messages can "
+"be printed via mdb's \"::zfs_dbgmsg\" command, or can be monitored live by "
+"running:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:295
+#, no-wrap
+msgid "  dtrace -n 'zfs-dbgmsg{trace(stringof(arg0))}'\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:298
+msgid "msg (string)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:300
+#, no-wrap
+msgid "Debug message to be printed.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:301
+#, no-wrap
+msgid "Em zfs.exists(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:307
+msgid ""
+"Returns true if the given dataset exists, or false if it doesn't.  A fatal "
+"error will be thrown if the dataset is not in the target pool.  That is, in "
+"a channel program running on rpool, zfs.exists(\"rpool/nonexistent_fs\") "
+"returns false, but zfs.exists(\"somepool/fs_that_may_exist\") will error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:309 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:325 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:353 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:370 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:393 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:444 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:453 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:460 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:469
+msgid "dataset (string)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:312
+#, no-wrap
+msgid ""
+"Dataset to check for existence.\n"
+"Must be in the target pool.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:313
+#, no-wrap
+msgid "Em zfs.get_prop(dataset, property)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:323
+msgid ""
+"Returns two values.  First, a string, number or table containing the "
+"property value for the given dataset.  Second, a string containing the "
+"source of the property (i.e. the name of the dataset in which it was set or "
+"nil if it is readonly).  Throws a Lua error if the dataset is invalid or the "
+"property doesn't exist.  Note that Lua only supports int64 number types "
+"whereas ZFS number properties are uint64.  This means very large values "
+"(like guid) may wrap around and appear negative."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:327
+#, no-wrap
+msgid "Filesystem or snapshot path to retrieve properties from.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:330
+msgid "property (string)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:337
+#, no-wrap
+msgid ""
+"Name of property to retrieve.\n"
+"All filesystem, snapshot and volume properties are supported except\n"
+"for 'mounted' and 'iscsioptions.'\n"
+"Also supports the 'written@snap' and 'written#bookmark' properties and\n"
+"the 'E<lt>user|groupE<gt>E<lt>quota|usedE<gt>@id' properties, though the id "
+"must be in numeric\n"
+"form.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:340
+#, no-wrap
+msgid "Sy zfs.sync submodule"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:343
+msgid ""
+"The sync submodule contains functions that modify the on-disk state.  They "
+"are executed in \"syncing context\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:345
+msgid "The available sync submodule functions are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:346
+#, no-wrap
+msgid "Em zfs.sync.destroy(dataset, [defer=true|false])"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:351
+msgid ""
+"Destroy the given dataset.  Returns 0 on successful destroy, or a nonzero "
+"error code if the dataset could not be destroyed (for example, if the "
+"dataset has any active children or clones)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:355
+#, no-wrap
+msgid "Filesystem or snapshot to be destroyed.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:358
+msgid "[optional] defer (boolean)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:362
+#, no-wrap
+msgid ""
+"Valid only for destroying snapshots.\n"
+"If set to true, and the snapshot has holds or clones, allows the snapshot to "
+"be\n"
+"marked for deferred deletion rather than failing.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:363
+#, no-wrap
+msgid "Em zfs.sync.promote(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:368
+msgid ""
+"Promote the given clone to a filesystem.  Returns 0 on successful promotion, "
+"or a nonzero error code otherwise.  If EEXIST is returned, the second return "
+"value will be an array of the clone's snapshots whose names collide with "
+"snapshots of the parent filesystem."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:372
+#, no-wrap
+msgid "Clone to be promoted.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:373
+#, no-wrap
+msgid "Em zfs.sync.rollback(filesystem)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:379
+msgid ""
+"Rollback to the previous snapshot for a dataset.  Returns 0 on successful "
+"rollback, or a nonzero error code otherwise.  Rollbacks can be performed on "
+"filesystems or zvols, but not on snapshots or mounted datasets.  EBUSY is "
+"returned in the case where the filesystem is mounted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:381
+msgid "filesystem (string)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:383
+#, no-wrap
+msgid "Filesystem to rollback.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:384
+#, no-wrap
+msgid "Em zfs.sync.snapshot(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:388
+msgid ""
+"Create a snapshot of a filesystem.  Returns 0 if the snapshot was "
+"successfully created, and a nonzero error code otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:391
+msgid ""
+"Note: Taking a snapshot will fail on any pool older than legacy version 27.  "
+"To enable taking snapshots from ZCP scripts, the pool must be upgraded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:395
+#, no-wrap
+msgid "Name of snapshot to create.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:397
+#, no-wrap
+msgid "Sy zfs.check submodule"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:410
+msgid ""
+"For each function in the zfs.sync submodule, there is a corresponding "
+"zfs.check function which performs a \"dry run\" of the same operation.  Each "
+"takes the same arguments as its zfs.sync counterpart and returns 0 if the "
+"operation would succeed, or a non-zero error code if it would fail, along "
+"with any other error details.  That is, each has the same behavior as the "
+"corresponding sync function except for actually executing the requested "
+"change.  For example, E<.Em zfs.check.destroy(\"fs\")> returns 0 if E<.Em "
+"zfs.sync.destroy(\"fs\")> would successfully destroy the dataset."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:412
+msgid "The available zfs.check functions are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:413
+#, no-wrap
+msgid "Em zfs.check.destroy(dataset, [defer=true|false])"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:414
+#, no-wrap
+msgid "Em zfs.check.promote(dataset)"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:415
+#, no-wrap
+msgid "Em zfs.check.rollback(filesystem)"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:416
+#, no-wrap
+msgid "Em zfs.check.snapshot(dataset)"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:418
+#, no-wrap
+msgid "Sy zfs.list submodule"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:423
+msgid ""
+"The zfs.list submodule provides functions for iterating over datasets and "
+"properties.  Rather than returning tables, these functions act as Lua "
+"iterators, and are generally used as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:427
+#, no-wrap
+msgid ""
+"for child in zfs.list.children(\"rpool\") do\n"
+"    ...\n"
+"end\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:430
+msgid "The available zfs.list functions are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:431
+#, no-wrap
+msgid "Em zfs.list.clones(snapshot)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:433
+msgid "Iterate through all clones of the given snapshot."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:435
+msgid "snapshot (string)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:437
+#, no-wrap
+msgid "Must be a valid snapshot path in the current pool.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:438
+#, no-wrap
+msgid "Em zfs.list.snapshots(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:442
+msgid ""
+"Iterate through all snapshots of the given dataset.  Each snapshot is "
+"returned as a string containing the full dataset name, e.g.  "
+"\"pool/fs@snap\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:446 /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:455
+#, no-wrap
+msgid "Must be a valid filesystem or volume.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:447
+#, no-wrap
+msgid "Em zfs.list.children(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:451
+msgid ""
+"Iterate through all direct children of the given dataset.  Each child is "
+"returned as a string containing the full dataset name, e.g.  "
+"\"pool/fs/child\"."
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:456
+#, no-wrap
+msgid "Em zfs.list.properties(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:458
+msgid "Iterate through all user properties for the given dataset."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:462
+#, no-wrap
+msgid "Must be a valid filesystem, snapshot, or volume.\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:463
+#, no-wrap
+msgid "Em zfs.list.system_properties(dataset)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:467
+msgid ""
+"Returns an array of strings, the names of the valid system (non-user "
+"defined)  properties for the given dataset.  Throws a Lua error if the "
+"dataset is invalid."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:471
+#, no-wrap
+msgid "Must be a valid filesystem, snapshot or volume.\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:474
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:475
+#, no-wrap
+msgid "Example 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:479
+msgid ""
+"The following channel program recursively destroys a filesystem and all its "
+"snapshots and children in a naive manner.  Note that this does not involve "
+"any error handling or reporting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:490
+#, no-wrap
+msgid ""
+"function destroy_recursive(root)\n"
+"    for child in zfs.list.children(root) do\n"
+"        destroy_recursive(child)\n"
+"    end\n"
+"    for snap in zfs.list.snapshots(root) do\n"
+"        zfs.sync.destroy(snap)\n"
+"    end\n"
+"    zfs.sync.destroy(root)\n"
+"end\n"
+"destroy_recursive(\"pool/somefs\")\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:491
+#, no-wrap
+msgid "Example 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:495
+msgid ""
+"A more verbose and robust version of the same channel program, which "
+"properly detects and reports errors, and also takes the dataset to destroy "
+"as a command line argument, would be as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:498
+#, no-wrap
+msgid ""
+"succeeded = {}\n"
+"failed = {}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:518
+#, no-wrap
+msgid ""
+"function destroy_recursive(root)\n"
+"    for child in zfs.list.children(root) do\n"
+"        destroy_recursive(child)\n"
+"    end\n"
+"    for snap in zfs.list.snapshots(root) do\n"
+"        err = zfs.sync.destroy(snap)\n"
+"        if (err ~= 0) then\n"
+"            failed[snap] = err\n"
+"        else\n"
+"            succeeded[snap] = err\n"
+"        end\n"
+"    end\n"
+"    err = zfs.sync.destroy(root)\n"
+"    if (err ~= 0) then\n"
+"        failed[root] = err\n"
+"    else\n"
+"        succeeded[root] = err\n"
+"    end\n"
+"end\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:521
+#, no-wrap
+msgid ""
+"args = ...\n"
+"argv = args[\"argv\"]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:523
+#, no-wrap
+msgid "destroy_recursive(argv[1])\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:528
+#, no-wrap
+msgid ""
+"results = {}\n"
+"results[\"succeeded\"] = succeeded\n"
+"results[\"failed\"] = failed\n"
+"return results\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:529
+#, no-wrap
+msgid "Example 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:532
+msgid ""
+"The following function performs a forced promote operation by attempting to "
+"promote the given clone and destroying any conflicting snapshots."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/cddl/contrib/opensolaris/cmd/zfs/zfs-program.8:545
+#, no-wrap
+msgid ""
+"function force_promote(ds)\n"
+"   errno, details = zfs.check.promote(ds)\n"
+"   if (errno == EEXIST) then\n"
+"       assert(details ~= Nil)\n"
+"       for i, snap in ipairs(details) do\n"
+"           zfs.sync.destroy(ds .. \"@\" .. snap)\n"
+"       end\n"
+"   elseif (errno ~= 0) then\n"
+"       return errno\n"
+"   end\n"
+"   return zfs.sync.promote(ds)\n"
+"end\n"
+msgstr ""

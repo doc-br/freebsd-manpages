@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:28
+#, no-wrap
+msgid "November 28, 2005"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:29
+#, no-wrap
+msgid "TFTP-PROXY 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:33
+msgid "E<.Nm tftp-proxy>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:33
+#, no-wrap
+msgid "Internet Trivial File Transfer Protocol proxy"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:38
+msgid "E<.Nm tftp-proxy> E<.Op Fl v> E<.Op Fl w Ar transwait>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:49
+msgid ""
+"E<.Nm> is a proxy for the Internet Trivial File Transfer Protocol invoked by "
+"the E<.Xr inetd 8> internet server.  TFTP connections should be redirected "
+"to the proxy using the E<.Xr pf 4> E<.Ar rdr> command, after which the proxy "
+"connects to the server on behalf of the client."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:69
+msgid ""
+"The proxy establishes a E<.Xr pf 4> E<.Ar rdr> rule using the E<.Ar anchor> "
+"facility to rewrite packets between the client and the server.  Once the "
+"rule is established, E<.Nm> forwards the initial request from the client to "
+"the server to begin the transfer.  After E<.Ar transwait> seconds, the E<.Xr "
+"pf 4> NAT state is assumed to have been established and the E<.Ar rdr> rule "
+"is deleted and the program exits.  Once the transfer between the client and "
+"the server is completed, the NAT state will naturally expire."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:75
+msgid ""
+"Assuming the TFTP command request is from $client to $server, the proxy "
+"connected to the server using the $proxy source address, and $port is "
+"negotiated, E<.Nm> adds the following rule to the anchor:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:77
+#, no-wrap
+msgid "rdr proto udp from $server to $proxy port $port -\\*(Gt $client\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:80
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:81
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:84
+msgid "Log the connection and request information to E<.Xr syslogd 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:84
+#, no-wrap
+msgid "Fl w Ar transwait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:91
+msgid ""
+"Number of seconds to wait for the data transmission to begin before removing "
+"the E<.Xr pf 4> E<.Ar rdr> rule.  The default is 2 seconds."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:92
+#, no-wrap
+msgid "CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:98
+msgid ""
+"To make use of the proxy, E<.Xr pf.conf 5> needs the following rules.  The "
+"anchors are mandatory.  Adjust the rules as needed for your configuration."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:100
+msgid "In the NAT section:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:102
+#, no-wrap
+msgid "nat on $ext_if from $int_if -\\*(Gt ($ext_if:0)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:104
+#, no-wrap
+msgid "no nat on $ext_if to port tftp\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:108
+#, no-wrap
+msgid ""
+"rdr-anchor \"tftp-proxy/*\"\n"
+"rdr on $int_if proto udp from $lan to any port tftp -\\*(Gt \\e\n"
+"    127.0.0.1 port 6969\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:111
+msgid "In the filter section, an anchor must be added to hold the pass rules:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:113
+#, no-wrap
+msgid "anchor \"tftp-proxy/*\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:122
+msgid ""
+"E<.Xr inetd 8> must be configured to spawn the proxy on the port that "
+"packets are being forwarded to by E<.Xr pf 4>.  An example E<.Xr inetd.conf "
+"5> entry follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:125
+#, no-wrap
+msgid ""
+"127.0.0.1:6969\tdgram\tudp\twait\troot \\e\n"
+"\t/usr/libexec/tftp-proxy\ttftp-proxy\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:126
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:134
+msgid ""
+"E<.Xr tftp 1>, E<.Xr pf 4>, E<.Xr pf.conf 5>, E<.Xr ftp-proxy 8>, E<.Xr "
+"inetd 8>, E<.Xr syslogd 8>, E<.Xr tftpd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:134
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/pf/tftp-proxy/tftp-proxy.8:140
+msgid ""
+"E<.Nm> chroots to E<.Pa /var/empty> and changes to user E<.Dq proxy> to drop "
+"privileges."
+msgstr ""

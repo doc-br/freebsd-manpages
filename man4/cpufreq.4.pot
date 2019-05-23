@@ -1,0 +1,463 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/cpufreq.4:27
+#, no-wrap
+msgid "March 3, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/cpufreq.4:28
+#, no-wrap
+msgid "CPUFREQ 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:32
+msgid "E<.Nm cpufreq>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/cpufreq.4:32
+#, no-wrap
+msgid "CPU frequency control framework"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:35
+msgid "E<.Cd \"device cpufreq\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/cpufreq.4:36
+#, no-wrap
+msgid "sys/cpu.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:55
+msgid ""
+"E<.Ft int> E<.Fn cpufreq_levels \"device_t dev\" \"struct cf_level *levels\" "
+"\"int *count\"> E<.Ft int> E<.Fn cpufreq_set \"device_t dev\" \"const struct "
+"cf_level *level\" \"int priority\"> E<.Ft int> E<.Fn cpufreq_get \"device_t "
+"dev\" \"struct cf_level *level\"> E<.Ft int> E<.Fo cpufreq_drv_settings> "
+"E<.Fa \"device_t dev\"> E<.Fa \"struct cf_setting *sets\"> E<.Fa \"int "
+"*count\"> E<.Fc> E<.Ft int> E<.Fn cpufreq_drv_type \"device_t dev\" \"int "
+"*type\"> E<.Ft int> E<.Fn cpufreq_drv_set \"device_t dev\" \"const struct "
+"cf_setting *set\"> E<.Ft int> E<.Fn cpufreq_drv_get \"device_t dev\" "
+"\"struct cf_setting *set\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:55
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:68
+msgid ""
+"The E<.Nm> driver provides a unified kernel and user interface to CPU "
+"frequency control drivers.  It combines multiple drivers offering different "
+"settings into a single interface of all possible levels.  Users can access "
+"this interface directly via E<.Xr sysctl 8> or by indicating to E<.Pa "
+"/etc/rc.d/power_profile> that it should switch settings when the AC line "
+"state changes via E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:68
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:75
+msgid ""
+"These settings may be overridden by kernel drivers requesting alternate "
+"settings.  If this occurs, the original values will be restored once the "
+"condition has passed (e.g., the system has cooled sufficiently).  If a "
+"sysctl cannot be set due to an override condition, it will return E<.Er "
+"EPERM>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:85
+msgid ""
+"The frequency cannot be changed if TSC is in use as the timecounter.  This "
+"is because the timecounter system needs to use a source that has a constant "
+"rate.  The timecounter source can be changed with the E<.Pa "
+"kern.timecounter.hardware> sysctl.  Available modes are in E<.Pa "
+"kern.timecounter.choice> sysctl entry."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:86
+#, no-wrap
+msgid "Va dev.cpu.%d.freq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:88
+msgid "Current active CPU frequency in MHz."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:88
+#, no-wrap
+msgid "Va dev.cpu.%d.freq_levels"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:91
+msgid ""
+"Currently available levels for the CPU (frequency/power usage).  Values are "
+"in units of MHz and milliwatts."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:91
+#, no-wrap
+msgid "Va dev.DEVICE.%d.freq_settings"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:96
+msgid ""
+"Currently available settings for the driver (frequency/power usage).  Values "
+"are in units of MHz and milliwatts.  This is helpful for understanding which "
+"settings are offered by which driver for debugging purposes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:96
+#, no-wrap
+msgid "Va debug.cpufreq.lowest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:101
+msgid ""
+"Lowest CPU frequency in MHz to offer to users.  This setting is also "
+"accessible via a tunable with the same name.  This can be used to disable "
+"very low levels that may be unusable on some systems."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:101
+#, no-wrap
+msgid "Va debug.cpufreq.verbose"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:104
+msgid ""
+"Print verbose messages.  This setting is also accessible via a tunable with "
+"the same name."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:105
+#, no-wrap
+msgid "SUPPORTED DRIVERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:110
+msgid ""
+"The following device drivers offer absolute frequency control via the E<.Nm> "
+"interface.  Usually, only one of these can be active at a time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:112
+#, no-wrap
+msgid "Pa acpi_perf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:114
+msgid "ACPI CPU performance states"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:114
+#, no-wrap
+msgid "Pa est"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:116
+msgid "Intel Enhanced SpeedStep"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:116
+#, no-wrap
+msgid "Pa ichss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:118
+msgid "Intel SpeedStep for ICH"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:118
+#, no-wrap
+msgid "Pa powernow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:120
+msgid "AMD PowerNow!\\& and Cool'n'Quiet for K7 and K8"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:120
+#, no-wrap
+msgid "Pa smist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:122
+msgid "Intel SMI-based SpeedStep for PIIX4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:126
+msgid ""
+"The following device drivers offer relative frequency control and have an "
+"additive effect:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:128
+#, no-wrap
+msgid "Pa acpi_throttle"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:130
+msgid "ACPI CPU throttling"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cpufreq.4:130
+#, no-wrap
+msgid "Pa p4tcc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:132
+msgid "Pentium 4 Thermal Control Circuitry"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:133
+#, no-wrap
+msgid "KERNEL INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:156
+msgid ""
+"Kernel components can query and set CPU frequencies through the E<.Nm> "
+"kernel interface.  This involves obtaining a E<.Nm> device, calling E<.Fn "
+"cpufreq_levels> to get the currently available frequency levels, checking "
+"the current level with E<.Fn cpufreq_get>, and setting a new one from the "
+"list with E<.Fn cpufreq_set>.  Each level may actually reference more than "
+"one E<.Nm> driver but kernel components do not need to be aware of this.  "
+"The E<.Va total_set> element of E<.Vt \"struct cf_level\"> provides a "
+"summary of the frequency and power for this level.  Unknown or irrelevant "
+"values are set to E<.Dv CPUFREQ_VAL_UNKNOWN>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:171
+msgid ""
+"The E<.Fn cpufreq_levels> method takes a E<.Nm> device and an empty array of "
+"E<.Fa levels>.  The E<.Fa count> value should be set to the number of levels "
+"available and after the function completes, will be set to the actual number "
+"of levels returned.  If there are more levels than E<.Fa count> will allow, "
+"it should return E<.Er E2BIG>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:179
+msgid ""
+"The E<.Fn cpufreq_get> method takes a pointer to space to store a E<.Fa "
+"level>.  After successful completion, the output will be the current active "
+"level and is equal to one of the levels returned by E<.Fn cpufreq_levels>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:212
+msgid ""
+"The E<.Fn cpufreq_set> method takes a pointer a E<.Fa level> and attempts to "
+"activate it.  The E<.Fa priority> (i.e., E<.Dv CPUFREQ_PRIO_KERN>)  tells "
+"E<.Nm> whether to override previous settings while activating this level.  "
+"If E<.Fa priority> is higher than the current active level, that level will "
+"be saved and overridden with the new level.  If a level is already saved, "
+"the new level is set without overwriting the older saved level.  If E<.Fn "
+"cpufreq_set> is called with a E<.Dv NULL> E<.Fa level>, the saved level will "
+"be restored.  If there is no saved level, E<.Fn cpufreq_set> will return "
+"E<.Er ENXIO>.  If E<.Fa priority> is lower than the current active level's "
+"priority, this method returns E<.Er EPERM>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:212
+#, no-wrap
+msgid "DRIVER INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:227
+msgid ""
+"Kernel drivers offering hardware-specific CPU frequency control export their "
+"individual settings through the E<.Nm> driver interface.  This involves "
+"implementing these methods: E<.Fn cpufreq_drv_settings>, E<.Fn "
+"cpufreq_drv_type>, E<.Fn cpufreq_drv_set>, and E<.Fn cpufreq_drv_get>.  "
+"Additionally, the driver must attach a device as a child of a CPU device so "
+"that these methods can be called by the E<.Nm> framework."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:235
+msgid ""
+"The E<.Fn cpufreq_drv_settings> method returns an array of currently "
+"available settings, each of type E<.Vt \"struct cf_setting\">.  The driver "
+"should set unknown or irrelevant values to E<.Dv CPUFREQ_VAL_UNKNOWN>.  All "
+"the following elements for each setting should be returned:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:243
+#, no-wrap
+msgid ""
+"struct cf_setting {\n"
+"\tint\tfreq;\t/* CPU clock in MHz or 100ths of a percent. */\n"
+"\tint\tvolts;\t/* Voltage in mV. */\n"
+"\tint\tpower;\t/* Power consumed in mW. */\n"
+"\tint\tlat;\t/* Transition latency in us. */\n"
+"\tdevice_t dev;\t/* Driver providing this setting. */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:254
+msgid ""
+"On entry to this method, E<.Fa count> contains the number of settings that "
+"can be returned.  On successful completion, the driver sets it to the actual "
+"number of settings returned.  If the driver offers more settings than E<.Fa "
+"count> will allow, it should return E<.Er E2BIG>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:267
+msgid ""
+"The E<.Fn cpufreq_drv_type> method indicates the type of settings it offers, "
+"either E<.Dv CPUFREQ_TYPE_ABSOLUTE> or E<.Dv CPUFREQ_TYPE_RELATIVE>.  "
+"Additionally, the driver may set the E<.Dv CPUFREQ_FLAG_INFO_ONLY> flag if "
+"the settings it provides are information for other drivers only and cannot "
+"be passed to E<.Fn cpufreq_drv_set> to activate them."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:273
+msgid ""
+"The E<.Fn cpufreq_drv_set> method takes a driver setting and makes it "
+"active.  If the setting is invalid or not currently available, it should "
+"return E<.Er EINVAL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:287
+msgid ""
+"The E<.Fn cpufreq_drv_get> method returns the currently-active driver "
+"setting.  The E<.Vt \"struct cf_setting\"> returned must be valid for "
+"passing to E<.Fn cpufreq_drv_set>, including all elements being filled out "
+"correctly.  If the driver cannot infer the current setting (even by "
+"estimating it with E<.Fn cpu_est_clockrate>)  then it should set all "
+"elements to E<.Dv CPUFREQ_VAL_UNKNOWN>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:287
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:293
+msgid ""
+"E<.Xr acpi 4>, E<.Xr est 4>, E<.Xr timecounters 4>, E<.Xr powerd 8>, E<.Xr "
+"sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:293
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:299
+msgid ""
+"E<.An Nate Lawson> E<.An Bruno Ducrot> contributed the E<.Pa powernow> "
+"driver."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cpufreq.4:299
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:304
+msgid ""
+"The following drivers have not yet been converted to the E<.Nm> interface: "
+"E<.Xr longrun 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:306
+msgid "Notification of CPU and bus frequency changes is not implemented yet."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cpufreq.4:308
+msgid ""
+"When multiple CPUs offer frequency control, they cannot be set to different "
+"levels and must all offer the same frequency settings."
+msgstr ""

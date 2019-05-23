@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/edquota/edquota.8:34
+#, no-wrap
+msgid "June 6, 1993"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/edquota/edquota.8:35
+#, no-wrap
+msgid "EDQUOTA 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/edquota/edquota.8:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:39
+msgid "E<.Nm edquota>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/edquota/edquota.8:39
+#, no-wrap
+msgid "edit user quotas"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/edquota/edquota.8:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:76
+msgid ""
+"E<.Nm> E<.Op Fl uh> E<.Op Fl f Ar fspath> E<.Op Fl p Ar proto-username> "
+"E<.Ar username ...> E<.Nm> E<.Op Fl u> E<.Fl e> E<.Sm off> E<.Ar fspath Op : "
+"Ar bslim Op : Ar bhlim Op : Ar islim Op : Ar ihlim> E<.Sm on> E<.Op Fl e Ar "
+"...> E<.Ar username ...> E<.Nm> E<.Fl g> E<.Op Fl h> E<.Op Fl f Ar fspath> "
+"E<.Op Fl p Ar proto-groupname> E<.Ar groupname ...> E<.Nm> E<.Fl g> E<.Fl e> "
+"E<.Sm off> E<.Ar fspath Op : Ar bslim Op : Ar bhlim Op : Ar islim Op : Ar "
+"ihlim> E<.Sm on> E<.Op Fl e Ar ...> E<.Ar groupname ...> E<.Nm> E<.Fl t> "
+"E<.Op Fl u> E<.Op Fl f Ar fspath> E<.Nm> E<.Fl t> E<.Fl g> E<.Op Fl f Ar "
+"fspath>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/edquota/edquota.8:76
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:99
+msgid ""
+"The E<.Nm> utility is a quota editor.  By default, or if the E<.Fl u> flag "
+"is specified, one or more users may be specified on the command line.  For "
+"each user a temporary file is created with an E<.Tn ASCII> representation of "
+"the current disk quotas for that user.  The list of file systems with user "
+"quotas is determined from E<.Pa /etc/fstab>.  An editor is invoked on the "
+"E<.Tn ASCII> file.  The editor invoked is E<.Xr vi 1> unless the environment "
+"variable E<.Ev EDITOR> specifies otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:122
+msgid ""
+"The quotas may then be modified, new quotas added, etc.  Block quotas can be "
+"specified in bytes (B), kilobytes (K), megabytes (M), terabytes (T), "
+"petabytes (P), or exabytes (E).  If no units are specified, kilobytes are "
+"assumed.  Inode quotas can be specified in kiloinodes (K), megainodes (M), "
+"terainodes (T), petainodes (P), or exainodes (E).  If no units are "
+"specified, the number of inodes specified are used.  If the E<.Fl h> flag is "
+"specified, the editor will always display the block usage and limits in a "
+"more human readable format rather than displaying them in the historic "
+"kilobyte format.  Setting a quota to zero indicates that no quota should be "
+"imposed.  Setting a hard limit to one indicates that no allocations should "
+"be permitted.  Setting a soft limit to one with a hard limit of zero "
+"indicates that allocations should be permitted only on a temporary basis "
+"(see E<.Fl t> below).  The current usage information in the file is for "
+"informational purposes; only the hard and soft limits can be changed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:127
+msgid ""
+"On leaving the editor, E<.Nm> reads the temporary file and modifies the "
+"binary quota files to reflect the changes made."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:145
+msgid ""
+"If the E<.Fl p> option is specified, E<.Nm> will duplicate the quotas of the "
+"prototypical user specified for each user specified.  This is the normal "
+"mechanism used to initialize quotas for groups of users.  If the user given "
+"to assign quotas to is a numerical uid range (e.g.\\& 1000-2000), then "
+"E<.Nm> will duplicate the quotas of the prototypical user for each uid in "
+"the range specified.  This allows for easy setup of default quotas for a "
+"group of users.  The uids in question do not have to be currently assigned "
+"in E<.Pa /etc/passwd>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:180
+msgid ""
+"If one or more E<.Fl e> E<.Sm off> E<.Ar fspath Op : Ar bslim Op : Ar bhlim "
+"Op : Ar islim Op : Ar ihlim> E<.Sm on> options are specified, E<.Nm> will "
+"non-interactively set quotas defined by E<.Ar bslim , bhlim , islim>, and "
+"E<.Ar ihlim> on each particular file system referenced by E<.Ar fspath>.  "
+"Here E<.Ar bslim> is the soft limit on the number of blocks, E<.Ar bhlim> is "
+"the hard limit on the number of blocks, E<.Ar islim> is the soft limit on "
+"the number of files, and E<.Ar ihlim> is the hard limit on the number of "
+"files.  If any of the E<.Ar bslim , bhlim , islim>, and E<.Ar ihlim> values "
+"is omitted, it is assumed to be zero, therefore indicating that no "
+"particular quota should be imposed.  Block quotas can be specified in bytes "
+"(B), kilobytes (K), megabytes (M), terabytes (T), petabytes (P), or exabytes "
+"(E).  If no units are specified, kilobytes are assumed.  Inode quotas can be "
+"specified in kiloinodes (K), megainodes (M), terainodes (T), petainodes (P), "
+"or exainodes (E).  If no units are specified, the number of inodes specified "
+"are used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:196
+msgid ""
+"If invoked with the E<.Fl f> option, E<.Nm> will read and modify quotas on "
+"the file system specified by E<.Ar fspath> only.  The E<.Ar fspath> argument "
+"may be either a special device or a file system mount point.  The primary "
+"purpose of this option is to set the scope for the E<.Fl p> option, which "
+"would overwrite quota records on every file system with quotas otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:217
+msgid ""
+"If the E<.Fl g> flag is specified, E<.Nm> is invoked to edit the quotas of "
+"one or more groups specified on the command line.  The E<.Fl p> flag can be "
+"specified in conjunction with the E<.Fl g> flag to specify a prototypical "
+"group to be duplicated among the listed set of groups.  Similarly, E<.Fl e> "
+"flag can be specified in conjunction with the E<.Fl g> flag to "
+"non-interactively set-up quotas on the listed set of groups."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:223
+msgid ""
+"Users are permitted to exceed their soft limits for a grace period that may "
+"be specified per file system.  Once the grace period has expired, the soft "
+"limit is enforced as a hard limit.  The default grace period for a file "
+"system is specified in"
+msgstr ""
+
+#. type: In
+#: /usr/src/usr.sbin/edquota/edquota.8:223
+#, no-wrap
+msgid "ufs/ufs/quota.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:245
+msgid ""
+"The E<.Fl t> flag can be used to change the grace period.  By default, or "
+"when invoked with the E<.Fl u> flag, the grace period is set for all the "
+"file systems with user quotas specified in E<.Pa /etc/fstab>.  When invoked "
+"with the E<.Fl g> flag the grace period is set for all the file systems with "
+"group quotas specified in E<.Pa /etc/fstab>.  The grace period may be "
+"specified in days, hours, minutes, or seconds.  Setting a grace period to "
+"zero indicates that the default grace period should be imposed.  Setting a "
+"grace period to one second indicates that no grace period should be "
+"granted.  Quotas must be turned off for the file system and then turned back "
+"on for the new grace period to take effect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:247
+msgid "Only the super-user may edit quotas."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/edquota/edquota.8:247
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/edquota/edquota.8:249
+#, no-wrap
+msgid "Pa quota.user"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:251
+msgid "at the file system root with user quotas"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/edquota/edquota.8:251
+#, no-wrap
+msgid "Pa quota.group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:253
+msgid "at the file system root with group quotas"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/edquota/edquota.8:253
+#, no-wrap
+msgid "Pa /etc/fstab"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:255
+msgid "to find file system names and locations"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/edquota/edquota.8:256
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:258
+msgid "Various messages about inaccessible files; self-explanatory."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/edquota/edquota.8:258
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/edquota/edquota.8:264
+msgid ""
+"E<.Xr quota 1>, E<.Xr quotactl 2>, E<.Xr fstab 5>, E<.Xr quotacheck 8>, "
+"E<.Xr quotaon 8>, E<.Xr repquota 8>"
+msgstr ""

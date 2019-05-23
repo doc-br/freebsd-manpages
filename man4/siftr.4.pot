@@ -1,0 +1,1366 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/siftr.4:33
+#, no-wrap
+msgid "March 18, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/siftr.4:34
+#, no-wrap
+msgid "SIFTR 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:38
+msgid "E<.Nm SIFTR>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/siftr.4:38
+#, no-wrap
+msgid "Statistical Information For TCP Research"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:43
+msgid ""
+"To load the driver as a module at run-time, run the following command as "
+"root:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:45
+#, no-wrap
+msgid "kldload siftr\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:52
+msgid ""
+"Alternatively, to load the driver as a module at boot time, add the "
+"following line into the E<.Xr loader.conf 5> file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:54
+#, no-wrap
+msgid "siftr_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:55
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:69
+msgid ""
+"The E<.Nm> E<.Po> E<.Em S Ns tatistical> E<.Em I Ns nformation> E<.Em F Ns "
+"or> E<.Em T Ns CP> E<.Em R Ns esearch> E<.Pc> kernel module logs a range of "
+"statistics on active TCP connections to a log file.  It provides the ability "
+"to make highly granular measurements of TCP connection state, aimed at "
+"system administrators, developers and researchers."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/siftr.4:69
+#, no-wrap
+msgid "Compile-time Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:75
+msgid ""
+"The default operation of E<.Nm> is to capture IPv4 TCP/IP packets.  E<.Nm> "
+"can be configured to support IPv4 and IPv6 by uncommenting:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:77
+#, no-wrap
+msgid "CFLAGS+=-DSIFTR_IPV6\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:82
+msgid "in E<.Aq sys/modules/siftr/Makefile> and recompiling."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:91
+msgid ""
+"In the IPv4-only (default) mode, standard dotted decimal notation (e.g.  "
+"\"136.186.229.95\") is used to format IPv4 addresses for logging.  In IPv6 "
+"mode, standard dotted decimal notation is used to format IPv4 addresses, and "
+"standard colon-separated hex notation (see RFC 4291) is used to format IPv6 "
+"addresses for logging.  Note that SIFTR uses uncompressed notation to format "
+"IPv6 addresses.  For example, the address \"fe80::20f:feff:fea2:531b\" would "
+"be logged as \"fe80:0:0:0:20f:feff:fea2:531b\"."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/siftr.4:91
+#, no-wrap
+msgid "Run-time Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:97
+msgid ""
+"E<.Nm> utilises the E<.Xr sysctl 8> interface to export its configuration "
+"variables to user-space.  The following variables are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:98
+#, no-wrap
+msgid "Va net.inet.siftr.enabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:109
+msgid ""
+"controls whether the module performs its measurements or not.  By default, "
+"the value is set to 0, which means the module will not be taking any "
+"measurements.  Having the module loaded with E<.Va net.inet.siftr.enabled> "
+"set to 0 will have no impact on the performance of the network stack, as the "
+"packet filtering hooks are only inserted when E<.Va net.inet.siftr.enabled> "
+"is set to 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:111
+#, no-wrap
+msgid "Va net.inet.siftr.ppl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:118
+msgid ""
+"controls how many inbound/outbound packets for a given TCP connection will "
+"cause a log message to be generated for the connection.  By default, the "
+"value is set to 1, which means the module will log a message for every "
+"packet of every TCP connection.  The value can be set to any integer in the "
+"range [1,2^32], and can be changed at any time, even while the module is "
+"enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:120
+#, no-wrap
+msgid "Va net.inet.siftr.logfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:124
+msgid ""
+"controls the path to the file that the module writes its log messages to.  "
+"By default, the file /var/log/siftr.log is used.  The path can be changed at "
+"any time, even while the module is enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:126
+#, no-wrap
+msgid "Va net.inet.siftr.genhashes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:133
+msgid ""
+"controls whether a hash is generated for each TCP packet seen by E<.Nm>.  By "
+"default, the value is set to 0, which means no hashes are generated.  The "
+"hashes are useful to correlate which TCP packet triggered the generation of "
+"a particular log message, but calculating them adds additional computational "
+"overhead into the fast path."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/siftr.4:134
+#, no-wrap
+msgid "Log Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:139
+msgid ""
+"A typical E<.Nm> log file will contain 3 different types of log message.  "
+"All messages are written in plain ASCII text."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:144
+msgid ""
+"Note: The E<.Qq \\e> present in the example log messages in this section "
+"indicates a line continuation and is not part of the actual log message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:150
+msgid ""
+"The first type of log message is written to the file when the module is "
+"enabled and starts collecting data from the running kernel.  The text below "
+"shows an example module enable log.  The fields are tab delimited key-value "
+"pairs which describe some basic information about the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:154
+#, no-wrap
+msgid ""
+"enable_time_secs=1238556193    enable_time_usecs=462104 \\e\n"
+"siftrver=1.2.2    hz=1000    tcp_rtt_scale=32 \\e\n"
+"sysname=FreeBSD    sysver=604000    ipmode=4\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:157 /usr/src/share/man/man4/siftr.4:209 /usr/src/share/man/man4/siftr.4:374
+msgid "Field descriptions are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:158
+#, no-wrap
+msgid "Va enable_time_secs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:160
+msgid "time at which the module was enabled, in seconds since the UNIX epoch."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:162
+#, no-wrap
+msgid "Va enable_time_usecs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:164
+msgid ""
+"time at which the module was enabled, in microseconds since "
+"enable_time_secs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:166
+#, no-wrap
+msgid "Va siftrver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:169
+msgid "version of E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:171
+#, no-wrap
+msgid "Va hz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:173
+msgid "tick rate of the kernel in ticks per second."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:175
+#, no-wrap
+msgid "Va tcp_rtt_scale"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:177
+msgid "smoothed RTT estimate scaling factor."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:179
+#, no-wrap
+msgid "Va sysname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:181
+msgid "operating system name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:183
+#, no-wrap
+msgid "Va sysver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:185
+msgid "operating system version."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:187
+#, no-wrap
+msgid "Va ipmode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:195
+msgid ""
+"IP mode as defined at compile time.  An ipmode of \"4\" means IPv6 is not "
+"supported and IP addresses are logged in regular dotted quad format.  An "
+"ipmode of \"6\" means IPv6 is supported, and IP addresses are logged in "
+"dotted quad or hex format, as described in the E<.Qq Compile-time "
+"Configuration> subsection."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:202
+msgid ""
+"The second type of log message is written to the file when a data log "
+"message is generated.  The text below shows an example data log triggered by "
+"an IPv4 TCP/IP packet.  The data is CSV formatted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:206
+#, no-wrap
+msgid ""
+"o,0xbec491a5,1238556193.463551,172.16.7.28,22,172.16.2.5,55931, \\e\n"
+"1073725440,172312,6144,66560,66608,8,1,4,1448,936,1,996,255, \\e\n"
+"33304,208,66608,0,208,0\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:210
+#, no-wrap
+msgid "Va 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:217
+msgid ""
+"Direction of packet that triggered the log message.  Either E<.Qq i> for in, "
+"or E<.Qq o> for out."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:219
+#, no-wrap
+msgid "Va 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:221
+msgid "Hash of the packet that triggered the log message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:223
+#, no-wrap
+msgid "Va 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:228
+msgid ""
+"Time at which the packet that triggered the log message was processed by the "
+"E<.Xr pfil 9> hook function, in seconds and microseconds since the UNIX "
+"epoch."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:230
+#, no-wrap
+msgid "Va 4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:233
+msgid ""
+"The IPv4 or IPv6 address of the local host, in dotted quad (IPv4 packet)  or "
+"colon-separated hex (IPv6 packet) notation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:235
+#, no-wrap
+msgid "Va 5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:237
+msgid "The TCP port that the local host is communicating via."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:239
+#, no-wrap
+msgid "Va 6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:242
+msgid ""
+"The IPv4 or IPv6 address of the foreign host, in dotted quad (IPv4 packet)  "
+"or colon-separated hex (IPv6 packet) notation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:244
+#, no-wrap
+msgid "Va 7"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:246
+msgid "The TCP port that the foreign host is communicating via."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:248
+#, no-wrap
+msgid "Va 8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:250
+msgid "The slow start threshold for the flow, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:252
+#, no-wrap
+msgid "Va 9"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:254
+msgid "The current congestion window for the flow, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:256
+#, no-wrap
+msgid "Va 10"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:258
+msgid "The current bandwidth-controlled window for the flow, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:260
+#, no-wrap
+msgid "Va 11"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:264
+msgid ""
+"The current sending window for the flow, in bytes.  The post scaled value is "
+"reported, except during the initial handshake (first few packets), during "
+"which time the unscaled value is reported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:266
+#, no-wrap
+msgid "Va 12"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:269
+msgid ""
+"The current receive window for the flow, in bytes.  The post scaled value is "
+"always reported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:271
+#, no-wrap
+msgid "Va 13"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:273
+msgid "The current window scaling factor for the sending window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:275
+#, no-wrap
+msgid "Va 14"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:277
+msgid "The current window scaling factor for the receiving window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:279
+#, no-wrap
+msgid "Va 15"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:283
+msgid ""
+"The current state of the TCP finite state machine, as defined in E<.Aq Pa "
+"netinet/tcp_fsm.h>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:285
+#, no-wrap
+msgid "Va 16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:287
+msgid "The maximum segment size for the flow, in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:289
+#, no-wrap
+msgid "Va 17"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:295
+msgid ""
+"The current smoothed RTT estimate for the flow, in units of TCP_RTT_SCALE * "
+"HZ, where TCP_RTT_SCALE is a define found in tcp_var.h, and HZ is the "
+"kernel's tick timer.  Divide by TCP_RTT_SCALE * HZ to get the RTT in secs.  "
+"TCP_RTT_SCALE and HZ are reported in the enable log message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:297
+#, no-wrap
+msgid "Va 18"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:299
+msgid "SACK enabled indicator. 1 if SACK enabled, 0 otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:301
+#, no-wrap
+msgid "Va 19"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:306
+msgid ""
+"The current state of the TCP flags for the flow.  See E<.Aq Pa "
+"netinet/tcp_var.h> for information about the various flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:308
+#, no-wrap
+msgid "Va 20"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:313
+msgid ""
+"The current retransmission timeout length for the flow, in units of HZ, "
+"where HZ is the kernel's tick timer.  Divide by HZ to get the timeout length "
+"in seconds.  HZ is reported in the enable log message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:315
+#, no-wrap
+msgid "Va 21"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:317
+msgid "The current size of the socket send buffer in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:319
+#, no-wrap
+msgid "Va 22"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:321
+msgid "The current number of bytes in the socket send buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:323
+#, no-wrap
+msgid "Va 23"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:325
+msgid "The current size of the socket receive buffer in bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:327
+#, no-wrap
+msgid "Va 24"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:329
+msgid "The current number of bytes in the socket receive buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:331
+#, no-wrap
+msgid "Va 25"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:334
+msgid ""
+"The current number of unacknowledged bytes in-flight.  Bytes acknowledged "
+"via SACK are not excluded from this count."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:336
+#, no-wrap
+msgid "Va 26"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:338
+msgid "The current number of segments in the reassembly queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:340
+#, no-wrap
+msgid "Va 27"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:346
+msgid ""
+"Flowid for the connection.  A caveat: Zero '0' either represents a valid "
+"flowid or a default value when it's not being set.  There is no easy way to "
+"differentiate without looking at actual network interface card and drivers "
+"being used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:348
+#, no-wrap
+msgid "Va 28"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:355
+msgid ""
+"Flow type for the connection.  Flowtype defines which protocol fields are "
+"hashed to produce the flowid.  A complete listing is available in E<.Pa "
+"sys/mbuf.h> under E<.Dv M_HASHTYPE_*>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:362
+msgid ""
+"The third type of log message is written to the file when the module is "
+"disabled and ceases collecting data from the running kernel.  The text below "
+"shows an example module disable log.  The fields are tab delimited key-value "
+"pairs which provide statistics about operations since the module was most "
+"recently enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:371
+#, no-wrap
+msgid ""
+"disable_time_secs=1238556197    disable_time_usecs=933607 \\e\n"
+"num_inbound_tcp_pkts=356    num_outbound_tcp_pkts=627 \\e\n"
+"total_tcp_pkts=983    num_inbound_skipped_pkts_malloc=0 \\e\n"
+"num_outbound_skipped_pkts_malloc=0    num_inbound_skipped_pkts_mtx=0 \\e\n"
+"num_outbound_skipped_pkts_mtx=0    num_inbound_skipped_pkts_tcb=0 \\e\n"
+"num_outbound_skipped_pkts_tcb=0    num_inbound_skipped_pkts_icb=0 \\e\n"
+"num_outbound_skipped_pkts_icb=0    total_skipped_tcp_pkts=0 \\e\n"
+"flow_list=172.16.7.28;22-172.16.2.5;55931,\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:375
+#, no-wrap
+msgid "Va disable_time_secs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:377
+msgid "Time at which the module was disabled, in seconds since the UNIX epoch."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:379
+#, no-wrap
+msgid "Va disable_time_usecs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:381
+msgid ""
+"Time at which the module was disabled, in microseconds since "
+"disable_time_secs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:383
+#, no-wrap
+msgid "Va num_inbound_tcp_pkts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:388
+msgid ""
+"Number of TCP packets that traversed up the network stack.  This only "
+"includes inbound TCP packets during the periods when E<.Nm> was enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:390
+#, no-wrap
+msgid "Va num_outbound_tcp_pkts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:395
+msgid ""
+"Number of TCP packets that traversed down the network stack.  This only "
+"includes outbound TCP packets during the periods when E<.Nm> was enabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:397
+#, no-wrap
+msgid "Va total_tcp_pkts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:399
+msgid "The summation of num_inbound_tcp_pkts and num_outbound_tcp_pkts."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:401
+#, no-wrap
+msgid "Va num_inbound_skipped_pkts_malloc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:405
+msgid ""
+"Number of inbound packets that were not processed because of failed E<.Fn "
+"malloc> calls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:407
+#, no-wrap
+msgid "Va num_outbound_skipped_pkts_malloc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:411
+msgid ""
+"Number of outbound packets that were not processed because of failed E<.Fn "
+"malloc> calls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:413
+#, no-wrap
+msgid "Va num_inbound_skipped_pkts_mtx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:416
+msgid ""
+"Number of inbound packets that were not processed because of failure to add "
+"the packet to the packet processing queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:418
+#, no-wrap
+msgid "Va num_outbound_skipped_pkts_mtx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:421
+msgid ""
+"Number of outbound packets that were not processed because of failure to add "
+"the packet to the packet processing queue."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:423
+#, no-wrap
+msgid "Va num_inbound_skipped_pkts_tcb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:426
+msgid ""
+"Number of inbound packets that were not processed because of failure to find "
+"the TCP control block associated with the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:428
+#, no-wrap
+msgid "Va num_outbound_skipped_pkts_tcb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:431
+msgid ""
+"Number of outbound packets that were not processed because of failure to "
+"find the TCP control block associated with the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:433
+#, no-wrap
+msgid "Va num_inbound_skipped_pkts_icb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:436
+msgid ""
+"Number of inbound packets that were not processed because of failure to find "
+"the IP control block associated with the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:438
+#, no-wrap
+msgid "Va num_outbound_skipped_pkts_icb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:441
+msgid ""
+"Number of outbound packets that were not processed because of failure to "
+"find the IP control block associated with the packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:443
+#, no-wrap
+msgid "Va total_skipped_tcp_pkts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:445
+msgid "The summation of all skipped packet counters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/siftr.4:447
+#, no-wrap
+msgid "Va flow_list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:457
+msgid ""
+"A CSV list of TCP flows that triggered data log messages to be generated "
+"since the module was loaded.  Each flow entry in the CSV list is formatted "
+"as E<.Qq local_ip;local_port-foreign_ip;foreign_port>.  If there are no "
+"entries in the list (i.e., no data log messages were generated), the value "
+"will be blank.  If there is at least one entry in the list, a trailing comma "
+"will always be present."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:461
+msgid ""
+"The total number of data log messages found in the log file for a module "
+"enable/disable cycle should equate to total_tcp_pkts - "
+"total_skipped_tcp_pkts."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:461
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:474
+msgid ""
+"E<.Nm> hooks into the network stack using the E<.Xr pfil 9> interface.  In "
+"its current incarnation, it hooks into the AF_INET/AF_INET6 (IPv4/IPv6)  "
+"E<.Xr pfil 9> filtering points, which means it sees packets at the IP layer "
+"of the network stack.  This means that TCP packets inbound to the stack are "
+"intercepted before they have been processed by the TCP layer.  Packets "
+"outbound from the stack are intercepted after they have been processed by "
+"the TCP layer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:478
+msgid "The diagram below illustrates how E<.Nm> inserts itself into the stack."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:508
+#, no-wrap
+msgid ""
+"----------------------------------\n"
+"           Upper Layers\n"
+"----------------------------------\n"
+"    ^                       |\n"
+"    |                       |\n"
+"    |                       |\n"
+"    |                       v\n"
+" TCP in                  TCP out\n"
+"----------------------------------\n"
+"    ^                      |\n"
+"    |________     _________|\n"
+"            |     |\n"
+"            |     v\n"
+"           ---------\n"
+"           | SIFTR |\n"
+"           ---------\n"
+"            ^     |\n"
+"    ________|     |__________\n"
+"    |                       |\n"
+"    |                       v\n"
+"IPv{4/6} in            IPv{4/6} out\n"
+"----------------------------------\n"
+"    ^                       |\n"
+"    |                       |\n"
+"    |                       v\n"
+"Layer 2 in             Layer 2 out\n"
+"----------------------------------\n"
+"          Physical Layer\n"
+"----------------------------------\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:514
+msgid "E<.Nm> uses the E<.Xr alq 9> interface to manage writing data to disk."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:528
+msgid ""
+"At first glance, you might mistakenly think that E<.Nm> extracts information "
+"from individual TCP packets.  This is not the case.  E<.Nm> uses TCP packet "
+"events (inbound and outbound) for each TCP flow originating from the system "
+"to trigger a dump of the state of the TCP control block for that flow.  With "
+"the PPL set to 1, we are in effect sampling each TCP flow's control block "
+"state as frequently as flow packets enter/leave the system.  For example, "
+"setting PPL to 2 halves the sampling rate i.e., every second flow packet "
+"(inbound OR outbound) causes a dump of the control block state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:546
+msgid ""
+"The distinction between interrogating individual packets versus "
+"interrogating the control block is important, because E<.Nm> does not remove "
+"the need for packet capturing tools like E<.Xr tcpdump 1>.  E<.Nm> allows "
+"you to correlate and observe the cause-and-affect relationship between what "
+"you see on the wire (captured using a tool like E<.Xr tcpdump 1 Ns>)  and "
+"changes in the TCP control block corresponding to the flow of interest.  It "
+"is therefore useful to use E<.Nm> and a tool like E<.Xr tcpdump 1> to gather "
+"the necessary data to piece together the complete picture.  Use of either "
+"tool on its own will not be able to provide all of the necessary data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:553
+msgid ""
+"As a result of needing to interrogate the TCP control block, certain packets "
+"during the lifecycle of a connection are unable to trigger a E<.Nm> log "
+"message.  The initial handshake takes place without the existence of a "
+"control block and the final ACK is exchanged when the connection is in the "
+"TIMEWAIT state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:560
+msgid ""
+"E<.Nm> was designed to minimise the delay introduced to packets traversing "
+"the network stack.  This design called for a highly optimised and minimal "
+"hook function that extracted the minimal details necessary whilst holding "
+"the packet up, and passing these details to another thread for actual "
+"processing and logging."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:570
+msgid ""
+"This multithreaded design does introduce some contention issues when "
+"accessing the data structure shared between the threads of operation.  When "
+"the hook function tries to place details in the structure, it must first "
+"acquire an exclusive lock.  Likewise, when the processing thread tries to "
+"read details from the structure, it must also acquire an exclusive lock to "
+"do so.  If one thread holds the lock, the other must wait before it can "
+"obtain it.  This does introduce some additional bounded delay into the "
+"kernel's packet processing code path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:586
+msgid ""
+"In some cases (e.g., low memory, connection termination), TCP packets that "
+"enter the E<.Nm> E<.Xr pfil 9> hook function will not trigger a log message "
+"to be generated.  E<.Nm> refers to this outcome as a E<.Qq skipped packet>.  "
+"Note that E<.Nm> always ensures that packets are allowed to continue through "
+"the stack, even if they could not successfully trigger a data log message.  "
+"E<.Nm> will therefore not introduce any packet loss for TCP/IP packets "
+"traversing the network stack."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/siftr.4:586
+#, no-wrap
+msgid "Important Behaviours"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:589
+msgid ""
+"The behaviour of a log file path change whilst the module is enabled is as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:594
+msgid ""
+"Attempt to open the new file path for writing.  If this fails, the path "
+"change will fail and the existing path will continue to be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:596
+msgid "Assuming the new path is valid and opened successfully:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:599
+msgid "Flush all pending log messages to the old file path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:601
+msgid "Close the old file path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:603
+msgid "Switch the active log file pointer to point at the new file path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:605
+msgid "Commence logging to the new file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:613
+msgid ""
+"During the time between the flush of pending log messages to the old file "
+"and commencing logging to the new file, new log messages will still be "
+"generated and buffered.  As soon as the new file path is ready for writing, "
+"the accumulated log messages will be written out to the file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:613
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:616
+msgid ""
+"To enable the module's operations, run the following command as root: sysctl "
+"net.inet.siftr.enabled=1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:621
+msgid ""
+"To change the granularity of log messages such that 1 log message is "
+"generated for every 10 TCP packets per connection, run the following command "
+"as root: sysctl net.inet.siftr.ppl=10"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:625
+msgid ""
+"To change the log file location to /tmp/siftr.log, run the following command "
+"as root: sysctl net.inet.siftr.logfile=/tmp/siftr.log"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:625
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:631
+msgid "E<.Xr tcpdump 1>, E<.Xr tcp 4>, E<.Xr sysctl 8>, E<.Xr alq 9>, E<.Xr pfil 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:631
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:635
+msgid ""
+"Development of this software was made possible in part by grants from the "
+"Cisco University Research Program Fund at Community Foundation Silicon "
+"Valley, and the FreeBSD Foundation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:635
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:641
+msgid "E<.Nm> first appeared in E<.Fx 7.4> and E<.Fx 8.2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:649
+msgid ""
+"E<.Nm> was first released in 2007 by Lawrence Stewart and James Healy whilst "
+"working on the NewTCP research project at Swinburne University of "
+"Technology's Centre for Advanced Internet Architectures, Melbourne, "
+"Australia, which was made possible in part by a grant from the Cisco "
+"University Research Program Fund at Community Foundation Silicon Valley.  "
+"More details are available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:651
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:659
+msgid ""
+"Work on E<.Nm> v1.2.x was sponsored by the FreeBSD Foundation as part of the "
+"E<.Qq Enhancing the FreeBSD TCP Implementation> project 2008-2009.  More "
+"details are available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:661
+msgid "http://www.freebsdfoundation.org/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:663
+msgid "http://caia.swin.edu.au/freebsd/etcp09/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:663
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:670
+msgid ""
+"E<.An -nosplit> E<.Nm> was written by E<.An Lawrence Stewart Aq Mt "
+"lstewart@FreeBSD.org> and E<.An James Healy Aq Mt jimmy@deefa.com>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:673
+msgid ""
+"This manual page was written by E<.An Lawrence Stewart Aq Mt "
+"lstewart@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/siftr.4:673
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:675
+msgid "Current known limitations and any relevant workarounds are outlined below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:684
+msgid ""
+"The internal queue used to pass information between the threads of operation "
+"is currently unbounded.  This allows E<.Nm> to cope with bursty network "
+"traffic, but sustained high packet-per-second traffic can cause exhaustion "
+"of kernel memory if the processing thread cannot keep up with the packet "
+"rate."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:699
+msgid ""
+"If using E<.Nm> on a machine that is also running other modules utilising "
+"the E<.Xr pfil 9> framework e.g.  E<.Xr dummynet 4>, E<.Xr ipfw 8>, E<.Xr pf "
+"4 Ns>, the order in which you load the modules is important.  You should "
+"kldload the other modules first, as this will ensure TCP packets undergo any "
+"necessary manipulations before E<.Nm> E<.Qq sees> and processes them."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:709
+msgid ""
+"There is a known, harmless lock order reversal warning between the E<.Xr "
+"pfil 9> mutex and tcbinfo TCP lock reported by E<.Xr witness 4> when E<.Nm> "
+"is enabled in a kernel compiled with E<.Xr witness 4> support."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:713
+msgid ""
+"There is no way to filter which TCP flows you wish to capture data for.  "
+"Post processing is required to separate out data belonging to particular "
+"flows of interest."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:723
+msgid ""
+"The module does not detect deletion of the log file path.  New log messages "
+"will simply be lost if the log file being used by E<.Nm> is deleted whilst "
+"the module is set to use the file.  Switching to a new log file using the "
+"E<.Em net.inet.siftr.logfile> variable will create the new file and allow "
+"log messages to begin being written to disk again.  The new log file path "
+"must differ from the path to the deleted file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:733
+msgid ""
+"The hash table used within the code is sized to hold 65536 flows.  This is "
+"not a hard limit, because chaining is used to handle collisions within the "
+"hash table structure.  However, we suspect (based on analogies with other "
+"hash table performance data)  that the hash table look up performance (and "
+"therefore the module's packet processing performance) will degrade in an "
+"exponential manner as the number of unique flows handled in a module "
+"enable/disable cycle approaches and surpasses 65536."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:737
+msgid ""
+"There is no garbage collection performed on the flow hash table.  The only "
+"way currently to flush it is to disable E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:746
+msgid ""
+"The PPL variable applies to packets that make it into the processing thread, "
+"not total packets received in the hook function.  Packets are skipped before "
+"the PPL variable is applied, which means there may be a slight discrepancy "
+"in the triggering of log messages.  For example, if PPL was set to 10, and "
+"the 8th packet since the last log message is skipped, the 11th packet will "
+"actually trigger the log message to be generated.  This is discussed in "
+"greater depth in CAIA technical report 070824A."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:773
+msgid ""
+"At the time of writing, there was no simple way to hook into the TCP layer "
+"to intercept packets.  E<.Nm Ap s> use of IP layer hook points means all IP "
+"traffic will be processed by the E<.Nm> E<.Xr pfil 9> hook function, which "
+"introduces minor, but nonetheless unnecessary packet delay and processing "
+"overhead on the system for non-TCP packets as well.  Hooking in at the IP "
+"layer is also not ideal from the data gathering point of view.  Packets "
+"traversing up the stack will be intercepted and cause a log message "
+"generation BEFORE they have been processed by the TCP layer, which means we "
+"cannot observe the cause-and-affect relationship between inbound events and "
+"the corresponding TCP control block as precisely as could be.  Ideally, "
+"E<.Nm> should intercept packets after they have been processed by the TCP "
+"layer i.e.  intercept packets coming up the stack after they have been "
+"processed by E<.Fn tcp_input>, and intercept packets coming down the stack "
+"after they have been processed by E<.Fn tcp_output>.  The current code still "
+"gives satisfactory granularity though, as inbound events tend to trigger "
+"outbound events, allowing the cause-and-effect to be observed indirectly by "
+"capturing the state on outbound events as well."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:781
+msgid ""
+"The E<.Qq inflight bytes> value logged by E<.Nm> does not take into account "
+"bytes that have been E<.No SACK Ap ed> by the receiving host."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:783
+msgid "Packet hash generation does not currently work for IPv6 based TCP packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/siftr.4:786
+msgid ""
+"Compressed notation is not used for IPv6 address representation.  This "
+"consumes more bytes than is necessary in log output."
+msgstr ""

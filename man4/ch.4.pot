@@ -1,0 +1,620 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ch.4:27
+#, no-wrap
+msgid "May 14, 1998"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ch.4:28
+#, no-wrap
+msgid "CH 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:32
+msgid "E<.Nm ch>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ch.4:32
+#, no-wrap
+msgid "SCSI media-changer (juke box) driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:35
+msgid "E<.Cd device ch>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:46
+msgid ""
+"The E<.Nm> driver provides support for a E<.Em SCSI> media changer.  It "
+"allows many slots of media to be multiplexed between a number of drives.  "
+"The changer device may optionally be equipped with a bar code reader, which "
+"reads label information attached to the media."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:49
+msgid ""
+"A SCSI adapter must also be separately configured into the system before a "
+"SCSI changer can be configured."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:68
+msgid ""
+"As the SCSI adapter is probed during boot, the E<.Em SCSI> bus is scanned "
+"for devices.  Any devices found which answer as 'Changer' type devices will "
+"be 'attached' to the E<.Nm> driver.  In E<.Fx> releases prior to 2.1, the "
+"first found will be attached as E<.Em ch0> and the next, E<.Em ch1> etc.  "
+"Beginning in 2.1 it is possible to specify what ch unit a device should come "
+"on line as; refer to E<.Xr scsi 4> for details on kernel configuration."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:68
+#, no-wrap
+msgid "KERNEL CONFIGURATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:75
+msgid ""
+"It is only necessary to explicitly configure one E<.Nm> device; data "
+"structures are dynamically allocated as media changes are found on the E<.Tn "
+"SCSI> bus."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:75
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:82
+msgid ""
+"User mode programs communicate with the changer driver through a number of "
+"ioctls which are described below.  Changer element addresses used in the "
+"communication between the kernel and the changer device are mapped to "
+"zero-based logical addresses.  Element types are specified as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:83
+#, no-wrap
+msgid "Dv CHET_MT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:85
+msgid "Medium transport element (picker)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:85
+#, no-wrap
+msgid "Dv CHET_ST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:87
+msgid "Storage element (slot)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:87
+#, no-wrap
+msgid "Dv CHET_IE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:89
+msgid "Import/export element (portal)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:89
+#, no-wrap
+msgid "Dv CHET_DT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:91
+msgid "Data transfer element (drive)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:98
+msgid ""
+"The following E<.Xr ioctl 2> calls apply to the changer.  They are defined "
+"in the header file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ch.4:98
+#, no-wrap
+msgid "sys/chio.h ."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:100
+#, no-wrap
+msgid "Dv CHIOMOVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:108
+msgid ""
+"E<.Pq Vt \"struct changer_move\"> Move a medium from one element to another "
+"E<.Pq Sy \"MOVE MEDIUM\"> using the current picker.  The source and "
+"destination elements are specified in a changer_move structure, which "
+"includes at least the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:114
+#, no-wrap
+msgid ""
+"u_int cm_fromtype; /* element type to move from */\n"
+"u_int cm_fromunit; /* logical unit of from element */\n"
+"u_int cm_totype;   /* element type to move to */\n"
+"u_int cm_tounit;   /* logical unit of to element */\n"
+"u_int cm_flags;\t   /* misc. flags */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:121
+msgid ""
+"If the E<.Dv CM_INVERT> in the E<.Va cm_flags> field is set, the medium "
+"changer is instructed to flip the medium while moving it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:121
+#, no-wrap
+msgid "Dv CHIOEXCHANGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:134
+msgid ""
+"E<.Pq Vt \"struct changer_exchange\"> Move the medium located in the source "
+"element to the first destination element, and move the medium that had been "
+"in the first destination element to the second destination element.  In case "
+"of a simple exchange, the source and second destination elements should be "
+"the same.  The current picker is used to perform the operation.  The "
+"addresses of the affected elements is specified to the ioctl in a E<.Vt "
+"changer_exchange> structure which includes at least the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:142
+#, no-wrap
+msgid ""
+"u_int ce_srctype;\t /* element type of source */\n"
+"u_int ce_srcunit;\t /* logical unit of source */\n"
+"u_int ce_fdsttype; /* element type of first destination */\n"
+"u_int ce_fdstunit; /* logical unit of first destination */\n"
+"u_int ce_sdsttype; /* element type of second destination */\n"
+"u_int ce_sdstunit; /* logical unit of second destination */\n"
+"u_int ce_flags;\t /* misc. flags */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:151
+msgid ""
+"In E<.Va ce_flags>, E<.Dv CM_INVERT1> and/or E<.Dv CM_INVERT2> may be set to "
+"flip the first or second medium during the exchange operation, respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:153
+msgid "E<.Em This operation is untested>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:153
+#, no-wrap
+msgid "Dv CHIOPOSITION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:158
+msgid ""
+"E<.Pq Vt \"struct changer_position\"> Position the current picker in front "
+"of the specified element.  The element is specified with a changer_position "
+"structure, which includes at least the following elements:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:162
+#, no-wrap
+msgid ""
+"u_int cp_type;  /* element type */\n"
+"u_int cp_unit;  /* logical unit of element */\n"
+"u_int cp_flags; /* misc. flags */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:168
+msgid ""
+"The E<.Va cp_flags> field may be set to E<.Dv CP_INVERT> to invert the "
+"picker during the operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:168
+#, no-wrap
+msgid "Dv CHIOGPICKER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:171
+msgid "E<.Pq Vt int> Return the logical address of the current picker."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:171
+#, no-wrap
+msgid "Dv CHIOSPICKER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:174
+msgid "E<.Pq Vt int> Select the picker specified by the given logical address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:174
+#, no-wrap
+msgid "Dv CHIOGPARAMS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:180
+msgid ""
+"E<.Pq Vt \"struct changer_params\"> Return the configuration parameters for "
+"the media changer.  This ioctl fills the changer_params structure passed by "
+"the user with at least the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:185
+#, no-wrap
+msgid ""
+"u_int cp_npickers; /* number of pickers */\n"
+"u_int cp_nslots;   /* number of slots */\n"
+"u_int cp_nportals; /* number of import/export portals */\n"
+"u_int cp_ndrives;  /* number of drives */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:191
+msgid ""
+"This call can be used by applications to query the dimensions of the jukebox "
+"before using the E<.Dv CHIGSTATUS> ioctl to query the jukebox status."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:191
+#, no-wrap
+msgid "Dv CHIOIELEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:201
+msgid ""
+"Perform the E<.Sy INITIALIZE ELEMENT STATUS> call on the media changer "
+"device.  This forces the media changer to update its internal status "
+"information with respect to loaded media.  It also scans any barcode labels "
+"provided that it has a label reader.  The E<.Nm> driver's status is not "
+"affected by this call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:201
+#, no-wrap
+msgid "Dv CHIOGSTATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:210
+msgid ""
+"E<.Pq Vt \"struct changer_element_status_request\"> Perform the E<.Sy READ "
+"ELEMENT STATUS> call on the media changer device.  This call reads the "
+"element status information of the media changer and converts it to an array "
+"of E<.Vt changer_element_status> structures."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:214
+msgid ""
+"With each call to E<.Dv CHIOGSTATUS>, the status of one or more elements of "
+"one type may be queried."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:220
+msgid ""
+"The application passes a E<.Vt changer_element_status_request> structure to "
+"the E<.Nm> driver which contains the following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:226
+#, no-wrap
+msgid ""
+"u_int                          cesr_element_type;\n"
+"u_int                          cesr_element_base;\n"
+"u_int                          cesr_element_count;\n"
+"u_int                          cesr_flags;\n"
+"struct changer_element_status *cesr_element_status;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:245
+msgid ""
+"This structure is read by the driver to determine the type, logical base "
+"address and number of elements for which information is to be returned in "
+"the array of E<.Vt changer_element_status> structures pointed to by the "
+"E<.Va cesr_element_status> field.  The application must allocate enough "
+"memory for E<.Va cesr_element_count> status structures (see below).  The "
+"E<.Va cesr_flags> can optionally be set to E<.Dv CESR_VOLTAGS> to indicate "
+"that volume tag (bar code) information is to be read from the jukebox and "
+"returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:256
+msgid ""
+"The E<.Va cesr_element_base> and E<.Va cesr_element_count> fields must be "
+"valid with respect to the physical configuration of the changer.  If they "
+"are not, the E<.Dv CHIOGSTATUS> ioctl returns the E<.Er EINVAL> error code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:261
+msgid ""
+"The information about the elements is returned in an array of E<.Vt "
+"changer_element_status> structures.  This structure include at least the "
+"following fields:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:275
+#, no-wrap
+msgid ""
+"u_int            ces_addr;      /* element address in media changer */\n"
+"u_char           ces_flags;     /* see CESTATUS definitions below */\n"
+"u_char           ces_sensecode; /* additional sense code for element */\n"
+"u_char           ces_sensequal; /* additional sense code qualifier */\n"
+"u_char           ces_invert;    /* invert bit */\n"
+"u_char           ces_svalid;    /* source address (ces_source) valid */\n"
+"u_short          ces_source;    /* source address of medium */\n"
+"changer_voltag_t ces_pvoltag;   /* primary volume tag */\n"
+"changer_voltag_t ces_avoltag;   /* alternate volume tag */\n"
+"u_char           ces_idvalid;   /* ces_scsi_id is valid */\n"
+"u_char           ces_scsi_id;   /* SCSI id of element (if ces_idvalid is "
+"nonzero) */\n"
+"u_char           ces_lunvalid;  /* ces_scsi_lun is valid */\n"
+"u_char           ces_scsi_lun;  /* SCSI lun of element (if ces_lunvalid is "
+"nonzero) */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:283
+msgid ""
+"The E<.Va ces_addr> field contains the address of the element in the "
+"coordinate system of the media changer.  It is not used by the driver, and "
+"should be used for diagnostic purposes only."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:287
+msgid "The following flags are defined for the E<.Va ces_flags> field:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:288
+#, no-wrap
+msgid "Dv CESTATUS_FULL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:290
+msgid "A medium is present."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:290
+#, no-wrap
+msgid "Dv CESTATUS_IMPEXP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:292
+msgid "The medium has been deposited by the operator (and not by a picker)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:292
+#, no-wrap
+msgid "Dv CESTATUS_EXCEPT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:295
+msgid ""
+"The element is in an exceptional state (e.g.\\& invalid barcode label, "
+"barcode not yet scanned)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:295
+#, no-wrap
+msgid "Dv CESTATUS_ACCESS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:297
+msgid "The element is accessible by the picker."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:297
+#, no-wrap
+msgid "Dv CESTATUS_EXENAB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:299
+msgid "The element supports medium export."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:299
+#, no-wrap
+msgid "Dv CESTATUS_INENAB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:301
+msgid "The element supports medium import."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:304
+msgid "Note that not all flags are valid for all element types."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:305
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:310
+msgid ""
+"This version of the E<.Nm> driver has been tested with a DEC TZ875 (5 slot, "
+"one DLT drive)  and a Breece Hill Q47 (60 slot, four DLT drives, barcode "
+"reader)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:317
+msgid ""
+"Many of the features the E<.Nm> driver supports are not thoroughly tested "
+"due to the fact that the devices available for testing do not support the "
+"necessary commands.  This is true for alternate volume tags, media flipping, "
+"import/export element handling, multiple picker operation and other things."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:317
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ch.4:319
+#, no-wrap
+msgid "Pa /dev/ch[0-9]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:321
+msgid "device entries"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:322
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:327
+msgid ""
+"If the media changer does not support features requested by the E<.Nm> "
+"driver, it will produce both console error messages and failure return codes "
+"to the ioctls described here."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:327
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:333
+msgid "E<.Xr chio 1>, E<.Xr cam 4>, E<.Xr cd 4>, E<.Xr da 4>, E<.Xr sa 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:333
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:338
+msgid "The E<.Nm> driver appeared in E<.Bx 386 0.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ch.4:338
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ch.4:352
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Jason R. Thorpe Aq Mt "
+"thorpej@and.com> for And Communications, E<.Pa http://www.and.com/>.  It was "
+"added to the system by E<.An Stefan Grefen Aq Mt "
+"grefen@goofy.zdv.uni-mainz.de> who apparently had such a device.  It was "
+"ported to CAM by E<.An Kenneth Merry Aq Mt ken@FreeBSD.org>.  It was updated "
+"to support volume tags by E<.An Hans Huebner Aq Mt hans@artcom.de>."
+msgstr ""

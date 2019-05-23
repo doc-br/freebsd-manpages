@@ -1,0 +1,316 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/rcorder/rcorder.8:34
+#, no-wrap
+msgid "October 27, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/rcorder/rcorder.8:35
+#, no-wrap
+msgid "RCORDER 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:39
+msgid "E<.Nm rcorder>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/rcorder/rcorder.8:39
+#, no-wrap
+msgid "print a dependency ordering of interdependent files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:45
+msgid "E<.Nm> E<.Op Fl k Ar keep> E<.Op Fl s Ar skip> E<.Ar>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:53
+msgid ""
+"The E<.Nm> utility is designed to print out a dependency ordering of a set "
+"of interdependent files.  Typically it is used to find an execution sequence "
+"for a set of shell scripts in which certain files must be executed before "
+"others."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:63
+msgid ""
+"Each file passed to E<.Nm> must be annotated with special lines (which look "
+"like comments to the shell) which indicate the dependencies the files have "
+"upon certain points in the sequence, known as E<.Dq conditions>, and which "
+"indicate, for each file, which E<.Dq conditions> may be expected to be "
+"filled by that file."
+msgstr ""
+
+#.  Note that for historical reasons REQUIRES, PROVIDES, and KEYWORDS
+#.  are also accepted in addition to the above, but not documented so
+#.  that they can be deprecated at some point in the future.
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:95
+msgid ""
+"Within each file, a block containing a series of E<.Dq Li REQUIRE>, E<.Dq Li "
+"PROVIDE>, E<.Dq Li BEFORE> and E<.Dq Li KEYWORD> lines must appear.  The "
+"format of the lines is rigid.  Each line must begin with a single E<.Ql #>, "
+"followed by a single space, followed by E<.Dq Li PROVIDE:>, E<.Dq Li "
+"REQUIRE:>, E<.Dq Li BEFORE:>, or E<.Dq Li KEYWORD:>.  No deviation is "
+"permitted.  Each dependency line is then followed by a series of conditions, "
+"separated by whitespace.  Multiple E<.Dq Li PROVIDE>, E<.Dq Li REQUIRE>, "
+"E<.Dq Li BEFORE> and E<.Dq Li KEYWORD> lines may appear, but all such lines "
+"must appear in a sequence without any intervening lines, as once a line that "
+"does not follow the format is reached, parsing stops."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:97
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:98
+#, no-wrap
+msgid "Fl k"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:104
+msgid ""
+"Add the specified keyword to the E<.Dq \"keep list\">.  If any E<.Fl k> "
+"option is given, only those files containing the matching keyword are "
+"listed."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:104
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:110
+msgid ""
+"Add the specified keyword to the E<.Dq \"skip list\">.  If any E<.Fl s> "
+"option is given, files containing the matching keyword are not listed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:113
+msgid "An example block follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:117
+#, no-wrap
+msgid ""
+"# REQUIRE: networking syslog\n"
+"# REQUIRE: usr\n"
+"# PROVIDE: dns nscd\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:129
+msgid ""
+"This block states that the file in which it appears depends upon the E<.Dq "
+"Li networking>, E<.Dq Li syslog>, and E<.Dq Li usr> conditions, and provides "
+"the E<.Dq Li dns> and E<.Dq Li nscd> conditions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:139
+msgid ""
+"A file may contain zero E<.Dq Li PROVIDE> lines, in which case it provides "
+"no conditions, and may contain zero E<.Dq Li REQUIRE> lines, in which case "
+"it has no dependencies.  There must be at least one file with no "
+"dependencies in the set of arguments passed to E<.Nm> in order for it to "
+"find a starting place in the dependency ordering."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:139
+#, no-wrap
+msgid "KEYWORDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:143
+msgid "There are several E<.Em KEYWORDs> in use:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:144
+#, no-wrap
+msgid "Cm firstboot, nojail, nojailvnet, nostart"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:147
+msgid "Used by E<.Xr rc 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:147
+#, no-wrap
+msgid "Cm resume"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:152
+msgid "Used by E<.Nm /etc/rc.resume> (see E<.Xr acpiconf 8>)"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:152
+#, no-wrap
+msgid "Cm shutdown"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:155
+msgid "Used by E<.Xr rc.shutdown 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:156
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:161
+msgid ""
+"The E<.Nm> utility may print one of the following error messages and exit "
+"with a non-zero status if it encounters an error while processing the file "
+"list."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:162
+#, no-wrap
+msgid "Requirement %s has no providers, aborting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:168
+msgid ""
+"No file has a E<.Dq Li PROVIDE> line corresponding to a condition present in "
+"a E<.Dq Li REQUIRE> line in another file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:168
+#, no-wrap
+msgid "Circular dependency on provision %s, aborting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:171
+msgid ""
+"A set of files has a circular dependency which was detected while processing "
+"the stated condition."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/rcorder/rcorder.8:171
+#, no-wrap
+msgid "Circular dependency on file %s, aborting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:174
+msgid ""
+"A set of files has a circular dependency which was detected while processing "
+"the stated file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:175
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:179
+msgid "E<.Xr acpiconf 8>, E<.Xr rc 8>, E<.Xr rc.shutdown 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:179
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:187
+msgid ""
+"The E<.Nm> utility appeared in E<.Nx 1.5>.  E<.Nm> utility first appeared in "
+"E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:187
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:193
+msgid ""
+"E<.An -nosplit> Written by E<.An Perry E. Metzger Aq Mt perry@piermont.com> "
+"and E<.An Matthew R. Green Aq Mt mrg@eterna.com.au>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/rcorder/rcorder.8:193
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/rcorder/rcorder.8:211
+msgid ""
+"The E<.Dq Li REQUIRE> keyword is misleading: It does not describe which "
+"daemons have to be running before a script will be started.  It describes "
+"which scripts must be placed before it in the dependency ordering.  For "
+"example, if your script has a E<.Dq Li REQUIRE> on E<.Dq Li named>, it means "
+"the script must be placed after the E<.Dq Li named> script in the dependency "
+"ordering, not necessarily that it requires E<.Xr named 8> to be started or "
+"enabled."
+msgstr ""

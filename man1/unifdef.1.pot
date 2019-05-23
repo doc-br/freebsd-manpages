@@ -1,0 +1,687 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.bin/unifdef/unifdef.1:34
+#, no-wrap
+msgid "December 3, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.bin/unifdef/unifdef.1:35
+#, no-wrap
+msgid "UNIFDEF 1 PRM"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:39
+msgid "E<.Nm unifdef , unifdefall>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.bin/unifdef/unifdef.1:39
+#, no-wrap
+msgid "remove preprocessor conditionals from code"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:56
+msgid ""
+"E<.Nm> E<.Op Fl bBcdehKkmnsStV> E<.Op Fl I Ns Ar path> E<.Op Fl [i]D Ns Ar "
+"sym Ns Op = Ns Ar val> E<.Op Fl [i]U Ns Ar sym> E<.Ar ...> E<.Op Fl f Ar "
+"defile> E<.Op Fl x Bro Ar 012 Brc> E<.Op Fl M Ar backext> E<.Op Fl o Ar "
+"outfile> E<.Op Ar infile ...> E<.Nm unifdefall> E<.Op Fl I Ns Ar path> E<.Ar "
+"...> E<.Ar file>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:56
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:66
+msgid ""
+"The E<.Nm> utility selectively processes conditional E<.Xr cpp 1> "
+"directives.  It removes from a file both the directives and any additional "
+"text that they specify should be removed, while otherwise leaving the file "
+"alone."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:112
+msgid ""
+"The E<.Nm> utility acts on E<.Ic #if , #ifdef , #ifndef>, E<.Ic #elif , "
+"#else>, and E<.Ic #endif> lines, using macros specified in E<.Fl D> and "
+"E<.Fl U> command line options or in E<.Fl f> definitions files.  A directive "
+"is processed if the macro specifications are sufficient to provide a "
+"definite value for its control expression.  If the result is false, the "
+"directive and the following lines under its control are removed.  If the "
+"result is true, only the directive is removed.  An E<.Ic #ifdef> or E<.Ic "
+"#ifndef> directive is passed through unchanged if its controlling macro is "
+"not specified.  Any E<.Ic #if> or E<.Ic #elif> control expression that has "
+"an unknown value or that E<.Nm> cannot parse is passed through unchanged.  "
+"By default, E<.Nm> ignores E<.Ic #if> and E<.Ic #elif> lines with constant "
+"expressions; it can be told to process them by specifying the E<.Fl k> flag "
+"on the command line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:143
+msgid ""
+"It understands a commonly-used subset of the expression syntax for E<.Ic "
+"#if> and E<.Ic #elif> lines: integer constants, integer values of macros "
+"defined on the command line, the E<.Fn defined> operator, the operators "
+"E<.Ic \\&! , ~ , -> (unary), E<.Ic * , / , % , + , ->, E<.Ic E<lt> , E<lt>= "
+", E<gt> , E<gt>= , == , != , & , ^ , \\&|>, E<.Ic && , ||>, and "
+"parenthesized expressions.  Division by zero is treated as an unknown "
+"value.  A kind of E<.Dq \"short circuit\"> evaluation is used for the E<.Ic "
+"&&> operator: if either operand is definitely false then the result is "
+"false, even if the value of the other operand is unknown.  Similarly, if "
+"either operand of E<.Ic ||> is definitely true then the result is true."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:151
+msgid ""
+"When evaluating an expression, E<.Nm> does not expand macros first.  The "
+"value of a macro must be a simple number, not an expression.  A limited form "
+"of indirection is allowed, where one macro's value is the name of another."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:180
+msgid ""
+"In most cases, E<.Nm> does not distinguish between object-like macros "
+"(without arguments) and function-like macros (with arguments).  A "
+"function-like macro invocation can appear in E<.Ic #if> and E<.Ic #elif> "
+"control expressions.  If the macro is not explicitly defined, or is defined "
+"with the E<.Fl D> flag on the command-line, or with E<.Ic #define> in a "
+"E<.Fl f> definitions file, its arguments are ignored.  If a macro is "
+"explicitly undefined on the command line with the E<.Fl U> flag, or with "
+"E<.Ic #undef> in a E<.Fl f> definitions file, it may not have any arguments "
+"since this leads to a syntax error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:190
+msgid ""
+"The E<.Nm> utility understands just enough about C to know when one of the "
+"directives is inactive because it is inside a comment, or affected by a "
+"backslash-continued line.  It spots unusually-formatted preprocessor "
+"directives and knows when the layout is too odd for it to handle."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:205
+msgid ""
+"A script called E<.Nm unifdefall> can be used to remove all conditional "
+"E<.Xr cpp 1> directives from a file.  It uses E<.Nm Fl s> and E<.Nm cpp Fl "
+"dM> to get lists of all the controlling macros and their definitions (or "
+"lack thereof), then invokes E<.Nm> with appropriate arguments to process the "
+"file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:205
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:207
+#, no-wrap
+msgid "Fl D Ns Ar sym Ns = Ns Ar val"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:209
+msgid "Specify that a macro is defined to a given value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:210
+#, no-wrap
+msgid "Fl D Ns Ar sym"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:212
+msgid "Specify that a macro is defined to the value 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:213
+#, no-wrap
+msgid "Fl U Ns Ar sym"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:215
+msgid "Specify that a macro is undefined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:218
+msgid ""
+"If the same macro appears in more than one argument, the last occurrence "
+"dominates."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:219
+#, no-wrap
+msgid "Fl iD Ns Ar sym Ns Op = Ns Ar val"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:220
+#, no-wrap
+msgid "Fl iU Ns Ar sym"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:230
+msgid ""
+"C strings, comments, and line continuations are ignored within E<.Ic #ifdef> "
+"and E<.Ic #ifndef> blocks controlled by macros specified with these options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:231
+#, no-wrap
+msgid "Fl f Ar defile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:252
+msgid ""
+"The file E<.Ar defile> contains E<.Ic #define> and E<.Ic #undef> "
+"preprocessor directives, which have the same effect as the corresponding "
+"E<.Fl D> and E<.Fl U> command-line arguments.  You can have multiple E<.Fl "
+"f> arguments and mix them with E<.Fl D> and E<.Fl U> arguments; later "
+"options override earlier ones."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:258
+msgid ""
+"Each directive must be on a single line.  Object-like macro definitions "
+"(without arguments)  are set to the given value.  Function-like macro "
+"definitions (with arguments)  are treated as if they are set to 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:263
+msgid ""
+"E<.Em Warning:> string literals and character constants are not parsed "
+"correctly in E<.Fl f> files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:264
+#, no-wrap
+msgid "Fl b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:270
+msgid ""
+"Replace removed lines with blank lines instead of deleting them.  Mutually "
+"exclusive with the E<.Fl B> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:271
+#, no-wrap
+msgid "Fl B"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:276
+msgid ""
+"Compress blank lines around a deleted section.  Mutually exclusive with the "
+"E<.Fl b> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:277
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:281
+msgid ""
+"Complement, i.e., lines that would have been removed or blanked are retained "
+"and vice versa."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:282
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:284
+msgid "Turn on printing of debugging messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:285
+#, no-wrap
+msgid "Fl e"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:295
+msgid ""
+"By default, E<.Nm> will report an error if it needs to remove a preprocessor "
+"directive that spans more than one line, for example, if it has a multi-line "
+"comment hanging off its right hand end.  The E<.Fl e> flag makes it ignore "
+"the line instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:296
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:298
+msgid "Print help."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:299
+#, no-wrap
+msgid "Fl I Ns Ar path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:311
+msgid ""
+"Specifies to E<.Nm unifdefall> an additional place to look for E<.Ic "
+"#include> files.  This option is ignored by E<.Nm> for compatibility with "
+"E<.Xr cpp 1> and to simplify the implementation of E<.Nm unifdefall>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:312
+#, no-wrap
+msgid "Fl K"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:321
+msgid ""
+"Always treat the result of E<.Ic &&> and E<.Ic ||> operators as unknown if "
+"either operand is unknown, instead of short-circuiting when unknown operands "
+"can't affect the result.  This option is for compatibility with older "
+"versions of E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:322
+#, no-wrap
+msgid "Fl k"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:333
+msgid ""
+"Process E<.Ic #if> and E<.Ic #elif> lines with constant expressions.  By "
+"default, sections controlled by such lines are passed through unchanged "
+"because they typically start E<.Dq Li \"#if 0\"> and are used as a kind of "
+"comment to sketch out future or past development.  It would be rude to strip "
+"them out, just as it would be for normal comments."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:334
+#, no-wrap
+msgid "Fl m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:338
+msgid ""
+"Modify one or more input files in place.  If an input file is not modified, "
+"the original is preserved instead of being overwritten with an identical "
+"copy."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:339
+#, no-wrap
+msgid "Fl M Ar backext"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:349
+msgid ""
+"Modify input files in place, and keep backups of the original files by "
+"appending the E<.Ar backext> to the input filenames.  A zero length E<.Ar "
+"backext> behaves the same as the E<.Fl m> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:350
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:356
+msgid ""
+"Add E<.Li #line> directives to the output following any deleted lines, so "
+"that errors produced when compiling the output file correspond to line "
+"numbers in the input file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:357
+#, no-wrap
+msgid "Fl o Ar outfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:361
+msgid ""
+"Write output to the file E<.Ar outfile> instead of the standard output when "
+"processing a single file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:362
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:368
+msgid ""
+"Instead of processing an input file as usual, this option causes E<.Nm> to "
+"produce a list of macros that are used in preprocessor directive controlling "
+"expressions."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:369
+#, no-wrap
+msgid "Fl S"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:375
+msgid ""
+"Like the E<.Fl s> option, but the nesting depth of each macro is also "
+"printed.  This is useful for working out the number of possible combinations "
+"of interdependent defined/undefined macros."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:376
+#, no-wrap
+msgid "Fl t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:386
+msgid ""
+"Disables parsing for C strings, comments, and line continuations, which is "
+"useful for plain text.  This is a blanket version of the E<.Fl iD> and E<.Fl "
+"iU> flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:387
+#, no-wrap
+msgid "Fl V"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:389
+msgid "Print version details."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/unifdef/unifdef.1:390
+#, no-wrap
+msgid "Fl x Bro Ar 012 Brc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:395
+msgid ""
+"Set exit status mode to zero, one, or two.  See the E<.Sx EXIT STATUS> "
+"section below for details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:411
+msgid ""
+"The E<.Nm> utility takes its input from E<.Em stdin> if there are no E<.Ar "
+"file> arguments.  You must use the E<.Fl m> or E<.Fl M> options if there are "
+"multiple input files.  You can specify inut from stdin or output to stdout "
+"with E<.Ql ->."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:418
+msgid ""
+"The E<.Nm> utility works nicely with the E<.Fl D Ns Ar sym> option of E<.Xr "
+"diff 1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:418
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:424
+msgid ""
+"In normal usage the E<.Nm> utility's exit status depends on the mode set "
+"using the E<.Fl x> option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:429
+msgid ""
+"If the exit mode is zero (the default) then E<.Nm> exits with status 0 if "
+"the output is an exact copy of the input, or with status 1 if the output "
+"differs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:434
+msgid ""
+"If the exit mode is one, E<.Nm> exits with status 1 if the output is "
+"unmodified or 0 if it differs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:438
+msgid "If the exit mode is two, E<.Nm> exits with status zero in both cases."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:442
+msgid "In all exit modes, E<.Nm> exits with status 2 if there is an error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:448
+msgid ""
+"The exit status is 0 if the E<.Fl h> or E<.Fl V> command line options are "
+"given."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:448
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:453
+msgid "E<.Tn EOF> in comment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:459
+msgid "Inappropriate E<.Ic #elif>, E<.Ic #else> or E<.Ic #endif>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:461
+msgid "Missing macro name in #define or #undef"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:463
+msgid "Obfuscated preprocessor control line"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:468
+msgid ""
+"Premature E<.Tn EOF> (with the line number of the most recent unterminated "
+"E<.Ic #if>)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:470
+msgid "Too many levels of nesting"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:472
+msgid "Unrecognized preprocessor directive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:474
+msgid "Unterminated char or string literal"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:475
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:478
+msgid "E<.Xr cpp 1>, E<.Xr diff 1>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:481
+msgid "The unifdef home page is E<.Pa https://dotat.at/prog/unifdef>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:481
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:489
+msgid ""
+"The E<.Nm> command appeared in E<.Bx 2.9>.  E<.Tn ANSI\\~C> support was "
+"added in E<.Fx 4.7>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:489
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:496
+msgid ""
+"E<.An -nosplit> The original implementation was written by E<.An Dave Yost "
+"Aq Mt Dave@Yost.com>.  E<.An Tony Finch Aq Mt dot@dotat.at> rewrote it to "
+"support E<.Tn ANSI\\~C>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/unifdef/unifdef.1:496
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:498
+msgid "Expression evaluation is very limited."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:504
+msgid ""
+"Character constants are not evaluated.  String literals and character "
+"constants in E<.Fl f> definition files are ignored rather than parsed as "
+"part of a macro's replacement tokens."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:509
+msgid ""
+"Handling one line at a time means preprocessor directives split across more "
+"than one physical line (because of comments or backslash-newline)  cannot be "
+"handled in every situation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:511
+msgid "Trigraphs are not recognized."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:514
+msgid ""
+"There is no support for macros with different definitions at different "
+"points in the source file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/unifdef/unifdef.1:517
+msgid ""
+"The text-mode and ignore functionality does not correspond to modern E<.Xr "
+"cpp 1> behaviour."
+msgstr ""

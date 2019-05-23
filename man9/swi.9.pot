@@ -1,0 +1,300 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/swi.9:26
+#, no-wrap
+msgid "April 19, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/swi.9:27
+#, no-wrap
+msgid "SWI 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:33
+msgid "E<.Nm swi_add>, E<.Nm swi_remove>, E<.Nm swi_sched>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/swi.9:33
+#, no-wrap
+msgid "register and schedule software interrupt handlers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/swi.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/swi.9:36
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/swi.9:37
+#, no-wrap
+msgid "sys/interrupt.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:55
+msgid ""
+"E<.Vt \"extern struct intr_event *tty_intr_event\">; E<.Vt \"extern struct "
+"intr_event *clk_intr_event\">; E<.Vt \"extern void *vm_ih\">; E<.Ft int> "
+"E<.Fo swi_add> E<.Fa \"struct intr_event **eventp\"> E<.Fa \"const char "
+"*name\"> E<.Fa \"driver_intr_t handler\"> E<.Fa \"void *arg\"> E<.Fa \"int "
+"pri\"> E<.Fa \"enum intr_type flags\"> E<.Fa \"void **cookiep\"> E<.Fc> "
+"E<.Ft int> E<.Fn swi_remove \"void *cookie\"> E<.Ft void> E<.Fn swi_sched "
+"\"void *cookie\" \"int flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:55
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:67
+msgid ""
+"These functions are used to register and schedule software interrupt "
+"handlers.  Software interrupt handlers are attached to a software interrupt "
+"thread, just as hardware interrupt handlers are attached to a hardware "
+"interrupt thread.  Multiple handlers can be attached to the same thread.  "
+"Software interrupt handlers can be used to queue up less critical processing "
+"inside of hardware interrupt handlers so that the work can be done at a "
+"later time.  Software interrupt threads are different from other kernel "
+"threads in that they are treated as an interrupt thread.  This means that "
+"time spent executing these threads is counted as interrupt time, and that "
+"they can be run via a lightweight context switch."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:115
+msgid ""
+"The E<.Fn swi_add> function is used to add a new software interrupt handler "
+"to a specified interrupt event.  The E<.Fa eventp> argument is an optional "
+"pointer to a E<.Vt struct intr_event> pointer.  If this argument points to "
+"an existing event that holds a list of interrupt handlers, then this handler "
+"will be attached to that event.  Otherwise a new event will be created, and "
+"if E<.Fa eventp> is not E<.Dv NULL>, then the pointer at that address to "
+"will be modified to point to the newly created event.  The E<.Fa name> "
+"argument is used to associate a name with a specific handler.  This name is "
+"appended to the name of the software interrupt thread that this handler is "
+"attached to.  The E<.Fa handler> argument is the function that will be "
+"executed when the handler is scheduled to run.  The E<.Fa arg> parameter "
+"will be passed in as the only parameter to E<.Fa handler> when the function "
+"is executed.  The E<.Fa pri> value specifies the priority of this interrupt "
+"handler relative to other software interrupt handlers.  If an interrupt "
+"event is created, then this value is used as the vector, and the E<.Fa "
+"flags> argument is used to specify the attributes of a handler such as E<.Dv "
+"INTR_MPSAFE>.  The E<.Fa cookiep> argument points to a E<.Vt void *> "
+"cookie.  This cookie will be set to a value that uniquely identifies this "
+"handler, and is used to schedule the handler for execution later on."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:123
+msgid ""
+"The E<.Fn swi_remove> function is used to teardown an interrupt handler "
+"pointed to by the E<.Fa cookie> argument.  It detaches the interrupt handler "
+"from the associated interrupt event and frees its memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:135
+msgid ""
+"The E<.Fn swi_sched> function is used to schedule an interrupt handler and "
+"its associated thread to run.  The E<.Fa cookie> argument specifies which "
+"software interrupt handler should be scheduled to run.  The E<.Fa flags> "
+"argument specifies how and when the handler should be run and is a mask of "
+"one or more of the following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/swi.9:136
+#, no-wrap
+msgid "Dv SWI_DELAY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:149
+msgid ""
+"Specifies that the kernel should mark the specified handler as needing to "
+"run, but the kernel should not schedule the software interrupt thread to "
+"run.  Instead, E<.Fa handler> will be executed the next time that the "
+"software interrupt thread runs after being scheduled by another event.  "
+"Attaching a handler to the clock software interrupt thread and using this "
+"flag when scheduling a software interrupt handler can be used to implement "
+"the functionality performed by E<.Fn setdelayed> in earlier versions of "
+"E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:169
+msgid ""
+"The E<.Va tty_intr_event> and E<.Va clk_intr_event> variables contain "
+"pointers to the software interrupt handlers for the tty and clock software "
+"interrupts, respectively.  E<.Va tty_intr_event> is used to hang tty "
+"software interrupt handlers off of the same thread.  E<.Va clk_intr_event> "
+"is used to hang delayed handlers off of the clock software interrupt thread "
+"so that the functionality of E<.Fn setdelayed> can be obtained in "
+"conjunction with E<.Dv SWI_DELAY>.  The E<.Va vm_ih> handler cookie is used "
+"to schedule software interrupt threads to run for the VM subsystem."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:169
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:175
+msgid ""
+"The E<.Fn swi_add> and E<.Fn swi_remove> functions return zero on success "
+"and non-zero on failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:175
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:179
+msgid "The E<.Fn swi_add> function will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/swi.9:180
+#, no-wrap
+msgid "Bq Er EAGAIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:187
+msgid ""
+"The system-imposed limit on the total number of processes under execution "
+"would be exceeded.  The limit is given by the E<.Xr sysctl 3> MIB variable "
+"E<.Dv KERN_MAXPROC>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/swi.9:187 /usr/src/share/man/man9/swi.9:192 /usr/src/share/man/man9/swi.9:196 /usr/src/share/man/man9/swi.9:203 /usr/src/share/man/man9/swi.9:216
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:192
+msgid "The E<.Fa flags> argument specifies E<.Dv INTR_ENTROPY>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:196
+msgid "The E<.Fa eventp> argument points to a hardware interrupt thread."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:203
+msgid "Either of the E<.Fa name> or E<.Fa handler> arguments are E<.Dv NULL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:210
+msgid ""
+"The E<.Dv INTR_EXCL> flag is specified and the interrupt event pointed to by "
+"E<.Fa eventp> already has at least one handler, or the interrupt event "
+"already has an exclusive handler."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:215
+msgid "The E<.Fn swi_remove> function will fail if:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:221
+msgid "A software interrupt handler pointed to by E<.Fa cookie> is E<.Dv NULL>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:222
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:225
+msgid "E<.Xr ithread 9>, E<.Xr taskqueue 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:225
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:246
+msgid ""
+"The E<.Fn swi_add> and E<.Fn swi_sched> functions first appeared in E<.Fx "
+"5.0>.  They replaced the E<.Fn register_swi> function which appeared in "
+"E<.Fx 3.0> and the E<.Fn setsoft*>, and E<.Fn schedsoft*> functions which "
+"date back to at least E<.Bx 4.4>.  The E<.Fn swi_remove> function first "
+"appeared in E<.Fx 6.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/swi.9:246
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/swi.9:249
+msgid ""
+"Most of the global variables described in this manual page should not be "
+"global, or at the very least should not be declared in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/swi.9:249
+#, no-wrap
+msgid "sys/interrupt.h ."
+msgstr ""

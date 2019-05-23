@@ -1,0 +1,445 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/camdd/camdd.8:34
+#, no-wrap
+msgid "November 11, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/camdd/camdd.8:35
+#, no-wrap
+msgid "CAMDD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:39
+msgid "E<.Nm camdd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/camdd/camdd.8:39
+#, no-wrap
+msgid "CAM data transfer utility"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:49
+msgid ""
+"E<.Nm> E<.Aq Fl i|o Ar pass=pass_dev|file=filename,bs=blocksize,[...]> E<.Op "
+"Fl C Ar retry_count> E<.Op Fl E> E<.Op Fl m Ar max_io> E<.Op Fl t Ar "
+"timeout> E<.Op Fl v> E<.Op Fl h>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:62
+msgid ""
+"The E<.Nm> utility is a sequential data transfer utility that offers "
+"standard E<.Xr read 2> and E<.Xr write 2> operation in addition to a mode "
+"that uses the asynchronous E<.Xr pass 4> API.  The asynchronous E<.Xr pass "
+"4> API allows multiple requests to be queued to a device simultaneously."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:68
+msgid ""
+"E<.Nm> collects performance information and will display it when the "
+"transfer completes, when E<.Nm> is terminated or when it receives a SIGINFO "
+"signal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:70
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:71
+#, no-wrap
+msgid "Fl i | o Ar args"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:81
+msgid ""
+"Specify the input and output device or file.  Both E<.Fl i> and E<.Fl o> "
+"must be specified.  There are a number of parameters that can be specified.  "
+"One of the first two (file or pass) MUST be specified to indicate which I/O "
+"method to use on the device in question."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:82
+#, no-wrap
+msgid "pass=dev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:91
+msgid ""
+"Specify a E<.Xr pass 4> device to operate on.  This requests that E<.Nm> "
+"access the device in question be accessed via the asynchronous E<.Xr pass 4> "
+"interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:104
+msgid ""
+"The device name can be a E<.Xr pass 4> name and unit number, for instance "
+"E<.Dq pass0>, or a regular peripheral driver name and unit number, for "
+"instance E<.Dq da5>.  It can also be the path of a E<.Xr pass 4 > or other "
+"disk device, like E<.Dq /dev/da5>.  It may also be a bus:target:lun, for "
+"example: E<.Dq 0:5:0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:117
+msgid ""
+"Only E<.Xr pass 4> devices for E<.Tn SCSI> disk-like devices are supported.  "
+"E<.Tn ATA> devices are not currently supported, but support could be added "
+"later.  Specifically, E<.Tn SCSI> Direct Access (type 0), WORM (type 4), "
+"CDROM (type 5), and RBC (Reduced Block Command, type 14) devices are "
+"supported.  Tape drives, medium changers, enclosures etc. are not supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:117
+#, no-wrap
+msgid "file=path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:146
+msgid ""
+"Specify a file or device to operate on.  This requests that the file or "
+"device in question be accessed using the standard E<.Xr read 2> and E<.Xr "
+"write 2> system calls.  The file interface does not support queueing "
+"multiple commands at a time.  It does support probing disk sector size and "
+"capacity information, and tape blocksize and maximum transfer size "
+"information.  The file interface supports standard files, disks, tape "
+"drives, special devices, pipes and standard input and output.  If the file "
+"is specified as a E<.Dq ->, standard input or standard output are used.  For "
+"tape devices, the specified blocksize will be the size that E<.Nm> attempts "
+"to use to write to or read from the tape.  When writing to a tape device, "
+"the blocksize is treated like a disk sector size.  So, that means E<.Nm> "
+"will not write anything smaller than the sector size.  At the end of a "
+"transfer, if there isn't sufficient data from the reader to yield a full "
+"block, E<.Nm> will add zeros on the end of the data from the reader to make "
+"up a full block."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:146
+#, no-wrap
+msgid "bs=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:150
+msgid ""
+"Specify the blocksize to use for transfers.  E<.Nm> will attempt to read or "
+"write using the requested blocksize."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:159
+msgid ""
+"Note that the blocksize given only applies to either the input or the output "
+"path.  To use the same blocksize for the input and output transfers, you "
+"must specify that blocksize with both the E<.Fl i> and E<.Fl o> arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:163
+msgid ""
+"The blocksize may be specified in bytes, or using any suffix (e.g. k, M, G)  "
+"supported by E<.Xr expand_number 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:163
+#, no-wrap
+msgid "offset=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:168
+msgid ""
+"Specify the starting offset for the input or output device or file.  The "
+"offset may be specified in bytes, or by using any suffix (e.g. k, M, G)  "
+"supported by E<.Xr expand_number 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:168
+#, no-wrap
+msgid "depth=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:180
+msgid ""
+"Specify a desired queue depth for the input or output path.  E<.Nm> will "
+"attempt to keep the requested number of requests of the specified blocksize "
+"queued to the input or output device.  Queue depths greater than 1 are only "
+"supported for the asynchronous E<.Xr pass 4 > output method.  The queue "
+"depth is maintained on a best effort basis, and may not be possible to "
+"maintain for especially fast devices.  For writes, maintaining the queue "
+"depth also depends on a sufficiently fast reading device."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:180
+#, no-wrap
+msgid "mcs=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:200
+msgid ""
+"Specify the minimum command size to use for E<.Xr pass 4> devices.  Some "
+"devices do not support 6 byte E<.Tn SCSI> commands.  The E<.Xr da 4> device "
+"handles this restriction automatically, but the E<.Xr pass 4> device allows "
+"the user to specify the E<.Tn SCSI> command used.  If a device does not "
+"accept 6 byte E<.Tn SCSI> READ/WRITE commands (which is the default at lower "
+"LBAs), it will generally accept 10 byte E<.Tn SCSI> commands instead."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:200
+#, no-wrap
+msgid "debug=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:205
+msgid ""
+"Specify the debug level for this device.  There is currently only one debug "
+"level setting, so setting this to any non-zero value will turn on "
+"debugging.  The debug facility may be expanded in the future."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:206
+#, no-wrap
+msgid "Fl C Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:211
+msgid ""
+"Specify the retry count for commands sent via the asynchronous E<.Xr pass 4> "
+"interface.  This does not apply to commands sent via the file interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:211
+#, no-wrap
+msgid "Fl E"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:217
+msgid ""
+"Enable kernel error recovery for the E<.Xr pass 4> driver.  If error "
+"recovery is not enabled, unit attention conditions and other transient "
+"failures may cause the transfer to fail."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:217
+#, no-wrap
+msgid "Fl m Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:222
+msgid ""
+"Specify the maximum amount of data to be transferred.  This may be specified "
+"in bytes, or by using any suffix (e.g. K, M, G)  supported by E<.Xr "
+"expand_number 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:222
+#, no-wrap
+msgid "Fl t Ar timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:226
+msgid ""
+"Specify the command timeout in seconds to use for commands sent via the "
+"E<.Xr pass 4> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:226
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:231
+msgid ""
+"Enable verbose reporting of errors.  This is recommended to aid in debugging "
+"any E<.Tn SCSI> issues that come up."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/camdd/camdd.8:231
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:235
+msgid "Display the E<.Nm> usage message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:245
+msgid ""
+"If E<.Nm> receives a SIGINFO signal, it will print the current input and "
+"output byte counts, elapsed runtime and average throughput.  If E<.Nm> "
+"receives a SIGINT signal, it will print the current input and output byte "
+"counts, elapsed runtime and average throughput and then exit."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:245
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/camdd/camdd.8:246
+#, no-wrap
+msgid "camdd -i pass=da8,bs=512k,depth=4 -o pass=da3,bs=512k,depth=4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:252
+msgid ""
+"Copy all data from da8 to da3 using a blocksize of 512k for both drives, and "
+"attempt to maintain a queue depth of 4 on both the input and output "
+"devices.  The transfer will stop when the end of either device is reached."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/camdd/camdd.8:253
+#, no-wrap
+msgid "camdd -i file=/dev/zero,bs=1M -o pass=da5,bs=1M,depth=4 -m 100M"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:258
+msgid ""
+"Read 1MB blocks of zeros from /dev/zero, and write them to da5 with a "
+"desired queue depth of 4.  Stop the transfer after 100MB has been written."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/camdd/camdd.8:259
+#, no-wrap
+msgid "camdd -i pass=da8,bs=1M,depth=3 -o file=disk.img"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:263
+msgid ""
+"Copy disk da8 using a 1MB blocksize and desired queue depth of 3 to the file "
+"disk.img."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/camdd/camdd.8:264
+#, no-wrap
+msgid "camdd -i file=/etc/rc -o file=-"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:267
+msgid "Read the file /etc/rc and write it to standard output."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/usr.sbin/camdd/camdd.8:268
+#, no-wrap
+msgid "camdd -i pass=da10,bs=64k,depth=16 -o file=/dev/nsa0,bs=128k"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:273
+msgid ""
+"Copy 64K blocks from the disk da10 with a queue depth of 16, and write to "
+"the tape drive sa0 with a 128k blocksize.  The copy will stop when either "
+"the end of the disk or tape is reached."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:273
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:278
+msgid "E<.Xr cam 3>, E<.Xr cam 4>, E<.Xr pass 4>, E<.Xr camcontrol 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:278
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:282
+msgid "E<.Nm> first appeared in E<.Fx 10.2>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/camdd/camdd.8:282
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/camdd/camdd.8:283
+msgid "E<.An Kenneth Merry Aq Mt ken@FreeBSD.org>"
+msgstr ""

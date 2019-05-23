@@ -1,0 +1,361 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/fdread/fdread.1:29
+#, no-wrap
+msgid "May 14, 2001"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/fdread/fdread.1:30
+#, no-wrap
+msgid "FDREAD 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:34
+msgid "E<.Nm fdread>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/fdread/fdread.1:34
+#, no-wrap
+msgid "read floppy disks"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:45
+msgid ""
+"E<.Nm> E<.Op Fl qr> E<.Op Fl d Ar device> E<.Op Fl f Ar fillbyte> E<.Op Fl o "
+"Ar file> E<.Nm> E<.Op Fl d Ar device> E<.Fl I Ar numsects> E<.Op Fl t Ar "
+"trackno>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:52
+msgid ""
+"The E<.Nm> utility reads floppy disks.  Effective read blocking based on the "
+"track size is performed, and floppy-specific error recovery of otherwise bad "
+"blocks can be enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:69
+msgid ""
+"The E<.Nm> utility will always read an entire floppy medium, and write its "
+"contents to the respective output file.  Unlike other tools like E<.Xr dd "
+"1>, E<.Nm> automatically uses a read block size that is more efficient than "
+"reading single blocks (usually one track of data at a time), but falls back "
+"to reading single floppy sectors in case of an input/output error occurred, "
+"in order to obtain as much valid data as possible.  While E<.Nm> is working, "
+"kernel error reporting for floppy errors is turned off, so the console "
+"and/or syslog are not flooded with kernel error messages."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:73
+msgid "The E<.Nm> utility accepts the following options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:74
+#, no-wrap
+msgid "Fl q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:83
+msgid ""
+"Turn on quiet mode.  By default, the medium parameters of the device are "
+"being written to standard error output, progress will be indicated by the "
+"approximate number of kilobytes read so far, and errors will be printed out "
+"in detail, including the information about the location of recovered data in "
+"the output.  In quiet mode, none of these messages will be generated."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:83
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:92
+msgid ""
+"Enable error recovery.  By default, E<.Nm> stops after the first unrecovered "
+"read error, much like E<.Xr dd 1> does.  In recovery mode, however, one of "
+"two recovery actions will be taken:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:102
+msgid ""
+"If the error was a CRC error in the data field, the kernel is told to ignore "
+"the error, and data are transferred to the output file anyway.  E<.Bf "
+"-emphasis> Note that this will cause the erroneous data to be included in "
+"the output file! E<.Ef> Still, this is the best recovery action that can be "
+"taken at all."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:106
+msgid ""
+"All other errors are really fatal (usually, the FDC did not find the sector "
+"ID fields), thus a dummy block with fill bytes will be included in the "
+"output file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:110
+msgid ""
+"Unless operating in quiet mode, the action taken and the location of the "
+"error in the output file will be displayed."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:110
+#, no-wrap
+msgid "Fl d Ar device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:116
+msgid ""
+"Specify the input floppy device, defaulting to E<.Pa /dev/fd0>.  The "
+"parameter E<.Ar device> must be a valid floppy disk device."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:116
+#, no-wrap
+msgid "Fl f Ar fillbyte"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:125
+msgid ""
+"Value of the fill byte used for dummy blocks in the output file in recovery "
+"mode.  Defaults to E<.Ql 0xf0>.  (Mnemonic: E<.Dq foo>.)  The value can be "
+"specified using the usual C language notation of the number base."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:125
+#, no-wrap
+msgid "Fl o Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:129
+msgid ""
+"Specify the output file to be E<.Ar file>.  By default, the data will be "
+"written to standard output."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:129
+#, no-wrap
+msgid "Fl I Ar numsects"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:149
+msgid ""
+"Read E<.Ar numsects> sector ID fields, and write out their contents to "
+"standard output.  Each sector ID field contains recorded values for the "
+"cylinder number E<.Pq Ql C>, the head number E<.Pq Ql H>, the record number "
+"(sector number starting with 1)  E<.Pq Ql R>, and the E<.Em sector shift "
+"value> (0 = 128 bytes, 1 = 256 bytes, 2 = 512 bytes, 3 = 1024 bytes)  E<.Pq "
+"Ql N>.  The E<.Fl I> option is mutually exclusive with all other options "
+"except E<.Fl d Ar device> and E<.Fl t Ar trackno>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:149
+#, no-wrap
+msgid "Fl t Ar trackno"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:155
+msgid ""
+"Specify the track number (cylinder number * number of heads + head number) "
+"to read the sector ID fields from; only allowed together with the E<.Fl I Ar "
+"numsects> option."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:156
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/fdread/fdread.1:158
+#, no-wrap
+msgid "Pa /dev/fd0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:160
+msgid "Default device to read from."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:161
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:169
+msgid ""
+"The E<.Nm> utility sets the exit value according to E<.Xr sysexits 3>.  In "
+"recovery mode, the exit value will be set to E<.Dv EX_IOERR> if any error "
+"occurred during processing (even in quiet mode)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:169
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:175
+msgid ""
+"Unless running in quiet mode, upon encountering an error, the status of the "
+"floppy disc controller (FDC) will be printed out, both in hexadecimal form, "
+"followed by a textual description that translates those values into a "
+"human-readable form for the most common error cases that can happen in a PC "
+"environment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:187
+msgid ""
+"The FDC error status includes the three FDC status registers E<.Ql ST0>, "
+"E<.Ql ST1>, and E<.Ql ST2>, as well as the location of the error (physical "
+"cylinder, head, and sector number, plus the E<.Dq sector shift value>, "
+"respectively).  See the manual for the NE765 or compatible for details about "
+"the status register contents."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:195
+msgid ""
+"The FDC's status is then examined to determine whether the error is deemed "
+"to be recoverable.  If error recovery was requested, the location of the bad "
+"block in the output file is indicated by its (hexadecimal) bounds.  Also, a "
+"summary line indicating the total number of transfer errors will be printed "
+"before exiting."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:195
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:201
+msgid ""
+"E<.Xr dd 1>, E<.Xr fdwrite 1>, E<.Xr sysexits 3>, E<.Xr fdc 4>, E<.Xr "
+"fdcontrol 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:201
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:209
+msgid ""
+"The E<.Nm> utility was written mainly to provide a means of recovering at "
+"least some of the data on bad media, and to obviate the need to invoke E<.Xr "
+"dd 1> with too many hard to memorize options that might be useful to handle "
+"a floppy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:212
+msgid "The command appeared in E<.Fx 5.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:212
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:215
+msgid "Program and man page by E<.An J\\(:org Wunsch>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/fdread/fdread.1:215
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:225
+msgid ""
+"Concurrent traffic on the second floppy drive located at the same FDC will "
+"make error recovery attempts pointless, since the FDC status obtained after "
+"a read error occurred cannot be guaranteed to actually belong to the "
+"erroneous transfer.  Thus using option E<.Fl r> is only reliable if E<.Ar "
+"device> is the only active drive on that controller."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:230
+msgid ""
+"No attempt beyond the floppy error retry mechanism of E<.Xr fdc 4> is made "
+"in order to see whether bad sectors could still be read without errors by "
+"trying multiple times."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/fdread/fdread.1:233
+msgid ""
+"Bits that are (no longer) available on the floppy medium cannot be guessed "
+"by E<.Nm>."
+msgstr ""

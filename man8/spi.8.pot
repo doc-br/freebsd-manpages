@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/spi/spi.8:26
+#, no-wrap
+msgid "15 April 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/spi/spi.8:27
+#, no-wrap
+msgid "spi 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/spi/spi.8:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:31
+msgid "E<.Nm spi>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/spi/spi.8:31
+#, no-wrap
+msgid "communicate on SPI bus with slave devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/spi/spi.8:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:50
+msgid ""
+"E<.Nm> E<.Op Fl f Ar device> E<.Op Fl d Ar r|w|rw> E<.Op Fl m Ar mode> E<.Op "
+"Fl s Ar max-speed> E<.Op Fl c Ar count> E<.Op Fl C Ar cmd_bytes> E<.Op Fl A> "
+"E<.Op Fl b> E<.Op Fl L> E<.Op Fl v> E<.Nm> E<.Op Fl i> E<.Op Fl f Ar device> "
+"E<.Op Fl v> E<.Nm> E<.Op Fl h>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/spi/spi.8:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:58
+msgid ""
+"The E<.Nm> utility can be used to perform raw data transfers E<.Pq read, "
+"write, or simultaneous read/write> with devices on the SPI bus, via the "
+"E<.Xr spigen 4> device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:69
+msgid ""
+"Each E<.Xr spigen 4> device is associated with a specific E<.Sq chip select> "
+"E<.Pq cs> pin on the spibus, and therefore needs to be specified.  If no "
+"device name is specified on the command line, E<.Nm> assumes E<.Sq "
+"spigen0.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:72
+msgid "For more information on the spigen device, see E<.Xr spigen 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:74
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:75
+#, no-wrap
+msgid "Fl A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:84
+msgid ""
+"Specifies ASCII mode.  Both read and write data is input and output as "
+"2-character hexadecimal values, optionally separated by white space, such as "
+"00 01 02 etc.  When combined with the E<.Sq -b> flag, the data on stdin "
+"remains a sequence of ASCII hexadecimal byte values, but the output reverts "
+"to binary mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:84
+#, no-wrap
+msgid "Fl b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:100
+msgid ""
+"Binary E<.Pq output> mode.  Only has an effect when E<.Sq -A> has been "
+"specified.  Reverts the output back to binary E<.Pq rather than ASCII>, "
+"while leaving the input format as-is.  Use in combination with E<.Sq -A> to "
+"allow using something like E<.Sq echo> to pass hexadecimal values to the SPI "
+"device, but output the received data on stdout as binary."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:100
+#, no-wrap
+msgid "Fl C Ar command bytes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:112
+msgid ""
+"Sends one or more E<.Sq command> bytes, skipping any bytes read-in during "
+"the transfer.  The byte values should be specified as a quoted parameter, "
+"similar to the format for data on stdin for E<.Sq -A>, that is, 2 character "
+"hexadecimal values, optionally separated by white space.  An SPI device will "
+"typically require that a command be sent, followed by bytes of data.  You "
+"can use this option to send the command without receiving any data bytes "
+"during the command sequence."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:112
+#, no-wrap
+msgid "Fl c Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:123
+msgid ""
+"The total number of bytes to transfer as a decimal integer.  If a write or a "
+"read/write transaction is being performed, and fewer than this number of "
+"bytes are read in from stdin, the remaining bytes will be sent with a value "
+"of E<.Sq 0>.  If the length can be determined from the input file size, you "
+"can use a E<.Sq count> value of E<.Sq -1> to base the transfer on the input "
+"file's size."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:123
+#, no-wrap
+msgid "Fl d Ar r|w|rw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:130
+msgid ""
+"Transfer direction: Use E<.Sq r> for read, E<.Sq w for write, and> E<.Sq rw> "
+"for simultaneous read and write."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:130
+#, no-wrap
+msgid "Fl f Ar device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:133
+msgid "SPI device to use E<.Pq default is /dev/spigen0>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:133
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:135
+msgid "Print help text to stderr, explaining the command line options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:135
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:139
+msgid ""
+"Displays information about the SPI device to stderr.  Whenever this flag is "
+"specified, no data is read or written, and the mode and clock speed are not "
+"changed."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:139
+#, no-wrap
+msgid "Fl L"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:144
+msgid ""
+"LSB bit order.  The default is MSB, i.e., the highest order bit is "
+"transmitted first.  Specifying -L caused the LSB to be transmitted and read "
+"first."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:144
+#, no-wrap
+msgid "Fl m Ar 0 - 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:148
+msgid ""
+"SPI mode, 0 through 3.  This defines the clock phase and timing with respect "
+"to reading and writing data, as per the SPI specification."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:148
+#, no-wrap
+msgid "Fl s Ar speed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:152
+msgid ""
+"Specify the maximum speed, in Hz, for the SPI clock.  The bus will operate "
+"at its highest available speed which does not exceed this maximum."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/spi/spi.8:152
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:158
+msgid ""
+"Specifies Verbose mode.  Diagnostics and information are written to stderr.  "
+"You can specify E<.Sq -v> more than once to increase verbosity."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/spi/spi.8:159
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:161
+msgid "Here are a few examples of using the spi utility:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:164
+msgid "Get information about the default SPI device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:166
+msgid "spi -i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:169
+msgid ""
+"Set the maximum clock speed to 200Khz and the mode to 3 on spigen0.1, but do "
+"not transmit nor receive any data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:171
+msgid "spi -f spigen0.1 -s 200000 -m 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:174
+msgid ""
+"Send a command sequence consisting of 2 bytes, and read 2 additional bytes "
+"from the SPI device, using the current mode and speed on the default device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:176
+msgid "spi -d r -C \"00 01\" -c 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:179
+msgid ""
+"Transmit a byte value of 5, and receive 2 bytes, displaying their values as "
+"2-byte ASCII hexadecimal, with mode 2, and a maximum clock speed of 500khz."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:181
+msgid "echo \"05\" | spi -A -d rw -m 2 -s 500000 -c 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:185
+msgid ""
+"Send a binary file, and output the SPI result through E<.Sq od> as "
+"hexadecimal bytes, using the current maximum clock speed and SPI mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:187
+msgid "spi -d rw -c -1 E<lt>input_file.bin | od -An -t x1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:192
+msgid ""
+"Send 2 bytes of data, receive a total of 4 bytes, and output the SPI result "
+"as binary data, piped through E<.Sq od>, displaying it as two hexadecimal "
+"unsigned short integer values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:194
+msgid "echo \"00 01\" | spi -A -b -d rw -c 4 | od -t x2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:197
+msgid ""
+"Query the manufacturer ID and size from a standard spiflash device, by "
+"sending the command byte 0x9f and displaying the 3-byte reply in ASCII hex."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:199
+msgid "spi -f spigen0.0 -m 0 -s 1000000 -d r -c 3 -A -C 9f"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/spi/spi.8:202
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/spi/spi.8:203
+msgid "E<.Xr spigen 4>"
+msgstr ""

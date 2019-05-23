@@ -1,0 +1,263 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/ypbind/ypbind.8:30
+#, no-wrap
+msgid "April 9, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/ypbind/ypbind.8:31
+#, no-wrap
+msgid "YPBIND 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:35
+msgid "E<.Nm ypbind>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/ypbind/ypbind.8:35
+#, no-wrap
+msgid "NIS domain binding daemon"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:48
+msgid ""
+"E<.Nm> E<.Op Fl ypset> E<.Op Fl ypsetme> E<.Op Fl s> E<.Op Fl m> E<.Oo> "
+"E<.Fl S> E<.Sm off> E<.Ar domainname , server1 , server2 , ...> E<.Sm on> "
+"E<.Oc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:66
+msgid ""
+"The E<.Nm> utility is the process that maintains NIS binding information.  "
+"At startup, it searches for an NIS server responsible for serving the "
+"system's default domain (as set by the E<.Xr domainname 1> command) using "
+"network broadcasts.  Once it receives a reply, it will store the address of "
+"the server and other information in a special file located in E<.Pa "
+"/var/yp/binding>.  The NIS routines in the standard C library can then use "
+"this file when processing NIS requests.  There may be several such files "
+"since it is possible for an NIS client to be bound to more than one domain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:81
+msgid ""
+"After a binding has been established, E<.Nm> will send DOMAIN_NONACK "
+"requests to the NIS server at one minute intervals.  If it fails to receive "
+"a reply to one of these requests, E<.Nm> assumes that the server is no "
+"longer running and resumes its network broadcasts until another binding is "
+"established.  The E<.Nm> utility will also log warning messages using the "
+"E<.Xr syslog 3> facility each time it detects that a server has stopped "
+"responding, as well as when it has bound to a new server."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:83
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:84
+#, no-wrap
+msgid "Fl ypset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:103
+msgid ""
+"It is possible to force E<.Nm> to bind to a particular NIS server host for a "
+"given domain by using the E<.Xr ypset 8> command.  However, E<.Nm> refuses "
+"YPBINDPROC_SETDOM requests by default since it has no way of knowing exactly "
+"who is sending them.  Using the E<.Fl ypset> flag causes E<.Nm> to accept "
+"YPBINDPROC_SETDOM requests from any host.  This option should only be used "
+"for diagnostic purposes and only for limited periods since allowing "
+"arbitrary users to reset the binding of an NIS client poses a severe "
+"security risk."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:103
+#, no-wrap
+msgid "Fl ypsetme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:108
+msgid ""
+"This is similar to the E<.Fl ypset> flag, except that it only permits "
+"YPBINDPROC_SETDOM requests to be processed if they originated from the local "
+"host."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:108
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:114
+msgid ""
+"Cause E<.Nm> to run in secure mode: it will refuse to bind to any NIS server "
+"that is not running as root (i.e., that is not using privileged TCP ports)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:114
+#, no-wrap
+msgid "Fl S Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:146
+msgid ""
+"E<.Sm off> E<.Ar domainname , server1 , server2 , server3 , ...> E<.Sm on> "
+"E<.Xc> Allow the system administrator to lock E<.Nm> to a particular domain "
+"and group of NIS servers.  Up to ten servers can be specified.  There must "
+"not be any spaces between the commas in the domain/server specification.  "
+"This option is used to ensure that the system binds only to one domain and "
+"only to one of the specified servers, which is useful for systems that are "
+"both NIS servers and NIS clients: it provides a way to restrict what "
+"machines the system can bind to without the need for specifying the E<.Fl "
+"ypset> or E<.Fl ypsetme> options, which are often considered to be security "
+"holes.  The specified servers must have valid entries in the local E<.Pa "
+"/etc/hosts> file.  IP addresses may be specified in place of hostnames.  If "
+"E<.Nm> cannot make sense out of the arguments, it will ignore the E<.Fl S> "
+"flag and continue running normally."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:152
+msgid ""
+"Note that E<.Nm> will consider the domainname specified with the E<.Fl S> "
+"flag to be the system default domain."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:152
+#, no-wrap
+msgid "Fl m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:171
+msgid ""
+"Cause E<.Nm> to use a 'many-cast' rather than a broadcast for choosing a "
+"server from the restricted mode server list.  In many-cast mode, E<.Nm> will "
+"transmit directly to the YPPROC_DOMAIN_NONACK procedure of the servers "
+"specified in the restricted list and bind to the server that responds the "
+"fastest.  This mode of operation is useful for NIS clients on remote subnets "
+"where no local NIS servers are available.  The E<.Fl m> flag can only be "
+"used in conjunction with the E<.Fl S> flag above (if used without the E<.Fl "
+"S> flag, it has no effect)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:172
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:187
+msgid ""
+"The E<.Nm> utility will not make continuous attempts to keep secondary "
+"domains bound.  If a server for a secondary domain fails to respond to a "
+"ping, E<.Nm> will broadcast for a new server only once before giving up.  If "
+"a client program attempts to reference the unbound domain, E<.Nm> will try "
+"broadcasting again.  By contrast, E<.Nm> will automatically maintain a "
+"binding for the default domain whether client programs reference it ot not."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:187
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:189
+#, no-wrap
+msgid "Pa /var/yp/binding/[domainname].[version]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:191
+msgid "the files used to hold binding information for each NIS domain"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypbind/ypbind.8:191
+#, no-wrap
+msgid "Pa /etc/rc.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:194
+msgid ""
+"system configuration file where the system default domain and ypbind startup "
+"options are specified"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:195
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:201
+msgid ""
+"E<.Xr domainname 1>, E<.Xr syslog 3>, E<.Xr yp 8>, E<.Xr ypserv 8>, E<.Xr "
+"ypset 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypbind/ypbind.8:201
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypbind/ypbind.8:202
+msgid "E<.An Theo de Raadt Aq Mt deraadt@fsa.ca>"
+msgstr ""

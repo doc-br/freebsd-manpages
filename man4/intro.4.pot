@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/intro.4:29
+#, no-wrap
+msgid "April 3, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/intro.4:30
+#, no-wrap
+msgid "INTRO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/intro.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:34
+msgid "E<.Nm intro>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/intro.4:34
+#, no-wrap
+msgid "introduction to devices and device drivers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/intro.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:38
+msgid ""
+"This section contains information related to devices, device drivers and "
+"miscellaneous hardware."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/intro.4:38
+#, no-wrap
+msgid "The device abstraction"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:51
+msgid ""
+"Device is a term used mostly for hardware-related stuff that belongs to the "
+"system, like disks, printers, or a graphics display with its keyboard.  "
+"There are also so-called E<.Em pseudo-devices> where a device driver "
+"emulates the behaviour of a device in software without any particular "
+"underlying hardware.  A typical example for the latter class is E<.Pa "
+"/dev/mem>, a mechanism whereby the physical memory can be accessed using "
+"file access semantics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:67
+msgid ""
+"The device abstraction generally provides a common set of system calls, "
+"which are dispatched to the corresponding device driver by the upper layers "
+"of the kernel.  The set of system calls available for devices is chosen from "
+"E<.Xr open 2>, E<.Xr close 2>, E<.Xr read 2>, E<.Xr write 2>, E<.Xr ioctl "
+"2>, E<.Xr select 2>, and E<.Xr mmap 2>.  Not all drivers implement all "
+"system calls; for example, calling E<.Xr mmap 2> on a keyboard device is not "
+"likely to be useful."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:74
+msgid ""
+"Aspects of the device abstraction have changed significantly in E<.Fx> over "
+"the past two decades.  The section E<.Sx Historical Notes> describes some of "
+"the more important differences."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/intro.4:74
+#, no-wrap
+msgid "Accessing Devices"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:88
+msgid ""
+"Most of the devices in E<.Fx> are accessed through E<.Em device nodes>, "
+"sometimes also called E<.Em special files>.  They are located within "
+"instances of the E<.Xr devfs 5> filesystem, which is conventionally mounted "
+"on the directory E<.Pa /dev> in the file system hierarchy (see also E<.Xr "
+"hier 7>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:95
+msgid ""
+"The E<.Xr devfs 5> filesystem creates or removes device nodes automatically "
+"according to the physical hardware recognized as present at any given time.  "
+"For pseudo-devices, device nodes may be created and removed dynamically as "
+"required, depending on the nature of the device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:114
+msgid ""
+"Access restrictions to device nodes are usually subject to the regular file "
+"permissions of the device node entry, instead of being enforced directly by "
+"the drivers in the kernel.  But since device nodes are not stored "
+"persistently between reboots, those file permissions are set at boot time "
+"from rules specified in E<.Xr devfs.conf 5>, or dynamically according to "
+"rules defined in E<.Xr devfs.rules 5> or set using the E<.Xr devfs 8> "
+"command.  In the latter case, different rules may be used to make different "
+"sets of devices visible within different instances of the E<.Xr devfs 5> "
+"filesystem, which may be used, for example, to prevent jailed subsystems "
+"from accessing unsafe devices.  Manual changes to device node permissions "
+"may still be made, but will not persist."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/intro.4:114
+#, no-wrap
+msgid "Drivers without device nodes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:123
+msgid ""
+"Drivers for network devices do not use device nodes in order to be "
+"accessed.  Their selection is based on other decisions inside the kernel, "
+"and instead of calling E<.Xr open 2>, use of a network device is generally "
+"introduced by using the system call E<.Xr socket 2>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/intro.4:123
+#, no-wrap
+msgid "Configuring a driver into the kernel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:136
+msgid ""
+"For each kernel, there is a configuration file that is used as a base to "
+"select the facilities and drivers for that kernel, and to tune several "
+"options.  See E<.Xr config 8> for a detailed description of the files "
+"involved.  The individual manual pages in this section provide a sample line "
+"for the configuration file in their synopsis portions.  See also the files "
+"E<.Pa /usr/src/sys/conf/NOTES> and E<.Pa /usr/src/sys/${ARCH}/conf/NOTES>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:141
+msgid ""
+"Drivers need not be statically compiled into the kernel; they may also be "
+"loaded as modules, in which case any device nodes they provide will appear "
+"only after the module is loaded (and has attached to suitable hardware, if "
+"applicable)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/intro.4:141
+#, no-wrap
+msgid "Historical Notes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:148
+msgid ""
+"Prior to E<.Fx 6.0>, device nodes could be created in the traditional way as "
+"persistent entries in the file system.  While such entries can still be "
+"created, they no longer function to access devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:178
+msgid ""
+"Prior to E<.Fx 5.0>, devices for disk and tape drives existed in two "
+"variants, known as E<.Em block> and E<.Em character> devices, or to use "
+"better terms, buffered and unbuffered (raw)  devices.  The traditional names "
+"are reflected by the letters E<.Dq Li b> and E<.Dq Li c> as the file type "
+"identification in the output of E<.Dq Li ls -l>.  Raw devices were "
+"traditionally named with a prefix of E<.Dq Li r>, for example E<.Pa "
+"/dev/rda0> would denote the raw version of the disk whose buffered device "
+"was E<.Pa /dev/da0>.  E<.Em This is no longer the case>; all disk devices "
+"are now E<.Dq raw> in the traditional sense, even though they are not given "
+"E<.Dq Li r> prefixes, and E<.Dq buffered> devices no longer exist at all."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:196
+msgid ""
+"Buffered devices were accessed through a buffer cache maintained by the "
+"operating system; historically this was the system's primary disk cache, but "
+"in E<.Fx> this was rendered obsolete by the introduction of unified virtual "
+"memory management.  Buffered devices could be read or written at any byte "
+"position, with the buffer mechanism handling the reading and writing of disk "
+"blocks.  In contrast, raw disk devices can be read or written only at "
+"positions and lengths that are multiples of the underlying device block "
+"size, and E<.Xr write 2> calls are E<.Em synchronous>, not returning to the "
+"caller until the data has been handed off to the device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/intro.4:196
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:208
+msgid ""
+"E<.Xr close 2>, E<.Xr ioctl 2>, E<.Xr mmap 2>, E<.Xr open 2>, E<.Xr read 2>, "
+"E<.Xr select 2>, E<.Xr socket 2>, E<.Xr write 2>, E<.Xr devfs 5>, E<.Xr hier "
+"7>, E<.Xr config 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/intro.4:208
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:211
+msgid "This manual page first appeared in E<.Fx 2.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/intro.4:211
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/intro.4:218
+msgid ""
+"E<.An -nosplit> This man page has been rewritten by E<.An Andrew Gierth> "
+"from an earlier version written by E<.An J\\(:org Wunsch> with initial input "
+"by E<.An David E. O'Brien>."
+msgstr ""

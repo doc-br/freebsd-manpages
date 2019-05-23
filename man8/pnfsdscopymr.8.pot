@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:26
+#, no-wrap
+msgid "June 2, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:27
+#, no-wrap
+msgid "PNFSDSCOPYMR 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:31
+msgid "E<.Nm pnfsdscopymr>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:33
+msgid "copy or move a data storage file for a MDS file to a different DS"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:38
+msgid ""
+"E<.Nm> E<.Op Fl r Ar mounted-on-DS-dir> E<.Op Fl m Ar "
+"source-mounted-on-DS-dir destination-mounted-on-DS-dir> E<.Ar mdsfile>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:49
+msgid ""
+"The E<.Nm> command copies a data storage file for an MDS file from one DS to "
+"another DS.  It is normally used to recover data files onto a repaired DS, "
+"but can also be used to manually migrate a data storage file from one DS to "
+"a different one.  By default, the command will copy the data storage file "
+"for E<.Dq mdsfile> to one of the other DSs to create a mirror of it.  This "
+"might be done if the file was created before mirroring was enabled on the "
+"pNFS service and now needs to be mirrored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:51
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:52
+#, no-wrap
+msgid "Fl r Ar mounted-on-DS-dir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:65
+msgid ""
+"This option indicates that the data storage file should be created on the DS "
+"that is mounted on the directory E<.Dq mounted-on-DS-dir>.  It will only do "
+"the copy if there is an entry in the pnfsd.dsfile extended attribute that "
+"has an IP address of 0.0.0.0.  See E<.Xr pnfsdsfile 1> for how to do this.  "
+"This is normally done for all regular files via E<.Xr find 1> in order to "
+"recover the data storage files onto a repaired DS."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:65
+#, no-wrap
+msgid "Fl m Ar source-mounted-on-DS-dir destination-mounted-on-DS-dir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:73
+msgid ""
+"This option indicates that the data storage file is to be migrated from the "
+"source DS mounted on the diectory E<.Dq source-mounted-on-DS-dir> to the DS "
+"mounted on the directory E<.Dq destination-mounted-on-DS-dir>.  In this "
+"case, the data storage file will be removed from the source DS when the copy "
+"is completed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:77
+msgid ""
+"If the copy/migration is already done, the command will simply exit(0), so "
+"that it can safely be used on all regular files in the exported directory "
+"tree on the MDS."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:82
+msgid ""
+"This command must be run on the MDS and a typical usage would be as an "
+"argument for E<.Xr find 1> for all regular files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:85
+msgid ""
+"For example, if the repaired DS is mounted on /data3 and files previously "
+"stored on the repaired DS have had the DS's IP address set to 0.0.0.0:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:87
+msgid "# cd E<lt>top-level-exported-directory-on-the-MDSE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:89
+msgid "# find . -type f -exec pnfsdscopymr -r /data3 {} \\e;"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:89
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:96
+msgid ""
+"E<.Xr find 1>, E<.Xr nfsv4 4>, E<.Xr pnfs 4>, E<.Xr nfsd 8>, E<.Xr "
+"pnfsdsfile 8>, E<.Xr pnfsdskill 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:96
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdscopymr/pnfsdscopymr.8:100
+msgid "The E<.Nm> command first appeared in E<.Fx 12.0>."
+msgstr ""

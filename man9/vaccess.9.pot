@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vaccess.9:28
+#, no-wrap
+msgid "September 18, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vaccess.9:29
+#, no-wrap
+msgid "VACCESS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:33
+msgid "E<.Nm vaccess>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vaccess.9:33
+#, no-wrap
+msgid "generate an access control decision using vnode parameters"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vaccess.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vaccess.9:36
+#, no-wrap
+msgid "sys/vnode.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:47
+msgid ""
+"E<.Ft int> E<.Fo vaccess> E<.Fa \"enum vtype type\"> E<.Fa \"mode_t "
+"file_mode\"> E<.Fa \"uid_t file_uid\"> E<.Fa \"gid_t file_gid\"> E<.Fa "
+"\"accmode_t accmode\"> E<.Fa \"struct ucred *cred\"> E<.Fa \"int "
+"*privused\"> E<.Fc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:75
+msgid ""
+"This call implements the logic for the E<.Ux> discretionary file security "
+"model common to many file systems in E<.Fx>.  It accepts the vnodes type "
+"E<.Fa type>, permissions via E<.Fa file_mode>, owning UID E<.Fa file_uid>, "
+"owning GID E<.Fa file_gid>, desired access mode E<.Fa accmode>, requesting "
+"credential E<.Fa cred>, and an optional call-by-reference E<.Vt int> pointer "
+"returning whether or not privilege was required for successful evaluation of "
+"the call; the E<.Fa privused> pointer may be set to E<.Dv NULL> by the "
+"caller in order not to be informed of privilege information, or it may point "
+"to an integer that will be set to 1 if privilege is used, and 0 otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:86
+msgid ""
+"This call is intended to support implementations of E<.Xr VOP_ACCESS 9>, "
+"which will use their own access methods to retrieve the vnode properties, "
+"and then invoke E<.Fn vaccess> in order to perform the actual check.  "
+"Implementations of E<.Xr VOP_ACCESS 9> may choose to implement additional "
+"security mechanisms whose results will be composed with the return value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:98
+msgid ""
+"The algorithm used by E<.Fn vaccess> selects a component of the file "
+"permission bits based on comparing the passed credential, file owner, and "
+"file group.  If the credential's effective UID matches the file owner, then "
+"the owner component of the permission bits is selected.  If the UID does not "
+"match, then the credential's effective GID, followed by additional groups, "
+"are compared with the file group\\[em]if there is a match, then the group "
+"component of the permission bits is selected.  If neither the credential UID "
+"or GIDs match the passed file owner and group, then the other component of "
+"the permission bits is selected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:105
+msgid ""
+"Once appropriate protections are selected for the current credential, the "
+"requested access mode, in combination with the vnode type, will be compared "
+"with the discretionary rights available for the credential.  If the rights "
+"granted by discretionary protections are insufficient, then super-user "
+"privilege, if available for the credential, will also be considered."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:105
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:108
+msgid ""
+"E<.Fn vaccess> will return 0 on success, or a non-zero error value on "
+"failure."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:108
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vaccess.9:110
+#, no-wrap
+msgid "Bq Er EACCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:114
+msgid ""
+"Permission denied.  An attempt was made to access a file in a way forbidden "
+"by its file access permissions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vaccess.9:114
+#, no-wrap
+msgid "Bq Er EPERM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:118
+msgid ""
+"Operation not permitted.  An attempt was made to perform an operation "
+"limited to processes with appropriate privileges or to the owner of a file "
+"or other resource."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:119
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:124
+msgid ""
+"E<.Xr vaccess_acl_nfs4 9>, E<.Xr vaccess_acl_posix1e 9>, E<.Xr vnode 9>, "
+"E<.Xr VOP_ACCESS 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vaccess.9:124
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vaccess.9:128
+msgid ""
+"This manual page and the current implementation of E<.Fn vaccess> were "
+"written by E<.An Robert Watson>."
+msgstr ""

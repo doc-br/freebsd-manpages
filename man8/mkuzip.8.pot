@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:28
+#, no-wrap
+msgid "February 19, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:29
+#, no-wrap
+msgid "MKUZIP 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:33
+msgid "E<.Nm mkuzip>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:33
+#, no-wrap
+msgid "compress disk image for use with"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:36
+msgid "E<.Xr geom_uzip 4> class"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:43
+msgid ""
+"E<.Nm> E<.Op Fl dLSsvZ> E<.Op Fl j Ar compression_jobs> E<.Op Fl o Ar "
+"outfile> E<.Op Fl s Ar cluster_size> E<.Ar infile>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:56
+msgid ""
+"The E<.Nm> utility compresses a disk image file so that the E<.Xr geom_uzip "
+"4> class will be able to decompress the resulting image at run-time.  This "
+"allows for a significant reduction of size of disk image at the expense of "
+"some CPU time required to decompress the data each time it is read.  The "
+"E<.Nm> utility works in two phases:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:64
+msgid ""
+"An E<.Ar infile> image is split into clusters; each cluster is compressed "
+"using E<.Xr zlib 3> or E<.Xr lzma 3>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:67
+msgid ""
+"The resulting set of compressed clusters along with headers that allow "
+"locating each individual cluster is written to the output file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:70
+msgid "The options are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:71
+#, no-wrap
+msgid "Fl j Ar compression_jobs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:80
+msgid ""
+"Specify the number of compression jobs that E<.Nm> runs in parallel to speed "
+"up compression.  When option is not specified the number of jobs set to be "
+"equal to the value of E<.Va hw.ncpu> E<.Xr sysctl 8> variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:80
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:88
+msgid ""
+"Enable de-duplication.  When the option is enabled the E<.Nm> detects "
+"identical blocks in the input and replaces each subsequent occurence of such "
+"block with pointer to the very first one in the output.  Setting this option "
+"results is moderate decrease of compressed image size, typically around 3-5% "
+"of a final size of the compressed image."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:88
+#, no-wrap
+msgid "Fl L"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:98
+msgid ""
+"Use E<.Xr lzma 3> compression algorithm instead of the default E<.Xr zlib "
+"3>.  The E<.Xr lzma 3> provides noticeable better compression levels on the "
+"same data set at the expense of much slower compression speed (10-20x) and "
+"somewhat slower decompression (2-3x)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:98
+#, no-wrap
+msgid "Fl o Ar outfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:109
+msgid ""
+"Name of the output file E<.Ar outfile>.  The default is to use the input "
+"name with the suffix E<.Pa .uzip> for the E<.Xr zlib 3> compression or E<.Pa "
+".ulzma> for the E<.Xr lzma 3>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:109
+#, no-wrap
+msgid "Fl S"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:112
+msgid ""
+"Print summary about the compression ratio as well as output file size after "
+"file has been processed."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:112
+#, no-wrap
+msgid "Fl s Ar cluster_size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:119
+msgid ""
+"Split the image into clusters of E<.Ar cluster_size> bytes, 16384 bytes by "
+"default.  The E<.Ar cluster_size> should be a multiple of 512 bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:119
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:121
+msgid "Display verbose messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:121
+#, no-wrap
+msgid "Fl Z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:134
+msgid ""
+"Disable zero-blocks detection and elimination.  When this option is set, the "
+"E<.Nm> would compress empty blocks (i.e. clusters that consist of only zero "
+"bytes)  just as it would any other block.  When the option is not set, the "
+"E<.Nm> detects such blocks and skips them from the output.  Setting E<.Fl Z> "
+"results is slight increase of compressed image size, typically less than "
+"0.1% of a final size of the compressed image."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:135
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#.  The following two sentences are unclear: how can gzip(1) be
+#.  used in a comparable fashion, and wouldn't a gzip-compressed
+#.  image suffer from larger cluster sizes as well?
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:148
+msgid ""
+"The compression ratio largely depends on the cluster size used.  For large "
+"cluster sizes (16K and higher), typical compression ratios are only 1-2% "
+"less than those achieved with E<.Xr gzip 1>.  However, it should be kept in "
+"mind that larger cluster sizes lead to higher overhead in the E<.Xr "
+"geom_uzip 4> class, as the class has to decompress the whole cluster even if "
+"only a few bytes from that cluster have to be read."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:165
+msgid ""
+"The E<.Nm> utility inserts a short shell script at the beginning of the "
+"generated image, which makes it possible to E<.Dq run> the image just like "
+"any other shell script.  The script tries to load the E<.Xr geom_uzip 4> "
+"class if it is not loaded, configure the image as an E<.Xr md 4> disk device "
+"using E<.Xr mdconfig 8>, and automatically mount it using E<.Xr mount_cd9660 "
+"8> on the mount point provided as the first argument to the script."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:172
+msgid ""
+"The de-duplication is a E<.Fx> specific feature and while it does not "
+"require any changes to on-disk compressed image format, however it did "
+"require some matching changes to the E<.Xr geom_uzip 4> to handle resulting "
+"images correctly."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:172
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:174
+msgid "E<.Ex -std>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:174
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:184
+msgid ""
+"E<.Xr gzip 1>, E<.Xr xz 1>, E<.Xr lzma 3>, E<.Xr zlib 3>, E<.Xr geom 4>, "
+"E<.Xr geom_uzip 4>, E<.Xr md 4>, E<.Xr mdconfig 8>, E<.Xr mount_cd9660 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:184
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/mkuzip/mkuzip.8:185
+msgid "E<.An Maxim Sobolev Aq Mt sobomax@FreeBSD.org>"
+msgstr ""

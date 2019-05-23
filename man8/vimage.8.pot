@@ -1,0 +1,312 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/tools/tools/vimage/vimage.8:30
+#, no-wrap
+msgid "August 25, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/tools/tools/vimage/vimage.8:31
+#, no-wrap
+msgid "VIMAGE 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:35
+msgid "E<.Nm vimage>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/tools/tools/vimage/vimage.8:35
+#, no-wrap
+msgid "manage virtual network stacks"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:55
+msgid ""
+"E<.Nm> E<.Op Fl c | m> E<.Ar vname> E<.Op Ar param=value ...> E<.Nm> E<.Fl "
+"d> E<.Ar vname> E<.Nm> E<.Fl l> E<.Op Fl rvj> E<.Op Ar vname> E<.Nm> E<.Fl "
+"i> E<.Ar vname ifname> E<.Op Ar newifname> E<.Nm> E<.Ar vi_name> E<.Op "
+"command ...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:55
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:65
+msgid ""
+"The E<.Nm> utility is an alternative user interface for controlling virtual "
+"network stacks in FreeBSD, aimed primarily at supporting legacy applications "
+"which are not yet converted to using E<.Xr jail 8>, E<.Xr jexec 8>, and "
+"E<.Xr jls 8>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/tools/tools/vimage/vimage.8:66
+#, no-wrap
+msgid "Overview"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:82
+msgid ""
+"A virtual image or vimage is a jail with its own independent network stack "
+"instance.  Every process, socket and network interface present in the system "
+"is always attached to one, and only one, virtual network stack instance "
+"(vnet).  During system bootup sequence a default vnet is created to which "
+"all the configured interfaces and user processes are initially attached.  "
+"Assuming that enough system resources are are available, a user with "
+"sufficient privileges can create and manage a hierarchy of subordinated "
+"virtual images.  The E<.Nm> command allows for creation, deletion and "
+"monitoring of virtual images, as well as for execution of arbitrary "
+"processes in a targeted virtual image."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/tools/tools/vimage/vimage.8:82
+#, no-wrap
+msgid "Invocation"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:92
+msgid ""
+"If invoked with no modifiers, the E<.Nm> command spawns a new interactive "
+"shell in virtual image E<.Ar vname>.  If optional additional arguments "
+"following E<.Ar vname> are provided, the first of those will be executed in "
+"place of the interactive shell, and the rest of the arguments will be passed "
+"as arguments to the executed command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:94
+msgid "The following modifiers are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/vimage/vimage.8:95
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:104
+msgid ""
+"Create a new virtual image named E<.Ar vname>.  Additional arguments, if "
+"provided, may be used to specify operating parameters different from "
+"defaults, in format E<.Ar param=value>.  See E<.Xr jail 8> for an extensive "
+"list of available parameters."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/vimage/vimage.8:104
+#, no-wrap
+msgid "Fl m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:108
+msgid ""
+"Modify the parameters of a virtual image named E<.Ar vname>, using the same "
+"syntax as with the -c form of the command."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/vimage/vimage.8:108
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:115
+msgid ""
+"Delete the virtual image E<.Ar vname>.  No processes and/or sockets should "
+"exist in the target virtual image in order for the delete request to "
+"succeed.  Non-loopback interfaces residing in the target virtual image will "
+"be reassigned to the virtual image's parent."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/vimage/vimage.8:115
+#, no-wrap
+msgid "Fl l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:131
+msgid ""
+"List the properties and statistics for virtual images one level below the "
+"current one in the hierarchy. If an optional argument E<.Ar vname> is "
+"provided, only the information regarding the target virtual image E<.Ar "
+"vname> is displayed.  With the optional E<.Op Ar -r> switch enabled the list "
+"will include all virtual images below the current level in the vimage "
+"hierarchy.  Enabling the optional E<.Op Ar -v> or E<.Op Ar -j> switches "
+"results in a more detailed output."
+msgstr ""
+
+#. type: It
+#: /usr/src/tools/tools/vimage/vimage.8:131
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:143
+msgid ""
+"Move interface E<.Ar ifname> to the target virtual image E<.Ar vname>.  "
+"Interfaces will be automatically renamed to E<.So> ethXX E<.Sc>, unless an "
+"optional argument specifying the desired interface name E<.Op Ar newifname> "
+"is provided."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:144
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:149
+msgid ""
+"Create a new virtual image named E<.So v1> E<.Sc>, which is allowed to "
+"create and manage an own subhierarchy of vimages:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/tools/tools/vimage/vimage.8:150
+#, no-wrap
+msgid "vimage -c v1 children.max=100"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:157
+msgid ""
+"Execute the E<.So ifconfig> E<.Sc command in the virtual image> E<.So v1> "
+"E<.Sc>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/tools/tools/vimage/vimage.8:158
+#, no-wrap
+msgid "vimage v1 ifconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:168
+msgid ""
+"Move the interface E<.So vlan0> E<.Sc to the virtual image> E<.So v1> E<.Sc "
+"while renaming the interface as> E<.So> ve0 E<.Sc>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/tools/tools/vimage/vimage.8:169
+#, no-wrap
+msgid "vimage -i v1 vlan0 ve0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:174
+msgid "Show the status information for virtual image E<.So v1> E<.Sc>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/tools/tools/vimage/vimage.8:175
+#, no-wrap
+msgid "vimage -lv v1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:176
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:180
+msgid "The E<.Nm> command exits 0 on success, and E<gt>0 if an error occurs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:180
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:184
+msgid "E<.Xr jail 8>, E<.Xr jexec 8>, E<.Xr jls 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:184
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:191
+msgid ""
+"Network stack virtualization framework first appeared as a patchset against "
+"the FreeBSD 4.7 kernel in 2002, and was maintained outside of the main "
+"FreeBSD tree.  As a result of a project sponsored by the FreeBSD Foundation "
+"and Stiching NLNet, integrated virtualized network stack first appeared in "
+"FreeBSD 8.0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:191
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:193
+msgid "E<.An Marko Zec Aq Mt zec@fer.hr>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/tools/tools/vimage/vimage.8:193
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/tools/tools/vimage/vimage.8:195
+msgid ""
+"Deletion of vimages / vnets is known to leak kernel memory and fail at "
+"stopping various timers, hence may lead to system crashes."
+msgstr ""

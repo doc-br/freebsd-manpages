@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/ipfilter/man/ipscan.5:3
+#, no-wrap
+msgid "IPSCAN"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipscan.5:4
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:6
+msgid "ipscan, ipscan.conf - ipscan file format"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipscan.5:6
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:10
+msgid ""
+"WARNING: This feature is to be considered experimental and may change "
+"significantly until a final implementation is drawn up."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:12
+msgid "The format for files accept by ipscan currently follow this rough grammar:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:21
+#, no-wrap
+msgid ""
+"line     ::= name \":\" matchup [ \",\" matchup ] \"=\" action .\n"
+"matchup  ::= \"(\" \")\" | \"(\" literal \")\" | \"(\" literal \",\" match "
+"\")\" .\n"
+"action   ::= result | result \"else\" result .\n"
+"result   ::= \"close\" | \"track\" | redirect .\n"
+"redirect ::= \"redirect\" ip-address [ \"(\" \",\" port-number \")\" ] .\n"
+"match    ::= { match-char }\n"
+"match-char ::= \"*\" | \"?\" | \".\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:27
+msgid ""
+"In this example an ip-address is a dotted-quad IPv4 address and a "
+"port-number is a number betwee 1 and 65535, inclusive.  The match string is "
+"must be of same length as the literal string that it is matching (literal).  "
+"The length of either string is limited to 16 bytes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:29
+msgid "Currently, the redirect option is not yet been implemented."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:48
+#, no-wrap
+msgid ""
+"#\n"
+"# * = match any character, . = exact match, ? = case insensitive\n"
+"#\n"
+"# Scan for anything that looks like HTTP and redirect it to the local\n"
+"# proxy.  One catch - this feature (redirect) is not yet implemented.\n"
+"#\n"
+"http : (\"GET \", \"???.\" ) = redirect(127.0.0.1)\n"
+"#\n"
+"# Track ssh connections (i.e do nothing)\n"
+"#\n"
+"ssh : (), (\"SSH-\") = track\n"
+"#\n"
+"# Things which look like smtp to be tracked else closed.\n"
+"# Client can start with EHLO (ESMTP) or HELO (SMTP).\n"
+"#\n"
+"smtp : (\"HELO \", \"**??.\"), (\"220 \", \"....\") = track else close\n"
+"#\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipscan.5:49
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:51
+msgid "/etc/ipscan.conf"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipscan.5:51
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipscan.5:52
+msgid "ipscan(8)"
+msgstr ""

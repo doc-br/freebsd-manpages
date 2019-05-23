@@ -1,0 +1,434 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/carp.4:29
+#, no-wrap
+msgid "July 1, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/carp.4:30
+#, no-wrap
+msgid "CARP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:34
+msgid "E<.Nm carp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/carp.4:34
+#, no-wrap
+msgid "Common Address Redundancy Protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:37
+msgid "E<.Cd \"device carp\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:42
+msgid ""
+"The CARP allows multiple hosts on the same local network to share a set of "
+"IPv4 and/or IPv6 addresses.  Its primary purpose is to ensure that these "
+"addresses are always available."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:80
+msgid ""
+"To use E<.Nm>, the administrator needs to configure at a minimum a common "
+"virtual host ID (vhid), and attach at least one IP address to this vhid on "
+"each machine which is to take part in the virtual group.  Additional "
+"parameters can also be set on a per-vhid basis: E<.Cm advbase> and E<.Cm "
+"advskew>, which are used to control how frequently the host sends "
+"advertisements when it is the master for a virtual host, and E<.Cm pass> "
+"which is used to authenticate E<.Nm> advertisements.  The E<.Cm advbase> "
+"parameter stands for E<.Dq \"advertisement base\">.  It is measured in "
+"seconds and specifies the base of the advertisement interval.  The E<.Cm "
+"advskew> parameter stands for E<.Dq \"advertisement skew\">.  It is measured "
+"in 1/256 of seconds.  It is added to the base advertisement interval to make "
+"one host advertise a bit slower that the other does.  Both E<.Cm advbase> "
+"and E<.Cm advskew> are put inside CARP advertisements.  These values can be "
+"configured using E<.Xr ifconfig 8>, or through the E<.Dv SIOCSVH> E<.Xr "
+"ioctl 2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:91
+msgid ""
+"CARP virtual hosts can be configured on multicast-capable interfaces: "
+"Ethernet, layer 2 VLAN, FDDI and Token Ring.  An arbitrary number of virtual "
+"host IDs can be configured on an interface.  An arbitrary number of IPv4 or "
+"IPv6 addresses can be attached to a particular vhid.  It is important that "
+"all hosts participating in a vhid have the same list of prefixes configured "
+"on the vhid, since all the prefixes are included in the cryptographic "
+"checksum supplied in each advertisement.  Multiple vhids running on one "
+"interface participate in master/backup elections independently."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:94
+msgid ""
+"Additionally, there are a number of global parameters which can be set using "
+"E<.Xr sysctl 8>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:95
+#, no-wrap
+msgid "Va net.inet.carp.allow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:102
+msgid ""
+"Allow E<.Nm> operation.  When disabled, virtual hosts remain in initial "
+"state, neither sending nor receiving announcements or traffic.  Enabled by "
+"default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:102
+#, no-wrap
+msgid "Va net.inet.carp.preempt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:107
+msgid ""
+"Allow virtual hosts to preempt each other.  When enabled, a vhid in a backup "
+"state would preempt a master that is announcing itself with a lower "
+"advskew.  Disabled by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:107
+#, no-wrap
+msgid "Va net.inet.carp.dscp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:113
+msgid ""
+"DSCP value in carp packet.  Valid Values are 0 to 63.  A value of 4 is "
+"equivalent to the old standard of TOS LOW_DELAY.  TOS values were deprecated "
+"and replaced by DSCP in 1998.  The default value is 56 (CS7/Network "
+"Control)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:113
+#, no-wrap
+msgid "Va net.inet.carp.log"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:125
+msgid ""
+"Determines what events relating to E<.Nm> vhids are logged.  A value of 0 "
+"disables any logging.  A value of 1 enables logging state changes of E<.Nm> "
+"vhids.  Values above 1 enable logging of bad E<.Nm> packets.  The default "
+"value is 1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:125
+#, no-wrap
+msgid "Va net.inet.carp.demotion"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:144
+msgid ""
+"This value shows the current level of CARP demotion.  The value is added to "
+"the actual advskew sent in announcements for all vhids.  During normal "
+"system operation the demotion factor is zero.  However, problematic "
+"conditions raise its level: when E<.Nm> experiences problem with sending "
+"announcements, when an interface running a vhid goes down, or while the "
+"E<.Xr pfsync 4> interface is not synchronized.  The demotion factor can be "
+"adjusted writing to the sysctl oid.  The signed value supplied to the E<.Xr "
+"sysctl 8> command is added to current demotion factor.  This allows to "
+"control E<.Nm> behaviour depending on some external conditions, for example "
+"on the status of some daemon utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:144
+#, no-wrap
+msgid "Va net.inet.carp.ifdown_demotion_factor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:149
+msgid ""
+"This value is added to E<.Va net.inet.carp.demotion> when an interface "
+"running a vhid goes down.  The default value is 240 (the maximum advskew "
+"value)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/carp.4:149
+#, no-wrap
+msgid "Va net.inet.carp.senderr_demotion_factor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:156
+msgid ""
+"This value is added to E<.Va net.inet.carp.demotion> when E<.Nm> experiences "
+"errors sending its announcements.  The default value is 240 (the maximum "
+"advskew value)."
+msgstr ""
+
+#. .Sh ARP level load balancing
+#. A
+#. .Nm
+#. interface has limited abilities for load balancing incoming connections
+#. between hosts in an Ethernet network.
+#. For load-balancing operation, one needs several CARP interfaces that
+#. are configured to the same IP address, but to a different vhids.
+#. Once an ARP request is received, the CARP protocol will use a hashing
+#. function against the source IP address in the ARP request to determine
+#. which vhid the request will be assigned to.
+#. If the corresponding CARP interface is the current
+#. master interface, a reply will
+#. be sent to the ARP request;
+#. otherwise it will be ignored.
+#. See the
+#. .Sx EXAMPLES
+#. section for a practical example of load balancing.
+#. .Pp
+#. The ARP load balancing implemented in
+#. .Nm
+#. has some limitations.
+#. First, ARP balancing only works on the local network segment.
+#. It cannot balance traffic that crosses a router, because the
+#. router itself will always be balanced to the same virtual host.
+#. Second, ARP load balancing can lead to asymmetric routing
+#. of incoming and outgoing traffic, and thus combining it with
+#. .Xr pfsync 4
+#. is dangerous, because this creates a race condition between
+#. balanced routers and a host they are serving.
+#. Imagine an incoming packet creating state on the first router, being
+#. forwarded to its destination, and the destination replying faster
+#. than the state information is packed and synced with the second router.
+#. If the reply would be load balanced to second router, it will be
+#. dropped since the second router has not yet received information about
+#. the connection state.
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:192
+#, no-wrap
+msgid "STATE CHANGE NOTIFICATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:209
+msgid ""
+"Sometimes it is useful to get notified about E<.Nm> status change events.  "
+"This can be accomplished by using E<.Xr devd 8> hooks.  Master/slave events "
+"are signalled under system E<.Dv CARP>.  The subsystem specifies the vhid "
+"and name of the interface where the master/slave event occurred.  The type "
+"of the message displays the new state of the vhid.  Please see E<.Xr "
+"devd.conf 5> and the E<.Sx EXAMPLES> section for more information."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:209
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:216
+msgid ""
+"For firewalls and routers with multiple interfaces, it is desirable to "
+"failover all of the addresses running E<.Nm> together, when one of the "
+"physical interfaces goes down.  This is achieved by the use of the preempt "
+"option.  Enable it on both hosts A and B:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/carp.4:217
+#, no-wrap
+msgid "sysctl net.inet.carp.preempt=1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:223
+msgid ""
+"Assume that host A is the preferred master and we are running the "
+"192.168.1.0/24 prefix on em0 and 192.168.2.0/24 on em1.  This is the setup "
+"for host A (advskew is above 0 so it could be overwritten in the emergency "
+"situation from the other host):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:226
+#, no-wrap
+msgid ""
+"ifconfig em0 vhid 1 advskew 100 pass mekmitasdigoat 192.168.1.1/24\n"
+"ifconfig em1 vhid 2 advskew 100 pass mekmitasdigoat 192.168.2.1/24\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:230
+msgid "The setup for host B is identical, but it has a higher E<.Cm advskew>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:233
+#, no-wrap
+msgid ""
+"ifconfig em0 vhid 1 advskew 200 pass mekmitasdigoat 192.168.1.1/24\n"
+"ifconfig em1 vhid 2 advskew 200 pass mekmitasdigoat 192.168.2.1/24\n"
+msgstr ""
+
+#. .Pp
+#. In order to set up an ARP balanced virtual host, it is necessary to configure
+#. one virtual host for each physical host which would respond to ARP requests
+#. and thus handle the traffic.
+#. In the following example, two virtual hosts are configured on two hosts to
+#. provide balancing and failover for the IP address 192.168.1.10.
+#. .Pp
+#. First the
+#. .Nm
+#. interfaces on host A are configured.
+#. The
+#. .Cm advskew
+#. of 100 on the second virtual host means that its advertisements will be sent
+#. out slightly less frequently.
+#. .Bd -literal -offset indent
+#. ifconfig carp0 create
+#. ifconfig carp0 vhid 1 advskew 100 pass mekmitasdigoat 192.168.1.10/24
+#. ifconfig carp1 create
+#. ifconfig carp1 vhid 2 advskew 200 pass mekmitasdigoat 192.168.1.10/24
+#. .Ed
+#. .Pp
+#. The configuration for host B is identical, except the
+#. .Cm advskew
+#. is on virtual host 1 rather than virtual host 2.
+#. .Bd -literal -offset indent
+#. ifconfig carp0 create
+#. ifconfig carp0 vhid 1 advskew 200 pass mekmitasdigoat 192.168.1.10/24
+#. ifconfig carp1 create
+#. ifconfig carp1 vhid 2 advskew 100 pass mekmitasdigoat 192.168.1.10/24
+#. .Ed
+#. .Pp
+#. Finally, the ARP balancing feature must be enabled on both hosts:
+#. .Pp
+#. .Dl sysctl net.inet.carp.arpbalance=1
+#. .Pp
+#. When the hosts receive an ARP request for 192.168.1.10, the source IP address
+#. of the request is used to compute which virtual host should answer the request.
+#. The host which is master of the selected virtual host will reply to the
+#. request, the other(s) will ignore it.
+#. .Pp
+#. This way, locally connected systems will receive different ARP replies and
+#. subsequent IP traffic will be balanced among the hosts.
+#. If one of the hosts fails, the other will take over the virtual MAC address,
+#. and begin answering ARP requests on its behalf.
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:286
+msgid ""
+"When one of the physical interfaces of host A fails, E<.Cm advskew> is "
+"demoted to a configured value on all its E<.Nm> vhids.  Due to the preempt "
+"option, host B would start announcing itself, and thus preempt host A on "
+"both interfaces instead of just the failed one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:290
+msgid ""
+"Processing of E<.Nm> status change events can be set up by using the "
+"following devd.conf rule:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:297
+#, no-wrap
+msgid ""
+"notify 0 {\n"
+"\tmatch \"system\"          \"CARP\";\n"
+"\tmatch \"subsystem\"       \"[0-9]+@[0-9a-z]+\";\n"
+"\tmatch \"type\"            \"(MASTER|BACKUP)\";\n"
+"\taction \"/root/carpcontrol.sh $subsystem $type\";\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:308
+msgid ""
+"To see E<.Nm> packets decoded in E<.Xr tcpdump 1> output, one needs to "
+"specify the E<.Fl T Ar carp> option, otherwise E<.Xr tcpdump 1> will "
+"interpret them as VRRP packets:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:310
+#, no-wrap
+msgid "tcpdump -npi vlan0 -T carp\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:311
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:319
+msgid ""
+"E<.Xr tcpdump 1>, E<.Xr inet 4>, E<.Xr pfsync 4>, E<.Xr devd.conf 5>, E<.Xr "
+"rc.conf 5>, E<.Xr ifconfig 8>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/carp.4:319
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/carp.4:331
+msgid ""
+"The E<.Nm> device first appeared in E<.Ox 3.5>.  The E<.Nm> device was "
+"imported into E<.Fx 5.4>.  In E<.Fx 10.0>, E<.Nm> was significantly "
+"rewritten, and is no longer a pseudo-interface."
+msgstr ""

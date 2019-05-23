@@ -1,0 +1,349 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/mac_lomac.4:33
+#, no-wrap
+msgid "February 25, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/mac_lomac.4:34
+#, no-wrap
+msgid "MAC_LOMAC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_lomac.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:38
+msgid "E<.Nm mac_lomac>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/mac_lomac.4:38
+#, no-wrap
+msgid "Low-watermark Mandatory Access Control data integrity policy"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_lomac.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:42
+msgid ""
+"To compile LOMAC into your kernel, place the following lines in your kernel "
+"configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:45
+#, no-wrap
+msgid ""
+"E<.Cd \"options MAC\">\n"
+"E<.Cd \"options MAC_LOMAC\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:49
+msgid ""
+"Alternately, to load the LOMAC module at boot time, place the following line "
+"in your kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:51
+#, no-wrap
+msgid "E<.Cd \"options MAC\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:55
+msgid "and in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:57
+#, no-wrap
+msgid "mac_lomac_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_lomac.4:58
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:74
+msgid ""
+"The E<.Nm> policy module implements the LOMAC integrity model, which "
+"protects the integrity of system objects and subjects by means of an "
+"information flow policy coupled with the subject demotion via floating "
+"labels.  In LOMAC, all system subjects and objects are assigned integrity "
+"labels, made up of one or more hierarchical grades, depending on their "
+"types.  Together, these label elements permit all labels to be placed in a "
+"partial order, with information flow protections and demotion decisions "
+"based on a dominance operator describing the order.  The hierarchal grade "
+"field or fields are expressed as a value between 0 and 65535, with higher "
+"values reflecting higher integrity."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:76
+msgid "Three special label component values exist:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_lomac.4:77
+#, no-wrap
+msgid "Sy Label Ta Sy Comparison"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_lomac.4:78
+#, no-wrap
+msgid "Li low Ta \"dominated by all other labels\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_lomac.4:79
+#, no-wrap
+msgid "Li equal Ta \"equal to all other labels\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/mac_lomac.4:80
+#, no-wrap
+msgid "Li high Ta \"dominates all other labels\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:96
+msgid ""
+"The E<.Dq Li high> label is assigned to system objects which affect the "
+"integrity of the system as a whole.  The E<.Dq Li equal> label may be used "
+"to indicate that a particular subject or object is exempt from the LOMAC "
+"protections.  For example, a label of E<.Dq Li lomac/equal(equal-equal)> "
+"might be used on a subject which is to be used to administratively relabel "
+"anything on the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:105
+msgid ""
+"Almost all system objects are tagged with a single, active label element, "
+"reflecting the integrity of the object, or integrity of the data contained "
+"in the object.  File system objects may contain an additional auxiliary "
+"label which determines the inherited integrity level for new files created "
+"in a directory or the alternate label assumed by the subject upon execution "
+"of an executable.  In general, objects labels are represented in the "
+"following form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:107 /usr/src/share/man/man4/mac_lomac.4:125
+msgid "E<.Sm off>"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_lomac.4:107
+#, no-wrap
+msgid "Li lomac / Ar grade Bq Ar auxgrade"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:109 /usr/src/share/man/man4/mac_lomac.4:127
+msgid "E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:111
+msgid "For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:114
+#, no-wrap
+msgid ""
+"lomac/10[2]\n"
+"lomac/low\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:123
+msgid ""
+"Subject labels consist of three label elements: a single (active) label, as "
+"well as a range of available labels.  This range is represented using two "
+"ordered LOMAC label elements, and when set on a process, permits the process "
+"to change its active label to any label of greater or equal integrity to the "
+"low end of the range, and lesser or equal integrity to the high end of the "
+"range.  In general, subject labels are represented in the following form:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_lomac.4:125
+#, no-wrap
+msgid "Li lomac / Ar singlegrade ( lograde No - Ar higrade )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:129
+msgid ""
+"Modification of objects is restricted to access via the following "
+"comparison:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_lomac.4:130
+#, no-wrap
+msgid ""
+"Ar subject Ns :: Ns Ar higrade No \\[E<gt>=] Ar target-object Ns :: Ns Ar "
+"grade"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:134
+msgid ""
+"Modification of subjects is the same, as the target subject's single grade "
+"is the only element taken into comparison."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:136
+msgid "Demotion of a subject occurs when the following comparison is true:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/mac_lomac.4:137
+#, no-wrap
+msgid "Ar subject Ns :: Ns Ar singlegrade No E<gt> Ar object Ns :: Ns Ar grade"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:154
+msgid ""
+"When demotion occurs, the subject's E<.Ar singlegrade> and E<.Ar higrade> "
+"are reduced to the object's grade, as well as the E<.Ar lograde> if "
+"necessary.  When the demotion occurs, in addition to the permission of the "
+"subject being reduced, shared E<.Xr mmap 2> objects which it has opened in "
+"its memory space may be revoked according to the following E<.Xr sysctl 3> "
+"variables:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:158
+msgid "E<.Va security.mac.lomac.revocation_enabled>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:160
+msgid "E<.Va security.mac.enforce_vm>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:162
+msgid "E<.Va security.mac.mmap_revocation>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:164
+msgid "E<.Va security.mac.mmap_revocation_via_cow>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:175
+msgid ""
+"Upon execution of a file, if the executable has an auxiliary label, and that "
+"label is within the current range of E<.Ar lograde Ns - Ns Ar higrade>, it "
+"will be assumed by the subject immediately.  After this, demotion is "
+"performed just as with any other read operation, with the executable as the "
+"target.  Through the use of auxiliary labels, programs may be initially "
+"executed at a lower effective integrity level, while retaining the ability "
+"to raise it again."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:183
+msgid ""
+"These rules prevent subjects of lower integrity from influencing the "
+"behavior of higher integrity subjects by preventing the flow of information, "
+"and hence control, from allowing low integrity subjects to modify either a "
+"high integrity object or high integrity subjects acting on those objects.  "
+"LOMAC integrity policies may be appropriate in a number of environments, "
+"both from the perspective of preventing corruption of the operating system, "
+"and corruption of user data if marked as higher integrity than the attacker."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:191
+msgid ""
+"The LOMAC security model is quite similar to that of E<.Xr mac_biba 4> and "
+"E<.Xr mac_mls 4> in various ways.  More background information on this can "
+"be found in their respective man pages."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_lomac.4:191
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:205
+msgid ""
+"E<.Xr mmap 2>, E<.Xr sysctl 3>, E<.Xr mac 4>, E<.Xr mac_biba 4>, E<.Xr "
+"mac_bsdextended 4>, E<.Xr mac_ifoff 4>, E<.Xr mac_mls 4>, E<.Xr mac_none 4>, "
+"E<.Xr mac_partition 4>, E<.Xr mac_portacl 4>, E<.Xr mac_seeotheruids 4>, "
+"E<.Xr mac_test 4>, E<.Xr mac 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_lomac.4:205
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:213
+msgid ""
+"The E<.Nm> policy module first appeared in E<.Fx 5.0> and was developed by "
+"the E<.Tn TrustedBSD> Project."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/mac_lomac.4:213
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/mac_lomac.4:221
+msgid ""
+"This software was contributed to the E<.Fx> Project by Network Associates "
+"Labs, the Security Research Division of Network Associates Inc.  under "
+"DARPA/SPAWAR contract N66001-01-C-8035 E<.Pq Dq CBOSS>, as part of the DARPA "
+"CHATS research program."
+msgstr ""

@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/vlan.4:28
+#, no-wrap
+msgid "May 8, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/vlan.4:29
+#, no-wrap
+msgid "VLAN 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vlan.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:33
+msgid "E<.Nm vlan>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/vlan.4:33
+#, no-wrap
+msgid "IEEE 802.1Q VLAN network interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vlan.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:38
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:40
+#, no-wrap
+msgid "E<.Cd \"device vlan\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:45
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:47
+#, no-wrap
+msgid "if_vlan_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vlan.4:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:56
+msgid ""
+"The E<.Nm> driver demultiplexes frames tagged according to the IEEE 802.1Q "
+"standard into logical E<.Nm> network interfaces, which allows "
+"routing/bridging between multiple VLANs through a single switch trunk port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:68
+msgid ""
+"Each E<.Nm> interface is created at runtime using interface cloning.  This "
+"is most easily done with the E<.Xr ifconfig 8> E<.Cm create> command or "
+"using the E<.Va cloned_interfaces> variable in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:81
+msgid ""
+"To function, a E<.Nm> interface must be assigned a parent interface and "
+"numeric VLAN tag using E<.Xr ifconfig 8>.  A single parent can be assigned "
+"to multiple E<.Nm> interfaces provided they have different tags.  The parent "
+"interface is likely to be an Ethernet card connected to a properly "
+"configured switch port.  The VLAN tag should match one of those set up in "
+"the switched network."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:102
+msgid ""
+"E<.Nm> initially assumes the same minimum length for tagged and untagged "
+"frames.  This mode is selected by setting the E<.Xr sysctl 8> variable E<.Va "
+"net.link.vlan.soft_pad> to 0 E<.Pq default>.  However, there are network "
+"devices that fail to adjust frame length when it falls below the allowed "
+"minimum due to untagging.  Such devices should be able to interoperate with "
+"E<.Nm> after changing the value of E<.Va net.link.vlan.soft_pad> to 1.  In "
+"the latter mode, E<.Nm> will pad short frames before tagging them so that "
+"their length is not less than the minimum value after untagging by the "
+"non-compliant devices."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vlan.4:102
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:121
+msgid ""
+"The E<.Nm> driver supports efficient operation over parent interfaces that "
+"can provide help in processing VLANs.  Such interfaces are automatically "
+"recognized by their capabilities.  Depending on the level of sophistication "
+"found in a physical interface, it may do full VLAN processing or just be "
+"able to receive and transmit long frames (up to 1522 bytes including an "
+"Ethernet header and FCS).  The capabilities may be user-controlled by the "
+"respective parameters to E<.Xr ifconfig 8>, E<.Cm vlanhwtag>, and E<.Cm "
+"vlanmtu>.  However, a physical interface is not obliged to react to them: It "
+"may have either capability enabled permanently without a way to turn it "
+"off.  The whole issue is very specific to a particular device and its "
+"driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:148
+msgid ""
+"At present, these devices are capable of full VLAN processing in hardware: "
+"E<.Xr ae 4>, E<.Xr age 4>, E<.Xr alc 4>, E<.Xr ale 4>, E<.Xr bce 4>, E<.Xr "
+"bge 4>, E<.Xr bxe 4>, E<.Xr cxgb 4>, E<.Xr cxgbe 4>, E<.Xr em 4>, E<.Xr igb "
+"4>, E<.Xr ixgbe 4>, E<.Xr jme 4>, E<.Xr liquidio 4>, E<.Xr msk 4>, E<.Xr "
+"mxge 4>, E<.Xr nge 4>, E<.Xr re 4>, E<.Xr sge 4>, E<.Xr stge 4>, E<.Xr ti "
+"4>, E<.Xr txp 4>, and E<.Xr vge 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:164
+msgid ""
+"Other Ethernet interfaces can run VLANs using software emulation in the "
+"E<.Nm> driver.  However, some lack the capability of transmitting and "
+"receiving long frames.  Assigning such an interface as the parent to E<.Nm> "
+"will result in a reduced MTU on the corresponding E<.Nm> interfaces.  In the "
+"modern Internet, this is likely to cause E<.Xr tcp 4> connectivity problems "
+"due to massive, inadequate E<.Xr icmp 4> filtering that breaks the Path MTU "
+"Discovery mechanism."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:189
+msgid ""
+"These interfaces natively support long frames for E<.Nm>: E<.Xr axe 4>, "
+"E<.Xr bfe 4>, E<.Xr cas 4>, E<.Xr dc 4>, E<.Xr et 4>, E<.Xr fwe 4>, E<.Xr "
+"fxp 4>, E<.Xr gem 4>, E<.Xr hme 4>, E<.Xr le 4>, E<.Xr nfe 4>, E<.Xr rl 4>, "
+"E<.Xr sf 4>, E<.Xr sis 4>, E<.Xr sk 4>, E<.Xr ste 4>, E<.Xr tl 4>, E<.Xr tx "
+"4>, E<.Xr vr 4>, E<.Xr vte 4>, and E<.Xr xl 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:202
+msgid ""
+"The E<.Nm> driver automatically recognizes devices that natively support "
+"long frames for E<.Nm> use and calculates the appropriate frame MTU based on "
+"the capabilities of the parent interface.  Some other interfaces not listed "
+"above may handle long frames, but they do not advertise this ability.  The "
+"MTU setting on E<.Nm> can be corrected manually if used in conjunction with "
+"such a parent interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/vlan.4:202
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/vlan.4:204
+msgid "E<.Xr ifconfig 8>, E<.Xr sysctl 8>"
+msgstr ""

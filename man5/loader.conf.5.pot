@@ -1,0 +1,785 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/defaults/loader.conf.5:26
+#, no-wrap
+msgid "October 6, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/defaults/loader.conf.5:27
+#, no-wrap
+msgid "LOADER.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:31
+msgid "E<.Nm loader.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/defaults/loader.conf.5:31
+#, no-wrap
+msgid "system bootstrap configuration information"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:32
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:41
+msgid ""
+"The file E<.Nm> contains descriptive information on bootstrapping the "
+"system.  Through it you can specify the kernel to be booted, parameters to "
+"be passed to it, and additional modules to be loaded; and generally set all "
+"variables described in E<.Xr loader 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:42
+#, no-wrap
+msgid "SYNTAX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:53
+msgid ""
+"Though E<.Nm Ns 's> format was defined explicitly to resemble E<.Xr rc.conf "
+"5>, and can be sourced by E<.Xr sh 1>, some settings are treated in a "
+"special fashion.  Also, the behavior of some settings is defined by the "
+"setting's suffix; the prefix identifies which module the setting controls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:55
+msgid "The general parsing rules are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:58
+msgid "Spaces and empty lines are ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:60
+msgid "A # sign will mark the remainder of the line as a comment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:62
+msgid "Only one setting can be present on each line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:65
+msgid "All settings have the following format:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/stand/defaults/loader.conf.5:66
+#, no-wrap
+msgid "variable=\"value\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:80
+msgid ""
+"Unless it belongs to one of the classes of settings that receive special "
+"treatment, a setting will set the value of a E<.Xr loader 8> environment "
+"variable.  The settings that receive special treatment are listed below.  "
+"Settings beginning with E<.Qq *> below define the modules to be loaded and "
+"may have any prefix; the prefix identifies a module.  All such settings "
+"sharing a common prefix refer to the same module."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:81
+#, no-wrap
+msgid "Ar exec"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:91
+msgid ""
+"Immediately executes a E<.Xr loader 8> command.  This type of setting cannot "
+"be processed by programs other than E<.Xr loader 8>, so its use should be "
+"avoided.  Multiple instances of it will be processed independently."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:91
+#, no-wrap
+msgid "Ar loader_conf_files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:94
+msgid ""
+"Defines additional configuration files to be processed right after the "
+"present file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:94
+#, no-wrap
+msgid "Ar kernel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:101
+msgid ""
+"Name of the kernel to be loaded.  If no kernel name is set, no additional "
+"modules will be loaded.  The name must be a subdirectory of E<.Pa /boot> "
+"that contains a kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:101
+#, no-wrap
+msgid "Ar kernel_options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:103
+msgid "Flags to be passed to the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:103
+#, no-wrap
+msgid "Ar vfs.root.mountfrom"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:106
+msgid "Specify the root partition to mount.  For example:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/stand/defaults/loader.conf.5:107
+#, no-wrap
+msgid "vfs.root.mountfrom=\"ufs:/dev/da0s1a\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:121
+msgid ""
+"E<.Xr loader 8> automatically calculates the value of this tunable from "
+"E<.Pa /etc/fstab> from the partition the kernel was loaded from.  The "
+"calculated value might be calculated incorrectly when E<.Pa /etc/fstab> is "
+"not available during E<.Xr loader 8> startup (as during diskless booting "
+"from NFS), or if a different device is desired by the user.  The preferred "
+"value can be set in E<.Pa /loader.conf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:128
+msgid ""
+"The value can also be overridden from the E<.Xr loader 8> command line.  "
+"This is useful for system recovery when E<.Pa /etc/fstab> is damaged, lost, "
+"or read from the wrong partition."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:128
+#, no-wrap
+msgid "Ar password"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:141
+msgid ""
+"Protect boot menu with a password without interrupting E<.Ic autoboot> "
+"process.  The password should be in clear text format.  If a password is "
+"set, boot menu will not appear until any key is pressed during countdown "
+"period specified by E<.Va autoboot_delay> variable or E<.Ic autoboot> "
+"process fails.  In both cases user should provide specified password to be "
+"able to access boot menu."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:141
+#, no-wrap
+msgid "Ar bootlock_password"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:146
+msgid ""
+"Provides a password to be required by check-password before execution is "
+"allowed to continue.  The password should be in clear text format.  If a "
+"password is set, the user must provide specified password to boot."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:146
+#, no-wrap
+msgid "Ar verbose_loading"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:150
+msgid "If set to E<.Dq YES>, module names will be displayed as they are loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:150
+#, no-wrap
+msgid "Ar module_blacklist"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:159
+msgid ""
+"Blacklist of modules.  Modules specified in the blacklist may not be loaded "
+"automatically with a E<.Ar *_load> directive, but they may be loaded "
+"directly at the E<.Xr loader 8> prompt.  Blacklisted modules may still be "
+"loaded indirectly as dependencies of other modules."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:159
+#, no-wrap
+msgid "Ar *_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:165
+msgid ""
+"If set to E<.Dq YES>, that module will be loaded.  If no name is defined "
+"(see below), the module's name is taken to be the same as the prefix."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:165
+#, no-wrap
+msgid "Ar *_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:167
+msgid "Defines the name of the module."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:167
+#, no-wrap
+msgid "Ar *_type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:170
+msgid "Defines the module's type.  If none is given, it defaults to a kld module."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:170
+#, no-wrap
+msgid "Ar *_flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:172
+msgid "Flags and parameters to be passed to the module."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:172
+#, no-wrap
+msgid "Ar *_before"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:176
+msgid ""
+"Commands to be executed before the module is loaded.  Use of this setting "
+"should be avoided."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:176
+#, no-wrap
+msgid "Ar *_after"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:180
+msgid ""
+"Commands to be executed after the module is loaded.  Use of this setting "
+"should be avoided."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:180
+#, no-wrap
+msgid "Ar *_error"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:186
+msgid ""
+"Commands to be executed if the loading of a module fails.  Except for the "
+"special value E<.Dq abort>, which aborts the bootstrap process, use of this "
+"setting should be avoided."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:191
+msgid ""
+"E<.Em WARNING:> developers should never use these suffixes for any kernel "
+"environment variables (tunables) or conflicts will result."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:191
+#, no-wrap
+msgid "DEFAULT SETTINGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:197
+msgid ""
+"Most of E<.Nm Ns 's> default settings can be ignored.  The few of them which "
+"are important or useful are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:198
+#, no-wrap
+msgid "Va bitmap_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:203
+msgid ""
+"E<.Pq Dq NO> If set to E<.Dq YES>, a bitmap will be loaded to be displayed "
+"on screen while booting."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:203
+#, no-wrap
+msgid "Va bitmap_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:207
+msgid ""
+"E<.Pq Dq Pa /boot/splash.bmp> Name of the bitmap to be loaded.  Any other "
+"name can be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:207
+#, no-wrap
+msgid "Va comconsole_speed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:218
+msgid ""
+"E<.Dq ( 9600> or the value of the E<.Va BOOT_COMCONSOLE_SPEED> variable when "
+"E<.Xr loader 8> was compiled).  Sets the speed of the serial console.  If "
+"the previous boot loader stage specified that a serial console is in use "
+"then the default speed is determined from the current serial port speed "
+"setting."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:218
+#, no-wrap
+msgid "Va console"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:232
+msgid ""
+"E<.Pq Dq vidconsole> E<.Dq comconsole> selects serial console, E<.Dq "
+"vidconsole> selects the video console, E<.Dq nullconsole> selects a mute "
+"console (useful for systems with neither a video console nor a serial port), "
+"and E<.Dq spinconsole> selects the video console which prevents any input "
+"and hides all output replacing it with E<.Dq spinning> character (useful for "
+"embedded products and such)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:232
+#, no-wrap
+msgid "Va efi_max_resolution"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:235
+msgid ""
+"Specify the maximum desired resolution for the EFI console.  The following "
+"values are accepted:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:236
+#, no-wrap
+msgid "Sy Value Ta Sy Resolution"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:237
+#, no-wrap
+msgid "480p Ta 640x480"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:238
+#, no-wrap
+msgid "720p Ta 1280x720"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:239
+#, no-wrap
+msgid "1080p Ta 1920x1080"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:240
+#, no-wrap
+msgid "2160p Ta 3840x2160"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:241
+#, no-wrap
+msgid "4k Ta 3840x2160"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:242
+#, no-wrap
+msgid "5k Ta 5120x2880"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:243
+#, no-wrap
+msgid "Va Width Ns x Ns Va Height Ta Va Width Ns x Ns Va Height"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:245
+#, no-wrap
+msgid "Va kernel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:247
+msgid "E<.Pq Dq kernel>"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:247
+#, no-wrap
+msgid "Va kernels"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:250
+msgid ""
+"E<.Pq Dq kernel kernel.old> Space or comma separated list of kernels to "
+"present in the boot menu."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:250
+#, no-wrap
+msgid "Va loader_conf_files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:252
+msgid "E<.Pq Dq Pa /boot/loader.conf /boot/loader.conf.local>"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:252
+#, no-wrap
+msgid "Va splash_bmp_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:258
+msgid ""
+"E<.Pq Dq NO> If set to E<.Dq YES>, will load the splash screen module, "
+"making it possible to display a bmp image on the screen while booting."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:258
+#, no-wrap
+msgid "Va splash_pcx_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:264
+msgid ""
+"E<.Pq Dq NO> If set to E<.Dq YES>, will load the splash screen module, "
+"making it possible to display a pcx image on the screen while booting."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:264
+#, no-wrap
+msgid "Va vesa_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:270
+msgid ""
+"E<.Pq Dq NO> If set to E<.Dq YES>, the vesa module will be loaded, enabling "
+"bitmaps above VGA resolution to be displayed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:270
+#, no-wrap
+msgid "Va beastie_disable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:274
+msgid "If set to E<.Dq YES>, the beastie boot menu will be skipped."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:274
+#, no-wrap
+msgid "Va loader_logo Pq Dq Li orbbw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:284
+msgid ""
+"Selects a desired logo in the beastie boot menu.  Possible values are: E<.Dq "
+"Li orbbw>, E<.Dq Li orb>, E<.Dq Li fbsdbw>, E<.Dq Li beastiebw>, E<.Dq Li "
+"beastie>, and E<.Dq Li none>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:284
+#, no-wrap
+msgid "Va loader_color"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:288
+msgid ""
+"If set to E<.Dq NO>, the beastie boot menu will be displayed without ANSI "
+"coloring."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:288
+#, no-wrap
+msgid "Va entropy_cache_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:297
+msgid ""
+"E<.Pq Dq YES> If set to E<.Dq NO>, the very early boot-time entropy file "
+"will not be loaded.  See the entropy entries in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:297
+#, no-wrap
+msgid "Va entropy_cache_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:301
+msgid ""
+"E<.Pq Dq /boot/entropy> The name of the very early boot-time entropy cache "
+"file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:301
+#, no-wrap
+msgid "Va cpu_microcode_load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:322
+msgid ""
+"E<.Pq Dq NO> If set to E<.Dq YES>, the microcode update file specified by "
+"E<.Va cpu_microcode_name> will be loaded and applied very early during "
+"boot.  This provides functionality similar to E<.Xr cpucontrol 8> but "
+"ensures that CPU features enabled by microcode updates can be used by the "
+"kernel.  The update will be re-applied automatically when resuming from an "
+"ACPI sleep state.  If the update file contains updates for multiple "
+"processor models, the kernel will search for and extract a matching update.  "
+"Currently this setting is supported only on Intel E<.Dv i386> and E<.Dv "
+"amd64> processors.  It has no effect on other processor types."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:322
+#, no-wrap
+msgid "Va cpu_microcode_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:324
+msgid "A path to a microcode update file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:325
+#, no-wrap
+msgid "OTHER SETTINGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:329
+msgid "Other settings that may be used in E<.Nm> that have no default value:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:330
+#, no-wrap
+msgid "Va fdt_overlays"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:334
+msgid ""
+"Specifies a comma-delimited list of FDT overlays to apply.  E<.Pa "
+"/boot/dtb/overlays> is created by default for overlays to be placed in."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:334
+#, no-wrap
+msgid "Va kernels_autodetect"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:341
+msgid ""
+"If set to E<.Dq YES>, attempt to auto-detect kernels installed in E<.Pa "
+"/boot>.  This is an option specific to the Lua-based loader.  It is not "
+"available in the default Forth-based loader."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:342
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:344
+#, no-wrap
+msgid "Pa /boot/defaults/loader.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:346
+msgid "default settings -- do not change this file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:346
+#, no-wrap
+msgid "Pa /boot/loader.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:348
+msgid "user defined settings."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/defaults/loader.conf.5:348
+#, no-wrap
+msgid "Pa /boot/loader.conf.local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:350
+msgid "machine-specific settings for sites with a common loader.conf."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:351
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:357
+msgid ""
+"E<.Xr rc.conf 5>, E<.Xr boot 8>, E<.Xr cpucontrol 8>, E<.Xr loader 8>, E<.Xr "
+"loader.4th 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:357
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:362
+msgid "The file E<.Nm> first appeared in E<.Fx 3.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:362
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:365
+msgid "This manual page was written by E<.An Daniel C. Sobral Aq dcs@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/defaults/loader.conf.5:365
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/defaults/loader.conf.5:374
+msgid ""
+"The E<.Xr loader 8> stops reading E<.Nm> when it encounters a syntax error, "
+"so any options which are vital for booting a particular system (i.e.\\& "
+"E<.Dq Va hw.ata.ata_dma Ns \"=0\">)  should precede any experimental "
+"additions to E<.Nm>."
+msgstr ""

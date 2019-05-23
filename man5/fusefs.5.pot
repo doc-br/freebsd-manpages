@@ -1,0 +1,237 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/fusefs.5:31
+#, no-wrap
+msgid "April 13, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/fusefs.5:32
+#, no-wrap
+msgid "FUSEFS 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:36
+msgid "E<.Nm fusefs>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/fusefs.5:36
+#, no-wrap
+msgid "File system in USErspace"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:39
+msgid "To link into the kernel:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:41
+#, no-wrap
+msgid "E<.Cd \"options FUSEFS\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:44
+msgid "To load as a loadable kernel module:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man5/fusefs.5:45
+#, no-wrap
+msgid "kldload fusefs"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:50
+msgid ""
+"The E<.Nm> driver implements a file system that is serviced by a userspace "
+"program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:62
+msgid ""
+"There are many uses for E<.Nm>.  Userspace daemons can access libraries or "
+"programming languages that cannot run in kernel-mode, for example.  E<.Nm> "
+"is also useful for developing and debugging file systems, because a crash of "
+"the daemon will not take down the entire operating system.  Finally, the "
+"E<.Nm> API is portable.  Many daemons can run on multiple operating systems "
+"with minimal modifications."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:62
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:68
+msgid ""
+"The following variables are available as both E<.Xr sysctl 8> variables and "
+"E<.Xr loader 8> tunables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/fusefs.5:69
+#, no-wrap
+msgid "Va vfs.fusefs.kernelabi_major"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:71
+msgid "Major version of the FUSE kernel ABI supported by this driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/fusefs.5:71
+#, no-wrap
+msgid "Va vfs.fusefs.kernelabi_minor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:73
+msgid "Minor version of the FUSE kernel ABI supported by this driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/fusefs.5:73
+#, no-wrap
+msgid "Va vfs.fusefs.data_cache_mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:87
+msgid ""
+"Controls how E<.Nm> will cache file data.  A value of 0 will disable caching "
+"entirely.  Every data access will be forwarded to the daemon.  A value of 1 "
+"will select write-through caching.  Reads will be cached in the VFS layer as "
+"usual.  Writes will be immediately forwarded to the daemon, and also added "
+"to the cache.  A value of 2 will select write-back caching.  Reads and "
+"writes will both be cached, and writes will occasionally be flushed to the "
+"daemon by the page daemon.  Write-back caching is usually unsafe, especially "
+"for FUSE file systems that require network access."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man5/fusefs.5:87
+#, no-wrap
+msgid "Va vfs.fusefs.lookup_cache_enable"
+msgstr ""
+
+#.  Undocumented sysctls
+#.  ====================
+#.  Counters: I intend to rename to vfs.fusefs.stats.* for clarity
+#.  vfs.fusefs.lookup_cache_{hits, misses}
+#.  vfs.fusefs.filehandle_count
+#.  vfs.fusefs.ticker_count
+#.  vfs.fusefs.node_count
+#
+#.  vfs.fusefs.version - useless since the driver moved in-tree
+#.  vfs.fusefs.reclaim_revoked: I don't understand it well-enough
+#.  vfs.fusefs.sync_unmount: dead code
+#.  vfs.fusefs.enforce_dev_perms: I don't understand it well enough.
+#.  vfs.fusefs.init_backgrounded: dead code
+#.  vfs.fusefs.iov_credit: I don't understand it well enough
+#.  vfs.fusefs.iov_permanent_bufsize: I don't understand it well enough
+#.  vfs.fusefs.fix_broken_io: I don't understand it well enough
+#.  vfs.fusefs.sync_resize: useless and should be removed
+#.  vfs.fusefs.refresh_size: probably useless?
+#.  vfs.fusefs.mmap_enable: why is this optional?
+#.  vfs.fusefs.data_cache_invalidate: what is this needed for?
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:114
+msgid ""
+"Controls whether E<.Nm> will cache lookup responses from the file system.  "
+"FUSE file systems indicate whether lookup responses should be cacheable, but "
+"it may be useful to globally disable caching them if a file system is "
+"misbehaving."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:114
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:116
+msgid "E<.Xr mount_fusefs 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:116
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:133
+msgid ""
+"The E<.Nm fuse> driver was written as the part of the E<.Fx> implementation "
+"of the FUSE userspace file system framework (see E<.Xr "
+"https://github.com/libfuse/libfuse>)  and first appeared in the E<.Pa "
+"sysutils/fusefs-kmod> port, supporting E<.Fx 6.0>.  It was added to the base "
+"system in E<.Fx 10.0>, and renamed to E<.Nm> for E<.Fx 12.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/fusefs.5:133
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:145
+msgid ""
+"E<.An -nosplit> The E<.Nm fuse> driver was originally written by E<.An Csaba "
+"Henk> as a Google Summer of Code project in 2005.  It was further developed "
+"by E<.An Ilya Putsikau> during Google Summer of Code 2011, and that version "
+"was integrated into the base system by E<.An Attilio Rao Aq Mt "
+"attilio@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/fusefs.5:147
+msgid ""
+"This manual page was written by E<.An Alan Somers Aq Mt "
+"asomers@FreeBSD.org>."
+msgstr ""

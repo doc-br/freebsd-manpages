@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/ypserv/ypinit.8:33
+#, no-wrap
+msgid "August 18, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/ypserv/ypinit.8:34
+#, no-wrap
+msgid "YPINIT 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:38
+msgid "E<.Nm ypinit>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/ypserv/ypinit.8:38
+#, no-wrap
+msgid "build and install NIS databases"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:50
+msgid ""
+"E<.Nm> E<.Fl m> E<.Op Ar domainname> E<.Nm> E<.Fl s> E<.Ar master_server> "
+"E<.Op Ar domainname> E<.Nm> E<.Fl u> E<.Op Ar domainname>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:56
+msgid ""
+"The E<.Nm> utility is a script which sets up databases on a Network "
+"Information Service (NIS)  master or slave server."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:73
+msgid ""
+"On a master server, E<.Nm> creates the E<.Pa /var/yp/$DOMAINNAME> directory, "
+"the E<.Pa /var/yp/ypservers> file, and calls E<.Pa /var/yp/Makefile> to "
+"create and populate an initial set of NIS maps.  The maps are created from "
+"local source files using the E<.Xr yp_mkdb 8> utility.  The utility will "
+"prompt the user for a list of servers that support the specified domain; "
+"this list is used to populate the ypservers map."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:103
+msgid ""
+"On a slave server, E<.Nm> creates the E<.Pa /var/yp/$DOMAINNAME>, populates "
+"it with copies of the NIS maps from the master.  The maps are obtained from "
+"the master using the E<.Xr ypxfr 8> utility.  The E<.Nm> utility obtains the "
+"list of maps to transfer in one of two ways: if the system is configured as "
+"an NIS client and is bound to the master server, E<.Nm> is able to use the "
+"E<.Xr ypwhich 1> utility to obtain a list of maps exported by the master "
+"server.  If the system is not configured as a client of the NIS master, "
+"E<.Nm> uses a hardcoded list of maps, some of which may or may not actually "
+"exist on the master.  The system administrator can edit the E<.Nm> script "
+"and modify the map list if necessary.  Otherwise, individual maps can be "
+"transferred manually from the master using E<.Xr ypxfr 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:103
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:107
+msgid "The E<.Nm> utility supports the following options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:108
+#, no-wrap
+msgid "Fl m Op Ar domainname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:121
+msgid ""
+"Set up a master server.  By default, E<.Nm> sets up a server for the system "
+"default domain.  The user can override this default by specifying E<.Ar "
+"domainname> explicitly.  Maps are constructed from scratch using local files "
+"as templates using the E<.Xr yp_mkdb 8> utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:121
+#, no-wrap
+msgid "Fl s Ar master_server Op Ar domainname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:136
+msgid ""
+"Set up a slave server using E<.Ar master_name> as the master.  Maps are "
+"copied from E<.Ar master_server> to the slave using E<.Xr ypxfr 8>.  By "
+"default, E<.Nm> sets up a server for the system default domain.  The user "
+"can override this default by specifying E<.Ar domainname> explicitly."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:136
+#, no-wrap
+msgid "Fl u Op Ar domainname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:143
+msgid ""
+"Update the ypservers map on the master server.  When a new slave server is "
+"added to a domain, its hostname must be added to the ypservers map so that "
+"E<.Xr yppush 8> can propagate updates on the master to all of the slaves."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:144
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:146
+#, no-wrap
+msgid "Pa /etc/bootparams"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:148
+msgid "Bootparams source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:148
+#, no-wrap
+msgid "Pa /etc/ethers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:150
+msgid "Ethers data source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:150
+#, no-wrap
+msgid "Pa /etc/eui64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:152
+msgid "EUI64 data source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:152
+#, no-wrap
+msgid "Pa /etc/group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:154
+msgid "Group source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:154
+#, no-wrap
+msgid "Pa /etc/hosts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:156
+msgid "Hostname/IP address source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:156
+#, no-wrap
+msgid "Pa /etc/netid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:158
+msgid "RPC netid source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:158
+#, no-wrap
+msgid "Pa /etc/networks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:160
+msgid "Networks source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:160
+#, no-wrap
+msgid "Pa /etc/protocols"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:162
+msgid "Protocols source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:162
+#, no-wrap
+msgid "Pa /etc/publickey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:164
+msgid "RPC public key/secret key source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:164
+#, no-wrap
+msgid "Pa /etc/services"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:166
+msgid "Services data source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:166
+#, no-wrap
+msgid "Pa /etc/shells"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:168
+msgid "Shells source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:168
+#, no-wrap
+msgid "Pa /var/yp/master.passwd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:170
+msgid "Passwd database source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:170
+#, no-wrap
+msgid "Pa /var/yp/netgroup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:172
+msgid "Netgroup data source file"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ypserv/ypinit.8:172
+#, no-wrap
+msgid "Pa /var/yp/ypservers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:175
+msgid "Ypservers source file (generated by E<.Nm>)"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:176
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:184
+msgid ""
+"E<.Xr mknetid 8>, E<.Xr revnetgroup 8>, E<.Xr yp 8>, E<.Xr yp_mkdb 8>, E<.Xr "
+"yppush 8>, E<.Xr ypserv 8>, E<.Xr ypxfr 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:184
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:193
+msgid ""
+"This version of E<.Nm> is based on the E<.Nm> script in E<.Ox>.  It first "
+"appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ypserv/ypinit.8:193
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ypserv/ypinit.8:200
+msgid ""
+"E<.An -nosplit> The original script was written by E<.An Mats O Jansson Aq "
+"Mt moj@stacken.kth.se>.  It was modified for E<.Fx> by E<.An Bill Paul Aq Mt "
+"wpaul@ctr.columbia.edu>."
+msgstr ""

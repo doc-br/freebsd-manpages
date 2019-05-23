@@ -1,0 +1,1678 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1
+#, no-wrap
+msgid "August 14 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:2
+#, no-wrap
+msgid "NTP_KEYGEN 8 User Commands"
+msgstr ""
+
+#.   EDIT THIS FILE WITH CAUTION  (ntp-keygen-opts.mdoc)
+#
+#.  $FreeBSD: head/usr.sbin/ntp/doc/ntp-keygen.8 338126 2018-08-21 02:38:07Z delphij $
+#
+#.   It has been AutoGen-ed  August 14, 2018 at 08:30:38 AM by AutoGen 5.18.5
+#.   From the definitions    ntp-keygen-opts.def
+#.   and the template file   agmdoc-cmd.tpl
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:11
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:13
+msgid "E<.Nm ntp-keygen>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:13
+#, no-wrap
+msgid "Create a NTP host key"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:14
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#.  Mixture of short (flag) options and long options
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:20
+msgid ""
+"E<.Nm> E<.Op Fl flags> E<.Op Fl flag Op Ar value> E<.Op Fl \\-option\\-name "
+"Ns Oo Oo Ns \"=| \" Oc Ns Ar value Oc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:22
+msgid "All arguments must be options."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:23
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:33
+msgid ""
+"This program generates cryptographic data files used by the NTPv4 "
+"authentication and identification schemes.  It can generate message digest "
+"keys used in symmetric key cryptography and, if the OpenSSL software library "
+"has been installed, it can generate host keys, signing keys, certificates, "
+"and identity keys and parameters used in Autokey public key cryptography.  "
+"These files are used for cookie encryption, digital signature, and "
+"challenge/response identification algorithms compatible with the Internet "
+"standard security infrastructure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:40
+msgid ""
+"The message digest symmetric keys file is generated in a format compatible "
+"with NTPv3.  All other files are in PEM\\-encoded printable ASCII format, so "
+"they can be embedded as MIME attachments in email to other sites and "
+"certificate authorities.  By default, files are not encrypted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:56
+msgid ""
+"When used to generate message digest symmetric keys, the program produces a "
+"file containing ten pseudo\\-random printable ASCII strings suitable for the "
+"MD5 message digest algorithm included in the distribution.  If the OpenSSL "
+"library is installed, it produces an additional ten hex\\-encoded random bit "
+"strings suitable for SHA1, AES\\-128\\-CMAC, and other message digest "
+"algorithms.  The message digest symmetric keys file must be distributed and "
+"stored using secure means beyond the scope of NTP itself.  Besides the keys "
+"used for ordinary NTP associations, additional keys can be defined as "
+"passwords for the E<.Xr ntpq 8> and E<.Xr ntpdc 8> utility programs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:64
+msgid ""
+"The remaining generated files are compatible with other OpenSSL applications "
+"and other Public Key Infrastructure (PKI) resources.  Certificates generated "
+"by this program are compatible with extant industry practice, although some "
+"users might find the interpretation of X509v3 extension fields somewhat "
+"liberal.  However, the identity keys are probably not compatible with "
+"anything other than Autokey."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:82
+msgid ""
+"Some files used by this program are encrypted using a private password.  The "
+"E<.Fl p> option specifies the read password for local encrypted files and "
+"the E<.Fl q> option the write password for encrypted files sent to remote "
+"sites.  If no password is specified, the host name returned by the Unix "
+"E<.Xr hostname 1> command, normally the DNS name of the host, is used as the "
+"the default read password, for convenience.  The E<.Nm> program prompts for "
+"the password if it reads an encrypted file and the password is missing or "
+"incorrect.  If an encrypted file is read successfully and no write password "
+"is specified, the read password is used as the write password by default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:98
+msgid ""
+"The E<.Cm pw> option of the E<.Ic crypto> E<.Xr ntpd 8> configuration "
+"command specifies the read password for previously encrypted local files.  "
+"This must match the local read password used by this program.  If not "
+"specified, the host name is used.  Thus, if files are generated by this "
+"program without an explicit password, they can be read back by E<.Xr ntpd 8> "
+"without specifying an explicit password but only on the same host.  If the "
+"write password used for encryption is specified as the host name, these "
+"files can be read by that host with no explicit password."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:117
+msgid ""
+"Normally, encrypted files for each host are generated by that host and used "
+"only by that host, although exceptions exist as noted later on this page.  "
+"The symmetric keys file, normally called E<.Pa ntp.keys>, is usually "
+"installed in E<.Pa /etc>.  Other files and links are usually installed in "
+"E<.Pa /usr/local/etc>, which is normally in a shared filesystem in "
+"NFS\\-mounted networks and cannot be changed by shared clients.  In these "
+"cases, NFS clients can specify the files in another directory such as E<.Pa "
+"/etc> using the E<.Ic keysdir> E<.Xr ntpd 8> configuration file command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:131
+msgid ""
+"This program directs commentary and error messages to the standard error "
+"stream E<.Pa stderr> and remote files to the standard output stream E<.Pa "
+"stdout> where they can be piped to other applications or redirected to "
+"files.  The names used for generated files and links all begin with the "
+"string E<.Pa ntpkey\\&*> and include the file type, generating host and "
+"filestamp, as described in the E<.Sx \"Cryptographic Data Files\"> section "
+"below."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:131
+#, no-wrap
+msgid "Running the Program"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:140
+msgid ""
+"The safest way to run the E<.Nm> program is logged in directly as root.  The "
+"recommended procedure is change to the E<.Ar keys> directory, usually E<.Pa "
+"/usr/local/etc>, then run the program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:161
+msgid ""
+"To test and gain experience with Autokey concepts, log in as root and change "
+"to the E<.Ar keys> directory, usually E<.Pa /usr/local/etc>.  When run for "
+"the first time, or if all files with names beginning with E<.Pa ntpkey\\&*> "
+"have been removed, use the E<.Nm> command without arguments to generate a "
+"default E<.Cm RSA> host key and matching E<.Cm RSA\\-MD5> certificate file "
+"with expiration date one year hence, which is all that is necessary in many "
+"cases.  The program also generates soft links from the generic names to the "
+"respective files.  If run again without options, the program uses the "
+"existing keys and parameters and generates a new certificate file with new "
+"expiration date one year hence, and soft link."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:193
+msgid ""
+"The host key is used to encrypt the cookie when required and so must be "
+"E<.Cm RSA> type.  By default, the host key is also the sign key used to "
+"encrypt signatures.  When necessary, a different sign key can be specified "
+"and this can be either E<.Cm RSA> or E<.Cm DSA> type.  By default, the "
+"message digest type is E<.Cm MD5>, but any combination of sign key type and "
+"message digest type supported by the OpenSSL library can be specified, "
+"including those using the E<.Cm AES128CMAC , MD2 , MD5 , MDC2 , SHA , SHA1> "
+"and E<.Cm RIPE160> message digest algorithms.  However, the scheme specified "
+"in the certificate must be compatible with the sign key.  Certificates using "
+"any digest algorithm are compatible with E<.Cm RSA> sign keys; however, only "
+"E<.Cm SHA> and E<.Cm SHA1> certificates are compatible with E<.Cm DSA> sign "
+"keys."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:201
+msgid ""
+"Private/public key files and certificates are compatible with other OpenSSL "
+"applications and very likely other libraries as well.  Certificates or "
+"certificate requests derived from them should be compatible with extant "
+"industry practice, although some users might find the interpretation of "
+"X509v3 extension fields somewhat liberal.  However, the identification "
+"parameter files, although encoded as the other files, are probably not "
+"compatible with anything other than Autokey."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:216
+msgid ""
+"Running the program as other than root and using the Unix E<.Xr su 1> "
+"command to assume root may not work properly, since by default the OpenSSL "
+"library looks for the random seed file E<.Pa .rnd> in the user home "
+"directory.  However, there should be only one E<.Pa .rnd>, most conveniently "
+"in the root directory, so it is convenient to define the E<.Ev RANDFILE> "
+"environment variable used by the OpenSSL library as the path to E<.Pa .rnd>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:230
+msgid ""
+"Installing the keys as root might not work in NFS\\-mounted shared file "
+"systems, as NFS clients may not be able to write to the shared keys "
+"directory, even as root.  In this case, NFS clients can specify the files in "
+"another directory such as E<.Pa /etc> using the E<.Ic keysdir> E<.Xr ntpd 8> "
+"configuration file command.  There is no need for one client to read the "
+"keys and certificates of other clients or servers, as these data are "
+"obtained automatically by the Autokey protocol."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:240
+msgid ""
+"Ordinarily, cryptographic files are generated by the host that uses them, "
+"but it is possible for a trusted agent (TA) to generate these files for "
+"other hosts; however, in such cases files should always be encrypted.  The "
+"subject name and trusted name default to the hostname of the host generating "
+"the files, but can be changed by command line options.  It is convenient to "
+"designate the owner name and trusted name as the subject and issuer fields, "
+"respectively, of the certificate.  The owner name is also used for the host "
+"and sign key files, while the trusted name is used for the identity files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:251
+msgid ""
+"All files are installed by default in the keys directory E<.Pa "
+"/usr/local/etc>, which is normally in a shared filesystem in NFS\\-mounted "
+"networks.  The actual location of the keys directory and each file can be "
+"overridden by configuration commands, but this is not recommended.  "
+"Normally, the files for each host are generated by that host and used only "
+"by that host, although exceptions exist as noted later on this page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:265
+msgid ""
+"Normally, files containing private values, including the host key, sign key "
+"and identification parameters, are permitted root read/write\\-only; while "
+"others containing public values are permitted world readable.  "
+"Alternatively, files containing private values can be encrypted and these "
+"files permitted world readable, which simplifies maintenance in shared file "
+"systems.  Since uniqueness is insured by the E<.Ar hostname> and E<.Ar "
+"filestamp> file name extensions, the files for an NTP server and dependent "
+"clients can all be installed in the same shared directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:290
+msgid ""
+"The recommended practice is to keep the file name extensions when installing "
+"a file and to install a soft link from the generic names specified elsewhere "
+"on this page to the generated files.  This allows new file generations to be "
+"activated simply by changing the link.  If a link is present, E<.Xr ntpd 8> "
+"follows it to the file name to extract the E<.Ar filestamp>.  If a link is "
+"not present, E<.Xr ntpd 8> extracts the E<.Ar filestamp> from the file "
+"itself.  This allows clients to verify that the file and generation times "
+"are always current.  The E<.Nm> program uses the same E<.Ar filestamp> "
+"extension for all files generated at one time, so each generation is "
+"distinct and can be readily recognized in monitoring data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:303
+msgid ""
+"Run the command on as many hosts as necessary.  Designate one of them as the "
+"trusted host (TH) using E<.Nm> with the E<.Fl T> option and configure it to "
+"synchronize from reliable Internet servers.  Then configure the other hosts "
+"to synchronize to the TH directly or indirectly.  A certificate trail is "
+"created when Autokey asks the immediately ascendant host towards the TH to "
+"sign its certificate, which is then provided to the immediately descendant "
+"host on request.  All group hosts should have acyclic certificate trails "
+"ending on the TH."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:323
+msgid ""
+"The host key is used to encrypt the cookie when required and so must be RSA "
+"type.  By default, the host key is also the sign key used to encrypt "
+"signatures.  A different sign key can be assigned using the E<.Fl S> option "
+"and this can be either E<.Cm RSA> or E<.Cm DSA> type.  By default, the "
+"signature message digest type is E<.Cm MD5>, but any combination of sign key "
+"type and message digest type supported by the OpenSSL library can be "
+"specified using the E<.Fl c> option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:334
+msgid ""
+"The rules say cryptographic media should be generated with proventic "
+"filestamps, which means the host should already be synchronized before this "
+"program is run.  This of course creates a chicken\\-and\\-egg problem when "
+"the host is started for the first time.  Accordingly, the host time should "
+"be set by some other means, such as eyeball\\-and\\-wristwatch, at least so "
+"that the certificate lifetime is within the current year.  After that and "
+"when the host is synchronized to a proventic source, the certificate should "
+"be re\\-generated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:338
+msgid ""
+"Additional information on trusted groups and identity schemes is on the "
+"E<.Dq Autokey Public\\-Key Authentication> page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:362
+msgid ""
+"File names begin with the prefix E<.Pa ntpkey Ns _> and end with the suffix "
+"E<.Pa _ Ns Ar hostname . Ar filestamp>, where E<.Ar hostname> is the owner "
+"name, usually the string returned by the Unix E<.Xr hostname 1> command, and "
+"E<.Ar filestamp> is the NTP seconds when the file was generated, in decimal "
+"digits.  This both guarantees uniqueness and simplifies maintenance "
+"procedures, since all files can be quickly removed by a E<.Ic rm Pa "
+"ntpkey\\&*> command or all files generated at a specific time can be removed "
+"by a E<.Ic rm Pa \\&* Ns Ar filestamp> command.  To further reduce the risk "
+"of misconfiguration, the first two lines of a file contain the file name and "
+"generation date and time as comments."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:362
+#, no-wrap
+msgid "Trusted Hosts and Groups"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:391
+msgid ""
+"Each cryptographic configuration involves selection of a signature scheme "
+"and identification scheme, called a cryptotype, as explained in the E<.Sx "
+"Authentication Options> section of E<.Xr ntp.conf 5>.  The default "
+"cryptotype uses E<.Cm RSA> encryption, E<.Cm MD5> message digest and E<.Cm "
+"TC> identification.  First, configure a NTP subnet including one or more "
+"low\\-stratum trusted hosts from which all other hosts derive "
+"synchronization directly or indirectly.  Trusted hosts have trusted "
+"certificates; all other hosts have nontrusted certificates.  These hosts "
+"will automatically and dynamically build authoritative certificate trails to "
+"one or more trusted hosts.  A trusted group is the set of all hosts that "
+"have, directly or indirectly, a certificate trail ending at a trusted host.  "
+"The trail is defined by static configuration file entries or dynamic means "
+"described on the E<.Sx Automatic NTP Configuration Options> section of E<.Xr "
+"ntp.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:407
+msgid ""
+"On each trusted host as root, change to the keys directory.  To insure a "
+"fresh fileset, remove all E<.Pa ntpkey> files.  Then run E<.Nm> E<.Fl T> to "
+"generate keys and a trusted certificate.  On all other hosts do the same, "
+"but leave off the E<.Fl T> flag to generate keys and nontrusted "
+"certificates.  When complete, start the NTP daemons beginning at the lowest "
+"stratum and working up the tree.  It may take some time for Autokey to "
+"instantiate the certificate trails throughout the subnet, but setting up the "
+"environment is completely automatic."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:434
+msgid ""
+"If it is necessary to use a different sign key or different digest/signature "
+"scheme than the default, run E<.Nm> with the E<.Fl S Ar type> option, where "
+"E<.Ar type> is either E<.Cm RSA> or E<.Cm DSA>.  The most frequent need to "
+"do this is when a E<.Cm DSA Ns \\-signed> certificate is used.  If it is "
+"necessary to use a different certificate scheme than the default, run E<.Nm> "
+"with the E<.Fl c Ar scheme> option and selected E<.Ar scheme> as needed.  If "
+"E<.Nm> is run again without these options, it generates a new certificate "
+"using the same scheme and sign key, and soft link."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:449
+msgid ""
+"After setting up the environment it is advisable to update certificates from "
+"time to time, if only to extend the validity interval.  Simply run E<.Nm> "
+"with the same flags as before to generate new certificates using existing "
+"keys, and soft links.  However, if the host or sign key is changed, E<.Xr "
+"ntpd 8> should be restarted.  When E<.Xr ntpd 8> is restarted, it loads any "
+"new files and restarts the protocol.  Other dependent hosts will continue as "
+"usual until signatures are refreshed, at which time the protocol is "
+"restarted."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:449
+#, no-wrap
+msgid "Identity Schemes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:468
+msgid ""
+"As mentioned on the Autonomous Authentication page, the default E<.Cm TC> "
+"identity scheme is vulnerable to a middleman attack.  However, there are "
+"more secure identity schemes available, including E<.Cm PC , IFF , GQ> and "
+"E<.Cm MV> schemes described below.  These schemes are based on a TA, one or "
+"more trusted hosts and some number of nontrusted hosts.  Trusted hosts prove "
+"identity using values provided by the TA, while the remaining hosts prove "
+"identity using values provided by a trusted host and certificate trails that "
+"end on that host.  The name of a trusted host is also the name of its "
+"sugroup and also the subject and issuer name on its trusted certificate.  "
+"The TA is not necessarily a trusted host in this sense, but often is."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:477
+msgid ""
+"In some schemes there are separate keys for servers and clients.  A server "
+"can also be a client of another server, but a client can never be a server "
+"for another client.  In general, trusted hosts and nontrusted hosts that "
+"operate as both server and client have parameter files that contain both "
+"server and client keys.  Hosts that operate only as clients have key files "
+"that contain only client keys."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:502
+msgid ""
+"The PC scheme supports only one trusted host in the group.  On trusted host "
+"alice run E<.Nm> E<.Fl P> E<.Fl p Ar password> to generate the host key file "
+"E<.Pa ntpkey Ns _ Cm RSA Pa key_alice. Ar filestamp> and trusted private "
+"certificate file E<.Pa ntpkey Ns _ Cm RSA\\-MD5 _ Pa cert_alice. Ar "
+"filestamp>, and soft links.  Copy both files to all group hosts; they "
+"replace the files which would be generated in other schemes.  On each host "
+"E<.Ar bob> install a soft link from the generic name E<.Pa ntpkey_host_ Ns "
+"Ar bob> to the host key file and soft link E<.Pa ntpkey_cert_ Ns Ar bob> to "
+"the private certificate file.  Note the generic links are on bob, but point "
+"to files generated by trusted host alice.  In this scheme it is not possible "
+"to refresh either the keys or certificates without copying them to all other "
+"hosts in the group, and recreating the soft links."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:530
+msgid ""
+"For the E<.Cm IFF> scheme proceed as in the E<.Cm TC> scheme to generate "
+"keys and certificates for all group hosts, then for every trusted host in "
+"the group, generate the E<.Cm IFF> parameter file.  On trusted host alice "
+"run E<.Nm> E<.Fl T> E<.Fl I> E<.Fl p Ar password> to produce her parameter "
+"file E<.Pa ntpkey_IFFpar_alice. Ns Ar filestamp>, which includes both server "
+"and client keys.  Copy this file to all group hosts that operate as both "
+"servers and clients and install a soft link from the generic E<.Pa "
+"ntpkey_iff_alice> to this file.  If there are no hosts restricted to operate "
+"only as clients, there is nothing further to do.  As the E<.Cm IFF> scheme "
+"is independent of keys and certificates, these files can be refreshed as "
+"needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:545
+msgid ""
+"If a rogue client has the parameter file, it could masquerade as a "
+"legitimate server and present a middleman threat.  To eliminate this threat, "
+"the client keys can be extracted from the parameter file and distributed to "
+"all restricted clients.  After generating the parameter file, on alice run "
+"E<.Nm> E<.Fl e> and pipe the output to a file or email program.  Copy or "
+"email this file to all restricted clients.  On these clients install a soft "
+"link from the generic E<.Pa ntpkey_iff_alice> to this file.  To further "
+"protect the integrity of the keys, each file can be encrypted with a secret "
+"password."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:579
+msgid ""
+"For the E<.Cm GQ> scheme proceed as in the E<.Cm TC> scheme to generate keys "
+"and certificates for all group hosts, then for every trusted host in the "
+"group, generate the E<.Cm IFF> parameter file.  On trusted host alice run "
+"E<.Nm> E<.Fl T> E<.Fl G> E<.Fl p Ar password> to produce her parameter file "
+"E<.Pa ntpkey_GQpar_alice. Ns Ar filestamp>, which includes both server and "
+"client keys.  Copy this file to all group hosts and install a soft link from "
+"the generic E<.Pa ntpkey_gq_alice> to this file.  In addition, on each host "
+"E<.Ar bob> install a soft link from generic E<.Pa ntpkey_gq_ Ns Ar bob> to "
+"this file.  As the E<.Cm GQ> scheme updates the E<.Cm GQ> parameters file "
+"and certificate at the same time, keys and certificates can be regenerated "
+"as needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:621
+msgid ""
+"For the E<.Cm MV> scheme, proceed as in the E<.Cm TC> scheme to generate "
+"keys and certificates for all group hosts.  For illustration assume trish is "
+"the TA, alice one of several trusted hosts and bob one of her clients.  On "
+"TA trish run E<.Nm> E<.Fl V Ar n> E<.Fl p Ar password>, where E<.Ar n> is "
+"the number of revokable keys (typically 5) to produce the parameter file "
+"E<.Pa ntpkeys_MVpar_trish. Ns Ar filestamp> and client key files E<.Pa "
+"ntpkeys_MVkey Ns Ar d _ Pa trish. Ar filestamp> where E<.Ar d> is the key "
+"number (0 \\&E<lt> E<.Ar d> \\&E<lt> E<.Ar n>).  Copy the parameter file to "
+"alice and install a soft link from the generic E<.Pa ntpkey_mv_alice> to "
+"this file.  Copy one of the client key files to alice for later distribution "
+"to her clients.  It does not matter which client key file goes to alice, "
+"since they all work the same way.  Alice copies the client key file to all "
+"of her clients.  On client bob install a soft link from generic E<.Pa "
+"ntpkey_mvkey_bob> to the client key file.  As the E<.Cm MV> scheme is "
+"independent of keys and certificates, these files can be refreshed as "
+"needed."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:621
+#, no-wrap
+msgid "Command Line Options"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:623
+#, no-wrap
+msgid "Fl b Fl \\-imbits Ns = Ar modulus"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:631
+msgid ""
+"Set the number of bits in the identity modulus for generating identity keys "
+"to E<.Ar modulus> bits.  The number of bits in the identity modulus defaults "
+"to 256, but can be set to values from 256 to 2048 (32 to 256 octets).  Use "
+"the larger moduli with caution, as this can consume considerable computing "
+"resources and increases the size of authenticated packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:631
+#, no-wrap
+msgid "Fl c Fl \\-certificate Ns = Ar scheme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:655
+msgid ""
+"Select certificate signature encryption/message digest scheme.  The E<.Ar "
+"scheme> can be one of the following: E<.Cm RSA\\-MD2 , RSA\\-MD5 , "
+"RSA\\-MDC2 , RSA\\-SHA , RSA\\-SHA1 , RSA\\-RIPEMD160 , DSA\\-SHA>, or E<.Cm "
+"DSA\\-SHA1>.  Note that E<.Cm RSA> schemes must be used with an E<.Cm RSA> "
+"sign key and E<.Cm DSA> schemes must be used with a E<.Cm DSA> sign key.  "
+"The default without this option is E<.Cm RSA\\-MD5>.  If compatibility with "
+"FIPS 140\\-2 is required, either the E<.Cm DSA\\-SHA> or E<.Cm DSA\\-SHA1> "
+"scheme must be used."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:655
+#, no-wrap
+msgid "Fl C Fl \\-cipher Ns = Ar cipher"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:662
+msgid ""
+"Select the OpenSSL cipher to encrypt the files containing private keys.  The "
+"default without this option is three\\-key triple DES in CBC mode, E<.Cm "
+"des\\-ede3\\-cbc>.  The E<.Ic openssl Fl h> command provided with OpenSSL "
+"displays available ciphers."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:662
+#, no-wrap
+msgid "Fl d Fl \\-debug\\-level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:665
+msgid ""
+"Increase debugging verbosity level.  This option displays the cryptographic "
+"data produced in eye\\-friendly billboards."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:665
+#, no-wrap
+msgid "Fl D Fl \\-set\\-debug\\-level Ns = Ar level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:669
+msgid ""
+"Set the debugging verbosity to E<.Ar level>.  This option displays the "
+"cryptographic data produced in eye\\-friendly billboards."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:669
+#, no-wrap
+msgid "Fl e Fl \\-id\\-key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:680
+msgid ""
+"Write the E<.Cm IFF> or E<.Cm GQ> public parameters from the E<.Ar IFFkey or "
+"GQkey> client keys file previously specified as unencrypted data to the "
+"standard output stream E<.Pa stdout>.  This is intended for automatic key "
+"distribution by email."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:680
+#, no-wrap
+msgid "Fl G Fl \\-gq\\-params"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:689
+msgid ""
+"Generate a new encrypted E<.Cm GQ> parameters and key file for the "
+"Guillou\\-Quisquater (GQ) identity scheme.  This option is mutually "
+"exclusive with the E<.Fl I> and E<.Fl V> options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:689
+#, no-wrap
+msgid "Fl H Fl \\-host\\-key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:693
+msgid "Generate a new encrypted E<.Cm RSA> public/private host key file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:693
+#, no-wrap
+msgid "Fl I Fl \\-iffkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:702
+msgid ""
+"Generate a new encrypted E<.Cm IFF> key file for the Schnorr (IFF) identity "
+"scheme.  This option is mutually exclusive with the E<.Fl G> and Fl V "
+"options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:702
+#, no-wrap
+msgid "Fl i Fl \\-ident Ns = Ar group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:724
+msgid ""
+"Set the optional Autokey group name to E<.Ar group>.  This is used in the "
+"identity scheme parameter file names of E<.Cm IFF , GQ>, and E<.Cm MV> "
+"client parameters files.  In that role, the default is the host name if no "
+"group is provided.  The group name, if specified using E<.Fl i> or E<.Fl s> "
+"following an E<.Ql @> character, is also used in certificate subject and "
+"issuer names in the form E<.Ar host @ group> and should match the group "
+"specified via E<.Ic crypto Cm ident> or E<.Ic server Cm ident> in the ntpd "
+"configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:724
+#, no-wrap
+msgid "Fl l Fl \\-lifetime Ns = Ar days"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:728
+msgid ""
+"Set the lifetime for certificate expiration to E<.Ar days>.  The default "
+"lifetime is one year (365 days)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:728
+#, no-wrap
+msgid "Fl m Fl \\-modulus Ns = Ar bits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:734
+msgid ""
+"Set the number of bits in the prime modulus for generating files to E<.Ar "
+"bits>.  The modulus defaults to 512, but can be set from 256 to 2048 (32 to "
+"256 octets).  Use the larger moduli with caution, as this can consume "
+"considerable computing resources and increases the size of authenticated "
+"packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:734
+#, no-wrap
+msgid "Fl M Fl \\-md5key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:747
+msgid ""
+"Generate a new symmetric keys file containing 10 E<.Cm MD5> keys, and if "
+"OpenSSL is available, 10 E<.Cm SHA> keys.  An E<.Cm MD5> key is a string of "
+"20 random printable ASCII characters, while a E<.Cm SHA> key is a string of "
+"40 random hex digits.  The file can be edited using a text editor to change "
+"the key type or key content.  This option is mutually exclusive with all "
+"other options."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:747
+#, no-wrap
+msgid "Fl p Fl \\-password Ns = Ar passwd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:754
+msgid ""
+"Set the password for reading and writing encrypted files to E<.Ar passwd>.  "
+"These include the host, sign and identify key files.  By default, the "
+"password is the string returned by the Unix E<.Ic hostname> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:754
+#, no-wrap
+msgid "Fl P Fl \\-pvt\\-cert"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:760
+msgid ""
+"Generate a new private certificate used by the E<.Cm PC> identity scheme.  "
+"By default, the program generates public certificates.  Note: the PC "
+"identity scheme is not recommended for new installations."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:760
+#, no-wrap
+msgid "Fl q Fl \\-export\\-passwd Ns = Ar passwd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:775
+msgid ""
+"Set the password for writing encrypted E<.Cm IFF , GQ and MV> identity files "
+"redirected to E<.Pa stdout> to E<.Ar passwd>.  In effect, these files are "
+"decrypted with the E<.Fl p> password, then encrypted with the E<.Fl q> "
+"password.  By default, the password is the string returned by the Unix E<.Ic "
+"hostname> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:775
+#, no-wrap
+msgid "Fl s Fl \\-subject\\-key Ns = Ar Oo host Oc Op @ Ar group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:799
+msgid ""
+"Specify the Autokey host name, where E<.Ar host> is the optional host name "
+"and E<.Ar group> is the optional group name.  The host name, and if "
+"provided, group name are used in E<.Ar host @ group> form as certificate "
+"subject and issuer.  Specifying E<.Fl s @ Ar group> is allowed, and results "
+"in leaving the host name unchanged, as with E<.Fl i Ar group>.  The group "
+"name, or if no group is provided, the host name are also used in the file "
+"names of E<.Cm IFF , GQ>, and E<.Cm MV> identity scheme client parameter "
+"files.  If E<.Ar host> is not specified, the default host name is the string "
+"returned by the Unix E<.Ic hostname> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:799
+#, no-wrap
+msgid "Fl S Fl \\-sign\\-key Ns = Op Cm RSA | DSA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:804
+msgid ""
+"Generate a new encrypted public/private sign key file of the specified "
+"type.  By default, the sign key is the host key and has the same type.  If "
+"compatibility with FIPS 140\\-2 is required, the sign key type must be E<.Cm "
+"DSA>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:804
+#, no-wrap
+msgid "Fl T Fl \\-trusted\\-cert"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:807 /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1150
+msgid ""
+"Generate a trusted certificate.  By default, the program generates a "
+"non\\-trusted certificate."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:807
+#, no-wrap
+msgid "Fl V Fl \\-mv\\-params Ar nkeys"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:818
+msgid ""
+"Generate E<.Ar nkeys> encrypted server keys and parameters for the "
+"Mu\\-Varadharajan (MV)  identity scheme.  This option is mutually exclusive "
+"with the E<.Fl I> and E<.Fl G> options.  Note: support for this option "
+"should be considered a work in progress."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:819
+#, no-wrap
+msgid "Random Seed File"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:830
+msgid ""
+"All cryptographically sound key generation schemes must have means to "
+"randomize the entropy seed used to initialize the internal pseudo\\-random "
+"number generator used by the library routines.  The OpenSSL library uses a "
+"designated random seed file for this purpose.  The file must be available "
+"when starting the NTP daemon and E<.Nm> program.  If a site supports OpenSSL "
+"or its companion OpenSSH, it is very likely that means to do this are "
+"already available."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:838
+msgid ""
+"It is important to understand that entropy must be evolved for each "
+"generation, for otherwise the random number sequence would be predictable.  "
+"Various means dependent on external events, such as keystroke intervals, can "
+"be used to do this and some systems have built\\-in entropy sources.  "
+"Suitable means are described in the OpenSSL software documentation, but are "
+"outside the scope of this page."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:877
+msgid ""
+"The entropy seed used by the OpenSSL library is contained in a file, usually "
+"called E<.Pa .rnd>, which must be available when starting the NTP daemon or "
+"the E<.Nm> program.  The NTP daemon will first look for the file using the "
+"path specified by the E<.Cm randfile> subcommand of the E<.Ic crypto> "
+"configuration command.  If not specified in this way, or when starting the "
+"E<.Nm> program, the OpenSSL library will look for the file using the path "
+"specified by the E<.Ev RANDFILE> environment variable in the user home "
+"directory, whether root or some other user.  If the E<.Ev RANDFILE> "
+"environment variable is not present, the library will look for the E<.Pa "
+".rnd> file in the user home directory.  Since both the E<.Nm> program and "
+"E<.Xr ntpd 8> daemon must run as root, the logical place to put this file is "
+"in E<.Pa /.rnd> or E<.Pa /root/.rnd>.  If the file is not available or "
+"cannot be written, the daemon exits with a message to the system log and the "
+"program exits with a suitable error message."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:877
+#, no-wrap
+msgid "Cryptographic Data Files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:906
+msgid ""
+"All file formats begin with two nonencrypted lines.  The first line contains "
+"the file name, including the generated host name and filestamp, in the "
+"format E<.Pa ntpkey_ Ns Ar key _ Ar name . Ar filestamp>, where E<.Ar key> "
+"is the key or parameter type, E<.Ar name> is the host or group name and "
+"E<.Ar filestamp> is the filestamp (NTP seconds) when the file was created.  "
+"By convention, E<.Ar key> names in generated file names include both upper "
+"and lower case characters, while E<.Ar key> names in generated link names "
+"include only lower case characters.  The filestamp is not used in generated "
+"link names.  The second line contains the datestamp in conventional Unix "
+"E<.Pa date> format.  Lines beginning with E<.Ql #> are considered comments "
+"and ignored by the E<.Nm> program and E<.Xr ntpd 8> daemon."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:910
+msgid ""
+"The remainder of the file contains cryptographic data, encoded first using "
+"ASN.1 rules, then encrypted if necessary, and finally written in "
+"PEM\\-encoded printable ASCII text, preceded and followed by MIME content "
+"identifier lines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:916
+msgid ""
+"The format of the symmetric keys file, ordinarily named E<.Pa ntp.keys>, is "
+"somewhat different than the other files in the interest of backward "
+"compatibility.  Ordinarily, the file is generated by this program, but it "
+"can be constructed and edited using an ordinary text editor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:939
+#, no-wrap
+msgid ""
+"# ntpkey_MD5key_bk.ntp.org.3595864945\n"
+"# Thu Dec 12 19:22:25 2013\n"
+"1  MD5 L\";NwE<lt>\\`.IE<lt>f4U0)247\"i  # MD5 key\n"
+"2  MD5 &E<gt>l0%XXK9O'51VwVE<lt>xq~  # MD5 key\n"
+"3  MD5 lb4zLW~d^!K:]RsD'qb6  # MD5 key\n"
+"4  MD5 Yue:tL[+vR)M\\`n~bY,'?  # MD5 key\n"
+"5  MD5 B;fx'Kgr/&4ZTbL6=RxA  # MD5 key\n"
+"6  MD5 4eYwa\\`o}3i@@V@..R9!l  # MD5 key\n"
+"7  MD5 \\`A.([h+;wTQ|xfi%Sn_!  # MD5 key\n"
+"8  MD5 45:V,r4]l6y^JH6\"Sh?F  # MD5 key\n"
+"9  MD5 3\\-5vcn*6l29DS?Xdsg)*  # MD5 key\n"
+"10 MD5 2late4Me              # MD5 key\n"
+"11 SHA1 a27872d3030a9025b8446c751b4551a7629af65c  # SHA1 key\n"
+"12 SHA1 21bc3b4865dbb9e920902abdccb3e04ff97a5e74  # SHA1 key\n"
+"13 SHA1 2b7736fe24fef5ba85ae11594132ab5d6f6daba9  # SHA1 key\n"
+"14 SHA  a5332809c8878dd3a5b918819108a111509aeceb  # SHA  key\n"
+"15 MD2  2fe16c88c760ff2f16d4267e36c1aa6c926e6964  # MD2  key\n"
+"16 MD4  b2691811dc19cfc0e2f9bcacd74213f29812183d  # MD4  key\n"
+"17 MD5  e4d6735b8bdad58ec5ffcb087300a17f7fef1f7c  # MD5  key\n"
+"18 MDC2 a8d5e2315c025bf3a79174c87fbd10477de2eabc  # MDC2 key\n"
+"19 RIPEMD160 77ca332cafb30e3cafb174dcd5b80ded7ba9b3d2  # RIPEMD160 key\n"
+"20 AES128CMAC f92ff73eee86c1e7dc638d6489a04e4e555af878  # AES128CMAC key\n"
+msgstr ""
+
+#. type: D1
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:940
+#, no-wrap
+msgid "Figure 1. Typical Symmetric Key File"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:945
+msgid ""
+"Figure 1 shows a typical symmetric keys file used by the reference "
+"implementation.  Following the header the keys are entered one per line in "
+"the format"
+msgstr ""
+
+#. type: D1
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:945
+#, no-wrap
+msgid "Ar keyno Ar type Ar key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:976
+msgid ""
+"where E<.Ar keyno> is a positive integer in the range 1\\-65535; E<.Ar type> "
+"is the key type for the message digest algorithm, which in the absence of "
+"the OpenSSL library must be E<.Cm MD5> to designate the MD5 message digest "
+"algorithm; if the OpenSSL library is installed, the key type can be any "
+"message digest algorithm supported by that library; however, if "
+"compatibility with FIPS 140\\-2 is required, the key type must be either "
+"E<.Cm SHA> or E<.Cm SHA1>; E<.Ar key> is the key itself, which is a "
+"printable ASCII string 20 characters or less in length: each character is "
+"chosen from the 93 printable characters in the range 0x21 through 0x7e ( "
+"E<.Ql !> through E<.Ql ~> \\&) excluding space and the E<.Ql #> character, "
+"and terminated by whitespace or a E<.Ql #> character.  An OpenSSL key "
+"consists of a hex\\-encoded ASCII string of 40 characters, which is "
+"truncated as necessary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:985
+msgid ""
+"Note that the keys used by the E<.Xr ntpq 8> and E<.Xr ntpdc 8> programs are "
+"checked against passwords requested by the programs and entered by hand, so "
+"it is generally appropriate to specify these keys in human readable ASCII "
+"format."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1007
+msgid ""
+"The E<.Nm> program generates a symmetric keys file E<.Pa ntpkey_MD5key_ Ns "
+"Ar hostname Ns . Ns Ar filestamp>.  Since the file contains private shared "
+"keys, it should be visible only to root and distributed by secure means to "
+"other subnet hosts.  The NTP daemon loads the file E<.Pa ntp.keys>, so "
+"E<.Nm> installs a soft link from this name to the generated file.  "
+"Subsequently, similar soft links must be installed by manual or automated "
+"means on the other subnet hosts.  While this file is not used with the "
+"Autokey Version 2 protocol, it is needed to authenticate some remote "
+"configuration commands used by the E<.Xr ntpq 8> and E<.Xr ntpdc 8> "
+"utilities."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1007
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1009
+#, no-wrap
+msgid "Fl b Ar imbits , Fl \\-imbits Ns = Ns Ar imbits"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1015
+msgid ""
+"identity modulus bits.  This option takes an integer number as its "
+"argument.  The value of E<.Ar imbits> is constrained to being:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1019 /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1097
+#, no-wrap
+msgid "in the range  256 through 2048\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1023
+msgid "The number of bits in the identity modulus.  The default is 256."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1023
+#, no-wrap
+msgid "Fl c Ar scheme , Fl \\-certificate Ns = Ns Ar scheme"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1025
+msgid "certificate scheme."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1029
+msgid ""
+"scheme is one of RSA\\-MD2, RSA\\-MD5, RSA\\-MDC2, RSA\\-SHA, RSA\\-SHA1, "
+"RSA\\-RIPEMD160, DSA\\-SHA, or DSA\\-SHA1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1034
+msgid ""
+"Select the certificate signature encryption/message digest scheme.  Note "
+"that RSA schemes must be used with a RSA sign key and DSA schemes must be "
+"used with a DSA sign key.  The default without this option is RSA\\-MD5."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1034
+#, no-wrap
+msgid "Fl C Ar cipher , Fl \\-cipher Ns = Ns Ar cipher"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1036
+msgid "privatekey cipher."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1041
+msgid ""
+"Select the cipher which is used to encrypt the files containing private "
+"keys.  The default is three\\-key triple DES in CBC mode, equivalent to "
+"\"B<\\-C des\\-ede3\\-cbc>\".  The openssl tool lists ciphers available in "
+"\"B<openssl \\-h>\" output."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1041
+#, no-wrap
+msgid "Fl d , Fl \\-debug\\-level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1044
+msgid ""
+"Increase debug verbosity level.  This option may appear an unlimited number "
+"of times."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1045
+#, no-wrap
+msgid "Fl D Ar number , Fl \\-set\\-debug\\-level Ns = Ns Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1049
+msgid ""
+"Set the debug verbosity level.  This option may appear an unlimited number "
+"of times.  This option takes an integer number as its argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1050
+#, no-wrap
+msgid "Fl e , Fl \\-id\\-key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1052
+msgid "Write IFF or GQ identity keys."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1056
+msgid ""
+"Write the public parameters from the IFF or GQ client keys to the standard "
+"output.  This is intended for automatic key distribution by email."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1056
+#, no-wrap
+msgid "Fl G , Fl \\-gq\\-params"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1058
+msgid "Generate GQ parameters and keys."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1061
+msgid ""
+"Generate parameters and keys for the GQ identification scheme, obsoleting "
+"any that may exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1061
+#, no-wrap
+msgid "Fl H , Fl \\-host\\-key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1063
+msgid "generate RSA host key."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1065
+msgid "Generate new host keys, obsoleting any that may exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1065
+#, no-wrap
+msgid "Fl I , Fl \\-iffkey"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1067
+msgid "generate IFF parameters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1070
+msgid ""
+"Generate parameters for the IFF identification scheme, obsoleting any that "
+"may exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1070
+#, no-wrap
+msgid "Fl i Ar group , Fl \\-ident Ns = Ns Ar group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1072
+msgid "set Autokey group name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1082
+msgid ""
+"Set the optional Autokey group name to name.  This is used in the file name "
+"of IFF, GQ, and MV client parameters files.  In that role, the default is "
+"the host name if this option is not provided.  The group name, if specified "
+"using B<\\-i/\\-\\-ident> or using B<\\-s/\\-\\-subject\\-name> following an "
+"'B<@>' character, is also a part of the self\\-signed host certificate "
+"subject and issuer names in the form B<host@group> and should match the "
+"\\'B<crypto ident>' or 'B<server ident>' configuration in the B<ntpd> "
+"configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1082
+#, no-wrap
+msgid "Fl l Ar lifetime , Fl \\-lifetime Ns = Ns Ar lifetime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1085
+msgid ""
+"set certificate lifetime.  This option takes an integer number as its "
+"argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1087
+msgid "Set the certificate expiration to lifetime days from now."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1087
+#, no-wrap
+msgid "Fl m Ar modulus , Fl \\-modulus Ns = Ns Ar modulus"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1093
+msgid ""
+"prime modulus.  This option takes an integer number as its argument.  The "
+"value of E<.Ar modulus> is constrained to being:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1101
+msgid "The number of bits in the prime modulus.  The default is 512."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1101
+#, no-wrap
+msgid "Fl M , Fl \\-md5key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1103
+msgid "generate symmetric keys."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1105
+msgid "Generate symmetric keys, obsoleting any that may exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1105
+#, no-wrap
+msgid "Fl P , Fl \\-pvt\\-cert"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1107
+msgid "generate PC private certificate."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1110
+msgid ""
+"Generate a private certificate.  By default, the program generates public "
+"certificates."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1110
+#, no-wrap
+msgid "Fl p Ar passwd , Fl \\-password Ns = Ns Ar passwd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1112
+msgid "local private password."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1118
+msgid ""
+"Local files containing private data are encrypted with the DES\\-CBC "
+"algorithm and the specified password.  The same password must be specified "
+"to the local ntpd via the \"crypto pw password\" configuration command.  The "
+"default password is the local hostname."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1118
+#, no-wrap
+msgid "Fl q Ar passwd , Fl \\-export\\-passwd Ns = Ns Ar passwd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1120
+msgid "export IFF or GQ group keys with password."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1126
+msgid ""
+"Export IFF or GQ identity group keys to the standard output, encrypted with "
+"the DES\\-CBC algorithm and the specified password.  The same password must "
+"be specified to the remote ntpd via the \"crypto pw password\" configuration "
+"command.  See also the option -\\-id\\-key (\\-e) for unencrypted exports."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1126
+#, no-wrap
+msgid "Fl s Ar host@group , Fl \\-subject\\-name Ns = Ns Ar host@group"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1128
+msgid "set host and optionally group name."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1139
+msgid ""
+"Set the Autokey host name, and optionally, group name specified following an "
+"'B<@>' character.  The host name is used in the file name of generated host "
+"and signing certificates, without the group name.  The host name, and if "
+"provided, group name are used in B<host@group> form for the host certificate "
+"subject and issuer fields.  Specifying 'B<\\-s @group>' is allowed, and "
+"results in leaving the host name unchanged while appending B<@group> to the "
+"subject and issuer fields, as with B<\\-i group>.  The group name, or if not "
+"provided, the host name are also used in the file names of IFF, GQ, and MV "
+"client parameter files."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1139
+#, no-wrap
+msgid "Fl S Ar sign , Fl \\-sign\\-key Ns = Ns Ar sign"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1141
+msgid "generate sign key (RSA or DSA)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1145
+msgid ""
+"Generate a new sign key of the designated type, obsoleting any that may "
+"exist.  By default, the program uses the host key as the sign key."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1145
+#, no-wrap
+msgid "Fl T , Fl \\-trusted\\-cert"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1147
+msgid "trusted certificate (TC scheme)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1150
+#, no-wrap
+msgid "Fl V Ar num , Fl \\-mv\\-params Ns = Ns Ar num"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1153
+msgid ""
+"generate E<lt>numE<gt> MV parameters.  This option takes an integer number "
+"as its argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1156
+msgid ""
+"Generate parameters and keys for the Mu\\-Varadharajan (MV)  identification "
+"scheme."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1156
+#, no-wrap
+msgid "Fl v Ar num , Fl \\-mv\\-keys Ns = Ns Ar num"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1159
+msgid ""
+"update E<lt>numE<gt> MV keys.  This option takes an integer number as its "
+"argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1161
+msgid "This option has not been fully documented."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1161
+#, no-wrap
+msgid "Fl \\&? , Fl \\-help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1163
+msgid "Display usage information and exit."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1163
+#, no-wrap
+msgid "Fl \\&! , Fl \\-more\\-help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1165
+msgid "Pass the extended usage information through a pager."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1165
+#, no-wrap
+msgid "Fl E<gt> Oo Ar cfgfile Oc , Fl \\-save\\-opts Oo Ns = Ns Ar cfgfile Oc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1169
+msgid ""
+"Save the option state to I<cfgfile>.  The default is the I<last> "
+"configuration file listed in the B<OPTION PRESETS> section, below.  The "
+"command will exit after updating the config file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1169
+#, no-wrap
+msgid ""
+"Fl E<lt> Ar cfgfile , Fl \\-load\\-opts Ns = Ns Ar cfgfile , Fl "
+"\\-no\\-load\\-opts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1174
+msgid ""
+"Load options from I<cfgfile>.  The I<no\\-load\\-opts> form will disable the "
+"loading of earlier config/rc/ini files.  I<\\-\\-no\\-load\\-opts> is "
+"handled early, out of order."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1174
+#, no-wrap
+msgid "Fl \\-version Op Brq Ar v|c|n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1178
+msgid ""
+"Output version of program and exit.  The default mode is `v', a simple "
+"version.  The `c' mode will print copyright information and `n' will print "
+"the full copyright notice."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1179
+#, no-wrap
+msgid "OPTION PRESETS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1183
+msgid ""
+"Any option that is not marked as I<not presettable> may be preset by loading "
+"values from configuration (\"RC\" or \".INI\") file(s) and values from "
+"environment variables named:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1185
+#, no-wrap
+msgid "  B<NTP_KEYGEN_E<lt>option\\-nameE<gt>> or B<NTP_KEYGEN>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1192
+msgid ""
+"The environmental presets take precedence (are processed later than)  the "
+"configuration files.  The I<homerc> files are \"I<$HOME>\", and \"I<.>\".  "
+"If any of these are directories, then the file I<.ntprc> is searched for "
+"within those directories."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1192
+#, no-wrap
+msgid "USAGE"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1193
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1195
+msgid "See B<OPTION PRESETS> for configuration environment variables."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1195
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1197
+msgid "See B<OPTION PRESETS> for configuration files."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1197
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1199
+msgid "One of the following exit values will be returned:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1200
+#, no-wrap
+msgid "0 \" (EXIT_SUCCESS)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1202
+msgid "Successful program execution."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1202
+#, no-wrap
+msgid "1 \" (EXIT_FAILURE)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1204
+msgid "The operation failed or the command syntax was not valid."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1204
+#, no-wrap
+msgid "66 \" (EX_NOINPUT)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1206
+msgid "A specified configuration file could not be loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1206
+#, no-wrap
+msgid "70 \" (EX_SOFTWARE)\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1209
+msgid ""
+"libopts had an internal operational error.  Please report it to "
+"autogen\\-users@lists.sourceforge.net.  Thank you."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1210
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1212
+msgid "The University of Delaware and Network Time Foundation"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1212
+#, no-wrap
+msgid "COPYRIGHT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1215
+msgid ""
+"Copyright (C) 1992\\-2017 The University of Delaware and Network Time "
+"Foundation all rights reserved.  This program is released under the terms of "
+"the NTP license, E<lt>http://ntp.org/licenseE<gt>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1215
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1217
+msgid "It can take quite a while to generate some cryptographic values."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1219
+msgid "Please report bugs to http://bugs.ntp.org ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1221
+msgid "Please send bug reports to: http://bugs.ntp.org, bugs@ntp.org"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1221
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1223
+msgid "Portions of this document came from FreeBSD."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/ntp/doc/ntp-keygen.8:1225
+msgid ""
+"This manual page was I<AutoGen>\\-erated from the B<ntp\\-keygen> option "
+"definitions."
+msgstr ""

@@ -1,0 +1,632 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/nmtree/mtree.5:31
+#, no-wrap
+msgid "December 31, 2007"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/nmtree/mtree.5:32
+#, no-wrap
+msgid "MTREE 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nmtree/mtree.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:36
+msgid "E<.Nm mtree>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/nmtree/mtree.5:36
+#, no-wrap
+msgid "format of mtree dir hierarchy files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nmtree/mtree.5:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:42
+msgid ""
+"The E<.Nm> format is a textual format that describes a collection of "
+"filesystem objects.  Such files are typically used to create or verify "
+"directory hierarchies."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/nmtree/mtree.5:42
+#, no-wrap
+msgid "General Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:48
+msgid ""
+"An E<.Nm> file consists of a series of lines, each providing information "
+"about a single filesystem object.  Leading whitespace is always ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:56
+msgid ""
+"When encoding file or pathnames, any backslash character or character "
+"outside of the 95 printable ASCII characters must be encoded as a backslash "
+"followed by three octal digits.  When reading mtree files, any appearance of "
+"a backslash followed by three octal digits should be converted into the "
+"corresponding character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:58
+msgid "Each line is interpreted independently as one of the following types:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:59
+#, no-wrap
+msgid "Signature"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:67
+msgid ""
+"The first line of any mtree file must begin with E<.Dq #mtree>.  If a file "
+"contains any full path entries, the first line should begin with E<.Dq "
+"#mtree v2.0>, otherwise, the first line should begin with E<.Dq #mtree "
+"v1.0>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:67
+#, no-wrap
+msgid "Blank"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:69
+msgid "Blank lines are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:69
+#, no-wrap
+msgid "Comment"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:73
+msgid "Lines beginning with E<.Cm #> are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:73
+#, no-wrap
+msgid "Special"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:78
+msgid ""
+"Lines beginning with E<.Cm /> are special commands that influence the "
+"interpretation of later lines."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:78
+#, no-wrap
+msgid "Relative"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:85
+msgid ""
+"If the first whitespace-delimited word has no E<.Cm /> characters, it is the "
+"name of a file in the current directory.  Any relative entry that describes "
+"a directory changes the current directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:85
+#, no-wrap
+msgid "dot-dot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:90
+msgid ""
+"As a special case, a relative entry with the filename E<.Pa ..> changes the "
+"current directory to the parent directory.  Options on dot-dot entries are "
+"always ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:90
+#, no-wrap
+msgid "Full"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:97
+msgid ""
+"If the first whitespace-delimited word has a E<.Cm /> character after the "
+"first character, it is the pathname of a file relative to the starting "
+"directory.  There can be multiple full entries describing the same file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:105
+msgid ""
+"Some tools that process E<.Nm> files may require that multiple lines "
+"describing the same file occur consecutively.  It is not permitted for the "
+"same file to be mentioned using both a relative and a full file "
+"specification."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/nmtree/mtree.5:105
+#, no-wrap
+msgid "Special commands"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:107
+msgid "Two special commands are currently defined:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:108
+#, no-wrap
+msgid "Cm /set"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:114
+msgid ""
+"This command defines default values for one or more keywords.  It is "
+"followed on the same line by one or more whitespace-separated keyword "
+"definitions.  These definitions apply to all following files that do not "
+"specify a value for that keyword."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:114
+#, no-wrap
+msgid "Cm /unset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:120
+msgid ""
+"This command removes any default value set by a previous E<.Cm /set> "
+"command.  It is followed on the same line by one or more keywords separated "
+"by whitespace."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/usr.sbin/nmtree/mtree.5:121
+#, no-wrap
+msgid "Keywords"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:129
+msgid ""
+"After the filename, a full or relative entry consists of zero or more "
+"whitespace-separated keyword definitions.  Each such definitions consists of "
+"a key from the following list immediately followed by an '=' sign and a "
+"value.  Software programs reading mtree files should warn about unrecognized "
+"keywords."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:131
+msgid "Currently supported keywords are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:132
+#, no-wrap
+msgid "Cm cksum"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:137
+msgid ""
+"The checksum of the file using the default algorithm specified by the E<.Xr "
+"cksum 1> utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:137
+#, no-wrap
+msgid "Cm contents"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:140
+msgid ""
+"The full pathname of a file whose contents should be compared to the "
+"contents of this file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:140
+#, no-wrap
+msgid "Cm flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:148
+msgid ""
+"The file flags as a symbolic name.  See E<.Xr chflags 1> for information on "
+"these names.  If no flags are to be set the string E<.Dq none> may be used "
+"to override the current default."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:148
+#, no-wrap
+msgid "Cm ignore"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:150
+msgid "Ignore any file hierarchy below this file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:150
+#, no-wrap
+msgid "Cm gid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:152
+msgid "The file group as a numeric value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:152
+#, no-wrap
+msgid "Cm gname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:154
+msgid "The file group as a symbolic name."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:154
+#, no-wrap
+msgid "Cm md5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:156
+msgid "The MD5 message digest of the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:156
+#, no-wrap
+msgid "Cm md5digest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:159
+msgid "A synonym for E<.Cm md5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:159
+#, no-wrap
+msgid "Cm sha1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:165
+msgid "The E<.Tn FIPS> 160-1 E<.Pq Dq Tn SHA-1> message digest of the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:165
+#, no-wrap
+msgid "Cm sha1digest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:168
+msgid "A synonym for E<.Cm sha1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:168
+#, no-wrap
+msgid "Cm sha256"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:174
+msgid "The E<.Tn FIPS> 180-2 E<.Pq Dq Tn SHA-256> message digest of the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:174
+#, no-wrap
+msgid "Cm sha256digest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:177
+msgid "A synonym for E<.Cm sha256>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:177
+#, no-wrap
+msgid "Cm ripemd160digest"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:181
+msgid "The E<.Tn RIPEMD160> message digest of the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:181
+#, no-wrap
+msgid "Cm rmd160"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:184 /usr/src/usr.sbin/nmtree/mtree.5:187
+msgid "A synonym for E<.Cm ripemd160digest>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:184
+#, no-wrap
+msgid "Cm rmd160digest"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:187
+#, no-wrap
+msgid "Cm mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:190
+msgid "The current file's permissions as a numeric (octal) or symbolic value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:190
+#, no-wrap
+msgid "Cm nlink"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:192
+msgid "The number of hard links the file is expected to have."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:192
+#, no-wrap
+msgid "Cm nochange"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:194
+msgid "Make sure this file or directory exists but otherwise ignore all attributes."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:194
+#, no-wrap
+msgid "Cm uid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:196
+msgid "The file owner as a numeric value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:196
+#, no-wrap
+msgid "Cm uname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:198
+msgid "The file owner as a symbolic name."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:198
+#, no-wrap
+msgid "Cm size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:200
+msgid "The size, in bytes, of the file."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:200 /usr/src/usr.sbin/nmtree/mtree.5:220
+#, no-wrap
+msgid "Cm link"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:202
+msgid "The file the symbolic link is expected to reference."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:202
+#, no-wrap
+msgid "Cm time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:206
+msgid ""
+"The last modification time of the file, in seconds and nanoseconds.  The "
+"value should include a period character and exactly nine digits after the "
+"period."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:206
+#, no-wrap
+msgid "Cm type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:208
+msgid "The type of the file; may be set to any one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:210
+#, no-wrap
+msgid "Cm block"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:212
+msgid "block special device"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:212
+#, no-wrap
+msgid "Cm char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:214
+msgid "character special device"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:214
+#, no-wrap
+msgid "Cm dir"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:216
+msgid "directory"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:216
+#, no-wrap
+msgid "Cm fifo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:218
+msgid "fifo"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:218
+#, no-wrap
+msgid "Cm file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:220
+msgid "regular file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:222
+msgid "symbolic link"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/nmtree/mtree.5:222
+#, no-wrap
+msgid "Cm socket"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:224
+msgid "socket"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nmtree/mtree.5:226
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:230
+msgid "E<.Xr cksum 1>, E<.Xr find 1>, E<.Xr mtree 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nmtree/mtree.5:230
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:261
+msgid ""
+"The E<.Nm> utility appeared in E<.Bx 4.3 Reno>.  The E<.Tn MD5> digest "
+"capability was added in E<.Fx 2.1>, in response to the widespread use of "
+"programs which can spoof E<.Xr cksum 1>.  The E<.Tn SHA-1> and E<.Tn "
+"RIPEMD160> digests were added in E<.Fx 4.0>, as new attacks have "
+"demonstrated weaknesses in E<.Tn MD5>.  The E<.Tn SHA-256> digest was added "
+"in E<.Fx 6.0>.  Support for file flags was added in E<.Fx 4.0>, and mostly "
+"comes from E<.Nx>.  The E<.Dq full> entry format was added by E<.Nx>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/nmtree/mtree.5:261
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/nmtree/mtree.5:264
+msgid ""
+"The requirement for a E<.Dq #mtree> signature line is new and not yet widely "
+"implemented."
+msgstr ""

@@ -1,0 +1,281 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/rwhod/rwhod.8:31
+#, no-wrap
+msgid "August 8, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/rwhod/rwhod.8:32
+#, no-wrap
+msgid "RWHOD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rwhod/rwhod.8:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:36
+msgid "E<.Nm rwhod>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/rwhod/rwhod.8:36
+#, no-wrap
+msgid "system status server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rwhod/rwhod.8:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:43
+msgid "E<.Nm> E<.Op Fl i> E<.Op Fl p> E<.Op Fl l> E<.Op Fl m Op Ar ttl>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rwhod/rwhod.8:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:56
+msgid ""
+"The E<.Nm> utility is the server which maintains the database used by the "
+"E<.Xr rwho 1> and E<.Xr ruptime 1> programs.  Its operation is predicated on "
+"the ability to E<.Em broadcast> or E<.Em multicast> messages on a network."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:72
+msgid ""
+"The E<.Nm> utility operates as both a producer and consumer of status "
+"information, unless the E<.Fl l> (listen mode) option is specified, in which "
+"case it acts as a consumer only.  As a producer of information it "
+"periodically queries the state of the system and constructs status messages "
+"which are broadcasted or multicasted on a network.  As a consumer of "
+"information, it listens for other E<.Nm> servers' status messages, "
+"validating them, then recording them in a collection of files located in the "
+"directory E<.Pa /var/rwho>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:74
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rwhod/rwhod.8:75
+#, no-wrap
+msgid "Fl i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:79
+msgid ""
+"Enable insecure mode, which causes E<.Nm> to ignore the source port on "
+"incoming packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rwhod/rwhod.8:79
+#, no-wrap
+msgid "Fl p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:85
+msgid ""
+"Ignore all E<.Dv POINTOPOINT> interfaces.  This is useful if you do not wish "
+"to keep dial on demand interfaces permanently active."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rwhod/rwhod.8:85
+#, no-wrap
+msgid "Fl l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:92
+msgid ""
+"Enable listen mode, which causes E<.Nm> to not broadcast any information.  "
+"This allows you to monitor other machines' E<.Nm> information, without "
+"broadcasting your own."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/rwhod/rwhod.8:92
+#, no-wrap
+msgid "Fl m Op Ar ttl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:102
+msgid ""
+"Cause E<.Nm> to use IP multicast (instead of broadcast) on all interfaces "
+"that have the IFF_MULTICAST flag set in their \"ifnet\" structs (excluding "
+"the loopback interface).  The multicast reports are sent with a time-to-live "
+"of 1, to prevent forwarding beyond the directly-connected subnet(s)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:124
+msgid ""
+"If the optional E<.Ar ttl> argument is supplied with the E<.Fl m> flag, "
+"E<.Nm> will send IP multicast datagrams with a time-to-live of E<.Ar ttl>, "
+"via a SINGLE interface rather than all interfaces.  E<.Ar ttl> must be "
+"between 0 and 32 (or MAX_MULTICAST_SCOPE).  Note that E<.Fl m Ar 1> is "
+"different from E<.Fl m>, in that E<.Fl m Ar 1> specifies transmission on one "
+"interface only."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:148
+msgid ""
+"When E<.Fl m> is used without a E<.Ar ttl> argument, the program accepts "
+"multicast E<.Nm> reports from all multicast-capable interfaces.  If a E<.Ar "
+"ttl> argument is given, it accepts multicast reports from only one "
+"interface, the one on which reports are sent (which may be controlled via "
+"the host's routing table).  Regardless of the E<.Fl m> option, the program "
+"accepts broadcast or unicast reports from all interfaces.  Thus, this "
+"program will hear the reports of old, non-multicasting E<.Nm Ns s>, but, if "
+"multicasting is used, those old E<.Nm Ns s> will not hear the reports "
+"generated by this program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:154
+msgid ""
+"The server transmits and receives messages at the port indicated in the "
+"``who'' service specification; see E<.Xr services 5>.  The messages sent and "
+"received, are of the form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:160
+#, no-wrap
+msgid ""
+"struct\toutmp {\n"
+"\tchar\tout_line[8];\t\t/* tty name */\n"
+"\tchar\tout_name[8];\t\t/* user id */\n"
+"\tlong\tout_time;\t\t/* time on */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:175
+#, no-wrap
+msgid ""
+"struct\twhod {\n"
+"\tchar\twd_vers;\n"
+"\tchar\twd_type;\n"
+"\tchar\twd_fill[2];\n"
+"\tint\twd_sendtime;\n"
+"\tint\twd_recvtime;\n"
+"\tchar\twd_hostname[32];\n"
+"\tint\twd_loadav[3];\n"
+"\tint\twd_boottime;\n"
+"\tstruct\twhoent {\n"
+"\t\tstruct\toutmp we_utmp;\n"
+"\t\tint\twe_idle;\n"
+"\t} wd_we[1024 / sizeof (struct whoent)];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:194
+msgid ""
+"All fields are converted to network byte order prior to transmission.  The "
+"load averages are as calculated by the E<.Xr w 1> program, and represent "
+"load averages over the 5, 10, and 15 minute intervals prior to a server's "
+"transmission; they are multiplied by 100 for representation in an integer.  "
+"The host name included is that returned by the E<.Xr gethostname 3> system "
+"call, with any trailing domain name omitted.  The array at the end of the "
+"message contains information about the users logged in to the sending "
+"machine.  This information includes the contents of the entry from the user "
+"accounting database for each non-idle terminal line and a value indicating "
+"the time in seconds since a character was last received on the terminal "
+"line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:215
+msgid ""
+"Messages received by the E<.Nm rwho> server are discarded unless they "
+"originated at an E<.Nm rwho> server's port or the E<.Fl i> option was "
+"specified.  In addition, if the host's name, as specified in the message, "
+"contains any unprintable E<.Tn ASCII> characters, the message is discarded.  "
+"Valid messages received by E<.Nm> are placed in files named E<.Pa "
+"whod.hostname> in the directory E<.Pa /var/rwho>.  These files contain only "
+"the most recent message, in the format described above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:227
+msgid ""
+"Status messages are generated approximately once every 3 minutes.  The "
+"E<.Nm> utility performs an E<.Xr nlist 3> on E<.Pa /boot/kernel/kernel> "
+"every 30 minutes to guard against the possibility that this file is not the "
+"system image currently operating."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rwhod/rwhod.8:227
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:230
+msgid "E<.Xr ruptime 1>, E<.Xr rwho 1>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rwhod/rwhod.8:230
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:235
+msgid "The E<.Nm> utility appeared in E<.Bx 4.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/rwhod/rwhod.8:235
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/rwhod/rwhod.8:239
+msgid ""
+"Status information should be sent only upon request rather than "
+"continuously.  People often interpret the server dying or network "
+"communication failures as a machine going down."
+msgstr ""

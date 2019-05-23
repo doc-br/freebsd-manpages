@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/copy.9:37
+#, no-wrap
+msgid "June 15, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/copy.9:38
+#, no-wrap
+msgid "COPY 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/copy.9:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:48
+msgid ""
+"E<.Nm copy>, E<.Nm copyin>, E<.Nm copyin_nofault>, E<.Nm copyout>, E<.Nm "
+"copyout_nofault>, E<.Nm copystr>, E<.Nm copyinstr>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/copy.9:48
+#, no-wrap
+msgid "kernel copy functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/copy.9:49
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/copy.9:50
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/copy.9:51
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:64
+msgid ""
+"E<.Ft int> E<.Fn copyin \"const void *uaddr\" \"void *kaddr\" \"size_t "
+"len\"> E<.Ft int> E<.Fn copyin_nofault \"const void *uaddr\" \"void *kaddr\" "
+"\"size_t len\"> E<.Ft int> E<.Fn copyout \"const void *kaddr\" \"void "
+"*uaddr\" \"size_t len\"> E<.Ft int> E<.Fn copyout_nofault \"const void "
+"*kaddr\" \"void *uaddr\" \"size_t len\"> E<.Ft int> E<.Fn copystr \"const "
+"void *kfaddr\" \"void *kdaddr\" \"size_t len\" \"size_t *done\"> E<.Ft int> "
+"E<.Fn copyinstr \"const void *uaddr\" \"void *kaddr\" \"size_t len\" "
+"\"size_t *done\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/copy.9:64
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:72
+msgid ""
+"The E<.Nm> functions are designed to copy contiguous data from one address "
+"to another.  All but E<.Fn copystr> copy data from user-space to "
+"kernel-space or vice-versa."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:83
+msgid ""
+"The E<.Fn copyin> and E<.Fn copyin_nofault> functions copy E<.Fa len> bytes "
+"of data from the user-space address E<.Fa uaddr> to the kernel-space address "
+"E<.Fa kaddr>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:94
+msgid ""
+"The E<.Fn copyout> and E<.Fn copyout_nofault> functions copy E<.Fa len> "
+"bytes of data from the kernel-space address E<.Fa kaddr> to the user-space "
+"address E<.Fa uaddr>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:104
+msgid ""
+"The E<.Fn copyin_nofault> and E<.Fn copyout_nofault> functions require that "
+"the kernel-space and user-space data be accessible without incurring a page "
+"fault.  The source and destination addresses must be physically mapped for "
+"read and write access, respectively, and neither the source nor destination "
+"addresses may be pageable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:120
+msgid ""
+"The E<.Fn copystr> function copies a NUL-terminated string, at most E<.Fa "
+"len> bytes long, from kernel-space address E<.Fa kfaddr> to kernel-space "
+"address E<.Fa kdaddr>.  The number of bytes actually copied, including the "
+"terminating NUL, is returned in E<.Fa *done> (if E<.Fa done> is E<.No non- "
+"Ns Dv NULL>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:136
+msgid ""
+"The E<.Fn copyinstr> function copies a NUL-terminated string, at most E<.Fa "
+"len> bytes long, from user-space address E<.Fa uaddr> to kernel-space "
+"address E<.Fa kaddr>.  The number of bytes actually copied, including the "
+"terminating NUL, is returned in E<.Fa *done> (if E<.Fa done> is E<.No non- "
+"Ns Dv NULL>)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/copy.9:136
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:161
+msgid ""
+"The E<.Nm> functions return 0 on success.  All but E<.Fn copystr> return "
+"E<.Er EFAULT> if a bad address is encountered.  The E<.Fn copyin_nofault> "
+"and E<.Fn copyout_nofault> functions return E<.Er EFAULT> if a page fault "
+"occurs.  The E<.Fn copystr> and E<.Fn copyinstr> functions return E<.Er "
+"ENAMETOOLONG> if the string is longer than E<.Fa len> bytes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/copy.9:161
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/copy.9:163
+msgid "E<.Xr fetch 9>, E<.Xr store 9>"
+msgstr ""

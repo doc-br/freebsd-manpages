@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/bus_release_resource.9:31
+#, no-wrap
+msgid "May 18, 2000"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/bus_release_resource.9:32
+#, no-wrap
+msgid "BUS_RELEASE_RESOURCE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:36
+msgid "E<.Nm bus_release_resource>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/bus_release_resource.9:36
+#, no-wrap
+msgid "release resources on a bus"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_release_resource.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_release_resource.9:39
+#, no-wrap
+msgid "sys/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_release_resource.9:41
+#, no-wrap
+msgid "machine/bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_release_resource.9:42
+#, no-wrap
+msgid "sys/rman.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bus_release_resource.9:43
+#, no-wrap
+msgid "machine/resource.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:46
+msgid ""
+"E<.Ft int> E<.Fn bus_release_resource \"device_t dev\" \"int type\" \"int "
+"rid\" \"struct resource *r\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:53
+msgid ""
+"Free a resource allocated by E<.Xr bus_alloc_resource 9>.  The resource must "
+"not be in use on release, i.e., call an appropriate function before (e.g.\\& "
+"E<.Xr bus_teardown_intr 9> for IRQs)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:57
+msgid "E<.Fa dev> is the device that owns the resource."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:64
+msgid ""
+"E<.Fa type> is the type of resource that is released.  It must be of the "
+"same type you allocated it as before.  See E<.Xr bus_alloc_resource 9> for "
+"valid types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:71
+msgid ""
+"E<.Fa rid> is the resource ID of the resource.  The E<.Fa rid> value must be "
+"the same as the one returned by E<.Xr bus_alloc_resource 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:78
+msgid ""
+"E<.Fa r> is the pointer to E<.Va struct resource>, i.e., the resource "
+"itself, returned by E<.Xr bus_alloc_resource 9>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:79
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:87
+msgid ""
+"E<.Er EINVAL> is returned, if the device E<.Fa dev> has no parent, E<.Dv 0> "
+"otherwise.  The kernel will panic, if it cannot release the resource."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:87
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:91
+#, no-wrap
+msgid ""
+"\t/* deactivate IRQ */\n"
+"\tbus_teardown_intr(dev, foosoftc-E<gt>irqres, foosoftc-E<gt>irqid);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:95
+#, no-wrap
+msgid ""
+"\t/* release IRQ resource */\n"
+"\tbus_release_resource(dev, SYS_RES_IRQ, foosoftc-E<gt>irqid,\n"
+"\t\tfoosoftc-E<gt>irqres);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:99
+#, no-wrap
+msgid ""
+"\t/* release I/O port resource */\n"
+"\tbus_release_resource(dev, SYS_RES_IOPORT, foosoftc-E<gt>portid,\n"
+"\t\tfoosoftc-E<gt>portres);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:100
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:104
+msgid "E<.Xr bus_alloc_resource 9>, E<.Xr device 9>, E<.Xr driver 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bus_release_resource.9:104
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bus_release_resource.9:106
+msgid ""
+"This manual page was written by E<.An Alexander Langer Aq Mt "
+"alex@big.endian.de>."
+msgstr ""

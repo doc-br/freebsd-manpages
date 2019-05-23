@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/accf_http.9:28
+#, no-wrap
+msgid "November 15, 2000"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/accf_http.9:29
+#, no-wrap
+msgid "ACCF_HTTP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:33
+msgid "E<.Nm accf_http>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/accf_http.9:33
+#, no-wrap
+msgid "buffer incoming connections until a certain complete HTTP requests arrive"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:38
+msgid ""
+"E<.Nm options INET> E<.Nm options ACCEPT_FILTER_HTTP> E<.Nm kldload "
+"accf_http>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:42
+msgid ""
+"This is a filter to be placed on a socket that will be using E<.Fn accept> "
+"to receive incoming HTTP connections."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:47
+msgid ""
+"It prevents the application from receiving the connected descriptor via "
+"E<.Fn accept> until either a full HTTP/1.0 or HTTP/1.1 HEAD or GET request "
+"has been buffered by the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:53
+msgid ""
+"If something other than a HTTP/1.0 or HTTP/1.1 HEAD or GET request is "
+"received the kernel will allow the application to receive the connection "
+"descriptor via E<.Fn accept>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:68
+msgid ""
+"The utility of E<.Nm> is such that a server will not have to context switch "
+"several times before performing the initial parsing of the request.  This "
+"effectively reduces the amount of required CPU utilization to handle "
+"incoming requests by keeping active processes in preforking servers such as "
+"Apache low and reducing the size of the file descriptor set that needs to be "
+"managed by interfaces such as E<.Fn select>, E<.Fn poll> or E<.Fn kevent> "
+"based servers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:74
+msgid ""
+"The E<.Nm> kernel option is also a module that can be enabled at runtime via "
+"E<.Xr kldload 8> if the INET option has been compiled into the kernel."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:74
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:82
+msgid ""
+"Assuming ACCEPT_FILTER_HTTP has been included in the kernel config file or "
+"the E<.Nm> module has been loaded, this will enable the http accept filter "
+"on the socket E<.Fa sok>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:84
+#, no-wrap
+msgid "\tstruct accept_filter_arg afa;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:88
+#, no-wrap
+msgid ""
+"\tbzero(&afa, sizeof(afa));\n"
+"\tstrcpy(afa.af_name, \"httpready\");\n"
+"\tsetsockopt(sok, SOL_SOCKET, SO_ACCEPTFILTER, &afa, sizeof(afa));\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:89
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:92
+msgid "E<.Xr setsockopt 2>, E<.Xr accept_filter 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:92
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:96
+msgid ""
+"The accept filter mechanism and the accf_http filter were introduced in "
+"E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accf_http.9:96
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accf_http.9:98
+msgid "This manual page and the filter were written by E<.An Alfred Perlstein>."
+msgstr ""

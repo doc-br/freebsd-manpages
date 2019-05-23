@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/openbsm/man/audit_user.5:28
+#, no-wrap
+msgid "January 4, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/openbsm/man/audit_user.5:29
+#, no-wrap
+msgid "AUDIT_USER 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:33
+msgid "E<.Nm audit_user>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/openbsm/man/audit_user.5:33
+#, no-wrap
+msgid "events to be audited for given users"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:42
+msgid ""
+"The E<.Nm> file specifies which audit event classes are to be audited for "
+"the given users.  If specified, these flags are combined with the "
+"system-wide audit flags in the E<.Xr audit_control 5> file to determine "
+"which classes of events to audit for that user.  These settings take effect "
+"when the user logs in."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:46
+msgid ""
+"Each line maps a user name to a list of classes that should be audited and a "
+"list of classes that should not be audited.  Entries are of the form:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/contrib/openbsm/man/audit_user.5:47
+#, no-wrap
+msgid "Ar username Ns : Ns Ar alwaysaudit Ns : Ns Ar neveraudit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:60
+msgid ""
+"In the format above, E<.Ar alwaysaudit> is a set of event classes that are "
+"always audited, and E<.Ar neveraudit> is a set of event classes that should "
+"not be audited.  These sets can indicate the inclusion or exclusion of "
+"multiple classes, and whether to audit successful or failed events.  See "
+"E<.Xr audit_control 5> for more information about audit flags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:62
+msgid "Example entries in this file are:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:65
+#, no-wrap
+msgid ""
+"root:lo,ad:no\n"
+"jdoe:-fc,ad:+fw\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:76
+msgid ""
+"These settings would cause login/logout and administrative events that are "
+"performed on behalf of user E<.Dq Li root> to be audited.  No failure events "
+"are audited.  For the user E<.Dq Li jdoe>, failed file creation events are "
+"audited, administrative events are audited, and successful file write events "
+"are never audited."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:76
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:80
+msgid ""
+"Per-user and global audit preselection configuration are evaluated at time "
+"of login, so users must log out and back in again for audit changes relating "
+"to preselection to take effect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:92
+msgid ""
+"Audit record preselection occurs with respect to the audit identifier "
+"associated with a process, rather than with respect to the UNIX user or "
+"group ID.  The audit identifier is set as part of the user credential "
+"context as part of login, and typically does not change as a result of "
+"running setuid or setgid applications, such as E<.Xr su 1>.  This has the "
+"advantage that events that occur after running E<.Xr su 1> can be audited to "
+"the original authenticated user, as required by CAPP, but may be surprising "
+"if not expected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:92
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/openbsm/man/audit_user.5:94
+#, no-wrap
+msgid "Pa /etc/security/audit_user"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:96
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:103
+msgid ""
+"E<.Xr login 1>, E<.Xr su 1>, E<.Xr audit 4>, E<.Xr audit_class 5>, E<.Xr "
+"audit_control 5>, E<.Xr audit_event 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:103
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:108
+msgid ""
+"The OpenBSM implementation was created by McAfee Research, the security "
+"division of McAfee Inc., under contract to Apple Computer Inc.\\& in 2004.  "
+"It was subsequently adopted by the TrustedBSD Project as the foundation for "
+"the OpenBSM distribution."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/openbsm/man/audit_user.5:108
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:116
+msgid ""
+"E<.An -nosplit> This software was created by McAfee Research, the security "
+"research division of McAfee, Inc., under contract to Apple Computer Inc.  "
+"Additional authors include E<.An Wayne Salamon>, E<.An Robert Watson>, and "
+"SPARTA Inc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/openbsm/man/audit_user.5:118
+msgid ""
+"The Basic Security Module (BSM) interface to audit records and audit event "
+"stream format were defined by Sun Microsystems."
+msgstr ""

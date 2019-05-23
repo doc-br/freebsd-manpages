@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/libexec/pppoed/pppoed.8:28
+#, no-wrap
+msgid "November 8, 1999"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/libexec/pppoed/pppoed.8:29
+#, no-wrap
+msgid "PPPOED 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:33
+msgid "E<.Nm pppoed>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/libexec/pppoed/pppoed.8:33
+#, no-wrap
+msgid "handle incoming PPP over Ethernet connections"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:43
+msgid ""
+"E<.Nm> E<.Op Fl Fd\\&> E<.Op Fl P Ar pidfile> E<.Op Fl a Ar name> E<.Op Fl e "
+"Ar exec | Fl l Ar label> E<.Op Fl n Ar ngdebug> E<.Op Fl p Ar provider> "
+"E<.Ar interface>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:58
+msgid ""
+"The E<.Nm> utility listens to the given E<.Ar interface> for PPP over "
+"Ethernet (PPPoE) service request packets, and actions them by negotiating a "
+"session then invoking a E<.Xr ppp 8> program.  The negotiation is "
+"implemented by the E<.Dq pppoe> netgraph node.  See E<.Xr ng_pppoe 4> for "
+"details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:68
+msgid ""
+"The E<.Nm> utility will only offer services to clients requesting services "
+"from the given E<.Ar provider>, which is taken as an empty name if not "
+"provided.  If a provider name of E<.Dq *> is given, any PPPoE requests will "
+"be offered service."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:75
+msgid ""
+"The supplied E<.Ar name> will be given as the access concentrator name when "
+"establishing the connection.  If no E<.Ar name> is given, the current base "
+"hostname is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:91
+msgid ""
+"After receiving a request (PADI) from the PPPoE netgraph node, E<.Nm> E<.Xr "
+"fork 2 Ns s> a child process and returns to service further requests.  The "
+"child process offers service (using E<.Ar name>)  and waits for a E<.Dv "
+"SUCCESS> indication from the PPPoE node.  On receipt of the E<.Dv SUCCESS> "
+"indication, E<.Nm> will execute"
+msgstr ""
+
+#. type: D1
+#: /usr/src/libexec/pppoed/pppoed.8:92
+#, no-wrap
+msgid "Ic exec Pa /usr/sbin/ppp Fl direct Ar label"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:114
+msgid ""
+"as a shell sub-process.  If E<.Ar label> has not been specified, it defaults "
+"to E<.Ar provider>.  It is possible to specify another command using the "
+"E<.Ar exec> argument.  This is mandatory if E<.Ar provider> and E<.Ar label> "
+"are not given.  The child process will have standard input and standard "
+"output attached to the same E<.Xr netgraph 4> data socket (see E<.Xr "
+"ng_socket 4>)  when started."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:121
+msgid ""
+"The environment variables E<.Ev HISMACADDR> and E<.Ev ACNAME> are made "
+"available to the child process and are set to the MAC address of the peer "
+"and the name of the AC respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:146
+msgid ""
+"Upon invocation, E<.Nm> will attach a E<.Dq pppoe> netgraph node to the "
+"relevant E<.Dq ether> node using E<.Dq Ar interface Ns \\&:> as the node "
+"name, and then connect that E<.Dq pppoe> node to a local E<.Dq socket> "
+"node.  If the E<.Fl F> option has not been given, E<.Nm> will then go into "
+"the background and disassociate itself from the controlling terminal.  When "
+"the E<.Fl F> option is given, E<.Nm> stays in the foreground."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:158
+msgid ""
+"If the E<.Fl d> option is given, additional diagnostics are provided (see "
+"the E<.Sx DIAGNOSTICS> section below).  If the E<.Fl n> option is given, "
+"E<.Fn NgSetDebug> is called with an argument of E<.Ar ngdebug>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:164
+msgid ""
+"If E<.Ar pidfile> is given, E<.Nm> will write its process ID to this file on "
+"startup."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:164
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:184
+msgid ""
+"After creating the necessary E<.Xr netgraph 4> nodes as described above, "
+"E<.Nm> uses E<.Xr syslogd 8> to report all incoming connections.  If the "
+"E<.Fl d> option is given, E<.Nm> will report on the child processes creation "
+"of a new netgraph socket, its service offer and the invocation of the E<.Xr "
+"ppp 8> program.  If the E<.Fl n> option is given, netgraph diagnostic "
+"messages are also redirected to E<.Xr syslogd 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:187
+msgid "It is sometimes useful to add the following to E<.Pa /etc/syslog.conf>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:190
+#, no-wrap
+msgid ""
+"!pppoed\n"
+"*.*\t\t\t\t/var/log/pppoed.log\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:194
+msgid "and the following to E<.Pa /etc/newsyslog.conf>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/libexec/pppoed/pppoed.8:195
+#, no-wrap
+msgid "/var/log/pppoed.log\t\t\t640  3\t   100\t*     Z"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:196
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:205
+msgid ""
+"E<.Xr NgSetDebug 3>, E<.Xr netgraph 4>, E<.Xr ng_ether 4>, E<.Xr ng_pppoe "
+"4>, E<.Xr ng_socket 4>, E<.Xr syslog.conf 5>, E<.Xr ppp 8>, E<.Xr syslogd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:205
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:212
+msgid ""
+"The E<.Nm> utility was written by E<.An Brian Somers Aq Mt "
+"brian@Awfulhak.org> and first appeared in E<.Fx 3.4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/pppoed/pppoed.8:212
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/pppoed/pppoed.8:219
+msgid ""
+"If another netgraph node is using the given interface, E<.Nm> will fail to "
+"start.  This is because E<.Xr netgraph 4> does not currently allow node "
+"chaining.  This may change in the future."
+msgstr ""

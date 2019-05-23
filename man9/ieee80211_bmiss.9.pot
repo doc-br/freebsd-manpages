@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:28
+#, no-wrap
+msgid "August 4, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:29
+#, no-wrap
+msgid "IEEE80211_BMISS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:33
+msgid "E<.Nm ieee80211_bmiss>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:33
+#, no-wrap
+msgid "802.11 beacon miss support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:35
+#, no-wrap
+msgid "net80211/ieee80211_var.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:39
+msgid "E<.Ft void> E<.Fn ieee80211_beacon_miss \"struct ieee80211com *\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:52
+msgid ""
+"The E<.Nm net80211> software layer provides a support framework for drivers "
+"that includes handling beacon miss events in station mode.  Drivers can "
+"dispatch beacon miss events that are recognized in hardware or E<.Nm "
+"net80211> can detect beacon miss if the driver dispatches received beacon "
+"frames through the normal receive path.  Software beacon miss support is "
+"especially useful when multiple vaps are operating and any hardware beacon "
+"miss support is not available (e.g. operating as an access point together "
+"with one or more station mode vaps)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:73
+msgid ""
+"Drivers should dispatch beacon miss events recognized in the driver with "
+"E<.Fn ieee80211_beacon_miss>.  This causes some number of ProbeRequest "
+"frames to be sent to the access point to check if the association is still "
+"alive.  If no response is received and roaming mode is set to E<.Dv "
+"IEEE80211_ROAMING_AUTO> then E<.Nm net80211> will try to re-associate and if "
+"that fails trigger a scan to look for the access point or another suitable "
+"AP.  When the E<.Nm net80211> state machine is being operated manually, "
+"e.g. by E<.Xr wpa_supplicant 8>, then applications are notified of the state "
+"change and are responsible for handling the work of scanning for a new "
+"access point.  The number of beacon miss events (without a ProbeResponse) is "
+"user settable with the E<.Dv IEEE80211_IOC_BMISSTHRESHOLD> request."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:88
+msgid ""
+"Software beacon miss detection is enabled per-vap by setting the E<.Dv "
+"IEEE80211_FEXT_SWBMISS> flag.  Typically this is done when a vap is setup "
+"when the E<.Dv IEEE80211_CLONE_NOBEACONS> option is supplied to the clone "
+"operation.  But drivers may also force this when they know they need help "
+"detecting beacon miss.  When beacon miss is detected in software the event "
+"is dispatched without driver involvement.  Note that software beacon miss "
+"handling is not limited to station mode; it can be used in any operating "
+"mode where beacons from a peer station are received."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:88
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/ieee80211_bmiss.9:91
+msgid "E<.Xr wpa_supplicant 8>, E<.Xr ieee80211 9>, E<.Xr ieee80211_vap 9>"
+msgstr ""

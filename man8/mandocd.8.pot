@@ -1,0 +1,254 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/mandoc/mandocd.8:17
+#, no-wrap
+msgid "$Mdocdate: March 18 2017 $"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/mandoc/mandocd.8:18
+#, no-wrap
+msgid "MANDOCD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:20
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:22
+msgid "E<.Nm mandocd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/mandoc/mandocd.8:22
+#, no-wrap
+msgid "server process to format manual pages in batch mode"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:23
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:28
+msgid ""
+"E<.Nm mandocd> E<.Op Fl I Cm os Ns = Ns Ar name> E<.Op Fl T Ar output> E<.Ar "
+"socket_fd>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:28
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:39
+msgid ""
+"The E<.Nm> utility formats many manual pages without requiring E<.Xr fork 2> "
+"and E<.Xr exec 3> overhead in between.  It does not require listing all the "
+"manuals to be formatted on the command line, and it supports writing each "
+"formatted manual to its own file descriptor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:62
+msgid ""
+"This server requires that a connected UNIX domain E<.Xr socket 2> is already "
+"present at E<.Xr exec 3> time.  Consequently, it cannot be started from the "
+"E<.Xr sh 1> command line because the shell cannot supply such a socket.  "
+"Typically, the socket is created by the parent process using E<.Xr "
+"socketpair 2> before calling E<.Xr fork 2> and E<.Xr exec 3> on E<.Nm>.  The "
+"parent process will pass the file descriptor number as an argument to E<.Xr "
+"exec 3>, formatted as a decimal ASCII-encoded integer.  See E<.Xr catman 8> "
+"for a typical implementation of a parent process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:80
+msgid ""
+"E<.Nm> loops reading one-byte messages with E<.Xr recvmsg 2> from the file "
+"descriptor number E<.Ar socket_fd>.  It ignores the byte read and only uses "
+"the out-of-band auxiliary E<.Vt struct cmsghdr> control data, typically "
+"supplied by the calling process using E<.Xr CMSG_FIRSTHDR 3>.  The parent "
+"process is expected to pass three file descriptors with each dummy byte.  "
+"The first one is used for E<.Xr mdoc 7> or E<.Xr man 7> input, the second "
+"one for formatted output, and the third one for error output."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:82
+msgid "The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/mandocd.8:83
+#, no-wrap
+msgid "Fl I Cm os Ns = Ns Ar name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:93
+msgid ""
+"Override the default operating system E<.Ar name> for the E<.Xr mdoc 7> "
+"E<.Ic \\&Os> and for the E<.Xr man 7> E<.Ic TH> macro."
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/mandoc/mandocd.8:93
+#, no-wrap
+msgid "Fl T Ar output"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:110
+msgid ""
+"Output format.  The E<.Ar output> argument can be E<.Cm ascii>, E<.Cm utf8>, "
+"or E<.Cm html>; see E<.Xr mandoc 1>.  In E<.Cm html> output mode, the E<.Cm "
+"fragment> output option is implied.  Other output options are not supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:114
+msgid ""
+"After exhausting one input file descriptor, all three file descriptors are "
+"closed before reading the next dummy byte and control message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:121
+msgid ""
+"When a zero-byte message is read, when the E<.Ar socket_fd> is closed by the "
+"parent process, or when an error occurs, E<.Nm> exits."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:121
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:123
+msgid "E<.Ex -std>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:128
+msgid ""
+"A zero-byte message or a closed E<.Ar socket_fd> is considered success.  "
+"Possible errors include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:133
+msgid "missing, invalid, or excessive E<.Xr exec 3> arguments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:137
+msgid "E<.Xr recvmsg 2> failure, for example due to E<.Er EMSGSIZE>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:152
+msgid ""
+"missing or unexpected control data, in particular a E<.Fa cmsg_level> in the "
+"E<.Vt struct cmsghdr> that differs from E<.Dv SOL_SOCKET>, a E<.Fa "
+"cmsg_type> that differs from E<.Dv SCM_RIGHTS>, or a E<.Fa cmsg_len> that is "
+"not three times the size of an E<.Vt int>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:155
+msgid "invalid file descriptors passed in the E<.Xr CMSG_DATA 3>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:161
+msgid "resource exhaustion, in particular E<.Xr dup 2> or E<.Xr malloc 3> failure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:170
+msgid ""
+"Except for memory exhaustion and similar system-level failures, parsing and "
+"formatting errors do not cause E<.Nm> to return an error exit status.  Even "
+"after severe parsing errors, E<.Nm> will simply accept and process the next "
+"input file descriptor."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:170
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:174
+msgid "E<.Xr mandoc 1>, E<.Xr mandoc 3>, E<.Xr catman 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:174
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:180
+msgid "The E<.Nm> utility appeared in version 1.14.1 or the E<.Sy mandoc> toolkit."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:180
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:188
+msgid ""
+"E<.An -nosplit> The concept was designed and implemented by E<.An Michael "
+"Stapelberg Aq Mt stapelberg@debian.org>.  The E<.Xr mandoc 3> glue needed to "
+"make it a stand-alone process was added by E<.An Ingo Schwarze Aq Mt "
+"schwarze@openbsd.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/mandoc/mandocd.8:188
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/mandoc/mandocd.8:198
+msgid ""
+"If the parsed manual pages contain E<.Xr roff 7> E<.Pf . Ic so> requests, "
+"E<.Nm> needs to be started with the current working directory set to the "
+"root of the manual page tree.  Avoid starting it in directories that contain "
+"secret files in any subdirectories, in particular in the user starting it "
+"has read access to these secret files."
+msgstr ""

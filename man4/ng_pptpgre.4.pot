@@ -1,0 +1,363 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_pptpgre.4:38
+#, no-wrap
+msgid "November 4, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_pptpgre.4:39
+#, no-wrap
+msgid "NG_PPTPGRE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:43
+msgid "E<.Nm ng_pptpgre>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_pptpgre.4:43
+#, no-wrap
+msgid "PPTP GRE protocol netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_pptpgre.4:45
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_pptpgre.4:46
+#, no-wrap
+msgid "netgraph/ng_pptpgre.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:57
+msgid ""
+"The E<.Nm pptpgre> node type performs Generic Routing Encapsulation (GRE) "
+"over IP for the PPTP protocol as specified by RFC 2637.  This involves "
+"packet encapsulation, sequencing, acknowledgement, and an adaptive timeout "
+"sliding window mechanism.  This node type does not handle any of the TCP "
+"control protocol or call negotiation defined by PPTP."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:73
+msgid ""
+"This node type expects to receive complete IP packets, including the IP "
+"header, on the E<.Dq Li lower> hook, but it transmits outgoing frames "
+"without any IP header.  The typical use for this node type would be to "
+"connect the E<.Dq Li upper> hook to one of the link hooks of a E<.Xr ng_ppp "
+"4> node, and the E<.Dq Li lower> hook to the E<.Dq Li \"inet/raw/gre\"> hook "
+"of a E<.Xr ng_ksocket 4> node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:73
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:75
+msgid "This node type supports the following hooks:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:76
+#, no-wrap
+msgid "Va session_hhhh"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:78
+msgid "Session 0xhhhh data packets to the upper protocol layers"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:78
+#, no-wrap
+msgid "Va upper"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:80
+msgid "Same as session_hhhh, but for single session with configurable cid (legacy)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:80
+#, no-wrap
+msgid "Va lower"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:82
+msgid "Connection to the lower protocol layers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:83
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:85
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:86
+#, no-wrap
+msgid "Dv NGM_PPTPGRE_SET_CONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:93
+msgid ""
+"This command resets and configures hook for a session.  If corresponding "
+"session_hhhh hook is not connected, upper hook will be configured.  This "
+"command takes a E<.Vt \"struct ng_pptpgre_conf\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:106
+#, no-wrap
+msgid ""
+"/* Configuration for a session */\n"
+"struct ng_pptpgre_conf {\n"
+"    u_char      enabled;          /* enables traffic flow */\n"
+"    u_char      enableDelayedAck; /* enables delayed acks */\n"
+"    u_char      enableAlwaysAck;  /* always include ack with data */\n"
+"    u_char      enableWindowing;  /* enable windowing algorithm */\n"
+"    uint16_t    cid;              /* my call id */\n"
+"    uint16_t    peerCid;          /* peer call id */\n"
+"    uint16_t    recvWin;          /* peer recv window size */\n"
+"    uint16_t    peerPpd;          /* peer packet processing delay\n"
+"                                     (in 1/10 of a second) */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:118
+msgid ""
+"The E<.Va enabled> field enables traffic flow through the node.  The E<.Va "
+"enableDelayedAck> field enables delayed acknowledgement (maximum 250 "
+"milliseconds), which is a useful optimization and should generally be turned "
+"on.  E<.Va enableAlwaysAck> field enables sending acknowledgements with "
+"every data packet, which is probably helpful as well."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:125
+msgid ""
+"E<.Va enableWindowing> enables the PPTP packet windowing mechanism specified "
+"by the protocol.  Disabling this will cause the node to violate the "
+"protocol, possibly confusing other PPTP peers, but often results in better "
+"performance.  The windowing mechanism is a design error in the PPTP "
+"protocol; L2TP, the successor to PPTP, removes it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:127
+msgid "The remaining fields are as supplied by the PPTP virtual call setup process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:127
+#, no-wrap
+msgid "Dv NGM_PPTPGRE_GET_CONFIG Pq Ic getconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:130
+msgid ""
+"Takes two byte argument as cid and returns the current configuration as a "
+"E<.Vt \"struct ng_pptpgre_conf\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:130
+#, no-wrap
+msgid "Dv NGM_PPTPGRE_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:134
+msgid ""
+"This command returns a E<.Vt \"struct ng_pptpgre_stats\"> containing various "
+"node statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:134
+#, no-wrap
+msgid "Dv NGM_PPTPGRE_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:136
+msgid "This command resets the node statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:136
+#, no-wrap
+msgid "Dv NGM_PPTPGRE_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:139
+msgid ""
+"This command atomically gets and resets the node statistics, returning a "
+"E<.Vt \"struct ng_pptpgre_stats\">."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:140
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:144
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when both hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:144
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:153
+msgid ""
+"A set of E<.Xr sysctl 8> variables controls ability of this node to deal "
+"with some amount of packet reorder that sometimes happens in transit.  "
+"Packet reorder results in packet drops (unless the order is restored)  as "
+"PPP protocol can not deliver reordered data.  These variables are shown "
+"below together with their default value and meaning:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:154
+#, no-wrap
+msgid "Va net.graph.pptpgre.reorder_max: 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:162
+msgid ""
+"Defines maximum length of node's private reorder queue used to keep data "
+"waiting for late packets.  Zero value disables reordering.  Default value "
+"allows the node to restore the order for two packets swapped in transit.  "
+"Greater values allow the node to deliver packets being late after more "
+"packets in sequence at cost of increased kernel memory usage."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_pptpgre.4:162
+#, no-wrap
+msgid "Va net.graph.pptpgre.reorder_timeout: 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:164
+msgid "Defines time value in miliseconds used to wait for late packets."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:165
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:189
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_ksocket 4>, E<.Xr ng_ppp 4>, E<.Xr ngctl 8>, "
+"E<.Xr sysctl 8> E<.Rs> E<.%A K. Hamzeh> E<.%A G. Pall> E<.%A W. Verthein> "
+"E<.%A J. Taarud> E<.%A W. Little> E<.%A G. Zorn> E<.%T \"Point-to-Point "
+"Tunneling Protocol (PPTP)\"> E<.%O RFC 2637> E<.Re> E<.Rs> E<.%A S. Hanks> "
+"E<.%A T. \\&Li> E<.%A D. Farinacci> E<.%A P. Traina> E<.%T \"Generic Routing "
+"Encapsulation over IPv4 networks\"> E<.%O RFC 1702> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:189
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:194
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:194
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:196
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_pptpgre.4:196
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_pptpgre.4:200
+msgid ""
+"The node should not expect incoming GRE packets to have an IP header.  This "
+"behavior is inherited from the (converse) behavior of raw IP sockets.  An "
+"intermediate node that strips IP headers in one direction should be used "
+"instead."
+msgstr ""

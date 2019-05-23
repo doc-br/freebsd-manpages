@@ -1,0 +1,297 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_sscfu.4:33
+#, no-wrap
+msgid "October 24, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_sscfu.4:34
+#, no-wrap
+msgid "NG_SSCFU 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:38
+msgid "E<.Nm ng_sscfu>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_sscfu.4:38
+#, no-wrap
+msgid "netgraph SSCF at the UNI node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_sscfu.4:40
+#, no-wrap
+msgid "netnatm/saal/sscopdef.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_sscfu.4:41
+#, no-wrap
+msgid "netnatm/saal/sscfudef.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_sscfu.4:42
+#, no-wrap
+msgid "netgraph/atm/ng_sscfu.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:56
+msgid ""
+"The E<.Nm sscfu> netgraph node type implements ITU-T recommendation Q.2130.  "
+"This recommendation specifies the Service Specific Coordination Function at "
+"the UNI.  This is a thin sub-layer between the SSCOP (see E<.Xr ng_sscop 4>)  "
+"and the UNI signalling.  This node does not really implement a protocol but "
+"provides a mapping between the signals at the upper layer of the SSCOP and "
+"the signals the UNI expects at its lower layer.  It also provides default "
+"values for the parameters of the SSCOP."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:63
+msgid ""
+"After creation of the node, the SSCF instance must be created by sending an "
+"E<.Dq enable> message to the node.  If the node is enabled, default SSCOP "
+"parameters can be retrieved and set in the corresponding SSCOP instance."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:67
+msgid ""
+"The node is shut down either by a E<.Dv NGM_SHUTDOWN> message, or when all "
+"hooks are disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:67
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:71
+msgid "Each E<.Nm sscfu> node has two hooks with fixed names:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:72
+#, no-wrap
+msgid "Va lower"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:78
+msgid ""
+"This hook is the interface to the SSCOP.  The interface expected here is "
+"exactly that which is exported by the E<.Xr ng_sscop 4> node type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:78
+#, no-wrap
+msgid "Va upper"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:81
+msgid "This is the interface to the UNI.  It uses the following message format:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:86
+#, no-wrap
+msgid ""
+"struct sscfu_arg {\n"
+"\tuint32_t sig;\n"
+"\tu_char\t data[];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:92
+msgid "The E<.Va sig> field is one of the following signals:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:105
+#, no-wrap
+msgid ""
+"enum saal_sig {\n"
+"    SAAL_ESTABLISH_request,\t/* U -E<gt> SAAL: (UU) */\n"
+"    SAAL_ESTABLISH_indication,\t/* SAAL -E<gt> U: (UU) */\n"
+"    SAAL_ESTABLISH_confirm,\t/* SAAL -E<gt> U: (UU) */\n"
+"    SAAL_RELEASE_request,\t/* U -E<gt> SAAL: (UU) */\n"
+"    SAAL_RELEASE_confirm,\t/* SAAL -E<gt> U: */\n"
+"    SAAL_RELEASE_indication,\t/* SAAL -E<gt> U: (UU) */\n"
+"    SAAL_DATA_request,\t\t/* U -E<gt> SAAL: (DATA) */\n"
+"    SAAL_DATA_indication,\t/* SAAL -E<gt> U: (DATA) */\n"
+"    SAAL_UDATA_request,\t\t/* U -E<gt> SAAL: (UDATA) */\n"
+"    SAAL_UDATA_indication,\t/* SAAL -E<gt> U: (UDATA) */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:116
+msgid ""
+"The arrows in the comment show the direction of the signal, whether it is a "
+"signal that comes out of the node E<.Pq Ql -E<gt>>, or is sent by the node "
+"user to the node E<.Pq Ql E<lt>->.  The type of the data expected for the "
+"signal is specified in parentheses.  This data starts at the E<.Va data> "
+"field of the message structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:122
+msgid ""
+"If the E<.Va lower> hook is disconnected and the node is enabled, the "
+"protocol state is reset."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:122
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:126
+msgid "The E<.Nm sscfu> node understands the generic messages plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:127
+#, no-wrap
+msgid "Dv NGM_SSCFU_GETDEFPARAM Pq Ic getdefparam"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:135
+msgid ""
+"This message returns a E<.Vt sscop_param> structure, which contains the "
+"default parameters for the SSCOP at the UNI.  This structure should be used "
+"for a E<.Dv NGM_SSCOP_SETPARAM> message to the SSCOP node below the SSCF."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:135
+#, no-wrap
+msgid "Dv NGM_SSCFU_ENABLE Pq Ic enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:140
+msgid ""
+"This message creates the actual SSCF instance and initializes it.  Until "
+"this is done, parameters may neither be retrieved nor set, and all messages "
+"received on any hook are discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:140
+#, no-wrap
+msgid "Dv NGM_SSCFU_DISABLE Pq Ic disable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:143
+msgid ""
+"Destroy the SSCF instance.  After this, all messages on any hooks are "
+"discarded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:143
+#, no-wrap
+msgid "Dv NGM_SSCFU_GETDEBUG Pq Ic getdebug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:146
+msgid "Retrieve the debugging flags in a E<.Vt uint32_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:146
+#, no-wrap
+msgid "Dv NGM_SSCFU_SETDEBUG Pq Ic setdebug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:150
+msgid "Set debugging flags.  The argument must be a E<.Vt uint32_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_sscfu.4:150
+#, no-wrap
+msgid "Dv NGM_SSCFU_GETSTATE Pq Ic getstate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:154
+msgid ""
+"Retrieve the current state of the SSCFU instance in a E<.Vt uint32_t>.  If "
+"the node has not been enabled, 0 is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:155
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:160
+msgid "E<.Xr netgraph 4>, E<.Xr ng_atm 4>, E<.Xr ng_sscop 4>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_sscfu.4:160
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_sscfu.4:161
+msgid "E<.An Harti Brandt Aq Mt harti@FreeBSD.org>"
+msgstr ""

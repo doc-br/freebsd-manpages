@@ -1,0 +1,678 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ahc.4:29
+#, no-wrap
+msgid "February 15, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ahc.4:30
+#, no-wrap
+msgid "AHC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:34
+msgid "E<.Nm ahc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ahc.4:34
+#, no-wrap
+msgid "Adaptec VL/ISA/PCI SCSI host adapter driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:39
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:42
+#, no-wrap
+msgid ""
+"E<.Cd \"device scbus\">\n"
+"E<.Cd \"device ahc\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:45
+#, no-wrap
+msgid ""
+"For one or more PCI cards:\n"
+"E<.Cd \"device pci\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:48
+#, no-wrap
+msgid ""
+"To allow PCI adapters to use memory mapped I/O if enabled:\n"
+"E<.Cd options AHC_ALLOW_MEMIO>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:51
+#, no-wrap
+msgid ""
+"To configure one or more controllers to assume the target role:\n"
+"E<.Cd options AHC_TMODE_ENABLE E<lt>bitmask of unitsE<gt>>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:56
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following lines in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:60
+#, no-wrap
+msgid ""
+"ahc_load=\"YES\"\n"
+"ahc_isa_load=\"YES\"\n"
+"ahc_pci_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:61
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:66
+msgid ""
+"This driver provides access to the E<.Tn SCSI> bus(es) connected to the "
+"Adaptec AIC77xx and AIC78xx host adapter chips."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:70
+msgid ""
+"Driver features include support for twin and wide busses, fast, ultra or "
+"ultra2 synchronous transfers depending on controller type, tagged queueing, "
+"SCB paging, and target mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:84
+msgid ""
+"Memory mapped I/O can be enabled for PCI devices with the E<.Dq Dv "
+"AHC_ALLOW_MEMIO> configuration option.  Memory mapped I/O is more efficient "
+"than the alternative, programmed I/O.  Most PCI BIOSes will map devices so "
+"that either technique for communicating with the card is available.  In some "
+"cases, usually when the PCI device is sitting behind a PCI-E<gt>PCI bridge, "
+"the BIOS may fail to properly initialize the chip for memory mapped I/O.  "
+"The typical symptom of this problem is a system hang if memory mapped I/O is "
+"attempted.  Most modern motherboards perform the initialization correctly "
+"and work fine with this option enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:93
+msgid ""
+"Individual controllers may be configured to operate in the target role "
+"through the E<.Dq Dv AHC_TMODE_ENABLE> configuration option.  The value "
+"assigned to this option should be a bitmap of all units where target mode is "
+"desired.  For example, a value of 0x25, would enable target mode on units 0, "
+"2, and 5.  A value of 0x8a enables it for units 1, 3, and 7."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:110
+msgid ""
+"Per target configuration performed in the E<.Tn SCSI-Select> menu, "
+"accessible at boot is honored by this driver.  This includes "
+"synchronous/asynchronous transfers, maximum synchronous negotiation rate, "
+"wide transfers, disconnection, the host adapter's SCSI ID.  For systems that "
+"store non-volatile settings in a system specific manner rather than a serial "
+"eeprom directly connected to the aic7xxx controller, the E<.Tn BIOS> must be "
+"enabled for the driver to access this information.  This restriction applies "
+"to many chip-down motherboard configurations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:119
+msgid ""
+"Performance and feature sets vary throughout the aic7xxx product line.  The "
+"following table provides a comparison of the different chips supported by "
+"the E<.Nm> driver.  Note that wide and twin channel features, although "
+"always supported by a particular chip, may be disabled in a particular "
+"motherboard or card design."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:121
+#, no-wrap
+msgid "Em Chip Ta MIPS Ta Bus Ta MaxSync Ta MaxWidth Ta SCBs Ta Features"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:122
+#, no-wrap
+msgid "aic7770 Ta 10 Ta VL Ta 10MHz Ta 16Bit Ta 4 Ta 1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:123
+#, no-wrap
+msgid "aic7850 Ta 10 Ta PCI/32 Ta 10MHz Ta 8Bit Ta 3 Ta \"\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:124
+#, no-wrap
+msgid "aic7860 Ta 10 Ta PCI/32 Ta 20MHz Ta 8Bit Ta 3 Ta \"\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:125
+#, no-wrap
+msgid "aic7870 Ta 10 Ta PCI/32 Ta 10MHz Ta 16Bit Ta 16 Ta \"\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:126
+#, no-wrap
+msgid "aic7880 Ta 10 Ta PCI/32 Ta 20MHz Ta 16Bit Ta 16 Ta \"\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:127
+#, no-wrap
+msgid "aic7890 Ta 20 Ta PCI/32 Ta 40MHz Ta 16Bit Ta 16 Ta \"3 4 5 6 7 8\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:128
+#, no-wrap
+msgid "aic7891 Ta 20 Ta PCI/64 Ta 40MHz Ta 16Bit Ta 16 Ta \"3 4 5 6 7 8\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:129
+#, no-wrap
+msgid "aic7892 Ta 20 Ta PCI/64 Ta 80MHz Ta 16Bit Ta 16 Ta \"3 4 5 6 7 8\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:130
+#, no-wrap
+msgid "aic7895 Ta 15 Ta PCI/32 Ta 20MHz Ta 16Bit Ta 16 Ta \"2 3 4 5\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:131
+#, no-wrap
+msgid "aic7895C Ta 15 Ta PCI/32 Ta 20MHz Ta 16Bit Ta 16 Ta \"2 3 4 5 8\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:132
+#, no-wrap
+msgid "aic7896 Ta 20 Ta PCI/32 Ta 40MHz Ta 16Bit Ta 16 Ta \"2 3 4 5 6 7 8\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:133
+#, no-wrap
+msgid "aic7897 Ta 20 Ta PCI/64 Ta 40MHz Ta 16Bit Ta 16 Ta \"2 3 4 5 6 7 8\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ahc.4:134
+#, no-wrap
+msgid "aic7899 Ta 20 Ta PCI/64 Ta 80MHz Ta 16Bit Ta 16 Ta \"2 3 4 5 6 7 8\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:140
+#, no-wrap
+msgid "Multiplexed Twin Channel Device - One controller servicing two busses.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:142
+#, no-wrap
+msgid "Multi-function Twin Channel Device - Two controllers on one chip.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:145
+#, no-wrap
+msgid ""
+"Command Channel Secondary DMA Engine - Allows scatter gather list and\n"
+"SCB prefetch.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:147
+#, no-wrap
+msgid ""
+"64 Byte SCB Support - SCSI CDB is embedded in the SCB to eliminate an extra "
+"DMA.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:150
+#, no-wrap
+msgid ""
+"Block Move Instruction Support - Doubles the speed of certain sequencer\n"
+"operations.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:153
+#, no-wrap
+msgid ""
+"E<.Sq Bayonet>\n"
+"style Scatter Gather Engine - Improves S/G prefetch performance.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:156
+#, no-wrap
+msgid ""
+"Queuing Registers - Allows queueing of new transactions without pausing "
+"the\n"
+"sequencer.\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:159
+#, no-wrap
+msgid ""
+"Multiple Target IDs - Allows the controller to respond to selection as a\n"
+"target on multiple SCSI IDs.\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:161
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:169
+msgid ""
+"The E<.Nm> driver supports the following E<.Tn SCSI> host adapter chips and "
+"E<.Tn SCSI> controller cards:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:175
+msgid "Adaptec E<.Tn AIC7770> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:179
+msgid "Adaptec E<.Tn AIC7850> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:183
+msgid "Adaptec E<.Tn AIC7860> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:187
+msgid "Adaptec E<.Tn AIC7870> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:191
+msgid "Adaptec E<.Tn AIC7880> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:195
+msgid "Adaptec E<.Tn AIC7890> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:199
+msgid "Adaptec E<.Tn AIC7891> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:203
+msgid "Adaptec E<.Tn AIC7892> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:207
+msgid "Adaptec E<.Tn AIC7895> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:211
+msgid "Adaptec E<.Tn AIC7896> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:215
+msgid "Adaptec E<.Tn AIC7897> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:219
+msgid "Adaptec E<.Tn AIC7899> host adapter chip"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:222
+msgid "Adaptec E<.Tn 274X(W)>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:225
+msgid "Adaptec E<.Tn 274X(T)>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:228
+msgid "Adaptec E<.Tn 2910>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:231
+msgid "Adaptec E<.Tn 2915>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:234
+msgid "Adaptec E<.Tn 2920C>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:237
+msgid "Adaptec E<.Tn 2930C>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:240
+msgid "Adaptec E<.Tn 2930U2>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:243
+msgid "Adaptec E<.Tn 2940>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:246
+msgid "Adaptec E<.Tn 2940J>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:249
+msgid "Adaptec E<.Tn 2940N>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:252
+msgid "Adaptec E<.Tn 2940U>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:255
+msgid "Adaptec E<.Tn 2940AU>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:258
+msgid "Adaptec E<.Tn 2940UW>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:261
+msgid "Adaptec E<.Tn 2940UW Dual>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:264
+msgid "Adaptec E<.Tn 2940UW Pro>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:267
+msgid "Adaptec E<.Tn 2940U2W>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:270
+msgid "Adaptec E<.Tn 2940U2B>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:273
+msgid "Adaptec E<.Tn 2950U2W>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:276
+msgid "Adaptec E<.Tn 2950U2B>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:279
+msgid "Adaptec E<.Tn 19160B>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:282
+msgid "Adaptec E<.Tn 29160B>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:285
+msgid "Adaptec E<.Tn 29160N>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:288
+msgid "Adaptec E<.Tn 3940>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:291
+msgid "Adaptec E<.Tn 3940U>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:294
+msgid "Adaptec E<.Tn 3940AU>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:297
+msgid "Adaptec E<.Tn 3940UW>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:300
+msgid "Adaptec E<.Tn 3940AUW>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:303
+msgid "Adaptec E<.Tn 3940U2W>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:306
+msgid "Adaptec E<.Tn 3950U2>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:309
+msgid "Adaptec E<.Tn 3960>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:312
+msgid "Adaptec E<.Tn 39160>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:315
+msgid "Adaptec E<.Tn 3985>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:318
+msgid "Adaptec E<.Tn 4944UW>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:322
+msgid "Many motherboards with on-board E<.Tn SCSI> support"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:323
+#, no-wrap
+msgid "SCSI CONTROL BLOCKS (SCBs)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:335
+msgid ""
+"Every transaction sent to a device on the SCSI bus is assigned a E<.Sq SCSI "
+"Control Block> (SCB).  The SCB contains all of the information required by "
+"the controller to process a transaction.  The chip feature table lists the "
+"number of SCBs that can be stored in on-chip memory.  All chips with model "
+"numbers greater than or equal to 7870 allow for the on chip SCB space to be "
+"augmented with external SRAM up to a maximum of 255 SCBs.  Very few Adaptec "
+"controller configurations have external SRAM."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:362
+msgid ""
+"If external SRAM is not available, SCBs are a limited resource.  Using the "
+"SCBs in a straight forward manner would only allow the driver to handle as "
+"many concurrent transactions as there are physical SCBs.  To fully utilize "
+"the SCSI bus and the devices on it, requires much more concurrency.  The "
+"solution to this problem is E<.Em SCB Paging>, a concept similar to memory "
+"paging.  SCB paging takes advantage of the fact that devices usually "
+"disconnect from the SCSI bus for long periods of time without talking to the "
+"controller.  The SCBs for disconnected transactions are only of use to the "
+"controller when the transfer is resumed.  When the host queues another "
+"transaction for the controller to execute, the controller firmware will use "
+"a free SCB if one is available.  Otherwise, the state of the most recently "
+"disconnected (and therefore most likely to stay disconnected) SCB is saved, "
+"via dma, to host memory, and the local SCB reused to start the new "
+"transaction.  This allows the controller to queue up to 255 transactions "
+"regardless of the amount of SCB space.  Since the local SCB space serves as "
+"a cache for disconnected transactions, the more SCB space available, the "
+"less host bus traffic consumed saving and restoring SCB data."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:362
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:368
+msgid "E<.Xr ahd 4>, E<.Xr cd 4>, E<.Xr da 4>, E<.Xr sa 4>, E<.Xr scsi 4>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:368
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:373
+msgid "The E<.Nm> driver appeared in E<.Fx 2.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:373
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:381
+msgid ""
+"The E<.Nm> driver, the E<.Tn AIC7xxx> sequencer-code assembler, and the "
+"firmware running on the aic7xxx chips was written by E<.An Justin T. Gibbs>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ahc.4:381
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:391
+msgid ""
+"Some Quantum drives (at least the Empire 2100 and 1080s) will not run on an "
+"E<.Tn AIC7870> Rev B in synchronous mode at 10MHz.  Controllers with this "
+"problem have a 42 MHz clock crystal on them and run slightly above 10MHz.  "
+"This confuses the drive and hangs the bus.  Setting a maximum synchronous "
+"negotiation rate of 8MHz in the E<.Tn SCSI-Select> utility will allow normal "
+"operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:397
+msgid ""
+"Although the Ultra2 and Ultra160 products have sufficient instruction ram "
+"space to support both the initiator and target roles concurrently, this "
+"configuration is disabled in favor of allowing the target role to respond on "
+"multiple target ids.  A method for configuring dual role mode should be "
+"provided."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:399
+msgid "Tagged Queuing is not supported in target mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ahc.4:404
+msgid ""
+"Reselection in target mode fails to function correctly on all high voltage "
+"differential boards as shipped by Adaptec.  Information on how to modify HVD "
+"board to work correctly in target mode is available from Adaptec."
+msgstr ""

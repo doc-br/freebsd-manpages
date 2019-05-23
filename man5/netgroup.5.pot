@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/mountd/netgroup.5:31
+#, no-wrap
+msgid "December 11, 1993"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/mountd/netgroup.5:32
+#, no-wrap
+msgid "NETGROUP 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:36
+msgid "E<.Nm netgroup>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/mountd/netgroup.5:36
+#, no-wrap
+msgid "defines network groups"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:39
+msgid "E<.Nm>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:46
+msgid ""
+"The E<.Nm> file specifies ``netgroups'', which are sets of E<.Sy (host, "
+"user, domain)> tuples that are to be given similar network access."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:52
+msgid ""
+"Each line in the file consists of a netgroup name followed by a list of the "
+"members of the netgroup.  Each member can be either the name of another "
+"netgroup or a specification of a tuple as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:54
+#, no-wrap
+msgid "(host, user, domain)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:73
+msgid ""
+"where the E<.Sy host>, E<.Sy user>, and E<.Sy domain> are character string "
+"names for the corresponding component.  Any of the comma separated fields "
+"may be empty to specify a ``wildcard'' value or may consist of the string "
+"``-'' to specify ``no valid value''.  The members of the list may be "
+"separated by whitespace and/or commas; the ``\\e'' character may be used at "
+"the end of a line to specify line continuation.  Lines are limited to 1024 "
+"characters.  The functions specified in E<.Xr getnetgrent 3> should normally "
+"be used to access the E<.Nm> database."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:75
+msgid "Lines that begin with a # are treated as comments."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:75
+#, no-wrap
+msgid "NIS/YP INTERACTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:111
+msgid ""
+"On most other platforms, E<.Nm Ns s> are only used in conjunction with E<.Tn "
+"NIS> and local E<.Pa /etc/netgroup> files are ignored.  With E<.Fx>, E<.Nm "
+"Ns s> can be used with either E<.Tn NIS> or local files, but there are "
+"certain caveats to consider.  The existing E<.Nm> system is extremely "
+"inefficient where E<.Fn innetgr 3> lookups are concerned since E<.Nm> "
+"memberships are computed on the fly.  By contrast, the E<.Tn NIS> E<.Nm> "
+"database consists of three separate maps (netgroup, netgroup.byuser and "
+"netgroup.byhost) that are keyed to allow E<.Fn innetgr 3> lookups to be done "
+"quickly.  The E<.Fx> E<.Nm> system can interact with the E<.Tn NIS> E<.Nm> "
+"maps in the following ways:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:131
+msgid ""
+"If the E<.Pa /etc/netgroup> file does not exist, or it exists and is empty, "
+"or it exists and contains only a E<.Sq +>, and E<.Tn NIS> is running, E<.Nm> "
+"lookups will be done exclusively through E<.Tn NIS>, with E<.Fn innetgr 3> "
+"taking advantage of the netgroup.byuser and netgroup.byhost maps to speed up "
+"searches.  (This is more or less compatible with the behavior of SunOS and "
+"similar platforms.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:144
+msgid ""
+"If the E<.Pa /etc/netgroup> exists and contains only local E<.Nm> "
+"information (with no E<.Tn NIS> E<.Sq +> token), then only the local E<.Nm> "
+"information will be processed (and E<.Tn NIS> will be ignored)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:163
+msgid ""
+"If E<.Pa /etc/netgroup> exists and contains both local netgroup data E<.Pa "
+"and> the E<.Tn NIS> E<.Sq +> token, the local data and the E<.Tn NIS> "
+"netgroup map will be processed as a single combined E<.Nm> database.  While "
+"this configuration is the most flexible, it is also the least efficient: in "
+"particular, E<.Fn innetgr 3> lookups will be especially slow if the database "
+"is large."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:164
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/mountd/netgroup.5:166
+#, no-wrap
+msgid "Pa /etc/netgroup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:168
+msgid "the netgroup database"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:169
+#, no-wrap
+msgid "COMPATIBILITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:172
+msgid ""
+"The file format is compatible with that of various vendors, however it "
+"appears that not all vendors use an identical format."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:172
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:175
+msgid "E<.Xr getnetgrent 3>, E<.Xr exports 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/mountd/netgroup.5:175
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:182
+msgid ""
+"The interpretation of access restrictions based on the member tuples of a "
+"netgroup is left up to the various network applications.  Also, it is not "
+"obvious how the domain specification applies to the E<.Bx> environment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/mountd/netgroup.5:190
+msgid ""
+"The E<.Nm> database should be stored in the form of a hashed E<.Xr db 3> "
+"database just like the E<.Xr passwd 5> database to speed up reverse lookups."
+msgstr ""

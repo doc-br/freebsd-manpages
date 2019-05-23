@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/OF_device_from_xref.9:28
+#, no-wrap
+msgid "April 9, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/OF_device_from_xref.9:29
+#, no-wrap
+msgid "OF_DEVICE_FROM_XREF 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/OF_device_from_xref.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:35
+msgid ""
+"E<.Nm OF_device_from_xref>, E<.Nm OF_xref_from_device>, E<.Nm "
+"OF_device_register_xref>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/OF_device_from_xref.9:35
+#, no-wrap
+msgid "manage mappings between xrefs and devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/OF_device_from_xref.9:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/OF_device_from_xref.9:37
+#, no-wrap
+msgid "dev/ofw/ofw_bus.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/OF_device_from_xref.9:38
+#, no-wrap
+msgid "dev/ofw/ofw_bus_subr.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:45
+msgid ""
+"E<.Ft int> E<.Fn OF_device_register_xref \"phandle_t xref\" \"device_t "
+"dev\"> E<.Ft device_t> E<.Fn OF_device_from_xref \"phandle_t xref\"> E<.Ft "
+"phandle_t> E<.Fn OF_xref_from_device \"device_t dev\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/OF_device_from_xref.9:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:52
+msgid ""
+"When a device tree node references another node, the driver may need to get "
+"a device_t instance associated with the referenced node.  For instance, an "
+"Ethernet driver accessing a PHY device.  To make this possible, the kernel "
+"maintains a table that maps effective handles to device_t instances."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:62
+msgid ""
+"E<.Fn OF_device_register_xref> adds a map entry from the effective phandle "
+"E<.Fa xref> to device E<.Fa dev>.  If a mapping entry for E<.Fa xref> "
+"already exists, it is replaced with the new one.  The function always "
+"returns 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:67
+msgid ""
+"E<.Fn OF_device_from_xref> returns a device_t instance associated with the "
+"effective phandle E<.Fa xref>.  If no such mapping exists, the function "
+"returns NULL."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:72
+msgid ""
+"E<.Fn OF_xref_from_device> returns the effective phandle associated with the "
+"device E<.Fa dev>.  If no such mapping exists, the function returns 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/OF_device_from_xref.9:72
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:78
+#, no-wrap
+msgid ""
+"    static int\n"
+"    acmephy_attach(device_t dev)\n"
+"    {\n"
+"        phandle_t node;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:82
+#, no-wrap
+msgid ""
+"\t/* PHY node is referenced from eth device, register it */\n"
+"        node = ofw_bus_get_node(dev);\n"
+"        OF_device_register_xref(OF_xref_from_node(node), dev);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:85
+#, no-wrap
+msgid ""
+"        return (0);\n"
+"    }\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/OF_device_from_xref.9:86
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:88
+msgid "E<.Xr OF_node_to_xref 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/OF_device_from_xref.9:88
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/OF_device_from_xref.9:91
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Oleksandr Tymoshenko "
+"Aq Mt gonzo@FreeBSD.org>."
+msgstr ""

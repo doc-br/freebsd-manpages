@@ -1,0 +1,251 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/netdump.4:27
+#, no-wrap
+msgid "December 5, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/netdump.4:28
+#, no-wrap
+msgid "NETDUMP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:32
+msgid "E<.Nm netdump>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/netdump.4:32
+#, no-wrap
+msgid "protocol for transmitting kernel dumps to a remote server"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:36
+msgid ""
+"To compile netdump client support into the kernel, place the following line "
+"in your kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:38
+#, no-wrap
+msgid "E<.Cd \"options NETDUMP\">\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:39
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:50
+msgid ""
+"netdump is a UDP-based protocol for transmitting kernel dumps to a remote "
+"host.  A netdump client is a panicking kernel, and a netdump server is a "
+"host running the E<.Nm> daemon, available in ports as E<.Pa "
+"ports/ftp/netdumpd>.  E<.Nm> clients are configured using the E<.Xr dumpon "
+"8> utility."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:68
+msgid ""
+"E<.Nm> client messages consist of a fixed-size header followed by a "
+"variable-sized payload.  The header contains the message type, a sequence "
+"number, the offset of the payload data in the kernel dump, and the length of "
+"the payload data (not including the header).  The message types are E<.Dv "
+"HERALD , FINISHED , KDH , VMCORE>, and E<.Dv EKCD_KEY>.  E<.Nm> server "
+"messages have a fixed size and contain only the sequence number of the "
+"client message.  These messages indicate that the server has successfully "
+"processed the client message with the corresponding sequence number.  All "
+"client messages are acknowledged this way.  Server messages are always sent "
+"to port 20024 of the client."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:82
+msgid ""
+"To initiate a E<.Nm>, the client sends a E<.Dv HERALD> message to the server "
+"at port 20023.  The client may include a relative path in its payload, in "
+"which case the E<.Nm> server should attempt to save the dump at that path "
+"relative to its configured dump directory.  The server will acknowledge the "
+"E<.Dv HERALD> using a random source port, and the client must send all "
+"subsequent messages to that port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:92
+msgid ""
+"The E<.Dv KDH , VMCORE>, and E<.Dv EKCD_KEY> message payloads contain the "
+"kernel dump header, dump contents, and dump encryption key respectively.  "
+"The offset in the message header should be treated as a seek offset in the "
+"corresponding file.  There are no ordering requirements for these messages."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:98
+msgid "A E<.Nm> is completed by sending the E<.Dv FINISHED> message to the server."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:112
+msgid ""
+"The following network drivers support netdump: E<.Xr alc 4>, E<.Xr bge 4>, "
+"E<.Xr bnxt 4>, E<.Xr bxe 4>, E<.Xr cxgb 4>, E<.Xr em 4>, E<.Xr igb 4>, E<.Xr "
+"ix 4>, E<.Xr ixl 4>, E<.Xr mlx4en 4>, E<.Xr re 4>, E<.Xr vtnet 4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:112
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:118
+msgid ""
+"The following variables are available as both E<.Xr sysctl 8> variables and "
+"E<.Xr loader 8> variables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netdump.4:119
+#, no-wrap
+msgid "Va net.netdump.debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:123
+msgid ""
+"Control debug message verbosity.  Debug messages are disabled by default, "
+"but are useful when troubleshooting or when developing driver support."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netdump.4:123
+#, no-wrap
+msgid "Va net.netdump.path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:135
+msgid ""
+"Specify a path relative to the server's dump directory in which to store the "
+"dump.  For example, if the E<.Nm> server is configured to store dumps in "
+"E<.Pa /var/crash>, a path of E<.Dq foo> will cause the server to attempt to "
+"store dumps from the client in E<.Pa /var/crash/foo>.  The server will not "
+"automatically create the relative directory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netdump.4:135
+#, no-wrap
+msgid "Va net.netdump.polls"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:141
+msgid ""
+"The client will poll the configured network interface while waiting for "
+"acknowledgements.  This parameter controls the maximum number of poll "
+"attempts before giving up, which typically results in a re-transmit.  Each "
+"poll attempt takes 0.5ms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netdump.4:141
+#, no-wrap
+msgid "Va net.netdump.retries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:145
+msgid ""
+"The number of times the client will re-transmit a packet before aborting a "
+"dump due to a lack of acknowledgement.  The default may be too small in "
+"environments with lots of packet loss."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netdump.4:145
+#, no-wrap
+msgid "Va net.netdump.arp_retries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:148
+msgid ""
+"The number of times the client will attempt to learn the MAC address of the "
+"configured gateway or server before giving up and aborting the dump."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:149
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:153
+msgid "E<.Xr decryptcore 8>, E<.Xr dumpon 8>, E<.Xr savecore 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:153
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:157
+msgid "E<.Nm> client support first appeared in E<.Fx 12.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netdump.4:157
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:159
+msgid "Only IPv4 is supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netdump.4:161
+msgid "E<.Nm> may only be used after the kernel has panicked."
+msgstr ""

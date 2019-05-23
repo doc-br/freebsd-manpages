@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/lib/libradius/radius.conf.5:27
+#, no-wrap
+msgid "October 30, 1999"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/lib/libradius/radius.conf.5:28
+#, no-wrap
+msgid "RADIUS.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:32
+msgid "E<.Nm radius.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/lib/libradius/radius.conf.5:32
+#, no-wrap
+msgid "RADIUS client configuration file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:35
+msgid "E<.Pa /etc/radius.conf>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:46
+msgid ""
+"E<.Nm> contains the information necessary to configure the RADIUS client "
+"library.  It is parsed by E<.Xr rad_config 3>.  The file contains one or "
+"more lines of text, each describing a single RADIUS server which will be "
+"used by the library.  Leading white space is ignored, as are empty lines and "
+"lines containing only comments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:48
+msgid "A RADIUS server is described by three to seven fields on a line:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:52
+msgid "Service type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:54
+msgid "Server host"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:56
+msgid "Shared secret"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:58
+msgid "Timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:60
+msgid "Retries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:62
+msgid "Dead time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:64
+msgid "Bind address"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:81
+msgid ""
+"The fields are separated by white space.  The E<.Ql #> character at the "
+"beginning of a field begins a comment, which extends to the end of the "
+"line.  A field may be enclosed in double quotes, in which case it may "
+"contain white space and/or begin with the E<.Ql #> character.  Within a "
+"quoted string, the double quote character can be represented by E<.Ql "
+"\\e\\&\">, and the backslash can be represented by E<.Ql \\e\\e>.  No other "
+"escape sequences are supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:100
+msgid ""
+"The first field gives the service type, either E<.Ql auth> for RADIUS "
+"authentication or E<.Ql acct> for RADIUS accounting.  If a single server "
+"provides both services, two lines are required in the file.  Earlier "
+"versions of this file did not include a service type.  For backward "
+"compatibility, if the first field is not E<.Ql auth> or E<.Ql acct> the "
+"library behaves as if E<.Ql auth> were specified, and interprets the fields "
+"in the line as if they were fields two through five."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:121
+msgid ""
+"The second field specifies the server host, either as a fully qualified "
+"domain name or as a dotted-quad IP address.  The host may optionally be "
+"followed by a E<.Ql \\&:> and a numeric port number, without intervening "
+"white space.  If the port specification is omitted, it defaults to the E<.Ql "
+"radius> or E<.Ql radacct> service in the E<.Pa /etc/services> file for "
+"service types E<.Ql auth> and E<.Ql acct>, respectively.  If no such entry "
+"is present, the standard ports 1812 and 1813 are used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:133
+msgid ""
+"The third field contains the shared secret, which should be known only to "
+"the client and server hosts.  It is an arbitrary string of characters, "
+"though it must be enclosed in double quotes if it contains white space.  The "
+"shared secret may be any length, but the RADIUS protocol uses only the first "
+"128 characters.  N.B., some popular RADIUS servers have bugs which prevent "
+"them from working properly with secrets longer than 16 characters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:138
+msgid ""
+"The fourth field contains a decimal integer specifying the timeout in "
+"seconds for receiving a valid reply from the server.  If this field is "
+"omitted, it defaults to 3 seconds."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:145
+msgid ""
+"The fifth field contains a decimal integer specifying the maximum number of "
+"attempts that will be made to authenticate with the server before giving "
+"up.  If omitted, it defaults to 3 attempts.  Note, this is the total number "
+"of attempts and not the number of retries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:149
+msgid ""
+"The sixth field contains a decimal integer specifying a time interval in "
+"seconds when the server will not requested if it was inaccessible on the "
+"last try. 0 means ask always."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:152
+msgid ""
+"The seventh field contains an IP address on multihomed host. All requests "
+"will be binded to this IP."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:157
+msgid ""
+"Up to 10 RADIUS servers may be specified for each service type.  The servers "
+"are tried in round-robin fashion, until a valid response is received or the "
+"maximum number of tries has been reached for all servers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:164
+msgid ""
+"The standard location for this file is E<.Pa /etc/radius.conf>.  But an "
+"alternate pathname may be specified in the call to E<.Xr rad_config 3>.  "
+"Since the file contains sensitive information in the form of the shared "
+"secrets, it should not be readable except by root."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:164
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/libradius/radius.conf.5:166
+#, no-wrap
+msgid "Pa /etc/radius.conf"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:168
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:172
+#, no-wrap
+msgid ""
+"# A simple entry using all the defaults:\n"
+"acct  radius1.domain.com  OurLittleSecret\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:176
+#, no-wrap
+msgid ""
+"# A server still using the obsolete RADIUS port, with increased\n"
+"# timeout and maximum tries:\n"
+"auth  auth.domain.com:1645  \"I can't see you\"  5  4\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:179
+#, no-wrap
+msgid ""
+"# As above but set dead time and bind address\n"
+"auth  auth.domain.com:1645  \"I can't see you\"  5  4  60  192.168.1.8\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:182
+#, no-wrap
+msgid ""
+"# A server specified by its IP address:\n"
+"auth  192.168.27.81  $X*#..38947ax-+=\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:183
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:195
+msgid ""
+"E<.Xr libradius 3> E<.Rs> E<.%A C. Rigney, et al> E<.%T \"Remote "
+"Authentication Dial In User Service (RADIUS)\"> E<.%O RFC 2138> E<.Re> "
+"E<.Rs> E<.%A C. Rigney> E<.%T RADIUS Accounting> E<.%O RFC 2139> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/libradius/radius.conf.5:195
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/libradius/radius.conf.5:200
+msgid ""
+"This documentation was written by E<.An John Polstra>, and donated to the "
+"E<.Fx> project by Juniper Networks, Inc."
+msgstr ""

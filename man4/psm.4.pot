@@ -1,0 +1,1443 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/psm.4:29
+#, no-wrap
+msgid "September 26, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/psm.4:30
+#, no-wrap
+msgid "PSM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:34
+msgid "E<.Nm psm>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/psm.4:34
+#, no-wrap
+msgid "PS/2 mouse style pointing device driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:41
+msgid ""
+"E<.Cd \"options KBD_RESETDELAY=N\"> E<.Cd \"options KBD_MAXWAIT=N\"> E<.Cd "
+"\"options PSM_DEBUG=N\"> E<.Cd \"options KBDIO_DEBUG=N\"> E<.Cd \"device "
+"psm\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:46
+msgid ""
+"In E<.Pa /boot/device.hints>: E<.Cd hint.psm.0.at=\"atkbdc\"> E<.Cd "
+"hint.psm.0.irq=\"12\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:46
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:61
+msgid ""
+"The E<.Nm> driver provides support for the PS/2 mouse style pointing "
+"device.  Currently there can be only one E<.Nm> device node in the system.  "
+"As the PS/2 mouse port is located at the auxiliary port of the keyboard "
+"controller, the keyboard controller driver, E<.Nm atkbdc>, must also be "
+"configured in the kernel.  Note that there is currently no provision of "
+"changing the E<.Em irq> number."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:64
+msgid ""
+"Basic PS/2 style pointing device has two or three buttons.  Some devices may "
+"have a roller or a wheel and/or additional buttons."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:64
+#, no-wrap
+msgid "Device Resolution"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:83
+msgid ""
+"The PS/2 style pointing device usually has several grades of resolution, "
+"that is, sensitivity of movement.  They are typically 25, 50, 100 and 200 "
+"pulse per inch.  Some devices may have finer resolution.  The current "
+"resolution can be changed at runtime.  The E<.Nm> driver allows the user to "
+"initially set the resolution via the driver flag (see E<.Sx \"DRIVER "
+"CONFIGURATION\">)  or change it later via the E<.Xr ioctl 2> command E<.Dv "
+"MOUSE_SETMODE> (see E<.Sx IOCTLS>)."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:83
+#, no-wrap
+msgid "Report Rate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:92
+msgid ""
+"Frequency, or report rate, at which the device sends movement and button "
+"state reports to the host system is also configurable.  The PS/2 style "
+"pointing device typically supports 10, 20, 40, 60, 80, 100 and 200 reports "
+"per second.  60 or 100 appears to be the default value for many devices.  "
+"Note that when there is no movement and no button has changed its state, the "
+"device will not send anything to the host system.  The report rate can be "
+"changed via an ioctl call."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:92
+#, no-wrap
+msgid "Operation Levels"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:97
+msgid ""
+"The E<.Nm> driver has three levels of operation.  The current operation "
+"level can be set via an ioctl call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:106
+msgid ""
+"At the level zero the basic support is provided; the device driver will "
+"report horizontal and vertical movement of the attached device and state of "
+"up to three buttons.  The movement and status are encoded in a series of "
+"fixed-length data packets (see E<.Sx \"Data Packet Format\">).  This is the "
+"default level of operation and the driver is initially at this level when "
+"opened by the user program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:111
+msgid ""
+"The operation level one, the `extended' level, supports a roller (or wheel), "
+"if any, and up to 11 buttons.  The movement of the roller is reported as "
+"movement along the Z axis.  8 byte data packets are sent to the user program "
+"at this level."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:122
+msgid ""
+"At the operation level two, data from the pointing device is passed to the "
+"user program as is.  Conversely, command from the user program is passed to "
+"the pointing device as is and the user program is responsible for status "
+"validation and error recovery.  Modern PS/2 type pointing devices often use "
+"proprietary data format.  Therefore, the user program is expected to have "
+"intimate knowledge about the format from a particular device when operating "
+"the driver at this level.  This level is called `native' level."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:122
+#, no-wrap
+msgid "Data Packet Format"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:126
+msgid ""
+"Data packets read from the E<.Nm> driver are formatted differently at each "
+"operation level."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:129
+msgid ""
+"A data packet from the PS/2 mouse style pointing device is three bytes long "
+"at the operation level zero:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:131 /usr/src/share/man/man4/psm.4:754
+#, no-wrap
+msgid "Byte 1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:133 /usr/src/share/man/man4/psm.4:756 /usr/src/share/man/man4/psm.4:784
+#, no-wrap
+msgid "bit 7"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:135
+msgid "One indicates overflow in the vertical movement count."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:135 /usr/src/share/man/man4/psm.4:758
+#, no-wrap
+msgid "bit 6"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:137
+msgid "One indicates overflow in the horizontal movement count."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:137 /usr/src/share/man/man4/psm.4:767
+#, no-wrap
+msgid "bit 5"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:139
+msgid "Set if the vertical movement count is negative."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:139 /usr/src/share/man/man4/psm.4:770
+#, no-wrap
+msgid "bit 4"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:141
+msgid "Set if the horizontal movement count is negative."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:141 /usr/src/share/man/man4/psm.4:773
+#, no-wrap
+msgid "bit 3"
+msgstr ""
+
+#.  The ALPS GlidePoint clears this bit when the user `taps' the surface of
+#.  the pad, otherwise the bit is set.
+#.  Most, if not all, other devices always set this bit.
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:146
+msgid "Always one."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:146 /usr/src/share/man/man4/psm.4:775
+#, no-wrap
+msgid "bit 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:150
+msgid ""
+"Middle button status; set if pressed.  For devices without the middle "
+"button, this bit is always zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:150 /usr/src/share/man/man4/psm.4:777
+#, no-wrap
+msgid "bit 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:152 /usr/src/share/man/man4/psm.4:781
+msgid "Right button status; set if pressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:152 /usr/src/share/man/man4/psm.4:779
+#, no-wrap
+msgid "bit 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:154 /usr/src/share/man/man4/psm.4:777
+msgid "Left button status; set if pressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:155 /usr/src/share/man/man4/psm.4:782
+#, no-wrap
+msgid "Byte 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:159
+msgid ""
+"Horizontal movement count in two's complement; -256 through 255.  Note that "
+"the sign bit is in the first byte."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:159 /usr/src/share/man/man4/psm.4:791
+#, no-wrap
+msgid "Byte 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:163
+msgid ""
+"Vertical movement count in two's complement; -256 through 255.  Note that "
+"the sign bit is in the first byte."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:170
+msgid ""
+"At the level one, a data packet is encoded in the standard format E<.Dv "
+"MOUSE_PROTO_SYSMOUSE> as defined in E<.Xr mouse 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:173
+msgid ""
+"At the level two, native level, there is no standard on the size and format "
+"of the data packet."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:173
+#, no-wrap
+msgid "Acceleration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:183
+msgid ""
+"The E<.Nm> driver can somewhat `accelerate' the movement of the pointing "
+"device.  The faster you move the device, the further the pointer travels on "
+"the screen.  The driver has an internal variable which governs the effect of "
+"the acceleration.  Its value can be modified via the driver flag or via an "
+"ioctl call."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:183
+#, no-wrap
+msgid "DRIVER CONFIGURATION"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:184
+#, no-wrap
+msgid "Kernel Configuration Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:191
+msgid ""
+"There are following kernel configuration options to control the E<.Nm> "
+"driver.  They may be set in the kernel configuration file (see E<.Xr config "
+"8>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:192
+#, no-wrap
+msgid "Em KBD_RESETDELAY=X , KBD_MAXWAIT=Y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:213
+msgid ""
+"The E<.Nm> driver will attempt to reset the pointing device during the boot "
+"process.  It sometimes takes a long while before the device will respond "
+"after reset.  These options control how long the driver should wait before "
+"it eventually gives up waiting.  The driver will wait E<.Fa X> * E<.Fa Y> "
+"msecs at most.  If the driver seems unable to detect your pointing device, "
+"you may want to increase these values.  The default values are 200 msec for "
+"E<.Fa X> and 5 for E<.Fa Y>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:213
+#, no-wrap
+msgid "Em PSM_DEBUG=N , KBDIO_DEBUG=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:220
+msgid ""
+"Sets the debug level to E<.Fa N>.  The default debug level is zero.  See "
+"E<.Sx DIAGNOSTICS> for debug logging."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/psm.4:221
+#, no-wrap
+msgid "Driver Flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:230
+msgid ""
+"The E<.Nm> driver accepts the following driver flags.  Set them in E<.Pa "
+"/boot/device.hints> (see E<.Sx EXAMPLES> below)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:231
+#, no-wrap
+msgid "bit 0..3 RESOLUTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:239
+msgid ""
+"This flag specifies the resolution of the pointing device.  It must be zero "
+"through four.  The greater the value is, the finer resolution the device "
+"will select.  Actual resolution selected by this field varies according to "
+"the model of the device.  Typical resolutions are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:241
+#, no-wrap
+msgid "Em 1 (low)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:243
+msgid "25 pulse per inch (ppi)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:243
+#, no-wrap
+msgid "Em 2 (medium low)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:245 /usr/src/share/man/man4/psm.4:532
+msgid "50 ppi"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:245
+#, no-wrap
+msgid "Em 3 (medium high)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:247 /usr/src/share/man/man4/psm.4:534
+msgid "100 ppi"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:247
+#, no-wrap
+msgid "Em 4 (high)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:249 /usr/src/share/man/man4/psm.4:536
+msgid "200 ppi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:253
+msgid ""
+"Leaving this flag zero will selects the default resolution for the device "
+"(whatever it is)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:253
+#, no-wrap
+msgid "bit 4..7 ACCELERATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:260
+msgid ""
+"This flag controls the amount of acceleration effect.  The smaller the value "
+"of this flag is, more sensitive the movement becomes.  The minimum value "
+"allowed, thus the value for the most sensitive setting, is one.  Setting "
+"this flag to zero will completely disables the acceleration effect."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:260
+#, no-wrap
+msgid "bit 8 NOCHECKSYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:270
+msgid ""
+"The E<.Nm> driver tries to detect the first byte of the data packet by "
+"checking the bit pattern of that byte.  Although this method should work "
+"with most PS/2 pointing devices, it may interfere with some devices which "
+"are not so compatible with known devices.  If you think your pointing device "
+"is not functioning as expected, and the kernel frequently prints the "
+"following message to the console,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:272
+#, no-wrap
+msgid "psmintr: out of sync (xxxx != yyyy).\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:275
+msgid "set this flag to disable synchronization check and see if it helps."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:275
+#, no-wrap
+msgid "bit 9 NOIDPROBE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:286
+msgid ""
+"The E<.Nm> driver will not try to identify the model of the pointing device "
+"and will not carry out model-specific initialization.  The device should "
+"always act like a standard PS/2 mouse without such initialization.  Extra "
+"features, such as wheels and additional buttons, will not be recognized by "
+"the E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:286
+#, no-wrap
+msgid "bit 10 NORESET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:300
+msgid ""
+"When this flag is set, the E<.Nm> driver will not reset the pointing device "
+"when initializing the device.  If the E<.Fx> kernel is started after another "
+"OS has run, the pointing device will inherit settings from the previous OS.  "
+"However, because there is no way for the E<.Nm> driver to know the settings, "
+"the device and the driver may not work correctly.  The flag should never be "
+"necessary under normal circumstances."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:300
+#, no-wrap
+msgid "bit 11 FORCETAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:309
+msgid ""
+"Some pad devices report as if the fourth button is pressed when the user "
+"`taps' the surface of the device (see E<.Sx CAVEATS>).  This flag will make "
+"the E<.Nm> driver assume that the device behaves this way.  Without the "
+"flag, the driver will assume this behavior for ALPS GlidePoint models only."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:309
+#, no-wrap
+msgid "bit 12 IGNOREPORTERROR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:314
+msgid ""
+"This flag makes E<.Nm> driver ignore certain error conditions when probing "
+"the PS/2 mouse port.  It should never be necessary under normal "
+"circumstances."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:314
+#, no-wrap
+msgid "bit 13 HOOKRESUME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:327
+msgid ""
+"The built-in PS/2 pointing device of some laptop computers is somehow not "
+"operable immediately after the system `resumes' from the power saving mode, "
+"though it will eventually become available.  There are reports that "
+"stimulating the device by performing I/O will help waking up the device "
+"quickly.  This flag will enable a piece of code in the E<.Nm> driver to hook "
+"the `resume' event and exercise some harmless I/O operations on the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:327
+#, no-wrap
+msgid "bit 14 INITAFTERSUSPEND"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:333
+msgid ""
+"This flag adds more drastic action for the above problem.  It will cause the "
+"E<.Nm> driver to reset and re-initialize the pointing device after the "
+"`resume' event."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:334
+#, no-wrap
+msgid "LOADER TUNABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:351
+msgid ""
+"Extended support for Synaptics touchpads can be enabled by setting E<.Va "
+"hw.psm.synaptics_support> to E<.Em 1> at boot-time.  This will enable E<.Nm> "
+"to handle packets from guest devices (sticks) and extra buttons.  Similarly, "
+"extended support for IBM/Lenovo TrackPoint and Elantech touchpads can be "
+"enabled by setting E<.Va hw.psm.trackpoint_support> or E<.Va "
+"hw.psm.elantech_support,> respectively, to E<.Em 1> at boot-time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:364
+msgid ""
+"Tap and drag gestures can be disabled by setting E<.Va hw.psm.tap_enabled> "
+"to E<.Em 0> at boot-time.  Currently, this is supported on Synaptics "
+"touchpads regardless of Extended support state and on Elantech touchpads "
+"with Extended support enabled.  The behaviour may be changed after boot by "
+"setting the sysctl with the same name and by restarting E<.Xr moused 8> "
+"using E<.Pa /etc/rc.d/moused>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:364
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:369
+msgid ""
+"There are a few E<.Xr ioctl 2> commands for mouse drivers.  These commands "
+"and related structures and constants are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/psm.4:369
+#, no-wrap
+msgid "sys/mouse.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:375
+msgid ""
+"General description of the commands is given in E<.Xr mouse 4>.  This "
+"section explains the features specific to the E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:377
+#, no-wrap
+msgid "Dv MOUSE_GETLEVEL Ar int *level"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:378
+#, no-wrap
+msgid "Dv MOUSE_SETLEVEL Ar int *level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:382
+msgid "These commands manipulate the operation level of the E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:383
+#, no-wrap
+msgid "Dv MOUSE_GETHWINFO Ar mousehw_t *hw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:386
+msgid ""
+"Returns the hardware information of the attached device in the following "
+"structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:394
+#, no-wrap
+msgid ""
+"typedef struct mousehw {\n"
+"    int buttons;    /* number of buttons */\n"
+"    int iftype;     /* I/F type */\n"
+"    int type;       /* mouse/track ball/pad... */\n"
+"    int model;      /* I/F dependent model ID */\n"
+"    int hwid;       /* I/F dependent hardware ID */\n"
+"} mousehw_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:407
+msgid ""
+"The E<.Dv buttons> field holds the number of buttons on the device.  The "
+"E<.Nm> driver currently can detect the 3 button mouse from Logitech and "
+"report accordingly.  The 3 button mouse from the other manufacturer may or "
+"may not be reported correctly.  However, it will not affect the operation of "
+"the driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:412
+msgid "The E<.Dv iftype> is always E<.Dv MOUSE_IF_PS2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:425
+msgid ""
+"The E<.Dv type> tells the device type: E<.Dv MOUSE_MOUSE>, E<.Dv "
+"MOUSE_TRACKBALL>, E<.Dv MOUSE_STICK>, E<.Dv MOUSE_PAD>, or E<.Dv "
+"MOUSE_UNKNOWN>.  The user should not heavily rely on this field, as the "
+"driver may not always, in fact it is very rarely able to, identify the "
+"device type."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:439
+msgid ""
+"The E<.Dv model> is always E<.Dv MOUSE_MODEL_GENERIC> at the operation level "
+"0.  It may be E<.Dv MOUSE_MODEL_GENERIC> or one of E<.Dv MOUSE_MODEL_XXX> "
+"constants at higher operation levels.  Again the E<.Nm> driver may or may "
+"not set an appropriate value in this field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:444
+msgid "The E<.Dv hwid> is the ID value returned by the device.  Known IDs include:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:446
+#, no-wrap
+msgid "Em 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:448
+msgid "Mouse (Microsoft, Logitech and many other manufacturers)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:448
+#, no-wrap
+msgid "Em 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:450
+msgid "Microsoft Ballpoint mouse"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:450
+#, no-wrap
+msgid "Em 3"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:452
+msgid "Microsoft IntelliMouse"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:454
+#, no-wrap
+msgid "Dv MOUSE_SYN_GETHWINFO Ar synapticshw_t *synhw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:457
+msgid ""
+"Retrieves extra information associated with Synaptics Touchpad.  Only "
+"available when a supported device has been detected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:479
+#, no-wrap
+msgid ""
+"typedef struct synapticshw {\n"
+"    int infoMajor;\t/* major hardware revision */\n"
+"    int infoMinor;\t/* minor hardware revision */\n"
+"    int infoRot180;\t/* touchpad is rotated */\n"
+"    int infoPortrait;\t/* touchpad is a portrait */\n"
+"    int infoSensor;\t/* sensor model */\n"
+"    int infoHardware;\t/* hardware model */\n"
+"    int infoNewAbs;\t/* supports the newabs format */\n"
+"    int capPen;\t\t/* can detect a pen */\n"
+"    int infoSimplC;\t/* supports simple commands */\n"
+"    int infoGeometry;\t/* touchpad dimensions */\n"
+"    int capExtended;\t/* supports extended packets */\n"
+"    int capSleep;\t/* can be suspended/resumed */\n"
+"    int capFourButtons;\t/* has four buttons */\n"
+"    int capMultiFinger;\t/* can detect multiple fingers */\n"
+"    int capPalmDetect;\t/* can detect a palm */\n"
+"    int capPassthrough;\t/* can passthrough guest packets */\n"
+"    int capMiddle;\t/* has a physical middle button */\n"
+"    int nExtendedButtons; /* has N additional buttons */\n"
+"    int nExtendedQueries; /* supports N extended queries */\n"
+"} synapticshw_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:484
+msgid ""
+"See the E<.Em Synaptics TouchPad Interfacing Guide> for more information "
+"about the fields in this structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:485
+#, no-wrap
+msgid "Dv MOUSE_GETMODE Ar mousemode_t *mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:488
+msgid "The command gets the current operation parameters of the mouse driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:498
+#, no-wrap
+msgid ""
+"typedef struct mousemode {\n"
+"    int protocol;    /* MOUSE_PROTO_XXX */\n"
+"    int rate;        /* report rate (per sec), -1 if unknown */\n"
+"    int resolution;  /* MOUSE_RES_XXX, -1 if unknown */\n"
+"    int accelfactor; /* acceleration factor */\n"
+"    int level;       /* driver operation level */\n"
+"    int packetsize;  /* the length of the data packet */\n"
+"    unsigned char syncmask[2]; /* sync. bits */\n"
+"} mousemode_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:507
+msgid ""
+"The E<.Dv protocol> is E<.Dv MOUSE_PROTO_PS2> at the operation level zero "
+"and two.  E<.Dv MOUSE_PROTO_SYSMOUSE> at the operation level one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:514
+msgid ""
+"The E<.Dv rate> is the status report rate (reports/sec) at which the device "
+"will send movement report to the host computer.  Typical supported values "
+"are 10, 20, 40, 60, 80, 100 and 200.  Some mice may accept other arbitrary "
+"values too."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:526
+msgid ""
+"The E<.Dv resolution> of the pointing device must be one of E<.Dv "
+"MOUSE_RES_XXX> constants or a positive value.  The greater the value is, the "
+"finer resolution the mouse will select.  Actual resolution selected by the "
+"E<.Dv MOUSE_RES_XXX> constant varies according to the model of mouse.  "
+"Typical resolutions are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:528
+#, no-wrap
+msgid "Dv MOUSE_RES_LOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:530
+msgid "25 ppi"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:530
+#, no-wrap
+msgid "Dv MOUSE_RES_MEDIUMLOW"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:532
+#, no-wrap
+msgid "Dv MOUSE_RES_MEDIUMHIGH"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:534
+#, no-wrap
+msgid "Dv MOUSE_RES_HIGH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:545
+msgid ""
+"The E<.Dv accelfactor> field holds a value to control acceleration feature "
+"(see E<.Sx Acceleration>).  It must be zero or greater.  If it is zero, "
+"acceleration is disabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:551
+msgid ""
+"The E<.Dv packetsize> field specifies the length of the data packet.  It "
+"depends on the operation level and the model of the pointing device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:553
+#, no-wrap
+msgid "Em level 0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:555
+msgid "3 bytes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:555
+#, no-wrap
+msgid "Em level 1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:557
+msgid "8 bytes"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:557
+#, no-wrap
+msgid "Em level 2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:559
+msgid "Depends on the model of the device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:572
+msgid ""
+"The array E<.Dv syncmask> holds a bit mask and pattern to detect the first "
+"byte of the data packet.  E<.Dv syncmask[0]> is the bit mask to be ANDed "
+"with a byte.  If the result is equal to E<.Dv syncmask[1]>, the byte is "
+"likely to be the first byte of the data packet.  Note that this detection "
+"method is not 100% reliable, thus, should be taken only as an advisory "
+"measure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:573
+#, no-wrap
+msgid "Dv MOUSE_SETMODE Ar mousemode_t *mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:586
+msgid ""
+"The command changes the current operation parameters of the mouse driver as "
+"specified in E<.Ar mode>.  Only E<.Dv rate>, E<.Dv resolution>, E<.Dv level> "
+"and E<.Dv accelfactor> may be modifiable.  Setting values in the other field "
+"does not generate error and has no effect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:594
+msgid ""
+"If you do not want to change the current setting of a field, put -1 there.  "
+"You may also put zero in E<.Dv resolution> and E<.Dv rate>, and the default "
+"value for the fields will be selected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:595
+#, no-wrap
+msgid "Dv MOUSE_READDATA Ar mousedata_t *data"
+msgstr ""
+
+#.  The command reads the raw data from the device.
+#.  .Bd -literal
+#.  typedef struct mousedata {
+#.      int len;        /* # of data in the buffer */
+#.      int buf[16];    /* data buffer */
+#.  } mousedata_t;
+#.  .Ed
+#.  .Pp
+#.  Upon returning to the user program, the driver will place the number
+#.  of valid data bytes in the buffer in the
+#.  .Dv len
+#.  field.
+#.  .Pp
+#. type: It
+#: /usr/src/share/man/man4/psm.4:609
+#, no-wrap
+msgid "Dv MOUSE_READSTATE Ar mousedata_t *state"
+msgstr ""
+
+#.  The command reads the hardware settings from the device.
+#.  Upon returning to the user program, the driver will place the number
+#.  of valid data bytes in the buffer in the
+#.  .Dv len
+#.  field. It is usually 3 bytes.
+#.  The buffer is formatted as follows:
+#.  .Pp
+#.  .Bl -tag -width Byte_1 -compact
+#.  .It Byte 1
+#.  .Bl -tag -width bit_6 -compact
+#.  .It bit 7
+#.  Reserved.
+#.  .It bit 6
+#.  0 - stream mode, 1 - remote mode.
+#.  In the stream mode, the pointing device sends the device status
+#.  whenever its state changes. In the remote mode, the host computer
+#.  must request the status to be sent.
+#.  The
+#.  .Nm
+#.  driver puts the device in the stream mode.
+#.  .It bit 5
+#.  Set if the pointing device is currently enabled. Otherwise zero.
+#.  .It bit 4
+#.  0 - 1:1 scaling, 1 - 2:1 scaling.
+#.  1:1 scaling is the default.
+#.  .It bit 3
+#.  Reserved.
+#.  .It bit 2
+#.  Left button status; set if pressed.
+#.  .It bit 1
+#.  Middle button status; set if pressed.
+#.  .It bit 0
+#.  Right button status; set if pressed.
+#.  .El
+#.  .It Byte 2
+#.  .Bl -tag -width bit_6_0 -compact
+#.  .It bit 7
+#.  Reserved.
+#.  .It bit 6..0
+#.  Resolution code: zero through three. Actual resolution for
+#.  the resolution code varies from one device to another.
+#.  .El
+#.  .It Byte 3
+#.  The status report rate (reports/sec) at which the device will send
+#.  movement report to the host computer.
+#.  .El
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:659
+msgid "These commands are not currently supported by the E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:660
+#, no-wrap
+msgid "Dv MOUSE_GETSTATUS Ar mousestatus_t *status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:664
+msgid ""
+"The command returns the current state of buttons and movement counts as "
+"described in E<.Xr mouse 4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:665
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:667
+#, no-wrap
+msgid "Pa /dev/psm0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:669
+msgid "`non-blocking' device node"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:669
+#, no-wrap
+msgid "Pa /dev/bpsm0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:671
+msgid "`blocking' device node"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:672
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:676
+msgid "In order to install the E<.Nm> driver, you need to add"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:677
+#, no-wrap
+msgid "device atkbdc"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:678
+#, no-wrap
+msgid "device psm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:682
+msgid ""
+"to your kernel configuration file, and put the following lines to E<.Pa "
+"/boot/device.hints>."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:683
+#, no-wrap
+msgid "hint.atkbdc.0.at=\"isa\""
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:684
+#, no-wrap
+msgid "hint.atkbdc.0.port=\"0x060\""
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:685
+#, no-wrap
+msgid "hint.psm.0.at=\"atkbdc\""
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:686
+#, no-wrap
+msgid "hint.psm.0.irq=\"12\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:690
+msgid "If you add the following statement to E<.Pa /boot/device.hints>,"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:691
+#, no-wrap
+msgid "hint.psm.0.flags=\"0x2000\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:695
+msgid ""
+"you will add the optional code to stimulate the pointing device after the "
+"`resume' event."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/psm.4:696
+#, no-wrap
+msgid "hint.psm.0.flags=\"0x24\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:700
+msgid ""
+"The above line will set the device resolution high (4)  and the acceleration "
+"factor to 2."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:700
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:703
+msgid ""
+"At debug level 0, little information is logged except for the following line "
+"during boot process:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:705
+#, no-wrap
+msgid "psm0: device ID X\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:713
+msgid ""
+"where E<.Fa X> the device ID code returned by the found pointing device.  "
+"See E<.Dv MOUSE_GETINFO> for known IDs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:719
+msgid ""
+"At debug level 1 more information will be logged while the driver probes the "
+"auxiliary port (mouse port).  Messages are logged with the LOG_KERN facility "
+"at the LOG_DEBUG level (see E<.Xr syslogd 8>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:731
+#, no-wrap
+msgid ""
+"psm0: current command byte:xxxx\n"
+"kbdio: TEST_AUX_PORT status:0000\n"
+"kbdio: RESET_AUX return code:00fa\n"
+"kbdio: RESET_AUX status:00aa\n"
+"kbdio: RESET_AUX ID:0000\n"
+"[...]\n"
+"psm: status 00 02 64\n"
+"psm0 irq 12 on isa\n"
+"psm0: model AAAA, device ID X, N buttons\n"
+"psm0: config:00000www, flags:0000uuuu, packet size:M\n"
+"psm0: syncmask:xx, syncbits:yy\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:737
+msgid ""
+"The first line shows the command byte value of the keyboard controller just "
+"before the auxiliary port is probed.  It usually is 40, 45, 47 or 65, "
+"depending on how the motherboard BIOS initialized the keyboard controller "
+"upon power-up."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:742
+msgid ""
+"The second line shows the result of the keyboard controller's test on the "
+"auxiliary port interface, with zero indicating no error; note that some "
+"controllers report no error even if the port does not exist in the system, "
+"however."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:746
+msgid ""
+"The third through fifth lines show the reset status of the pointing device.  "
+"The functioning device should return the sequence of FA AA E<lt>IDE<gt>.  "
+"The ID code is described above."
+msgstr ""
+
+#.  See
+#.  .Dv MOUSE_READSTATE
+#.  for definitions.
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:752
+msgid ""
+"The seventh line shows the current hardware settings.  These bytes are "
+"formatted as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:758 /usr/src/share/man/man4/psm.4:775 /usr/src/share/man/man4/psm.4:786
+msgid "Reserved."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:767
+msgid ""
+"0 - stream mode, 1 - remote mode.  In the stream mode, the pointing device "
+"sends the device status whenever its state changes.  In the remote mode, the "
+"host computer must request the status to be sent.  The E<.Nm> driver puts "
+"the device in the stream mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:770
+msgid "Set if the pointing device is currently enabled.  Otherwise zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:773
+msgid "0 - 1:1 scaling, 1 - 2:1 scaling.  1:1 scaling is the default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:779
+msgid "Middle button status; set if pressed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/psm.4:786
+#, no-wrap
+msgid "bit 6..0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:790
+msgid ""
+"Resolution code: zero through three.  Actual resolution for the resolution "
+"code varies from one device to another."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:794
+msgid ""
+"The status report rate (reports/sec) at which the device will send movement "
+"report to the host computer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:799
+msgid ""
+"Note that the pointing device will not be enabled until the E<.Nm> driver is "
+"opened by the user program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:802
+msgid ""
+"The rest of the lines show the device ID code, the number of detected "
+"buttons and internal variables."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:804
+msgid "At debug level 2, much more detailed information is logged."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:804
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. .Sh HISTORY
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:817
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr syslog 3>, E<.Xr atkbdc 4>, E<.Xr mouse 4>, E<.Xr "
+"sysmouse 4>, E<.Xr moused 8>, E<.Xr syslogd 8> E<.Rs> E<.%T Synaptics "
+"TouchPad Interfacing Guide> E<.%U http://www.synaptics.com/> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:817
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:831
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver is based on the work done by quite a "
+"number of people, including E<.An Eric Forsberg>, E<.An Sandi Donno>, E<.An "
+"Rick Macklem>, E<.An Andrew Herbert>, E<.An Charles Hannum>, E<.An Shoji "
+"Yuen> and E<.An Kazutaka Yokota> to name the few."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:834
+msgid ""
+"This manual page was written by E<.An Kazutaka Yokota Aq Mt "
+"yokota@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:834
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:840
+msgid ""
+"Many pad devices behave as if the first (left) button were pressed if the "
+"user `taps' the surface of the pad.  In contrast, some pad products, e.g.\\& "
+"some versions of ALPS GlidePoint and Interlink VersaPad, treat the tapping "
+"action as fourth button events."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:848
+msgid ""
+"It is reported that ALPS GlidePoint, Synaptics Touchpad, IBM/Lenovo "
+"TrackPoint, and Interlink VersaPad require E<.Em INITAFTERSUSPEND> flag in "
+"order to recover from suspended state.  This flag is automatically set when "
+"one of these devices is detected by the E<.Nm> driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:853
+msgid ""
+"Some PS/2 mouse models from MouseSystems require to be put in the high "
+"resolution mode to work properly.  Use the driver flag to set resolution."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:863
+msgid ""
+"There is not a guaranteed way to re-synchronize with the first byte of the "
+"packet once we are out of synchronization with the data stream.  However, if "
+"you are using the I<XFree86> server and experiencing the problem, you may be "
+"able to make the X server synchronize with the mouse by switching away to a "
+"virtual terminal and getting back to the X server, unless the X server is "
+"accessing the mouse via E<.Xr moused 8>.  Clicking any button without moving "
+"the mouse may also work."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/psm.4:863
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/psm.4:866
+msgid ""
+"Enabling the extended support for Synaptics touchpads has been reported to "
+"cause problems with responsivity on some (newer) models of Synaptics "
+"hardware, particularly those with guest devices."
+msgstr ""

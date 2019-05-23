@@ -1,0 +1,624 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/sym.4:59
+#, no-wrap
+msgid "August 19, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/sym.4:60
+#, no-wrap
+msgid "SYM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:62
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:64
+msgid "E<.Nm sym>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/sym.4:64
+#, no-wrap
+msgid "NCR/Symbios/LSI Logic 53C8XX PCI SCSI host adapter driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:65
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:69
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:73
+#, no-wrap
+msgid ""
+"E<.Cd \"device pci\">\n"
+"E<.Cd \"device scbus\">\n"
+"E<.Cd \"device sym\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:76
+#, no-wrap
+msgid ""
+"To disable PCI parity checking (needed for broken bridges):\n"
+"E<.Cd \"options SYM_SETUP_PCI_PARITY=E<lt>booleanE<gt>\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:79
+#, no-wrap
+msgid ""
+"To control driver probing against HVD buses:\n"
+"E<.Cd \"options SYM_SETUP_SCSI_DIFF=E<lt>bit combinationE<gt>\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:82
+#, no-wrap
+msgid ""
+"To control chip attachment balancing between the ncr driver and this "
+"driver:\n"
+"E<.Cd \"options SYM_SETUP_LP_PROBE_MAP=E<lt>bit combinationE<gt>\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:87
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:89
+#, no-wrap
+msgid "sym_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:90
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:93
+msgid ""
+"This driver provides support for the Symbios/LSI Logic 53C8XX PCI SCSI "
+"controllers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:106
+msgid ""
+"Driver features include support for wide SCSI busses and fast10, fast20, "
+"fast40 and fast80-dt synchronous data transfers depending on controller "
+"capabilities.  It also provides generic SCSI features such as tagged command "
+"queueing and auto-request sense.  This driver is configured by default for a "
+"maximum of 446 outstanding commands per bus, 8 LUNs per target and 64 tagged "
+"tasks per LUN.  These numbers are not so much limited by design as they are "
+"considered reasonable values for current SCSI technology.  These values can "
+"be increased by changing appropriate constants in driver header files (not "
+"recommended)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:111
+msgid ""
+"This driver supports the entire Symbios 53C8XX family of PCI SCSI "
+"controllers.  It also offers the advantage of architectural improvements "
+"available only with newer chips."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:118
+msgid ""
+"E<.Nm> notably handles phase mismatch from SCRIPTS for the 53C896, 53C895A, "
+"and 53C1010 cores.  As a result, it guarantees that no more than 1 interrupt "
+"per IO completion is delivered to the CPU, and that the SCRIPTS processor is "
+"never stalled waiting for CPU attention in normal situations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:126
+msgid ""
+"E<.Nm> also uses LOAD/STORE SCRIPTS instructions for chips that support it.  "
+"Only the early 810, 815 and 825 NCR chips do not support LOAD/STORE.  Use of "
+"LOAD/STORE instead of MEMORY MOVE allows SCRIPTS to access IO registers "
+"internal to the chip (no external PCI cycles).  As a result, the driver "
+"guarantees that no PCI self-mastering will occur for chips that support "
+"LOAD/STORE."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:130
+msgid ""
+"LOAD/STORE instructions are also faster than MEMORY MOVE because they do not "
+"involve the chip DMA FIFO and are coded on 2 DWORDs instead of 3."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:134
+msgid ""
+"For the early NCR 810, 815 and 825 chips, the driver uses a separate SCRIPTS "
+"set that uses MEMORY MOVE instructions for data movements.  This is because "
+"LOAD/STORE are not supported by these chips."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:150
+msgid ""
+"HVD/LVD capable controllers (895, 895A, 896, and 897) report the actual bus "
+"mode in the STEST4 chip IO registers.  This feature allows the driver to "
+"safely probe against bus mode and to set up the chip accordingly.  By "
+"default the driver only supports HVD for these chips.  For other chips that "
+"can support HVD but not LVD, the driver has to probe implementation "
+"dependent registers (GPIO) in order to detect HVD bus mode.  Only HVD "
+"implementations that conform with Symbios Logic recommendations can be "
+"detected by the driver.  When the E<.Ar SYM_SETUP_SCSI_DIFF> kernel option "
+"is assigned a value of 1, the driver will also probe against HVD for 825a, "
+"875, 876 and 885 chips, assuming Symbios Logic compatible implementation of "
+"HVD."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:161
+msgid ""
+"When the E<.Ar SYM_SETUP_PCI_PARITY> is assigned a value of 0, the driver "
+"will not enable PCI parity checking for 53C8XX devices.  PCI parity checking "
+"should not be an option for PCI SCSI controllers, but some systems have been "
+"reported to fail using 53C8XX chips, due to spurious or permanent PCI parity "
+"errors detected.  This option is supplied for convenience but it is neither "
+"recommended nor supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:174
+msgid ""
+"This driver offers other options that are not currently exported to the "
+"user.  They are defined and documented in the E<.Pa sym_conf.h> driver "
+"file.  Changing these options is not recommended unless absolutely "
+"necessary.  Some of these options are planned to be exported through E<.Xr "
+"sysctl 3> or an equivalent mechanism in a future driver releases and "
+"therefore, no compatibility is guaranteed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:181
+msgid ""
+"At initialization, the driver tries to detect and read user settings from "
+"controller NVRAM.  The Symbios/Logic NVRAM layout and the Tekram NVRAM "
+"layout are currently supported.  If the reading of the NVRAM succeeds, the "
+"following settings are taken into account and reported to CAM:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:182
+#, no-wrap
+msgid "Em \"Host settings\tSymbios\tTekram\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:183
+#, no-wrap
+msgid "SCSI parity checking\tY\tN"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:184
+#, no-wrap
+msgid "Host SCSI ident \tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:185
+#, no-wrap
+msgid "Verbose messages\tY\tN"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:186
+#, no-wrap
+msgid "Scan targets hi-lo\tY\tN"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:187
+#, no-wrap
+msgid "Avoid SCSI bus reset\tY\tN"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:190
+#, no-wrap
+msgid "Em \"Device settings\tSymbios\tTekram\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:191
+#, no-wrap
+msgid "Synchronous period\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:192
+#, no-wrap
+msgid "SCSI bus width\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:193
+#, no-wrap
+msgid "Queue tag enable\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:194
+#, no-wrap
+msgid "Number of tags\tNA\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:195
+#, no-wrap
+msgid "Disconnect enable\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:196
+#, no-wrap
+msgid "Scan at boot time\tY\tN"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:197
+#, no-wrap
+msgid "Scan LUN\tY\tN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:206
+msgid ""
+"Devices that are configured as disabled for 'scan' in the NVRAM are not "
+"reported to CAM at system start-up.  They can be discovered later using the "
+"E<.Ql camcontrol rescan> command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:209
+msgid ""
+"The table below summarizes the main features and capabilities of the "
+"NCR/Symbios/LSI Logic 53C8XX family of PCI SCSI controllers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:210
+#, no-wrap
+msgid "Em \"Chip\tSync\tWidth\tSRAM\tPCI64\tSupported\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:211
+#, no-wrap
+msgid "sym53c810\t10MHz\t8Bit\tN\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:212
+#, no-wrap
+msgid "sym53c810a\t10MHz\t8Bit\tN\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:213
+#, no-wrap
+msgid "sym53c815\t10MHz\t8Bit\tN\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:214
+#, no-wrap
+msgid "sym53c825\t10MHz\t16Bit\tN\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:215
+#, no-wrap
+msgid "sym53c825a\t10MHz\t16Bit\t4KB\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:216
+#, no-wrap
+msgid "sym53c860\t20MHz\t8Bit\tN\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:217
+#, no-wrap
+msgid "sym53c875\t20MHz\t16Bit\t4KB\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:218
+#, no-wrap
+msgid "sym53c876\t20MHz\t16Bit\t4KB\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:219
+#, no-wrap
+msgid "sym53c885\t20MHz\t16Bit\t4KB\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:220
+#, no-wrap
+msgid "sym53c895\t40MHz\t16Bit\t4KB\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:221
+#, no-wrap
+msgid "sym53c895A\t40MHz\t16Bit\t8KB\tN\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:222
+#, no-wrap
+msgid "sym53c896\t40MHz\t16Bit\t8KB\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:223
+#, no-wrap
+msgid "sym53c897\t40MHz\t16Bit\t8KB\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:224
+#, no-wrap
+msgid "sym53c1510D\t40MHz\t16Bit\t4KB\tY\tY"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sym.4:225
+#, no-wrap
+msgid "sym53c1010\t80MHz\t16Bit\t8KB\tY\tY"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:227
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:232
+msgid ""
+"The E<.Nm> driver provides support for the following Symbios/LSI Logic PCI "
+"SCSI controllers:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:236
+msgid "E<.Tn 53C810>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:238
+msgid "E<.Tn 53C810A>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:240
+msgid "E<.Tn 53C815>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:242
+msgid "E<.Tn 53C825>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:244
+msgid "E<.Tn 53C825A>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:246
+msgid "E<.Tn 53C860>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:248
+msgid "E<.Tn 53C875>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:250
+msgid "E<.Tn 53C876>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:252
+msgid "E<.Tn 53C895>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:254
+msgid "E<.Tn 53C895A>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:256
+msgid "E<.Tn 53C896>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:258
+msgid "E<.Tn 53C897>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:260
+msgid "E<.Tn 53C1000>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:262
+msgid "E<.Tn 53C1000R>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:264
+msgid "E<.Tn 53C1010-33>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:266
+msgid "E<.Tn 53C1010-66>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:268
+msgid "E<.Tn 53C1510D>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:274
+msgid ""
+"The SCSI controllers supported by E<.Nm> can be either embedded on a "
+"motherboard, or on one of the following add-on boards:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:278
+msgid "ASUS SC-200, SC-896"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:280
+msgid "Data Technology DTC3130 (all variants)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:282
+msgid "DawiControl DC2976UW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:284
+msgid "Diamond FirePort (all)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:286
+msgid "NCR cards (all)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:288
+msgid "Symbios cards (all)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:290
+msgid "Tekram DC390W, 390U, 390F, 390U2B, 390U2W, 390U3D, and 390U3W"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:292
+msgid "Tyan S1365"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:293
+#, no-wrap
+msgid "MISC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:295
+msgid "The DEC KZPCA-AA is a rebadged SYM8952U."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:295
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:301
+msgid "E<.Xr cd 4>, E<.Xr da 4>, E<.Xr sa 4>, E<.Xr scsi 4>, E<.Xr camcontrol 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:301
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:306
+msgid "The E<.Nm> driver appeared in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:306
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:329
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An Gerard Roudier> and "
+"is derived from the Linux sym53c8xx driver from the same author.  The "
+"sym53c8xx driver is derived from the ncr53c8xx driver, which was ported from "
+"the E<.Fx> E<.Xr ncr 4> driver to Linux-1.2.13.  The original E<.Xr ncr 4> "
+"driver was written for E<.Bx 386> and E<.Fx> by E<.An Wolfgang Stanglmeier> "
+"and E<.An Stefan Esser>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sym.4:329
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sym.4:330
+msgid "No known bugs."
+msgstr ""

@@ -1,0 +1,1786 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/pf.4:31
+#, no-wrap
+msgid "August 5, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/pf.4:32
+#, no-wrap
+msgid "PF 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:36
+msgid "E<.Nm pf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/pf.4:36
+#, no-wrap
+msgid "packet filter"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:40
+msgid "E<.Cd \"device pf\"> E<.Cd \"options PF_DEFAULT_TO_DROP\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:53
+msgid ""
+"Packet filtering takes place in the kernel.  A pseudo-device, E<.Pa "
+"/dev/pf>, allows userland processes to control the behavior of the packet "
+"filter through an E<.Xr ioctl 2> interface.  There are commands to enable "
+"and disable the filter, load rulesets, add and remove individual rules or "
+"state table entries, and retrieve statistics.  The most commonly used "
+"functions are covered by E<.Xr pfctl 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:60
+msgid ""
+"Manipulations like loading a ruleset that involve more than a single E<.Xr "
+"ioctl 2> call require a so-called E<.Em ticket>, which prevents the "
+"occurrence of multiple concurrent manipulations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:65
+msgid ""
+"Fields of E<.Xr ioctl 2> parameter structures that refer to packet data "
+"(like addresses and ports) are generally expected in network byte-order."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:79
+msgid ""
+"Rules and address tables are contained in so-called E<.Em anchors>.  When "
+"servicing an E<.Xr ioctl 2> request, if the anchor field of the argument "
+"structure is empty, the kernel will use the default anchor (i.e., the main "
+"ruleset)  in operations.  Anchors are specified by name and may be nested, "
+"with components separated by E<.Sq /> characters, similar to how file system "
+"hierarchies are laid out.  The final component of the anchor path is the "
+"anchor under which operations will be performed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:79
+#, no-wrap
+msgid "SYSCTL VARIABLES AND LOADER TUNABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:83
+msgid "The following E<.Xr loader 8> tunables are available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:84
+#, no-wrap
+msgid "Va net.pf.states_hashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:88
+msgid ""
+"Size of hash tables that store states.  Should be power of 2.  Default value "
+"is 131072."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:88
+#, no-wrap
+msgid "Va net.pf.source_nodes_hashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:92
+msgid ""
+"Size of hash table that store source nodes.  Should be power of 2.  Default "
+"value is 32768."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:98
+msgid ""
+"Read only E<.Xr sysctl 8> variables with matching names are provided to "
+"obtain current values at runtime."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:98
+#, no-wrap
+msgid "KERNEL OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:102
+msgid ""
+"The following options in the kernel configuration file are related to E<.Nm> "
+"operation:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:104
+#, no-wrap
+msgid "Dv PF_DEFAULT_TO_DROP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:106
+msgid "Change default policy to drop by default"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:107
+#, no-wrap
+msgid "IOCTL INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:113
+msgid ""
+"E<.Nm> supports the following E<.Xr ioctl 2> commands, available through "
+"E<.Aq Pa net/pfvar.h>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:114
+#, no-wrap
+msgid "Dv DIOCSTART"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:116
+msgid "Start the packet filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:116
+#, no-wrap
+msgid "Dv DIOCSTOP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:118
+msgid "Stop the packet filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:118
+#, no-wrap
+msgid "Dv DIOCSTARTALTQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:121
+msgid "Start the ALTQ bandwidth control system (see E<.Xr altq 9>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:121
+#, no-wrap
+msgid "Dv DIOCSTOPALTQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:123
+msgid "Stop the ALTQ bandwidth control system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:123
+#, no-wrap
+msgid "Dv DIOCBEGINADDRS Fa \"struct pfioc_pooladdr *pp\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:136
+#, no-wrap
+msgid ""
+"struct pfioc_pooladdr {\n"
+"\tu_int32_t\t\taction;\n"
+"\tu_int32_t\t\tticket;\n"
+"\tu_int32_t\t\tnr;\n"
+"\tu_int32_t\t\tr_num;\n"
+"\tu_int8_t\t\tr_action;\n"
+"\tu_int8_t\t\tr_last;\n"
+"\tu_int8_t\t\taf;\n"
+"\tchar\t\t\tanchor[MAXPATHLEN];\n"
+"\tstruct pf_pooladdr\taddr;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:146
+msgid ""
+"Clear the buffer address pool and get a E<.Va ticket> for subsequent E<.Dv "
+"DIOCADDADDR>, E<.Dv DIOCADDRULE>, and E<.Dv DIOCCHANGERULE> calls."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:146
+#, no-wrap
+msgid "Dv DIOCADDADDR Fa \"struct pfioc_pooladdr *pp\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:156
+msgid ""
+"Add the pool address E<.Va addr> to the buffer address pool to be used in "
+"the following E<.Dv DIOCADDRULE> or E<.Dv DIOCCHANGERULE> call.  All other "
+"members of the structure are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:156
+#, no-wrap
+msgid "Dv DIOCADDRULE Fa \"struct pfioc_rule *pr\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:167
+#, no-wrap
+msgid ""
+"struct pfioc_rule {\n"
+"\tu_int32_t\taction;\n"
+"\tu_int32_t\tticket;\n"
+"\tu_int32_t\tpool_ticket;\n"
+"\tu_int32_t\tnr;\n"
+"\tchar\t\tanchor[MAXPATHLEN];\n"
+"\tchar\t\tanchor_call[MAXPATHLEN];\n"
+"\tstruct pf_rule\trule;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:190
+msgid ""
+"Add E<.Va rule> at the end of the inactive ruleset.  This call requires a "
+"E<.Va ticket> obtained through a preceding E<.Dv DIOCXBEGIN> call and a "
+"E<.Va pool_ticket> obtained through a E<.Dv DIOCBEGINADDRS> call.  E<.Dv "
+"DIOCADDADDR> must also be called if any pool addresses are required.  The "
+"optional E<.Va anchor> name indicates the anchor in which to append the "
+"rule.  E<.Va nr> and E<.Va action> are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:190
+#, no-wrap
+msgid "Dv DIOCADDALTQ Fa \"struct pfioc_altq *pa\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:192
+msgid "Add an ALTQ discipline or queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:199
+#, no-wrap
+msgid ""
+"struct pfioc_altq {\n"
+"\tu_int32_t\taction;\n"
+"\tu_int32_t\tticket;\n"
+"\tu_int32_t\tnr;\n"
+"\tstruct pf_altq  altq;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:200
+#, no-wrap
+msgid "Dv DIOCGETRULES Fa \"struct pfioc_rule *pr\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:208
+msgid ""
+"Get a E<.Va ticket> for subsequent E<.Dv DIOCGETRULE> calls and the number "
+"E<.Va nr> of rules in the active ruleset."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:208
+#, no-wrap
+msgid "Dv DIOCGETRULE Fa \"struct pfioc_rule *pr\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:223
+msgid ""
+"Get a E<.Va rule> by its number E<.Va nr> using the E<.Va ticket> obtained "
+"through a preceding E<.Dv DIOCGETRULES> call.  If E<.Va action> is set to "
+"E<.Dv PF_GET_CLR_CNTR>, the per-rule statistics on the requested rule are "
+"cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:223
+#, no-wrap
+msgid "Dv DIOCGETADDRS Fa \"struct pfioc_pooladdr *pp\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:235
+msgid ""
+"Get a E<.Va ticket> for subsequent E<.Dv DIOCGETADDR> calls and the number "
+"E<.Va nr> of pool addresses in the rule specified with E<.Va r_action>, "
+"E<.Va r_num>, and E<.Va anchor>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:235
+#, no-wrap
+msgid "Dv DIOCGETADDR Fa \"struct pfioc_pooladdr *pp\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:250
+msgid ""
+"Get the pool address E<.Va addr> by its number E<.Va nr> from the rule "
+"specified with E<.Va r_action>, E<.Va r_num>, and E<.Va anchor> using the "
+"E<.Va ticket> obtained through a preceding E<.Dv DIOCGETADDRS> call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:250
+#, no-wrap
+msgid "Dv DIOCGETALTQS Fa \"struct pfioc_altq *pa\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:258
+msgid ""
+"Get a E<.Va ticket> for subsequent E<.Dv DIOCGETALTQ> calls and the number "
+"E<.Va nr> of queues in the active list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:258
+#, no-wrap
+msgid "Dv DIOCGETALTQ Fa \"struct pfioc_altq *pa\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:268
+msgid ""
+"Get the queueing discipline E<.Va altq> by its number E<.Va nr> using the "
+"E<.Va ticket> obtained through a preceding E<.Dv DIOCGETALTQS> call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:268
+#, no-wrap
+msgid "Dv DIOCGETQSTATS Fa \"struct pfioc_qstats *pq\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:270
+msgid "Get the statistics on a queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:278
+#, no-wrap
+msgid ""
+"struct pfioc_qstats {\n"
+"\tu_int32_t\t ticket;\n"
+"\tu_int32_t\t nr;\n"
+"\tvoid\t\t*buf;\n"
+"\tint\t\t nbytes;\n"
+"\tu_int8_t\t scheduler;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:286
+msgid ""
+"This call fills in a pointer to the buffer of statistics E<.Va buf>, of "
+"length E<.Va nbytes>, for the queue specified by E<.Va nr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:286
+#, no-wrap
+msgid "Dv DIOCGETRULESETS Fa \"struct pfioc_ruleset *pr\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:293
+#, no-wrap
+msgid ""
+"struct pfioc_ruleset {\n"
+"\tu_int32_t\t nr;\n"
+"\tchar\t\t path[MAXPATHLEN];\n"
+"\tchar\t\t name[PF_ANCHOR_NAME_SIZE];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:307
+msgid ""
+"Get the number E<.Va nr> of rulesets (i.e., anchors) directly attached to "
+"the anchor named by E<.Va path> for use in subsequent E<.Dv DIOCGETRULESET> "
+"calls.  Nested anchors, since they are not directly attached to the given "
+"anchor, will not be included.  This ioctl returns E<.Er EINVAL> if the given "
+"anchor does not exist."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:307
+#, no-wrap
+msgid "Dv DIOCGETRULESET Fa \"struct pfioc_ruleset *pr\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:322
+msgid ""
+"Get a ruleset (i.e., an anchor)  E<.Va name> by its number E<.Va nr> from "
+"the given anchor E<.Va path>, the maximum number of which can be obtained "
+"from a preceding E<.Dv DIOCGETRULESETS> call.  This ioctl returns E<.Er "
+"EINVAL> if the given anchor does not exist or E<.Er EBUSY> if another "
+"process is concurrently updating a ruleset."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:322
+#, no-wrap
+msgid "Dv DIOCADDSTATE Fa \"struct pfioc_state *ps\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:324
+msgid "Add a state entry."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:328
+#, no-wrap
+msgid ""
+"struct pfioc_state {\n"
+"\tstruct pfsync_state\tstate;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:329
+#, no-wrap
+msgid "Dv DIOCGETSTATE Fa \"struct pfioc_state *ps\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:337
+msgid ""
+"Extract the entry identified by the E<.Va id> and E<.Va creatorid> fields of "
+"the E<.Va state> structure from the state table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:337
+#, no-wrap
+msgid "Dv DIOCKILLSTATES Fa \"struct pfioc_state_kill *psk\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:341
+msgid ""
+"Remove matching entries from the state table.  This ioctl returns the number "
+"of killed states in E<.Va psk_killed>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:352
+#, no-wrap
+msgid ""
+"struct pfioc_state_kill {\n"
+"\tstruct pf_state_cmp\tpsk_pfcmp;\n"
+"\tsa_family_t\t\tpsk_af;\n"
+"\tint\t\t\tpsk_proto;\n"
+"\tstruct pf_rule_addr\tpsk_src;\n"
+"\tstruct pf_rule_addr\tpsk_dst;\n"
+"\tchar\t\t\tpsk_ifname[IFNAMSIZ];\n"
+"\tchar\t\t\tpsk_label[PF_RULE_LABEL_SIZE];\n"
+"\tu_int\t\t\tpsk_killed;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:353
+#, no-wrap
+msgid "Dv DIOCCLRSTATES Fa \"struct pfioc_state_kill *psk\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:366
+msgid ""
+"Clear all states.  It works like E<.Dv DIOCKILLSTATES>, but ignores the "
+"E<.Va psk_af>, E<.Va psk_proto>, E<.Va psk_src>, and E<.Va psk_dst> fields "
+"of the E<.Vt pfioc_state_kill> structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:366
+#, no-wrap
+msgid "Dv DIOCSETSTATUSIF Fa \"struct pfioc_if *pi\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:368
+msgid "Specify the interface for which statistics are accumulated."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:372
+#, no-wrap
+msgid ""
+"struct pfioc_if {\n"
+"\tchar\t\t ifname[IFNAMSIZ];\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:373
+#, no-wrap
+msgid "Dv DIOCGETSTATUS Fa \"struct pf_status *s\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:375
+msgid "Get the internal packet filter statistics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:392
+#, no-wrap
+msgid ""
+"struct pf_status {\n"
+"\tu_int64_t\tcounters[PFRES_MAX];\n"
+"\tu_int64_t\tlcounters[LCNT_MAX];\n"
+"\tu_int64_t\tfcounters[FCNT_MAX];\n"
+"\tu_int64_t\tscounters[SCNT_MAX];\n"
+"\tu_int64_t\tpcounters[2][2][3];\n"
+"\tu_int64_t\tbcounters[2][2];\n"
+"\tu_int32_t\trunning;\n"
+"\tu_int32_t\tstates;\n"
+"\tu_int32_t\tsrc_nodes;\n"
+"\tu_int32_t\tsince;\n"
+"\tu_int32_t\tdebug;\n"
+"\tu_int32_t\thostid;\n"
+"\tchar\t\tifname[IFNAMSIZ];\n"
+"\tu_int8_t\tpf_chksum[MD5_DIGEST_LENGTH];\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:393
+#, no-wrap
+msgid "Dv DIOCCLRSTATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:395
+msgid "Clear the internal packet filter statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:395
+#, no-wrap
+msgid "Dv DIOCNATLOOK Fa \"struct pfioc_natlook *pnl\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:397
+msgid "Look up a state table entry by source and destination addresses and ports."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:411
+#, no-wrap
+msgid ""
+"struct pfioc_natlook {\n"
+"\tstruct pf_addr\t saddr;\n"
+"\tstruct pf_addr\t daddr;\n"
+"\tstruct pf_addr\t rsaddr;\n"
+"\tstruct pf_addr\t rdaddr;\n"
+"\tu_int16_t\t sport;\n"
+"\tu_int16_t\t dport;\n"
+"\tu_int16_t\t rsport;\n"
+"\tu_int16_t\t rdport;\n"
+"\tsa_family_t\t af;\n"
+"\tu_int8_t\t proto;\n"
+"\tu_int8_t\t direction;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:412
+#, no-wrap
+msgid "Dv DIOCSETDEBUG Fa \"u_int32_t *level\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:414
+msgid "Set the debug level."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:417
+#, no-wrap
+msgid ""
+"enum\t{ PF_DEBUG_NONE, PF_DEBUG_URGENT, PF_DEBUG_MISC,\n"
+"\t  PF_DEBUG_NOISY };\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:418
+#, no-wrap
+msgid "Dv DIOCGETSTATES Fa \"struct pfioc_states *ps\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:420
+msgid "Get state table entries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:430
+#, no-wrap
+msgid ""
+"struct pfioc_states {\n"
+"\tint\tps_len;\n"
+"\tunion {\n"
+"\t\tcaddr_t\t\t psu_buf;\n"
+"\t\tstruct pf_state *psu_states;\n"
+"\t} ps_u;\n"
+"#define ps_buf\t\tps_u.psu_buf\n"
+"#define ps_states\tps_u.psu_states\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:442
+msgid ""
+"If E<.Va ps_len> is non-zero on entry, as many states as possible that can "
+"fit into this size will be copied into the supplied buffer E<.Va "
+"ps_states>.  On exit, E<.Va ps_len> is always set to the total size required "
+"to hold all state table entries (i.e., it is set to E<.Li sizeof(struct "
+"pf_state) * nr>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:442
+#, no-wrap
+msgid "Dv DIOCCHANGERULE Fa \"struct pfioc_rule *pcr\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:447
+msgid ""
+"Add or remove the E<.Va rule> in the ruleset specified by E<.Va "
+"rule.action>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:451
+msgid ""
+"The type of operation to be performed is indicated by E<.Va action>, which "
+"can be any of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:455
+#, no-wrap
+msgid ""
+"enum\t{ PF_CHANGE_NONE, PF_CHANGE_ADD_HEAD, PF_CHANGE_ADD_TAIL,\n"
+"\t  PF_CHANGE_ADD_BEFORE, PF_CHANGE_ADD_AFTER,\n"
+"\t  PF_CHANGE_REMOVE, PF_CHANGE_GET_TICKET };\n"
+msgstr ""
+
+#.  It Dv DIOCCHANGEALTQ Fa "struct pfioc_altq *pcr"
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:479
+msgid ""
+"E<.Va ticket> must be set to the value obtained with E<.Dv "
+"PF_CHANGE_GET_TICKET> for all actions except E<.Dv PF_CHANGE_GET_TICKET>.  "
+"E<.Va pool_ticket> must be set to the value obtained with the E<.Dv "
+"DIOCBEGINADDRS> call for all actions except E<.Dv PF_CHANGE_REMOVE> and "
+"E<.Dv PF_CHANGE_GET_TICKET>.  E<.Va anchor> indicates to which anchor the "
+"operation applies.  E<.Va nr> indicates the rule number against which E<.Dv "
+"PF_CHANGE_ADD_BEFORE>, E<.Dv PF_CHANGE_ADD_AFTER>, or E<.Dv "
+"PF_CHANGE_REMOVE> actions are applied."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:479
+#, no-wrap
+msgid "Dv DIOCCHANGEADDR Fa \"struct pfioc_pooladdr *pca\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:487
+msgid ""
+"Add or remove the pool address E<.Va addr> from the rule specified by E<.Va "
+"r_action>, E<.Va r_num>, and E<.Va anchor>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:487
+#, no-wrap
+msgid "Dv DIOCSETTIMEOUT Fa \"struct pfioc_tm *pt\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:493
+#, no-wrap
+msgid ""
+"struct pfioc_tm {\n"
+"\tint\t\t timeout;\n"
+"\tint\t\t seconds;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:507
+msgid ""
+"Set the state timeout of E<.Va timeout> to E<.Va seconds>.  The old value "
+"will be placed into E<.Va seconds>.  For possible values of E<.Va timeout>, "
+"consult the E<.Dv PFTM_*> values in E<.Aq Pa net/pfvar.h>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:507
+#, no-wrap
+msgid "Dv DIOCGETTIMEOUT Fa \"struct pfioc_tm *pt\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:513
+msgid ""
+"Get the state timeout of E<.Va timeout>.  The value will be placed into the "
+"E<.Va seconds> field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:513
+#, no-wrap
+msgid "Dv DIOCCLRRULECTRS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:515
+msgid "Clear per-rule statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:515
+#, no-wrap
+msgid "Dv DIOCSETLIMIT Fa \"struct pfioc_limit *pl\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:517
+msgid "Set the hard limits on the memory pools used by the packet filter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:522
+#, no-wrap
+msgid ""
+"struct pfioc_limit {\n"
+"\tint\t\tindex;\n"
+"\tunsigned\tlimit;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:525
+#, no-wrap
+msgid ""
+"enum\t{ PF_LIMIT_STATES, PF_LIMIT_SRC_NODES, PF_LIMIT_FRAGS,\n"
+"\t  PF_LIMIT_TABLE_ENTRIES, PF_LIMIT_MAX };\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:526
+#, no-wrap
+msgid "Dv DIOCGETLIMIT Fa \"struct pfioc_limit *pl\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:531
+msgid "Get the hard E<.Va limit> for the memory pool indicated by E<.Va index>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:531
+#, no-wrap
+msgid "Dv DIOCRCLRTABLES Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:539
+msgid ""
+"Clear all tables.  All the ioctls that manipulate radix tables use the same "
+"structure described below.  For E<.Dv DIOCRCLRTABLES>, E<.Va pfrio_ndel> "
+"contains on exit the number of tables deleted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:558
+#, no-wrap
+msgid ""
+"struct pfioc_table {\n"
+"\tstruct pfr_table\t pfrio_table;\n"
+"\tvoid\t\t\t*pfrio_buffer;\n"
+"\tint\t\t\t pfrio_esize;\n"
+"\tint\t\t\t pfrio_size;\n"
+"\tint\t\t\t pfrio_size2;\n"
+"\tint\t\t\t pfrio_nadd;\n"
+"\tint\t\t\t pfrio_ndel;\n"
+"\tint\t\t\t pfrio_nchange;\n"
+"\tint\t\t\t pfrio_flags;\n"
+"\tu_int32_t\t\t pfrio_ticket;\n"
+"};\n"
+"#define pfrio_exists    pfrio_nadd\n"
+"#define pfrio_nzero     pfrio_nadd\n"
+"#define pfrio_nmatch    pfrio_nadd\n"
+"#define pfrio_naddr     pfrio_size2\n"
+"#define pfrio_setflag   pfrio_size2\n"
+"#define pfrio_clrflag   pfrio_nadd\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:559
+#, no-wrap
+msgid "Dv DIOCRADDTABLES Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:574
+msgid ""
+"Create one or more tables.  On entry, E<.Va pfrio_buffer> must point to an "
+"array of E<.Vt struct pfr_table> containing at least E<.Vt pfrio_size> "
+"elements.  E<.Vt pfrio_esize> must be the size of E<.Vt struct pfr_table>.  "
+"On exit, E<.Va pfrio_nadd> contains the number of tables effectively "
+"created."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:581
+#, no-wrap
+msgid ""
+"struct pfr_table {\n"
+"\tchar\t\tpfrt_anchor[MAXPATHLEN];\n"
+"\tchar\t\tpfrt_name[PF_TABLE_NAME_SIZE];\n"
+"\tu_int32_t\tpfrt_flags;\n"
+"\tu_int8_t\tpfrt_fback;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:582
+#, no-wrap
+msgid "Dv DIOCRDELTABLES Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:597
+msgid ""
+"Delete one or more tables.  On entry, E<.Va pfrio_buffer> must point to an "
+"array of E<.Vt struct pfr_table> containing at least E<.Vt pfrio_size> "
+"elements.  E<.Vt pfrio_esize> must be the size of E<.Vt struct pfr_table>.  "
+"On exit, E<.Va pfrio_ndel> contains the number of tables effectively "
+"deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:597
+#, no-wrap
+msgid "Dv DIOCRGETTABLES Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:609
+msgid ""
+"Get the list of all tables.  On entry, E<.Va pfrio_buffer[pfrio_size]> "
+"contains a valid writeable buffer for E<.Vt pfr_table> structures.  On exit, "
+"E<.Va pfrio_size> contains the number of tables written into the buffer.  If "
+"the buffer is too small, the kernel does not store anything but just returns "
+"the required buffer size, without error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:609
+#, no-wrap
+msgid "Dv DIOCRGETTSTATS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:615
+msgid ""
+"This call is like E<.Dv DIOCRGETTABLES> but is used to get an array of E<.Vt "
+"pfr_tstats> structures."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:630
+#, no-wrap
+msgid ""
+"struct pfr_tstats {\n"
+"\tstruct pfr_table pfrts_t;\n"
+"\tu_int64_t\t pfrts_packets\n"
+"\t\t\t     [PFR_DIR_MAX][PFR_OP_TABLE_MAX];\n"
+"\tu_int64_t\t pfrts_bytes\n"
+"\t\t\t     [PFR_DIR_MAX][PFR_OP_TABLE_MAX];\n"
+"\tu_int64_t\t pfrts_match;\n"
+"\tu_int64_t\t pfrts_nomatch;\n"
+"\tlong\t\t pfrts_tzero;\n"
+"\tint\t\t pfrts_cnt;\n"
+"\tint\t\t pfrts_refcnt[PFR_REFCNT_MAX];\n"
+"};\n"
+"#define pfrts_name\t pfrts_t.pfrt_name\n"
+"#define pfrts_flags\t pfrts_t.pfrt_flags\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:631
+#, no-wrap
+msgid "Dv DIOCRCLRTSTATS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:646
+msgid ""
+"Clear the statistics of one or more tables.  On entry, E<.Va pfrio_buffer> "
+"must point to an array of E<.Vt struct pfr_table> containing at least E<.Vt "
+"pfrio_size> elements.  E<.Vt pfrio_esize> must be the size of E<.Vt struct "
+"pfr_table>.  On exit, E<.Va pfrio_nzero> contains the number of tables "
+"effectively cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:646
+#, no-wrap
+msgid "Dv DIOCRCLRADDRS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:654
+msgid ""
+"Clear all addresses in a table.  On entry, E<.Va pfrio_table> contains the "
+"table to clear.  On exit, E<.Va pfrio_ndel> contains the number of addresses "
+"removed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:654
+#, no-wrap
+msgid "Dv DIOCRADDADDRS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:671
+msgid ""
+"Add one or more addresses to a table.  On entry, E<.Va pfrio_table> contains "
+"the table ID and E<.Va pfrio_buffer> must point to an array of E<.Vt struct "
+"pfr_addr> containing at least E<.Vt pfrio_size> elements to add to the "
+"table.  E<.Vt pfrio_esize> must be the size of E<.Vt struct pfr_addr>.  On "
+"exit, E<.Va pfrio_nadd> contains the number of addresses effectively added."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:684
+#, no-wrap
+msgid ""
+"struct pfr_addr {\n"
+"\tunion {\n"
+"\t\tstruct in_addr\t _pfra_ip4addr;\n"
+"\t\tstruct in6_addr\t _pfra_ip6addr;\n"
+"\t}\t\t pfra_u;\n"
+"\tu_int8_t\t pfra_af;\n"
+"\tu_int8_t\t pfra_net;\n"
+"\tu_int8_t\t pfra_not;\n"
+"\tu_int8_t\t pfra_fback;\n"
+"};\n"
+"#define pfra_ip4addr    pfra_u._pfra_ip4addr\n"
+"#define pfra_ip6addr    pfra_u._pfra_ip6addr\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:685
+#, no-wrap
+msgid "Dv DIOCRDELADDRS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:702
+msgid ""
+"Delete one or more addresses from a table.  On entry, E<.Va pfrio_table> "
+"contains the table ID and E<.Va pfrio_buffer> must point to an array of "
+"E<.Vt struct pfr_addr> containing at least E<.Vt pfrio_size> elements to "
+"delete from the table.  E<.Vt pfrio_esize> must be the size of E<.Vt struct "
+"pfr_addr>.  On exit, E<.Va pfrio_ndel> contains the number of addresses "
+"effectively deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:702
+#, no-wrap
+msgid "Dv DIOCRSETADDRS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:705
+msgid ""
+"Replace the content of a table by a new address list.  This is the most "
+"complicated command, which uses all the structure members."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:737
+msgid ""
+"On entry, E<.Va pfrio_table> contains the table ID and E<.Va pfrio_buffer> "
+"must point to an array of E<.Vt struct pfr_addr> containing at least E<.Vt "
+"pfrio_size> elements which become the new contents of the table.  E<.Vt "
+"pfrio_esize> must be the size of E<.Vt struct pfr_addr>.  Additionally, if "
+"E<.Va pfrio_size2> is non-zero, E<.Va pfrio_buffer[pfrio_size..pfrio_size2]> "
+"must be a writeable buffer, into which the kernel can copy the addresses "
+"that have been deleted during the replace operation.  On exit, E<.Va "
+"pfrio_ndel>, E<.Va pfrio_nadd>, and E<.Va pfrio_nchange> contain the number "
+"of addresses deleted, added, and changed by the kernel.  If E<.Va "
+"pfrio_size2> was set on entry, E<.Va pfrio_size2> will point to the size of "
+"the buffer used, exactly like E<.Dv DIOCRGETADDRS>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:737
+#, no-wrap
+msgid "Dv DIOCRGETADDRS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:751
+msgid ""
+"Get all the addresses of a table.  On entry, E<.Va pfrio_table> contains the "
+"table ID and E<.Va pfrio_buffer[pfrio_size]> contains a valid writeable "
+"buffer for E<.Vt pfr_addr> structures.  On exit, E<.Va pfrio_size> contains "
+"the number of addresses written into the buffer.  If the buffer was too "
+"small, the kernel does not store anything but just returns the required "
+"buffer size, without returning an error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:751
+#, no-wrap
+msgid "Dv DIOCRGETASTATS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:757
+msgid ""
+"This call is like E<.Dv DIOCRGETADDRS> but is used to get an array of E<.Vt "
+"pfr_astats> structures."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:766
+#, no-wrap
+msgid ""
+"struct pfr_astats {\n"
+"\tstruct pfr_addr\t pfras_a;\n"
+"\tu_int64_t\t pfras_packets\n"
+"\t\t\t     [PFR_DIR_MAX][PFR_OP_ADDR_MAX];\n"
+"\tu_int64_t\t pfras_bytes\n"
+"\t\t\t     [PFR_DIR_MAX][PFR_OP_ADDR_MAX];\n"
+"\tlong\t\t pfras_tzero;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:767
+#, no-wrap
+msgid "Dv DIOCRCLRASTATS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:784
+msgid ""
+"Clear the statistics of one or more addresses.  On entry, E<.Va pfrio_table> "
+"contains the table ID and E<.Va pfrio_buffer> must point to an array of "
+"E<.Vt struct pfr_addr> containing at least E<.Vt pfrio_size> elements to be "
+"cleared from the table.  E<.Vt pfrio_esize> must be the size of E<.Vt struct "
+"pfr_addr>.  On exit, E<.Va pfrio_nzero> contains the number of addresses "
+"effectively cleared."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:784
+#, no-wrap
+msgid "Dv DIOCRTSTADDRS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:803
+msgid ""
+"Test if the given addresses match a table.  On entry, E<.Va pfrio_table> "
+"contains the table ID and E<.Va pfrio_buffer> must point to an array of "
+"E<.Vt struct pfr_addr> containing at least E<.Vt pfrio_size> elements, each "
+"of which will be tested for a match in the table.  E<.Vt pfrio_esize> must "
+"be the size of E<.Vt struct pfr_addr>.  On exit, the kernel updates the "
+"E<.Vt pfr_addr> array by setting the E<.Va pfra_fback> member appropriately."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:803
+#, no-wrap
+msgid "Dv DIOCRSETTFLAGS Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:831
+msgid ""
+"Change the E<.Dv PFR_TFLAG_CONST> or E<.Dv PFR_TFLAG_PERSIST> flags of a "
+"table.  On entry, E<.Va pfrio_buffer> must point to an array of E<.Vt struct "
+"pfr_table> containing at least E<.Vt pfrio_size> elements.  E<.Va "
+"pfrio_esize> must be the size of E<.Vt struct pfr_table>.  E<.Va "
+"pfrio_setflag> must contain the flags to add, while E<.Va pfrio_clrflag> "
+"must contain the flags to remove.  On exit, E<.Va pfrio_nchange> and E<.Va "
+"pfrio_ndel> contain the number of tables altered or deleted by the kernel.  "
+"Yes, tables can be deleted if one removes the E<.Dv PFR_TFLAG_PERSIST> flag "
+"of an unreferenced table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:831
+#, no-wrap
+msgid "Dv DIOCRINADEFINE Fa \"struct pfioc_table *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:848
+msgid ""
+"Defines a table in the inactive set.  On entry, E<.Va pfrio_table> contains "
+"the table ID and E<.Va pfrio_buffer[pfrio_size]> contains an array of E<.Vt "
+"pfr_addr> structures to put in the table.  A valid ticket must also be "
+"supplied to E<.Va pfrio_ticket>.  On exit, E<.Va pfrio_nadd> contains 0 if "
+"the table was already defined in the inactive list or 1 if a new table has "
+"been created.  E<.Va pfrio_naddr> contains the number of addresses "
+"effectively put in the table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:848
+#, no-wrap
+msgid "Dv DIOCXBEGIN Fa \"struct pfioc_trans *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:859
+#, no-wrap
+msgid ""
+"struct pfioc_trans {\n"
+"\tint\t\t size;\t/* number of elements */\n"
+"\tint\t\t esize;\t/* size of each element in bytes */\n"
+"\tstruct pfioc_trans_e {\n"
+"\t\tint\t\trs_num;\n"
+"\t\tchar\t\tanchor[MAXPATHLEN];\n"
+"\t\tu_int32_t\tticket;\n"
+"\t}\t\t*array;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:870
+msgid ""
+"Clear all the inactive rulesets specified in the E<.Vt pfioc_trans_e> "
+"array.  For each ruleset, a ticket is returned for subsequent \"add rule\" "
+"ioctls, as well as for the E<.Dv DIOCXCOMMIT> and E<.Dv DIOCXROLLBACK> "
+"calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:874
+msgid "Ruleset types, identified by E<.Va rs_num>, include the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:876
+#, no-wrap
+msgid "Dv PF_RULESET_SCRUB"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:878
+msgid "Scrub (packet normalization) rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:878
+#, no-wrap
+msgid "Dv PF_RULESET_FILTER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:880
+msgid "Filter rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:880
+#, no-wrap
+msgid "Dv PF_RULESET_NAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:882
+msgid "NAT (Network Address Translation) rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:882
+#, no-wrap
+msgid "Dv PF_RULESET_BINAT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:884
+msgid "Bidirectional NAT rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:884
+#, no-wrap
+msgid "Dv PF_RULESET_RDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:886
+msgid "Redirect rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:886
+#, no-wrap
+msgid "Dv PF_RULESET_ALTQ"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:888
+msgid "ALTQ disciplines."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:888
+#, no-wrap
+msgid "Dv PF_RULESET_TABLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:890
+msgid "Address tables."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:891
+#, no-wrap
+msgid "Dv DIOCXCOMMIT Fa \"struct pfioc_trans *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:899
+msgid ""
+"Atomically switch a vector of inactive rulesets to the active rulesets.  "
+"This call is implemented as a standard two-phase commit, which will either "
+"fail for all rulesets or completely succeed.  All tickets need to be valid.  "
+"This ioctl returns E<.Er EBUSY> if another process is concurrently updating "
+"some of the same rulesets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:899
+#, no-wrap
+msgid "Dv DIOCXROLLBACK Fa \"struct pfioc_trans *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:905
+msgid ""
+"Clean up the kernel by undoing all changes that have taken place on the "
+"inactive rulesets since the last E<.Dv DIOCXBEGIN>.  E<.Dv DIOCXROLLBACK> "
+"will silently ignore rulesets for which the ticket is invalid."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:905
+#, no-wrap
+msgid "Dv DIOCSETHOSTID Fa \"u_int32_t *hostid\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:909
+msgid ""
+"Set the host ID, which is used by E<.Xr pfsync 4> to identify which host "
+"created state table entries."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:909
+#, no-wrap
+msgid "Dv DIOCOSFPFLUSH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:911
+msgid "Flush the passive OS fingerprint table."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:911
+#, no-wrap
+msgid "Dv DIOCOSFPADD Fa \"struct pf_osfp_ioctl *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:931
+#, no-wrap
+msgid ""
+"struct pf_osfp_ioctl {\n"
+"\tstruct pf_osfp_entry {\n"
+"\t\tSLIST_ENTRY(pf_osfp_entry) fp_entry;\n"
+"\t\tpf_osfp_t\t\tfp_os;\n"
+"\t\tchar\t\t\tfp_class_nm[PF_OSFP_LEN];\n"
+"\t\tchar\t\t\tfp_version_nm[PF_OSFP_LEN];\n"
+"\t\tchar\t\t\tfp_subtype_nm[PF_OSFP_LEN];\n"
+"\t} \t\t\tfp_os;\n"
+"\tpf_tcpopts_t\t\tfp_tcpopts;\n"
+"\tu_int16_t\t\tfp_wsize;\n"
+"\tu_int16_t\t\tfp_psize;\n"
+"\tu_int16_t\t\tfp_mss;\n"
+"\tu_int16_t\t\tfp_flags;\n"
+"\tu_int8_t\t\tfp_optcnt;\n"
+"\tu_int8_t\t\tfp_wscale;\n"
+"\tu_int8_t\t\tfp_ttl;\n"
+"\tint\t\t\tfp_getnum;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:954
+msgid ""
+"Add a passive OS fingerprint to the table.  Set E<.Va fp_os.fp_os> to the "
+"packed fingerprint, E<.Va fp_os.fp_class_nm> to the name of the class "
+"(Linux, Windows, etc), E<.Va fp_os.fp_version_nm> to the name of the version "
+"(NT, 95, 98), and E<.Va fp_os.fp_subtype_nm> to the name of the subtype or "
+"patchlevel.  The members E<.Va fp_mss>, E<.Va fp_wsize>, E<.Va fp_psize>, "
+"E<.Va fp_ttl>, E<.Va fp_optcnt>, and E<.Va fp_wscale> are set to the TCP "
+"MSS, the TCP window size, the IP length, the IP TTL, the number of TCP "
+"options, and the TCP window scaling constant of the TCP SYN packet, "
+"respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:975
+msgid ""
+"The E<.Va fp_flags> member is filled according to the E<.Aq Pa net/pfvar.h> "
+"include file E<.Dv PF_OSFP_*> defines.  The E<.Va fp_tcpopts> member "
+"contains packed TCP options.  Each option uses E<.Dv PF_OSFP_TCPOPT_BITS> "
+"bits in the packed value.  Options include any of E<.Dv PF_OSFP_TCPOPT_NOP>, "
+"E<.Dv PF_OSFP_TCPOPT_SACK>, E<.Dv PF_OSFP_TCPOPT_WSCALE>, E<.Dv "
+"PF_OSFP_TCPOPT_MSS>, or E<.Dv PF_OSFP_TCPOPT_TS>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:979
+msgid "The E<.Va fp_getnum> member is not used with this ioctl."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:983
+msgid ""
+"The structure's slack space must be zeroed for correct operation; E<.Xr "
+"memset 3> the whole structure to zero before filling and sending to the "
+"kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:983
+#, no-wrap
+msgid "Dv DIOCOSFPGET Fa \"struct pf_osfp_ioctl *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:992
+msgid ""
+"Get the passive OS fingerprint number E<.Va fp_getnum> from the kernel's "
+"fingerprint list.  The rest of the structure members will come back filled.  "
+"Get the whole list by repeatedly incrementing the E<.Va fp_getnum> number "
+"until the ioctl returns E<.Er EBUSY>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:992
+#, no-wrap
+msgid "Dv DIOCGETSRCNODES Fa \"struct pfioc_src_nodes *psn\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1003
+#, no-wrap
+msgid ""
+"struct pfioc_src_nodes {\n"
+"\tint\tpsn_len;\n"
+"\tunion {\n"
+"\t\tcaddr_t\t\tpsu_buf;\n"
+"\t\tstruct pf_src_node\t*psu_src_nodes;\n"
+"\t} psn_u;\n"
+"#define psn_buf\t\tpsn_u.psu_buf\n"
+"#define psn_src_nodes\tpsn_u.psu_src_nodes\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1023
+msgid ""
+"Get the list of source nodes kept by sticky addresses and source tracking.  "
+"The ioctl must be called once with E<.Va psn_len> set to 0.  If the ioctl "
+"returns without error, E<.Va psn_len> will be set to the size of the buffer "
+"required to hold all the E<.Va pf_src_node> structures held in the table.  A "
+"buffer of this size should then be allocated, and a pointer to this buffer "
+"placed in E<.Va psn_buf>.  The ioctl must then be called again to fill this "
+"buffer with the actual source node data.  After that call, E<.Va psn_len> "
+"will be set to the length of the buffer actually used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:1023
+#, no-wrap
+msgid "Dv DIOCCLRSRCNODES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1025
+msgid "Clear the tree of source tracking nodes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:1025
+#, no-wrap
+msgid "Dv DIOCIGETIFACES Fa \"struct pfioc_iface *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1030
+msgid ""
+"Get the list of interfaces and interface drivers known to E<.Nm>.  All the "
+"ioctls that manipulate interfaces use the same structure described below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1039
+#, no-wrap
+msgid ""
+"struct pfioc_iface {\n"
+"\tchar\t\t\t pfiio_name[IFNAMSIZ];\n"
+"\tvoid\t\t\t*pfiio_buffer;\n"
+"\tint\t\t\t pfiio_esize;\n"
+"\tint\t\t\t pfiio_size;\n"
+"\tint\t\t\t pfiio_nzero;\n"
+"\tint\t\t\t pfiio_flags;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1056
+msgid ""
+"If not empty, E<.Va pfiio_name> can be used to restrict the search to a "
+"specific interface or driver.  E<.Va pfiio_buffer[pfiio_size]> is the "
+"user-supplied buffer for returning the data.  On entry, E<.Va pfiio_size> "
+"contains the number of E<.Vt pfi_kif> entries that can fit into the buffer.  "
+"The kernel will replace this value by the real number of entries it wants to "
+"return.  E<.Va pfiio_esize> should be set to E<.Li sizeof(struct pfi_kif)>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1060
+msgid "The data is returned in the E<.Vt pfi_kif> structure described below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1078
+#, no-wrap
+msgid ""
+"struct pfi_kif {\n"
+"\tRB_ENTRY(pfi_kif)\t\t pfik_tree;\n"
+"\tchar\t\t\t\t pfik_name[IFNAMSIZ];\n"
+"\tu_int64_t\t\t\t pfik_packets[2][2][2];\n"
+"\tu_int64_t\t\t\t pfik_bytes[2][2][2];\n"
+"\tu_int32_t\t\t\t pfik_tzero;\n"
+"\tint\t\t\t\t pfik_flags;\n"
+"\tstruct pf_state_tree_lan_ext\t pfik_lan_ext;\n"
+"\tstruct pf_state_tree_ext_gwy\t pfik_ext_gwy;\n"
+"\tTAILQ_ENTRY(pfi_kif)\t\t pfik_w_states;\n"
+"\tvoid\t\t\t\t*pfik_ah_cookie;\n"
+"\tstruct ifnet\t\t\t*pfik_ifp;\n"
+"\tstruct ifg_group\t\t*pfik_group;\n"
+"\tint\t\t\t\t pfik_states;\n"
+"\tint\t\t\t\t pfik_rules;\n"
+"\tTAILQ_HEAD(, pfi_dynaddr)\t pfik_dynaddrs;\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:1079
+#, no-wrap
+msgid "Dv DIOCSETIFFLAG Fa \"struct pfioc_iface *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1085
+msgid ""
+"Set the user settable flags (described above) of the E<.Nm> internal "
+"interface description.  The filtering process is the same as for E<.Dv "
+"DIOCIGETIFACES>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1087
+#, no-wrap
+msgid "#define PFI_IFLAG_SKIP\t0x0100\t/* skip filtering on interface */\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:1088
+#, no-wrap
+msgid "Dv DIOCCLRIFFLAG Fa \"struct pfioc_iface *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1092
+msgid "Works as E<.Dv DIOCSETIFFLAG> above but clears the flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:1092
+#, no-wrap
+msgid "Dv DIOCKILLSRCNODES Fa \"struct pfioc_iface *io\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1094
+msgid "Explicitly remove source tracking nodes."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:1095
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/pf.4:1097
+#, no-wrap
+msgid "Pa /dev/pf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1099
+msgid "packet filtering device."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:1100
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1104
+msgid ""
+"The following example demonstrates how to use the E<.Dv DIOCNATLOOK> command "
+"to find the internal host/port of a NATed connection:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1115
+#, no-wrap
+msgid ""
+"#include E<lt>sys/types.hE<gt>\n"
+"#include E<lt>sys/socket.hE<gt>\n"
+"#include E<lt>sys/ioctl.hE<gt>\n"
+"#include E<lt>sys/fcntl.hE<gt>\n"
+"#include E<lt>net/if.hE<gt>\n"
+"#include E<lt>netinet/in.hE<gt>\n"
+"#include E<lt>net/pfvar.hE<gt>\n"
+"#include E<lt>err.hE<gt>\n"
+"#include E<lt>stdio.hE<gt>\n"
+"#include E<lt>stdlib.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1120
+#, no-wrap
+msgid ""
+"u_int32_t\n"
+"read_address(const char *s)\n"
+"{\n"
+"\tint a, b, c, d;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1124
+#, no-wrap
+msgid ""
+"\tsscanf(s, \"%i.%i.%i.%i\", &a, &b, &c, &d);\n"
+"\treturn htonl(a E<lt>E<lt> 24 | b E<lt>E<lt> 16 | c E<lt>E<lt> 8 | d);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1132
+#, no-wrap
+msgid ""
+"void\n"
+"print_address(u_int32_t a)\n"
+"{\n"
+"\ta = ntohl(a);\n"
+"\tprintf(\"%d.%d.%d.%d\", a E<gt>E<gt> 24 & 255, a E<gt>E<gt> 16 & 255,\n"
+"\t    a E<gt>E<gt> 8 & 255, a & 255);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1138
+#, no-wrap
+msgid ""
+"int\n"
+"main(int argc, char *argv[])\n"
+"{\n"
+"\tstruct pfioc_natlook nl;\n"
+"\tint dev;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1144
+#, no-wrap
+msgid ""
+"\tif (argc != 5) {\n"
+"\t\tprintf(\"%s E<lt>gwy addrE<gt> E<lt>gwy portE<gt> E<lt>ext addrE<gt> "
+"E<lt>ext portE<gt>\\en\",\n"
+"\t\t    argv[0]);\n"
+"\t\treturn 1;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1148
+#, no-wrap
+msgid ""
+"\tdev = open(\"/dev/pf\", O_RDWR);\n"
+"\tif (dev == -1)\n"
+"\t\terr(1, \"open(\\e\"/dev/pf\\e\") failed\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1157
+#, no-wrap
+msgid ""
+"\tmemset(&nl, 0, sizeof(struct pfioc_natlook));\n"
+"\tnl.saddr.v4.s_addr\t= read_address(argv[1]);\n"
+"\tnl.sport\t\t= htons(atoi(argv[2]));\n"
+"\tnl.daddr.v4.s_addr\t= read_address(argv[3]);\n"
+"\tnl.dport\t\t= htons(atoi(argv[4]));\n"
+"\tnl.af\t\t\t= AF_INET;\n"
+"\tnl.proto\t\t= IPPROTO_TCP;\n"
+"\tnl.direction\t\t= PF_IN;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1160
+#, no-wrap
+msgid ""
+"\tif (ioctl(dev, DIOCNATLOOK, &nl))\n"
+"\t\terr(1, \"DIOCNATLOOK\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1166
+#, no-wrap
+msgid ""
+"\tprintf(\"internal host \");\n"
+"\tprint_address(nl.rsaddr.v4.s_addr);\n"
+"\tprintf(\":%u\\en\", ntohs(nl.rsport));\n"
+"\treturn 0;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:1167
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1175
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr altq 4>, E<.Xr if_bridge 4>, E<.Xr pflog 4>, E<.Xr "
+"pfsync 4>, E<.Xr pfctl 8>, E<.Xr altq 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/pf.4:1175
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1182
+msgid ""
+"The E<.Nm> packet filtering mechanism first appeared in E<.Ox 3.0> and then "
+"E<.Fx 5.2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/pf.4:1187
+msgid ""
+"This implementation is derived from E<.Ox 4.5>.  It has been heavily "
+"modified to be capable of running in multithreaded E<.Fx> kernel and scale "
+"its performance on multiple CPUs."
+msgstr ""

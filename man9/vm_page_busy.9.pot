@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vm_page_busy.9:27
+#, no-wrap
+msgid "August 07, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vm_page_busy.9:28
+#, no-wrap
+msgid "VM_PAGE_BUSY 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_busy.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:46
+msgid ""
+"E<.Nm vm_page_busied>, E<.Nm vm_page_busy_downgrade>, E<.Nm "
+"vm_page_busy_sleep>, E<.Nm vm_page_sbusied>, E<.Nm vm_page_sbusy>, E<.Nm "
+"vm_page_sleep_if_busy>, E<.Nm vm_page_sunbusy>, E<.Nm vm_page_trysbusy>, "
+"E<.Nm vm_page_tryxbusy>, E<.Nm vm_page_xbusied>, E<.Nm vm_page_xbusy>, E<.Nm "
+"vm_page_xunbusy>, E<.Nm vm_page_assert_sbusied>, E<.Nm "
+"vm_page_assert_unbusied>, E<.Nm vm_page_assert_xbusied>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vm_page_busy.9:46
+#, no-wrap
+msgid "protect page identity changes and page content references"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_busy.9:47
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_page_busy.9:48
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_page_busy.9:49
+#, no-wrap
+msgid "vm/vm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_page_busy.9:50
+#, no-wrap
+msgid "vm/vm_page.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:75
+msgid ""
+"E<.Ft int> E<.Fn vm_page_busied \"vm_page_t m\"> E<.Ft void> E<.Fn "
+"vm_page_busy_downgrade \"vm_page_t m\"> E<.Ft void> E<.Fn vm_page_busy_sleep "
+"\"vm_page_t m\" \"const char *msg\"> E<.Ft int> E<.Fn vm_page_sbusied "
+"\"vm_page_t m\"> E<.Ft void> E<.Fn vm_page_sbusy \"vm_page_t m\"> E<.Ft int> "
+"E<.Fn vm_page_sleep_if_busy \"vm_page_t m\" \"const char *msg\"> E<.Ft void> "
+"E<.Fn vm_page_sunbusy \"vm_page_t m\"> E<.Ft int> E<.Fn vm_page_trysbusy "
+"\"vm_page_t m\"> E<.Ft int> E<.Fn vm_page_tryxbusy \"vm_page_t m\"> E<.Ft "
+"int> E<.Fn vm_page_xbusied \"vm_page_t m\"> E<.Ft void> E<.Fn vm_page_xbusy "
+"\"vm_page_t m\"> E<.Ft void> E<.Fn vm_page_xunbusy \"vm_page_t m\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:84
+msgid ""
+"E<.Cd \"options INVARIANTS\"> E<.Cd \"options INVARIANT_SUPPORT\"> E<.Ft "
+"void> E<.Fn vm_page_assert_sbusied \"vm_page_t m\"> E<.Ft void> E<.Fn "
+"vm_page_assert_unbusied \"vm_page_t m\"> E<.Ft void> E<.Fn "
+"vm_page_assert_xbusied \"vm_page_t m\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_busy.9:84
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:91
+msgid ""
+"Page identity is usually protected by higher level locks like vm_object "
+"locks and vm page locks.  However, sometimes it is not possible to hold such "
+"locks for the time necessary to complete the identity change.  In such case "
+"the page can be exclusively busied by a thread which needs to own the "
+"identity for a certain amount of time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:97
+msgid ""
+"In other situations, threads do not need to change the identity of the page "
+"but they want to prevent other threads from changing the identity "
+"themselves.  For example, when a thread wants to access or update page "
+"contents without a lock held the page is shared busied."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:101
+msgid ""
+"Before busying a page the vm_object lock must be held.  The same rule "
+"applies when a page is unbusied.  This makes the vm_object lock a real busy "
+"interlock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:108
+msgid ""
+"The E<.Fn vm_page_busied> function returns non-zero if the current thread "
+"busied E<.Fa m> in either exclusive or shared mode.  Returns zero otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:114
+msgid ""
+"The E<.Fn vm_page_busy_downgrade> function must be used to downgrade E<.Fa "
+"m> from an exclusive busy state to a shared busy state."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:122
+msgid ""
+"The E<.Fn vm_page_busy_sleep> function puts the invoking thread to sleep "
+"using the appropriate waitchannels for the busy mechanism.  The parameter "
+"E<.Fa msg> is a string describing the sleep condition for userland tools."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:129
+msgid ""
+"The E<.Fn vm_page_busied> function returns non-zero if the current thread "
+"busied E<.Fa m> in shared mode.  Returns zero otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:134
+msgid "The E<.Fn vm_page_sbusy> function shared busies E<.Fa m>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:146
+msgid ""
+"The E<.Fn vm_page_sleep_if_busy> function puts the invoking thread to sleep, "
+"using the appropriate waitchannels for the busy mechanism, if E<.Fa m>.  is "
+"busied in either exclusive or shared mode.  If the invoking thread slept a "
+"non-zero value is returned, otherwise 0 is returned.  The parameter E<.Fa "
+"msg> is a string describing the sleep condition for userland tools."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:151
+msgid "The E<.Fn vm_page_sunbusy> function shared unbusies E<.Fa m>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:159
+msgid ""
+"The E<.Fn vm_page_trysbusy> attempts to shared busy E<.Fa m>.  If the "
+"operation cannot immediately succeed E<.Fn vm_page_trysbusy> returns 0, "
+"otherwise a non-zero value is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:167
+msgid ""
+"The E<.Fn vm_page_tryxbusy> attempts to exclusive busy E<.Fa m>.  If the "
+"operation cannot immediately succeed E<.Fn vm_page_tryxbusy> returns 0, "
+"otherwise a non-zero value is returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:174
+msgid ""
+"The E<.Fn vm_page_xbusied> function returns non-zero if the current thread "
+"busied E<.Fa m> in exclusive mode.  Returns zero otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:179
+msgid "The E<.Fn vm_page_xbusy> function exclusive busies E<.Fa m>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:189
+msgid ""
+"The E<.Fn vm_page_xunbusy> function exclusive unbusies E<.Fa m>.  Assertions "
+"on the busy state allow kernels compiled with E<.Cd \"options INVARIANTS\"> "
+"and E<.Cd \"options INVARIANT_SUPPORT\"> to panic if they are not respected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:195
+msgid ""
+"The E<.Fn vm_page_assert_sbusied> function panics if E<.Fa m> is not shared "
+"busied."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:201
+msgid ""
+"The E<.Fn vm_page_assert_unbusied> function panics if E<.Fa m> is not "
+"unbusied."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:207
+msgid ""
+"The E<.Fn vm_page_assert_xbusied> function panics if E<.Fa m> is not "
+"exclusive busied."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_page_busy.9:207
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_page_busy.9:216
+msgid ""
+"E<.Xr vm_page_aflag 9>, E<.Xr vm_page_alloc 9>, E<.Xr vm_page_deactivate 9>, "
+"E<.Xr vm_page_free 9>, E<.Xr vm_page_grab 9>, E<.Xr vm_page_insert 9>, E<.Xr "
+"vm_page_lookup 9>, E<.Xr vm_page_rename 9>, E<.Xr VOP_GETPAGES 9>"
+msgstr ""

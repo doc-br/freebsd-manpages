@@ -1,0 +1,1145 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:2
+#, no-wrap
+msgid "IPSEND"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:3
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:5
+msgid "ipsend - IP packet description language"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:5
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:10
+msgid ""
+"The B<ipsend> program expects, with the B<-L> option, input to be a text "
+"file which fits the grammar described below.  The purpose of this grammar is "
+"to allow IP packets to be described in an arbitary way which also allows "
+"encapsulation to be so done to an arbitary level."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:10
+#, no-wrap
+msgid "GRAMMAR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:14
+#, no-wrap
+msgid "line ::= iface | arp | send | defrouter | ipv4line .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:19
+#, no-wrap
+msgid ""
+"iface ::= ifhdr \"{\" ifaceopts \"}\" \";\" .\n"
+"ifhdr ::= \"interface\" | \"iface\" .\n"
+"ifaceopts ::= \"ifname\" name | \"mtu\" mtu | \"v4addr\" ipaddr |\n"
+"\t      \"eaddr\" eaddr .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:23
+#, no-wrap
+msgid ""
+"send ::= \"send\" \";\" | \"send\" \"{\" sendbodyopts \"}\" \";\" .\n"
+"sendbodyopts ::= sendbody [ sendbodyopts ] .\n"
+"sendbody ::= \"ifname\" name | \"via\" ipaddr .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:25
+#, no-wrap
+msgid "defrouter ::= \"router\" ipaddr .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:29
+#, no-wrap
+msgid ""
+"arp ::= \"arp\" \"{\" arpbodyopts \"}\" \";\" .\n"
+"arpbodyopts ::= arpbody [ arpbodyopts ] .\n"
+"arpbody ::= \"v4addr\" ipaddr | \"eaddr\" eaddr .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:31
+#, no-wrap
+msgid "bodyline ::= ipv4line | tcpline | udpline | icmpline | dataline .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:45
+#, no-wrap
+msgid ""
+"ipv4line ::= \"ipv4\" \"{\" ipv4bodyopts \"}\" \";\" .\n"
+"ipv4bodyopts ::= ipv4body [ ipv4bodyopts ] | bodyline .\n"
+"ipv4body ::= \"proto\" protocol | \"src\" ipaddr | \"dst\" ipaddr |\n"
+"\t     \"off\" number | \"v\" number | \"hl\" number| \"id\" number |\n"
+"\t     \"ttl\" number | \"tos\" number | \"sum\" number | \"len\" number |\n"
+"\t     \"opt\" \"{\" ipv4optlist \"}\" \";\" .\n"
+"ipv4optlist ::= ipv4option [ ipv4optlist ] .\n"
+"ipv4optlist = \"nop\" | \"rr\" | \"zsu\" | \"mtup\" | \"mtur\" | \"encode\" "
+"| \"ts\" |\n"
+"\t      \"tr\" | \"sec\" | \"lsrr\" | \"e-sec\" | \"cipso\" | \"satid\" |\n"
+"\t      \"ssrr\" | \"addext\" | \"visa\" | \"imitd\" | \"eip\" | \"finn\" "
+"|\n"
+"\t      \"secclass\" ipv4secclass.\n"
+"ipv4secclass := \"unclass\" | \"confid\" | \"reserv-1\" | \"reserv-2\" |\n"
+"\t\t\"reserv-3\" | \"reserv-4\" | \"secret\" | \"topsecret\" .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:51
+#, no-wrap
+msgid ""
+"tcpline ::= \"tcp\" \"{\" tcpbodyopts \"}\" \";\" .\n"
+"tcpbodyopts ::= tcpbody [ tcpbodyopts ] | bodyline .\n"
+"tcpbody ::= \"sport\" port | \"dport\" port | \"seq\" number | \"ack\" "
+"number |\n"
+"\t    \"off\" number | \"urp\" number | \"win\" number | \"sum\" number |\n"
+"\t    \"flags\" tcpflags | data .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:56
+#, no-wrap
+msgid ""
+"udpline ::= \"udp\" \"{\" udpbodyopts \"}\" \";\" .\n"
+"udpbodyopts ::= udpbody [ udpbodyopts ] | bodyline .\n"
+"udpbody ::= \"sport\" port | \"dport\" port | \"len\" number | \"sum\" "
+"number |\n"
+"\t    data .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:67
+#, no-wrap
+msgid ""
+"icmpline ::= \"icmp\" \"{\" icmpbodyopts \"}\" \";\" .\n"
+"icmpbodyopts ::= icmpbody [ icmpbodyopts ] | bodyline .\n"
+"icmpbody ::= \"type\" icmptype [ \"code\" icmpcode ] .\n"
+"icmptype ::= \"echorep\" | \"echorep\" \"{\" echoopts \"}\" \";\" | "
+"\"unreach\" |\n"
+"\t     \"unreach\" \"{\" unreachtype \"}\" \";\" | \"squench\" | \"redir\" "
+"|\n"
+"\t     \"redir\" \"{\" redirtype \"}\" \";\" | \"echo\" \"{\" echoopts \"}\" "
+"\";\" |\n"
+"\t     \"echo\" | \"routerad\" | \"routersol\" | \"timex\" |\n"
+"\t     \"timex\" \"{\" timextype \"}\" \";\" | \"paramprob\" |\n"
+"\t     \"paramprob\" \"{\" parapptype \"}\" \";\" | \"timest\" | "
+"\"timestrep\" |\n"
+"\t     \"inforeq\" | \"inforep\" | \"maskreq\" | \"maskrep\" .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:77
+#, no-wrap
+msgid ""
+"echoopts ::= echoopts [ icmpechoopts ] .\n"
+"unreachtype ::= \"net-unr\" | \"host-unr\" | \"proto-unr\" | \"port-unr\" "
+"|\n"
+"\t     \"needfrag\" | \"srcfail\" | \"net-unk\" | \"host-unk\" | \"isolate\" "
+"|\n"
+"\t     \"net-prohib\" | \"host-prohib\" | \"net-tos\" | \"host-tos\" |\n"
+"\t     \"filter-prohib\" | \"host-preced\" | \"cutoff-preced\" .\n"
+"redirtype ::= \"net-redir\" | \"host-redir\" | \"tos-net-redir\" |\n"
+"\t      \"tos-host-redir\" .\n"
+"timextype ::= \"intrans\" | \"reass\" .\n"
+"paramptype ::= \"optabsent\" .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:80
+#, no-wrap
+msgid ""
+"data\t::= \"data\" \"{\" databodyopts \"}\" \";\" .\n"
+"databodyopts ::= \"len\" number | \"value\" string | \"file\" filename .\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:82
+#, no-wrap
+msgid "icmpechoopts ::= \"icmpseq\" number | \"icmpid\" number .\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:83
+#, no-wrap
+msgid "COMMANDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:87
+msgid ""
+"Before sending any packets or defining any packets, it is necessary to "
+"describe the interface(s) which will be used to send packets out."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:87
+#, no-wrap
+msgid "B<interface>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:92
+msgid ""
+"is used to describe a network interface.  The description included need not "
+"match the actual configuration currently employed by the operating system."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:92
+#, no-wrap
+msgid "B<send>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:97
+msgid ""
+"is used to actually send out a packet across the network.  If the "
+"destination is not specified, it will attempt to send the packet directly "
+"out on the network to the destination without routing it."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:97
+#, no-wrap
+msgid "B<router>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:101
+msgid ""
+"configures the default router for ipsend, as distinct from the default route "
+"installed in the kernel."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:101
+#, no-wrap
+msgid "B<ipv4>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:106
+msgid ""
+"is used to describe an IP (version 4) packet.  IP header fields can be "
+"specified, including options, followed by a data section which may contain "
+"further protocol headers."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:106
+#, no-wrap
+msgid "IPv4"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:107
+#, no-wrap
+msgid "B<hl E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:111
+msgid ""
+"manually specifies the IP header length (automatically adjusts with the "
+"presence of IP options and defaults to 5);"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:111
+#, no-wrap
+msgid "B<v E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:114
+msgid "set the IP version.  Default is 4."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:114
+#, no-wrap
+msgid "B<tos E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:117
+msgid "set the type of service (TOS) field in the IP header.  Default is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:117 /usr/src/contrib/ipfilter/ipsend/ipsend.5:279 /usr/src/contrib/ipfilter/ipsend/ipsend.5:309
+#, no-wrap
+msgid "B<len E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:121
+msgid ""
+"manually specifies the length of the IP packet.  The length will "
+"automatically be adjusted to accommodate data or further protocol headers."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:121 /usr/src/contrib/ipfilter/ipsend/ipsend.5:237
+#, no-wrap
+msgid "B<off E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:124
+msgid "sets the fragment offset field of the IP packet.  Default is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:124
+#, no-wrap
+msgid "B<ttl E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:127
+msgid "sets the time to live (TTL) field of the IP header.  Default is 60."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:127
+#, no-wrap
+msgid "B<proto E<lt>protocolE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:131
+msgid ""
+"sets the protocol field of the IP header.  The protocol can either be a "
+"number or a name found in B</etc/protocols>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:131
+#, no-wrap
+msgid "B<sum>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:135
+msgid ""
+"manually specifies the checksum for the IP header.  If left unset (0), it "
+"will be calculated prior to being sent."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:135
+#, no-wrap
+msgid "B<src>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:139
+msgid ""
+"manually specifies the source address of the IP header.  If left unset, it "
+"will default to the host's IP address."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:139
+#, no-wrap
+msgid "B<dst>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:142
+msgid "sets the destination of the IP packet.  The default is 0.0.0.0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:142 /usr/src/contrib/ipfilter/ipsend/ipsend.5:257
+#, no-wrap
+msgid "B<opt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:145
+msgid "is used to include IP options in the IP header."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:145
+#, no-wrap
+msgid "B<tcp>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:149
+msgid ""
+"is used to indicate the a TCP protocol header is to follow.  See the B<TCP> "
+"section for TCP header options."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:149
+#, no-wrap
+msgid "B<udp>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:153
+msgid ""
+"is used to indicate the a UDP protocol header is to follow.  See the B<UDP> "
+"section for UDP header options."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:153
+#, no-wrap
+msgid "B<icmp>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:157
+msgid ""
+"is used to indicate the a ICMP protocol header is to follow.  See the "
+"B<ICMP> section for ICMP header options."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:157 /usr/src/contrib/ipfilter/ipsend/ipsend.5:261 /usr/src/contrib/ipfilter/ipsend/ipsend.5:288 /usr/src/contrib/ipfilter/ipsend/ipsend.5:301
+#, no-wrap
+msgid "B<data>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:161
+msgid ""
+"is used to indicate that raw data is to be included in the IP packet.  See "
+"the B<DATA> section for details on options available."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:161
+#, no-wrap
+msgid "IPv4 Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:164
+msgid ""
+"these keywords indicate that the relevant IP option should be added to the "
+"IP header (the header length field will be adjusted appropriately)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:164
+#, no-wrap
+msgid "B<nop>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:167
+msgid "No Operation [RFC 791] (space filler)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:167
+#, no-wrap
+msgid "B<rr E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:172
+msgid ""
+"Record Router [RFC 791].  The number given specifies the number of B<bytes> "
+"to be used for storage.  This should be a multiple of 4 for proper "
+"operation."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:172
+#, no-wrap
+msgid "B<zsu>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:175
+msgid "Experimental Measurement."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:175
+#, no-wrap
+msgid "B<mtup [RFC 1191].>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:178
+msgid "MTU Probe."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:178
+#, no-wrap
+msgid "B<mtur [RFC 1191].>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:181
+msgid "MTU Ready."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:181
+#, no-wrap
+msgid "B<encode>"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:183
+#, no-wrap
+msgid "B<ts>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:186
+msgid "Timestamp [RFC 791]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:186
+#, no-wrap
+msgid "B<tr>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:189
+msgid "Traceroute [RFC 1393]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:189
+#, no-wrap
+msgid "B<sec-class E<lt>security-levelE<gt>, sec>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:194
+msgid ""
+"Security [RFC 1108].  This option specifies the security label for the "
+"packet.  Using B<sec> sets up the framework of the security option but "
+"unless B<sec-class> is given, the level may not be set."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:194
+#, no-wrap
+msgid "B<lsrr E<lt>ip-addressE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:197
+msgid "Loose Source Route [RFC 791]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:197
+#, no-wrap
+msgid "B<e-sec>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:200
+msgid "Extended Security [RFC 1108]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:200
+#, no-wrap
+msgid "B<cipso>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:203
+msgid "Commercial Security."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:203
+#, no-wrap
+msgid "B<satid>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:206
+msgid "Stream ID [RFC 791]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:206
+#, no-wrap
+msgid "B<ssrr E<lt>ip-addressE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:209
+msgid "Strict Source Route [RFC 791]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:209
+#, no-wrap
+msgid "B<addext>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:212
+msgid "Address Extension"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:212
+#, no-wrap
+msgid "B<visa>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:215
+msgid "Experimental Access Control."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:215
+#, no-wrap
+msgid "B<imitd>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:218
+msgid "IMI Traffic Descriptor."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:218
+#, no-wrap
+msgid "B<eip>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:221
+msgid "[RFC 1358]."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:221
+#, no-wrap
+msgid "B<finn>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:224
+msgid "Experimental Flow Control."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:224
+#, no-wrap
+msgid "TCP"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:225 /usr/src/contrib/ipfilter/ipsend/ipsend.5:273
+#, no-wrap
+msgid "B<sport E<lt>portE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:228 /usr/src/contrib/ipfilter/ipsend/ipsend.5:276
+msgid "sets the source port to the number/name given.  Default is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:228 /usr/src/contrib/ipfilter/ipsend/ipsend.5:276
+#, no-wrap
+msgid "B<dport E<lt>portE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:231 /usr/src/contrib/ipfilter/ipsend/ipsend.5:279
+msgid "sets the destination port to the number/name given.  Default is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:231
+#, no-wrap
+msgid "B<seq E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:234
+msgid "sets the sequence number to the number specified.  Default is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:234
+#, no-wrap
+msgid "B<ack E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:237
+msgid "sets the acknowledge number to the number specified.  Default is 0."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:242
+msgid ""
+"sets the offset value for the start of data to the number specified.  This "
+"implies the size of the TCP header.  It is automatically adjusted if TCP "
+"options are included and defaults to 5."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:242
+#, no-wrap
+msgid "B<urp E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:246
+msgid ""
+"sets the value of the urgent data pointer to the number specified.  Default "
+"is 0."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:246
+#, no-wrap
+msgid "B<win E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:249
+msgid "sets the size of the TCP window to the number specified.  Default is 4096."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:249 /usr/src/contrib/ipfilter/ipsend/ipsend.5:284
+#, no-wrap
+msgid "B<sum E<lt>numberE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:253
+msgid ""
+"manually specifies the checksum for the TCP pseudo-header and data.  If left "
+"unset, it defaults to 0 and is automatically calculated."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:253
+#, no-wrap
+msgid "B<flags E<lt>tcp-flagsE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:257
+msgid ""
+"sets the TCP flags field to match the flags specified.  Valid flags are "
+"\"S\" (SYN), \"A\" (ACK), \"R\" (RST), \"F\" (FIN), \"U\" (URG), \"P\" "
+"(PUSH)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:261
+msgid ""
+"indicates that TCP header options follow.  As TCP options are added to the "
+"TCP header, the B<off> field is updated to match."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:265 /usr/src/contrib/ipfilter/ipsend/ipsend.5:292 /usr/src/contrib/ipfilter/ipsend/ipsend.5:305
+msgid ""
+"indicates that a data section is to follow and is to be included as raw "
+"data, being appended to the header."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:265
+#, no-wrap
+msgid "TCP options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:272
+msgid ""
+"With a TCP header, it is possible to append a number of header options.  The "
+"TCP header offset will be updated automatically to reflect the change in "
+"size.  The valid options are: B<nop> No Operation, B<eol> End Of (option) "
+"List, B<mss [ size ]> Maximum Segment Size - this sets the maximum "
+"receivable size of a packet containing data, B<wscale> Window Scale, B<ts> "
+"Timestamp."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:272
+#, no-wrap
+msgid "UDP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:284
+msgid ""
+"manually specifies the length of the UDP header and data.  If left unset, it "
+"is automatically adjusted to match the header presence and any data if "
+"present."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:288
+msgid ""
+"manually specifies the checksum for the UDP pseudo-header and data.  If left "
+"unset, it defaults to 0 and is automatically calculated."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:292
+#, no-wrap
+msgid "ICMP"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:293
+#, no-wrap
+msgid "B<type E<lt>icmptypeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:298
+msgid ""
+"sets the ICMP type according the to the icmptype tag.  This may either be a "
+"number or one of the recognised tags (see the B<ICMP TYPES> section for a "
+"list of names recognised)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:298
+#, no-wrap
+msgid "B<code E<lt>icmpcodeE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:301
+msgid "sets the ICMP code."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:305
+#, no-wrap
+msgid "DATA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:309
+msgid ""
+"Each of the following extend the packet in a different way.  B<Len> just "
+"increases the length (without adding any content), B<value> uses a string "
+"and B<file> a file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:313
+msgid ""
+"extend the length of the packet by B<number> bytes (without filling those "
+"bytes with any particular data)."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:313
+#, no-wrap
+msgid "B<value E<lt>stringE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:320
+msgid ""
+"indicates that the string provided should be added to the current packet as "
+"data.  A string may be a consecutive list of characters and numbers (with no "
+"white spaces) or bounded by \"'s (may not contain them, even if \\e'd).  The "
+"\\e character is recognised with the appropriate C escaped values, including "
+"octal numbers."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:320
+#, no-wrap
+msgid "B<file E<lt>filenameE<gt>>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:324
+msgid ""
+"reads data in from the specified file and appends it to the current packet.  "
+"If the new total length would exceed 64k, an error will be reported."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:324
+#, no-wrap
+msgid "ICMP TYPES"
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:325
+#, no-wrap
+msgid "B<echorep>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:328
+msgid "Echo Reply."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:328
+#, no-wrap
+msgid "B<unreach [ unreachable-code ]>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:345
+msgid ""
+"Generic Unreachable error.  This is used to indicate that an error has "
+"occurred whilst trying to send the packet across the network and that the "
+"destination cannot be reached.  The unreachable code names are: B<net-unr> "
+"network unreachable, B<host-unr> host unreachable, B<proto-unr> protocol "
+"unreachable, B<port-unr> port unreachable, B<needfrag>, B<srcfail> source "
+"route failed, B<net-unk> network unknown, B<host-unk> host unknown, "
+"B<isolate>, B<net-prohib> administratively prohibited contact with network, "
+"B<host-prohib> administratively prohibited contact with host, B<net-tos> "
+"network unreachable with given TOS, B<host-tos> host unreachable with given "
+"TOS, B<filter-prohib> packet prohibited by packet filter, B<host-preced>, "
+"B<cutoff-preced>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:345
+#, no-wrap
+msgid "B<squench>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:348
+msgid "Source Quence."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:348
+#, no-wrap
+msgid "B<redir [ redirect-code ]>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:357
+msgid ""
+"Redirect (routing).  This is used to indicate that the route being chosen "
+"for forwarding the packet is suboptimal and that the sender of the packet "
+"should be routing packets via another route.  The redirect code names are: "
+"B<net-redir> redirect packets for a network, B<host-redir> redirect packets "
+"for a host, B<tos-net-redir> redirect packets for a network with a given "
+"TOS, B<tos-host-redir> redirect packets for a host with a given TOS."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:357
+#, no-wrap
+msgid "B<echo>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:360
+msgid "Echo."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:360
+#, no-wrap
+msgid "B<routerad>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:363
+msgid "Router Advertisement."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:363
+#, no-wrap
+msgid "B<routersol>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:366
+msgid "Router solicitation."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:366
+#, no-wrap
+msgid "B<timex [ timexceed-code ]>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:372
+msgid ""
+"Time Exceeded.  This is used to indicate that the packet failed to reach the "
+"destination because it was in transit too long (i.e. ttl reached 0).  The "
+"valid code names are: B<intrans>, B<reass> could not reassemble packet from "
+"fragments within a given time."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:372
+#, no-wrap
+msgid "B<paramprob [ paramprob-code ]>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:376
+msgid ""
+"Parameter problem.  There is only one available parameter problem code name: "
+"B<optabsent>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:376
+#, no-wrap
+msgid "B<timest>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:379
+msgid "Time stamp request."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:379
+#, no-wrap
+msgid "B<timestrep [ { timestamp-code } ]>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:383
+msgid ""
+"Time stamp reply.  In a timestamp reply, it is possible to supply the "
+"following values: B<rtime>, B<otime>, B<ttime>."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:383
+#, no-wrap
+msgid "B<inforeq>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:386
+msgid "Information request."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:386
+#, no-wrap
+msgid "B<inforep>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:389
+msgid "Information reply."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:389
+#, no-wrap
+msgid "B<maskreq>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:392
+msgid "Address mask request."
+msgstr ""
+
+#. type: TP
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:392
+#, no-wrap
+msgid "B<maskrep>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:395
+msgid "Address mask reply."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:395
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:397
+msgid "/etc/hosts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:399
+msgid "/etc/protocols"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:401
+msgid "/etc/services"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:401
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/ipsend/ipsend.5:402
+msgid "ipsend(1), iptest(1), hosts(5), protocols(5), services(5)"
+msgstr ""

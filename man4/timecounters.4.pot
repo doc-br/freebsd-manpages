@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/timecounters.4:27
+#, no-wrap
+msgid "August 12, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/timecounters.4:28
+#, no-wrap
+msgid "TIMECOUNTERS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/timecounters.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:32
+msgid "E<.Nm timecounters>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/timecounters.4:32
+#, no-wrap
+msgid "kernel time counters subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/timecounters.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:42
+msgid ""
+"The kernel uses several types of time-related devices, such as: real time "
+"clocks, time counters and event timers.  Real time clocks are responsible "
+"for tracking real world time, mostly when the system is down.  Time counters "
+"are responsible for tracking purposes, when the system is running.  Event "
+"timers are responsible for generating interrupts at a specified time or "
+"periodically, to run different time-based events.  This page is about the "
+"second."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/timecounters.4:42
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:48
+msgid ""
+"Time counters are the lowest level of time tracking in the kernel.  They "
+"provide monotonically increasing timestamps with known width and update "
+"frequency.  They can overflow, drift, etc and so in raw form can be used "
+"only in very limited performance-critical places like the process scheduler."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:55
+msgid ""
+"More usable time is created by scaling the values read from the selected "
+"time counter and combining it with some offset, regularly updated by E<.Fn "
+"tc_windup> on E<.Fn hardclock> invocation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:59
+msgid ""
+"Different platforms provide different kinds of timer hardware.  The goal of "
+"the time counters subsystem is to provide a unified way to access that "
+"hardware."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:65
+msgid ""
+"Each driver implementing time counters registers them with the subsystem.  "
+"It is possible to see the list of present time counters, via the E<.Va "
+"kern.timecounter> E<.Xr sysctl 8> variable:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:83
+#, no-wrap
+msgid ""
+"kern.timecounter.choice: TSC-low(-100) HPET(950) i8254(0) ACPI-fast(900) "
+"dummy(-1000000)\n"
+"kern.timecounter.tc.ACPI-fast.mask: 16777215\n"
+"kern.timecounter.tc.ACPI-fast.counter: 13467909\n"
+"kern.timecounter.tc.ACPI-fast.frequency: 3579545\n"
+"kern.timecounter.tc.ACPI-fast.quality: 900\n"
+"kern.timecounter.tc.i8254.mask: 65535\n"
+"kern.timecounter.tc.i8254.counter: 62692\n"
+"kern.timecounter.tc.i8254.frequency: 1193182\n"
+"kern.timecounter.tc.i8254.quality: 0\n"
+"kern.timecounter.tc.HPET.mask: 4294967295\n"
+"kern.timecounter.tc.HPET.counter: 3013495652\n"
+"kern.timecounter.tc.HPET.frequency: 14318180\n"
+"kern.timecounter.tc.HPET.quality: 950\n"
+"kern.timecounter.tc.TSC-low.mask: 4294967295\n"
+"kern.timecounter.tc.TSC-low.counter: 4067509463\n"
+"kern.timecounter.tc.TSC-low.frequency: 11458556\n"
+"kern.timecounter.tc.TSC-low.quality: -100\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:86
+msgid "The output nodes are defined as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/timecounters.4:87
+#, no-wrap
+msgid "Va kern.timecounter.tc. Ns Ar X Ns Va .mask"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:89
+msgid "is a bitmask, defining valid counter bits,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/timecounters.4:89
+#, no-wrap
+msgid "Va kern.timecounter.tc. Ns Ar X Ns Va .counter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:91
+msgid "is a present counter value,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/timecounters.4:91
+#, no-wrap
+msgid "Va kern.timecounter.tc. Ns Ar X Ns Va .frequency"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:93
+msgid "is a counter update frequency,"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/timecounters.4:93
+#, no-wrap
+msgid "Va kern.timecounter.tc. Ns Ar X Ns Va .quality"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:97
+msgid ""
+"is an integral value, defining the quality of this time counter compared to "
+"others.  A negative value means this time counter is broken and should not "
+"be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:103
+msgid ""
+"The time management code of the kernel automatically switches to a "
+"higher-quality time counter when it registers, unless the E<.Va "
+"kern.timecounter.hardware> sysctl has been used to choose a specific device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:109
+msgid ""
+"There is no way to unregister a time counter once it has registered with the "
+"kernel.  If a dynamically loaded module contains a time counter you will not "
+"be able to unload that module, even if the time counter it contains is not "
+"the one currently in use."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/timecounters.4:109
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/timecounters.4:113
+msgid "E<.Xr attimer 4>, E<.Xr eventtimers 4>, E<.Xr ffclock 4>, E<.Xr hpet 4>"
+msgstr ""

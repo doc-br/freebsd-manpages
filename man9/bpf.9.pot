@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/bpf.9:27
+#, no-wrap
+msgid "May 11, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/bpf.9:28
+#, no-wrap
+msgid "BPF 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:33
+msgid "E<.Nm bpf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/bpf.9:33
+#, no-wrap
+msgid "Berkeley Packet Filter"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bpf.9:36
+#, no-wrap
+msgid "net/bpf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:59
+msgid ""
+"E<.Ft void> E<.Fn bpfattach \"struct ifnet *ifp\" \"u_int dlt\" \"u_int "
+"hdrlen\"> E<.Ft void> E<.Fo bpfattach2> E<.Fa \"struct ifnet *ifp\" \"u_int "
+"dlt\" \"u_int hdrlen\" \"struct bpf_if **driverp\"> E<.Fc> E<.Ft void> E<.Fn "
+"bpfdetach \"struct ifnet *ifp\"> E<.Ft void> E<.Fn bpf_tap \"struct ifnet "
+"*ifp\" \"u_char *pkt\" \"u_int *pktlen\"> E<.Ft void> E<.Fn bpf_mtap "
+"\"struct ifnet *ifp\" \"struct mbuf *m\"> E<.Ft void> E<.Fn bpf_mtap2 "
+"\"struct bpf_if *bp\" \"void *data\" \"u_int dlen\" \"struct mbuf *m\"> "
+"E<.Ft u_int> E<.Fo bpf_filter> E<.Fa \"const struct bpf_insn *pc \" \"u_char "
+"*pkt\" \"u_int wirelen\" \"u_int buflen\"> E<.Fc> E<.Ft int> E<.Fn "
+"bpf_validate \"const struct bpf_insn *fcode\" \"int flen\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:59
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:79
+msgid ""
+"The Berkeley Packet Filter provides a raw interface, that is protocol "
+"independent, to data link layers.  It allows all packets on the network, "
+"even those destined for other hosts, to be passed from a network interface "
+"to user programs.  Each program may specify a filter, in the form of a "
+"E<.Nm> filter machine program.  The E<.Xr bpf 4> manual page describes the "
+"interface used by user programs.  This manual page describes the functions "
+"used by interfaces to pass packets to E<.Nm> and the functions for testing "
+"and running E<.Nm> filter machine programs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:102
+msgid ""
+"The E<.Fn bpfattach> function attaches a network interface to E<.Nm>.  The "
+"E<.Fa ifp> argument is a pointer to the structure that defines the interface "
+"to be attached to an interface.  The E<.Fa dlt> argument is the data "
+"link-layer type: E<.Dv DLT_NULL> (no link-layer encapsulation), E<.Dv "
+"DLT_EN10MB> (Ethernet), E<.Dv DLT_IEEE802_11> (802.11 wireless networks), "
+"etc.  The rest of the link layer types can be found in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/bpf.9:102
+#, no-wrap
+msgid "net/bpf.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:117
+msgid ""
+"The E<.Fa hdrlen> argument is the fixed size of the link header; variable "
+"length headers are not yet supported.  The E<.Nm> system will hold a pointer "
+"to E<.Fa ifp-E<gt>if_bpf>.  This variable will set to a E<.Pf non- Dv NULL> "
+"value when E<.Nm> requires packets from this interface to be tapped using "
+"the functions below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:131
+msgid ""
+"The E<.Fn bpfattach2> function allows multiple E<.Nm> instances to be "
+"attached to a single interface, by registering an explicit E<.Fa if_bpf> "
+"rather than using E<.Fa ifp-E<gt>if_bpf>.  It is then possible to run E<.Xr "
+"tcpdump 1> on the interface for any data link-layer types attached."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:145
+msgid ""
+"The E<.Fn bpfdetach> function detaches a E<.Nm> instance from an interface, "
+"specified by E<.Fa ifp>.  The E<.Fn bpfdetach> function should be called "
+"once for each E<.Nm> instance attached."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:164
+msgid ""
+"The E<.Fn bpf_tap> function is used by an interface to pass the packet to "
+"E<.Nm>.  The packet data (including link-header), pointed to by E<.Fa pkt>, "
+"is of length E<.Fa pktlen>, which must be a contiguous buffer.  The E<.Fa "
+"ifp> argument is a pointer to the structure that defines the interface to be "
+"tapped.  The packet is parsed by each processes filter, and if accepted, it "
+"is buffered for the process to read."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:193
+msgid ""
+"The E<.Fn bpf_mtap> function is like E<.Fn bpf_tap> except that it is used "
+"to tap packets that are in an E<.Vt mbuf> chain, E<.Fa m>.  The E<.Fa ifp> "
+"argument is a pointer to the structure that defines the interface to be "
+"tapped.  Like E<.Fn bpf_tap>, E<.Fn bpf_mtap> requires a link-header for "
+"whatever data link layer type is specified.  Note that E<.Nm> only reads "
+"from the E<.Vt mbuf> chain, it does not free it or keep a pointer to it.  "
+"This means that an E<.Vt mbuf> containing the link-header can be prepended "
+"to the chain if necessary.  A cleaner interface to achieve this is provided "
+"by E<.Fn bpf_mtap2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:206
+msgid ""
+"The E<.Fn bpf_mtap2> function allows the user to pass a link-header E<.Fa "
+"data>, of length E<.Fa dlen>, independent of the E<.Vt mbuf> E<.Fa m>, "
+"containing the packet.  This simplifies the passing of some link-headers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:226
+msgid ""
+"The E<.Fn bpf_filter> function executes the filter program starting at E<.Fa "
+"pc> on the packet E<.Fa pkt>.  The E<.Fa wirelen> argument is the length of "
+"the original packet and E<.Fa buflen> is the amount of data present.  The "
+"E<.Fa buflen> value of 0 is special; it indicates that the E<.Fa pkt> is "
+"actually a pointer to an mbuf chain E<.Pq Vt \"struct mbuf *\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:236
+msgid ""
+"The E<.Fn bpf_validate> function checks that the filter code E<.Fa fcode>, "
+"of length E<.Fa flen>, is valid."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:236
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:243
+msgid ""
+"The E<.Fn bpf_filter> function returns \\-1 (cast to an unsigned integer)  "
+"if there is no filter.  Otherwise, it returns the result of the filter "
+"program."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:249
+msgid ""
+"The E<.Fn bpf_validate> function returns 0 when the program is not a valid "
+"filter program."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:249
+#, no-wrap
+msgid "EVENT HANDLERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:270
+msgid ""
+"E<.Nm> invokes E<.Fa bpf_track> E<.Xr EVENTHANDLER 9> event each time "
+"listener attaches to or detaches from an interface.  Pointer to E<.Pq Vt "
+"\"struct ifnet *\"> is passed as the first argument, interface E<.Fa dlt> "
+"follows.  Last argument indicates listener is attached (1) or detached (0).  "
+"Note that handler is invoked with E<.Nm> global lock held, which implies "
+"restriction on sleeping and calling E<.Nm> subsystem inside E<.Xr "
+"EVENTHANDLER 9> dispatcher.  Note that handler is not called for write-only "
+"listeners."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:270
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:275
+msgid "E<.Xr tcpdump 1>, E<.Xr bpf 4>, E<.Xr EVENTHANDLER 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:275
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:294
+msgid ""
+"The Enet packet filter was created in 1980 by Mike Accetta and Rick Rashid "
+"at Carnegie-Mellon University.  Jeffrey Mogul, at Stanford, ported the code "
+"to E<.Bx> and continued its development from 1983 on.  Since then, it has "
+"evolved into the Ultrix Packet Filter at E<.Tn DEC>, a E<.Tn STREAMS> E<.Tn "
+"NIT> module under E<.Tn SunOS> 4.1, and E<.Tn BPF>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/bpf.9:294
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/bpf.9:301
+msgid ""
+"E<.An -nosplit> E<.An Steven McCanne>, of Lawrence Berkeley Laboratory, "
+"implemented BPF in Summer 1990.  Much of the design is due to E<.An Van "
+"Jacobson>.  This manpage was written by E<.An Orla McGann>."
+msgstr ""

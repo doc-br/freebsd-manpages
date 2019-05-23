@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/aio.4:30
+#, no-wrap
+msgid "June 22, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/aio.4:31
+#, no-wrap
+msgid "AIO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aio.4:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:35
+msgid "E<.Nm aio>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/aio.4:35
+#, no-wrap
+msgid "asynchronous I/O"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aio.4:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:46
+msgid ""
+"The E<.Nm> facility provides system calls for asynchronous I/O.  "
+"Asynchronous I/O operations are not completed synchronously by the calling "
+"thread.  Instead, the calling thread invokes one system call to request an "
+"asynchronous I/O operation.  The status of a completed request is retrieved "
+"later via a separate system call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:56
+msgid ""
+"Asynchronous I/O operations on some file descriptor types may block an AIO "
+"daemon indefinitely resulting in process and/or system hangs.  Operations on "
+"these file descriptor types are considered E<.Dq unsafe> and disabled by "
+"default.  They can be enabled by setting the E<.Va vfs.aio.enable_unsafe> "
+"sysctl node to a non-zero value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:61
+msgid ""
+"Asynchronous I/O operations on sockets, raw disk devices, and regular files "
+"on local filesystems do not block indefinitely and are always enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:73
+msgid ""
+"The E<.Nm> facility uses kernel processes (also known as AIO daemons)  to "
+"service most asynchronous I/O requests These processes are grouped into "
+"pools containing a variable number of processes.  Each pool will add or "
+"remove processes to the pool based on load.  Pools can be configured by "
+"sysctl nodes that define the minimum and maximum number of processes as well "
+"as the amount of time an idle process will wait before exiting."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:79
+msgid ""
+"One pool of AIO daemons is used to service asynchronous I/O requests for "
+"sockets.  These processes are named E<.Dq soaiodE<lt>NE<gt>>.  The following "
+"sysctl nodes are used with this pool:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:80
+#, no-wrap
+msgid "Va kern.ipc.aio.num_procs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:82 /usr/src/share/man/man4/aio.4:101
+msgid "The current number of processes in the pool."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:82
+#, no-wrap
+msgid "Va kern.ipc.aio.target_procs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:84 /usr/src/share/man/man4/aio.4:103
+msgid "The minimum number of processes that should be present in the pool."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:84
+#, no-wrap
+msgid "Va kern.ipc.aio.max_procs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:86 /usr/src/share/man/man4/aio.4:105
+msgid "The maximum number of processes permitted in the pool."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:86
+#, no-wrap
+msgid "Va kern.ipc.aio.lifetime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:91 /usr/src/share/man/man4/aio.4:110
+msgid ""
+"The amount of time a process is permitted to idle in clock ticks.  If a "
+"process is idle for this amount of time and there are more processes in the "
+"pool than the target minimum, the process will exit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:98
+msgid ""
+"A second pool of AIO daemons is used to service all other asynchronous I/O "
+"requests except for I/O requests to raw disks.  These processes are named "
+"E<.Dq aiodE<lt>NE<gt>>.  The following sysctl nodes are used with this pool:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:99
+#, no-wrap
+msgid "Va vfs.aio.num_aio_procs"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:101
+#, no-wrap
+msgid "Va vfs.aio.target_aio_procs"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:103
+#, no-wrap
+msgid "Va vfs.aio.max_aio_procs"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:105
+#, no-wrap
+msgid "Va vfs.aio.aiod_lifetime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:116
+msgid ""
+"Asynchronous I/O requests for raw disks are queued directly to the disk "
+"device layer after temporarily wiring the user pages associated with the "
+"request.  These requests are not serviced by any of the AIO daemon pools."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:120
+msgid ""
+"Several limits on the number of asynchronous I/O requests are imposed both "
+"system-wide and per-process.  These limits are configured via the following "
+"sysctls:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:121
+#, no-wrap
+msgid "Va vfs.aio.max_buf_aio"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:130
+msgid ""
+"The maximum number of queued asynchronous I/O requests for raw disks "
+"permitted for a single process.  Asynchronous I/O requests that have "
+"completed but whose status has not been retrieved via E<.Xr aio_return 2> or "
+"E<.Xr aio_waitcomplete 2> are not counted against this limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:130
+#, no-wrap
+msgid "Va vfs.aio.num_buf_aio"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:132
+msgid "The number of queued asynchronous I/O requests for raw disks system-wide."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:132
+#, no-wrap
+msgid "Va vfs.aio.max_aio_queue_per_proc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:135
+msgid ""
+"The maximum number of asynchronous I/O requests for a single process "
+"serviced concurrently by the default AIO daemon pool."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:135
+#, no-wrap
+msgid "Va vfs.aio.max_aio_per_proc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:144
+msgid ""
+"The maximum number of outstanding asynchronous I/O requests permitted for a "
+"single process.  This includes requests that have not been serviced, "
+"requests currently being serviced, and requests that have completed but "
+"whose status has not been retrieved via E<.Xr aio_return 2> or E<.Xr "
+"aio_waitcomplete 2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:144
+#, no-wrap
+msgid "Va vfs.aio.num_queue_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:146
+msgid "The number of outstanding asynchronous I/O requests system-wide."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:146
+#, no-wrap
+msgid "Va vfs.aio.max_aio_queue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:149
+msgid ""
+"The maximum number of outstanding asynchronous I/O requests permitted "
+"system-wide."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:154
+msgid ""
+"Asynchronous I/O control buffers should be zeroed before initializing "
+"individual fields.  This ensures all fields are initialized."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:160
+msgid ""
+"All asynchronous I/O control buffers contain a E<.Vt sigevent> structure in "
+"the E<.Va aio_sigevent> field which can be used to request notification when "
+"an operation completes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:180
+msgid ""
+"For E<.Dv SIGEV_KEVENT> notifications, the E<.Va sigevent> E<.Ap> s E<.Va "
+"sigev_notify_kqueue> field should contain the descriptor of the kqueue that "
+"the event should be attached to, its E<.Va sigev_notify_kevent_flags> field "
+"may contain E<.Dv EV_ONESHOT>, E<.Dv EV_CLEAR , and/or> E<.Dv EV_DISPATCH , "
+"and its> E<.Va sigev_notify> field should be set to E<.Dv SIGEV_KEVENT>.  "
+"The posted kevent will contain:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:181
+#, no-wrap
+msgid "Sy Member Ta Sy Value"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:182
+#, no-wrap
+msgid "Va ident Ta asynchronous I/O control buffer pointer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:183
+#, no-wrap
+msgid "Va filter Ta Dv EVFILT_AIO"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:184
+#, no-wrap
+msgid "Va flags Ta Dv EV_EOF"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/aio.4:185
+#, no-wrap
+msgid "Va udata Ta"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:188
+msgid "value stored in E<.Va aio_sigevent.sigev_value>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:204
+msgid ""
+"For E<.Dv SIGEV_SIGNO> and E<.Dv SIGEV_THREAD_ID> notifications, the "
+"information for the queued signal will include E<.Dv SI_ASYNCIO> in the "
+"E<.Va si_code> field and the value stored in E<.Va sigevent.sigev_value> in "
+"the E<.Va si_value> field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:214
+msgid ""
+"For E<.Dv SIGEV_THREAD> notifications, the value stored in E<.Va "
+"aio_sigevent.sigev_value> is passed to the E<.Va "
+"aio_sigevent.sigev_notify_function> as described in E<.Xr sigevent 3>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aio.4:214
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:225
+msgid ""
+"E<.Xr aio_cancel 2>, E<.Xr aio_error 2>, E<.Xr aio_read 2>, E<.Xr aio_return "
+"2>, E<.Xr aio_suspend 2>, E<.Xr aio_waitcomplete 2>, E<.Xr aio_write 2>, "
+"E<.Xr lio_listio 2>, E<.Xr sigevent 3>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/aio.4:225
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/aio.4:237
+msgid ""
+"The E<.Nm> facility appeared as a kernel option in E<.Fx 3.0>.  The E<.Nm> "
+"kernel module appeared in E<.Fx 5.0>.  The E<.Nm> facility was integrated "
+"into all kernels in E<.Fx 11.0>."
+msgstr ""

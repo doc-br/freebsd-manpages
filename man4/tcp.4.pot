@@ -1,0 +1,1262 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/tcp.4:37
+#, no-wrap
+msgid "March 23, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/tcp.4:38
+#, no-wrap
+msgid "TCP 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tcp.4:40
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:42
+msgid "E<.Nm tcp>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/tcp.4:42
+#, no-wrap
+msgid "Internet Transmission Control Protocol"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tcp.4:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tcp.4:44
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tcp.4:45
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tcp.4:46
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tcp.4:47
+#, no-wrap
+msgid "netinet/tcp.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:50
+msgid "E<.Ft int> E<.Fn socket AF_INET SOCK_STREAM 0>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tcp.4:50
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:69
+msgid ""
+"The E<.Tn TCP> protocol provides reliable, flow-controlled, two-way "
+"transmission of data.  It is a byte-stream protocol used to support the "
+"E<.Dv SOCK_STREAM> abstraction.  E<.Tn TCP> uses the standard Internet "
+"address format and, in addition, provides a per-host collection of E<.Dq "
+"\"port addresses\">.  Thus, each address is composed of an Internet address "
+"specifying the host and network, with a specific E<.Tn TCP> port on the host "
+"identifying the peer entity."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:93
+msgid ""
+"Sockets utilizing the E<.Tn TCP> protocol are either E<.Dq active> or E<.Dq "
+"passive>.  Active sockets initiate connections to passive sockets.  By "
+"default, E<.Tn TCP> sockets are created active; to create a passive socket, "
+"the E<.Xr listen 2> system call must be used after binding the socket with "
+"the E<.Xr bind 2> system call.  Only passive sockets may use the E<.Xr "
+"accept 2> call to accept incoming connections.  Only active sockets may use "
+"the E<.Xr connect 2> call to initiate connections."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:116
+msgid ""
+"Passive sockets may E<.Dq underspecify> their location to match incoming "
+"connection requests from multiple networks.  This technique, termed E<.Dq "
+"\"wildcard addressing\">, allows a single server to provide service to "
+"clients on multiple networks.  To create a socket which listens on all "
+"networks, the Internet address E<.Dv INADDR_ANY> must be bound.  The E<.Tn "
+"TCP> port may still be specified at this time; if the port is not specified, "
+"the system will assign one.  Once a connection has been established, the "
+"socket's address is fixed by the peer entity's location.  The address "
+"assigned to the socket is the address associated with the network interface "
+"through which packets are being transmitted and received.  Normally, this "
+"address corresponds to the peer entity's network."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:122
+msgid ""
+"E<.Tn TCP> supports a number of socket options which can be set with E<.Xr "
+"setsockopt 2> and tested with E<.Xr getsockopt 2>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:123
+#, no-wrap
+msgid "Dv TCP_INFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:131
+msgid ""
+"Information about a socket's underlying TCP session may be retrieved by "
+"passing the read-only option E<.Dv TCP_INFO> to E<.Xr getsockopt 2>.  It "
+"accepts a single argument: a pointer to an instance of E<.Vt \"struct "
+"tcp_info\">."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:140
+msgid ""
+"This API is subject to change; consult the source to determine which fields "
+"are currently filled out by this option.  E<.Fx> specific additions include "
+"send window size, receive window size, and bandwidth-controlled window "
+"space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:140
+#, no-wrap
+msgid "Dv TCP_CCALGOOPT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:145
+msgid ""
+"Set or query congestion control algorithm specific parameters.  See E<.Xr "
+"mod_cc 4> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:145
+#, no-wrap
+msgid "Dv TCP_CONGESTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:151
+msgid ""
+"Select or query the congestion control algorithm that TCP will use for the "
+"connection.  See E<.Xr mod_cc 4> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:151
+#, no-wrap
+msgid "Dv TCP_FUNCTION_BLK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:165
+msgid ""
+"Select or query the set of functions that TCP will use for this connection.  "
+"This allows a user to select an alternate TCP stack.  The alternate TCP "
+"stack must already be loaded in the kernel.  To list the available TCP "
+"stacks, see E<.Va functions_available> in the E<.Sx MIB Variables> section "
+"further down.  To list the default TCP stack, see E<.Va functions_default> "
+"in the E<.Sx MIB Variables> section."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:165
+#, no-wrap
+msgid "Dv TCP_KEEPINIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:178
+msgid ""
+"This E<.Xr setsockopt 2> option accepts a per-socket timeout argument of "
+"E<.Vt \"u_int\"> in seconds, for new, non-established E<.Tn TCP> "
+"connections.  For the global default in milliseconds see E<.Va keepinit> in "
+"the E<.Sx MIB Variables> section further down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:178
+#, no-wrap
+msgid "Dv TCP_KEEPIDLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:194
+msgid ""
+"This E<.Xr setsockopt 2> option accepts an argument of E<.Vt \"u_int\"> for "
+"the amount of time, in seconds, that the connection must be idle before "
+"keepalive probes (if enabled) are sent for the connection of this socket.  "
+"If set on a listening socket, the value is inherited by the newly created "
+"socket upon E<.Xr accept 2>.  For the global default in milliseconds see "
+"E<.Va keepidle> in the E<.Sx MIB Variables> section further down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:194
+#, no-wrap
+msgid "Dv TCP_KEEPINTVL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:209
+msgid ""
+"This E<.Xr setsockopt 2> option accepts an argument of E<.Vt \"u_int\"> to "
+"set the per-socket interval, in seconds, between keepalive probes sent to a "
+"peer.  If set on a listening socket, the value is inherited by the newly "
+"created socket upon E<.Xr accept 2>.  For the global default in milliseconds "
+"see E<.Va keepintvl> in the E<.Sx MIB Variables> section further down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:209
+#, no-wrap
+msgid "Dv TCP_KEEPCNT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:224
+msgid ""
+"This E<.Xr setsockopt 2> option accepts an argument of E<.Vt \"u_int\"> and "
+"allows a per-socket tuning of the number of probes sent, with no response, "
+"before the connection will be dropped.  If set on a listening socket, the "
+"value is inherited by the newly created socket upon E<.Xr accept 2>.  For "
+"the global default see the E<.Va keepcnt> in the E<.Sx MIB Variables> "
+"section further down."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:224
+#, no-wrap
+msgid "Dv TCP_NODELAY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:237
+msgid ""
+"Under most circumstances, E<.Tn TCP> sends data when it is presented; when "
+"outstanding data has not yet been acknowledged, it gathers small amounts of "
+"output to be sent in a single packet once an acknowledgement is received.  "
+"For a small number of clients, such as window systems that send a stream of "
+"mouse events which receive no replies, this packetization may cause "
+"significant delays.  The boolean option E<.Dv TCP_NODELAY> defeats this "
+"algorithm."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:237
+#, no-wrap
+msgid "Dv TCP_MAXSEG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:246
+msgid ""
+"By default, a sender- and E<.No receiver- Ns Tn TCP> will negotiate among "
+"themselves to determine the maximum segment size to be used for each "
+"connection.  The E<.Dv TCP_MAXSEG> option allows the user to determine the "
+"result of this negotiation, and to reduce it if desired."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:246
+#, no-wrap
+msgid "Dv TCP_NOOPT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:257
+msgid ""
+"E<.Tn TCP> usually sends a number of options in each packet, corresponding "
+"to various E<.Tn TCP> extensions which are provided in this implementation.  "
+"The boolean option E<.Dv TCP_NOOPT> is provided to disable E<.Tn TCP> option "
+"use on a per-connection basis."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:257
+#, no-wrap
+msgid "Dv TCP_NOPUSH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:271
+msgid ""
+"By convention, the E<.No sender- Ns Tn TCP> will set the E<.Dq push> bit, "
+"and begin transmission immediately (if permitted) at the end of every user "
+"call to E<.Xr write 2> or E<.Xr writev 2>.  When this option is set to a "
+"non-zero value, E<.Tn TCP> will delay sending any data at all until either "
+"the socket is closed, or the internal send buffer is filled."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:271
+#, no-wrap
+msgid "Dv TCP_MD5SIG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:278
+msgid ""
+"This option enables the use of MD5 digests (also known as TCP-MD5)  on "
+"writes to the specified socket.  Outgoing traffic is digested; digests on "
+"incoming traffic are verified.  When this option is enabled on a socket, all "
+"inbound and outgoing TCP segments must be signed with MD5 digests."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:284
+msgid ""
+"One common use for this in a E<.Fx> router deployment is to enable based "
+"routers to interwork with Cisco equipment at peering points.  Support for "
+"this feature conforms to RFC 2385."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:291
+msgid ""
+"In order for this option to function correctly, it is necessary for the "
+"administrator to add a tcp-md5 key entry to the system's security "
+"associations database (SADB) using the E<.Xr setkey 8> utility.  This entry "
+"can only be specified on a per-host basis at this time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:294
+msgid ""
+"If an SADB entry cannot be found for the destination, the system does not "
+"send any outgoing segments and drops any inbound segments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:296
+msgid "Each dropped segment is taken into account in the TCP protocol statistics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:307
+msgid ""
+"The option level for the E<.Xr setsockopt 2> call is the protocol number for "
+"E<.Tn TCP>, available from E<.Xr getprotobyname 3>, or E<.Dv IPPROTO_TCP>.  "
+"All options are declared in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/tcp.4:307
+#, no-wrap
+msgid "netinet/tcp.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:317
+msgid ""
+"Options at the E<.Tn IP> transport level may be used with E<.Tn TCP>; see "
+"E<.Xr ip 4>.  Incoming connection requests that are source-routed are noted, "
+"and the reverse source route is used in responding."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:325
+msgid ""
+"The default congestion control algorithm for E<.Tn TCP> is E<.Xr cc_newreno "
+"4>.  Other congestion control algorithms can be made available using the "
+"E<.Xr mod_cc 4> framework."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/tcp.4:325
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:333
+msgid ""
+"The E<.Tn TCP> protocol implements a number of variables in the E<.Va "
+"net.inet.tcp> branch of the E<.Xr sysctl 3> MIB."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:334
+#, no-wrap
+msgid "Dv TCPCTL_DO_RFC1323"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:338
+msgid ""
+"E<.Pq Va rfc1323> Implement the window scaling and timestamp options of RFC "
+"1323 (default is true)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:338
+#, no-wrap
+msgid "Dv TCPCTL_MSSDFLT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:343
+msgid ""
+"E<.Pq Va mssdflt> The default value used for the maximum segment size E<.Pq "
+"Dq MSS> when no advice to the contrary is received from MSS negotiation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:343
+#, no-wrap
+msgid "Dv TCPCTL_SENDSPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:348
+msgid "E<.Pq Va sendspace> Maximum E<.Tn TCP> send window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:348
+#, no-wrap
+msgid "Dv TCPCTL_RECVSPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:353
+msgid "E<.Pq Va recvspace> Maximum E<.Tn TCP> receive window."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:353
+#, no-wrap
+msgid "Va log_in_vain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:364
+msgid ""
+"Log any connection attempts to ports where there is not a socket accepting "
+"connections.  The value of 1 limits the logging to E<.Tn SYN> (connection "
+"establishment) packets only.  That of 2 results in any E<.Tn TCP> packets to "
+"closed ports being logged.  Any value unlisted above disables the logging "
+"(default is 0, i.e., the logging is disabled)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:364
+#, no-wrap
+msgid "Va msl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:366
+msgid "The Maximum Segment Lifetime, in milliseconds, for a packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:366
+#, no-wrap
+msgid "Va keepinit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:371
+msgid ""
+"Timeout, in milliseconds, for new, non-established E<.Tn TCP> connections.  "
+"The default is 75000 msec."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:371
+#, no-wrap
+msgid "Va keepidle"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:375
+msgid ""
+"Amount of time, in milliseconds, that the connection must be idle before "
+"keepalive probes (if enabled) are sent.  The default is 7200000 msec (2 "
+"hours)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:375
+#, no-wrap
+msgid "Va keepintvl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:381
+msgid ""
+"The interval, in milliseconds, between keepalive probes sent to remote "
+"machines, when no response is received on a E<.Va keepidle> probe.  The "
+"default is 75000 msec."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:381
+#, no-wrap
+msgid "Va keepcnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:385
+msgid ""
+"Number of probes sent, with no response, before a connection is dropped.  "
+"The default is 8 packets."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:385
+#, no-wrap
+msgid "Va always_keepalive"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:393
+msgid ""
+"Assume that E<.Dv SO_KEEPALIVE> is set on all E<.Tn TCP> connections, the "
+"kernel will periodically send a packet to the remote host to verify the "
+"connection is still up."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:393
+#, no-wrap
+msgid "Va icmp_may_rst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:399
+msgid ""
+"Certain E<.Tn ICMP> unreachable messages may abort connections in E<.Tn "
+"SYN-SENT> state."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:399
+#, no-wrap
+msgid "Va do_tcpdrain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:403
+msgid ""
+"Flush packets in the E<.Tn TCP> reassembly queue if the system is low on "
+"mbufs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:403
+#, no-wrap
+msgid "Va blackhole"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:408
+msgid ""
+"If enabled, disable sending of RST when a connection is attempted to a port "
+"where there is not a socket accepting connections.  See E<.Xr blackhole 4>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:408
+#, no-wrap
+msgid "Va delayed_ack"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:410
+msgid "Delay ACK to try and piggyback it onto a data packet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:410
+#, no-wrap
+msgid "Va delacktime"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:412
+msgid "Maximum amount of time, in milliseconds, before a delayed ACK is sent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:412
+#, no-wrap
+msgid "Va path_mtu_discovery"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:414
+msgid "Enable Path MTU Discovery."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:414
+#, no-wrap
+msgid "Va tcbhashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:425
+msgid ""
+"Size of the E<.Tn TCP> control-block hash table (read-only).  This may be "
+"tuned using the kernel option E<.Dv TCBHASHSIZE> or by setting E<.Va "
+"net.inet.tcp.tcbhashsize> in the E<.Xr loader 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:425
+#, no-wrap
+msgid "Va pcbcount"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:428
+msgid "Number of active process control blocks (read-only)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:428
+#, no-wrap
+msgid "Va syncookies"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:440
+msgid ""
+"Determines whether or not E<.Tn SYN> cookies should be generated for "
+"outbound E<.Tn SYN-ACK> packets.  E<.Tn SYN> cookies are a great help during "
+"E<.Tn SYN> flood attacks, and are enabled by default.  (See E<.Xr syncookies "
+"4>.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:440
+#, no-wrap
+msgid "Va isn_reseed_interval"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:448
+msgid ""
+"The interval (in seconds) specifying how often the secret data used in RFC "
+"1948 initial sequence number calculations should be reseeded.  By default, "
+"this variable is set to zero, indicating that no reseeding will occur.  "
+"Reseeding should not be necessary, and will break E<.Dv TIME_WAIT> recycling "
+"for a few minutes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:448
+#, no-wrap
+msgid "Va reass.cursegments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:450
+msgid "The current total number of segments present in all reassembly queues."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:450
+#, no-wrap
+msgid "Va reass.maxsegments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:454
+msgid ""
+"The maximum limit on the total number of segments across all reassembly "
+"queues.  The limit can be adjusted as a tunable."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:454
+#, no-wrap
+msgid "Va reass.maxqueuelen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:462
+msgid ""
+"The maximum number of segments allowed in each reassembly queue.  By "
+"default, the system chooses a limit based on each TCP connection's receive "
+"buffer size and maximum segment size (MSS).  The actual limit applied to a "
+"session's reassembly queue will be the lower of the system-calculated "
+"automatic limit and the user-specified E<.Va reass.maxqueuelen> limit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:462
+#, no-wrap
+msgid "Va rexmit_initial , rexmit_min , rexmit_slop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:485
+msgid ""
+"Adjust the retransmit timer calculation for E<.Tn TCP>.  The slop is "
+"typically added to the raw calculation to take into account occasional "
+"variances that the E<.Tn SRTT> (smoothed round-trip time)  is unable to "
+"accommodate, while the minimum specifies an absolute minimum.  While a "
+"number of E<.Tn TCP> RFCs suggest a 1 second minimum, these RFCs tend to "
+"focus on streaming behavior, and fail to deal with the fact that a 1 second "
+"minimum has severe detrimental effects over lossy interactive connections, "
+"such as a 802.11b wireless link, and over very fast but lossy connections "
+"for those cases not covered by the fast retransmit code.  For this reason, "
+"we use 200ms of slop and a near-0 minimum, which gives us an effective "
+"minimum of 200ms (similar to E<.Tn Linux>).  The initial value is used "
+"before an RTT measurement has been performed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:485
+#, no-wrap
+msgid "Va initcwnd_segments"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:496
+msgid ""
+"Enable the ability to specify initial congestion window in number of "
+"segments.  The default value is 10 as suggested by RFC 6928.  Changing the "
+"value on fly would not affect connections using congestion window from the "
+"hostcache.  Caution: This regulates the burst of packets allowed to be sent "
+"in the first RTT.  The value should be relative to the link capacity.  Start "
+"with small values for lower-capacity links.  Large bursts can cause buffer "
+"overruns and packet drops if routers have small buffers or the link is "
+"experiencing congestion."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:496
+#, no-wrap
+msgid "Va rfc3042"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:500
+msgid ""
+"Enable the Limited Transmit algorithm as described in RFC 3042.  It helps "
+"avoid timeouts on lossy links and also when the congestion window is small, "
+"as happens on short transfers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:500
+#, no-wrap
+msgid "Va rfc3390"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:507
+msgid ""
+"Enable support for RFC 3390, which allows for a variable-sized starting "
+"congestion window on new connections, depending on the maximum segment "
+"size.  This helps throughput in general, but particularly affects short "
+"transfers and high-bandwidth large propagation-delay connections."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:507
+#, no-wrap
+msgid "Va sack.enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:512
+msgid ""
+"Enable support for RFC 2018, TCP Selective Acknowledgment option, which "
+"allows the receiver to inform the sender about all successfully arrived "
+"segments, allowing the sender to retransmit the missing segments only."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:512
+#, no-wrap
+msgid "Va sack.maxholes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:515
+msgid "Maximum number of SACK holes per connection.  Defaults to 128."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:515
+#, no-wrap
+msgid "Va sack.globalmaxholes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:518
+msgid ""
+"Maximum number of SACK holes per system, across all connections.  Defaults "
+"to 65536."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:518
+#, no-wrap
+msgid "Va maxtcptw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:533
+msgid ""
+"When a TCP connection enters the E<.Dv TIME_WAIT> state, its associated "
+"socket structure is freed, since it is of negligible size and use, and a new "
+"structure is allocated to contain a minimal amount of information necessary "
+"for sustaining a connection in this state, called the compressed TCP "
+"TIME_WAIT state.  Since this structure is smaller than a socket structure, "
+"it can save a significant amount of system memory.  The E<.Va "
+"net.inet.tcp.maxtcptw> MIB variable controls the maximum number of these "
+"structures allocated.  By default, it is initialized to E<.Va "
+"kern.ipc.maxsockets> / 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:533
+#, no-wrap
+msgid "Va nolocaltimewait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:536
+msgid ""
+"Suppress creating of compressed TCP TIME_WAIT states for connections in "
+"which both endpoints are local."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:536
+#, no-wrap
+msgid "Va fast_finwait2_recycle"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:546
+msgid ""
+"Recycle E<.Tn TCP> E<.Dv FIN_WAIT_2> connections faster when the socket is "
+"marked as E<.Dv SBS_CANTRCVMORE> (no user process has the socket open, data "
+"received on the socket cannot be read).  The timeout used here is E<.Va "
+"finwait2_timeout>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:546
+#, no-wrap
+msgid "Va finwait2_timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:552
+msgid ""
+"Timeout to use for fast recycling of E<.Tn TCP> E<.Dv FIN_WAIT_2> "
+"connections.  Defaults to 60 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:552
+#, no-wrap
+msgid "Va ecn.enable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:557
+msgid ""
+"Enable support for TCP Explicit Congestion Notification (ECN).  ECN allows a "
+"TCP sender to reduce the transmission rate in order to avoid packet drops.  "
+"Settings:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:558
+#, no-wrap
+msgid "0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:560
+msgid "Disable ECN."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:560
+#, no-wrap
+msgid "1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:563
+msgid ""
+"Allow incoming connections to request ECN.  Outgoing connections will "
+"request ECN."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:563
+#, no-wrap
+msgid "2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:566
+msgid ""
+"Allow incoming connections to request ECN.  Outgoing connections will not "
+"request ECN."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:567
+#, no-wrap
+msgid "Va ecn.maxretries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:572
+msgid ""
+"Number of retries (SYN or SYN/ACK retransmits) before disabling ECN on a "
+"specific connection.  This is needed to help with connection establishment "
+"when a broken firewall is in the network path."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:572
+#, no-wrap
+msgid "Va pmtud_blackhole_detection"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:583
+msgid ""
+"Turn on automatic path MTU blackhole detection.  In case of retransmits OS "
+"will lower the MSS to check if it's MTU problem.  If current MSS is greater "
+"than configured value to try, it will be set to configured value, otherwise, "
+"MSS will be set to default values E<.Po Va net.inet.tcp.mssdflt> and E<.Va "
+"net.inet.tcp.v6mssdflt> E<.Pc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:583
+#, no-wrap
+msgid "Va pmtud_blackhole_mss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:585
+msgid "MSS to try for IPv4 if PMTU blackhole detection is turned on."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:585
+#, no-wrap
+msgid "Va v6pmtud_blackhole_mss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:587
+msgid "MSS to try for IPv6 if PMTU blackhole detection is turned on."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:587
+#, no-wrap
+msgid "Va pmtud_blackhole_activated"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:589
+msgid "Number of times configured values were used in an attempt to downshift."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:589
+#, no-wrap
+msgid "Va pmtud_blackhole_activated_min_mss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:591
+msgid "Number of times default MSS was used in an attempt to downshift."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:591
+#, no-wrap
+msgid "Va pmtud_blackhole_failed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:594
+msgid ""
+"Number of connections for which retransmits continued even after MSS "
+"downshift."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:594
+#, no-wrap
+msgid "Va functions_available"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:596
+msgid "List of available TCP function blocks (TCP stacks)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:596
+#, no-wrap
+msgid "Va functions_default"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:598
+msgid "The default TCP function block (TCP stack)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:598
+#, no-wrap
+msgid "Va functions_inherit_listen_socket_stack"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:603
+msgid ""
+"Determines whether to inherit listen socket's tcp stack or use the current "
+"system default tcp stack, as defined by E<.Va functions_default>.  Default "
+"is true."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:603
+#, no-wrap
+msgid "Va insecure_rst"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:606
+msgid ""
+"Use criteria defined in RFC793 instead of RFC5961 for accepting RST "
+"segments.  Default is false."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:606
+#, no-wrap
+msgid "Va insecure_syn"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:609
+msgid ""
+"Use criteria defined in RFC793 instead of RFC5961 for accepting SYN "
+"segments.  Default is false."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tcp.4:610
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:612
+msgid "A socket operation may fail with one of the following errors returned:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:613
+#, no-wrap
+msgid "Bq Er EISCONN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:616
+msgid "when trying to establish a connection on a socket which already has one;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:616
+#, no-wrap
+msgid "Bo Er ENOBUFS Bc or Bo Er ENOMEM Bc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:619
+msgid "when the system runs out of memory for an internal data structure;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:619
+#, no-wrap
+msgid "Bq Er ETIMEDOUT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:622
+msgid "when a connection was dropped due to excessive retransmissions;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:622
+#, no-wrap
+msgid "Bq Er ECONNRESET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:625
+msgid "when the remote peer forces the connection to be closed;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:625
+#, no-wrap
+msgid "Bq Er ECONNREFUSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:629
+msgid ""
+"when the remote peer actively refuses connection establishment (usually "
+"because no process is listening to the port);"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:629
+#, no-wrap
+msgid "Bq Er EADDRINUSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:633
+msgid ""
+"when an attempt is made to create a socket with a port which has already "
+"been allocated;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:633
+#, no-wrap
+msgid "Bq Er EADDRNOTAVAIL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:637
+msgid ""
+"when an attempt is made to create a socket with a network address for which "
+"no network interface exists;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:637
+#, no-wrap
+msgid "Bq Er EAFNOSUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:640
+msgid "when an attempt is made to bind or connect a socket to a multicast address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:640
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:642
+msgid ""
+"when trying to change TCP function blocks at an invalid point in the "
+"session;"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/tcp.4:642
+#, no-wrap
+msgid "Bq Er ENOENT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:644
+msgid "when trying to use a TCP function block that is not available;"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tcp.4:645
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:677
+msgid ""
+"E<.Xr getsockopt 2>, E<.Xr socket 2>, E<.Xr sysctl 3>, E<.Xr blackhole 4>, "
+"E<.Xr inet 4>, E<.Xr intro 4>, E<.Xr ip 4>, E<.Xr mod_cc 4>, E<.Xr siftr 4>, "
+"E<.Xr syncache 4>, E<.Xr setkey 8>, E<.Xr tcp_functions 9> E<.Rs> E<.%A "
+"\"V. Jacobson\"> E<.%A \"R. Braden\"> E<.%A \"D. Borman\"> E<.%T \"TCP "
+"Extensions for High Performance\"> E<.%O \"RFC 1323\"> E<.Re> E<.Rs> E<.%A "
+"\"A. Heffernan\"> E<.%T \"Protection of BGP Sessions via the TCP MD5 "
+"Signature Option\"> E<.%O \"RFC 2385\"> E<.Re> E<.Rs> E<.%A "
+"\"K. Ramakrishnan\"> E<.%A \"S. Floyd\"> E<.%A \"D. Black\"> E<.%T \"The "
+"Addition of Explicit Congestion Notification (ECN) to IP\"> E<.%O \"RFC "
+"3168\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/tcp.4:677
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/tcp.4:690
+msgid ""
+"The E<.Tn TCP> protocol appeared in E<.Bx 4.2>.  The RFC 1323 extensions for "
+"window scaling and timestamps were added in E<.Bx 4.4>.  The E<.Dv TCP_INFO> "
+"option was introduced in E<.Tn Linux 2.6> and is E<.Em subject to change>."
+msgstr ""

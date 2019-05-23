@@ -1,0 +1,206 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/DEV_MODULE.9:31
+#, no-wrap
+msgid "January 19, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/DEV_MODULE.9:32
+#, no-wrap
+msgid "DEV_MODULE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEV_MODULE.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:36
+msgid "E<.Nm DEV_MODULE>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/DEV_MODULE.9:36
+#, no-wrap
+msgid "device driver module declaration macro"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEV_MODULE.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEV_MODULE.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEV_MODULE.9:39
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEV_MODULE.9:40
+#, no-wrap
+msgid "sys/module.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DEV_MODULE.9:41
+#, no-wrap
+msgid "sys/conf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:43
+msgid "E<.Fn DEV_MODULE \"name\" \"modeventhand_t evh\" \"void *arg\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEV_MODULE.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:64
+msgid ""
+"The E<.Fn DEV_MODULE> macro declares a device driver kernel module.  It "
+"fills in a E<.Vt moduledata_t> structure and then calls E<.Fn "
+"DECLARE_MODULE> with the correct args, where E<.Fa name> is the name of the "
+"module and E<.Fa evh> (with its argument E<.Fa arg>)  is the event handler "
+"for the module (refer to E<.Xr DECLARE_MODULE 9> for more information).  The "
+"event handler is supposed to create the device with E<.Fn make_dev> on load "
+"and to destroy it when it is unloaded using E<.Fn destroy_dev>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEV_MODULE.9:64
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:68
+#, no-wrap
+msgid ""
+"#include E<lt>sys/module.hE<gt>\n"
+"#include E<lt>sys/conf.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:70
+#, no-wrap
+msgid "static struct cdevsw foo_devsw = { ... };\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:72
+#, no-wrap
+msgid "static struct cdev *sdev;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:77
+#, no-wrap
+msgid ""
+"static int\n"
+"foo_load(module_t mod, int cmd, void *arg)\n"
+"{\n"
+"    int err = 0;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:82
+#, no-wrap
+msgid ""
+"    switch (cmd) {\n"
+"    case MOD_LOAD:\n"
+"        sdev = make_dev(&foo_devsw, 0, UID_ROOT, GID_WHEEL, 0600, "
+"\"foo\");\n"
+"        break;          /* Success*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:87
+#, no-wrap
+msgid ""
+"    case MOD_UNLOAD:\n"
+"    case MOD_SHUTDOWN:\n"
+"        destroy_dev(sdev);\n"
+"        break;          /* Success*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:92
+#, no-wrap
+msgid ""
+"    default:\n"
+"        err = EINVAL;\n"
+"        break;\n"
+"    }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:95
+#, no-wrap
+msgid ""
+"    return(err);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:97
+#, no-wrap
+msgid "DEV_MODULE(foo, foo_load, NULL);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEV_MODULE.9:98
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:103
+msgid ""
+"E<.Xr DECLARE_MODULE 9>, E<.Xr destroy_dev 9>, E<.Xr make_dev 9>, E<.Xr "
+"module 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DEV_MODULE.9:103
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DEV_MODULE.9:105
+msgid ""
+"This manual page was written by E<.An Alexander Langer Aq Mt "
+"alex@FreeBSD.org>."
+msgstr ""

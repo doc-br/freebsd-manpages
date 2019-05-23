@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/accept_filter.9:28
+#, no-wrap
+msgid "June 25, 2000"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/accept_filter.9:29
+#, no-wrap
+msgid "ACCEPT_FILTER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:37
+msgid ""
+"E<.Nm accept_filter>, E<.Nm accept_filt_add>, E<.Nm accept_filt_del>, E<.Nm "
+"accept_filt_generic_mod_event>, E<.Nm accept_filt_get>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/accept_filter.9:37
+#, no-wrap
+msgid "filter incoming connections"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/accept_filter.9:39
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/accept_filter.9:40
+#, no-wrap
+msgid "sys/module.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/accept_filter.9:41
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:43
+msgid "E<.Fd #define ACCEPT_FILTER_MOD>"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/accept_filter.9:43
+#, no-wrap
+msgid "sys/socketvar.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:52
+msgid ""
+"E<.Ft int> E<.Fn accept_filt_add \"struct accept_filter *filt\"> E<.Ft int> "
+"E<.Fn accept_filt_del \"char *name\"> E<.Ft int> E<.Fn "
+"accept_filt_generic_mod_event \"module_t mod\" \"int event\" \"void *data\"> "
+"E<.Ft struct accept_filter *> E<.Fn accept_filt_get \"char *name\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:61
+msgid ""
+"Accept filters allow an application to request that the kernel pre-process "
+"incoming connections.  An accept filter is requested via the E<.Xr "
+"setsockopt 2> system call, passing in an E<.Fa optname> of E<.Dv "
+"SO_ACCEPTFILTER>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:61
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:66
+msgid ""
+"A module that wants to be an accept filter must provide a E<.Vt \"struct "
+"accept_filter\"> to the system:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:74
+#, no-wrap
+msgid ""
+"struct accept_filter {\n"
+"\tchar\taccf_name[16];\n"
+"\tvoid\t(*accf_callback)(struct socket *so, void *arg, int waitflag);\n"
+"\tvoid *\t(*accf_create)(struct socket *so, char *arg);\n"
+"\tvoid\t(*accf_destroy)(struct socket *so);\n"
+"\tSLIST_ENTRY(accept_filter) accf_next;\t/* next on the list */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:82
+msgid ""
+"The module should register it with the function E<.Fn accept_filt_add>, "
+"passing a pointer to a E<.Vt \"struct accept_filter\">, allocated with E<.Xr "
+"malloc 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:86
+msgid "The fields of E<.Vt \"struct accept_filter\"> are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/accept_filter.9:87
+#, no-wrap
+msgid "Va accf_name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:90
+msgid "Name of the filter; this is how it will be accessed from userland."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/accept_filter.9:90
+#, no-wrap
+msgid "Va accf_callback"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:97
+msgid ""
+"The callback that the kernel will do once the connection is established.  It "
+"is the same as a socket upcall and will be called when the connection is "
+"established and whenever new data arrives on the socket, unless the callback "
+"modifies the socket's flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/accept_filter.9:97
+#, no-wrap
+msgid "Va accf_create"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:102
+msgid ""
+"Called whenever a E<.Xr setsockopt 2> installs the filter onto a listening "
+"socket."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/accept_filter.9:102
+#, no-wrap
+msgid "Va accf_destroy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:104
+msgid "Called whenever the user removes the accept filter on the socket."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:114
+msgid ""
+"The E<.Fn accept_filt_del> function passed the same string used in E<.Va "
+"accept_filter.accf_name> during registration with E<.Fn accept_filt_add>, "
+"the kernel will then disallow and further userland use of the filter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:120
+msgid ""
+"The E<.Fn accept_filt_get> function is used internally to locate which "
+"accept filter to use via the E<.Xr setsockopt 2> system call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:131
+msgid ""
+"The E<.Fn accept_filt_generic_mod_event> function provides a simple way to "
+"avoid duplication of code for accept filters which do not use the argument "
+"field to load and unload themselves.  This function can be used in the E<.Vt "
+"moduledata_t> struct for the E<.Xr DECLARE_MODULE 9> macro."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:131
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:137
+msgid ""
+"E<.Xr setsockopt 2>, E<.Xr accf_data 9>, E<.Xr accf_dns 9>, E<.Xr accf_http "
+"9>, E<.Xr malloc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:137
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:140
+msgid "The accept filter mechanism was introduced in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/accept_filter.9:140
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:147
+msgid ""
+"This manual page was written by E<.An -nosplit> E<.An Alfred Perlstein>, "
+"E<.An Sheldon Hearn> and E<.An Jeroen Ruigrok van der Werven.>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/accept_filter.9:152
+msgid ""
+"The accept filter concept was pioneered by E<.An David Filo> at Yahoo!\\& "
+"and refined to be a loadable module system by E<.An Alfred Perlstein>."
+msgstr ""

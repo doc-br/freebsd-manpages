@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/libexec/ftpd/ftpchroot.5:27
+#, no-wrap
+msgid "January 26, 2003"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/libexec/ftpd/ftpchroot.5:28
+#, no-wrap
+msgid "FTPCHROOT 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ftpd/ftpchroot.5:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:32
+msgid "E<.Nm ftpchroot>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/libexec/ftpd/ftpchroot.5:32
+#, no-wrap
+msgid "list users and groups subject to FTP access restrictions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ftpd/ftpchroot.5:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:49
+msgid ""
+"The file E<.Nm> is read by E<.Xr ftpd 8> at the beginning of an FTP session, "
+"after having authenticated the user.  Each line in E<.Nm> corresponds to a "
+"user or group.  If a line in E<.Nm> matches the current user or a group he "
+"is a member of, access restrictions will be applied to this session by "
+"changing its root directory with E<.Xr chroot 2> to that specified on the "
+"line or to the user's login directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:54
+msgid ""
+"The order of records in E<.Nm> is important because the first match will be "
+"used.  Fields on each line are separated by tabs or spaces."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:66
+msgid ""
+"The first field specifies a user or group name.  If it is prefixed by an "
+"E<.Dq at> sign, E<.Ql @>, it specifies a group name; the line will match "
+"each user who is a member of this group.  As a special case, a single E<.Ql "
+"@> in this field will match any user.  A username is specified otherwise."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:80
+msgid ""
+"The optional second field describes the directory for the user or each "
+"member of the group to be locked up in using E<.Xr chroot 2>.  Be it "
+"omitted, the user's login directory will be used.  If it is not an absolute "
+"pathname, then it will be relative to the user's login directory.  If it "
+"contains the E<.Pa /./> separator, E<.Xr ftpd 8> will treat its left-hand "
+"side as the name of the directory to do E<.Xr chroot 2> to, and its "
+"right-hand side to change the current directory to afterwards."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ftpd/ftpchroot.5:80
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/libexec/ftpd/ftpchroot.5:82
+#, no-wrap
+msgid "Pa /etc/ftpchroot"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ftpd/ftpchroot.5:84
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:92
+msgid ""
+"These lines in E<.Nm> will lock up the user E<.Dq Li webuser> and each "
+"member of the group E<.Dq Li hostee> in their respective login directories:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:95
+#, no-wrap
+msgid ""
+"webuser\n"
+"@hostee\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:106
+msgid ""
+"And this line will tell E<.Xr ftpd 8> to lock up the user E<.Dq Li joe> in "
+"E<.Pa /var/spool/ftp> and then to change the current directory to E<.Pa "
+"/joe>, which is relative to the session's new root:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/libexec/ftpd/ftpchroot.5:107
+#, no-wrap
+msgid "joe\t/var/spool/ftp/./joe"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:114
+msgid ""
+"And finally the following line will lock up every user connecting through "
+"FTP in his respective E<.Pa ~/public_html>, thus lowering possible impact on "
+"the system from intrinsic insecurity of FTP:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/libexec/ftpd/ftpchroot.5:115
+#, no-wrap
+msgid "@\tpublic_html"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/libexec/ftpd/ftpchroot.5:116
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/libexec/ftpd/ftpchroot.5:120
+msgid "E<.Xr chroot 2>, E<.Xr group 5>, E<.Xr passwd 5>, E<.Xr ftpd 8>"
+msgstr ""

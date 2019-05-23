@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/enc.4:34
+#, no-wrap
+msgid "August 9, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/enc.4:35
+#, no-wrap
+msgid "ENC 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/enc.4:37
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:39
+msgid "E<.Nm enc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/enc.4:39
+#, no-wrap
+msgid "Encapsulating Interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/enc.4:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:44
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:46
+#, no-wrap
+msgid "E<.Cd \"device enc\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:51
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:53
+#, no-wrap
+msgid "if_enc_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/enc.4:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:63
+msgid ""
+"The E<.Nm> interface is a software loopback mechanism that allows hosts or "
+"firewalls to filter E<.Xr ipsec 4> traffic using any firewall package that "
+"hooks in via the E<.Xr pfil 9> framework."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:71
+msgid ""
+"The E<.Nm> interface allows an administrator to see incoming and outgoing "
+"packets before and after they will be or have been processed by E<.Xr ipsec "
+"4> via E<.Xr tcpdump 1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:82
+msgid ""
+"The E<.Dq Li enc0> interface inherits all IPsec traffic.  Thus all IPsec "
+"traffic can be filtered based on E<.Dq Li enc0>, and all IPsec traffic could "
+"be seen by invoking E<.Xr tcpdump 1> on the E<.Dq Li enc0> interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:90
+msgid ""
+"What can be seen with E<.Xr tcpdump 1> and what will be passed on to the "
+"firewalls via the E<.Xr pfil 9> framework can be independently controlled "
+"using the following E<.Xr sysctl 8> variables:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/enc.4:91
+#, no-wrap
+msgid "Sy \"Name\tDefaults\tSuggested\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/enc.4:92
+#, no-wrap
+msgid "net.enc.out.ipsec_bpf_mask\t0x00000003\t0x00000001"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/enc.4:93
+#, no-wrap
+msgid "net.enc.out.ipsec_filter_mask\t0x00000001\t0x00000001"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/enc.4:94
+#, no-wrap
+msgid "net.enc.in.ipsec_bpf_mask\t0x00000001\t0x00000002"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/enc.4:95
+#, no-wrap
+msgid "net.enc.in.ipsec_filter_mask\t0x00000001\t0x00000002"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:114
+msgid ""
+"For the incoming path a value of E<.Li 0x1> means E<.Dq Li before stripping "
+"off the outer header> and E<.Li 0x2> means E<.Dq Li after stripping off the "
+"outer header>.  For the outgoing path E<.Li 0x1> means E<.Dq Li with only "
+"the inner header> and E<.Li 0x2> means E<.Dq Li with outer and inner "
+"headers>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:120
+#, no-wrap
+msgid ""
+"incoming path                                          |------|\n"
+"---- IPsec processing ---- (before) ---- (after) ----E<gt> |      |\n"
+"                                                       | Host |\n"
+"E<lt>--- IPsec processing ---- (after) ----- (before) ---- |      |\n"
+"outgoing path                                          |------|\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:125
+msgid ""
+"Most people will want to run with the suggested defaults for E<.Cm "
+"ipsec_filter_mask> and rely on the security policy database for the outer "
+"headers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:130
+msgid ""
+"Note that packets are captured by BPF before firewall processing.  The "
+"special value 0x4 can be configured in the E<.Ar ipsec_bpf_mask> and packets "
+"will be also captured after firewall processing."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/enc.4:130
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:136
+msgid ""
+"To see the packets the processed via E<.Xr ipsec 4>, adjust the E<.Xr sysctl "
+"8> variables according to your need and run:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/enc.4:137
+#, no-wrap
+msgid "tcpdump -i enc0"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/enc.4:138
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/enc.4:144
+msgid ""
+"E<.Xr tcpdump 1>, E<.Xr bpf 4>, E<.Xr ipf 4>, E<.Xr ipfw 4>, E<.Xr ipsec 4>, "
+"E<.Xr pf 4>"
+msgstr ""

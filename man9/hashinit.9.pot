@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/hashinit.9:28
+#, no-wrap
+msgid "April 29, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/hashinit.9:29
+#, no-wrap
+msgid "HASHINIT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:33
+msgid "E<.Nm hashinit , hashinit_flags , hashdestroy , phashinit , phashinit_flags>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/hashinit.9:33
+#, no-wrap
+msgid "manage kernel hash tables"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/hashinit.9:35
+#, no-wrap
+msgid "sys/malloc.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/hashinit.9:36
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/hashinit.9:37
+#, no-wrap
+msgid "sys/queue.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:49
+msgid ""
+"E<.Ft \"void *\"> E<.Fn hashinit \"int nelements\" \"struct malloc_type "
+"*type\" \"u_long *hashmask\"> E<.Ft void> E<.Fo hashinit_flags> E<.Fa \"int "
+"nelements\" \"struct malloc_type *type\" \"u_long *hashmask\" \"int flags\"> "
+"E<.Fc> E<.Ft void> E<.Fn hashdestroy \"void *hashtbl\" \"struct malloc_type "
+"*type\" \"u_long hashmask\"> E<.Ft \"void *\"> E<.Fn phashinit \"int "
+"nelements\" \"struct malloc_type *type\" \"u_long *nentries\"> E<.Fn "
+"phashinit_flags \"int nelements\" \"struct malloc_type *type\" \"u_long "
+"*nentries\" \"int flags\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:58
+msgid ""
+"The E<.Fn hashinit>, E<.Fn hashinit_flags>, E<.Fn phashinit> and E<.Fn "
+"phashinit_flags> functions allocate space for hash tables of size given by "
+"the argument E<.Fa nelements>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:90
+msgid ""
+"The E<.Fn hashinit> function allocates hash tables that are sized to largest "
+"power of two less than or equal to argument E<.Fa nelements>.  The E<.Fn "
+"phashinit> function allocates hash tables that are sized to the largest "
+"prime number less than or equal to argument E<.Fa nelements>.  The E<.Fn "
+"hashinit_flags> function operates like E<.Fn hashinit> but also accepts an "
+"additional argument E<.Fa flags> which control various options during "
+"allocation.  E<.Fn phashinit_flags> function operates like E<.Fn phashinit> "
+"but also accepts an additional argument E<.Fa flags> which control various "
+"options during allocation.  Allocated hash tables are contiguous arrays of "
+"E<.Xr LIST_HEAD 3> entries, allocated using E<.Xr malloc 9>, and initialized "
+"using E<.Xr LIST_INIT 3>.  The malloc arena to be used for allocation is "
+"pointed to by argument E<.Fa type>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:106
+msgid ""
+"The E<.Fn hashdestroy> function frees the space occupied by the hash table "
+"pointed to by argument E<.Fa hashtbl>.  Argument E<.Fa type> determines the "
+"malloc arena to use when freeing space.  The argument E<.Fa hashmask> should "
+"be the bit mask returned by the call to E<.Fn hashinit> that allocated the "
+"hash table.  The argument E<.Fa flags> must be used with one of the "
+"following values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/hashinit.9:108
+#, no-wrap
+msgid "Dv HASH_NOWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:114
+msgid ""
+"Any malloc performed by the E<.Fn hashinit_flags> and E<.Fn phashinit_flags> "
+"function will not be allowed to wait, and therefore may fail."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/hashinit.9:114
+#, no-wrap
+msgid "Dv HASH_WAITOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:124
+msgid ""
+"Any malloc performed by E<.Fn hashinit_flags> and E<.Fn phashinit_flags> "
+"function is allowed to wait for memory.  This is also the behavior of E<.Fn "
+"hashinit> and E<.Fn phashinit>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:125
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:129
+msgid "The largest prime hash value chosen by E<.Fn phashinit> is 32749."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:129
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:137
+msgid ""
+"The E<.Fn hashinit> function returns a pointer to an allocated hash table "
+"and sets the location pointed to by E<.Fa hashmask> to the bit mask to be "
+"used for computing the correct slot in the hash table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:144
+msgid ""
+"The E<.Fn phashinit> function returns a pointer to an allocated hash table "
+"and sets the location pointed to by E<.Fa nentries> to the number of rows in "
+"the hash table."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:144
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:146
+msgid "A typical example is shown below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:152
+#, no-wrap
+msgid ""
+"\\&...\n"
+"static LIST_HEAD(foo, foo) *footable;\n"
+"static u_long foomask;\n"
+"\\&...\n"
+"footable = hashinit(32, M_FOO, &foomask);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:163
+msgid ""
+"Here we allocate a hash table with 32 entries from the malloc arena pointed "
+"to by E<.Dv M_FOO>.  The mask for the allocated hash table is returned in "
+"E<.Va foomask>.  A subsequent call to E<.Fn hashdestroy> uses the value in "
+"E<.Va foomask>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:166
+#, no-wrap
+msgid ""
+"\\&...\n"
+"hashdestroy(footable, M_FOO, foomask);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:167
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:175
+msgid ""
+"The E<.Fn hashinit> and E<.Fn phashinit> functions will panic if argument "
+"E<.Fa nelements> is less than or equal to zero."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:182
+msgid ""
+"The E<.Fn hashdestroy> function will panic if the hash table pointed to by "
+"E<.Fa hashtbl> is not empty."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:182
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:185
+msgid "E<.Xr LIST_HEAD 3>, E<.Xr malloc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hashinit.9:185
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hashinit.9:192
+msgid ""
+"There is no E<.Fn phashdestroy> function, and using E<.Fn hashdestroy> to "
+"free a hash table allocated by E<.Fn phashinit> usually has grave "
+"consequences."
+msgstr ""

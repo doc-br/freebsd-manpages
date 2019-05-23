@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/scheduler.9:25
+#, no-wrap
+msgid "November 3, 2000"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/scheduler.9:26
+#, no-wrap
+msgid "SCHEDULER 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/scheduler.9:28
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:39
+msgid ""
+"E<.Nm curpriority_cmp>, E<.Nm maybe_resched>, E<.Nm resetpriority>, E<.Nm "
+"roundrobin>, E<.Nm roundrobin_interval>, E<.Nm sched_setup>, E<.Nm "
+"schedclock>, E<.Nm schedcpu>, E<.Nm setrunnable>, E<.Nm updatepri>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/scheduler.9:39
+#, no-wrap
+msgid "perform round-robin scheduling of runnable processes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/scheduler.9:40
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/scheduler.9:41
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/scheduler.9:42
+#, no-wrap
+msgid "sys/proc.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:65
+msgid ""
+"E<.Ft int> E<.Fn curpriority_cmp \"struct proc *p\"> E<.Ft void> E<.Fn "
+"maybe_resched \"struct thread *td\"> E<.Ft void> E<.Fn propagate_priority "
+"\"struct proc *p\"> E<.Ft void> E<.Fn resetpriority \"struct ksegrp *kg\"> "
+"E<.Ft void> E<.Fn roundrobin \"void *arg\"> E<.Ft int> E<.Fn "
+"roundrobin_interval \"void\"> E<.Ft void> E<.Fn sched_setup \"void *dummy\"> "
+"E<.Ft void> E<.Fn schedclock \"struct thread *td\"> E<.Ft void> E<.Fn "
+"schedcpu \"void *arg\"> E<.Ft void> E<.Fn setrunnable \"struct thread *td\"> "
+"E<.Ft void> E<.Fn updatepri \"struct thread *td\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/scheduler.9:65
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:72
+msgid ""
+"Each process has three different priorities stored in E<.Vt \"struct "
+"proc\">: E<.Va p_usrpri>, E<.Va p_nativepri>, and E<.Va p_priority>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:77
+msgid ""
+"The E<.Va p_usrpri> member is the user priority of the process calculated "
+"from a process' estimated CPU time and nice level."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:89
+msgid ""
+"The E<.Va p_nativepri> member is the saved priority used by E<.Fn "
+"propagate_priority>.  When a process obtains a mutex, its priority is saved "
+"in E<.Va p_nativepri>.  While it holds the mutex, the process's priority may "
+"be bumped by another process that blocks on the mutex.  When the process "
+"releases the mutex, then its priority is restored to the priority saved in "
+"E<.Va p_nativepri>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:95
+msgid ""
+"The E<.Va p_priority> member is the actual priority of the process and is "
+"used to determine what E<.Xr runqueue 9> it runs on, for example."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:117
+msgid ""
+"The E<.Fn curpriority_cmp> function compares the cached priority of the "
+"currently running process with process E<.Fa p>.  If the currently running "
+"process has a higher priority, then it will return a value less than zero.  "
+"If the current process has a lower priority, then it will return a value "
+"greater than zero.  If the current process has the same priority as E<.Fa "
+"p>, then E<.Fn curpriority_cmp> will return zero.  The cached priority of "
+"the currently running process is updated when a process resumes from E<.Xr "
+"tsleep 9> or returns to userland in E<.Fn userret> and is stored in the "
+"private variable E<.Va curpriority>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:128
+msgid ""
+"The E<.Fn maybe_resched> function compares the priorities of the current "
+"thread and E<.Fa td>.  If E<.Fa td> has a higher priority than the current "
+"thread, then a context switch is needed, and E<.Dv KEF_NEEDRESCHED> is set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:152
+msgid ""
+"The E<.Fn propagate_priority> looks at the process that owns the mutex E<.Fa "
+"p> is blocked on.  That process's priority is bumped to the priority of "
+"E<.Fa p> if needed.  If the process is currently running, then the function "
+"returns.  If the process is on a E<.Xr runqueue 9>, then the process is "
+"moved to the appropriate E<.Xr runqueue 9> for its new priority.  If the "
+"process is blocked on a mutex, its position in the list of processes blocked "
+"on the mutex in question is updated to reflect its new priority.  Then, the "
+"function repeats the procedure using the process that owns the mutex just "
+"encountered.  Note that a process's priorities are only bumped to the "
+"priority of the original process E<.Fa p>, not to the priority of the "
+"previously encountered process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:162
+msgid ""
+"The E<.Fn resetpriority> function recomputes the user priority of the ksegrp "
+"E<.Fa kg> (stored in E<.Va kg_user_pri>)  and calls E<.Fn maybe_resched> to "
+"force a reschedule of each thread in the group if needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:170
+msgid ""
+"The E<.Fn roundrobin> function is used as a E<.Xr timeout 9> function to "
+"force a reschedule every E<.Va sched_quantum> ticks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:178
+msgid ""
+"The E<.Fn roundrobin_interval> function simply returns the number of clock "
+"ticks in between reschedules triggered by E<.Fn roundrobin>.  Thus, all it "
+"does is return the current value of E<.Va sched_quantum>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:192
+msgid ""
+"The E<.Fn sched_setup> function is a E<.Xr SYSINIT 9> that is called to "
+"start the callout driven scheduler functions.  It just calls the E<.Fn "
+"roundrobin> and E<.Fn schedcpu> functions for the first time.  After the "
+"initial call, the two functions will propagate themselves by registering "
+"their callout event again at the completion of the respective function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:200
+msgid ""
+"The E<.Fn schedclock> function is called by E<.Fn statclock> to adjust the "
+"priority of the currently running thread's ksegrp.  It updates the group's "
+"estimated CPU time and then adjusts the priority via E<.Fn resetpriority>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:228
+msgid ""
+"The E<.Fn schedcpu> function updates all process priorities.  First, it "
+"updates statistics that track how long processes have been in various "
+"process states.  Secondly, it updates the estimated CPU time for the current "
+"process such that about 90% of the CPU usage is forgotten in 5 * load "
+"average seconds.  For example, if the load average is 2.00, then at least "
+"90% of the estimated CPU time for the process should be based on the amount "
+"of CPU time the process has had in the last 10 seconds.  It then recomputes "
+"the priority of the process and moves it to the appropriate E<.Xr runqueue "
+"9> if necessary.  Thirdly, it updates the %CPU estimate used by utilities "
+"such as E<.Xr ps 1> and E<.Xr top 1> so that 95% of the CPU usage is "
+"forgotten in 60 seconds.  Once all process priorities have been updated, "
+"E<.Fn schedcpu> calls E<.Fn vmmeter> to update various other statistics "
+"including the load average.  Finally, it schedules itself to run again in "
+"E<.Va hz> clock ticks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:241
+msgid ""
+"The E<.Fn setrunnable> function is used to change a process's state to be "
+"runnable.  The process is placed on a E<.Xr runqueue 9> if needed, and the "
+"swapper process is woken up and told to swap the process in if the process "
+"is swapped out.  If the process has been asleep for at least one run of "
+"E<.Fn schedcpu>, then E<.Fn updatepri> is used to adjust the priority of the "
+"process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:251
+msgid ""
+"The E<.Fn updatepri> function is used to adjust the priority of a process "
+"that has been asleep.  It retroactively decays the estimated CPU time of the "
+"process for each E<.Fn schedcpu> event that the process was asleep.  "
+"Finally, it calls E<.Fn resetpriority> to adjust the priority of the "
+"process."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/scheduler.9:251
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:256
+msgid "E<.Xr mi_switch 9>, E<.Xr runqueue 9>, E<.Xr sleepqueue 9>, E<.Xr tsleep 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/scheduler.9:256
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:266
+msgid ""
+"The E<.Va curpriority> variable really should be per-CPU.  In addition, "
+"E<.Fn maybe_resched> should compare the priority of E<.Fa chk> with that of "
+"each CPU, and then send an IPI to the processor with the lowest priority to "
+"trigger a reschedule if needed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/scheduler.9:275
+msgid ""
+"Priority propagation is broken and is thus disabled by default.  The E<.Va "
+"p_nativepri> variable is only updated if a process does not obtain a sleep "
+"mutex on the first try.  Also, if a process obtains more than one sleep "
+"mutex in this manner, and had its priority bumped in between, then E<.Va "
+"p_nativepri> will be clobbered."
+msgstr ""

@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:26
+#, no-wrap
+msgid "June 30, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:27
+#, no-wrap
+msgid "PNFSDSFILE 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:31
+msgid "E<.Nm pnfsdsfile>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:31
+#, no-wrap
+msgid "display"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:35
+msgid ""
+"a pNFS data storage file's location(s) and/or modify the E<.Dq pnfsd.dsfile> "
+"extended attribute for them"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:43
+msgid ""
+"E<.Nm> E<.Op Fl qz> E<.Op Fl s Ar dshostname> E<.Op Fl c Ar "
+"old-dshostname,new-dshostname> E<.Op Fl m Ar mirror_level> E<.Op Fl r Ar "
+"dshostname> E<.Ar mdsfile>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:67
+msgid ""
+"The E<.Nm> command displays the data storage file's location(s) for a pNFS "
+"service and/or modifies the E<.Dq pnfsd.dsfile> extended attribute on the "
+"E<.Ar mdsfile>.  A pNFS service maintains a data storage file for each "
+"regular file on the MetaData Server (MDS) on one or more of the Data Servers "
+"(DS).  If mirroring is enabled, the data storage file will be on more that "
+"one of the DSs.  Unless command options are specified, this command displays "
+"the location(s)  of the data storage file for the MDS file E<.Ar mdsfile>.  "
+"It must be used on the MDS and the E<.Ar mdsfile> must be a file on the "
+"exported local file system and not an NFSv4.1 mount.  This information is "
+"stored in the E<.Dq pnfsd.dsfile> extended attribute for this E<.Ar "
+"mdsfile>.  The command line options allow the information in the E<.Dq "
+"pnfsd.dsfile> extended attribute to be changed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:69
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:70
+#, no-wrap
+msgid "Fl q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:72
+msgid "This option suppresses printing of the DS file's location(s)."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:72
+#, no-wrap
+msgid "Fl z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:79
+msgid ""
+"This option specifies that the file handle field of the pnfsd.dsfile "
+"extended attribute is to filled with all zero bits.  This forces the pNFS "
+"MDS to do a Lookup RPC against the DS to acquire the file handle to update "
+"it.  Normally this will only be necessary after the DS file has been "
+"recovered from a backup, causing the file handle to change."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:79
+#, no-wrap
+msgid "Fl s Ar dshostname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:84
+msgid ""
+"This option can be used with E<.Fl z> so that the zeroing out of the file "
+"handle is only done if the DS server is the one specified by this option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:84
+#, no-wrap
+msgid "Fl c Ar old-dshostname,new-dshostname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:95
+msgid ""
+"This option allows a sysadmin to replace the host IP# for the DS in the "
+"pnfsd.dsfile extended attribute.  The old-hostname must resolve to the IP# "
+"already in the pnfsd.dsfile extended attribute or the replacement will not "
+"be done.  If the old-dshostname matches, then the IP# is replaced by the "
+"first AF_INET or AF_INET6 address that E<.Xr getaddrinfo 3> returns for the "
+"new-dshostname.  Changing a DS server's host IP# should be avoided, but this "
+"option will allow it to be changed, if the change is unavoidable."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:95
+#, no-wrap
+msgid "Fl m Ar mirror_level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:105
+msgid ""
+"This option adds entrie(s) to the extended attributes with IP address set to "
+"0.0.0.0 to bring the number of entries up to E<.Dq mirror_level>.  It can be "
+"used by a system administrator to prepare a file for mirroring via the E<.Xr "
+"pnfsdscopymr> command with E<.Fl r> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:105
+#, no-wrap
+msgid "Fl r Ar dshostname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:109
+msgid ""
+"This option sets the IP address of the extended attribute entry for the "
+"E<.Ar dshostname> to 0.0.0.0 so that it will no longer be used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:122
+msgid ""
+"This is meant to be used when mirroring is enabled and the E<.Ar dshostname> "
+"DS is disabled, so that it can be re-enabled once it is repaired.  This "
+"needs to be done for all files in the exported MDS tree where the data may "
+"not be up-to-date on the repaired DS when it is re-enabled.  After being "
+"re-enabled, the command E<.Xr pnfsdscopymr 1> with the E<.Dq -r> option will "
+"be used to copy the the file's data to this repaired DS and then update the "
+"extended attribute to use it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:126
+msgid ""
+"A typical use of this will be within a E<.Xr find 1> for all regular files "
+"in the MDS's exported tree."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:128
+msgid "For example, if the disabled DS is nfsv4-data3:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:130
+msgid "# cd E<lt>top-level-exported-directory-on-MDSE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:132
+msgid "# find . -type f -exec pnfsdsfile -q -r nfsv4-data3 {} \\e;"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:133
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:141
+msgid ""
+"E<.Xr find 1>, E<.Xr getaddrinfo 3>, E<.Xr nfsv4 4>, E<.Xr pnfs 4>, E<.Xr "
+"nfsd 8>, E<.Xr pnfsdscopymr 8>, E<.Xr pnfsdskill 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:141
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/pnfsdsfile/pnfsdsfile.8:145
+msgid "The E<.Nm> command first appeared in E<.Fx 12.0>."
+msgstr ""

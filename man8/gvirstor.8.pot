@@ -1,0 +1,492 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/lib/geom/virstor/gvirstor.8:27
+#, no-wrap
+msgid "October 1, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/lib/geom/virstor/gvirstor.8:28
+#, no-wrap
+msgid "GVIRSTOR 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:32
+msgid "E<.Nm gvirstor>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/lib/geom/virstor/gvirstor.8:32
+#, no-wrap
+msgid "control utility for virtual data storage devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:72
+msgid ""
+"E<.Nm> E<.Cm label> E<.Op Fl hv> E<.Op Fl s Ar virsize> E<.Op Fl m Ar "
+"chunksize> E<.Ar name> E<.Ar prov ...> E<.Nm> E<.Cm stop> E<.Op Fl fv> E<.Ar "
+"name ...> E<.Nm> E<.Cm destroy> E<.Op Fl fv> E<.Ar name ...> E<.Nm> E<.Cm "
+"add> E<.Op Fl vh> E<.Ar name prov ...> E<.Nm> E<.Cm remove> E<.Op Fl v> "
+"E<.Ar name prov ...> E<.Nm> E<.Cm clear> E<.Op Fl v> E<.Ar prov ...> E<.Nm> "
+"E<.Cm dump> E<.Ar prov ...> E<.Nm> E<.Cm list> E<.Nm> E<.Cm status> E<.Nm> "
+"E<.Cm load> E<.Nm> E<.Cm unload>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:72
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:90
+msgid ""
+"The E<.Nm> utility is used for setting up a virtual storage device of "
+"arbitrary large size E<.Pq for example, several TB>, consisting of an "
+"arbitrary number of physical storage devices with the total size which is "
+"equal to or smaller than the virtual size.  Data for the virtual devices "
+"will be allocated from physical devices on demand.  The idea behind E<.Nm> "
+"is similar to the concept of Virtual Memory in operating systems, "
+"effectively allowing users to overcommit on storage E<.Pq free file system "
+"space>.  The concept is also known as \"thin provisioning\" in "
+"virtualization environments, only here it is implemented on the level of "
+"physical storage devices."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:94
+msgid "The first argument to E<.Nm> indicates an action to be performed:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:95
+#, no-wrap
+msgid "Cm label"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:109
+msgid ""
+"Set up a virtual device from the given components with the specified E<.Ar "
+"name>.  Metadata is stored in the last sector of every component.  Argument "
+"E<.Fl s Ar virsize> is the size of new virtual device, with default being "
+"set to 2 TiB E<.Pq 2097152 MiB>.  Argument E<.Fl m Ar chunksize> is the "
+"chunk size, with default being set to 4 MiB E<.Pq 4096 KiB>.  The default "
+"arguments are thus E<.Qq Fl s Ar 2097152 Fl m Ar 4096>."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:109
+#, no-wrap
+msgid "Cm stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:114
+msgid ""
+"Turn off an existing virtual device with the given E<.Ar name>.  This "
+"command does not touch on-disk metadata.  As with other GEOM classes, "
+"stopped geoms cannot be started manually."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:114
+#, no-wrap
+msgid "Cm destroy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:117
+msgid "Same as E<.Cm stop.>"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:117
+#, no-wrap
+msgid "Cm add"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:124
+msgid ""
+"Adds new components to existing virtual device with the given E<.Ar name>.  "
+"The specified virstor device must exist and be active E<.Pq i.e. module "
+"loaded, device present in Pa /dev>.  This action can be safely performed "
+"while the virstor device is in use E<.Pq Qo hot Qc operation>."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:124
+#, no-wrap
+msgid "Cm remove"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:128
+msgid ""
+"Removes components from existing virtual device with the given E<.Ar name>.  "
+"Only unallocated providers can be removed."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:128
+#, no-wrap
+msgid "Cm clear"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:130
+msgid "Clear metadata on the given providers."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:130
+#, no-wrap
+msgid "Cm dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:132
+msgid "Dump metadata stored on the given providers."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:132
+#, no-wrap
+msgid "Cm list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:135 /usr/src/lib/geom/virstor/gvirstor.8:138 /usr/src/lib/geom/virstor/gvirstor.8:141 /usr/src/lib/geom/virstor/gvirstor.8:144
+msgid "See E<.Xr geom 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:135
+#, no-wrap
+msgid "Cm status"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:138
+#, no-wrap
+msgid "Cm load"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:141
+#, no-wrap
+msgid "Cm unload"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:147
+msgid "Additional options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:148
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:150
+msgid "Force the removal of the specified virtual device."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:150
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:152
+msgid "Hardcode providers' names in metadata."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/virstor/gvirstor.8:152
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:154
+msgid "Be more verbose."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:155
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:163
+msgid ""
+"The following example shows how to create a virtual device of default size "
+"E<.Pq 2 TiB>, of default chunk E<.Pq extent> size E<.Pq 4 MiB>, with two "
+"physical devices for backing storage."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:166
+#, no-wrap
+msgid ""
+"E<.No gvirstor label -v Ar mydata Ar /dev/ada4 Ar /dev/ada6>\n"
+"E<.No newfs Ar /dev/virstor/mydata>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:172
+msgid ""
+"From now on, the virtual device will be available via the E<.Pa "
+"/dev/virstor/mydata> device entry.  To add a new physical device / component "
+"to an active virstor device:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:174
+#, no-wrap
+msgid "E<.No gvirstor add Ar mydata Ar ada8>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:181
+msgid ""
+"This will add physical storage of E<.Ar ada8> to E<.Pa /dev/virstor/mydata> "
+"device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:185
+msgid ""
+"To see the device status information E<.Pq including how much physical "
+"storage is still available for the virtual device>, use:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:187
+#, no-wrap
+msgid "gvirstor list\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:194
+msgid ""
+"All standard E<.Xr geom 8> subcommands E<.Pq e.g. Cm status , Cm help> are "
+"also supported."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:194
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:199
+msgid "E<.Nm> has several E<.Xr sysctl 8> tunable variables."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:201
+#, no-wrap
+msgid "E<.Va int kern.geom.virstor.debug>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:210
+msgid ""
+"This sysctl controls verbosity of the kernel module, in the range 1 to 15.  "
+"Messages that are marked with higher verbosity levels than this are "
+"suppressed.  Default value is 5 and it is not recommended to set this "
+"tunable to less than 2, because level 1 messages are error events, and level "
+"2 messages are system warnings."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:212
+#, no-wrap
+msgid "E<.Va int kern.geom.virstor.chunk_watermark>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:219
+msgid ""
+"Value in this sysctl sets warning watermark level for physical chunk usage "
+"on a single component.  The warning is issued when a virstor component has "
+"less than this many free chunks E<.Pq default 100>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:221
+#, no-wrap
+msgid "E<.Va int kern.geom.virstor.component_watermark>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:227
+msgid ""
+"Value in this sysctl sets warning watermark level for component usage.  The "
+"warning is issued when there are less than this many unallocated components "
+"E<.Pq default is 1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:231
+msgid "All these sysctls are also available as E<.Xr loader 8> tunables."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:231
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:233
+msgid "E<.Ex -std>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:238
+msgid ""
+"E<.Nm> kernel module issues log messages with prefixes in standardized "
+"format, which is useful for log message filtering and dispatching.  Each "
+"message line begins with"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:240
+#, no-wrap
+msgid "E<.Li GEOM_VIRSTOR[%d]:>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:249
+msgid ""
+"The number E<.Pq %d> is message verbosity / importance level, in the range 1 "
+"to 15.  If a message filtering, dispatching or operator alert system is "
+"used, it is recommended that messages with levels 1 and 2 be taken seriously "
+"E<.Pq for example, to catch out-of-space conditions as set by watermark> "
+"sysctls."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:249
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:255
+msgid ""
+"E<.Xr geom 4>, E<.Xr fstab 5>, E<.Xr geom 8>, E<.Xr glabel 8>, E<.Xr newfs "
+"8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:255
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:260
+msgid "The E<.Nm> utility first appeared in E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:260
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:262
+msgid "E<.An Ivan Voras Aq Mt ivoras@FreeBSD.org>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:264
+msgid "Sponsored by Google Summer of Code 2006."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:264
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:274
+msgid ""
+"Commands E<.Cm add> and E<.Cm remove> contain unavoidable critical sections "
+"which may make the virstor device unusable if a power failure E<.Pq or other "
+"disruptive event> happens during their execution.  It is recommended to run "
+"them when the system is quiescent."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/virstor/gvirstor.8:274
+#, no-wrap
+msgid "ASSUMPTIONS AND INTERACTION WITH FILE SYSTEMS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:285
+msgid ""
+"There are several assumptions that E<.Nm> has in its operation: that the "
+"size of the virtual storage device will not change once it is set, and that "
+"the sizes of individual physical storage components will always remain "
+"constant during their existence.  For alternative ways to implement virtual "
+"or resizable file systems see E<.Xr zfs 1M>, E<.Xr gconcat 8> and E<.Xr "
+"growfs 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/virstor/gvirstor.8:299
+msgid ""
+"Note that E<.Nm> has nontrivial interaction with file systems which "
+"initialize a large number of on-disk structures during newfs.  If such file "
+"systems attempt to spread their structures across the drive media E<.Pq like "
+"UFS/UFS2 does>, their efforts will be effectively foiled by sequential "
+"allocation of chunks in E<.Nm> and all their structures will be physically "
+"allocated at the start of the first virstor component.  This could have a "
+"significant impact on file system performance E<.Pq which can in some rare "
+"cases be even positive>."
+msgstr ""

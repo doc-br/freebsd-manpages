@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:27
+#, no-wrap
+msgid "September 15, 2014"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:28
+#, no-wrap
+msgid "GPTZFSBOOT 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:32
+msgid "E<.Nm gptzfsboot>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:32
+#, no-wrap
+msgid "GPT bootcode for ZFS on BIOS-based computers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:42
+msgid ""
+"E<.Nm> is used on BIOS-based computers to boot from a filesystem in a ZFS "
+"pool.  E<.Nm> is installed in a E<.Cm freebsd-boot> partition of a "
+"GPT-partitioned disk with E<.Xr gpart 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:42
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:46
+msgid ""
+"The GPT standard allows a variable number of partitions, but E<.Nm> only "
+"boots from tables with 128 partitions or less."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:46
+#, no-wrap
+msgid "BOOTING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:66
+msgid ""
+"E<.Nm> tries to find all ZFS pools that are composed of BIOS-visible hard "
+"disks or partitions on them.  E<.Nm> looks for ZFS device labels on all "
+"visible disks and in discovered supported partitions for all supported "
+"partition scheme types.  The search starts with the disk from which E<.Nm> "
+"itself was loaded.  Other disks are probed in BIOS defined order.  After a "
+"disk is probed and E<.Nm> determines that the whole disk is not a ZFS pool "
+"member, the individual partitions are probed in their partition table "
+"order.  Currently GPT and MBR partition schemes are supported.  With the GPT "
+"scheme, only partitions of type E<.Cm freebsd-zfs> are probed.  The first "
+"pool seen during probing is used as a default boot pool."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:83
+msgid ""
+"The filesystem specified by the E<.Cm bootfs> property of the pool is used "
+"as a default boot filesystem.  If the E<.Cm bootfs> property is not set, "
+"then the root filesystem of the pool is used as the default.  E<.Xr loader "
+"8> is loaded from the boot filesystem.  If E<.Pa /boot.config> or E<.Pa "
+"/boot/config> is present in the boot filesystem, boot options are read from "
+"it in the same way as E<.Xr boot 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:92
+msgid ""
+"The ZFS GUIDs of the first successfully probed device and the first detected "
+"pool are made available to E<.Xr loader 8> in the E<.Cm "
+"vfs.zfs.boot.primary_vdev> and E<.Cm vfs.zfs.boot.primary_pool> variables."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:92
+#, no-wrap
+msgid "USAGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:105
+msgid ""
+"Normally E<.Nm> will boot in fully automatic mode.  However, like E<.Xr boot "
+"8>, it is possible to interrupt the automatic boot process and interact with "
+"E<.Nm> through a prompt.  E<.Nm> accepts all the options that E<.Xr boot 8> "
+"supports."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:111
+msgid ""
+"The filesystem specification and the path to E<.Xr loader 8> are different "
+"from E<.Xr boot 8>.  The format is"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:115
+msgid "E<.Sm off> E<.Oo zfs:pool/filesystem: Oc Oo /path/to/loader Oc> E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:121
+msgid ""
+"Both the filesystem and the path can be specified.  If only a path is "
+"specified, then the default filesystem is used.  If only a pool and "
+"filesystem are specified, then E<.Pa /boot/loader> is used as a path."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:128
+msgid ""
+"Additionally, the E<.Ic status> command can be used to query information "
+"about discovered pools.  The output format is similar to that of E<.Cm zpool "
+"status> E<.Pq see Xr zpool 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:136
+msgid ""
+"The configured or automatically determined ZFS boot filesystem is stored in "
+"the E<.Xr loader 8> E<.Cm loaddev> variable, and also set as the initial "
+"value of the E<.Cm currdev> variable."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:136
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:138
+#, no-wrap
+msgid "Pa /boot/gptzfsboot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:140
+msgid "boot code binary"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:140
+#, no-wrap
+msgid "Pa /boot.config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:143
+msgid "parameters for the boot block E<.Pq optional>"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:143
+#, no-wrap
+msgid "Pa /boot/config"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:146
+msgid "alternative parameters for the boot block E<.Pq optional>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:147
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:160
+msgid ""
+"E<.Nm> is typically installed in combination with a E<.Dq protective MBR> "
+"E<.Po> see E<.Xr gpart 8> E<.Pc>.  To install E<.Nm> on the E<.Pa ada0> "
+"drive:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:162
+#, no-wrap
+msgid "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ada0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:166
+msgid "E<.Nm> can also be installed without the PMBR:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:168
+#, no-wrap
+msgid "gpart bootcode -p /boot/gptzfsboot -i 1 ada0\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:169
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:175
+msgid ""
+"E<.Xr boot.config 5>, E<.Xr boot 8>, E<.Xr gpart 8>, E<.Xr loader 8>, E<.Xr "
+"zpool 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:175
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:178
+msgid "E<.Nm> appeared in FreeBSD 7.3."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:178
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:181
+msgid "This manual page was written by E<.An Andriy Gapon Aq avg@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:181
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/i386/gptzfsboot/gptzfsboot.8:192
+msgid ""
+"E<.Nm> looks for ZFS meta-data only in MBR partitions E<.Pq known on FreeBSD "
+"as slices>.  It does not look into BSD E<.Xr disklabel 8> partitions that "
+"are traditionally called partitions.  If a disklabel partition happens to be "
+"placed so that ZFS meta-data can be found at the fixed offsets relative to a "
+"slice, then E<.Nm> will recognize the partition as a part of a ZFS pool, but "
+"this is not guaranteed to happen."
+msgstr ""

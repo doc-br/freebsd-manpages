@@ -1,0 +1,779 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/lib/geom/journal/gjournal.8:27
+#, no-wrap
+msgid "February 17, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/lib/geom/journal/gjournal.8:28
+#, no-wrap
+msgid "GJOURNAL 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:32
+msgid "E<.Nm gjournal>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/lib/geom/journal/gjournal.8:32
+#, no-wrap
+msgid "control utility for journaled devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:62
+msgid ""
+"E<.Nm> E<.Cm label> E<.Op Fl cfhv> E<.Op Fl s Ar jsize> E<.Ar dataprov> "
+"E<.Op Ar jprov> E<.Nm> E<.Cm stop> E<.Op Fl fv> E<.Ar name ...> E<.Nm> E<.Cm "
+"sync> E<.Op Fl v> E<.Nm> E<.Cm clear> E<.Op Fl v> E<.Ar prov ...> E<.Nm> "
+"E<.Cm dump> E<.Ar prov ...> E<.Nm> E<.Cm list> E<.Nm> E<.Cm status> E<.Nm> "
+"E<.Cm load> E<.Nm> E<.Cm unload>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:62
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:77
+msgid ""
+"The E<.Nm> utility is used for journal configuration on the given GEOM "
+"provider.  The Journal and data may be stored on the same provider or on two "
+"separate providers.  This is block level journaling, not file system level "
+"journaling, which means everything gets logged, e.g.\\& for file systems, it "
+"journals both data and metadata.  The E<.Nm> GEOM class can talk to file "
+"systems, which allows the use of E<.Nm> for file system journaling and to "
+"keep file systems in a consistent state.  At this time, only UFS file system "
+"is supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:110
+msgid ""
+"To configure journaling on the UFS file system using E<.Nm>, one should "
+"first create a E<.Nm> provider using the E<.Nm> utility, then run E<.Xr "
+"newfs 8> or E<.Xr tunefs 8> on it with the E<.Fl J> flag which instructs UFS "
+"to cooperate with the E<.Nm> provider below.  There are important "
+"differences in how journaled UFS works.  The most important one is that "
+"E<.Xr sync 2> and E<.Xr fsync 2> system calls do not work as expected "
+"anymore.  To ensure that data is stored on the data provider, the E<.Nm Cm "
+"sync> command should be used after calling E<.Xr sync 2>.  For the best "
+"performance possible, soft-updates should be disabled when E<.Nm> is used.  "
+"It is also safe and recommended to use the E<.Cm async> E<.Xr mount 8> "
+"option."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:120
+msgid ""
+"When E<.Nm> is configured on top of E<.Xr gmirror 8> or E<.Xr graid3 8> "
+"providers, it also keeps them in a consistent state, thus automatic "
+"synchronization on power failure or system crash may be disabled on those "
+"providers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:127
+msgid ""
+"The E<.Nm> utility uses on-disk metadata, stored in the provider's last "
+"sector, to store all needed information.  This could be a problem when an "
+"existing file system is converted to use E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:131
+msgid "The first argument to E<.Nm> indicates an action to be performed:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:132
+#, no-wrap
+msgid "Cm label"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:140
+msgid ""
+"Configures E<.Nm> on the given provider(s).  If only one provider is given, "
+"both data and journal are stored on the same provider.  If two providers are "
+"given, the first one will be used as data provider and the second will be "
+"used as the journal provider."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:142 /usr/src/lib/geom/journal/gjournal.8:177 /usr/src/lib/geom/journal/gjournal.8:200
+msgid "Additional options include:"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:143
+#, no-wrap
+msgid "Fl c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:145
+msgid "Checksum journal records."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:145 /usr/src/lib/geom/journal/gjournal.8:178
+#, no-wrap
+msgid "Fl f"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:159
+msgid ""
+"May be used to convert an existing file system to use E<.Nm>, but only if "
+"the journal will be configured on a separate provider and if the last sector "
+"in the data provider is not used by the existing file system.  If E<.Nm> "
+"detects that the last sector is used, it will refuse to overwrite it and "
+"return an error.  This behavior may be forced by using the E<.Fl f> flag, "
+"which will force E<.Nm> to overwrite the last sector."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:159
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:161
+msgid "Hardcode provider names in metadata."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:161
+#, no-wrap
+msgid "Fl s Ar jsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:170
+msgid ""
+"Specifies size of the journal if only one provider is used for both data and "
+"journal.  The default is one gigabyte.  Size should be chosen based on "
+"provider's load, and not on its size; recommended minimum is twice the size "
+"of the physical memory installed.  It is not recommended to use E<.Nm> for "
+"small file systems (e.g.: only few gigabytes big)."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:171
+#, no-wrap
+msgid "Cm clear"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:173
+msgid "Clear metadata on the given providers."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:173
+#, no-wrap
+msgid "Cm stop"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:175
+msgid "Stop the given provider."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:180
+msgid "Stop the given provider even if it is opened."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:181
+#, no-wrap
+msgid "Cm sync"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:183
+msgid "Trigger journal switch and enforce sending data to the data provider."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:183
+#, no-wrap
+msgid "Cm dump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:185
+msgid "Dump metadata stored on the given providers."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:185
+#, no-wrap
+msgid "Cm list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:188 /usr/src/lib/geom/journal/gjournal.8:191 /usr/src/lib/geom/journal/gjournal.8:194 /usr/src/lib/geom/journal/gjournal.8:197
+msgid "See E<.Xr geom 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:188
+#, no-wrap
+msgid "Cm status"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:191
+#, no-wrap
+msgid "Cm load"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:194
+#, no-wrap
+msgid "Cm unload"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:201
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:203
+msgid "Be more verbose."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:204
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:206
+msgid "Exit status is 0 on success, and 1 if the command fails."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:206
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:210
+msgid "Create a E<.Nm> based UFS file system and mount it:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:215
+#, no-wrap
+msgid ""
+"gjournal load\n"
+"gjournal label da0\n"
+"newfs -J /dev/da0.journal\n"
+"mount -o async /dev/da0.journal /mnt\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:220
+msgid ""
+"Configure journaling on an existing file system, but only if E<.Nm> allows "
+"this (i.e., if the last sector is not already used by the file system):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:226
+#, no-wrap
+msgid ""
+"umount /dev/da0s1d\n"
+"gjournal label da0s1d da0s1e && \\e\n"
+"    tunefs -J enable -n disable da0s1d.journal && \\e\n"
+"    mount -o async /dev/da0s1d.journal /mnt || \\e\n"
+"    mount /dev/da0s1d /mnt\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:227
+#, no-wrap
+msgid "SYSCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:232
+msgid ""
+"Gjournal adds the sysctl level kern.geom.journal.  The string and integer "
+"information available is detailed below.  The changeable column shows "
+"whether a process with appropriate privilege may change the value."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:233 /usr/src/lib/geom/journal/gjournal.8:278 /usr/src/lib/geom/journal/gjournal.8:310
+#, no-wrap
+msgid "Sy \"sysctl name\tType\tChangeable\""
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:234
+#, no-wrap
+msgid "debug\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:235
+#, no-wrap
+msgid "switch_time\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:236
+#, no-wrap
+msgid "force_switch\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:237
+#, no-wrap
+msgid "parallel_flushes\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:238
+#, no-wrap
+msgid "accept_immediately\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:239
+#, no-wrap
+msgid "parallel_copies\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:240
+#, no-wrap
+msgid "record_entries\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:241
+#, no-wrap
+msgid "optimize\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:244
+#, no-wrap
+msgid "Li debug"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:252
+msgid ""
+"Setting a non-zero value enables debugging at various levels.  Debug level 1 "
+"will record actions at a journal level, relating to journal switches, "
+"metadata updates, etc.  Debug level 2 will record actions at a higher level, "
+"relating to the numbers of entries in journals, access requests, etc.  Debug "
+"level 3 will record verbose detail, including insertion of I/Os to the "
+"journal."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:252
+#, no-wrap
+msgid "Li switch_time"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:255
+msgid ""
+"The maximum number of seconds a journal is allowed to remain open before "
+"switching to a new journal."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:255
+#, no-wrap
+msgid "Li force_switch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:258
+msgid ""
+"Force a journal switch when the journal uses more than N% of the free "
+"journal space."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:258
+#, no-wrap
+msgid "Li parallel_flushes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:261
+msgid ""
+"The number of flush I/O requests to be sent in parallel when flushing the "
+"journal to the data provider."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:261
+#, no-wrap
+msgid "Li accept_immediately"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:263
+msgid "The maximum number of I/O requests accepted at the same time."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:263
+#, no-wrap
+msgid "Li parallel_copies"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:265
+msgid "The number of copy I/O requests to send in parallel."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:265
+#, no-wrap
+msgid "Li record_entries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:267
+msgid "The maximum number of record entries to allow in a single journal."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:267
+#, no-wrap
+msgid "Li optimize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:271
+msgid ""
+"Controls whether entries in a journal will be optimized by combining "
+"overlapping I/Os into a single I/O and reordering the entries in a journal.  "
+"This can be disabled by setting the sysctl to 0."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/lib/geom/journal/gjournal.8:272
+#, no-wrap
+msgid "cache"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:277
+msgid ""
+"The string and integer information available for the cache level is detailed "
+"below.  The changeable column shows whether a process with appropriate "
+"privilege may change the value."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:279
+#, no-wrap
+msgid "used\tinteger\tno"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:280
+#, no-wrap
+msgid "limit\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:281
+#, no-wrap
+msgid "divisor\tinteger\tno"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:282
+#, no-wrap
+msgid "switch\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:283
+#, no-wrap
+msgid "misses\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:284
+#, no-wrap
+msgid "alloc_failures\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:287
+#, no-wrap
+msgid "Li used"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:289
+msgid "The number of bytes currently allocated to the cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:289
+#, no-wrap
+msgid "Li limit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:291
+msgid "The maximum number of bytes to be allocated to the cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:291
+#, no-wrap
+msgid "Li divisor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:295
+msgid ""
+"Sets the cache size to be used as a proportion of kmem_size.  A value of 2 "
+"(the default) will cause the cache size to be set to 1/2 of the kmem_size."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:295
+#, no-wrap
+msgid "Li switch"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:297
+msgid "Force a journal switch when this percentage of cache has been used."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:297
+#, no-wrap
+msgid "Li misses"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:300
+msgid ""
+"The number of cache misses, when data has been read, but was not found in "
+"the cache."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:300
+#, no-wrap
+msgid "Li alloc_failures"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:303
+msgid ""
+"The number of times memory failed to be allocated to the cache because the "
+"cache limit was hit."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/lib/geom/journal/gjournal.8:304
+#, no-wrap
+msgid "stats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:309
+msgid ""
+"The string and integer information available for the statistics level is "
+"detailed below.  The changeable column shows whether a process with "
+"appropriate privilege may change the value."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:311
+#, no-wrap
+msgid "skipped_bytes\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:312
+#, no-wrap
+msgid "combined_ios\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:313
+#, no-wrap
+msgid "switches\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:314
+#, no-wrap
+msgid "wait_for_copy\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:315
+#, no-wrap
+msgid "journal_full\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:316
+#, no-wrap
+msgid "low_mem\tinteger\tyes"
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:319
+#, no-wrap
+msgid "Li skipped_bytes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:321
+msgid "The number of bytes skipped."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:321
+#, no-wrap
+msgid "Li combined_ios"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:323
+msgid "The number of I/Os which were combined by journal optimization."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:323
+#, no-wrap
+msgid "Li switches"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:325
+msgid "The number of journal switches."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:325
+#, no-wrap
+msgid "Li wait_for_copy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:328
+msgid ""
+"The number of times the journal switch process had to wait for the previous "
+"journal copy to complete."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:328
+#, no-wrap
+msgid "Li journal_full"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:330
+msgid "The number of times the journal was almost full, forcing a journal switch."
+msgstr ""
+
+#. type: It
+#: /usr/src/lib/geom/journal/gjournal.8:330
+#, no-wrap
+msgid "Li low_mem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:332
+msgid "The number of times the low_mem hook was called."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:333
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:340
+msgid ""
+"E<.Xr geom 4>, E<.Xr geom 8>, E<.Xr mount 8>, E<.Xr newfs 8>, E<.Xr tunefs "
+"8>, E<.Xr umount 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:340
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:345
+msgid "The E<.Nm> utility appeared in E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/lib/geom/journal/gjournal.8:345
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/lib/geom/journal/gjournal.8:346
+msgid "E<.An Pawel Jakub Dawidek Aq Mt pjd@FreeBSD.org>"
+msgstr ""

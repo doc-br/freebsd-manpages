@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:28
+#, no-wrap
+msgid "July 7, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:29
+#, no-wrap
+msgid "IMX_WDOG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:33
+msgid "E<.Nm imx_wdog>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:33
+#, no-wrap
+msgid "device driver for the NXP i.MX5 and i.MX6 watchdog timer"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:38
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:40
+#, no-wrap
+msgid "E<.Cd \"device imxwdt\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:45
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:47
+#, no-wrap
+msgid "imx_wdog_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:58
+msgid ""
+"The E<.Nm> driver provides E<.Xr watchdog 4> support for the watchdog timer "
+"present on NXP i.MX5 and i.MX6 processors.  The i.MX watchdog hardware "
+"supports programmable timeouts ranging from 0.5 to 128 seconds, in "
+"half-second increments.  Once activated, the watchdog hardware cannot be "
+"deactivated, but the timeout period can be changed to any valid non-zero "
+"value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:69
+msgid ""
+"At power-on, a special 16-second E<.Sq power-down timer> mode is "
+"automatically enabled by the hardware.  It will assert the external WDOG_B "
+"signal, which may be connected to external hardware that causes the system "
+"to reset or power-down.  The power-down timer is often reset by the boot "
+"loader (typically U-Boot).  If the power-down timer is still active at the "
+"time when the normal watchdog is first enabled, the E<.Nm> driver "
+"automatically disables it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:91
+msgid ""
+"The E<.Nm> driver supports the FDT E<.Va fsl,external-reset> property by "
+"enabling the assertion of the WDOG_B external timeout signal when the "
+"property is present.  When running this way, the need to reset the system "
+"due to watchdog timeout is signaled by driving the WDOG_B line low; some "
+"external entity is expected to assert the chip's POR pin in response.  The "
+"E<.Nm> driver attempts to backstop this external reset by scheduling an "
+"interrupt to occur as well.  The interrupt handler waits 1 second for the "
+"external reset to occur, then it triggers a normal software reset.  Note "
+"that the WDOG_B signal can be configured to use a variety of pins on the "
+"chip.  For the E<.Va fsl,external-reset> property to be effective, the "
+"signal must be connected to an appropriate pin by the system's FDT pinctrl "
+"data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:102
+msgid ""
+"The E<.Nm> driver supports the FDT E<.Va timeout-secs> property by enabling "
+"the watchdog as soon as the driver attaches, using the given timeout value.  "
+"This extends watchdog protection to much of the system startup process, but "
+"it still requires that E<.Xr watchdogd 4> be configured to service the "
+"watchdog."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:102
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:108
+msgid ""
+"E<.Xr fdt 4>, E<.Xr watchdog 4>, E<.Xr watchdog 8>, E<.Xr watchdogd 8>, "
+"E<.Xr watchdog 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:108
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/man4.arm/imx_wdog.4:112
+msgid "The E<.Nm> driver first appeared in E<.Fx 10.0>."
+msgstr ""

@@ -1,0 +1,656 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/forth/menu.4th.8:27
+#, no-wrap
+msgid "August 6, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/forth/menu.4th.8:28
+#, no-wrap
+msgid "MENU.4TH 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:32
+msgid "E<.Nm menu.4th>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/forth/menu.4th.8:32
+#, no-wrap
+msgid "FreeBSD dynamic menu boot module"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:45
+msgid ""
+"The file that goes by the name of E<.Nm> is a set of commands designed to "
+"display a dynamic menu system managed through a system of carefully named "
+"environment variables.  The commands of E<.Nm> by themselves are not enough "
+"for most uses.  Please refer to the examples below for the most common "
+"situations, and to E<.Xr loader 8> for additional commands."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:50
+msgid ""
+"Before using any of the commands provided in E<.Nm>, it must be included "
+"through the command:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/stand/forth/menu.4th.8:51
+#, no-wrap
+msgid "include menu.4th"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:56
+msgid ""
+"This line is present in the default E<.Pa /boot/menu.rc> file, so it is not "
+"needed (and should not be re-issued) in a normal setup."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:58
+msgid "The commands provided by it are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:60
+#, no-wrap
+msgid "Ic menu-init"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:63
+msgid ""
+"Draws the menu bounding box and initializes some internal state variables.  "
+"This should be called before any other menu-related functions."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:63
+#, no-wrap
+msgid "Ic menu-display"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:66
+msgid ""
+"Displays the menu (configured via the below documented environment "
+"variables)  and blocks on keyboard input, awaiting user action."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:66
+#, no-wrap
+msgid "Ic menu-erase"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:68
+msgid "Clears the screen area within the menu bounding box."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:68
+#, no-wrap
+msgid "Ic menu-redraw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:72
+msgid "Calls E<.Ic menu-erase> and then redraws the menu."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:72
+#, no-wrap
+msgid "Ic menu-unset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:75
+msgid ""
+"Unsets the environment variables associated with individual menu items, "
+"clearing the way for a new menu."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:75
+#, no-wrap
+msgid "Ic menu-clear"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:80
+msgid "Calls E<.Ic menu-unset> and then E<.Ic menu-erase>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:83
+msgid "The environment variables that effect its behavior are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:84
+#, no-wrap
+msgid "Va loader_color"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:96
+msgid ""
+"If set to E<.Dq Li NO> (case-insensitive) or E<.Dq Li 0>, causes the menu to "
+"be displayed without color.  The default is to use ANSI coloring whenever "
+"possible.  If serial boot is enabled, color is disabled by default.  Color "
+"features include the use of ANSI bold for numbers appearing to the left of "
+"menuitems and the use of special E<.Dq Li ansi> variables described below."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:96
+#, no-wrap
+msgid "Va autoboot_delay"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:120
+msgid ""
+"Number of seconds E<.Ic menu-display> will wait before executing E<.Va "
+"menu_timeout_command> E<.Ic ( boot> by default) unless a key is pressed.  If "
+"set to E<.Dq Li NO> (case-insensitive)  E<.Ic menu-display> will wait for "
+"user input and never execute E<.Ic menu_timeout_command>.  If set to E<.Dq "
+"Li -1>, E<.Ic menu-display> will boot immediately, preventing both "
+"interruption of the E<.Ic autoboot> process and escaping to the loader "
+"prompt.  Default is E<.Dq Li 10>.  See E<.Xr loader 8> for additional "
+"information."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:120
+#, no-wrap
+msgid "Va menu_timeout_command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:126
+msgid ""
+"The command to be executed after E<.Va autoboot_delay> seconds if a key is "
+"not pressed.  The default is E<.Ic boot>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:126
+#, no-wrap
+msgid "Va loader_menu_frame"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:134
+msgid ""
+"Sets the desired box style to draw around the boot menu.  Possible values "
+"are: E<.Dq Li single> E<.Pq the default>, E<.Dq Li double>, and E<.Dq Li "
+"none>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:134
+#, no-wrap
+msgid "Va loader_menu_timeout_x"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:137
+msgid ""
+"Sets the desired column position of the timeout countdown text.  Default is "
+"4."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:137
+#, no-wrap
+msgid "Va loader_menu_timeout_y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:140
+msgid "Sets the desired row position of the timeout countdown text.  Default is 23."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:140
+#, no-wrap
+msgid "Va loader_menu_title"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:144
+msgid ""
+"The text to display above the menu.  Default is E<.Dq Li \"Welcome to "
+"FreeBSD\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:144
+#, no-wrap
+msgid "Va loader_menu_title_align"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:153
+msgid ""
+"Default is to align E<.Ic loader_menu_title> centered above the menu. This "
+"can be set to E<.Dq Li left> or E<.Dq Li right> to instead display the title "
+"left-or-right justified E<.Pq respectively>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:153
+#, no-wrap
+msgid "Va loader_menu_x"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:156
+msgid "Sets the desired column position of the boot menu.  Default is 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:156
+#, no-wrap
+msgid "Va loader_menu_y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:159
+msgid "Sets the desired row position of the boot menu.  Default is 10."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:159
+#, no-wrap
+msgid "Va menu_caption[x]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:162
+msgid "The text to be displayed for the numbered menuitem E<.Dq Li x>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:162
+#, no-wrap
+msgid "Va menu_command[x]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:167
+msgid ""
+"The command to be executed when the number associated with menuitem E<.Dq Li "
+"x> is pressed.  See the list of included FICL words below for some ideas."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:167
+#, no-wrap
+msgid "Va menu_keycode[x]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:172
+msgid ""
+"An optional decimal ASCII keycode to be associated with menuitem E<.Dq Li "
+"x>.  When pressed, will cause the execution of E<.Va menu_command[x]>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:172
+#, no-wrap
+msgid "Va ansi_caption[x]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:181
+msgid ""
+"If E<.Va loader_color> is set E<.Pq enabled by default>, use this caption "
+"for menuitem E<.Dq Li x> instead of E<.Va menu_caption[x]>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:181
+#, no-wrap
+msgid "Va toggled_text[x]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:189
+msgid ""
+"For menuitems where E<.Va menu_command[x]> is set to E<.Dq Li "
+"toggle_menuitem> (or a derivative thereof), the text displayed will toggle "
+"between this and E<.Va menu_caption[x]>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:189
+#, no-wrap
+msgid "Va toggled_ansi[x]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:196
+msgid ""
+"Like E<.Va toggled_text[x]> except used when E<.Va loader_color> is enabled "
+"E<.Pq default>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:196
+#, no-wrap
+msgid "Va menu_caption[x][y]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:204
+msgid ""
+"For menuitems where E<.Va menu_command[x]> is set to E<.Dq Li "
+"cycle_menuitem> (or a derivative thereof), the text displayed will cycle "
+"between this and other E<.Va menu_caption[x][y]> entries."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:204
+#, no-wrap
+msgid "Va ansi_caption[x][y]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:211
+msgid ""
+"Like E<.Va menu_caption[x][y]> except used when E<.Va loader_color> is "
+"enabled E<.Pq default>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:211
+#, no-wrap
+msgid "Va menu_acpi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:229
+msgid ""
+"When set to a number E<.Dq Li x> associated with a given menuitem, that "
+"menuitem will only appear when running on i386-compatible hardware, E<.Va "
+"hint.acpi.0.rsdp> is set (indicating the presence of hardware ACPI support "
+"as detected by E<.Xr loader 8>), and E<.Va hint.acpi.0.disabled> is not "
+"set.  On non-i386 hardware, menuitems configured after the E<.Dq Li "
+"menu_acpi> menuitem will use a lower number (to compensate for the missing "
+"ACPI menuitem)  but continue to function as expected.  On i386-compatible "
+"hardware lacking ACPI support (as detected by E<.Xr loader 8>), subsequent "
+"menuitems will retain their associated numbers."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:229
+#, no-wrap
+msgid "Va hint.acpi.0.rsdp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:236
+msgid ""
+"Set automatically by E<.Xr loader 8> on i386-compatible hardware when ACPI "
+"support is detected at boot time.  Effects the display of the E<.Dq Li "
+"menu_acpi> menuitem (if configured)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:236
+#, no-wrap
+msgid "Va hint.acpi.0.disabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:251
+msgid ""
+"Effects the display of the E<.Va menu_acpi> menuitem.  If set, the menuitem "
+"will display E<.Va toggled_text[x]> E<.Va ( toggled_ansi[x]> if E<.Va "
+"loader_color> is set), otherwise E<.Va menu_caption[x]> E<.Va ( "
+"ansi_caption[x]> if E<.Va loader_color> is set)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:251
+#, no-wrap
+msgid "Va menu_options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:261
+msgid ""
+"When set to a number E<.Dq Li x>, a single blank-line and an E<.Dq Li "
+"Options> header are inserted between E<.Va menu_caption[x-1]> and E<.Va "
+"menu_caption[x]> (if configured)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:261
+#, no-wrap
+msgid "Va menu_reboot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:272
+msgid ""
+"If set, adds a built-in E<.Dq Li Reboot> menuitem to the end of the last "
+"configured menuitem.  If E<.Va menu_options> is configured, the E<.Dq Li "
+"Reboot> menuitem will be inserted before the E<.Dq Options> separator."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:275
+msgid "In addition, it provides the following FICL words:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:277
+#, no-wrap
+msgid "Ic arch-i386? ( -- BOOL )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:279
+msgid "Returns true (-1) on i386 and false (0) otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:279
+#, no-wrap
+msgid "Ic acpipresent? ( -- BOOL )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:281
+msgid "Returns true (-1) if ACPI is present and false (0) otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:281
+#, no-wrap
+msgid "Ic acpienabled? ( -- BOOL )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:283
+msgid "Returns true (-1) if ACPI is enabled and false (0) otherwise."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:283
+#, no-wrap
+msgid "Ic toggle_menuitem ( N -- N )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:294
+msgid ""
+"Toggles menuitem E<.Dq Li N> between E<.Va menu_caption[x]> and E<.Va "
+"toggled_text[x]> (where E<.Dq Li N> represents the ASCII decimal value for "
+"E<.Dq Li x>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:294
+#, no-wrap
+msgid "Ic cycle_menuitem ( N -- N )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:303
+msgid ""
+"Cycles menuitem E<.Dq Li N> between E<.Va menu_caption[x][y]> entries (where "
+"E<.Va N> represents the ASCII decimal value for E<.Va x>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:309
+msgid ""
+"For all values of E<.Dq Li x> above, use any number between 1 through "
+"9. Sorry, double-digits are not currently supported."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:309
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:311
+#, no-wrap
+msgid "Pa /boot/loader"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:314
+msgid "The E<.Xr loader 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:314
+#, no-wrap
+msgid "Pa /boot/menu.4th"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:317
+msgid "E<.Nm> itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/forth/menu.4th.8:317
+#, no-wrap
+msgid "Pa /boot/loader.rc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:320
+msgid "E<.Xr loader 8> bootstrapping script."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:321
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:323
+msgid "A simple boot menu:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:336
+#, no-wrap
+msgid ""
+"include /boot/menu.4th\n"
+"menu-init\n"
+"set menu_caption[1]=\"Boot\"\n"
+"set menu_command[1]=\"boot\"\n"
+"set menu_options=2\n"
+"set menu_caption[2]=\"Option: NO\"\n"
+"set toggled_text[2]=\"Option: YES\"\n"
+"set menu_command[2]=\"toggle_menuitem\"\n"
+"set menu_timeout_command=\"boot\"\n"
+"set menu_reboot\n"
+"menu-display\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:337
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:342
+msgid ""
+"E<.Xr loader.conf 5>, E<.Xr beastie.4th 8>, E<.Xr loader 8>, E<.Xr "
+"loader.4th 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:342
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:347
+msgid "The E<.Nm> set of commands first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/forth/menu.4th.8:347
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/forth/menu.4th.8:352
+msgid ""
+"The E<.Nm> set of commands was written by E<.An -nosplit> E<.An Devin Teske "
+"Aq dteske@FreeBSD.org>."
+msgstr ""

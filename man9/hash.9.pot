@@ -1,0 +1,283 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/hash.9:29
+#, no-wrap
+msgid "June 30, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/hash.9:30
+#, no-wrap
+msgid "HASH 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:44
+msgid ""
+"E<.Nm hash>, E<.Nm hash32>, E<.Nm hash32_buf>, E<.Nm hash32_str>, E<.Nm "
+"hash32_strn>, E<.Nm hash32_stre>, E<.Nm hash32_strne>, E<.Nm jenkins_hash>, "
+"E<.Nm jenkins_hash32>, E<.Nm murmur3_32_hash>, E<.Nm murmur3_32_hash32>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/hash.9:44
+#, no-wrap
+msgid "general kernel hashing functions"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:45
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/hash.9:46
+#, no-wrap
+msgid "sys/hash.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:65
+msgid ""
+"E<.Ft uint32_t> E<.Fn hash32_buf \"const void *buf\" \"size_t len\" "
+"\"uint32_t hash\"> E<.Ft uint32_t> E<.Fn hash32_str \"const void *buf\" "
+"\"uint32_t hash\"> E<.Ft uint32_t> E<.Fn hash32_strn \"const void *buf\" "
+"\"size_t len\" \"uint32_t hash\"> E<.Ft uint32_t> E<.Fn hash32_stre \"const "
+"void *buf\" \"int end\" \"const char **ep\" \"uint32_t hash\"> E<.Ft "
+"uint32_t> E<.Fn hash32_strne \"const void *buf\" \"size_t len\" \"int end\" "
+"\"const char **ep\" \"uint32_t hash\"> E<.Ft uint32_t> E<.Fn jenkins_hash "
+"\"const void *buf\" \"size_t len\" \"uint32_t hash\"> E<.Ft uint32_t> E<.Fn "
+"jenkins_hash32 \"const uint32_t *buf\" \"size_t count\" \"uint32_t hash\"> "
+"E<.Ft uint32_t> E<.Fn murmur3_32_hash \"const void *buf\" \"size_t len\" "
+"\"uint32_t hash\"> E<.Ft uint32_t> E<.Fn murmur3_32_hash32 \"const uint32_t "
+"*buf\" \"size_t count\" \"uint32_t hash\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:65
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:74
+msgid ""
+"The E<.Fn hash32> functions are used to give a consistent and general "
+"interface to a decent hashing algorithm within the kernel.  These functions "
+"can be used to hash E<.Tn ASCII> E<.Dv NUL> terminated strings, as well as "
+"blocks of memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:81
+msgid ""
+"A E<.Fa len> argument is the length of the buffer in bytes.  A E<.Fa count> "
+"argument is the length of the buffer in 32-bit words."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:95
+msgid ""
+"The E<.Fn hash32_buf> function is used as a general buffer hashing "
+"function.  The argument E<.Fa buf> is used to pass in the location, and "
+"E<.Fa len> is the length of the buffer in bytes.  The argument E<.Fa hash> "
+"is used to extend an existing hash, or is passed the initial value E<.Dv "
+"HASHINIT> to start a new hash."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:104
+msgid ""
+"The E<.Fn hash32_str> function is used to hash a E<.Dv NUL> terminated "
+"string passed in E<.Fa buf> with initial hash value given in E<.Fa hash>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:112
+msgid ""
+"The E<.Fn hash32_strn> function is like the E<.Fn hash32_str> function, "
+"except it also takes a E<.Fa len> argument, which is the maximal length of "
+"the expected string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:129
+msgid ""
+"The E<.Fn hash32_stre> and E<.Fn hash32_strne> functions are helper "
+"functions used by the kernel to hash pathname components.  These functions "
+"have the additional termination condition of terminating when they find a "
+"character given by E<.Fa end> in the string to be hashed.  If the argument "
+"E<.Fa ep> is not E<.Dv NULL>, it is set to the point in the buffer at which "
+"the hash function terminated hashing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:135
+msgid ""
+"The E<.Fn jenkins_hash> function has same semantics as the E<.Fn "
+"hash32_buf>, but provides more advanced hashing algorithm with better "
+"distribution."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:146
+msgid ""
+"The E<.Fn jenkins_hash32> uses same hashing algorithm as the E<.Fn "
+"jenkins_hash> function, but works only on E<.Ft uint32_t> sized arrays, thus "
+"is simpler and faster.  It accepts an array of E<.Ft uint32_t> values in its "
+"first argument and size of this array in the second argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:156
+msgid ""
+"The E<.Fn murmur3_32_hash> and E<.Fn murmur3_32_hash32> functions are "
+"similar to E<.Fn jenkins_hash> and E<.Fn jenkins_hash32>, but implement the "
+"32-bit version of MurmurHash3."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:156
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:160
+msgid ""
+"The E<.Fn hash32> functions return a 32 bit hash value of the buffer or "
+"string."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:160
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:164
+#, no-wrap
+msgid ""
+"LIST_HEAD(head, cache) *hashtbl = NULL;\n"
+"u_long mask = 0;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:168
+#, no-wrap
+msgid ""
+"void\n"
+"sample_init(void)\n"
+"{\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:171
+#, no-wrap
+msgid ""
+"        hashtbl = hashinit(numwanted, type, flags, &mask);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:176
+#, no-wrap
+msgid ""
+"void\n"
+"sample_use(char *str, int len)\n"
+"{\n"
+"        uint32_t hash;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:181
+#, no-wrap
+msgid ""
+"        hash = hash32_str(str, HASHINIT);\n"
+"        hash = hash32_buf(&len, sizeof(len), hash);\n"
+"        hashtbl[hash & mask] = len;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:182
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:186
+msgid "E<.Xr free 9>, E<.Xr hashinit 9>, E<.Xr malloc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:186
+#, no-wrap
+msgid "LIMITATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:196
+msgid ""
+"The E<.Fn hash32> functions are only 32 bit functions.  They will prove to "
+"give poor 64 bit performance, especially for the top 32 bits.  At the "
+"current time, this is not seen as a great limitation, as these hash values "
+"are usually used to index into an array.  Should these hash values be used "
+"for other means, this limitation should be revisited."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:196
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:215
+msgid ""
+"The E<.Nm> functions first appeared in E<.Nx 1.6>.  The current "
+"implementation of E<.Nm hash32> functions was first committed to E<.Ox 3.2>, "
+"and later imported to E<.Fx 6.1>.  The E<.Nm jenkins_hash> functions were "
+"added in E<.Fx 10.0>.  The E<.Nm murmur3_32_hash> functions were added in "
+"E<.Fx 10.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/hash.9:215
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/hash.9:227
+msgid ""
+"The E<.Nm hash32> functions were written by E<.An Tobias Weingartner>.  The "
+"E<.Nm jenkins_hash> functions were written by E<.An Bob Jenkins>.  The E<.Nm "
+"murmur3_32_hash> functions were written by E<.An Dag-Erling Sm\\(/orgrav Aq "
+"Mt des@FreeBSD.org>."
+msgstr ""

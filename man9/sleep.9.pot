@@ -1,0 +1,376 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/sleep.9:28
+#, no-wrap
+msgid "March 4, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/sleep.9:29
+#, no-wrap
+msgid "SLEEP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:42
+msgid ""
+"E<.Nm msleep>, E<.Nm msleep_sbt>, E<.Nm msleep_spin>, E<.Nm "
+"msleep_spin_sbt>, E<.Nm pause>, E<.Nm pause_sig>, E<.Nm pause_sbt>, E<.Nm "
+"tsleep>, E<.Nm tsleep_sbt>, E<.Nm wakeup>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/sleep.9:42
+#, no-wrap
+msgid "wait for events"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:43
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sleep.9:44
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sleep.9:45
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/sleep.9:46
+#, no-wrap
+msgid "sys/proc.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:73
+msgid ""
+"E<.Ft int> E<.Fn msleep \"void *chan\" \"struct mtx *mtx\" \"int priority\" "
+"\"const char *wmesg\" \"int timo\"> E<.Ft int> E<.Fn msleep_sbt \"void "
+"*chan\" \"struct mtx *mtx\" \"int priority\" \"const char *wmesg\" "
+"\"sbintime_t sbt\" \"sbintime_t pr\" \"int flags\"> E<.Ft int> E<.Fn "
+"msleep_spin \"void *chan\" \"struct mtx *mtx\" \"const char *wmesg\" \"int "
+"timo\"> E<.Ft int> E<.Fn msleep_spin_sbt \"void *chan\" \"struct mtx *mtx\" "
+"\"const char *wmesg\" \"sbintime_t sbt\" \"sbintime_t pr\" \"int flags\"> "
+"E<.Ft int> E<.Fn pause \"const char *wmesg\" \"int timo\"> E<.Ft int> E<.Fn "
+"pause_sig \"const char *wmesg\" \"int timo\"> E<.Ft int> E<.Fn pause_sbt "
+"\"const char *wmesg\" \"sbintime_t sbt\" \"sbintime_t pr\" \"int flags\"> "
+"E<.Ft int> E<.Fn tsleep \"void *chan\" \"int priority\" \"const char "
+"*wmesg\" \"int timo\"> E<.Ft int> E<.Fn tsleep_sbt \"void *chan\" \"int "
+"priority\" \"const char *wmesg\" \"sbintime_t sbt\" \"sbintime_t pr\" \"int "
+"flags\"> E<.Ft void> E<.Fn wakeup \"void *chan\"> E<.Ft void> E<.Fn "
+"wakeup_one \"void *chan\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:73
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:99
+msgid ""
+"The functions E<.Fn tsleep>, E<.Fn msleep>, E<.Fn msleep_spin>, E<.Fn "
+"pause>, E<.Fn pause_sig>, E<.Fn pause_sbt>, E<.Fn wakeup>, and E<.Fn "
+"wakeup_one> handle event-based thread blocking.  If a thread must wait for "
+"an external event, it is put to sleep by E<.Fn tsleep>, E<.Fn msleep>, E<.Fn "
+"msleep_spin>, E<.Fn pause>, E<.Fn pause_sig>, or E<.Fn pause_sbt>.  Threads "
+"may also wait using one of the locking primitive sleep routines E<.Xr "
+"mtx_sleep 9>, E<.Xr rw_sleep 9>, or E<.Xr sx_sleep 9>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:110
+msgid ""
+"The parameter E<.Fa chan> is an arbitrary address that uniquely identifies "
+"the event on which the thread is being put to sleep.  All threads sleeping "
+"on a single E<.Fa chan> are woken up later by E<.Fn wakeup>, often called "
+"from inside an interrupt routine, to indicate that the resource the thread "
+"was blocking on is available now."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:123
+msgid ""
+"The parameter E<.Fa priority> specifies a new priority for the thread as "
+"well as some optional flags.  If the new priority is not 0, then the thread "
+"will be made runnable with the specified E<.Fa priority> when it resumes.  "
+"E<.Dv PZERO> should never be used, as it is for compatibility only.  A new "
+"priority of 0 means to use the thread's current priority when it is made "
+"runnable again."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:140
+msgid ""
+"If E<.Fa priority> includes the E<.Dv PCATCH> flag, pending signals are "
+"allowed to interrupt the sleep, otherwise pending signals are ignored during "
+"the sleep.  If E<.Dv PCATCH> is set and a signal becomes pending, E<.Er "
+"ERESTART> is returned if the current system call should be restarted if "
+"possible, and E<.Er EINTR> is returned if the system call should be "
+"interrupted by the signal (return E<.Er EINTR>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:147
+msgid ""
+"The parameter E<.Fa wmesg> is a string describing the sleep condition for "
+"tools like E<.Xr ps 1>.  Due to the limited space of those programs to "
+"display arbitrary strings, this message should not be longer than 6 "
+"characters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:160
+msgid ""
+"The parameter E<.Fa timo> specifies a timeout for the sleep.  If E<.Fa timo> "
+"is not 0, then the thread will sleep for at most E<.Fa timo No / Va hz> "
+"seconds.  If the timeout expires, then the sleep function will return E<.Er "
+"EWOULDBLOCK>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:181
+msgid ""
+"E<.Fn msleep_sbt>, E<.Fn msleep_spin_sbt>, E<.Fn pause_sbt> and E<.Fn "
+"tsleep_sbt> functions take E<.Fa sbt> parameter instead of E<.Fa timo>.  It "
+"allows the caller to specify relative or absolute wakeup time with higher "
+"resolution in form of E<.Vt sbintime_t>.  The parameter E<.Fa pr> allows the "
+"caller to specify wanted absolute event precision.  The parameter E<.Fa "
+"flags> allows the caller to pass additional E<.Fn callout_reset_sbt> flags."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:211
+msgid ""
+"Several of the sleep functions including E<.Fn msleep>, E<.Fn msleep_spin>, "
+"and the locking primitive sleep routines specify an additional lock "
+"parameter.  The lock will be released before sleeping and reacquired before "
+"the sleep routine returns.  If E<.Fa priority> includes the E<.Dv PDROP> "
+"flag, then the lock will not be reacquired before returning.  The lock is "
+"used to ensure that a condition can be checked atomically, and that the "
+"current thread can be suspended without missing a change to the condition, "
+"or an associated wakeup.  In addition, all of the sleep routines will fully "
+"drop the E<.Va Giant> mutex (even if recursed)  while the thread is "
+"suspended and will reacquire the E<.Va Giant> mutex before the function "
+"returns.  Note that the E<.Va Giant> mutex may be specified as the lock to "
+"drop.  In that case, however, the E<.Dv PDROP> flag is not allowed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:222
+msgid ""
+"To avoid lost wakeups, either a lock should be used to protect against "
+"races, or a timeout should be specified to place an upper bound on the delay "
+"due to a lost wakeup.  As a result, the E<.Fn tsleep> function should only "
+"be invoked with a timeout of 0 when the E<.Va Giant> mutex is held."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:231
+msgid ""
+"The E<.Fn msleep> function requires that E<.Fa mtx> reference a default, "
+"i.e. non-spin, mutex.  Its use is deprecated in favor of E<.Xr mtx_sleep 9> "
+"which provides identical behavior."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:248
+msgid ""
+"The E<.Fn msleep_spin> function requires that E<.Fa mtx> reference a spin "
+"mutex.  The E<.Fn msleep_spin> function does not accept a E<.Fa priority> "
+"parameter and thus does not support changing the current thread's priority, "
+"the E<.Dv PDROP> flag, or catching signals via the E<.Dv PCATCH> flag."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:263
+msgid ""
+"The E<.Fn pause> function is a wrapper around E<.Fn tsleep> that suspends "
+"execution of the current thread for the indicated timeout.  The thread can "
+"not be awakened early by signals or calls to E<.Fn wakeup> or E<.Fn "
+"wakeup_one>.  The E<.Fn pause_sig> function is a variant of E<.Fn pause> "
+"which can be awakened early by signals."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:273
+msgid ""
+"The E<.Fn wakeup_one> function makes the first thread in the queue that is "
+"sleeping on the parameter E<.Fa chan> runnable.  This reduces the load when "
+"a large number of threads are sleeping on the same address, but only one of "
+"them can actually do any useful work when made runnable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:295
+msgid ""
+"Due to the way it works, the E<.Fn wakeup_one> function requires that only "
+"related threads sleep on a specific E<.Fa chan> address.  It is the "
+"programmer's responsibility to choose a unique E<.Fa chan> value.  The older "
+"E<.Fn wakeup> function did not require this, though it was never good "
+"practice for threads to share a E<.Fa chan> value.  When converting from "
+"E<.Fn wakeup> to E<.Fn wakeup_one>, pay particular attention to ensure that "
+"no other threads wait on the same E<.Fa chan>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:310
+msgid ""
+"If the timeout given by E<.Fa timo> or E<.Fa sbt> is based on an absolute "
+"real-time clock value, then the thread should copy the global E<.Va "
+"rtc_generation> into its E<.Va td_rtcgen> member before reading the RTC.  If "
+"the real-time clock is adjusted, these functions will set E<.Va td_rtcgen> "
+"to zero and return zero.  The caller should reconsider its orientation with "
+"the new RTC value."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:310
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:332
+msgid ""
+"When awakened by a call to E<.Fn wakeup> or E<.Fn wakeup_one>, if a signal "
+"is pending and E<.Dv PCATCH> is specified, a non-zero error code is "
+"returned.  If the thread is awakened by a call to E<.Fn wakeup> or E<.Fn "
+"wakeup_one>, the E<.Fn msleep>, E<.Fn msleep_spin>, E<.Fn tsleep>, and "
+"locking primitive sleep functions return 0.  Zero can also be returned when "
+"the real-time clock is adjusted; see above regarding E<.Va td_rtcgen>.  "
+"Otherwise, a non-zero error code is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:332
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:337
+msgid ""
+"E<.Fn msleep>, E<.Fn msleep_spin>, E<.Fn tsleep>, and the locking primitive "
+"sleep functions will fail if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleep.9:338
+#, no-wrap
+msgid "Bq Er EINTR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:343
+msgid ""
+"The E<.Dv PCATCH> flag was specified, a signal was caught, and the system "
+"call should be interrupted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleep.9:343
+#, no-wrap
+msgid "Bq Er ERESTART"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:348
+msgid ""
+"The E<.Dv PCATCH> flag was specified, a signal was caught, and the system "
+"call should be restarted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/sleep.9:348
+#, no-wrap
+msgid "Bq Er EWOULDBLOCK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:350
+msgid "A non-zero timeout was specified and the timeout expired."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:351
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:360
+msgid ""
+"E<.Xr ps 1>, E<.Xr locking 9>, E<.Xr malloc 9>, E<.Xr mi_switch 9>, E<.Xr "
+"mtx_sleep 9>, E<.Xr rw_sleep 9>, E<.Xr sx_sleep 9>, E<.Xr timeout 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:360
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:371
+msgid ""
+"The functions E<.Fn sleep> and E<.Fn wakeup> were present in E<.At v1>.  "
+"They were probably also present in the preceding PDP-7 version of E<.Ux>.  "
+"They were the basic process synchronization model."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:404
+msgid ""
+"The E<.Fn tsleep> function appeared in E<.Bx 4.4> and added the parameters "
+"E<.Fa wmesg> and E<.Fa timo>.  The E<.Fn sleep> function was removed in "
+"E<.Fx 2.2>.  The E<.Fn wakeup_one> function appeared in E<.Fx 2.2>.  The "
+"E<.Fn msleep> function appeared in E<.Fx 5.0>, and the E<.Fn msleep_spin> "
+"function appeared in E<.Fx 6.2>.  The E<.Fn pause> function appeared in "
+"E<.Fx 7.0>.  The E<.Fn pause_sig> function appeared in E<.Fx 12.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/sleep.9:404
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/sleep.9:407
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An J\\(:org Wunsch Aq Mt "
+"joerg@FreeBSD.org>."
+msgstr ""

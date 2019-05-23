@@ -1,0 +1,567 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_netflow.4:27
+#, no-wrap
+msgid "December 10, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_netflow.4:28
+#, no-wrap
+msgid "NG_NETFLOW 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:32
+msgid "E<.Nm ng_netflow>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_netflow.4:32
+#, no-wrap
+msgid "Cisco's NetFlow implementation"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_netflow.4:34
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_netflow.4:35
+#, no-wrap
+msgid "netinet/in.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_netflow.4:36
+#, no-wrap
+msgid "netgraph/netflow/ng_netflow.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:49
+msgid ""
+"The E<.Nm> node implements Cisco's NetFlow export protocol on a router "
+"running E<.Fx>.  The E<.Nm> node listens for incoming traffic and identifies "
+"unique flows in it.  Flows are distinguished by endpoint IP addresses, "
+"TCP/UDP port numbers, ToS and input interface.  Expired flows are exported "
+"out of the node in NetFlow version 5/9 UDP datagrams.  Expiration reason can "
+"be one of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:52
+msgid "RST or FIN TCP segment."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:56
+msgid ""
+"Active timeout.  Flows cannot live more than the specified period of time.  "
+"The default is 1800 seconds (30 minutes)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:60
+msgid ""
+"Inactive timeout.  A flow was inactive for the specified period of time.  "
+"The default is 15 seconds."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:64
+msgid ""
+"Node supports IPv6 accounting (NetFlow v9 only) and is aware of multiple "
+"fibs.  Different fibs are mapped to different domain_id in NetFlow V9 and "
+"different engine_id in NetFlow V5."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:64
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:101
+msgid ""
+"This node type supports up to E<.Dv NG_NETFLOW_MAXIFACES> (default 65536) "
+"hooks named E<.Va iface0 , iface1>, etc., and the same number of hooks named "
+"E<.Va out0 , out1>, etc., plus two export hooks: E<.Va export> (for NetFlow "
+"version 5) and E<.Va export9> (for NetFlow version 9).  Export can be done "
+"simultaneously for all supported export hooks.  By default (ingress NetFlow "
+"enabled) node does NetFlow accounting of data received on E<.Va iface*> "
+"hooks.  If corresponding E<.Va out> hook is connected, unmodified data is "
+"bypassed to it, otherwise data is freed.  If data is received on E<.Va out> "
+"hook, it is bypassed to corresponding E<.Va iface> hook without any "
+"processing (egress NetFlow disabled by default).  When full export datagram "
+"for an export protocol is built it is sent to the E<.Va export> or E<.Va "
+"export9> hook.  In normal operation, one (or more) export hook is connected "
+"to the E<.Va inet/dgram/udp> hook of the E<.Xr ng_ksocket 4> node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:101
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:103
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:104
+#, no-wrap
+msgid "Dv NGM_NETFLOW_INFO Pq Ic info"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:107
+msgid ""
+"Returns some node statistics and the current timeout values in a E<.Vt "
+"\"struct ng_netflow_info\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:107
+#, no-wrap
+msgid "Dv NGM_NETFLOW_IFINFO Pq Ic ifinfo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:112
+msgid ""
+"Returns information about the E<.Va iface Ns Ar N> hook.  The hook number is "
+"passed as an argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:112
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SETDLT Pq Ic setdlt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:122
+msgid ""
+"Sets data link type on the E<.Va iface Ns Ar N> hook.  Currently, supported "
+"types are E<.Cm DLT_RAW> (raw IP datagrams) and E<.Cm DLT_EN10MB> "
+"(Ethernet).  DLT_ definitions can be found in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_netflow.4:122
+#, no-wrap
+msgid "net/bpf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:131
+msgid ""
+"header.  Currently used values are 1 for E<.Cm DLT_EN10MB> and 12 for E<.Cm "
+"DLT_RAW>.  This message type uses E<.Vt \"struct ng_netflow_setdlt\"> as an "
+"argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:136
+#, no-wrap
+msgid ""
+"struct ng_netflow_setdlt {\n"
+"\tuint16_t iface;\t\t/* which iface dlt change */\n"
+"\tuint8_t  dlt;\t\t/* DLT_XXX from bpf.h */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:142
+msgid ""
+"The requested E<.Va iface Ns Ar N> hook must already be connected, otherwise "
+"message send operation will return an error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:142
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SETIFINDEX Pq Ic setifindex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:160
+msgid ""
+"In some cases, E<.Nm> may be unable to determine the input interface index "
+"of a packet.  This can happen if traffic enters the E<.Nm> node before it "
+"comes to the system interface's input queue.  An example of such a setup is "
+"capturing a traffic E<.Em between> synchronous data line and E<.Xr ng_iface "
+"4>.  In this case, the input index should be associated with a given hook.  "
+"The interface's index can be determined via E<.Xr if_nametoindex 3> from "
+"userland.  This message requires E<.Vt \"struct ng_netflow_setifindex\"> as "
+"an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:165
+#, no-wrap
+msgid ""
+"struct ng_netflow_setifindex {\n"
+"\tuint16_t iface;\t\t/* which iface index change */\n"
+"\tuint16_t index;\t\t/* new index */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:171
+msgid ""
+"The requested E<.Va iface Ns Ar N> hook must already be connected, otherwise "
+"the message send operation will return an error."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:171
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SETTIMEOUTS Pq Ic settimeouts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:176
+msgid ""
+"Sets values in seconds for NetFlow active/inactive timeouts.  This message "
+"requires E<.Vt \"struct ng_netflow_settimeouts\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:181
+#, no-wrap
+msgid ""
+"struct ng_netflow_settimeouts {\n"
+"\tuint32_t inactive_timeout;\t/* flow inactive timeout */\n"
+"\tuint32_t active_timeout;\t/* flow active timeout */\n"
+"};\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:182
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SETCONFIG Pq Ic setconfig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:187
+msgid ""
+"Sets configuration for the specified interface.  This message requires E<.Vt "
+"\"struct ng_netflow_setconfig\"> as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:198
+#, no-wrap
+msgid ""
+"struct ng_netflow_setconfig {\n"
+"\tuint16_t iface;\t\t/* which iface config change */\n"
+"\tuint32_t conf;\t\t/* new config */\n"
+"#define NG_NETFLOW_CONF_INGRESS\t\t1\n"
+"#define NG_NETFLOW_CONF_EGRESS\t\t2\n"
+"#define NG_NETFLOW_CONF_ONCE\t\t4\n"
+"#define NG_NETFLOW_CONF_THISONCE\t8\n"
+"#define NG_NETFLOW_CONF_NOSRCLOOKUP\t16\n"
+"#define NG_NETFLOW_CONF_NODSTLOOKUP\t32\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:226
+msgid ""
+"Configuration is a bitmask of several options.  Option "
+"NG_NETFLOW_CONF_INGRESS enabled by default enables ingress NetFlow "
+"generation (for data coming from ifaceX hook).  Option E<.Va "
+"NG_NETFLOW_CONF_EGRESS> enables egress NetFlow (for data coming from outX "
+"hook).  Option E<.Va NG_NETFLOW_CONF_ONCE> defines that packet should be "
+"accounted only once if it several times passes via netflow node.  Option "
+"E<.Va NG_NETFLOW_CONF_THISONCE> defines that packet should be accounted only "
+"once if it several times passes via exactly this netflow node.  These two "
+"options are important to avoid duplicate accounting when both ingress and "
+"egress NetFlow are enabled.  Option E<.Va NG_NETFLOW_CONF_NOSRCLOOKUP> skips "
+"radix lookup on flow source address used to fill in network mask.  Option "
+"E<.Va NG_NETFLOW_CONF_NODSTLOOKUP> skips radix lookup on destination (which "
+"fills egress interface id, destination mask and gateway).  If one doesn't "
+"need data provided by lookups, he/she can disable them, to reduce load on "
+"routers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:226
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SETTEMPLATE Pq Ic settemplate"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:231
+msgid ""
+"Sets various timeouts to announce data flow templates (NetFlow "
+"v9-specific). This message requires E<.Vt \"struct ng_netflow_settemplate\"> "
+"as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:236
+#, no-wrap
+msgid ""
+"struct ng_netflow_settemplate {\n"
+"\tuint16_t time;\t\t/* max time between announce */\n"
+"\tuint16_t packets;\t/* max packets between announce */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:241
+msgid ""
+"Value of time field represents time in seconds to re-announce data "
+"templates.  Value of packets field represents maximum packets count between "
+"re-announcing data templates."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:241
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SETMTU Pq Ic setmtu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:246
+msgid ""
+"Sets export interface MTU to build packets of specified size (NetFlow "
+"v9-specific).  This message requires E<.Vt \"struct ng_netflow_setmtu\"> as "
+"an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:250
+#, no-wrap
+msgid ""
+"struct ng_netflow_setemtu {\n"
+"\tuint16_t mtu;\t\t/* MTU for packet */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:253
+msgid "Default is 1500 bytes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:253
+#, no-wrap
+msgid "Dv NGM_NETFLOW_SHOW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:259
+msgid ""
+"This control message asks a node to dump the entire contents of the flow "
+"cache.  It is called from E<.Xr flowctl 8>, not directly from E<.Xr ngctl "
+"8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_netflow.4:259
+#, no-wrap
+msgid "Dv NGM_NETFLOW_V9INFO Pq Ic v9info"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:261
+msgid "Returns some NetFlow v9 related values in a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:267
+#, no-wrap
+msgid ""
+"struct ng_netflow_v9info {\n"
+"    uint16_t        templ_packets;  /* v9 template packets */\n"
+"    uint16_t        templ_time;     /* v9 template time */\n"
+"    uint16_t        mtu;            /* v9 MTU */\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:269
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:273
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:273
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:276
+msgid ""
+"The simplest possible configuration is one Ethernet interface, where flow "
+"collecting is enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:284
+#, no-wrap
+msgid ""
+"/usr/sbin/ngctl -f- E<lt>E<lt>-SEQ\n"
+"\tmkpeer fxp0: netflow lower iface0\n"
+"\tname fxp0:lower netflow\n"
+"\tconnect fxp0: netflow: upper out0\n"
+"\tmkpeer netflow: ksocket export inet/dgram/udp\n"
+"\tmsg netflow:export connect inet/10.0.0.1:4444\n"
+"SEQ\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:299
+msgid ""
+"This is a more complicated example of a router with 2 NetFlow-enabled "
+"interfaces E<.Li fxp0> and E<.Li ng0>.  Note that the E<.Va ng0:> node in "
+"this example is connected to E<.Xr ng_tee 4>.  The latter sends us a copy of "
+"IP packets, which we analyze and free.  On E<.Va fxp0:> we do not use tee, "
+"but send packets back to either node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:308
+#, no-wrap
+msgid ""
+"/usr/sbin/ngctl -f- E<lt>E<lt>-SEQ\n"
+"\t# connect ng0's tee to iface0 hook\n"
+"\tmkpeer ng0:inet netflow right2left iface0\n"
+"\tname ng0:inet.right2left netflow\n"
+"\t# set DLT to raw mode\n"
+"\tmsg netflow: setdlt { iface=0 dlt=12 }\n"
+"\t# set interface index (5 in this example)\n"
+"\tmsg netflow: setifindex { iface=0 index=5 }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:312
+#, no-wrap
+msgid ""
+"\t# Connect fxp0: to iface1 and out1 hook\n"
+"\tconnect fxp0: netflow: lower iface1\n"
+"\tconnect fxp0: netflow: upper out1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:318
+#, no-wrap
+msgid ""
+"\t# Create ksocket node on export hook, and configure it\n"
+"\t# to send exports to proper destination\n"
+"\tmkpeer netflow: ksocket export inet/dgram/udp\n"
+"\tmsg netflow:export connect inet/10.0.0.1:4444\n"
+"SEQ\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:319
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:333
+msgid ""
+"E<.Xr setfib 2>, E<.Xr netgraph 4>, E<.Xr ng_ether 4>, E<.Xr ng_iface 4>, "
+"E<.Xr ng_ksocket 4>, E<.Xr ng_tee 4>, E<.Xr flowctl 8>, E<.Xr ngctl 8> "
+"E<.Rs> E<.%A B. Claise, Ed> E<.%T \"Cisco Systems NetFlow Services Export "
+"Version 9\"> E<.%O RFC 3954> E<.Re>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:335
+msgid ""
+"E<.Pa "
+"http://www.cisco.com/en/US/docs/ios/solutions_docs/netflow/nfwhite.html>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:335
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:347
+msgid ""
+"E<.An -nosplit> The E<.Nm> node type was written by E<.An Gleb Smirnoff Aq "
+"Mt glebius@FreeBSD.org>, E<.An Alexander Motin Aq Mt mav@FreeBSD.org>, E<.An "
+"Alexander Chernikov Aq Mt melifaro@ipfw.ru>.  The initial code was based on "
+"E<.Nm ng_ipacct> written by E<.An Roman V. Palagin Aq Mt "
+"romanp@unshadow.net>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_netflow.4:347
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:351
+msgid ""
+"Cache snapshot obtained via E<.Dv NGM_NETFLOW_SHOW> command may lack some "
+"percentage of entries under severe load."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_netflow.4:358
+msgid ""
+"The E<.Nm> node type does not fill in AS numbers.  This is due to the lack "
+"of necessary information in the kernel routing table.  However, this "
+"information can be injected into the kernel from a routing daemon such as "
+"GNU Zebra.  This functionality may become available in future releases."
+msgstr ""

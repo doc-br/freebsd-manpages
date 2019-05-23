@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/keyboard.4:4
+#, no-wrap
+msgid "January 8, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/keyboard.4:5
+#, no-wrap
+msgid "KEYBOARD 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/keyboard.4:7
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:9
+msgid "E<.Nm keyboard>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/keyboard.4:9
+#, no-wrap
+msgid "pc keyboard interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/keyboard.4:10
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:21
+msgid ""
+"The PC keyboard is used as the console character input device.  The keyboard "
+"is owned by the current virtual console.  To switch between the virtual "
+"consoles use the sequence E<.Ar ALT+Fn>, which means hold down ALT and press "
+"one of the function keys.  The virtual console with the same number as the "
+"function key is then selected as the current virtual console and given "
+"exclusive use of the keyboard and display."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:36
+msgid ""
+"The console allows entering values that are not physically present on the "
+"keyboard via a special keysequence.  To use this facility press and hold "
+"down ALT, then enter a decimal number from 0-255 via the numerical keypad, "
+"then release ALT.  The entered value is then used as the ASCII value for one "
+"character.  This way it is possible to enter any ASCII value, not present on "
+"the keyboard.  The console driver also includes a history function.  It is "
+"activated by pressing the scroll-lock key.  This holds the display, and "
+"enables the cursor arrows for scrolling up and down through the last "
+"scrolled out lines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:39
+msgid ""
+"The keyboard is configurable to suit the individual user and the different "
+"national layout."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:41
+msgid "The keys on the keyboard can have any of the following functions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/keyboard.4:43
+#, no-wrap
+msgid "Normal key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:45
+msgid "Enter the ASCII value associated with the key."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/keyboard.4:45
+#, no-wrap
+msgid "Function key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:47
+msgid "Enter a string of ASCII values."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/keyboard.4:47
+#, no-wrap
+msgid "Switch Key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:49
+msgid "Switch virtual console."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/keyboard.4:49
+#, no-wrap
+msgid "Modifier Key"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:51
+msgid "Change the meaning of another key."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:61
+msgid ""
+"The keyboard is seen as a number of keys numbered from 1 to n.  This number "
+"is often referred to as the \"scancode\" for a given key.  The number of the "
+"key is transmitted as an 8 bit char with bit 7 as 0 when a key is pressed, "
+"and the number with bit 7 as 1 when released.  This makes it possible to "
+"make the mapping of the keys fully configurable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:66
+msgid ""
+"The meaning of every key is programmable via the PIO_KEYMAP ioctl call, that "
+"takes a structure keymap_t as argument.  The layout of this structure is as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:75
+#, no-wrap
+msgid ""
+"\t\tstruct keymap {\n"
+"\t\t\tu_short\tn_keys;\n"
+"\t\t\tstruct key_t {\n"
+"\t\t\t\tu_char map[NUM_STATES];\n"
+"\t\t\t\tu_char spcl;\n"
+"\t\t\t\tu_char flgs;\n"
+"\t\t\t} key[NUM_KEYS];\n"
+"\t\t};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:80
+msgid ""
+"The field n_keys tells the system how many keydefinitions (scancodes)  "
+"follows.  Each scancode is then specified in the key_t substructure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:85
+msgid ""
+"Each scancode can be translated to any of 8 different values, depending on "
+"the shift, control, and alt state.  These eight possibilities are "
+"represented by the map array, as shown below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:92
+#, no-wrap
+msgid ""
+"                                                            alt\n"
+" scan                          cntrl          alt    alt   cntrl\n"
+" code     base   shift  cntrl  shift   alt   shift  cntrl  shift\n"
+" map[n]      0       1      2      3     4       5      6      7\n"
+" ----     ------------------------------------------------------\n"
+" 0x1E      'a'     'A'   0x01   0x01    'a'    'A'   0x01   0x01\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:110
+msgid ""
+"This is the default mapping for the key labelled 'A' which normally has "
+"scancode 0x1E.  The eight states are as shown, giving the 'A' key its normal "
+"behavior.  The spcl field is used to give the key \"special\" treatment, and "
+"is interpreted as follows.  Each bit corresponds to one of the states "
+"above.  If the bit is 0 the key emits the number defined in the "
+"corresponding map[] entry.  If the bit is 1 the key is \"special\".  This "
+"means it does not emit anything; instead it changes the \"state\".  That "
+"means it is a shift, control, alt, lock, switch-screen, function-key or "
+"no-op key.  The bitmap is backwards i.e., 7 for base, 6 for shift etc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:113
+msgid ""
+"The flgs field defines if the key should react on caps-lock (1), num-lock "
+"(2), both (3) or ignore both (0)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:121
+msgid ""
+"The E<.Xr kbdcontrol 1> utility is used to load such a description "
+"into/outof the kernel at runtime.  This makes it possible to change the key "
+"assignments at runtime, or more important to get (GIO_KEYMAP ioctl)  the "
+"exact key meanings from the kernel (e.g.\\& used by the X server)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:123
+msgid "The function keys can be programmed using the SETFKEY ioctl call."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:125
+msgid "This ioctl takes an argument of the type fkeyarg_t:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:131
+#, no-wrap
+msgid ""
+"\t\tstruct fkeyarg {\n"
+"\t\t\tu_short\tkeynum;\n"
+"\t\t\tchar\tkeydef[MAXFK];\n"
+"\t\t\tchar\tflen;\n"
+"\t\t};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:136
+msgid ""
+"The field keynum defines which function key that is programmed.  The array "
+"keydef should contain the new string to be used (MAXFK long), and the length "
+"should be entered in flen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:139
+msgid ""
+"The GETFKEY ioctl call works in a similar manner, except it returns the "
+"current setting of keynum."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:141
+msgid "The function keys are numbered like this:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:146
+#, no-wrap
+msgid ""
+"\tF1-F12 \t\t\tkey 1 - 12\n"
+"\tShift F1-F12\t\tkey 13 - 24\n"
+"\tCtrl F1-F12\t\tkey 25 - 36\n"
+"\tCtrl+shift F1-F12\tkey 37 - 48\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:160
+#, no-wrap
+msgid ""
+"\tHome\t\t\tkey 49\n"
+"\tUp arrow\t\tkey 50\n"
+"\tPage Up\t\t\tkey 51\n"
+"\t(keypad) -\t\tkey 52\n"
+"\tLeft arrow\t\tkey 53\n"
+"\t(keypad) 5              key 54\n"
+"\tRight arrow\t\tkey 55\n"
+"\t(keypad) +\t\tkey 56\n"
+"\tEnd\t\t\tkey 57\n"
+"\tDown arrow\t\tkey 58\n"
+"\tPage down\t\tkey 59\n"
+"\tInsert \t\t\tkey 60\n"
+"\tDelete\t\t\tkey 61\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:164
+#, no-wrap
+msgid ""
+"\tLeft window\t\tkey 62\n"
+"\tRight window\t\tkey 63\n"
+"\tMenu\t\t\tkey 64\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:169
+msgid ""
+"The E<.Xr kbdcontrol 1> utility also allows changing these values at "
+"runtime."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/keyboard.4:169
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/keyboard.4:170
+msgid "E<.An S\\(/oren Schmidt Aq Mt sos@FreeBSD.org>"
+msgstr ""

@@ -1,0 +1,1456 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/sbin/pfctl/pfctl.8:29
+#, no-wrap
+msgid "October 3, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/sbin/pfctl/pfctl.8:30
+#, no-wrap
+msgid "PFCTL 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/pfctl/pfctl.8:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:34
+msgid "E<.Nm pfctl>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/sbin/pfctl/pfctl.8:34
+#, no-wrap
+msgid "control the packet filter (PF) device"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/pfctl/pfctl.8:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:60
+msgid ""
+"E<.Nm pfctl> E<.Bk -words> E<.Op Fl AdeghmNnOPqRrvz> E<.Op Fl a Ar anchor> "
+"E<.Oo Fl D Ar macro Ns => E<.Ar value Oc> E<.Op Fl F Ar modifier> E<.Op Fl f "
+"Ar file> E<.Op Fl i Ar interface> E<.Op Fl K Ar host | network> E<.Xo> E<.Oo "
+"Fl k> E<.Ar host | network | label | id> E<.Oc Xc> E<.Op Fl o Ar level> "
+"E<.Op Fl p Ar device> E<.Op Fl s Ar modifier> E<.Xo> E<.Oo Fl t Ar table> "
+"E<.Fl T Ar command> E<.Op Ar address ...> E<.Oc Xc> E<.Op Fl x Ar level> "
+"E<.Ek>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/pfctl/pfctl.8:60
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:68
+msgid ""
+"The E<.Nm> utility communicates with the packet filter device using the "
+"ioctl interface described in E<.Xr pf 4>.  It allows ruleset and parameter "
+"configuration and retrieval of status information from the packet filter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:85
+msgid ""
+"Packet filtering restricts the types of packets that pass through network "
+"interfaces entering or leaving the host based on filter rules as described "
+"in E<.Xr pf.conf 5>.  The packet filter can also replace addresses and ports "
+"of packets.  Replacing source addresses and ports of outgoing packets is "
+"called NAT (Network Address Translation) and is used to connect an internal "
+"network (usually reserved address space) to an external one (the Internet) "
+"by making all connections to external hosts appear to come from the "
+"gateway.  Replacing destination addresses and ports of incoming packets is "
+"used to redirect connections to different hosts and/or ports.  A combination "
+"of both translations, bidirectional NAT, is also supported.  Translation "
+"rules are described in E<.Xr pf.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:97
+msgid ""
+"When the variable E<.Va pf> is set to E<.Dv YES> in E<.Xr rc.conf 5>, the "
+"rule file specified with the variable E<.Va pf_rules> is loaded "
+"automatically by the E<.Xr rc 8> scripts and the packet filter is enabled."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:108
+msgid ""
+"The packet filter does not itself forward packets between interfaces.  "
+"Forwarding can be enabled by setting the E<.Xr sysctl 8> variables E<.Em "
+"net.inet.ip.forwarding> and/or E<.Em net.inet6.ip6.forwarding> to 1.  Set "
+"them permanently in E<.Xr sysctl.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:113
+msgid "The E<.Nm> utility provides several commands.  The options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:114
+#, no-wrap
+msgid "Fl A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:117
+msgid ""
+"Load only the queue rules present in the rule file.  Other rules and options "
+"are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:117
+#, no-wrap
+msgid "Fl a Ar anchor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:130
+msgid ""
+"Apply flags E<.Fl f>, E<.Fl F>, and E<.Fl s> only to the rules in the "
+"specified E<.Ar anchor>.  In addition to the main ruleset, E<.Nm> can load "
+"and manipulate additional rulesets by name, called anchors.  The main "
+"ruleset is the default anchor."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:137
+msgid ""
+"Anchors are referenced by name and may be nested, with the various "
+"components of the anchor path separated by E<.Sq /> characters, similar to "
+"how file system hierarchies are laid out.  The last component of the anchor "
+"path is where ruleset operations are performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:142
+msgid ""
+"Evaluation of E<.Ar anchor> rules from the main ruleset is described in "
+"E<.Xr pf.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:152
+msgid ""
+"For example, the following will show all filter rules (see the E<.Fl s> flag "
+"below) inside the anchor E<.Dq authpf/smith(1234)>, which would have been "
+"created for user E<.Dq smith> by E<.Xr authpf 8>, PID 1234:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:154
+#, no-wrap
+msgid "# pfctl -a \"authpf/smith(1234)\" -s rules\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:160
+msgid ""
+"Private tables can also be put inside anchors, either by having table "
+"statements in the E<.Xr pf.conf 5> file that is loaded in the anchor, or by "
+"using regular table commands, as in:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:162
+#, no-wrap
+msgid "# pfctl -a foo/bar -t mytable -T add 1.2.3.4 5.6.7.8\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:171
+msgid ""
+"When a rule referring to a table is loaded in an anchor, the rule will use "
+"the private table if one is defined, and then fall back to the table defined "
+"in the main ruleset, if there is one.  This is similar to C rules for "
+"variable scope.  It is possible to create distinct tables with the same name "
+"in the global ruleset and in an anchor, but this is often bad design and a "
+"warning will be issued in that case."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:182
+msgid ""
+"By default, recursive inline printing of anchors applies only to unnamed "
+"anchors specified inline in the ruleset.  If the anchor name is terminated "
+"with a E<.Sq *> character, the E<.Fl s> flag will recursively print all "
+"anchors in a brace delimited block.  For example the following will print "
+"the E<.Dq authpf> ruleset recursively:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:184
+#, no-wrap
+msgid "# pfctl -a 'authpf/*' -sr\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:189
+msgid ""
+"To print the main ruleset recursively, specify only E<.Sq *> as the anchor "
+"name:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:191
+#, no-wrap
+msgid "# pfctl -a '*' -sr\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:192
+#, no-wrap
+msgid "Fl D Ar macro Ns = Ns Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:201
+msgid ""
+"Define E<.Ar macro> to be set to E<.Ar value> on the command line.  "
+"Overrides the definition of E<.Ar macro> in the ruleset."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:201
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:203
+msgid "Disable the packet filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:203
+#, no-wrap
+msgid "Fl e"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:205
+msgid "Enable the packet filter."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:205
+#, no-wrap
+msgid "Fl F Ar modifier"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:209
+msgid ""
+"Flush the filter parameters specified by E<.Ar modifier> (may be "
+"abbreviated):"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:211
+#, no-wrap
+msgid "Fl F Cm nat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:213
+msgid "Flush the NAT rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:213
+#, no-wrap
+msgid "Fl F Cm queue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:215
+msgid "Flush the queue rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:215
+#, no-wrap
+msgid "Fl F Cm rules"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:217
+msgid "Flush the filter rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:217
+#, no-wrap
+msgid "Fl F Cm states"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:219
+msgid "Flush the state table (NAT and filter)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:219
+#, no-wrap
+msgid "Fl F Cm Sources"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:221
+msgid "Flush the source tracking table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:221
+#, no-wrap
+msgid "Fl F Cm info"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:223
+msgid "Flush the filter information (statistics that are not bound to rules)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:223
+#, no-wrap
+msgid "Fl F Cm Tables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:225
+msgid "Flush the tables."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:225
+#, no-wrap
+msgid "Fl F Cm osfp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:227
+msgid "Flush the passive operating system fingerprints."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:227
+#, no-wrap
+msgid "Fl F Cm all"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:229
+msgid "Flush all of the above."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:230
+#, no-wrap
+msgid "Fl f Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:239
+msgid ""
+"Load the rules contained in E<.Ar file>.  This E<.Ar file> may contain "
+"macros, tables, options, and normalization, queueing, translation, and "
+"filtering rules.  With the exception of macros and tables, the statements "
+"must appear in that order."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:239
+#, no-wrap
+msgid "Fl g"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:241
+msgid "Include output helpful for debugging."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:241
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:243
+msgid "Help."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:243
+#, no-wrap
+msgid "Fl i Ar interface"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:246
+msgid "Restrict the operation to the given E<.Ar interface>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:246
+#, no-wrap
+msgid "Fl K Ar host | network"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:257
+msgid ""
+"Kill all of the source tracking entries originating from the specified E<.Ar "
+"host> or E<.Ar network>.  A second E<.Fl K Ar host> or E<.Fl K Ar network> "
+"option may be specified, which will kill all the source tracking entries "
+"from the first host/network to the second."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:257
+#, no-wrap
+msgid "Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:267
+msgid ""
+"E<.Fl k> E<.Ar host | network | label | id> E<.Xc> Kill all of the state "
+"entries matching the specified E<.Ar host>, E<.Ar network>, E<.Ar label>, or "
+"E<.Ar id>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:270
+msgid "For example, to kill all of the state entries originating from E<.Dq host>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:271
+#, no-wrap
+msgid "# pfctl -k host"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:283
+msgid ""
+"A second E<.Fl k Ar host> or E<.Fl k Ar network> option may be specified, "
+"which will kill all the state entries from the first host/network to the "
+"second.  To kill all of the state entries from E<.Dq host1> to E<.Dq host2>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:284
+#, no-wrap
+msgid "# pfctl -k host1 -k host2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:287
+msgid "To kill all states originating from 192.168.1.0/24 to 172.16.0.0/16:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:288
+#, no-wrap
+msgid "# pfctl -k 192.168.1.0/24 -k 172.16.0.0/16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:293
+msgid ""
+"A network prefix length of 0 can be used as a wildcard.  To kill all states "
+"with the target E<.Dq host2>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:294
+#, no-wrap
+msgid "# pfctl -k 0.0.0.0/0 -k host2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:304
+msgid ""
+"It is also possible to kill states by rule label or state ID.  In this mode "
+"the first E<.Fl k> argument is used to specify the type of the second "
+"argument.  The following command would kill all states that have been "
+"created from rules carrying the label E<.Dq foobar>:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:305
+#, no-wrap
+msgid "# pfctl -k label -k foobar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:313
+msgid ""
+"To kill one specific state by its unique state ID (as shown by pfctl -s "
+"state -vv), use the E<.Ar id> modifier and as a second argument the state ID "
+"and optional creator ID.  To kill a state with ID 4823e84500000003 use:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:314
+#, no-wrap
+msgid "# pfctl -k id -k 4823e84500000003"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:318
+msgid ""
+"To kill a state with ID 4823e84500000018 created from a backup firewall with "
+"hostid 00000002 use:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/sbin/pfctl/pfctl.8:319
+#, no-wrap
+msgid "# pfctl -k id -k 4823e84500000018/2"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:320
+#, no-wrap
+msgid "Fl m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:324
+msgid ""
+"Merge in explicitly given options without resetting those which are "
+"omitted.  Allows single options to be modified without disturbing the "
+"others:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:326
+#, no-wrap
+msgid "# echo \"set loginterface fxp0\" | pfctl -mf -\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:327
+#, no-wrap
+msgid "Fl N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:330
+msgid ""
+"Load only the NAT rules present in the rule file.  Other rules and options "
+"are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:330
+#, no-wrap
+msgid "Fl n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:332
+msgid "Do not actually load rules, just parse them."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:332
+#, no-wrap
+msgid "Fl O"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:335
+msgid ""
+"Load only the options present in the rule file.  Other rules and options are "
+"ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:335
+#, no-wrap
+msgid "Fl o Ar level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:337
+msgid "Control the ruleset optimizer, overriding any rule file settings."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:339
+#, no-wrap
+msgid "Fl o Cm none"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:341
+msgid "Disable the ruleset optimizer."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:341
+#, no-wrap
+msgid "Fl o Cm basic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:344
+msgid "Enable basic ruleset optimizations.  This is the default behaviour."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:344
+#, no-wrap
+msgid "Fl o Cm profile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:346
+msgid "Enable basic ruleset optimizations with profiling."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:349
+msgid "For further information on the ruleset optimizer, see E<.Xr pf.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:349
+#, no-wrap
+msgid "Fl P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:352
+msgid ""
+"Do not perform service name lookup for port specific rules, instead display "
+"the ports numerically."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:352
+#, no-wrap
+msgid "Fl p Ar device"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:357
+msgid "Use the device file E<.Ar device> instead of the default E<.Pa /dev/pf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:357
+#, no-wrap
+msgid "Fl q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:359
+msgid "Only print errors and warnings."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:359
+#, no-wrap
+msgid "Fl R"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:362
+msgid ""
+"Load only the filter rules present in the rule file.  Other rules and "
+"options are ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:362
+#, no-wrap
+msgid "Fl r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:364
+msgid "Perform reverse DNS lookups on states when displaying them."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:364
+#, no-wrap
+msgid "Fl s Ar modifier"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:368
+msgid ""
+"Show the filter parameters specified by E<.Ar modifier> (may be "
+"abbreviated):"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:370
+#, no-wrap
+msgid "Fl s Cm nat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:372
+msgid "Show the currently loaded NAT rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:372
+#, no-wrap
+msgid "Fl s Cm queue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:382
+msgid ""
+"Show the currently loaded queue rules.  When used together with E<.Fl v>, "
+"per-queue statistics are also shown.  When used together with E<.Fl v v>, "
+"E<.Nm> will loop and show updated queue statistics every five seconds, "
+"including measured bandwidth and packets per second."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:382
+#, no-wrap
+msgid "Fl s Cm rules"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:395
+msgid ""
+"Show the currently loaded filter rules.  When used together with E<.Fl v>, "
+"the per-rule statistics (number of evaluations, packets and bytes) are also "
+"shown.  Note that the E<.Dq skip step> optimization done automatically by "
+"the kernel will skip evaluation of rules where possible.  Packets passed "
+"statefully are counted in the rule that created the state (even though the "
+"rule is not evaluated more than once for the entire connection)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:395
+#, no-wrap
+msgid "Fl s Cm Anchors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:406
+msgid ""
+"Show the currently loaded anchors directly attached to the main ruleset.  If "
+"E<.Fl a Ar anchor> is specified as well, the anchors loaded directly below "
+"the given E<.Ar anchor> are shown instead.  If E<.Fl v> is specified, all "
+"anchors attached under the target anchor will be displayed recursively."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:406
+#, no-wrap
+msgid "Fl s Cm states"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:408
+msgid "Show the contents of the state table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:408
+#, no-wrap
+msgid "Fl s Cm Sources"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:410
+msgid "Show the contents of the source tracking table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:410
+#, no-wrap
+msgid "Fl s Cm info"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:415
+msgid ""
+"Show filter information (statistics and counters).  When used together with "
+"E<.Fl v>, source tracking statistics are also shown."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:415
+#, no-wrap
+msgid "Fl s Cm Running"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:417
+msgid "Show the running status and provide a non-zero exit status when disabled."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:417
+#, no-wrap
+msgid "Fl s Cm labels"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:421
+msgid ""
+"Show per-rule statistics (label, evaluations, packets total, bytes total, "
+"packets in, bytes in, packets out, bytes out, state creations) of filter "
+"rules with labels, useful for accounting."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:421
+#, no-wrap
+msgid "Fl s Cm timeouts"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:423
+msgid "Show the current global timeouts."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:423
+#, no-wrap
+msgid "Fl s Cm memory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:425
+msgid "Show the current pool memory hard limits."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:425
+#, no-wrap
+msgid "Fl s Cm Tables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:427
+msgid "Show the list of tables."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:427
+#, no-wrap
+msgid "Fl s Cm osfp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:429
+msgid "Show the list of operating system fingerprints."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:429
+#, no-wrap
+msgid "Fl s Cm Interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:439
+msgid ""
+"Show the list of interfaces and interface drivers available to PF.  When "
+"used together with E<.Fl v>, it additionally lists which interfaces have "
+"skip rules activated.  When used together with E<.Fl vv>, interface "
+"statistics are also shown.  E<.Fl i> can be used to select an interface or a "
+"group of interfaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:439
+#, no-wrap
+msgid "Fl s Cm all"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:442
+msgid ""
+"Show all of the above, except for the lists of interfaces and operating "
+"system fingerprints."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:443
+#, no-wrap
+msgid "Fl T Ar command Op Ar address ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:448
+msgid ""
+"Specify the E<.Ar command> (may be abbreviated) to apply to the table.  "
+"Commands include:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:450
+#, no-wrap
+msgid "Fl T Cm kill"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:452
+msgid "Kill a table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:452
+#, no-wrap
+msgid "Fl T Cm flush"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:454
+msgid "Flush all addresses of a table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:454
+#, no-wrap
+msgid "Fl T Cm add"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:457
+msgid ""
+"Add one or more addresses in a table.  Automatically create a nonexisting "
+"table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:457
+#, no-wrap
+msgid "Fl T Cm delete"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:459
+msgid "Delete one or more addresses from a table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:459
+#, no-wrap
+msgid "Fl T Cm expire Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:466
+msgid ""
+"Delete addresses which had their statistics cleared more than E<.Ar number> "
+"seconds ago.  For entries which have never had their statistics cleared, "
+"E<.Ar number> refers to the time they were added to the table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:466
+#, no-wrap
+msgid "Fl T Cm replace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:469
+msgid ""
+"Replace the addresses of the table.  Automatically create a nonexisting "
+"table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:469
+#, no-wrap
+msgid "Fl T Cm show"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:471
+msgid "Show the content (addresses) of a table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:471
+#, no-wrap
+msgid "Fl T Cm test"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:473
+msgid "Test if the given addresses match a table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:473
+#, no-wrap
+msgid "Fl T Cm zero"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:475
+msgid "Clear all the statistics of a table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:475
+#, no-wrap
+msgid "Fl T Cm load"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:481
+msgid ""
+"Load only the table definitions from E<.Xr pf.conf 5>.  This is used in "
+"conjunction with the E<.Fl f> flag, as in:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:483
+#, no-wrap
+msgid "# pfctl -Tl -f pf.conf\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:506
+msgid ""
+"For the E<.Cm add>, E<.Cm delete>, E<.Cm replace>, and E<.Cm test> commands, "
+"the list of addresses can be specified either directly on the command line "
+"and/or in an unformatted text file, using the E<.Fl f> flag.  Comments "
+"starting with a E<.Sq #> are allowed in the text file.  With these commands, "
+"the E<.Fl v> flag can also be used once or twice, in which case E<.Nm> will "
+"print the detailed result of the operation for each individual address, "
+"prefixed by one of the following letters:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:508
+#, no-wrap
+msgid "A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:510
+msgid "The address/network has been added."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:510 /usr/src/sbin/pfctl/pfctl.8:635
+#, no-wrap
+msgid "C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:512
+msgid "The address/network has been changed (negated)."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:512
+#, no-wrap
+msgid "D"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:514
+msgid "The address/network has been deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:514
+#, no-wrap
+msgid "M"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:520
+msgid "The address matches E<.Po> E<.Cm test> operation only E<.Pc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:520
+#, no-wrap
+msgid "X"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:522
+msgid "The address/network is duplicated and therefore ignored."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:522
+#, no-wrap
+msgid "Y"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:526
+msgid ""
+"The address/network cannot be added/deleted due to conflicting E<.Sq \\&!> "
+"attributes."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:526
+#, no-wrap
+msgid "Z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:528
+msgid "The address/network has been cleared (statistics)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:540
+msgid ""
+"Each table can maintain a set of counters that can be retrieved using the "
+"E<.Fl v> flag of E<.Nm>.  For example, the following commands define a wide "
+"open firewall which will keep track of packets going to or coming from the "
+"E<.Ox> FTP server.  The following commands configure the firewall and send "
+"10 pings to the FTP server:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:544
+#, no-wrap
+msgid ""
+"# printf \"table E<lt>testE<gt> counters { ftp.openbsd.org }\\en \\e\n"
+"    pass out to E<lt>testE<gt>\\en\" | pfctl -f-\n"
+"# ping -qc10 ftp.openbsd.org\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:553
+msgid ""
+"We can now use the table E<.Cm show> command to output, for each address and "
+"packet direction, the number of packets and bytes that are being passed or "
+"blocked by rules referencing the table.  The time at which the current "
+"accounting started is also shown with the E<.Dq Cleared> line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:561
+#, no-wrap
+msgid ""
+"# pfctl -t test -vTshow\n"
+"   129.128.5.191\n"
+"    Cleared:     Thu Feb 13 18:55:18 2003\n"
+"    In/Block:    [ Packets: 0        Bytes: 0        ]\n"
+"    In/Pass:     [ Packets: 10       Bytes: 840      ]\n"
+"    Out/Block:   [ Packets: 0        Bytes: 0        ]\n"
+"    Out/Pass:    [ Packets: 10       Bytes: 840      ]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:573
+msgid ""
+"Similarly, it is possible to view global information about the tables by "
+"using the E<.Fl v> modifier twice and the E<.Fl s> E<.Cm Tables> command.  "
+"This will display the number of addresses on each table, the number of rules "
+"which reference the table, and the global packet statistics for the whole "
+"table:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:586
+#, no-wrap
+msgid ""
+"# pfctl -vvsTables\n"
+"--a-r-C test\n"
+"    Addresses:   1\n"
+"    Cleared:     Thu Feb 13 18:55:18 2003\n"
+"    References:  [ Anchors: 0        Rules: 1        ]\n"
+"    Evaluations: [ NoMatch: 3496     Match: 1        ]\n"
+"    In/Block:    [ Packets: 0        Bytes: 0        ]\n"
+"    In/Pass:     [ Packets: 10       Bytes: 840      ]\n"
+"    In/XPass:    [ Packets: 0        Bytes: 0        ]\n"
+"    Out/Block:   [ Packets: 0        Bytes: 0        ]\n"
+"    Out/Pass:    [ Packets: 10       Bytes: 840      ]\n"
+"    Out/XPass:   [ Packets: 0        Bytes: 0        ]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:602
+msgid ""
+"As we can see here, only one packet \\- the initial ping request \\- matched "
+"the table, but all packets passing as the result of the state are correctly "
+"accounted for.  Reloading the table(s) or ruleset will not affect packet "
+"accounting in any way.  The two E<.Dq XPass> counters are incremented "
+"instead of the E<.Dq Pass> counters when a E<.Dq stateful> packet is passed "
+"but does not match the table anymore.  This will happen in our example if "
+"someone flushes the table while the E<.Xr ping 8> command is running."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:608
+msgid ""
+"When used with a single E<.Fl v>, E<.Nm> will only display the first line "
+"containing the table flags and name.  The flags are defined as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:610
+#, no-wrap
+msgid "c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:613
+msgid "For constant tables, which cannot be altered outside E<.Xr pf.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:613
+#, no-wrap
+msgid "p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:616
+msgid ""
+"For persistent tables, which do not get automatically killed when no rules "
+"refer to them."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:616
+#, no-wrap
+msgid "a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:624
+msgid ""
+"For tables which are part of the E<.Em active> tableset.  Tables without "
+"this flag do not really exist, cannot contain addresses, and are only listed "
+"if the E<.Fl g> flag is given."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:624
+#, no-wrap
+msgid "i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:630
+msgid ""
+"For tables which are part of the E<.Em inactive> tableset.  This flag can "
+"only be witnessed briefly during the loading of E<.Xr pf.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:630
+#, no-wrap
+msgid "r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:632
+msgid "For tables which are referenced (used) by rules."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:632
+#, no-wrap
+msgid "h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:635
+msgid ""
+"This flag is set when a table in the main ruleset is hidden by one or more "
+"tables of the same name from anchors attached below it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:637
+msgid "This flag is set when per-address counters are enabled on the table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:638
+#, no-wrap
+msgid "Fl t Ar table"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:640
+msgid "Specify the name of the table."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:640
+#, no-wrap
+msgid "Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:646
+msgid ""
+"Produce more verbose output.  A second use of E<.Fl v> will produce even "
+"more verbose output including ruleset warnings.  See the previous section "
+"for its effect on table commands."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:646
+#, no-wrap
+msgid "Fl x Ar level"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:650
+msgid "Set the debug E<.Ar level> (may be abbreviated) to one of the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:652
+#, no-wrap
+msgid "Fl x Cm none"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:654
+msgid "Do not generate debug messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:654
+#, no-wrap
+msgid "Fl x Cm urgent"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:656
+msgid "Generate debug messages only for serious errors."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:656
+#, no-wrap
+msgid "Fl x Cm misc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:658
+msgid "Generate debug messages for various errors."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:658
+#, no-wrap
+msgid "Fl x Cm loud"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:660
+msgid "Generate debug messages for common conditions."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:661
+#, no-wrap
+msgid "Fl z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:663
+msgid "Clear per-rule statistics."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/pfctl/pfctl.8:664
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:666
+#, no-wrap
+msgid "Pa /etc/pf.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:668
+msgid "Packet filter rules file."
+msgstr ""
+
+#. type: It
+#: /usr/src/sbin/pfctl/pfctl.8:668
+#, no-wrap
+msgid "Pa /etc/pf.os"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:670
+msgid "Passive operating system fingerprint database."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/pfctl/pfctl.8:671
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:682
+msgid ""
+"E<.Xr pf 4>, E<.Xr pf.conf 5>, E<.Xr pf.os 5>, E<.Xr rc.conf 5>, E<.Xr "
+"services 5>, E<.Xr sysctl.conf 5>, E<.Xr authpf 8>, E<.Xr ftp-proxy 8>, "
+"E<.Xr rc 8>, E<.Xr sysctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/sbin/pfctl/pfctl.8:682
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/sbin/pfctl/pfctl.8:692
+msgid ""
+"The E<.Nm> program and the E<.Xr pf 4> filter mechanism appeared in E<.Ox "
+"3.0>.  They first appeared in E<.Fx 5.3> ported from the version in E<.Ox "
+"3.5>"
+msgstr ""

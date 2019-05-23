@@ -1,0 +1,394 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/mbuf_tags.9:23
+#, no-wrap
+msgid "January 12, 2008"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/mbuf_tags.9:24
+#, no-wrap
+msgid "MBUF_TAGS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mbuf_tags.9:26
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:28
+msgid "E<.Nm mbuf_tags>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/mbuf_tags.9:28
+#, no-wrap
+msgid "a framework for generic packet attributes"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mbuf_tags.9:29
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mbuf_tags.9:30
+#, no-wrap
+msgid "sys/mbuf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:61
+msgid ""
+"E<.Ft \"struct m_tag *\"> E<.Fn m_tag_alloc \"uint32_t cookie\" \"int type\" "
+"\"int len\" \"int wait\"> E<.Ft \"struct m_tag *\"> E<.Fn m_tag_copy "
+"\"struct m_tag *t\" \"int how\"> E<.Ft int> E<.Fn m_tag_copy_chain \"struct "
+"mbuf *to\" \"const struct mbuf *from\" \"int how\"> E<.Ft void> E<.Fn "
+"m_tag_delete \"struct mbuf *m\" \"struct m_tag *t\"> E<.Ft void> E<.Fn "
+"m_tag_delete_chain \"struct mbuf *m\" \"struct m_tag *t\"> E<.Ft void> E<.Fn "
+"m_tag_delete_nonpersistent \"struct mbuf *m\"> E<.Ft \"struct m_tag *\"> "
+"E<.Fn m_tag_find \"struct mbuf *m\" \"int type\" \"struct m_tag *start\"> "
+"E<.Ft \"struct m_tag *\"> E<.Fn m_tag_first \"struct mbuf *m\"> E<.Ft void> "
+"E<.Fn m_tag_free \"struct m_tag *t\"> E<.Ft \"struct m_tag *\"> E<.Fn "
+"m_tag_get \"int type\" \"int len\" \"int wait\"> E<.Ft void> E<.Fn "
+"m_tag_init \"struct mbuf *m\"> E<.Ft struct m_tag *> E<.Fn m_tag_locate "
+"\"struct mbuf *m\" \"uint32_t cookie\" \"int type\" \"struct m_tag *t\"> "
+"E<.Ft \"struct m_tag *\"> E<.Fn m_tag_next \"struct mbuf *m\" \"struct m_tag "
+"*t\"> E<.Ft void> E<.Fn m_tag_prepend \"struct mbuf *m\" \"struct m_tag "
+"*t\"> E<.Ft void> E<.Fn m_tag_unlink \"struct mbuf *m\" \"struct m_tag *t\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mbuf_tags.9:61
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:79
+msgid ""
+"Mbuf tags allow additional meta-data to be associated with in-flight packets "
+"by providing a mechanism for the tagging of additional kernel memory onto "
+"packet header mbufs.  Tags are maintained in chains off of the E<.Xr mbuf 9> "
+"header, and maintained using a series of API calls to allocate, search, and "
+"delete tags.  Tags are identified using an ID and cookie that uniquely "
+"identify a class of data tagged onto the packet, and may contain an "
+"arbitrary amount of additional storage.  Typical uses of mbuf tags include "
+"Mandatory Access Control (MAC) labels as described in E<.Xr mac 9>, IPsec "
+"policy information as described in E<.Xr ipsec 4>, and packet filter tags "
+"used by E<.Xr pf 4>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:88
+msgid ""
+"Tags will be maintained across a variety of operations, including the "
+"copying of packet headers using facilities such as E<.Fn M_COPY_PKTHDR> and "
+"E<.Fn M_MOVE_PKTHDR>.  Any tags associated with an mbuf header will be "
+"automatically freed when the mbuf is freed, although some subsystems will "
+"wish to delete the tags prior to that time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:95
+msgid ""
+"Packet tags are used by different kernel APIs to keep track of operations "
+"done or scheduled to happen to packets.  Each packet tag can be "
+"distinguished by its type and cookie.  The cookie is used to identify a "
+"specific module or API.  The packet tags are attached to mbuf packet "
+"headers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:100
+msgid ""
+"The first E<.Fn sizeof \"struct m_tag\"> bytes of a tag contain a E<.Vt "
+"\"struct m_tag\">:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:108
+#, no-wrap
+msgid ""
+"struct m_tag {\n"
+"\tSLIST_ENTRY(m_tag)\tm_tag_link;\t/* List of packet tags */\n"
+"\tuint16_t\t\tm_tag_id;\t/* Tag ID */\n"
+"\tuint16_t\t\tm_tag_len;\t/* Length of data */\n"
+"\tuint32_t\t\tm_tag_cookie;\t/* ABI/Module ID */\n"
+"\tvoid\t\t\t(*m_tag_free)(struct m_tag *);\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:132
+msgid ""
+"The E<.Va m_tag_link> field is used to link tags together (see E<.Xr queue "
+"3> for more details).  The E<.Va m_tag_id , m_tag_len> and E<.Va "
+"m_tag_cookie> fields are set to type, length, and cookie, respectively.  "
+"E<.Va m_tag_free> points to E<.Fn m_tag_free_default>.  Following this "
+"structure are E<.Va m_tag_len> bytes of space that can be used to store "
+"tag-specific information.  Addressing this data region may be tricky.  A "
+"safe way is embedding E<.Vt \"struct m_tag\"> into a private data structure, "
+"as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:139
+#, no-wrap
+msgid ""
+"struct foo {\n"
+"\tstruct m_tag\ttag;\n"
+"\t...\n"
+"};\n"
+"struct foo *p = (struct foo *)m_tag_alloc(...);\n"
+"struct m_tag *mtag = &p-E<gt>tag;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:156
+msgid ""
+"Note that E<.Ox> does not support cookies, it needs E<.Va m_tag_id> to be "
+"globally unique.  To keep compatibility with E<.Ox>, a cookie E<.Dv "
+"MTAG_ABI_COMPAT> is provided along with some compatibility functions.  When "
+"writing an E<.Ox> compatible code, one should be careful not to take already "
+"used tag type.  Tag types are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/mbuf_tags.9:156 /usr/src/share/man/man9/mbuf_tags.9:278
+#, no-wrap
+msgid "sys/mbuf.h ."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/mbuf_tags.9:157
+#, no-wrap
+msgid "Packet Tag Manipulation Functions"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:159
+#, no-wrap
+msgid "Fn m_tag_alloc cookie type len wait"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:182
+msgid ""
+"Allocate a new tag of type E<.Fa type> and cookie E<.Fa cookie> with E<.Va "
+"len> bytes of space following the tag header itself.  The E<.Fa wait> "
+"argument is passed directly to E<.Xr malloc 9>.  If successful, E<.Fn "
+"m_tag_alloc> returns a memory buffer of E<.Pq Va len No + Fn sizeof \"struct "
+"m_tag\"> bytes.  Otherwise, E<.Dv NULL> is returned.  A compatibility "
+"function E<.Fn m_tag_get> is also provided."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:182
+#, no-wrap
+msgid "Fn m_tag_copy tag how"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:191
+msgid ""
+"Allocate a copy of E<.Fa tag>.  The E<.Fa how> argument is passed directly "
+"to E<.Fn m_tag_alloc>.  The return values are the same as in E<.Fn "
+"m_tag_alloc>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:191
+#, no-wrap
+msgid "Fn m_tag_copy_chain tombuf frommbuf how"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:200
+msgid ""
+"Allocate and copy all tags from mbuf E<.Fa frommbuf> to mbuf E<.Fa tombuf>.  "
+"Returns 1 on success, and 0 on failure.  In the latter case, mbuf E<.Fa "
+"tombuf> loses all its tags, even previously present."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:200
+#, no-wrap
+msgid "Fn m_tag_delete mbuf tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:206
+msgid "Remove E<.Fa tag> from E<.Fa mbuf Ns 's> list and free it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:206
+#, no-wrap
+msgid "Fn m_tag_delete_chain mbuf tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:214
+msgid ""
+"Remove and free a packet tag chain, starting from E<.Fa tag>.  If E<.Fa tag> "
+"is E<.Dv NULL>, all tags are deleted."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:214
+#, no-wrap
+msgid "Fn m_tag_delete_nonpersistent mbuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:220
+msgid ""
+"Traverse E<.Fa mbuf Ns 's> tags and delete those which do not have the E<.Dv "
+"MTAG_PERSISTENT> flag set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:220
+#, no-wrap
+msgid "Fn m_tag_first mbuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:223
+msgid "Return the first tag associated with E<.Fa mbuf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:223
+#, no-wrap
+msgid "Fn m_tag_free tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:233
+msgid ""
+"Free E<.Fa tag> using its E<.Va m_tag_free> method.  The E<.Fn "
+"m_tag_free_default> function is used by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:233
+#, no-wrap
+msgid "Fn m_tag_init mbuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:236
+msgid "Initialize the tag storage for packet E<.Fa mbuf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:236
+#, no-wrap
+msgid "Fn m_tag_locate mbuf cookie type tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:255
+msgid ""
+"Search for a tag defined by E<.Fa type> and E<.Fa cookie> in E<.Fa mbuf>, "
+"starting from position specified by E<.Fa tag>.  If the latter is E<.Dv "
+"NULL>, then search through the whole list.  Upon success, a pointer to the "
+"first found tag is returned.  In either case, E<.Dv NULL> is returned.  A "
+"compatibility function E<.Fn m_tag_find> is also provided."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:255
+#, no-wrap
+msgid "Fn m_tag_next mbuf tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:263
+msgid ""
+"Return tag next to E<.Fa tag> in E<.Fa mbuf>.  If absent, E<.Dv NULL> is "
+"returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:263
+#, no-wrap
+msgid "Fn m_tag_prepend mbuf tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:268
+msgid ""
+"Add the new tag E<.Fa tag> at the head of the tag list for packet E<.Fa "
+"mbuf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/mbuf_tags.9:268
+#, no-wrap
+msgid "Fn m_tag_unlink mbuf tag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:273
+msgid "Remove tag E<.Fa tag> from the list of tags of packet E<.Fa mbuf>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mbuf_tags.9:274
+#, no-wrap
+msgid "CODE REFERENCES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:278
+msgid ""
+"The tag-manipulating code is contained in the file E<.Pa "
+"sys/kern/uipc_mbuf2.c>.  Inlined functions are defined in"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mbuf_tags.9:279
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:282
+msgid "E<.Xr queue 3>, E<.Xr mbuf 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/mbuf_tags.9:282
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/mbuf_tags.9:286
+msgid ""
+"The packet tags first appeared in E<.Ox 2.9> and were written by E<.An "
+"Angelos D. Keromytis Aq Mt angelos@openbsd.org>."
+msgstr ""

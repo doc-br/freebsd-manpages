@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_eiface.4:27
+#, no-wrap
+msgid "May 14, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_eiface.4:28
+#, no-wrap
+msgid "NG_EIFACE 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:32
+msgid "E<.Nm ng_eiface>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_eiface.4:32
+#, no-wrap
+msgid "generic Ethernet interface netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_eiface.4:34
+#, no-wrap
+msgid "netgraph/ng_eiface.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:52
+msgid ""
+"The E<.Vt eiface> netgraph node implements the generic Ethernet interface.  "
+"When an E<.Vt eiface> node is created, a new interface appears which is "
+"accessible via E<.Xr ifconfig 8>.  These interfaces are named E<.Dq Li "
+"ngeth0>, E<.Dq Li ngeth1>, etc.  When a node is shut down, the corresponding "
+"interface is removed, and the interface name becomes available for reuse by "
+"future E<.Vt eiface> nodes.  New nodes always take the first unused "
+"interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:52
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:64
+msgid ""
+"An E<.Vt eiface> node has a single hook named E<.Va ether>, which should be "
+"connected to the Ethernet downstream, for example, to the E<.Xr ng_vlan 4> "
+"node.  Packets transmitted via the interface flow out this hook.  Similarly, "
+"packets received on the hook go to the protocol stack as packets received by "
+"any real Ethernet interface."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:64
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:66
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_eiface.4:67
+#, no-wrap
+msgid "Dv NGM_EIFACE_SET Pq Ic set"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:79
+msgid ""
+"Set link-level address of the interface.  Requires E<.Vt \"struct "
+"ether_addr\"> as an argument.  This message also has an E<.Tn ASCII> "
+"version, called E<.Dq Li set>, which requires as an argument an E<.Tn ASCII> "
+"string consisting of 6 colon-separated hex digits."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_eiface.4:79
+#, no-wrap
+msgid "Dv NGM_EIFACE_GET_IFNAME Pq Ic getifname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:84
+msgid ""
+"Return the name of the associated interface as a E<.Dv NULL Ns -terminated> "
+"E<.Tn ASCII> string."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_eiface.4:84
+#, no-wrap
+msgid "Dv NGM_EIFACE_GET_IFADDRS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:86
+msgid "Return the list of link-level addresses associated with the node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:87
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:95
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message.  "
+"The associated interface is removed and its name becomes available for reuse "
+"by future E<.Vt eiface> nodes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:103
+msgid ""
+"Unlike most other node types, an E<.Vt eiface> node does E<.Em not> go away "
+"when all hooks have been disconnected; rather, an explicit E<.Dv "
+"NGM_SHUTDOWN> control message is required."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:103
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:110
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_ether 4>, E<.Xr ng_iface 4>, E<.Xr ng_vlan 4>, "
+"E<.Xr ifconfig 8>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:110
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:115
+msgid "The E<.Vt eiface> node type was implemented in E<.Fx 4.6>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_eiface.4:115
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_eiface.4:122
+msgid ""
+"E<.An -nosplit> The E<.Vt eiface> node type was written by E<.An Vitaly V "
+"Belekhov>.  This manual page was written by E<.An Gleb Smirnoff>."
+msgstr ""

@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:30
+#, no-wrap
+msgid "June 7, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:31
+#, no-wrap
+msgid "BLACKLISTD.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:33
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:35
+msgid "E<.Nm blacklistd.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:35
+#, no-wrap
+msgid "configuration file format for blacklistd"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:36
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:48
+msgid ""
+"The E<.Nm> files contains configuration lines for E<.Xr blacklistd 8>.  It "
+"contains one entry per line, and is similar to E<.Xr inetd.conf 5>.  There "
+"must be an entry for each field of the configuration file, with entries for "
+"each field separated by a tab or a space.  Comments are denoted by a E<.Dq "
+"#> at the beginning of a line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:64
+msgid ""
+"There are two kinds of configuration lines, E<.Va local> and E<.Va remote>.  "
+"By default, configuration lines are E<.Va local>, i.e. the address specified "
+"refers to the addresses on the local machine.  To switch to between E<.Va "
+"local> and E<.Va remote> configuration lines you can specify the stanzas: "
+"E<.Dq [local]> and E<.Dq [remote]>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:79
+msgid ""
+"On E<.Va local> and E<.Va remote> lines E<.Dq *> means use the default, or "
+"wildcard match.  In addition, for E<.Va remote> lines E<.Dq => means use the "
+"values from the matched E<.Va local> configuration line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:96
+msgid ""
+"The first four fields, E<.Va location>, E<.Va type>, E<.Va proto>, and E<.Va "
+"owner> are used to match the E<.Va local> or E<.Va remote> addresses, "
+"whereas the last 3 fields E<.Va name>, E<.Va nfail>, and E<.Va disable> are "
+"used to modify the filtering action."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:103
+msgid ""
+"The first field denotes the E<.Va location> as an address, mask, and port.  "
+"The syntax for the E<.Va location> is:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:105
+#, no-wrap
+msgid "\t[E<lt>addressE<gt>|E<lt>interfaceE<gt>][/E<lt>maskE<gt>][:E<lt>portE<gt>]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:114
+msgid ""
+"The E<.Dv address> can be an IPv4 address in numeric format, an IPv6 address "
+"in numeric format and enclosed by square brackets, or an interface name.  "
+"Mask modifiers are not allowed on interfaces because interfaces have "
+"multiple address in different protocols where the mask has a different size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:120
+msgid ""
+"The E<.Dv mask> is always numeric, but the E<.Dv port> can be either numeric "
+"or symbolic."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:137
+msgid ""
+"The second field is the socket E<.Va type>: E<.Dv stream>, E<.Dv dgram>, or "
+"numeric.  The third field is the E<.Va prococol>: E<.Dv tcp>, E<.Dv udp>, "
+"E<.Dv tcp6>, E<.Dv udp6>, or numeric.  The fourth file is the effective user "
+"E<.Va ( owner>)  of the daemon process reporting the event, either as a "
+"username or a userid."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:139
+msgid "The rest of the fields are controlling the behavior of the filter."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:155
+msgid ""
+"The E<.Va name> field, is the name of the packet filter rule to be used.  If "
+"the E<.Va name> starts with a E<.Dq ->, then the default rulename is "
+"prepended to the given name.  If the E<.Dv name> contains a E<.Dq />, the "
+"remaining portion of the name is interpreted as the mask to be applied to "
+"the address specified in the rule, so one can block whole subnets for a "
+"single rule violation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:176
+msgid ""
+"The E<.Va nfail> field contains the number of failed attempts before access "
+"is blocked, defaulting to E<.Dq *> meaning never, and the last field E<.Va "
+"disable> specifies the amount of time since the last access that the "
+"blocking rule should be active, defaulting to E<.Dq *> meaning forever.  The "
+"default unit for E<.Va disable> is seconds, but one can specify suffixes for "
+"different units, such as E<.Dq m> for minutes E<.Dq h> for hours and E<.Dq "
+"d> for days."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:190
+msgid ""
+"Matching is done first by checking the E<.Va local> rules one by one, from "
+"the most specific to the least specific.  If a match is found, then the "
+"E<.Va remote> rules are applied, and if a match is found the E<.Va name>, "
+"E<.Va nfail>, and E<.Va disable> fields can be altered by the E<.Va remote> "
+"rule that matched."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:196
+msgid ""
+"The E<.Va remote> rules can be used for whitelisting specific addresses, "
+"changing the mask size, or the rule that the packet filter uses, the number "
+"of failed attempts, or the blocked duration."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:196
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:198
+#, no-wrap
+msgid "Pa /etc/blacklistd.conf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:200
+msgid "Configuration file."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:201
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:213
+#, no-wrap
+msgid ""
+"# Block ssh, after 3 attempts for 6 hours on the bnx0 interface\n"
+"[local]\n"
+"# location\ttype\tproto\towner\tname\tnfail\tduration\n"
+"bnx0:ssh\t*\t*\t*\t*\t3\t6h\n"
+"[remote]\n"
+"# Never block 1.2.3.4\n"
+"1.2.3.4:ssh\t*\t*\t*\t*\t*\t*\n"
+"# For addresses coming from 8.8.0.0/16 block class C networks instead\n"
+"# individual hosts, but keep the rest of the blocking parameters the same.\n"
+"8.8.0.0/16:ssh\t*\t*\t*\t/24\t=\t=\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:214
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:217
+msgid "E<.Xr blacklistctl 8>, E<.Xr blacklistd 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:217
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:226
+msgid ""
+"E<.Nm> first appeared in E<.Nx 7>.  E<.Fx> support for E<.Nm> was "
+"implemented in E<.Fx 11>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:226
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/blacklist/bin/blacklistd.conf.5:227
+msgid "E<.An Christos Zoulas>"
+msgstr ""

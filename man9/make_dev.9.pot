@@ -1,0 +1,602 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/make_dev.9:27
+#, no-wrap
+msgid "March 2, 2016"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/make_dev.9:28
+#, no-wrap
+msgid "MAKE_DEV 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:43
+msgid ""
+"E<.Nm make_dev>, E<.Nm make_dev_cred>, E<.Nm make_dev_credf>, E<.Nm "
+"make_dev_p>, E<.Nm make_dev_s>, E<.Nm make_dev_alias>, E<.Nm "
+"make_dev_alias_p>, E<.Nm destroy_dev>, E<.Nm destroy_dev_sched>, E<.Nm "
+"destroy_dev_sched_cb>, E<.Nm destroy_dev_drain>, E<.Nm dev_depends>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/make_dev.9:43
+#, no-wrap
+msgid "manage"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:46
+msgid "E<.Vt cdev Ns 's> and DEVFS registration for devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:46
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/make_dev.9:47
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/make_dev.9:48
+#, no-wrap
+msgid "sys/conf.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:65
+msgid ""
+"E<.Ft void> E<.Fn make_dev_args_init \"struct make_dev_args *args\"> E<.Ft "
+"int> E<.Fn make_dev_s \"struct make_dev_args *args\" \"struct cdev **cdev\" "
+"\"const char *fmt\" ...> E<.Ft int> E<.Fn make_dev_alias_p \"int flags\" "
+"\"struct cdev **cdev\" \"struct cdev *pdev\" \"const char *fmt\" ...> E<.Ft "
+"void> E<.Fn destroy_dev \"struct cdev *dev\"> E<.Ft void> E<.Fn "
+"destroy_dev_sched \"struct cdev *dev\"> E<.Ft void> E<.Fn "
+"destroy_dev_sched_cb \"struct cdev *dev\" \"void (*cb)(void *)\" \"void "
+"*arg\"> E<.Ft void> E<.Fn destroy_dev_drain \"struct cdevsw *csw\"> E<.Ft "
+"void> E<.Fn dev_depends \"struct cdev *pdev\" \"struct cdev *cdev\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:77
+msgid ""
+"LEGACY INTERFACES E<.Ft struct cdev *> E<.Fn make_dev \"struct cdevsw "
+"*cdevsw\" \"int unit\" \"uid_t uid\" \"gid_t gid\" \"int perms\" \"const "
+"char *fmt\" ...> E<.Ft struct cdev *> E<.Fn make_dev_cred \"struct cdevsw "
+"*cdevsw\" \"int unit\" \"struct ucred *cr\" \"uid_t uid\" \"gid_t gid\" "
+"\"int perms\" \"const char *fmt\" ...> E<.Ft struct cdev *> E<.Fn "
+"make_dev_credf \"int flags\" \"struct cdevsw *cdevsw\" \"int unit\" \"struct "
+"ucred *cr\" \"uid_t uid\" \"gid_t gid\" \"int perms\" \"const char *fmt\" "
+"...> E<.Ft int> E<.Fn make_dev_p \"int flags\" \"struct cdev **cdev\" "
+"\"struct cdevsw *devsw\" \"struct ucred *cr\" \"uid_t uid\" \"gid_t gid\" "
+"\"int mode\" \"const char *fmt\" ...> E<.Ft struct cdev *> E<.Fn "
+"make_dev_alias \"struct cdev *pdev\" \"const char *fmt\" ...>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:77
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:95
+msgid ""
+"The E<.Fn make_dev_s> function creates a E<.Fa cdev> structure for a new "
+"device, which is returned into the E<.Fa cdev> argument.  It also notifies "
+"E<.Xr devfs 5> of the presence of the new device, that causes corresponding "
+"nodes to be created.  Besides this, a E<.Xr devctl 4> notification is sent.  "
+"The function takes the structure E<.Va struct make_dev_args args>, which "
+"specifies the parameters for the device creation:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:109
+#, no-wrap
+msgid ""
+"struct make_dev_args {\n"
+"\tsize_t\t\t mda_size;\n"
+"\tint\t\t mda_flags;\n"
+"\tstruct cdevsw\t*mda_devsw;\n"
+"\tstruct ucred\t*mda_cr;\n"
+"\tuid_t\t\t mda_uid;\n"
+"\tgid_t\t\t mda_gid;\n"
+"\tint\t\t mda_mode;\n"
+"\tint\t\t mda_unit;\n"
+"\tvoid\t\t*mda_si_drv1;\n"
+"\tvoid\t\t*mda_si_drv2;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:115
+msgid ""
+"Before use and filling with the desired values, the structure must be "
+"initialized by the E<.Fn make_dev_args_init> function, which ensures that "
+"future kernel interface expansion does not affect driver source code or "
+"binary interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:135
+msgid ""
+"The created device will be owned by E<.Va args.mda_uid>, with the group "
+"ownership as E<.Va args.mda_gid>.  The name is the expansion of E<.Va fmt> "
+"and following arguments as E<.Xr printf 9> would print it.  The name "
+"determines its path under E<.Pa /dev> or other E<.Xr devfs 5> mount point "
+"and may contain slash E<.Ql /> characters to denote subdirectories.  The "
+"permissions of the file specified in E<.Va args.mda_mode> are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/make_dev.9:135
+#, no-wrap
+msgid "sys/stat.h :"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:142
+#, no-wrap
+msgid ""
+"#define S_IRWXU 0000700    /* RWX mask for owner */\n"
+"#define S_IRUSR 0000400    /* R for owner */\n"
+"#define S_IWUSR 0000200    /* W for owner */\n"
+"#define S_IXUSR 0000100    /* X for owner */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:147
+#, no-wrap
+msgid ""
+"#define S_IRWXG 0000070    /* RWX mask for group */\n"
+"#define S_IRGRP 0000040    /* R for group */\n"
+"#define S_IWGRP 0000020    /* W for group */\n"
+"#define S_IXGRP 0000010    /* X for group */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:152
+#, no-wrap
+msgid ""
+"#define S_IRWXO 0000007    /* RWX mask for other */\n"
+"#define S_IROTH 0000004    /* R for other */\n"
+"#define S_IWOTH 0000002    /* W for other */\n"
+"#define S_IXOTH 0000001    /* X for other */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:159
+#, no-wrap
+msgid ""
+"#define S_ISUID 0004000    /* set user id on execution */\n"
+"#define S_ISGID 0002000    /* set group id on execution */\n"
+"#define S_ISVTX 0001000    /* sticky bit */\n"
+"#ifndef _POSIX_SOURCE\n"
+"#define S_ISTXT 0001000\n"
+"#endif\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:167
+msgid ""
+"The E<.Va args.mda_cr> argument specifies credentials that will be stored in "
+"the E<.Fa si_cred> member of the initialized E<.Fa struct cdev>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:173
+msgid ""
+"The E<.Va args.mda_flags> argument alters the operation of E<.Fn "
+"make_dev_s.> The following values are currently accepted:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:175
+#, no-wrap
+msgid "Dv MAKEDEV_REF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:177
+msgid "reference the created device"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:177
+#, no-wrap
+msgid "Dv MAKEDEV_NOWAIT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:179
+msgid "do not sleep, the call may fail"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:179
+#, no-wrap
+msgid "Dv MAKEDEV_WAITOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:181
+msgid "allow the function to sleep to satisfy malloc"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:181
+#, no-wrap
+msgid "Dv MAKEDEV_ETERNAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:183
+msgid "created device will be never destroyed"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:183
+#, no-wrap
+msgid "Dv MAKEDEV_CHECKNAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:185
+msgid "return an error if the device name is invalid or already exists"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:195
+msgid ""
+"Only E<.Dv MAKEDEV_NOWAIT>, E<.Dv MAKEDEV_WAITOK> and E<.Dv "
+"MAKEDEV_CHECKNAME> values are accepted for the E<.Fn make_dev_alias_p> "
+"function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:202
+msgid ""
+"The E<.Dv MAKEDEV_WAITOK> flag is assumed if none of E<.Dv MAKEDEV_WAITOK>, "
+"E<.Dv MAKEDEV_NOWAIT> is specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:211
+msgid ""
+"The E<.Xr dev_clone 9> event handler shall specify E<.Dv MAKEDEV_REF> flag "
+"when creating a device in response to lookup, to avoid race where the device "
+"created is destroyed immediately after E<.Xr devfs_lookup 9> drops his "
+"reference to cdev."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:223
+msgid ""
+"The E<.Dv MAKEDEV_ETERNAL> flag allows the kernel to not acquire some locks "
+"when translating system calls into the cdevsw methods calls.  It is "
+"responsibility of the driver author to make sure that E<.Fn destroy_dev> is "
+"never called on the returned cdev.  For the convenience, use the E<.Dv "
+"MAKEDEV_ETERNAL_KLD> flag for the code that can be compiled into kernel or "
+"loaded (and unloaded) as loadable module."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:228
+msgid ""
+"A panic will occur if the E<.Dv MAKEDEV_CHECKNAME> flag is not specified and "
+"the device name is invalid or already exists."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:232
+msgid "The E<.Fn make_dev_p> use of the form"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:236
+#, no-wrap
+msgid ""
+"struct cdev *dev;\n"
+"int res;\n"
+"res = make_dev_p(flags, &dev, cdevsw, cred, uid, gid, perms, name);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:238
+msgid "is equivalent to the code"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:242
+#, no-wrap
+msgid ""
+"struct cdev *dev;\n"
+"struct make_dev_args args;\n"
+"int res;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:251
+#, no-wrap
+msgid ""
+"make_dev_args_init(&args);\n"
+"args.mda_flags = flags;\n"
+"args.mda_devsw = cdevsw;\n"
+"args.mda_cred = cred;\n"
+"args.mda_uid = uid;\n"
+"args.mda_gid = gid;\n"
+"args.mda_mode = perms;\n"
+"res = make_dev_s(&args, &dev, name);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:256
+msgid "Similarly, the E<.Fn make_dev_credf> function call is equivalent to"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:258
+#, no-wrap
+msgid "\t(void) make_dev_s(&args, &dev, name);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:265
+msgid ""
+"In other words, E<.Fn make_dev_credf> does not allow the caller to obtain "
+"the return value, and in kernels compiled with the E<.Va INVARIANTS> "
+"options, the function asserts that the device creation succeeded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:269
+msgid "The E<.Fn make_dev_cred> function is equivalent to the call"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:271
+#, no-wrap
+msgid "make_dev_credf(0, cdevsw, unit, cr, uid, gid, perms, fmt, ...);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:276
+msgid "The E<.Fn make_dev> function call is the same as"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:278
+#, no-wrap
+msgid "make_dev_credf(0, cdevsw, unit, NULL, uid, gid, perms, fmt, ...);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:291
+msgid ""
+"The E<.Fn make_dev_alias_p> function takes the returned E<.Ft cdev> from "
+"E<.Fn make_dev> and makes another (aliased) name for this device.  It is an "
+"error to call E<.Fn make_dev_alias_p> prior to calling E<.Fn make_dev>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:299
+msgid ""
+"The E<.Fn make_dev_alias> function is similar to E<.Fn make_dev_alias> but "
+"it returns the resulting aliasing E<.Ft *cdev> and may not return an error."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:336
+msgid ""
+"The E<.Fa cdev> returned by E<.Fn make_dev_s> and E<.Fn make_dev_alias_p> "
+"has two fields, E<.Fa si_drv1> and E<.Fa si_drv2>, that are available to "
+"store state.  Both fields are of type E<.Ft void *>, and can be initialized "
+"simultaneously with the E<.Va cdev> allocation by filling E<.Va "
+"args.mda_si_drv1> and E<.Va args.mda_si_drv2> members of the E<.Fn "
+"make_dev_s> argument structure, or filled after the E<.Va cdev> is "
+"allocated, if using legacy interfaces.  In the latter case, the driver "
+"should handle the race of accessing uninitialized E<.Va si_drv1> and E<.Va "
+"si_drv2> itself.  These are designed to replace the E<.Fa unit> argument to "
+"E<.Fn make_dev>, which can be obtained with E<.Fn dev2unit>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:351
+msgid ""
+"The E<.Fn destroy_dev> function takes the returned E<.Fa cdev> from E<.Fn "
+"make_dev> and destroys the registration for that device.  The notification "
+"is sent to E<.Xr devctl 4> about the destruction event.  Do not call E<.Fn "
+"destroy_dev> on devices that were created with E<.Fn make_dev_alias>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:362
+msgid ""
+"The E<.Fn dev_depends> function establishes a parent-child relationship "
+"between two devices.  The net effect is that a E<.Fn destroy_dev> of the "
+"parent device will also result in the destruction of the child device(s), if "
+"any exist.  A device may simultaneously be a parent and a child, so it is "
+"possible to build a complete hierarchy."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:383
+msgid ""
+"The E<.Fn destroy_dev_sched_cb> function schedules execution of the E<.Fn "
+"destroy_dev> for the specified E<.Fa cdev> in the safe context.  After E<.Fn "
+"destroy_dev> is finished, and if the supplied E<.Fa cb> is not E<.Dv NULL>, "
+"the callback E<.Fa cb> is called, with argument E<.Fa arg>.  The E<.Fn "
+"destroy_dev_sched> function is the same as"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:385
+#, no-wrap
+msgid "destroy_dev_sched_cb(cdev, NULL, NULL);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:401
+msgid ""
+"The E<.Fn d_close> driver method cannot call E<.Fn destroy_dev> directly.  "
+"Doing so causes deadlock when E<.Fn destroy_dev> waits for all threads to "
+"leave the driver methods.  Also, because E<.Fn destroy_dev> sleeps, no "
+"non-sleepable locks may be held over the call.  The E<.Fn destroy_dev_sched> "
+"family of functions overcome these issues."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:413
+msgid ""
+"The device driver may call the E<.Fn destroy_dev_drain> function to wait "
+"until all devices that have supplied E<.Fa csw> as cdevsw, are destroyed.  "
+"This is useful when driver knows that E<.Fn destroy_dev_sched> is called for "
+"all instantiated devices, but need to postpone module unload until E<.Fn "
+"destroy_dev> is actually finished for all of them."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:413
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:425
+msgid ""
+"If successful, E<.Fn make_dev_s> and E<.Fn make_dev_p> will return 0, "
+"otherwise they will return an error.  If successful, E<.Fn make_dev_credf> "
+"will return a valid E<.Fa cdev> pointer, otherwise it will return E<.Dv "
+"NULL>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:425
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:432
+msgid ""
+"The E<.Fn make_dev_s>, E<.Fn make_dev_p> and E<.Fn make_dev_alias_p> calls "
+"will fail and the device will be not registered if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:433
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:437
+msgid ""
+"The E<.Dv MAKEDEV_NOWAIT> flag was specified and a memory allocation request "
+"could not be satisfied."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:437
+#, no-wrap
+msgid "Bq Er ENAMETOOLONG"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:442
+msgid ""
+"The E<.Dv MAKEDEV_CHECKNAME> flag was specified and the provided device name "
+"is longer than E<.Dv SPECNAMELEN>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:442 /usr/src/share/man/man9/make_dev.9:451
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:451
+msgid ""
+"The E<.Dv MAKEDEV_CHECKNAME> flag was specified and the provided device name "
+"is empty, contains a E<.Qq \\&.> or E<.Qq ..> path component or ends with "
+"E<.Ql />."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:455
+msgid ""
+"The E<.Dv MAKEDEV_CHECKNAME> flag was specified and the provided device name "
+"contains invalid characters."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/make_dev.9:455
+#, no-wrap
+msgid "Bq Er EEXIST"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:459
+msgid ""
+"The E<.Dv MAKEDEV_CHECKNAME> flag was specified and the provided device name "
+"already exists."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:460
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:464
+msgid "E<.Xr devctl 4>, E<.Xr devfs 5>, E<.Xr dev_clone 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/make_dev.9:464
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/make_dev.9:492
+msgid ""
+"The E<.Fn make_dev> and E<.Fn destroy_dev> functions first appeared in E<.Fx "
+"4.0>.  The function E<.Fn make_dev_alias> first appeared in E<.Fx 4.1>.  The "
+"function E<.Fn dev_depends> first appeared in E<.Fx 5.0>.  The functions "
+"E<.Fn make_dev_credf>, E<.Fn destroy_dev_sched>, E<.Fn destroy_dev_sched_cb> "
+"first appeared in E<.Fx 7.0>.  The function E<.Fn make_dev_p> first appeared "
+"in E<.Fx 8.2>.  The function E<.Fn make_dev_s> first appeared in E<.Fx "
+"11.0>."
+msgstr ""

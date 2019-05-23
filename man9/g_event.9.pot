@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/g_event.9:27
+#, no-wrap
+msgid "January 16, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/g_event.9:28
+#, no-wrap
+msgid "G_EVENT 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:34
+msgid "E<.Nm g_post_event>, E<.Nm g_waitfor_event>, E<.Nm g_cancel_event>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/g_event.9:34
+#, no-wrap
+msgid "GEOM events management"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:35
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/g_event.9:36
+#, no-wrap
+msgid "geom/geom.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:43
+msgid ""
+"E<.Ft int> E<.Fn g_post_event \"g_event_t *func\" \"void *arg\" \"int flag\" "
+"...> E<.Ft int> E<.Fn g_waitfor_event \"g_event_t *func\" \"void *arg\" "
+"\"int flag\" ...> E<.Ft void> E<.Fn g_cancel_event \"void *ref\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:49
+msgid ""
+"The GEOM framework has its own event queue to inform classes about important "
+"events.  The event queue can be also used by GEOM classes themselves, for "
+"example to work around some restrictions in the I/O path, where sleeping, "
+"heavy weight tasks, etc.\\& are not permitted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:74
+msgid ""
+"The E<.Fn g_post_event> function tells the GEOM framework to call function "
+"E<.Fa func> with argument E<.Fa arg> from the event queue.  The E<.Fa flag> "
+"argument is passed to E<.Xr malloc 9> for memory allocations inside of E<.Fn "
+"g_post_event>.  The only allowed flags are E<.Dv M_WAITOK> and E<.Dv "
+"M_NOWAIT>.  The rest of the arguments are used as references to identify the "
+"event.  An event can be canceled by using any of the given references as an "
+"argument to E<.Fn g_cancel_event>.  The list of references has to end with a "
+"E<.Dv NULL> value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:81
+msgid ""
+"The E<.Fn g_waitfor_event> function is a blocking version of the E<.Fn "
+"g_post_event> function.  It waits until the event is finished or canceled "
+"and then returns."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:91
+msgid ""
+"The E<.Fn g_cancel_event> function cancels all event(s) identified by E<.Fa "
+"ref>.  Cancellation is equivalent to calling the requested function with "
+"requested arguments and argument E<.Fa flag> set to E<.Dv EV_CANCEL>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:91
+#, no-wrap
+msgid "RESTRICTIONS/CONDITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:93
+msgid "E<.Fn g_post_event>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:101 /usr/src/share/man/man9/g_event.9:116
+msgid "The argument E<.Fa flag> has to be E<.Dv M_WAITOK> or E<.Dv M_NOWAIT>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:105 /usr/src/share/man/man9/g_event.9:120
+msgid "The list of references has to end with a E<.Dv NULL> value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:108
+msgid "E<.Fn g_waitfor_event>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:125
+msgid ""
+"The E<.Fn g_waitfor_event> function cannot be called from an event, since "
+"doing so would result in a deadlock."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:126
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:133
+msgid ""
+"The E<.Fn g_post_event> and E<.Fn g_waitfor_event> functions return 0 if "
+"successful; otherwise an error code is returned."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:133
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:135
+msgid "Example of a function called from the event queue."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:139
+#, no-wrap
+msgid ""
+"void\n"
+"example_event(void *arg, int flag)\n"
+"{\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:144
+#, no-wrap
+msgid ""
+"\tif (flag == EV_CANCEL) {\n"
+"\t\tprintf(\"Event with argument %p canceled.\\en\", arg);\n"
+"\t\treturn;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:147
+#, no-wrap
+msgid ""
+"\tprintf(\"Event with argument %p called.\\en\", arg);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:148
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:152
+msgid "Possible errors for the E<.Fn g_post_event> function:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/g_event.9:153 /usr/src/share/man/man9/g_event.9:167
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:159 /usr/src/share/man/man9/g_event.9:173
+msgid ""
+"The E<.Fa flag> argument was set to E<.Dv M_NOWAIT> and there was "
+"insufficient memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:164
+msgid "Possible errors for the E<.Fn g_waitfor_event> function:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/g_event.9:165
+#, no-wrap
+msgid "Bq Er EAGAIN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:167
+msgid "The event was canceled."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:174
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:186
+msgid ""
+"E<.Xr geom 4>, E<.Xr DECLARE_GEOM_CLASS 9>, E<.Xr g_access 9>, E<.Xr "
+"g_attach 9>, E<.Xr g_bio 9>, E<.Xr g_consumer 9>, E<.Xr g_data 9>, E<.Xr "
+"g_geom 9>, E<.Xr g_provider 9>, E<.Xr g_provider_by_name 9>, E<.Xr "
+"g_wither_geom 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_event.9:186
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_event.9:189
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Pawel Jakub Dawidek Aq "
+"Mt pjd@FreeBSD.org>."
+msgstr ""

@@ -1,0 +1,493 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_tag.4:27
+#, no-wrap
+msgid "June 10, 2006"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_tag.4:28
+#, no-wrap
+msgid "NG_TAG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:32
+msgid "E<.Nm ng_tag>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_tag.4:32
+#, no-wrap
+msgid "mbuf tags manipulating netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_tag.4:34
+#, no-wrap
+msgid "netgraph/ng_tag.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:35
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:56
+msgid ""
+"The E<.Nm tag> node type allows mbuf packet tags (see E<.Xr mbuf_tags 9>)  "
+"to be examined, stripped or applied to data travelling through a Netgraph "
+"network.  Mbuf tags are used in many parts of the E<.Fx> kernel network "
+"subsystem, including the storage of VLAN tags as described in E<.Xr vlan 4>, "
+"Mandatory Access Control (MAC) labels as described in E<.Xr mac 9>, IPsec "
+"policy information as described in E<.Xr ipsec 4>, and packet filter tags "
+"used by E<.Xr pf 4>.  One should also consider useful setting or checking "
+"E<.Xr ipfw 8> tags, which are implemented as mbuf tags, too."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:64
+msgid ""
+"Each node allows an arbitrary number of connections to arbitrarily named "
+"hooks.  With each hook is associated a tag which will be searched in the "
+"list of all tags attached to a packet incoming to this hook, a destination "
+"hook for matching packets, a destination hook for non-matching packets, a "
+"tag which will be appended to data leaving node through this hook, and "
+"various statistics counters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:83
+msgid ""
+"The list of incoming packet's tags is traversed to find a tag with specified "
+"E<.Va type> and E<.Va cookie> values.  Upon match, if specified E<.Va "
+"tag_len> is non-zero, E<.Va tag_data> of tag is checked to be identical to "
+"that specified in the hook structure.  Packets with matched tags are "
+"forwarded to E<.Dq match> destination hook, or forwarded to E<.Dq non-match> "
+"hook otherwise.  Either or both destination hooks can be an empty string, or "
+"may not exist, in which case the packet is dropped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:100
+msgid ""
+"Tag list of packets leaving the node is extended with a new tag specified in "
+"outgoing hook structure (it is possible to avoid appending a new tag to pass "
+"packet completely unchanged by specifying zero E<.Va type> and E<.Va cookie> "
+"values in the structure of the corresponding outgoing hook).  Additionally, "
+"a tag can be stripped from incoming packet after match if E<.Va strip> flag "
+"is set.  This can be used for simple tag removal or tag replacement, if "
+"combined with tag addition on outgoing matching hook.  Note that new tag is "
+"appended unconditionally, without checking if such a tag is already present "
+"in the list (it is up to user to check if this is a concern)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:105
+msgid ""
+"New hooks are initially configured to drop all incoming packets (as all hook "
+"names are empty strings; zero values can be specified to forward all packets "
+"to non-matching hook), and to forward all outgoing packets without any tag "
+"appending."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:108
+msgid ""
+"Data payload of packets passing through the node is completely unchanged, "
+"all operations can affect tag list only."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:108
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:113
+msgid ""
+"This node type supports any number of hooks having arbitrary names.  In "
+"order to allow internal optimizations, user should never try to configure a "
+"hook with a structure pointing to hooks which do not exist yet.  The safe "
+"way is to create all hooks first, then begin to configure them."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:113
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:115
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:116
+#, no-wrap
+msgid "Dv NGM_TAG_SET_HOOKIN Pq Ic sethookin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:120
+msgid ""
+"This command sets tag values which will be searched in the tag list of "
+"incoming packets on a hook.  The following structure must be supplied as an "
+"argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:131
+#, no-wrap
+msgid ""
+"struct ng_tag_hookin {\n"
+"  char\t\t  thisHook[NG_HOOKSIZ];     /* name of hook */\n"
+"  char\t\t  ifMatch[NG_HOOKSIZ];\t    /* match dest hook */\n"
+"  char\t\t  ifNotMatch[NG_HOOKSIZ];   /* !match dest hook */\n"
+"  uint8_t\t  strip;\t\t    /* strip tag if found */\n"
+"  uint32_t\t  tag_cookie;\t\t    /* ABI/Module ID */\n"
+"  uint16_t\t  tag_id;\t\t    /* tag ID */\n"
+"  uint16_t\t  tag_len;\t\t    /* length of data */\n"
+"  uint8_t\t  tag_data[0];\t\t    /* tag data */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:152
+msgid ""
+"The hook to be updated is specified in E<.Va thisHook>.  Data bytes of tag "
+"corresponding to specified E<.Va tag_id> (type) and E<.Va tag_cookie> are "
+"placed in the E<.Va tag_data> array; there must be E<.Va tag_len> of them.  "
+"Matching and non-matching incoming packets are delivered out the hooks named "
+"E<.Va ifMatch> and E<.Va ifNotMatch>, respectively.  If E<.Va strip> flag is "
+"non-zero, then found tag is deleted from list of packet tags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:152
+#, no-wrap
+msgid "Dv NGM_TAG_GET_HOOKIN Pq Ic gethookin"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:159
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"returns the corresponding E<.Vt \"struct ng_tag_hookin\"> as shown above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:159
+#, no-wrap
+msgid "Dv NGM_TAG_SET_HOOKOUT Pq Ic sethookout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:163
+msgid ""
+"This command sets tags values which will be applied to outgoing packets.  "
+"The following structure must be supplied as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:171
+#, no-wrap
+msgid ""
+"struct ng_tag_hookout {\n"
+"  char\t\t  thisHook[NG_HOOKSIZ];     /* name of hook */\n"
+"  uint32_t\t  tag_cookie;\t\t    /* ABI/Module ID */\n"
+"  uint16_t\t  tag_id;\t\t    /* tag ID */\n"
+"  uint16_t\t  tag_len;\t\t    /* length of data */\n"
+"  uint8_t\t  tag_data[0];\t\t    /* tag data */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:178
+msgid ""
+"The hook to be updated is specified in E<.Va thisHook>.  Other variables "
+"mean basically the same as in E<.Vt \"struct ng_tag_hookin\"> shown above, "
+"except used for setting values in a new tag."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:178
+#, no-wrap
+msgid "Dv NGM_TAG_GET_HOOKOUT Pq Ic gethookout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:185
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"returns the corresponding E<.Vt \"struct ng_tag_hookout\"> as shown above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:185
+#, no-wrap
+msgid "Dv NGM_TAG_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:191
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"returns the statistics associated with the hook as a E<.Vt \"struct "
+"ng_tag_hookstat\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:191
+#, no-wrap
+msgid "Dv NGM_TAG_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:196
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"clears the statistics associated with the hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_tag.4:196
+#, no-wrap
+msgid "Dv NGM_TAG_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:200
+msgid ""
+"This command is identical to E<.Dv NGM_TAG_GET_STATS>, except that the "
+"statistics are also atomically cleared."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:211
+msgid ""
+"E<.Em Note:> statistics counters as well as three statistics messages above "
+"work only if code was compiled with the E<.Dv NG_TAG_DEBUG> option.  The "
+"reason for this is that statistics is rarely used in practice, but still "
+"consumes CPU cycles for every packet.  Moreover, it is even not accurate on "
+"SMP systems due to lack of synchronization between threads, as this is very "
+"expensive."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:211
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:215
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:215
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:250
+msgid ""
+"It is possible to do a simple L7 filtering by using E<.Xr ipfw 8> tags in "
+"conjunction with E<.Xr ng_bpf 4> traffic analyzer.  Example below explains "
+"how to filter DirectConnect P2P network data traffic, which cannot be done "
+"by usual means as it uses random ports.  It is known that such data "
+"connection always contains a TCP packet with 6-byte payload string "
+"\"$Send|\".  So ipfw's E<.Cm netgraph> action will be used to divert all TCP "
+"packets to an E<.Xr ng_bpf 4> node which will check for the specified string "
+"and return non-matching packets to E<.Xr ipfw 8>.  Matching packets are "
+"passed to E<.Nm> node, which will set a tag and pass them back to E<.Xr "
+"ng_bpf 4> node on a hook programmed to accept all packets and pass them back "
+"to E<.Xr ipfw 8>.  A script provided in E<.Xr ng_bpf 4> manual page will be "
+"used for programming node.  Note that packets diverted from E<.Xr ipfw 8> to "
+"Netgraph have no link-level header, so offsets in E<.Xr tcpdump 1> "
+"expressions must be altered accordingly.  Thus, there will be expression "
+"E<.Dq Li \"ether[40:2]=0x244c && ether[42:4]=0x6f636b20\"> on incoming hook "
+"and empty expression to match all packets from E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:254
+msgid ""
+"So, this is E<.Xr ngctl 8> script for nodes creating and naming for easier "
+"access:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:261
+#, no-wrap
+msgid ""
+"/usr/sbin/ngctl -f- E<lt>E<lt>-SEQ\n"
+"\tmkpeer ipfw: bpf 41 ipfw\n"
+"\tname ipfw:41 dcbpf\n"
+"\tmkpeer dcbpf: tag matched th1\n"
+"\tname dcbpf:matched ngdc\n"
+"SEQ\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:276
+msgid ""
+"Now E<.Dq Li ngdc> node (which is of type E<.Nm>)  must be programmed to "
+"echo all packets received on the E<.Dq Li th1> hook back, with the E<.Xr "
+"ipfw 8> tag 412 attached.  E<.Dv MTAG_IPFW> value for E<.Va tag_cookie> was "
+"taken from file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_tag.4:276
+#, no-wrap
+msgid "netinet/ip_fw.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:280
+msgid "and value for E<.Va tag_id> is tag number (412), with zero tag length:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:285
+#, no-wrap
+msgid ""
+"ngctl msg ngdc: sethookin { thisHook=\\e\"th1\\e\" ifNotMatch=\\e\"th1\\e\" "
+"}\n"
+"ngctl msg ngdc: sethookout { thisHook=\\e\"th1\\e\" \\e\n"
+"  tag_cookie=1148380143 \\e\n"
+"  tag_id=412 }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:295
+msgid ""
+"Do not forget to program E<.Xr ng_bpf 4> E<.Dq Li ipfw> hook with the above "
+"expression (see E<.Xr ng_bpf 4> for script doing this) and E<.Dq Li matched> "
+"hook with an empty expression:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:298
+#, no-wrap
+msgid ""
+"ngctl msg dcbpf: setprogram { thisHook=\\e\"matched\\e\" "
+"ifMatch=\\e\"ipfw\\e\" \\e\n"
+"  bpf_prog_len=1 bpf_prog=[ { code=6 k=8192 } ] }\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:305
+msgid ""
+"After finishing with E<.Xr netgraph 4> nodes, E<.Xr ipfw 8> rules must be "
+"added to enable packet flow:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:308
+#, no-wrap
+msgid ""
+"ipfw add 100 netgraph 41 tcp from any to any iplen 46\n"
+"ipfw add 110 reset tcp from any to any tagged 412\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:316
+msgid ""
+"Note: one should ensure that packets are returned to ipfw after processing "
+"inside E<.Xr netgraph 4>, by setting appropriate E<.Xr sysctl 8> variable:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:318
+#, no-wrap
+msgid "sysctl net.inet.ip.fw.one_pass=0\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:319
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:326
+msgid ""
+"E<.Xr netgraph 4>, E<.Xr ng_bpf 4>, E<.Xr ng_ipfw 4>, E<.Xr ipfw 8>, E<.Xr "
+"ngctl 8>, E<.Xr mbuf_tags 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:326
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:331
+msgid "The E<.Nm> node type was implemented in E<.Fx 6.2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:331
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:333
+msgid "E<.An Vadim Goncharov Aq Mt vadimnuclight@tpu.ru>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_tag.4:333
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_tag.4:338
+msgid ""
+"For manipulating any tags with data payload (that is, all tags with non-zero "
+"E<.Va tag_len>)  one should care about non-portable machine-dependent "
+"representation of tags on the low level as byte stream.  Perhaps this should "
+"be done by another program rather than manually."
+msgstr ""

@@ -1,0 +1,206 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:28
+#, no-wrap
+msgid "November 16, 2002"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:29
+#, no-wrap
+msgid "HCSECD 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:33
+msgid "E<.Nm hcsecd>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:33
+#, no-wrap
+msgid "control link keys and PIN codes for Bluetooth devices"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:38
+msgid "E<.Nm> E<.Op Fl dh> E<.Fl f Ar configfile>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:48
+msgid ""
+"The E<.Nm> daemon controls link keys and PIN codes for Bluetooth devices.  "
+"It opens a raw HCI socket and listens for E<.Dv Link_Key_Request>, E<.Dv "
+"PIN_Code_Request> and E<.Dv Link_Key_Notification> HCI events."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:72
+msgid ""
+"Once a E<.Dv Link_Key_Request> or E<.Dv PIN_Code_Request> HCI event is "
+"received, the daemon scans the configuration file for a matching entry.  The "
+"remote device BD_ADDR is used as a key.  If no matching entry was found, the "
+"default entry will be used.  If no default entry was found then it is "
+"assumed that no link key and no PIN code exists.  For any given entry, the "
+"link key takes precedence over the PIN code.  If a link key was not "
+"specified, the device must generate the link key from the PIN code.  If an "
+"entry was found and the link key (or PIN code) exists, the E<.Dv "
+"Link_Key_Request_Reply> (or E<.Dv PIN_Code_Request_Reply>)  command will be "
+"sent back to the device.  Otherwise, the E<.Dv "
+"Link_Key_Request_Negative_Reply> (or E<.Dv PIN_Code_Request_Negative_Reply>)  "
+"command will be sent back to the device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:98
+msgid ""
+"The E<.Nm> daemon also handles HCI E<.Dv Link_Key_Notification> events and "
+"caches link keys created from the PIN codes in memory.  To preserve link "
+"keys between restarts the E<.Nm> daemon dumps link keys for all entries in "
+"the E<.Pa /var/db/hcsecd.keys> link keys file.  If it exists, the link keys "
+"file gets processed by the E<.Nm> daemon after it processes its main "
+"configuration file.  The link keys file gets written every time the E<.Nm> "
+"daemon shuts down gracefully.  It is possible to force the E<.Nm> daemon to "
+"re-read its main configuration file and dump the link keys file by sending "
+"the E<.Dv HUP> signal to the E<.Nm> process.  The user is expected to not "
+"modify the link keys file by hand."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:100
+msgid "The command line options are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:101
+#, no-wrap
+msgid "Fl d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:103
+msgid "Do not detach from the controlling terminal."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:103
+#, no-wrap
+msgid "Fl f Ar configfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:107
+msgid ""
+"Specify the name of the configuration file.  The default is E<.Pa "
+"/etc/bluetooth/hcsecd.conf>."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:107
+#, no-wrap
+msgid "Fl h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:109
+msgid "Display usage message and exit."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:110
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:112
+#, no-wrap
+msgid "Pa /etc/bluetooth/hcsecd.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:113
+#, no-wrap
+msgid "Pa /var/db/hcsecd.keys"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:114
+#, no-wrap
+msgid "Pa /var/run/hcsecd.pid"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:116
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:122
+msgid ""
+"E<.Xr ng_btsocket 4>, E<.Xr ng_hci 4>, E<.Xr hcsecd.conf 5>, E<.Xr hccontrol "
+"8>, E<.Xr hcseriald 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:122
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:124
+msgid "E<.An Maksim Yevmenkin Aq Mt m_evmenkin@yahoo.com>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:124
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/bluetooth/hcsecd/hcsecd.8:128
+msgid ""
+"Currently there is no way to select the link key or the PIN code based on "
+"which local device received the request.  Everything is based on the remote "
+"device BD_ADDR.  An interface for external helpers to obtain link keys and "
+"PIN codes is missing."
+msgstr ""

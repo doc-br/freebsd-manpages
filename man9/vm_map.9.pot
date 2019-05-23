@@ -1,0 +1,901 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/vm_map.9:28
+#, no-wrap
+msgid "July 3, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/vm_map.9:29
+#, no-wrap
+msgid "VM_MAP 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_map.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:33
+msgid "E<.Nm vm_map>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/vm_map.9:33
+#, no-wrap
+msgid "virtual address space portion of virtual memory subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_map.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_map.9:35
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_map.9:36
+#, no-wrap
+msgid "vm/vm.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/vm_map.9:37
+#, no-wrap
+msgid "vm/vm_map.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_map.9:38
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:43
+msgid ""
+"The E<.Nm> subsystem is used to manage virtual address spaces.  This section "
+"describes the main data structures used within the code."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:52
+msgid ""
+"The E<.Vt \"struct vm_map\"> is a generic representation of an address "
+"space.  This address space may belong to a user process or the kernel.  The "
+"kernel actually uses several maps, which are maintained as subordinate maps, "
+"created using the E<.Xr vm_map_submap 9> function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:67
+#, no-wrap
+msgid ""
+"struct vm_map {\n"
+"        struct vm_map_entry header;\n"
+"        struct sx lock;\n"
+"        struct mtx system_mtx;\n"
+"        int nentries;\n"
+"        vm_size_t size;\n"
+"        u_int timestamp;\n"
+"        u_char needs_wakeup;\n"
+"        u_char system_map;\n"
+"        vm_flags_t flags;\n"
+"        vm_map_entry_t root;\n"
+"        pmap_t pmap;\n"
+"        int busy;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:72
+msgid "The fields of E<.Vt struct vm_map> are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:73
+#, no-wrap
+msgid "Va header"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:78
+msgid ""
+"Head node of a circular, doubly linked list of E<.Vt struct vm_map_entry> "
+"objects.  Each object defines a particular region within this map's address "
+"space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:78
+#, no-wrap
+msgid "Va lock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:80
+msgid "Used to serialize access to the structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:80
+#, no-wrap
+msgid "Va system_mtx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:82
+msgid "A mutex which is used if the map is a system map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:82
+#, no-wrap
+msgid "Va nentries"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:84
+msgid "A count of the members in use within the circular map entry list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:84
+#, no-wrap
+msgid "Va size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:86
+msgid "Specifies the size of the virtual address space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:86
+#, no-wrap
+msgid "Va timestamp"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:88
+msgid "Used to determine if the map has changed since its last access."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:88
+#, no-wrap
+msgid "Va needs_wakeup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:91
+msgid ""
+"Indicates if a thread is waiting for an allocation within the map.  Used "
+"only by system maps."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:91
+#, no-wrap
+msgid "Va system_map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:94
+msgid ""
+"Set to TRUE to indicate that map is a system map; otherwise, it belongs to a "
+"user process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:94
+#, no-wrap
+msgid "Va flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:96
+msgid "Map flags, described below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:96
+#, no-wrap
+msgid "Va root"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:98
+msgid "Root node of a binary search tree used for fast lookup of map entries."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:98
+#, no-wrap
+msgid "Va pmap"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:101
+msgid ""
+"Pointer to the underlying physical map with which this virtual map is "
+"associated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:101
+#, no-wrap
+msgid "Va busy"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:103
+msgid "Map busy counter, prevents forks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:106
+msgid "Possible map flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:107
+#, no-wrap
+msgid "Dv MAP_WIREFUTURE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:109
+msgid "Wire all future pages in this map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:109
+#, no-wrap
+msgid "Dv MAP_BUSY_WAKEUP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:111
+msgid "There are waiters for the map busy status."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:118
+msgid ""
+"The following flags can be passed to E<.Xr vm_map_find 9> and E<.Xr "
+"vm_map_insert 9> to specify the copy-on-write properties of regions within "
+"the map:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:119
+#, no-wrap
+msgid "Dv MAP_COPY_ON_WRITE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:121
+msgid "The mapping is copy-on-write."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:121
+#, no-wrap
+msgid "Dv MAP_NOFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:123
+msgid "The mapping should not generate page faults."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:123
+#, no-wrap
+msgid "Dv MAP_PREFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:125
+msgid "The mapping should be prefaulted into physical memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:125
+#, no-wrap
+msgid "Dv MAP_PREFAULT_PARTIAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:127
+msgid "The mapping should be partially prefaulted into physical memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:127
+#, no-wrap
+msgid "Dv MAP_DISABLE_SYNCER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:130
+msgid ""
+"Do not periodically flush dirty pages; only flush them when absolutely "
+"necessary."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:130
+#, no-wrap
+msgid "Dv MAP_DISABLE_COREDUMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:132
+msgid "Do not include the mapping in a core dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:132
+#, no-wrap
+msgid "Dv MAP_PREFAULT_MADVISE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:135
+msgid "Specify that the request is from a user process calling E<.Xr madvise 2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:135
+#, no-wrap
+msgid "Dv MAP_ACC_CHARGED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:137
+msgid "Region is already charged to the requestor by some means."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:137
+#, no-wrap
+msgid "Dv MAP_ACC_NO_CHARGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:139
+msgid "Do not charge for allocated region."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:147
+msgid ""
+"The E<.Vt struct vm_map_entry> is a generic representation of a region.  The "
+"region managed by each entry is associated with a E<.Vt union "
+"vm_map_object>, described below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:168
+#, no-wrap
+msgid ""
+"struct vm_map_entry {\n"
+"        struct vm_map_entry *prev;\n"
+"        struct vm_map_entry *next;\n"
+"        struct vm_map_entry *left;\n"
+"        struct vm_map_entry *right;\n"
+"        vm_offset_t start;\n"
+"        vm_offset_t end;\n"
+"        vm_offset_t avail_ssize;\n"
+"        vm_size_t adj_free;\n"
+"        vm_size_t max_free;\n"
+"        union vm_map_object object;\n"
+"        vm_ooffset_t offset;\n"
+"        vm_eflags_t eflags;\n"
+"        /* Only in task maps: */\n"
+"        vm_prot_t protection;\n"
+"        vm_prot_t max_protection;\n"
+"        vm_inherit_t inheritance;\n"
+"        int wired_count;\n"
+"        vm_pindex_t lastr;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:173
+msgid "The fields of E<.Vt struct vm_map_entry> are as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:174
+#, no-wrap
+msgid "Va prev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:176
+msgid "Pointer to the previous node in a doubly-linked, circular list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:176
+#, no-wrap
+msgid "Va next"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:178
+msgid "Pointer to the next node in a doubly-linked, circular list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:178
+#, no-wrap
+msgid "Va left"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:180
+msgid "Pointer to the left node in a binary search tree."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:180
+#, no-wrap
+msgid "Va right"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:182
+msgid "Pointer to the right node in a binary search tree."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:182
+#, no-wrap
+msgid "Va start"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:184
+msgid "Lower address bound of this entry's region."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:184
+#, no-wrap
+msgid "Va end"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:186
+msgid "Upper address bound of this entry's region."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:186
+#, no-wrap
+msgid "Va avail_ssize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:188
+msgid "If the entry is for a process stack, specifies how much the entry can grow."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:188
+#, no-wrap
+msgid "Va adj_free"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:191
+msgid ""
+"The amount of free, unmapped address space adjacent to and immediately "
+"following this map entry."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:191
+#, no-wrap
+msgid "Va max_free"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:193
+msgid "The maximum amount of contiguous free space in this map entry's subtree."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:193
+#, no-wrap
+msgid "Va object"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:197
+msgid ""
+"Pointer to the E<.Vt struct vm_map_object> with which this entry is "
+"associated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:197
+#, no-wrap
+msgid "Va offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:203
+msgid "Offset within the E<.Va object> which is mapped from E<.Va start> onwards."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:203
+#, no-wrap
+msgid "Va eflags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:205
+msgid "Flags applied to this entry, described below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:209
+msgid ""
+"The following five members are only valid for entries forming part of a user "
+"process's address space:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:210
+#, no-wrap
+msgid "Va protection"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:212
+msgid "Memory protection bits applied to this region."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:212
+#, no-wrap
+msgid "Va max_protection"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:215
+msgid ""
+"Mask for the memory protection bits which may be actually be applied to this "
+"region."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:215
+#, no-wrap
+msgid "Va inheritance"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:218
+msgid ""
+"Contains flags which specify how this entry should be treated during fork "
+"processing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:218
+#, no-wrap
+msgid "Va wired_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:220
+msgid "Count of how many times this entry has been wired into physical memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:220
+#, no-wrap
+msgid "Va lastr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:222
+msgid "Contains the address of the last read which caused a page fault."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:228
+msgid ""
+"The following flags may be applied to each entry, by specifying them as a "
+"mask within the E<.Va eflags> member:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:229
+#, no-wrap
+msgid "Dv MAP_ENTRY_NOSYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:232
+msgid ""
+"The system should not flush the data associated with this map periodically, "
+"but only when it needs to."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:232
+#, no-wrap
+msgid "Dv MAP_ENTRY_IS_SUB_MAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:236
+msgid "If set, then the E<.Va object> member specifies a subordinate map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:236
+#, no-wrap
+msgid "Dv MAP_ENTRY_COW"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:238
+msgid "Indicate that this is a copy-on-write region."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:238
+#, no-wrap
+msgid "Dv MAP_ENTRY_NEEDS_COPY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:240
+msgid "Indicate that a copy-on-write region needs to be copied."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:240
+#, no-wrap
+msgid "Dv MAP_ENTRY_NOFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:243
+msgid ""
+"Specifies that accesses within this region should never cause a page fault.  "
+"If a page fault occurs within this region, the system will panic."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:243
+#, no-wrap
+msgid "Dv MAP_ENTRY_USER_WIRED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:245
+msgid "Indicate that this region was wired on behalf of a user process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:245
+#, no-wrap
+msgid "Dv MAP_ENTRY_BEHAV_NORMAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:247
+msgid "The system should use the default paging behaviour for this region."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:247
+#, no-wrap
+msgid "Dv MAP_ENTRY_BEHAV_SEQUENTIAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:250
+msgid ""
+"The system should depress the priority of pages immediately preceding each "
+"page within this region when faulted in."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:250
+#, no-wrap
+msgid "Dv MAP_ENTRY_BEHAV_RANDOM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:253
+msgid ""
+"Is a hint that pages within this region will be accessed randomly, and that "
+"prefetching is likely not advantageous."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:253
+#, no-wrap
+msgid "Dv MAP_ENTRY_IN_TRANSITION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:256
+msgid ""
+"Indicate that wiring or unwiring of an entry is in progress, and that other "
+"kernel threads should not attempt to modify fields in the structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:256
+#, no-wrap
+msgid "Dv MAP_ENTRY_NEEDS_WAKEUP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:259
+msgid ""
+"Indicate that there are kernel threads waiting for this region to become "
+"available."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:259
+#, no-wrap
+msgid "Dv MAP_ENTRY_NOCOREDUMP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:261
+msgid "The region should not be included in a core dump."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:270
+msgid ""
+"The E<.Va inheritance> member has type E<.Vt vm_inherit_t>.  This governs "
+"the inheritance behaviour for a map entry during fork processing.  The "
+"following values are defined for E<.Vt vm_inherit_t>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:271
+#, no-wrap
+msgid "Dv VM_INHERIT_SHARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:277
+msgid ""
+"The object associated with the entry should be cloned and shared with the "
+"new map.  A new E<.Vt struct vm_object> will be created if necessary."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:277
+#, no-wrap
+msgid "Dv VM_INHERIT_COPY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:279
+msgid "The object associated with the entry should be copied to the new map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:279
+#, no-wrap
+msgid "Dv VM_INHERIT_NONE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:281
+msgid "The entry should not be copied to the new map."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/vm_map.9:281
+#, no-wrap
+msgid "Dv VM_INHERIT_DEFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:284
+msgid "Specifies the default behaviour, E<.Dv VM_INHERIT_COPY>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:291
+msgid ""
+"The E<.Vt union vm_map_object> is used to specify the structure which a "
+"E<.Vt struct vm_map_entry> is associated with."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:295
+msgid "The fields of E<.Vt union vm_map_object> are as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:300
+#, no-wrap
+msgid ""
+"union vm_map_object {\n"
+"        struct vm_object *vm_object;\n"
+"        struct vm_map *sub_map;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:310
+msgid ""
+"Normally, the E<.Va sub_map> member is only used by system maps to indicate "
+"that a memory range is managed by a subordinate system map.  Within a user "
+"process map, each E<.Vt struct vm_map_entry> is backed by a E<.Vt struct "
+"vm_object>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_map.9:310
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:334
+msgid ""
+"E<.Xr pmap 9>, E<.Xr vm_map_check_protection 9>, E<.Xr vm_map_create 9>, "
+"E<.Xr vm_map_delete 9>, E<.Xr vm_map_entry_resize_free 9>, E<.Xr vm_map_find "
+"9>, E<.Xr vm_map_findspace 9>, E<.Xr vm_map_inherit 9>, E<.Xr vm_map_init "
+"9>, E<.Xr vm_map_insert 9>, E<.Xr vm_map_lock 9>, E<.Xr vm_map_lookup 9>, "
+"E<.Xr vm_map_madvise 9>, E<.Xr vm_map_max 9>, E<.Xr vm_map_min 9>, E<.Xr "
+"vm_map_pmap 9>, E<.Xr vm_map_protect 9>, E<.Xr vm_map_remove 9>, E<.Xr "
+"vm_map_simplify_entry 9>, E<.Xr vm_map_stack 9>, E<.Xr vm_map_submap 9>, "
+"E<.Xr vm_map_sync 9>, E<.Xr vm_map_wire 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/vm_map.9:334
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/vm_map.9:336
+msgid "This manual page was written by E<.An Bruce M Simpson Aq Mt bms@spc.org>."
+msgstr ""

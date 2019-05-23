@@ -1,0 +1,344 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ng_bpf.4:38
+#, no-wrap
+msgid "November 13, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ng_bpf.4:39
+#, no-wrap
+msgid "NG_BPF 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:41
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:43
+msgid "E<.Nm ng_bpf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ng_bpf.4:43
+#, no-wrap
+msgid "Berkeley packet filter netgraph node type"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:44
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_bpf.4:45
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_bpf.4:46
+#, no-wrap
+msgid "net/bpf.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_bpf.4:47
+#, no-wrap
+msgid "netgraph.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/ng_bpf.4:48
+#, no-wrap
+msgid "netgraph/ng_bpf.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:49
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:62
+msgid ""
+"The E<.Nm bpf> node type allows Berkeley Packet Filter (see E<.Xr bpf 4>)  "
+"filters to be applied to data travelling through a Netgraph network.  Each "
+"node allows an arbitrary number of connections to arbitrarily named hooks.  "
+"With each hook is associated a E<.Xr bpf 4> filter program which is applied "
+"to incoming data only, a destination hook for matching packets, a "
+"destination hook for non-matching packets, and various statistics counters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:74
+msgid ""
+"A E<.Xr bpf 4> program returns an unsigned integer, which is normally "
+"interpreted as the length of the prefix of the packet to return.  In the "
+"context of this node type, returning zero is considered a non-match, in "
+"which case the entire packet is delivered out the non-match destination "
+"hook.  Returning a value greater than zero causes the packet to be truncated "
+"to that length and delivered out the match destination hook.  Either or both "
+"destination hooks may be the empty string, or may not exist, in which case "
+"the packet is dropped."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:79
+msgid ""
+"New hooks are initially configured to drop all packets.  A new filter "
+"program may be installed using the E<.Dv NGM_BPF_SET_PROGRAM> control "
+"message."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:79
+#, no-wrap
+msgid "HOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:81
+msgid "This node type supports any number of hooks having arbitrary names."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:81
+#, no-wrap
+msgid "CONTROL MESSAGES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:83
+msgid "This node type supports the generic control messages, plus the following:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bpf.4:84
+#, no-wrap
+msgid "Dv NGM_BPF_SET_PROGRAM Pq Ic setprogram"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:88
+msgid ""
+"This command sets the filter program that will be applied to incoming data "
+"on a hook.  The following structure must be supplied as an argument:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:96
+#, no-wrap
+msgid ""
+"struct ng_bpf_hookprog {\n"
+"  char            thisHook[NG_HOOKSIZ];     /* name of hook */\n"
+"  char            ifMatch[NG_HOOKSIZ];      /* match dest hook */\n"
+"  char            ifNotMatch[NG_HOOKSIZ];   /* !match dest hook */\n"
+"  int32_t         bpf_prog_len;             /* #insns in program */\n"
+"  struct bpf_insn bpf_prog[];               /* bpf program */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:115
+msgid ""
+"The hook to be updated is specified in E<.Dv thisHook>.  The BPF program is "
+"the sequence of instructions in the E<.Dv bpf_prog> array; there must be "
+"E<.Dv bpf_prog_len> of them.  Matching and non-matching incoming packets are "
+"delivered out the hooks named E<.Dv ifMatch> and E<.Dv ifNotMatch>, "
+"respectively.  The program must be a valid E<.Xr bpf 4> program or else "
+"E<.Er EINVAL> is returned."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bpf.4:115
+#, no-wrap
+msgid "Dv NGM_BPF_GET_PROGRAM Pq Ic getprogram"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:122
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"returns the corresponding E<.Dv \"struct ng_bpf_hookprog\"> as shown above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bpf.4:122
+#, no-wrap
+msgid "Dv NGM_BPF_GET_STATS Pq Ic getstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:128
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"returns the statistics associated with the hook as a E<.Dv \"struct "
+"ng_bpf_hookstat\">."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bpf.4:128
+#, no-wrap
+msgid "Dv NGM_BPF_CLR_STATS Pq Ic clrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:133
+msgid ""
+"This command takes an E<.Tn ASCII> string argument, the hook name, and "
+"clears the statistics associated with the hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ng_bpf.4:133
+#, no-wrap
+msgid "Dv NGM_BPF_GETCLR_STATS Pq Ic getclrstats"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:137
+msgid ""
+"This command is identical to E<.Dv NGM_BPF_GET_STATS>, except that the "
+"statistics are also atomically cleared."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:138
+#, no-wrap
+msgid "SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:142
+msgid ""
+"This node shuts down upon receipt of a E<.Dv NGM_SHUTDOWN> control message, "
+"or when all hooks have been disconnected."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:142
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:150
+msgid ""
+"It is possible to configure a node from the command line, using E<.Xr "
+"tcpdump 1> to generate raw BPF instructions which are then fed into an E<.Xr "
+"awk 1> script to create the ASCII form of a E<.Dv NGM_BPF_SET_PROGRAM> "
+"control message, as demonstrated here:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:152
+#, no-wrap
+msgid "#!/bin/sh\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:158
+#, no-wrap
+msgid ""
+"PATTERN=\"tcp dst port 80\"\n"
+"NODEPATH=\"my_node:\"\n"
+"INHOOK=\"hook1\"\n"
+"MATCHHOOK=\"hook2\"\n"
+"NOTMATCHHOOK=\"hook3\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:167
+#, no-wrap
+msgid ""
+"BPFPROG=$( tcpdump -s 8192 -p -ddd ${PATTERN} | \\e\n"
+"           ( read len ; \\e\n"
+"             echo -n \"bpf_prog_len=$len\" ; \\e\n"
+"             echo -n \"bpf_prog=[\" ; \\e\n"
+"             while read code jt jf k ; do \\e\n"
+"                 echo -n \" { code=$code jt=$jt jf=$jf k=$k }\" ; \\e\n"
+"             done ; \\e\n"
+"             echo \" ]\" ) )\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:172
+#, no-wrap
+msgid ""
+"ngctl msg ${NODEPATH} setprogram { thisHook=\\e\"${INHOOK}\\e\" \\e\n"
+"  ifMatch=\\e\"${MATCHHOOK}\\e\" \\e\n"
+"  ifNotMatch=\\e\"${NOTMATCHHOOK}\\e\" \\e\n"
+"  ${BPFPROG} }\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:173
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:177
+msgid "E<.Xr bpf 4>, E<.Xr netgraph 4>, E<.Xr ngctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:177
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:182
+msgid "The E<.Nm> node type was implemented in E<.Fx 4.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:182
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:184
+msgid "E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ng_bpf.4:184
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ng_bpf.4:191
+msgid ""
+"When built as a loadable kernel module, this module includes the file E<.Pa "
+"net/bpf_filter.c>.  Although loading the module should fail if E<.Pa "
+"net/bpf_filter.c> already exists in the kernel, currently it does not, and "
+"the duplicate copies of the file do not interfere.  However, this may change "
+"in the future."
+msgstr ""

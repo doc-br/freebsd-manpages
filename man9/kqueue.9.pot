@@ -1,0 +1,360 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/kqueue.9:27
+#, no-wrap
+msgid "March 26, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/kqueue.9:28
+#, no-wrap
+msgid "KQUEUE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kqueue.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:38
+msgid ""
+"E<.Nm kqueue_add_filteropts , kqueue_del_filteropts>, E<.Nm kqfd_register>, "
+"E<.Nm knote_fdclose>, E<.Nm knlist_init , knlist_init_mtx , "
+"knlist_init_rw_reader>, E<.Nm knlist_add , knlist_remove , "
+"knlist_remove_inevent , knlist_empty>, E<.Nm knlist_clear , knlist_delete , "
+"knlist_destroy>, E<.Nm KNOTE_LOCKED , KNOTE_UNLOCKED>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/kqueue.9:38
+#, no-wrap
+msgid "event delivery subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kqueue.9:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/kqueue.9:40
+#, no-wrap
+msgid "sys/event.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:79
+msgid ""
+"E<.Ft int> E<.Fn kqueue_add_filteropts \"int filt\" \"struct filterops "
+"*filtops\"> E<.Ft int> E<.Fn kqueue_del_filteropts \"int filt\"> E<.Ft int> "
+"E<.Fn kqfd_register \"int fd\" \"struct kevent *kev\" \"struct thread *td\" "
+"\"int waitok\"> E<.Ft void> E<.Fn knote_fdclose \"struct thread *td\" \"int "
+"fd\"> E<.Ft void> E<.Fo knlist_init> E<.Fa \"struct knlist *knl\"> E<.Fa "
+"\"void *lock\"> E<.Fa \"void \\*[lp]*kl_lock\\*[rp]\\*[lp]void *\\*[rp]\"> "
+"E<.Fa \"void \\*[lp]*kl_unlock\\*[rp]\\*[lp]void *\\*[rp]\"> E<.Fa \"int "
+"\\*[lp]*kl_locked\\*[rp]\\*[lp]void *\\*[rp]\"> E<.Fc> E<.Ft void> E<.Fn "
+"knlist_init_mtx \"struct knlist *knl\" \"struct mtx *lock\"> E<.Ft void> "
+"E<.Fn knlist_init_rw_reader \"struct knlist *knl\" \"struct rwlock *lock\"> "
+"E<.Ft void> E<.Fn knlist_add \"struct knlist *knl\" \"struct knote *kn\" "
+"\"int islocked\"> E<.Ft void> E<.Fn knlist_remove \"struct knlist *knl\" "
+"\"struct knote *kn\" \"int islocked\"> E<.Ft void> E<.Fn "
+"knlist_remove_inevent \"struct knlist *knl\" \"struct knote *kn\"> E<.Ft "
+"int> E<.Fn knlist_empty \"struct knlist *knl\"> E<.Ft void> E<.Fn "
+"knlist_clear \"struct knlist *knl\" \"int islocked\"> E<.Ft void> E<.Fn "
+"knlist_delete \"struct knlist *knl\" \"struct thread *td\" \"int islocked\"> "
+"E<.Ft void> E<.Fn knlist_destroy \"struct knlist *knl\"> E<.Ft void> E<.Fn "
+"KNOTE_LOCKED \"struct knlist *knl\" \"long hint\"> E<.Ft void> E<.Fn "
+"KNOTE_UNLOCKED \"struct knlist *knl\" \"long hint\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kqueue.9:79
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:96
+msgid ""
+"The functions E<.Fn kqueue_add_filteropts> and E<.Fn kqueue_del_filteropts> "
+"allow for the addition and removal of a filter type.  The filter is "
+"statically defined by the E<.Dv EVFILT_*> macros.  The function E<.Fn "
+"kqueue_add_filteropts> will make E<.Fa filt> available.  The E<.Vt \"struct "
+"filterops\"> has the following members:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kqueue.9:97
+#, no-wrap
+msgid "Va f_isfd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:114
+msgid ""
+"If E<.Va f_isfd> is set, E<.Va ident> in E<.Vt \"struct kevent\"> is taken "
+"to be a file descriptor.  In this case, the E<.Vt knote> passed into E<.Va "
+"f_attach> will have the E<.Va kn_fp> member initialized to the E<.Vt "
+"\"struct file *\"> that represents the file descriptor."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kqueue.9:114
+#, no-wrap
+msgid "Va f_attach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:156
+msgid ""
+"The E<.Va f_attach> function will be called when attaching a E<.Vt knote> to "
+"the object.  The method should call E<.Fn knlist_add> to add the E<.Vt "
+"knote> to the list that was initialized with E<.Fn knlist_init>.  The call "
+"to E<.Fn knlist_add> is only necessary if the object can have multiple E<.Vt "
+"knotes> associated with it.  If there is no E<.Vt knlist> to call E<.Fn "
+"knlist_add> with, the function E<.Va f_attach> must clear the E<.Dv "
+"KN_DETACHED> bit of E<.Va kn_status> in the E<.Vt knote>.  The function "
+"shall return 0 on success, or appropriate error for the failure, such as "
+"when the object is being destroyed, or does not exist.  During E<.Va "
+"f_attach>, it is valid to change the E<.Va kn_fops> pointer to a different "
+"pointer.  This will change the E<.Va f_event> and E<.Va f_detach> functions "
+"called when processing the E<.Vt knote>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kqueue.9:156
+#, no-wrap
+msgid "Va f_detach"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:171
+msgid ""
+"The E<.Va f_detach> function will be called to detach the E<.Vt knote> if "
+"the E<.Vt knote> has not already been detached by a call to E<.Fn "
+"knlist_remove>, E<.Fn knlist_remove_inevent> or E<.Fn knlist_delete>.  The "
+"list E<.Fa lock> will not be held when this function is called."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/kqueue.9:171
+#, no-wrap
+msgid "Va f_event"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:203
+msgid ""
+"The E<.Va f_event> function will be called to update the status of the E<.Vt "
+"knote>.  If the function returns 0, it will be assumed that the object is "
+"not ready (or no longer ready) to be woken up.  The E<.Fa hint> argument "
+"will be 0 when scanning E<.Vt knotes> to see which are triggered.  "
+"Otherwise, the E<.Fa hint> argument will be the value passed to either E<.Dv "
+"KNOTE_LOCKED> or E<.Dv KNOTE_UNLOCKED>.  The E<.Va kn_data> value should be "
+"updated as necessary to reflect the current value, such as number of bytes "
+"available for reading, or buffer space available for writing.  If the note "
+"needs to be removed, E<.Fn knlist_remove_inevent> must be called.  The "
+"function E<.Fn knlist_remove_inevent> will remove the note from the list, "
+"the E<.Va f_detach> function will not be called and the E<.Vt knote> will "
+"not be returned as an event."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:217
+msgid ""
+"Locks E<.Em must not> be acquired in E<.Va f_event>.  If a lock is required "
+"in E<.Va f_event>, it must be obtained in the E<.Fa kl_lock> function of the "
+"E<.Vt knlist> that the E<.Va knote> was added to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:228
+msgid ""
+"The function E<.Fn kqfd_register> will register the E<.Vt kevent> on the "
+"kqueue file descriptor E<.Fa fd>.  If it is safe to sleep, E<.Fa waitok> "
+"should be set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:251
+msgid ""
+"The function E<.Fn knote_fdclose> is used to delete all E<.Vt knotes> "
+"associated with E<.Fa fd>.  Once returned, there will no longer be any E<.Vt "
+"knotes> associated with the E<.Fa fd>.  The E<.Vt knotes> removed will never "
+"be returned from a E<.Xr kevent 2> call, so if userland uses the E<.Vt "
+"knote> to track resources, they will be leaked.  The E<.Fn FILEDESC_LOCK> "
+"lock must be held over the call to E<.Fn knote_fdclose> so that file "
+"descriptors cannot be added or removed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:275
+msgid ""
+"The E<.Fn knlist_*> family of functions are for managing E<.Vt knotes> "
+"associated with an object.  A E<.Vt knlist> is not required, but is commonly "
+"used.  If used, the E<.Vt knlist> must be initialized with either E<.Fn "
+"knlist_init>, E<.Fn knlist_init_mtx> or E<.Fn knlist_init_rw_reader>.  The "
+"E<.Vt knlist> structure may be embedded into the object structure.  The "
+"E<.Fa lock> will be held over E<.Va f_event> calls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:297
+msgid ""
+"For the E<.Fn knlist_init> function, if E<.Fa lock> is E<.Dv NULL>, a shared "
+"global lock will be used and the remaining arguments must be E<.Dv NULL>.  "
+"The function pointers E<.Fa kl_lock , kl_unlock> and E<.Fa kl_locked> will "
+"be used to manipulate the argument E<.Fa lock>.  If any of the function "
+"pointers are E<.Dv NULL>, a function operating on E<.Dv MTX_DEF> style E<.Xr "
+"mutex 9> locks will be used instead."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:309
+msgid ""
+"The function E<.Fn knlist_init_mtx> may be used to initialize a E<.Vt "
+"knlist> when E<.Fa lock> is a E<.Dv MTX_DEF> style E<.Xr mutex 9> lock."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:322
+msgid ""
+"The function E<.Fn knlist_init_rw_reader> may be used to initialize a E<.Vt "
+"knlist> when E<.Fa lock> is a E<.Xr rwlock 9> read lock.  Lock is acquired "
+"via E<.Fn rw_rlock> function."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:331
+msgid ""
+"The function E<.Fn knlist_empty> returns true when there are no E<.Vt "
+"knotes> on the list.  The function requires that the E<.Fa lock> be held "
+"when called."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:364
+msgid ""
+"The function E<.Fn knlist_clear> removes all E<.Vt knotes> from the list.  "
+"The E<.Fa islocked> argument declares if the E<.Fa lock> has been acquired.  "
+"All E<.Vt knotes> will have E<.Dv EV_ONESHOT> set so that the E<.Vt knote> "
+"will be returned and removed during the next scan.  The E<.Va f_detach> "
+"function will be called when the E<.Vt knote> is deleted during the next "
+"scan.  This function must not be used when E<.Va f_isfd> is set in E<.Vt "
+"\"struct filterops\">, as the E<.Fa td> argument of E<.Fn fdrop> will be "
+"E<.Dv NULL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:378
+msgid ""
+"The function E<.Fn knlist_delete> removes and deletes all E<.Vt knotes> on "
+"the list.  The function E<.Va f_detach> will not be called, and the E<.Vt "
+"knote> will not be returned on the next scan.  Using this function could "
+"leak userland resources if a process uses the E<.Vt knote> to track "
+"resources."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:389
+msgid ""
+"Both the E<.Fn knlist_clear> and E<.Fn knlist_delete> functions may sleep.  "
+"They also may release the E<.Fa lock> to wait for other E<.Vt knotes> to "
+"drain."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:410
+msgid ""
+"The E<.Fn knlist_destroy> function is used to destroy a E<.Vt knlist>.  "
+"There must be no E<.Vt knotes> associated with the E<.Vt knlist> E<.Po Fn "
+"knlist_empty> returns true E<.Pc> and no more E<.Vt knotes> may be attached "
+"to the object.  A E<.Vt knlist> may be emptied by calling E<.Fn "
+"knlist_clear> or E<.Fn knlist_delete>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:433
+msgid ""
+"The macros E<.Fn KNOTE_LOCKED> and E<.Fn KNOTE_UNLOCKED> are used to notify "
+"E<.Vt knotes> about events associated with the object.  It will iterate over "
+"all E<.Vt knotes> on the list calling the E<.Va f_event> function associated "
+"with the E<.Vt knote>.  The macro E<.Fn KNOTE_LOCKED> must be used if the "
+"lock associated with the E<.Fa knl> is held.  The function E<.Fn "
+"KNOTE_UNLOCKED> will acquire the lock before iterating over the list of "
+"E<.Vt knotes>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kqueue.9:433
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:443
+msgid ""
+"The function E<.Fn kqueue_add_filteropts> will return zero on success, E<.Er "
+"EINVAL> in the case of an invalid E<.Fa filt>, or E<.Er EEXIST> if the "
+"filter has already been installed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:453
+msgid ""
+"The function E<.Fn kqueue_del_filteropts> will return zero on success, E<.Er "
+"EINVAL> in the case of an invalid E<.Fa filt>, or E<.Er EBUSY> if the filter "
+"is still in use."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:461
+msgid ""
+"The function E<.Fn kqfd_register> will return zero on success, E<.Er EBADF> "
+"if the file descriptor is not a kqueue, or any of the possible values "
+"returned by E<.Xr kevent 2>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kqueue.9:461
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:464
+msgid "E<.Xr kevent 2>, E<.Xr kqueue 2>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/kqueue.9:464
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/kqueue.9:467
+msgid ""
+"This manual page was written by E<.An John-Mark Gurney Aq Mt "
+"jmg@FreeBSD.org>."
+msgstr ""

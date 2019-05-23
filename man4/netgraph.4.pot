@@ -1,0 +1,2083 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/netgraph.4:39
+#, no-wrap
+msgid "November 25, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/netgraph.4:40
+#, no-wrap
+msgid "NETGRAPH 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:42
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:44
+msgid "E<.Nm netgraph>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/netgraph.4:44
+#, no-wrap
+msgid "graph based kernel networking subsystem"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:45
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:57
+msgid ""
+"The E<.Nm> system provides a uniform and modular system for the "
+"implementation of kernel objects which perform various networking "
+"functions.  The objects, known as E<.Em nodes>, can be arranged into "
+"arbitrarily complicated graphs.  Nodes have E<.Em hooks> which are used to "
+"connect two nodes together, forming the edges in the graph.  Nodes "
+"communicate along the edges to process data, implement protocols, etc."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:63
+msgid ""
+"The aim of E<.Nm> is to supplement rather than replace the existing kernel "
+"networking infrastructure.  It provides:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:67
+msgid "A flexible way of combining protocol and link level drivers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:69
+msgid "A modular way to implement new protocols."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:71
+msgid "A common framework for kernel entities to inter-communicate."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:73
+msgid "A reasonably fast, kernel-based implementation."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:74
+#, no-wrap
+msgid "Nodes and Types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:81
+msgid ""
+"The most fundamental concept in E<.Nm> is that of a E<.Em node>.  All nodes "
+"implement a number of predefined methods which allow them to interact with "
+"other nodes in a well defined manner."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:90
+msgid ""
+"Each node has a E<.Em type>, which is a static property of the node "
+"determined at node creation time.  A node's type is described by a unique "
+"E<.Tn ASCII> type name.  The type implies what the node does and how it may "
+"be connected to other nodes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:98
+msgid ""
+"In object-oriented language, types are classes, and nodes are instances of "
+"their respective class.  All node types are subclasses of the generic node "
+"type, and hence inherit certain common functionality and capabilities (e.g., "
+"the ability to have an E<.Tn ASCII> name)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:112
+msgid ""
+"Nodes may be assigned a globally unique E<.Tn ASCII> name which can be used "
+"to refer to the node.  The name must not contain the characters E<.Ql .\\&> "
+"or E<.Ql \\&:>, and is limited to E<.Dv NG_NODESIZ> characters (including "
+"the terminating E<.Dv NUL> character)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:119
+msgid ""
+"Each node instance has a unique E<.Em ID number> which is expressed as a "
+"32-bit hexadecimal value.  This value may be used to refer to a node when "
+"there is no E<.Tn ASCII> name assigned to it."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:119 /usr/src/share/man/man4/netgraph.4:756
+#, no-wrap
+msgid "Hooks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:127
+msgid ""
+"Nodes are connected to other nodes by connecting a pair of E<.Em hooks>, one "
+"from each node.  Data flows bidirectionally between nodes along connected "
+"pairs of hooks.  A node may have as many hooks as it needs, and may assign "
+"whatever meaning it wants to a hook."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:129
+msgid "Hooks have these properties:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:145
+msgid ""
+"A hook has an E<.Tn ASCII> name which is unique among all hooks on that node "
+"(other hooks on other nodes may have the same name).  The name must not "
+"contain the characters E<.Ql .\\&> or E<.Ql \\&:>, and is limited to E<.Dv "
+"NG_HOOKSIZ> characters (including the terminating E<.Dv NUL> character)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:150
+msgid ""
+"A hook is always connected to another hook.  That is, hooks are created at "
+"the time they are connected, and breaking an edge by removing either hook "
+"destroys both hooks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:155
+msgid ""
+"A hook can be set into a state where incoming packets are always queued by "
+"the input queueing system, rather than being delivered directly.  This can "
+"be used when the data is sent from an interrupt handler, and processing must "
+"be quick so as not to block other interrupts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:159
+msgid ""
+"A hook may supply overriding receive data and receive message functions, "
+"which should be used for data and messages received through that hook in "
+"preference to the general node-wide methods."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:166
+msgid ""
+"A node may decide to assign special meaning to some hooks.  For example, "
+"connecting to the hook named E<.Va debug> might trigger the node to start "
+"sending debugging information to that hook."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:166
+#, no-wrap
+msgid "Data Flow"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:179
+msgid ""
+"Two types of information flow between nodes: data messages and control "
+"messages.  Data messages are passed in E<.Vt mbuf chains> along the edges in "
+"the graph, one edge at a time.  The first E<.Vt mbuf> in a chain must have "
+"the E<.Dv M_PKTHDR> flag set.  Each node decides how to handle data received "
+"through one of its hooks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:195
+msgid ""
+"Along with data, nodes can also receive control messages.  There are generic "
+"and type-specific control messages.  Control messages have a common header "
+"format, followed by type-specific data, and are binary structures for "
+"efficiency.  However, node types may also support conversion of the "
+"type-specific data between binary and E<.Tn ASCII> formats, for debugging "
+"and human interface purposes (see the E<.Dv NGM_ASCII2BINARY> and E<.Dv "
+"NGM_BINARY2ASCII> generic control messages below).  Nodes are not required "
+"to support these conversions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:222
+msgid ""
+"There are three ways to address a control message.  If there is a sequence "
+"of edges connecting the two nodes, the message may be E<.Dq source routed> "
+"by specifying the corresponding sequence of E<.Tn ASCII> hook names as the "
+"destination address for the message (relative addressing).  If the "
+"destination is adjacent to the source, then the source node may simply "
+"specify (as a pointer in the code) the hook across which the message should "
+"be sent.  Otherwise, the recipient node's global E<.Tn ASCII> name (or "
+"equivalent ID-based name) is used as the destination address for the message "
+"(absolute addressing).  The two types of E<.Tn ASCII> addressing may be "
+"combined, by specifying an absolute start node and a sequence of hooks.  "
+"Only the E<.Tn ASCII> addressing modes are available to control programs "
+"outside the kernel; use of direct pointers is limited to kernel modules."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:229
+msgid ""
+"Messages often represent commands that are followed by a reply message in "
+"the reverse direction.  To facilitate this, the recipient of a control "
+"message is supplied with a E<.Dq return address> that is suitable for "
+"addressing a reply."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:237
+msgid ""
+"Each control message contains a 32-bit value, called a E<.Dq typecookie>, "
+"indicating the type of the message, i.e.\\& how to interpret it.  Typically "
+"each type defines a unique typecookie for the messages that it understands.  "
+"However, a node may choose to recognize and implement more than one type of "
+"messages."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:251
+msgid ""
+"If a message is delivered to an address that implies that it arrived at that "
+"node through a particular hook (as opposed to having been directly addressed "
+"using its ID or global name) then that hook is identified to the receiving "
+"node.  This allows a message to be re-routed or passed on, should a node "
+"decide that this is required, in much the same way that data packets are "
+"passed around between nodes.  A set of standard messages for flow control "
+"and link management purposes are defined by the base system that are usually "
+"passed around in this manner.  Flow control message would usually travel in "
+"the opposite direction to the data to which they pertain."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:251
+#, no-wrap
+msgid "Netgraph is (Usually) Functional"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:269
+msgid ""
+"In order to minimize latency, most E<.Nm> operations are functional.  That "
+"is, data and control messages are delivered by making function calls rather "
+"than by using queues and mailboxes.  For example, if node A wishes to send a "
+"data E<.Vt mbuf> to neighboring node B, it calls the generic E<.Nm> data "
+"delivery function.  This function in turn locates node B and calls B's E<.Dq "
+"receive data> method.  There are exceptions to this."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:284
+msgid ""
+"Each node has an input queue, and some operations can be considered to be "
+"E<.Em writers> in that they alter the state of the node.  Obviously, in an "
+"SMP world it would be bad if the state of a node were changed while another "
+"data packet were transiting the node.  For this purpose, the input queue "
+"implements a E<.Em reader/writer> semantic so that when there is a writer in "
+"the node, all other requests are queued, and while there are readers, a "
+"writer, and any following packets are queued.  In the case where there is no "
+"reason to queue the data, the input method is called directly, as mentioned "
+"above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:295
+msgid ""
+"A node may declare that all requests should be considered as writers, or "
+"that requests coming in over a particular hook should be considered to be a "
+"writer, or even that packets leaving or entering across a particular hook "
+"should always be queued, rather than delivered directly (often useful for "
+"interrupt routines who want to get back to the hardware quickly).  By "
+"default, all control message packets are considered to be writers unless "
+"specifically declared to be a reader in their definition.  (See E<.Dv "
+"NGM_READONLY> in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netgraph.4:295
+#, no-wrap
+msgid "netgraph/ng_message.h . )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:300
+msgid ""
+"While this mode of operation results in good performance, it has a few "
+"implications for node developers:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:305
+msgid ""
+"Whenever a node delivers a data or control message, the node may need to "
+"allow for the possibility of receiving a returning message before the "
+"original delivery function call returns."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:346
+msgid ""
+"E<.Nm Netgraph> provides internal synchronization between nodes.  Data "
+"always enters a E<.Dq graph> at an E<.Em edge node>.  An E<.Em edge node> is "
+"a node that interfaces between E<.Nm> and some other part of the system.  "
+"Examples of E<.Dq edge nodes> include device drivers, the E<.Vt socket , "
+"ether , tty>, and E<.Vt ksocket> node type.  In these E<.Em edge nodes>, the "
+"calling thread directly executes code in the node, and from that code calls "
+"upon the E<.Nm> framework to deliver data across some edge in the graph.  "
+"From an execution point of view, the calling thread will execute the E<.Nm> "
+"framework methods, and if it can acquire a lock to do so, the input methods "
+"of the next node.  This continues until either the data is discarded or "
+"queued for some device or system entity, or the thread is unable to acquire "
+"a lock on the next node.  In that case, the data is queued for the node, and "
+"execution rewinds back to the original calling entity.  The queued data will "
+"be picked up and processed by either the current holder of the lock when "
+"they have completed their operations, or by a special E<.Nm> thread that is "
+"activated when there are such items queued."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:348
+msgid "It is possible for an infinite loop to occur if the graph contains cycles."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:351
+msgid "So far, these issues have not proven problematical in practice."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:351
+#, no-wrap
+msgid "Interaction with Other Parts of the Kernel"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:361
+msgid ""
+"A node may have a hidden interaction with other components of the kernel "
+"outside of the E<.Nm> subsystem, such as device hardware, kernel protocol "
+"stacks, etc.  In fact, one of the benefits of E<.Nm> is the ability to join "
+"disparate kernel networking entities together in a consistent communication "
+"framework."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:375
+msgid ""
+"An example is the E<.Vt socket> node type which is both a E<.Nm> node and a "
+"E<.Xr socket 2> in the protocol family E<.Dv PF_NETGRAPH>.  Socket nodes "
+"allow user processes to participate in E<.Nm>.  Other nodes communicate with "
+"socket nodes using the usual methods, and the node hides the fact that it is "
+"also passing information to and from a cooperating user process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:378
+msgid ""
+"Another example is a device driver that presents a node interface to the "
+"hardware."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:378
+#, no-wrap
+msgid "Node Methods"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:383
+msgid ""
+"Nodes are notified of the following actions via function calls to the "
+"following node methods, and may accept or reject that action (by returning "
+"the appropriate error code):"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:384
+#, no-wrap
+msgid "Creation of a new node"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:394
+msgid ""
+"The constructor for the type is called.  If creation of a new node is "
+"allowed, constructor method may allocate any special resources it needs.  "
+"For nodes that correspond to hardware, this is typically done during the "
+"device attach routine.  Often a global E<.Tn ASCII> name corresponding to "
+"the device name is assigned here as well."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:394
+#, no-wrap
+msgid "Creation of a new hook"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:400
+msgid ""
+"The hook is created and tentatively linked to the node, and the node is told "
+"about the name that will be used to describe this hook.  The node sets up "
+"any special data structures it needs, or may reject the connection, based on "
+"the name of the hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:400
+#, no-wrap
+msgid "Successful connection of two hooks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:411
+msgid ""
+"After both ends have accepted their hooks, and the links have been made, the "
+"nodes get a chance to find out who their peer is across the link, and can "
+"then decide to reject the connection.  Tear-down is automatic.  This is also "
+"the time at which a node may decide whether to set a particular hook (or its "
+"peer) into the E<.Em queueing> mode."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:411
+#, no-wrap
+msgid "Destruction of a hook"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:417
+msgid ""
+"The node is notified of a broken connection.  The node may consider some "
+"hooks to be critical to operation and others to be expendable: the "
+"disconnection of one hook may be an acceptable event while for another it "
+"may effect a total shutdown for the node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:417
+#, no-wrap
+msgid "Preshutdown of a node"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:425
+msgid ""
+"This method is called before real shutdown, which is discussed below.  While "
+"in this method, the node is fully operational and can send a E<.Dq goodbye> "
+"message to its peers, or it can exclude itself from the chain and reconnect "
+"its peers together, like the E<.Xr ng_tee 4> node type does."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:425
+#, no-wrap
+msgid "Shutdown of a node"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:445
+msgid ""
+"This method allows a node to clean up and to ensure that any actions that "
+"need to be performed at this time are taken.  The method is called by the "
+"generic (i.e., superclass)  node destructor which will get rid of the "
+"generic components of the node.  Some nodes (usually associated with a piece "
+"of hardware) may be E<.Em persistent> in that a shutdown breaks all edges "
+"and resets the node, but does not remove it.  In this case, the shutdown "
+"method should not free its resources, but rather, clean up and then call the "
+"E<.Fn NG_NODE_REVIVE> macro to signal the generic code that the shutdown is "
+"aborted.  In the case where the shutdown is started by the node itself due "
+"to hardware removal or unloading (via E<.Fn ng_rmnode_self>), it should set "
+"the E<.Dv NGF_REALLY_DIE> flag to signal to its own shutdown method that it "
+"is not to persist."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:446
+#, no-wrap
+msgid "Sending and Receiving Data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:448
+msgid "Two other methods are also supported by all nodes:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:449
+#, no-wrap
+msgid "Receive data message"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:458
+msgid ""
+"A E<.Nm> E<.Em queueable request item>, usually referred to as an E<.Em "
+"item>, is received by this function.  The item contains a pointer to an "
+"E<.Vt mbuf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:484
+msgid ""
+"The node is notified on which hook the item has arrived, and can use this "
+"information in its processing decision.  The receiving node must always "
+"E<.Fn NG_FREE_M> the E<.Vt mbuf chain> on completion or error, or pass it on "
+"to another node (or kernel module) which will then be responsible for "
+"freeing it.  Similarly, the E<.Em item> must be freed if it is not to be "
+"passed on to another node, by using the E<.Fn NG_FREE_ITEM> macro.  If the "
+"item still holds references to E<.Vt mbufs> at the time of freeing then they "
+"will also be appropriately freed.  Therefore, if there is any chance that "
+"the E<.Vt mbuf> will be changed or freed separately from the item, it is "
+"very important that it be retrieved using the E<.Fn NGI_GET_M> macro that "
+"also removes the reference within the item.  (Or multiple frees of the same "
+"object will occur.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:492
+msgid ""
+"If it is only required to examine the contents of the E<.Vt mbufs>, then it "
+"is possible to use the E<.Fn NGI_M> macro to both read and rewrite E<.Vt "
+"mbuf> pointer inside the item."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:503
+msgid ""
+"If developer needs to pass any meta information along with the E<.Vt mbuf "
+"chain>, he should use E<.Xr mbuf_tags 9> framework.  E<.Bf -symbolic> Note "
+"that old E<.Nm> specific meta-data format is obsoleted now.  E<.Ef>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:516
+msgid ""
+"The receiving node may decide to defer the data by queueing it in the E<.Nm> "
+"NETISR system (see below).  It achieves this by setting the E<.Dv HK_QUEUE> "
+"flag in the flags word of the hook on which that data will arrive.  The "
+"infrastructure will respect that bit and queue the data for delivery at a "
+"later time, rather than deliver it directly.  A node may decide to set the "
+"bit on the E<.Em peer> node, so that its own output packets are queued."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:524
+msgid ""
+"The node may elect to nominate a different receive data function for data "
+"received on a particular hook, to simplify coding.  It uses the E<.Fn "
+"NG_HOOK_SET_RCVDATA hook fn> macro to do this.  The function receives the "
+"same arguments in every way other than it will receive all (and only) "
+"packets from that hook."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:524
+#, no-wrap
+msgid "Receive control message"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:563
+msgid ""
+"This method is called when a control message is addressed to the node.  As "
+"with the received data, an E<.Em item> is received, with a pointer to the "
+"control message.  The message can be examined using the E<.Fn NGI_MSG> "
+"macro, or completely extracted from the item using the E<.Fn NGI_GET_MSG> "
+"which also removes the reference within the item.  If the item still holds a "
+"reference to the message when it is freed (using the E<.Fn NG_FREE_ITEM> "
+"macro), then the message will also be freed appropriately.  If the reference "
+"has been removed, the node must free the message itself using the E<.Fn "
+"NG_FREE_MSG> macro.  A return address is always supplied, giving the address "
+"of the node that originated the message so a reply message can be sent "
+"anytime later.  The return address is retrieved from the E<.Em item> using "
+"the E<.Fn NGI_RETADDR> macro and is of type E<.Vt ng_ID_t>.  All control "
+"messages and replies are allocated with the E<.Xr malloc 9> type E<.Dv "
+"M_NETGRAPH_MSG>, however it is more convenient to use the E<.Fn "
+"NG_MKMESSAGE> and E<.Fn NG_MKRESPONSE> macros to allocate and fill out a "
+"message.  Messages must be freed using the E<.Fn NG_FREE_MSG> macro."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:568
+msgid ""
+"If the message was delivered via a specific hook, that hook will also be "
+"made known, which allows the use of such things as flow-control messages, "
+"and status change messages, where the node may want to forward the message "
+"out another hook to that on which it arrived."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:576
+msgid ""
+"The node may elect to nominate a different receive message function for "
+"messages received on a particular hook, to simplify coding.  It uses the "
+"E<.Fn NG_HOOK_SET_RCVMSG hook fn> macro to do this.  The function receives "
+"the same arguments in every way other than it will receive all (and only) "
+"messages from that hook."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:584
+msgid ""
+"Much use has been made of reference counts, so that nodes being freed of all "
+"references are automatically freed, and this behaviour has been tested and "
+"debugged to present a consistent and trustworthy framework for the E<.Dq "
+"type module> writer to use."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:584
+#, no-wrap
+msgid "Addressing"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:595
+msgid ""
+"The E<.Nm> framework provides an unambiguous and simple to use method of "
+"specifically addressing any single node in the graph.  The naming of a node "
+"is independent of its type, in that another node, or external component need "
+"not know anything about the node's type in order to address it so as to send "
+"it a generic message type.  Node and hook names should be chosen so as to "
+"make addresses meaningful."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:604
+msgid ""
+"Addresses are either absolute or relative.  An absolute address begins with "
+"a node name or ID, followed by a colon, followed by a sequence of hook names "
+"separated by periods.  This addresses the node reached by starting at the "
+"named node and following the specified sequence of hooks.  A relative "
+"address includes only the sequence of hook names, implicitly starting hook "
+"traversal at the local node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:617
+msgid ""
+"There are a couple of special possibilities for the node name.  The name "
+"E<.Ql .\\&> (referred to as E<.Ql .:>)  always refers to the local node.  "
+"Also, nodes that have no global name may be addressed by their ID numbers, "
+"by enclosing the hexadecimal representation of the ID number within the "
+"square brackets.  Here are some examples of valid E<.Nm> addresses:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:624
+#, no-wrap
+msgid ""
+"\\&.:\n"
+"[3f]:\n"
+"foo:\n"
+"\\&.:hook1\n"
+"foo:hook1.hook2\n"
+"[d80]:hook1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:629
+msgid ""
+"The following set of nodes might be created for a site with a single "
+"physical frame relay line having two active logical DLCI channels, with RFC "
+"1490 frames on DLCI 16 and PPP frames over DLCI 20:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:637
+#, no-wrap
+msgid ""
+"[type SYNC ]                  [type FRAME]                 [type RFC1490]\n"
+"[ \"Frame1\" "
+"](uplink)E<lt>--E<gt>(data)[E<lt>un-namedE<gt>](dlci16)E<lt>--E<gt>(mux)[E<lt>un-namedE<gt>  "
+"]\n"
+"[    A     ]                  [    B     ](dlci20)E<lt>---+    [     C      "
+"]\n"
+"                                                      |\n"
+"                                                      |      [ type PPP ]\n"
+"                                                      "
+"+E<gt>(mux)[E<lt>un-namedE<gt>]\n"
+"                                                             [    D     ]\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:657
+msgid ""
+"One could always send a control message to node C from anywhere by using the "
+"name E<.Dq Li Frame1:uplink.dlci16>.  In this case, node C would also be "
+"notified that the message reached it via its hook E<.Va mux>.  Similarly, "
+"E<.Dq Li Frame1:uplink.dlci20> could reliably be used to reach node D, and "
+"node A could refer to node B as E<.Dq Li .:uplink>, or simply E<.Dq Li "
+"uplink>.  Conversely, B can refer to A as E<.Dq Li data>.  The address E<.Dq "
+"Li mux.data> could be used by both nodes C and D to address a message to "
+"node A."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:675
+msgid ""
+"Note that this is only for E<.Em control messages>.  In each of these cases, "
+"where a relative addressing mode is used, the recipient is notified of the "
+"hook on which the message arrived, as well as the originating node.  This "
+"allows the option of hop-by-hop distribution of messages and state "
+"information.  Data messages are E<.Em only> routed one hop at a time, by "
+"specifying the departing hook, with each node making the next routing "
+"decision.  So when B receives a frame on hook E<.Va data>, it decodes the "
+"frame relay header to determine the DLCI, and then forwards the unwrapped "
+"frame to either C or D."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:692
+msgid ""
+"In a similar way, flow control messages may be routed in the reverse "
+"direction to outgoing data.  For example a E<.Dq \"buffer nearly full\"> "
+"message from E<.Dq Li Frame1:> would be passed to node B which might decide "
+"to send similar messages to both nodes C and D.  The nodes would use E<.Em "
+"\"direct hook pointer\"> addressing to route the messages.  The message may "
+"have travelled from E<.Dq Li Frame1:> to B as a synchronous reply, saving "
+"time and cycles."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:692
+#, no-wrap
+msgid "Netgraph Structures"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:694
+msgid "Structures are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netgraph.4:694
+#, no-wrap
+msgid "netgraph/netgraph.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:697
+msgid "(for kernel structures only of interest to nodes)  and"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netgraph.4:697 /usr/src/share/man/man4/netgraph.4:999 /usr/src/share/man/man4/netgraph.4:1114
+#, no-wrap
+msgid "netgraph/ng_message.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:699
+msgid "(for message definitions also of interest to user programs)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:706
+msgid ""
+"The two basic object types that are of interest to node authors are E<.Em "
+"nodes> and E<.Em hooks>.  These two objects have the following properties "
+"that are also of interest to the node writers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:707
+#, no-wrap
+msgid "Vt \"struct ng_node\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:712
+msgid ""
+"Node authors should always use the following E<.Ic typedef> to declare their "
+"pointers, and should never actually declare the structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:714
+msgid "E<.Fd \"typedef struct ng_node *node_p;\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:717
+msgid ""
+"The following properties are associated with a node, and can be accessed in "
+"the following manner:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:718
+#, no-wrap
+msgid "Validity"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:730
+msgid ""
+"A driver or interrupt routine may want to check whether the node is still "
+"valid.  It is assumed that the caller holds a reference on the node so it "
+"will not have been freed, however it may have been disabled or otherwise "
+"shut down.  Using the E<.Fn NG_NODE_IS_VALID node> macro will return this "
+"state.  Eventually it should be almost impossible for code to run in an "
+"invalid node but at this time that work has not been completed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:730
+#, no-wrap
+msgid "Node ID Pq Vt ng_ID_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:733
+msgid "This property can be retrieved using the macro E<.Fn NG_NODE_ID node>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:733
+#, no-wrap
+msgid "Node name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:739
+msgid ""
+"Optional globally unique name, E<.Dv NUL> terminated string.  If there is a "
+"value in here, it is the name of the node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:741
+#, no-wrap
+msgid "if (NG_NODE_NAME(node)[0] != '\\e0') ...\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:743
+#, no-wrap
+msgid "if (strcmp(NG_NODE_NAME(node), \"fred\") == 0) ...\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:744
+#, no-wrap
+msgid "A node dependent opaque cookie"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:751
+msgid ""
+"Anything of the pointer type can be placed here.  The macros E<.Fn "
+"NG_NODE_SET_PRIVATE node value> and E<.Fn NG_NODE_PRIVATE node> set and "
+"retrieve this property, respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:751
+#, no-wrap
+msgid "Number of hooks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:756
+msgid "The E<.Fn NG_NODE_NUMHOOKS node> macro is used to retrieve this value."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:770
+msgid ""
+"The node may have a number of hooks.  A traversal method is provided to "
+"allow all the hooks to be tested for some condition.  E<.Fn "
+"NG_NODE_FOREACH_HOOK node fn arg rethook> where E<.Fa fn> is a function that "
+"will be called for each hook with the form E<.Fn fn hook arg> and returning "
+"0 to terminate the search.  If the search is terminated, then E<.Fa rethook> "
+"will be set to the hook at which the search was terminated."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:771
+#, no-wrap
+msgid "Vt \"struct ng_hook\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:776
+msgid ""
+"Node authors should always use the following E<.Ic typedef> to declare their "
+"hook pointers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:778
+msgid "E<.Fd \"typedef struct ng_hook *hook_p;\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:781
+msgid ""
+"The following properties are associated with a hook, and can be accessed in "
+"the following manner:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:782
+#, no-wrap
+msgid "A hook dependent opaque cookie"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:789
+msgid ""
+"Anything of the pointer type can be placed here.  The macros E<.Fn "
+"NG_HOOK_SET_PRIVATE hook value> and E<.Fn NG_HOOK_PRIVATE hook> set and "
+"retrieve this property, respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:789
+#, no-wrap
+msgid "\\&An associate node"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:793
+msgid "The macro E<.Fn NG_HOOK_NODE hook> finds the associated node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:793
+#, no-wrap
+msgid "A peer hook Pq Vt hook_p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:798
+msgid ""
+"The other hook in this connected pair.  The E<.Fn NG_HOOK_PEER hook> macro "
+"finds the peer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:798
+#, no-wrap
+msgid "References"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:807
+msgid ""
+"The E<.Fn NG_HOOK_REF hook> and E<.Fn NG_HOOK_UNREF hook> macros increment "
+"and decrement the hook reference count accordingly.  After decrement you "
+"should always assume the hook has been freed unless you have another "
+"reference still valid."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:807
+#, no-wrap
+msgid "Override receive functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:818
+msgid ""
+"The E<.Fn NG_HOOK_SET_RCVDATA hook fn> and E<.Fn NG_HOOK_SET_RCVMSG hook fn> "
+"macros can be used to set override methods that will be used in preference "
+"to the generic receive data and receive message functions.  To unset these, "
+"use the macros to set them to E<.Dv NULL>.  They will only be used for data "
+"and messages received on the hook on which they are set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:832
+msgid ""
+"The maintenance of the names, reference counts, and linked list of hooks for "
+"each node is handled automatically by the E<.Nm> subsystem.  Typically a "
+"node's private info contains a back-pointer to the node or hook structure, "
+"which counts as a new reference that must be included in the reference count "
+"for the node.  When the node constructor is called, there is already a "
+"reference for this calculated in, so that when the node is destroyed, it "
+"should remember to do a E<.Fn NG_NODE_UNREF> on the node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:835
+msgid ""
+"From a hook you can obtain the corresponding node, and from a node, it is "
+"possible to traverse all the active hooks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:839
+msgid ""
+"A current example of how to define a node can always be seen in E<.Pa "
+"src/sys/netgraph/ng_sample.c> and should be used as a starting point for new "
+"node writers."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:840
+#, no-wrap
+msgid "Netgraph Message Structure"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:842
+msgid "Control messages have the following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:844
+#, no-wrap
+msgid "#define NG_CMDSTRSIZ    32      /* Max command string (including null) */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:859
+#, no-wrap
+msgid ""
+"struct ng_mesg {\n"
+"  struct ng_msghdr {\n"
+"    u_char      version;        /* Must equal NG_VERSION */\n"
+"    u_char      spare;          /* Pad to 4 bytes */\n"
+"    uint16_t    spare2;\n"
+"    uint32_t    arglen;         /* Length of cmd/resp data */\n"
+"    uint32_t    cmd;            /* Command identifier */\n"
+"    uint32_t    flags;          /* Message status flags */\n"
+"    uint32_t    token;          /* Reply should have the same token */\n"
+"    uint32_t    typecookie;     /* Node type understanding this message */\n"
+"    u_char      cmdstr[NG_CMDSTRSIZ];  /* cmd string + \\0 */\n"
+"  } header;\n"
+"  char  data[];                 /* placeholder for actual data */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:864
+#, no-wrap
+msgid ""
+"#define NG_ABI_VERSION  12              /* Netgraph kernel ABI version */\n"
+"#define NG_VERSION      8               /* Netgraph message version */\n"
+"#define NGF_ORIG        0x00000000      /* The msg is the original request "
+"*/\n"
+"#define NGF_RESP        0x00000001      /* The message is a response */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:870
+msgid ""
+"Control messages have the fixed header shown above, followed by a variable "
+"length data section which depends on the type cookie and the command.  Each "
+"field is explained below:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:871
+#, no-wrap
+msgid "Va version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:877
+msgid ""
+"Indicates the version of the E<.Nm> message protocol itself.  The current "
+"version is E<.Dv NG_VERSION>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:877
+#, no-wrap
+msgid "Va arglen"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:880
+msgid "This is the length of any extra arguments, which begin at E<.Va data>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:880
+#, no-wrap
+msgid "Va flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:882
+msgid "Indicates whether this is a command or a response control message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:882
+#, no-wrap
+msgid "Va token"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:887
+msgid ""
+"The E<.Va token> is a means by which a sender can match a reply message to "
+"the corresponding command message; the reply always has the same token."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:887
+#, no-wrap
+msgid "Va typecookie"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:892
+msgid ""
+"The corresponding node type's unique 32-bit value.  If a node does not "
+"recognize the type cookie it must reject the message by returning E<.Er "
+"EINVAL>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:905
+msgid ""
+"Each type should have an include file that defines the commands, argument "
+"format, and cookie for its own messages.  The typecookie ensures that the "
+"same header file was included by both sender and receiver; when an "
+"incompatible change in the header file is made, the typecookie E<.Em must> "
+"be changed.  The de-facto method for generating unique type cookies is to "
+"take the seconds from the Epoch at the time the header file is written "
+"(i.e., the output of E<.Dq Nm date Fl u Li +%s>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:913
+msgid ""
+"There is a predefined typecookie E<.Dv NGM_GENERIC_COOKIE> for the E<.Vt "
+"generic> node type, and a corresponding set of generic messages which all "
+"nodes understand.  The handling of these messages is automatic."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:913
+#, no-wrap
+msgid "Va cmd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:917
+msgid ""
+"The identifier for the message command.  This is type specific, and is "
+"defined in the same header file as the typecookie."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:917
+#, no-wrap
+msgid "Va cmdstr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:921
+msgid ""
+"Room for a short human readable version of E<.Va command> (for debugging "
+"purposes only)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:925
+msgid ""
+"Some modules may choose to implement messages from more than one of the "
+"header files and thus recognize more than one type cookie."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:925
+#, no-wrap
+msgid "Control Message ASCII Form"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:935
+msgid ""
+"Control messages are in binary format for efficiency.  However, for "
+"debugging and human interface purposes, and if the node type supports it, "
+"control messages may be converted to and from an equivalent E<.Tn ASCII> "
+"form.  The E<.Tn ASCII> form is similar to the binary form, with two "
+"exceptions:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:944
+msgid ""
+"The E<.Va cmdstr> header field must contain the E<.Tn ASCII> name of the "
+"command, corresponding to the E<.Va cmd> header field."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:950
+msgid ""
+"The arguments field contains a E<.Dv NUL Ns> -terminated E<.Tn ASCII> string "
+"version of the message arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:959
+msgid ""
+"In general, the arguments field of a control message can be any arbitrary C "
+"data type.  E<.Nm Netgraph> includes parsing routines to support some "
+"pre-defined datatypes in E<.Tn ASCII> with this simple syntax:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:962
+msgid "Integer types are represented by base 8, 10, or 16 numbers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:965
+msgid ""
+"Strings are enclosed in double quotes and respect the normal C language "
+"backslash escapes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:967
+msgid "IP addresses have the obvious form."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:976
+msgid ""
+"Arrays are enclosed in square brackets, with the elements listed "
+"consecutively starting at index zero.  An element may have an optional index "
+"and equals sign E<.Pq Ql => preceding it.  Whenever an element does not have "
+"an explicit index, the index is implicitly the previous element's index plus "
+"one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:980
+msgid ""
+"Structures are enclosed in curly braces, and each field is specified in the "
+"form E<.Ar fieldname Ns = Ns Ar value>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:986
+msgid ""
+"Any array element or structure field whose value is equal to its E<.Dq "
+"default value> may be omitted.  For integer types, the default value is "
+"usually zero; for string types, the empty string."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:988
+msgid "Array elements and structure fields may be specified in any order."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:995
+msgid ""
+"Each node type may define its own arbitrary types by providing the necessary "
+"routines to parse and unparse.  E<.Tn ASCII> forms defined for a specific "
+"node type are documented in the corresponding man page."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:995
+#, no-wrap
+msgid "Generic Control Messages"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:999
+msgid ""
+"There are a number of standard predefined messages that will work for any "
+"node, as they are supported directly by the framework itself.  These are "
+"defined in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1001
+msgid "along with the basic layout of messages and other similar information."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1002
+#, no-wrap
+msgid "Dv NGM_CONNECT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1004
+msgid "Connect to another node, using the supplied hook names on either end."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1004
+#, no-wrap
+msgid "Dv NGM_MKPEER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1007
+msgid ""
+"Construct a node of the given type and then connect to it using the supplied "
+"hook names."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1007
+#, no-wrap
+msgid "Dv NGM_SHUTDOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1014
+msgid ""
+"The target node should disconnect from all its neighbours and shut down.  "
+"Persistent nodes such as those representing physical hardware might not "
+"disappear from the node namespace, but only reset themselves.  The node must "
+"disconnect all of its hooks.  This may result in neighbors shutting "
+"themselves down, and possibly a cascading shutdown of the entire connected "
+"graph."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1014
+#, no-wrap
+msgid "Dv NGM_NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1021
+msgid ""
+"Assign a name to a node.  Nodes can exist without having a name, and this is "
+"the default for nodes created using the E<.Dv NGM_MKPEER> method.  Such "
+"nodes can only be addressed relatively or by their ID number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1021
+#, no-wrap
+msgid "Dv NGM_RMHOOK"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1027
+msgid ""
+"Ask the node to break a hook connection to one of its neighbours.  Both "
+"nodes will have their E<.Dq disconnect> method invoked.  Either node may "
+"elect to totally shut down as a result."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1027
+#, no-wrap
+msgid "Dv NGM_NODEINFO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1033
+msgid ""
+"Asks the target node to describe itself.  The four returned fields are the "
+"node name (if named), the node type, the node ID and the number of hooks "
+"attached.  The ID is an internal number unique to that node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1033
+#, no-wrap
+msgid "Dv NGM_LISTHOOKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1039
+msgid ""
+"This returns the information given by E<.Dv NGM_NODEINFO>, but in addition "
+"includes an array of fields describing each link, and the description for "
+"the node at the far end of that link."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1039
+#, no-wrap
+msgid "Dv NGM_LISTNAMES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1044
+msgid ""
+"This returns an array of node descriptions (as for E<.Dv NGM_NODEINFO>)  "
+"where each entry of the array describes a named node.  All named nodes will "
+"be described."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1044
+#, no-wrap
+msgid "Dv NGM_LISTNODES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1048
+msgid ""
+"This is the same as E<.Dv NGM_LISTNAMES> except that all nodes are listed "
+"regardless of whether they have a name or not."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1048
+#, no-wrap
+msgid "Dv NGM_LISTTYPES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1052
+msgid "This returns a list of all currently installed E<.Nm> types."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1052
+#, no-wrap
+msgid "Dv NGM_TEXT_STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1065
+msgid ""
+"The node may return a text formatted status message.  The status information "
+"is determined entirely by the node type.  It is the only E<.Dq generic> "
+"message that requires any support within the node itself and as such the "
+"node may elect to not support this message.  The text response must be less "
+"than E<.Dv NG_TEXTRESPONSE> bytes in length (presently 1024).  This can be "
+"used to return general status information in human readable form."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1065
+#, no-wrap
+msgid "Dv NGM_BINARY2ASCII"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1081
+msgid ""
+"This message converts a binary control message to its E<.Tn ASCII> form.  "
+"The entire control message to be converted is contained within the arguments "
+"field of the E<.Dv NGM_BINARY2ASCII> message itself.  If successful, the "
+"reply will contain the same control message in E<.Tn ASCII> form.  A node "
+"will typically only know how to translate messages that it itself "
+"understands, so the target node of the E<.Dv NGM_BINARY2ASCII> is often the "
+"same node that would actually receive that message."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1081
+#, no-wrap
+msgid "Dv NGM_ASCII2BINARY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1099
+msgid ""
+"The opposite of E<.Dv NGM_BINARY2ASCII>.  The entire control message to be "
+"converted, in E<.Tn ASCII> form, is contained in the arguments section of "
+"the E<.Dv NGM_ASCII2BINARY> and need only have the E<.Va flags , cmdstr>, "
+"and E<.Va arglen> header fields filled in, plus the E<.Dv NUL Ns> "
+"-terminated string version of the arguments in the arguments field.  If "
+"successful, the reply contains the binary version of the control message."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/netgraph.4:1100
+#, no-wrap
+msgid "Flow Control Messages"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1114
+msgid ""
+"In addition to the control messages that affect nodes with respect to the "
+"graph, there are also a number of E<.Em flow control> messages defined.  At "
+"present these are E<.Em not> handled automatically by the system, so nodes "
+"need to handle them if they are going to be used in a graph utilising flow "
+"control, and will be in the likely path of these messages.  The default "
+"action of a node that does not understand these messages should be to pass "
+"them onto the next node.  Hopefully some helper functions will assist in "
+"this eventually.  These messages are also defined in"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1119
+msgid ""
+"and have a separate cookie E<.Dv NG_FLOW_COOKIE> to help identify them.  "
+"They will not be covered in depth here."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1119
+#, no-wrap
+msgid "INITIALIZATION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1126
+msgid ""
+"The base E<.Nm> code may either be statically compiled into the kernel or "
+"else loaded dynamically as a KLD via E<.Xr kldload 8>.  In the former case, "
+"include"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/netgraph.4:1127 /usr/src/share/man/man4/netgraph.4:1133
+#, no-wrap
+msgid "Cd \"options NETGRAPH\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1132
+msgid ""
+"in your kernel configuration file.  You may also include selected node types "
+"in the kernel compilation, for example:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/netgraph.4:1134
+#, no-wrap
+msgid "Cd \"options NETGRAPH_SOCKET\""
+msgstr ""
+
+#. type: D1
+#: /usr/src/share/man/man4/netgraph.4:1135
+#, no-wrap
+msgid "Cd \"options NETGRAPH_ECHO\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1151
+msgid ""
+"Once the E<.Nm> subsystem is loaded, individual node types may be loaded at "
+"any time as KLD modules via E<.Xr kldload 8>.  Moreover, E<.Nm> knows how to "
+"automatically do this; when a request to create a new node of unknown type "
+"E<.Ar type> is made, E<.Nm> will attempt to load the KLD module E<.Pa ng_ Ns "
+"Ao Ar type Ac Ns Pa .ko>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1156
+msgid ""
+"Types can also be installed at boot time, as certain device drivers may want "
+"to export each instance of the device as a E<.Nm> node."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1163
+msgid ""
+"In general, new types can be installed at any time from within the kernel by "
+"calling E<.Fn ng_newtype>, supplying a pointer to the type's E<.Vt \"struct "
+"ng_type\"> structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1167
+msgid "The E<.Fn NETGRAPH_INIT> macro automates this process by using a linker set."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1167
+#, no-wrap
+msgid "EXISTING NODE TYPES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1170
+msgid ""
+"Several node types currently exist.  Each is fully documented in its own man "
+"page:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1171
+#, no-wrap
+msgid "SOCKET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1194
+msgid ""
+"The socket type implements two new sockets in the new protocol domain E<.Dv "
+"PF_NETGRAPH>.  The new sockets protocols are E<.Dv NG_DATA> and E<.Dv "
+"NG_CONTROL>, both of type E<.Dv SOCK_DGRAM>.  Typically one of each is "
+"associated with a socket node.  When both sockets have closed, the node will "
+"shut down.  The E<.Dv NG_DATA> socket is used for sending and receiving "
+"data, while the E<.Dv NG_CONTROL> socket is used for sending and receiving "
+"control messages.  Data and control messages are passed using the E<.Xr "
+"sendto 2> and E<.Xr recvfrom 2> system calls, using a E<.Vt \"struct "
+"sockaddr_ng\"> socket address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1194
+#, no-wrap
+msgid "HOLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1200
+msgid ""
+"Responds only to generic messages and is a E<.Dq black hole> for data.  "
+"Useful for testing.  Always accepts new hooks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1200
+#, no-wrap
+msgid "ECHO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1206
+msgid ""
+"Responds only to generic messages and always echoes data back through the "
+"hook from which it arrived.  Returns any non-generic messages as their own "
+"response.  Useful for testing.  Always accepts new hooks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1206
+#, no-wrap
+msgid "TEE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1233
+msgid ""
+"This node is useful for E<.Dq snooping>.  It has 4 hooks: E<.Va left , right "
+", left2right>, and E<.Va right2left>.  Data entering from the E<.Va right> "
+"is passed to the E<.Va left> and duplicated on E<.Va right2left>, and data "
+"entering from the E<.Va left> is passed to the E<.Va right> and duplicated "
+"on E<.Va left2right>.  Data entering from E<.Va left2right> is sent to the "
+"E<.Va right> and data from E<.Va right2left> to E<.Va left>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1233
+#, no-wrap
+msgid "RFC1490 MUX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1239
+msgid ""
+"Encapsulates/de-encapsulates frames encoded according to RFC 1490.  Has a "
+"hook for the encapsulated packets E<.Pq Va downstream> and one hook for each "
+"protocol (i.e., IP, PPP, etc.)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1239
+#, no-wrap
+msgid "FRAME RELAY MUX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1245
+msgid ""
+"Encapsulates/de-encapsulates Frame Relay frames.  Has a hook for the "
+"encapsulated packets E<.Pq Va downstream> and one hook for each DLCI."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1245
+#, no-wrap
+msgid "FRAME RELAY LMI"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1251
+msgid ""
+"Automatically handles frame relay E<.Dq LMI> (link management interface) "
+"operations and packets.  Automatically probes and detects which of several "
+"LMI standards is in use at the exchange."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1251
+#, no-wrap
+msgid "TTY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1261
+msgid ""
+"This node is also a line discipline.  It simply converts between E<.Vt mbuf> "
+"frames and sequential serial data, allowing a TTY to appear as a E<.Nm> "
+"node.  It has a programmable E<.Dq hotkey> character."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1261
+#, no-wrap
+msgid "ASYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1266
+msgid ""
+"This node encapsulates and de-encapsulates asynchronous frames according to "
+"RFC 1662.  This is used in conjunction with the TTY node type for supporting "
+"PPP links over asynchronous serial lines."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1266
+#, no-wrap
+msgid "ETHERNET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1270
+msgid ""
+"This node is attached to every Ethernet interface in the system.  It allows "
+"capturing raw Ethernet frames from the network, as well as sending frames "
+"out of the interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1270
+#, no-wrap
+msgid "INTERFACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1279
+msgid ""
+"This node is also a system networking interface.  It has hooks representing "
+"each protocol family (IP, IPv6)  and appears in the output of E<.Xr ifconfig "
+"8>.  The interfaces are named E<.Dq Li ng0>, E<.Dq Li ng1>, etc."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1279
+#, no-wrap
+msgid "ONE2MANY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1284
+msgid ""
+"This node implements a simple round-robin multiplexer.  It can be used for "
+"example to make several LAN ports act together to get a higher speed link "
+"between two machines."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1284
+#, no-wrap
+msgid "Various PPP related nodes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1294
+msgid ""
+"There is a full multilink PPP implementation that runs in E<.Nm>.  The E<.Pa "
+"net/mpd5> port can use these modules to make a very low latency high "
+"capacity PPP system.  It also supports E<.Tn PPTP> VPNs using the PPTP node."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1294
+#, no-wrap
+msgid "PPPOE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1302
+msgid ""
+"A server and client side implementation of PPPoE.  Used in conjunction with "
+"either E<.Xr ppp 8> or the E<.Pa net/mpd5> port."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1302
+#, no-wrap
+msgid "BRIDGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1305
+msgid ""
+"This node, together with the Ethernet nodes, allows a very flexible bridging "
+"system to be implemented."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1305
+#, no-wrap
+msgid "KSOCKET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1313
+msgid ""
+"This intriguing node looks like a socket to the system but diverts all data "
+"to and from the E<.Nm> system for further processing.  This allows such "
+"things as UDP tunnels to be almost trivially implemented from the command "
+"line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1316
+msgid "Refer to the section at the end of this man page for more nodes types."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1316
+#, no-wrap
+msgid "NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1323
+msgid ""
+"Whether a named node exists can be checked by trying to send a control "
+"message to it (e.g., E<.Dv NGM_NODEINFO>).  If it does not exist, E<.Er "
+"ENOENT> will be returned."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1329
+msgid "All data messages are E<.Vt mbuf chains> with the E<.Dv M_PKTHDR> flag set."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1332
+msgid ""
+"Nodes are responsible for freeing what they allocate.  There are three "
+"exceptions:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1338
+msgid ""
+"E<.Vt Mbufs> sent across a data link are never to be freed by the sender.  "
+"In the case of error, they should be considered freed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1345
+msgid ""
+"Messages sent using one of E<.Fn NG_SEND_MSG_*> family macros are freed by "
+"the recipient.  As in the case above, the addresses associated with the "
+"message are freed by whatever allocated them so the recipient should copy "
+"them if it wants to keep that information."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1352
+msgid ""
+"Both control messages and data are delivered and queued with a E<.Nm> E<.Em "
+"item>.  The item must be freed using E<.Fn NG_FREE_ITEM item> or passed on "
+"to another node."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1353
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1355
+#, no-wrap
+msgid "In netgraph/netgraph.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1359
+msgid "Definitions for use solely within the kernel by E<.Nm> nodes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1359
+#, no-wrap
+msgid "In netgraph/ng_message.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1363
+msgid "Definitions needed by any file that needs to deal with E<.Nm> messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1363
+#, no-wrap
+msgid "In netgraph/ng_socket.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1368
+msgid "Definitions needed to use E<.Nm> E<.Vt socket> type nodes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1368
+#, no-wrap
+msgid "In netgraph/ng_ Ns Ao Ar type Ac Ns Pa .h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1373
+msgid ""
+"Definitions needed to use E<.Nm> E<.Ar type> nodes, including the type "
+"cookie definition."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1373
+#, no-wrap
+msgid "Pa /boot/kernel/netgraph.ko"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1377
+msgid "The E<.Nm> subsystem loadable KLD module."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1377
+#, no-wrap
+msgid "Pa /boot/kernel/ng_ Ns Ao Ar type Ac Ns Pa .ko"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1380
+msgid "Loadable KLD module for node type E<.Ar type>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netgraph.4:1380
+#, no-wrap
+msgid "Pa src/sys/netgraph/ng_sample.c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1385
+msgid "Skeleton E<.Nm> node.  Use this as a starting point for new node types."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1386
+#, no-wrap
+msgid "USER MODE SUPPORT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1394
+msgid ""
+"There is a library for supporting user-mode programs that wish to interact "
+"with the E<.Nm> system.  See E<.Xr netgraph 3> for details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1400
+msgid ""
+"Two user-mode support programs, E<.Xr ngctl 8> and E<.Xr nghook 8>, are "
+"available to assist manual configuration and debugging."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1410
+msgid ""
+"There are a few useful techniques for debugging new node types.  First, "
+"implementing new node types in user-mode first makes debugging easier.  The "
+"E<.Vt tee> node type is also useful for debugging, especially in conjunction "
+"with E<.Xr ngctl 8> and E<.Xr nghook 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1416
+msgid ""
+"Also look in E<.Pa /usr/share/examples/netgraph> for solutions to several "
+"common networking problems, solved using E<.Nm>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1416
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1471
+msgid ""
+"E<.Xr socket 2>, E<.Xr netgraph 3>, E<.Xr ng_async 4>, E<.Xr ng_atm 4>, "
+"E<.Xr ng_atmllc 4>, E<.Xr ng_bluetooth 4>, E<.Xr ng_bpf 4>, E<.Xr ng_bridge "
+"4>, E<.Xr ng_bt3c 4>, E<.Xr ng_btsocket 4>, E<.Xr ng_car 4>, E<.Xr ng_cisco "
+"4>, E<.Xr ng_device 4>, E<.Xr ng_echo 4>, E<.Xr ng_eiface 4>, E<.Xr ng_etf "
+"4>, E<.Xr ng_ether 4>, E<.Xr ng_frame_relay 4>, E<.Xr ng_gif 4>, E<.Xr "
+"ng_gif_demux 4>, E<.Xr ng_h4 4>, E<.Xr ng_hci 4>, E<.Xr ng_hole 4>, E<.Xr "
+"ng_hub 4>, E<.Xr ng_iface 4>, E<.Xr ng_ip_input 4>, E<.Xr ng_ipfw 4>, E<.Xr "
+"ng_ksocket 4>, E<.Xr ng_l2cap 4>, E<.Xr ng_l2tp 4>, E<.Xr ng_lmi 4>, E<.Xr "
+"ng_mppc 4>, E<.Xr ng_nat 4>, E<.Xr ng_netflow 4>, E<.Xr ng_one2many 4>, "
+"E<.Xr ng_patch 4>, E<.Xr ng_ppp 4>, E<.Xr ng_pppoe 4>, E<.Xr ng_pptpgre 4>, "
+"E<.Xr ng_rfc1490 4>, E<.Xr ng_socket 4>, E<.Xr ng_split 4>, E<.Xr ng_sppp "
+"4>, E<.Xr ng_sscfu 4>, E<.Xr ng_sscop 4>, E<.Xr ng_tee 4>, E<.Xr ng_tty 4>, "
+"E<.Xr ng_ubt 4>, E<.Xr ng_UI 4>, E<.Xr ng_uni 4>, E<.Xr ng_vjc 4>, E<.Xr "
+"ng_vlan 4>, E<.Xr ngctl 8>, E<.Xr nghook 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1471
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1480
+msgid ""
+"The E<.Nm> system was designed and first implemented at Whistle "
+"Communications, Inc.\\& in a version of E<.Fx 2.2> customized for the "
+"Whistle InterJet.  It first made its debut in the main tree in E<.Fx 3.4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netgraph.4:1480
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netgraph.4:1484
+msgid ""
+"E<.An -nosplit> E<.An Julian Elischer Aq Mt julian@FreeBSD.org>, with "
+"contributions by E<.An Archie Cobbs Aq Mt archie@FreeBSD.org>."
+msgstr ""

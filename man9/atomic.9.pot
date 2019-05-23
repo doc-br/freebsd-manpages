@@ -1,0 +1,858 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/atomic.9:25
+#, no-wrap
+msgid "December 22, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/atomic.9:26
+#, no-wrap
+msgid "ATOMIC 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/atomic.9:28
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:40
+msgid ""
+"E<.Nm atomic_add>, E<.Nm atomic_clear>, E<.Nm atomic_cmpset>, E<.Nm "
+"atomic_fcmpset>, E<.Nm atomic_fetchadd>, E<.Nm atomic_load>, E<.Nm "
+"atomic_readandclear>, E<.Nm atomic_set>, E<.Nm atomic_subtract>, E<.Nm "
+"atomic_store>, E<.Nm atomic_thread_fence>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/atomic.9:40
+#, no-wrap
+msgid "atomic operations"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/atomic.9:41
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/atomic.9:42
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/atomic.9:43
+#, no-wrap
+msgid "machine/atomic.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:80
+msgid ""
+"E<.Ft void> E<.Fn atomic_add_[acq_|rel_]E<lt>typeE<gt> \"volatile "
+"E<lt>typeE<gt> *p\" \"E<lt>typeE<gt> v\"> E<.Ft void> E<.Fn "
+"atomic_clear_[acq_|rel_]E<lt>typeE<gt> \"volatile E<lt>typeE<gt> *p\" "
+"\"E<lt>typeE<gt> v\"> E<.Ft int> E<.Fo "
+"atomic_cmpset_[acq_|rel_]E<lt>typeE<gt>> E<.Fa \"volatile E<lt>typeE<gt> "
+"*dst\"> E<.Fa \"E<lt>typeE<gt> old\"> E<.Fa \"E<lt>typeE<gt> new\"> E<.Fc> "
+"E<.Ft int> E<.Fo atomic_fcmpset_[acq_|rel_]E<lt>typeE<gt>> E<.Fa \"volatile "
+"E<lt>typeE<gt> *dst\"> E<.Fa \"E<lt>typeE<gt> *old\"> E<.Fa \"E<lt>typeE<gt> "
+"new\"> E<.Fc> E<.Ft E<lt>typeE<gt>> E<.Fn atomic_fetchadd_E<lt>typeE<gt> "
+"\"volatile E<lt>typeE<gt> *p\" \"E<lt>typeE<gt> v\"> E<.Ft E<lt>typeE<gt>> "
+"E<.Fn atomic_load_[acq_]E<lt>typeE<gt> \"volatile E<lt>typeE<gt> *p\"> E<.Ft "
+"E<lt>typeE<gt>> E<.Fn atomic_readandclear_E<lt>typeE<gt> \"volatile "
+"E<lt>typeE<gt> *p\"> E<.Ft void> E<.Fn atomic_set_[acq_|rel_]E<lt>typeE<gt> "
+"\"volatile E<lt>typeE<gt> *p\" \"E<lt>typeE<gt> v\"> E<.Ft void> E<.Fn "
+"atomic_subtract_[acq_|rel_]E<lt>typeE<gt> \"volatile E<lt>typeE<gt> *p\" "
+"\"E<lt>typeE<gt> v\"> E<.Ft void> E<.Fn atomic_store_[rel_]E<lt>typeE<gt> "
+"\"volatile E<lt>typeE<gt> *p\" \"E<lt>typeE<gt> v\"> E<.Ft E<lt>typeE<gt>> "
+"E<.Fn atomic_swap_E<lt>typeE<gt> \"volatile E<lt>typeE<gt> *p\" "
+"\"E<lt>typeE<gt> v\"> E<.Ft int> E<.Fn atomic_testandclear_E<lt>typeE<gt> "
+"\"volatile E<lt>typeE<gt> *p\" \"u_int v\"> E<.Ft int> E<.Fn "
+"atomic_testandset_E<lt>typeE<gt> \"volatile E<lt>typeE<gt> *p\" \"u_int v\"> "
+"E<.Ft void> E<.Fn atomic_thread_fence_[acq|acq_rel|rel|seq_cst] \"void\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/atomic.9:80
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:83
+msgid ""
+"Atomic operations are commonly used to implement reference counts and as "
+"building blocks for synchronization primitives, such as mutexes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:89
+msgid ""
+"All of these operations are performed E<.Em atomically> across multiple "
+"threads and in the presence of interrupts, meaning that they are performed "
+"in an indivisible manner from the perspective of concurrently running "
+"threads and interrupt handlers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:97
+msgid ""
+"On all architectures supported by E<.Fx>, ordinary loads and stores of "
+"integers in cache-coherent memory are inherently atomic if the integer is "
+"naturally aligned and its size does not exceed the processor's word size.  "
+"However, such loads and stores may be elided from the program by the "
+"compiler, whereas atomic operations are always performed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:100
+msgid ""
+"When atomic operations are performed on cache-coherent memory, all "
+"operations on the same location are totally ordered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:109
+msgid ""
+"When an atomic load is performed on a location in cache-coherent memory, it "
+"reads the entire value that was defined by the last atomic store to each "
+"byte of the location.  An atomic load will never return a value out of thin "
+"air.  When an atomic store is performed on a location, no other thread or "
+"interrupt handler will observe a E<.Em torn write>, or partial modification "
+"of the location."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:112
+msgid ""
+"Except as noted below, the semantics of these operations are almost "
+"identical to the semantics of similarly named C11 atomic operations."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/atomic.9:112
+#, no-wrap
+msgid "Types"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:120
+msgid ""
+"Most atomic operations act upon a specific E<.Fa type>.  That type is "
+"indicated in the function name.  In contrast to C11 atomic operations, E<.Fx "
+"Ns 's> atomic operations are performed on ordinary integer types.  The "
+"available types are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:122
+#, no-wrap
+msgid "Li int"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:124
+msgid "unsigned integer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:124
+#, no-wrap
+msgid "Li long"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:126
+msgid "unsigned long integer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:126
+#, no-wrap
+msgid "Li ptr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:128
+msgid "unsigned integer the size of a pointer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:128
+#, no-wrap
+msgid "Li 32"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:130
+msgid "unsigned 32-bit integer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:130
+#, no-wrap
+msgid "Li 64"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:132
+msgid "unsigned 64-bit integer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:136
+msgid ""
+"For example, the function to atomically add two integers is called E<.Fn "
+"atomic_add_int>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:139
+msgid ""
+"Certain architectures also provide operations for types smaller than E<.Dq "
+"Li int>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:141
+#, no-wrap
+msgid "Li char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:143
+msgid "unsigned character"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:143
+#, no-wrap
+msgid "Li short"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:145
+msgid "unsigned short integer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:145
+#, no-wrap
+msgid "Li 8"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:147
+msgid "unsigned 8-bit integer"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:147
+#, no-wrap
+msgid "Li 16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:149
+msgid "unsigned 16-bit integer"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:152
+msgid "These types must not be used in machine-independent code."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/atomic.9:152
+#, no-wrap
+msgid "Acquire and Release Operations"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:175
+msgid ""
+"By default, a thread's accesses to different memory locations might not be "
+"performed in E<.Em program order>, that is, the order in which the accesses "
+"appear in the source code.  To optimize the program's execution, both the "
+"compiler and processor might reorder the thread's accesses.  However, both "
+"ensure that their reordering of the accesses is not visible to the thread.  "
+"Otherwise, the traditional memory model that is expected by single-threaded "
+"programs would be violated.  Nonetheless, other threads in a multithreaded "
+"program, such as the E<.Fx> kernel, might observe the reordering.  Moreover, "
+"in some cases, such as the implementation of synchronization between "
+"threads, arbitrary reordering might result in the incorrect execution of the "
+"program.  To constrain the reordering that both the compiler and processor "
+"might perform on a thread's accesses, a programmer can use atomic operations "
+"with E<.Em acquire> and E<.Em release> semantics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:184
+msgid ""
+"Atomic operations on memory have up to three variants.  The first, or E<.Em "
+"relaxed> variant, performs the operation without imposing any ordering "
+"constraints on accesses to other memory locations.  This variant is the "
+"default.  The second variant has acquire semantics, and the third variant "
+"has release semantics."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:200
+msgid ""
+"When an atomic operation has acquire semantics, the operation must have "
+"completed before any subsequent load or store (by program order) is "
+"performed.  Conversely, acquire semantics do not require that prior loads or "
+"stores have completed before the atomic operation is performed.  An atomic "
+"operation can only have acquire semantics if it performs a load from "
+"memory.  To denote acquire semantics, the suffix E<.Dq Li _acq> is inserted "
+"into the function name immediately prior to the E<.Dq Li _ Ns Aq Fa type> "
+"suffix.  For example, to subtract two integers ensuring that the subtraction "
+"is completed before any subsequent loads and stores are performed, use E<.Fn "
+"atomic_subtract_acq_int>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:215
+msgid ""
+"When an atomic operation has release semantics, all prior loads or stores "
+"(by program order) must have completed before the operation is performed.  "
+"Conversely, release semantics do not require that the atomic operation must "
+"have completed before any subsequent load or store is performed.  An atomic "
+"operation can only have release semantics if it performs a store to memory.  "
+"To denote release semantics, the suffix E<.Dq Li _rel> is inserted into the "
+"function name immediately prior to the E<.Dq Li _ Ns Aq Fa type> suffix.  "
+"For example, to add two long integers ensuring that all prior loads and "
+"stores are completed before the addition is performed, use E<.Fn "
+"atomic_add_rel_long>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:226
+msgid ""
+"When a release operation by one thread E<.Em synchronizes with> an acquire "
+"operation by another thread, usually meaning that the acquire operation "
+"reads the value written by the release operation, then the effects of all "
+"prior stores by the releasing thread must become visible to subsequent loads "
+"by the acquiring thread.  Moreover, the effects of all stores (by other "
+"threads) that were visible to the releasing thread must also become visible "
+"to the acquiring thread.  These rules only apply to the synchronizing "
+"threads.  Other threads might observe these stores in a different order."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:238
+msgid ""
+"In effect, atomic operations with acquire and release semantics establish "
+"one-way barriers to reordering that enable the implementations of "
+"synchronization primitives to express their ordering requirements without "
+"also imposing unnecessary ordering.  For example, for a critical section "
+"guarded by a mutex, an acquire operation when the mutex is locked and a "
+"release operation when the mutex is unlocked will prevent any loads or "
+"stores from moving outside of the critical section.  However, they will not "
+"prevent the compiler or processor from moving loads or stores into the "
+"critical section, which does not violate the semantics of a mutex."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/atomic.9:238
+#, no-wrap
+msgid "Thread Fence Operations"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:243
+msgid ""
+"Alternatively, a programmer can use atomic thread fence operations to "
+"constrain the reordering of accesses.  In contrast to other atomic "
+"operations, fences do not, themselves, access memory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:251
+msgid ""
+"When a fence has acquire semantics, all prior loads (by program order) must "
+"have completed before any subsequent load or store is performed.  Thus, an "
+"acquire fence is a two-way barrier for load operations.  To denote acquire "
+"semantics, the suffix E<.Dq Li _acq> is appended to the function name, for "
+"example, E<.Fn atomic_thread_fence_acq>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:260
+msgid ""
+"When a fence has release semantics, all prior loads or stores (by program "
+"order) must have completed before any subsequent store operation is "
+"performed.  Thus, a release fence is a two-way barrier for store "
+"operations.  To denote release semantics, the suffix E<.Dq Li _rel> is "
+"appended to the function name, for example, E<.Fn atomic_thread_fence_rel>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:270
+msgid ""
+"Although E<.Fn atomic_thread_fence_acq_rel> implements both acquire and "
+"release semantics, it is not a full barrier.  For example, a store prior to "
+"the fence (in program order) may be completed after a load subsequent to the "
+"fence.  In contrast, E<.Fn atomic_thread_fence_seq_cst> implements a full "
+"barrier.  Neither loads nor stores may cross this barrier in either "
+"direction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:281
+msgid ""
+"In C11, a release fence by one thread synchronizes with an acquire fence by "
+"another thread when an atomic load that is prior to the acquire fence (by "
+"program order) reads the value written by an atomic store that is subsequent "
+"to the release fence.  In constrast, in FreeBSD, because of the atomicity of "
+"ordinary, naturally aligned loads and stores, fences can also be "
+"synchronized by ordinary loads and stores.  This simplifies the "
+"implementation and use of some synchronization primitives in E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:287
+msgid ""
+"Since neither a compiler nor a processor can foresee which (atomic) load "
+"will read the value written by an (atomic) store, the ordering constraints "
+"imposed by fences must be more restrictive than acquire loads and release "
+"stores.  Essentially, this is why fences are two-way barriers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:293
+msgid ""
+"Although fences impose more restrictive ordering than acquire loads and "
+"release stores, by separating access from ordering, they can sometimes "
+"facilitate more efficient implementations of synchronization primitives.  "
+"For example, they can be used to avoid executing a memory barrier until a "
+"memory access shows that some condition is satisfied."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/atomic.9:293
+#, no-wrap
+msgid "Multiple Processors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:309
+msgid ""
+"In multiprocessor systems, the atomicity of the atomic operations on memory "
+"depends on support for cache coherence in the underlying architecture.  In "
+"general, cache coherence on the default memory type, E<.Dv "
+"VM_MEMATTR_DEFAULT>, is guaranteed by all architectures that are supported "
+"by E<.Fx>.  For example, cache coherence is guaranteed on write-back memory "
+"by the E<.Tn amd64> and E<.Tn i386> architectures.  However, on some "
+"architectures, cache coherence might not be enabled on all memory types.  To "
+"determine if cache coherence is enabled for a non-default memory type, "
+"consult the architecture's documentation."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/atomic.9:309
+#, no-wrap
+msgid "Semantics"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:311
+msgid ""
+"This section describes the semantics of each operation using a C like "
+"notation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:312
+#, no-wrap
+msgid "Fn atomic_add p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:315
+#, no-wrap
+msgid "*p += v;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:316
+#, no-wrap
+msgid "Fn atomic_clear p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:319
+#, no-wrap
+msgid "*p &= ~v;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:320
+#, no-wrap
+msgid "Fn atomic_cmpset dst old new"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:327
+#, no-wrap
+msgid ""
+"if (*dst == old) {\n"
+"\t*dst = new;\n"
+"\treturn (1);\n"
+"} else\n"
+"\treturn (0);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:338
+msgid ""
+"Some architectures do not implement the E<.Fn atomic_cmpset> functions for "
+"the types E<.Dq Li char>, E<.Dq Li short>, E<.Dq Li 8>, and E<.Dq Li 16>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:339
+#, no-wrap
+msgid "Fn atomic_fcmpset dst *old new"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:345
+msgid ""
+"On architectures implementing E<.Em Compare And Swap> operation in hardware, "
+"the functionality can be described as"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:353
+#, no-wrap
+msgid ""
+"if (*dst == *old) {\n"
+"\t*dst = new;\n"
+"\treturn (1);\n"
+"} else {\n"
+"\t*old = *dst;\n"
+"\treturn (0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:367
+msgid ""
+"On architectures which provide E<.Em Load Linked/Store Conditional> "
+"primitive, the write to E<.Dv *dst> might also fail for several reasons, "
+"most important of which is a parallel write to E<.Dv *dst> cache line by "
+"other CPU.  In this case E<.Fn atomic_fcmpset> function also returns E<.Dv "
+"false>, despite"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man9/atomic.9:367
+#, no-wrap
+msgid "*old == *dst ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:377
+msgid ""
+"Some architectures do not implement the E<.Fn atomic_fcmpset> functions for "
+"the types E<.Dq Li char>, E<.Dq Li short>, E<.Dq Li 8>, and E<.Dq Li 16>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:378
+#, no-wrap
+msgid "Fn atomic_fetchadd p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:383
+#, no-wrap
+msgid ""
+"tmp = *p;\n"
+"*p += v;\n"
+"return (tmp);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:394
+msgid ""
+"The E<.Fn atomic_fetchadd> functions are only implemented for the types "
+"E<.Dq Li int>, E<.Dq Li long> and E<.Dq Li 32> and do not have any variants "
+"with memory barriers at this time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:395
+#, no-wrap
+msgid "Fn atomic_load p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:398
+#, no-wrap
+msgid "return (*p);\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:399
+#, no-wrap
+msgid "Fn atomic_readandclear p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:404
+#, no-wrap
+msgid ""
+"tmp = *p;\n"
+"*p = 0;\n"
+"return (tmp);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:417
+msgid ""
+"The E<.Fn atomic_readandclear> functions are not implemented for the types "
+"E<.Dq Li char>, E<.Dq Li short>, E<.Dq Li ptr>, E<.Dq Li 8>, and E<.Dq Li "
+"16> and do not have any variants with memory barriers at this time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:418
+#, no-wrap
+msgid "Fn atomic_set p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:421
+#, no-wrap
+msgid "*p |= v;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:422
+#, no-wrap
+msgid "Fn atomic_subtract p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:425
+#, no-wrap
+msgid "*p -= v;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:426
+#, no-wrap
+msgid "Fn atomic_store p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:429
+#, no-wrap
+msgid "*p = v;\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:430
+#, no-wrap
+msgid "Fn atomic_swap p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:435
+#, no-wrap
+msgid ""
+"tmp = *p;\n"
+"*p = v;\n"
+"return (tmp);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:448
+msgid ""
+"The E<.Fn atomic_swap> functions are not implemented for the types E<.Dq Li "
+"char>, E<.Dq Li short>, E<.Dq Li ptr>, E<.Dq Li 8>, and E<.Dq Li 16> and do "
+"not have any variants with memory barriers at this time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:449
+#, no-wrap
+msgid "Fn atomic_testandclear p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:455
+#, no-wrap
+msgid ""
+"bit = 1 E<lt>E<lt> (v % (sizeof(*p) * NBBY));\n"
+"tmp = (*p & bit) != 0;\n"
+"*p &= ~bit;\n"
+"return (tmp);\n"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/atomic.9:458
+#, no-wrap
+msgid "Fn atomic_testandset p v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:464
+#, no-wrap
+msgid ""
+"bit = 1 E<lt>E<lt> (v % (sizeof(*p) * NBBY));\n"
+"tmp = (*p & bit) != 0;\n"
+"*p |= bit;\n"
+"return (tmp);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:477
+msgid ""
+"The E<.Fn atomic_testandset> and E<.Fn atomic_testandclear> functions are "
+"only implemented for the types E<.Dq Li int>, E<.Dq Li long> and E<.Dq Li "
+"32> and do not have any variants with memory barriers at this time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:486
+msgid ""
+"The type E<.Dq Li 64> is currently not implemented for any of the atomic "
+"operations on the E<.Tn arm>, E<.Tn i386>, and E<.Tn powerpc> architectures."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/atomic.9:486
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:512
+msgid ""
+"The E<.Fn atomic_cmpset> function returns the result of the compare "
+"operation.  The E<.Fn atomic_fcmpset> function returns E<.Dv true> if the "
+"operation succeeded.  Otherwise it returns E<.Dv false> and sets E<.Va *old> "
+"to the found value.  The E<.Fn atomic_fetchadd>, E<.Fn atomic_load>, E<.Fn "
+"atomic_readandclear>, and E<.Fn atomic_swap> functions return the value at "
+"the specified address.  The E<.Fn atomic_testandset> and E<.Fn "
+"atomic_testandclear> function returns the result of the test operation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/atomic.9:512
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:525
+msgid ""
+"This example uses the E<.Fn atomic_cmpset_acq_ptr> and E<.Fn atomic_set_ptr> "
+"functions to obtain a sleep mutex and handle recursion.  Since the E<.Va "
+"mtx_lock> member of a E<.Vt \"struct mtx\"> is a pointer, the E<.Dq Li ptr> "
+"type is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:529
+#, no-wrap
+msgid ""
+"/* Try to obtain mtx_lock once. */\n"
+"#define _obtain_lock(mp, tid)\t\t\t\t\t\t\\e\n"
+"\tatomic_cmpset_acq_ptr(&(mp)-E<gt>mtx_lock, MTX_UNOWNED, (tid))\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:543
+#, no-wrap
+msgid ""
+"/* Get a sleep lock, deal with recursion inline. */\n"
+"#define _get_sleep_lock(mp, tid, opts, file, line) do {\t\t\t\\e\n"
+"\tuintptr_t _tid = (uintptr_t)(tid);\t\t\t\t\\e\n"
+"\t\t\t\t\t\t\t\t\t\\e\n"
+"\tif (!_obtain_lock(mp, tid)) {\t\t\t\t\t\\e\n"
+"\t\tif (((mp)-E<gt>mtx_lock & MTX_FLAGMASK) != _tid)\t\t\\e\n"
+"\t\t\t_mtx_lock_sleep((mp), _tid, (opts), (file), (line));\\e\n"
+"\t\telse {\t\t\t\t\t\t\t\\e\n"
+"\t\t\tatomic_set_ptr(&(mp)-E<gt>mtx_lock, MTX_RECURSE);\t\\e\n"
+"\t\t\t(mp)-E<gt>mtx_recurse++;\t\t\t\t\\e\n"
+"\t\t}\t\t\t\t\t\t\t\\e\n"
+"\t}\t\t\t\t\t\t\t\t\\e\n"
+"} while (0)\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/atomic.9:544
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:559
+msgid ""
+"The E<.Fn atomic_add>, E<.Fn atomic_clear>, E<.Fn atomic_set>, and E<.Fn "
+"atomic_subtract> operations were introduced in E<.Fx 3.0>.  Initially, these "
+"operations were defined on the types E<.Dq Li char>, E<.Dq Li short>, E<.Dq "
+"Li int>, and E<.Dq Li long>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:576
+msgid ""
+"The E<.Fn atomic_cmpset>, E<.Fn atomic_load_acq>, E<.Fn "
+"atomic_readandclear>, and E<.Fn atomic_store_rel> operations were added in "
+"E<.Fx 5.0>.  Simultaneously, the acquire and release variants were "
+"introduced, and support was added for operation on the types E<.Dq Li 8>, "
+"E<.Dq Li 16>, E<.Dq Li 32>, E<.Dq Li 64>, and E<.Dq Li ptr>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:581
+msgid "The E<.Fn atomic_fetchadd> operation was added in E<.Fx 6.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:588
+msgid ""
+"The E<.Fn atomic_swap> and E<.Fn atomic_testandset> operations were added in "
+"E<.Fx 10.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:595
+msgid ""
+"The E<.Fn atomic_testandclear> and E<.Fn atomic_thread_fence> operations "
+"were added in E<.Fx 11.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/atomic.9:601
+msgid ""
+"The relaxed variants of E<.Fn atomic_load> and E<.Fn atomic_store> were "
+"added in E<.Fx 12.0>."
+msgstr ""

@@ -1,0 +1,1449 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/meteor.4:4
+#, no-wrap
+msgid "August 15, 1995"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/meteor.4:5
+#, no-wrap
+msgid "METEOR 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/meteor.4:7
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:9
+msgid "E<.Nm meteor>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/meteor.4:9
+#, no-wrap
+msgid "video capture driver interface"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/meteor.4:10
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:18
+msgid ""
+"The E<.Nm> driver defined a video capture interface.  The E<.Nm> driver is "
+"no longer in the tree, but other devices support this interface so the "
+"interface portion is documented here."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/meteor.4:18
+#, no-wrap
+msgid "Meteor Capture Modes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:22
+msgid "The E<.Nm> capture driver has three modes of capture operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:27
+msgid "Conventional E<.Xr read 2> interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:31
+msgid ""
+"This mode is the easiest and slowest to use.  This mode is great for "
+"capturing a single field at little programming cost."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:40
+msgid ""
+"In this mode, the user opens the device, sets the capture mode and size "
+"(see: E<.Dv METEORSETGEO> E<.Xr ioctl 2> call), and uses the E<.Xr read 2> "
+"system call to load the data into a buffer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:43
+msgid "E<.Pa meteor_read.c>; read 400x300 RGB24 into a viewable PPM file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:46
+#, no-wrap
+msgid ""
+"#include E<lt>sys/fcntl.hE<gt>\n"
+"#include E<lt>machine/ioctl_meteor.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:56
+#, no-wrap
+msgid ""
+"extern int errno;\n"
+"#define ROWS 300\n"
+"#define COLS 400\n"
+"#define SIZE (ROWS * COLS * 4)\n"
+"main()\n"
+"{\n"
+"\tstruct meteor_geomet geo;\n"
+"\tchar buf[SIZE],b[4],header[16],*p;\n"
+"\tint i,o,c;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:66
+#, no-wrap
+msgid ""
+"\tif ((i = open(\"/dev/meteor0\", O_RDONLY)) E<lt> 0) {\n"
+"\t\tprintf(\"open failed: %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+"\t/* set up the capture type and size */\n"
+"        geo.rows = ROWS;\n"
+"        geo.columns = COLS;\n"
+"        geo.frames = 1;\n"
+"        geo.oformat = METEOR_GEO_RGB24 ;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:71 /usr/src/share/man/man4/meteor.4:177
+#, no-wrap
+msgid ""
+"        if (ioctl(i, METEORSETGEO, &geo) E<lt> 0) {\n"
+"\t\tprintf(\"ioctl failed: %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:73 /usr/src/share/man/man4/meteor.4:179 /usr/src/share/man/man4/meteor.4:381
+#, no-wrap
+msgid "\tc = METEOR_FMT_NTSC;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:78 /usr/src/share/man/man4/meteor.4:184 /usr/src/share/man/man4/meteor.4:386
+#, no-wrap
+msgid ""
+"        if (ioctl(i, METEORSFMT, &c) E<lt> 0) {\n"
+"\t\tprintf(\"ioctl failed: %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:80 /usr/src/share/man/man4/meteor.4:186 /usr/src/share/man/man4/meteor.4:388
+#, no-wrap
+msgid "\tc = METEOR_INPUT_DEV0;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:85 /usr/src/share/man/man4/meteor.4:191 /usr/src/share/man/man4/meteor.4:393
+#, no-wrap
+msgid ""
+"        if (ioctl(i, METEORSINPUT, &c) E<lt> 0) {\n"
+"\t\tprintf(\"ioctl failed: %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:92
+#, no-wrap
+msgid ""
+"\tif ((c=read(i, &buf[0], SIZE)) E<lt> SIZE) {\n"
+"\t\tprintf(\"read failed %d %d %d\\en\", c, i, errno);\n"
+"\t\tclose(i);\n"
+"\t\texit(1);\n"
+"\t}\n"
+"\tclose(i);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:97
+#, no-wrap
+msgid ""
+"\tif ((o = open(\"rgb24.ppm\", O_WRONLY | O_CREAT, 0644)) E<lt> 0) {\n"
+"\t\tprintf(\"ppm open failed: %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:113
+#, no-wrap
+msgid ""
+"\t/* make PPM header and save to file */\n"
+"\tstrcpy(&header[0], \"P6 400 300 255 \");\n"
+"\theader[2] = header[6]  = header[10] = header[14] = '\\en';\n"
+"\twrite (o, &header[0], 15);\n"
+"\t/* save the RGB data to PPM file */\n"
+"\tfor (p = &buf[0]; p E<lt> &buf[SIZE]; ) {\n"
+"\t\tb[2] = *p++;\t\t/* blue */\n"
+"\t\tb[1] = *p++;\t\t/* green */\n"
+"\t\tb[0] = *p++;\t\t/* red */\n"
+"\t\t*p++;\t\t\t/* NULL byte */\n"
+"\t\twrite(o,&b[0], 3);\t/* not very efficient */\n"
+"\t}\n"
+"\tclose(o);\n"
+"\texit(0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:116
+msgid "Memory mapped single capture or unsynchronized continuous capture."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:123
+msgid ""
+"The single capture mode is designed for conferencing tools such as E<.Nm "
+"nv>.  These tools need to control the starting of the image capture and also "
+"need several frames a second.  The continuous capture mode is designed for "
+"applications that want free-running data."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:136
+msgid ""
+"In this mode, the user opens the device, sets the capture mode and size "
+"(see: E<.Dv METEORSETGEO> E<.Xr ioctl 2> call), E<.Xr mmap 2 Ns s> the frame "
+"buffer memory into the user process space, and issues either the "
+"single-capture or the continuous capture call (see: E<.Dv METEORCAPTUR> "
+"E<.Xr ioctl 2> call) to load the data into the memory mapped buffer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:144
+msgid ""
+"As explained in the E<.Dv METEORCAPTUR> E<.Xr ioctl 2> call, the single "
+"frame capture E<.Xr ioctl 2> will block until the capture is complete, the "
+"continuous capture will return immediately."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:146
+msgid "E<.Pa meteor_mmap_single_continuous.c>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:151
+#, no-wrap
+msgid ""
+"#include E<lt>sys/types.hE<gt>\n"
+"#include E<lt>sys/mman.hE<gt>\n"
+"#include E<lt>sys/fcntl.hE<gt>\n"
+"#include E<lt>machine/ioctl_meteor.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:162
+#, no-wrap
+msgid ""
+"extern int errno;\n"
+"#define ROWS 480\n"
+"#define COLS 640\n"
+"#define SIZE (ROWS * COLS * 2)\n"
+"main()\n"
+"{\n"
+"\tstruct meteor_geomet geo;\n"
+"\tchar buf[SIZE];\n"
+"\tchar *mmbuf;\n"
+"\tint i,c;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:167
+#, no-wrap
+msgid ""
+"\tif ((i = open(\"/dev/meteor0\", O_RDONLY)) E<lt> 0) {\n"
+"\t\tprintf(\"open failed\\en\");\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:172
+#, no-wrap
+msgid ""
+"        geo.rows = ROWS;\n"
+"        geo.columns = COLS;\n"
+"        geo.frames = 1;\n"
+"        geo.oformat = METEOR_GEO_RGB16 ;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:194
+#, no-wrap
+msgid ""
+"        mmbuf=(char *)mmap((caddr_t)0, SIZE, PROT_READ,\n"
+"\t\tMAP_SHARED, i, (off_t)0);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:199
+#, no-wrap
+msgid ""
+"#ifdef SINGLE_MODE\n"
+"\t/* single frame capture */\n"
+"\tc = METEOR_CAP_SINGLE ;\n"
+"        ioctl(i, METEORCAPTUR, &c);\t/* wait for the frame */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:205
+#, no-wrap
+msgid ""
+"\t/* directly access the frame buffer array data in mmbuf */\n"
+"#else\n"
+"\t/* continuous frame capture */\n"
+"\tc = METEOR_CAP_CONTINOUS ;\n"
+"        ioctl(i, METEORCAPTUR, &c);\t/* returns immediately */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:207
+#, no-wrap
+msgid "\t/* directly access the frame buffer array data in mmbuf */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:211
+#, no-wrap
+msgid ""
+"\tc = METEOR_CAP_STOP_CONT ;\n"
+"        ioctl(i, METEORCAPTUR, &c);\t/* close will also stop capture */\n"
+"#endif\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:215
+#, no-wrap
+msgid ""
+"\tclose(i);\n"
+"\texit(0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:218
+msgid "Memory mapped, multi-frame ring buffer synchronize capture."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:223
+msgid ""
+"This continuous capture mode is synchronized with the application that "
+"processes up to 32 frames.  This gives the advantages of both single and "
+"continuous capture modes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:229
+msgid ""
+"The kernel notifies the application of a new data by raising an application "
+"defined signal.  The driver also shares a structure with the application "
+"that allows them to communicate which frame has been written by the kernel "
+"and which frame has been read by the application."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:233
+msgid ""
+"The shared structure starts on the first page after your data.  The "
+"structure address can be found by calculation:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/meteor.4:234
+#, no-wrap
+msgid "(number_rows * number_columns * pixel_depth + 4095) & 0xfffff000"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:236
+msgid "or"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/meteor.4:236
+#, no-wrap
+msgid "((number_rows * number_columns * pixel_depth + 4095)/4096) * 4096"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:279
+msgid ""
+"The shared structure is of type E<.Va struct meteor_mem>.  The two most "
+"important fields are called E<.Va active> and E<.Va num_active_buf>.  E<.Va "
+"active> is a bitmap of frames written by the kernel.  E<.Va num_active_bufs> "
+"is a count of frames marked in the E<.Va active> field.  When a frame is "
+"read in by the driver, the E<.Va num_active_bufs> count is tested, if this "
+"count is below the threshold of number of active frames (value in E<.Va "
+"meteor_mem Ns 's> E<.Va hiwat> variable), the bit representing frame number "
+"in the buffer is stored in the E<.Va active> variable, the E<.Va "
+"num_active_bufs> is incremented, the kernel then raises the specified signal "
+"to activate the user application.  The user application's responsibility "
+"when getting the signal is to check the active bitmap to determine the "
+"lowest active frame, use the data as the application desires, clear the "
+"bitmap entry for that frame, and decrement the E<.Va num_active_bufs>.  If "
+"the threshold of number of active frames E<.Pq Va hiwat> has been exceeded, "
+"no new frames or signal from the kernel will occur until the E<.Va "
+"num_active_bufs> is less than or equal to E<.Va lowat>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:285
+msgid ""
+"The driver loads the frames in a round-robin fashion.  It is expected that "
+"the user removes them in the same order.  The driver does not check to see "
+"if the frame is already active."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:293
+msgid ""
+"The E<.Va frame_size> and number of frames in the buffer are also provided "
+"to the E<.Va meteor_mem> structure, but changing these fields in the "
+"application will not change the operation of the driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:301
+msgid ""
+"In programming for this mode, the user opens the device, sets the geometry, "
+"E<.Xr mmap 2 Ns s> the data/common control structure, then starts the "
+"continuous capture mode.  A special signal catcher is required to process "
+"the frames as they are read by the kernel."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:308
+msgid ""
+"When specifying the geometry (see: E<.Dv METEORSETGEO> E<.Xr ioctl 2> call), "
+"it is important that the number of frames is set greater than 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:310
+msgid "E<.Pa skeleton_capture_n.c>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:316
+#, no-wrap
+msgid ""
+"#include E<lt>sys/types.hE<gt>\n"
+"#include E<lt>sys/mman.hE<gt>\n"
+"#include E<lt>sys/fcntl.hE<gt>\n"
+"#include E<lt>sys/signal.hE<gt>\n"
+"#include E<lt>machine/ioctl_meteor.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:321
+#, no-wrap
+msgid ""
+"int video;  /* made global if you wish to stop capture in signal handler "
+"*/\n"
+"caddr_t data_frames;\n"
+"struct meteor_mem *common_mem;\n"
+"extern int errno;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:323
+#, no-wrap
+msgid "#define FRAME_MAX\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:331
+#, no-wrap
+msgid ""
+"void\n"
+"usr2_catcher()\n"
+"{\n"
+"#ifdef SIGNAL_STOP\n"
+"\tstruct meteor_capframe capframe;\t/* for ioctl */\n"
+"#endif\n"
+"\tchar *frame;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:334
+#, no-wrap
+msgid ""
+"\t/* find frame */\n"
+"\tframe = (char *) (data_frames + sig_cnt * common_mem-E<gt>frame_size) ;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:339
+#, no-wrap
+msgid ""
+"\t/* add frame processing here */\n"
+"\t/* deactivate frame */\n"
+"\tcommon_mem-E<gt>active &= ~(1 E<lt>E<lt> (sig_cnt % 16));\n"
+"\tcommon_mem-E<gt>num_active_bufs--;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:342
+#, no-wrap
+msgid ""
+"\t/* process next frame on next interrupt */\n"
+"\tsig_cnt = ((sig_cnt+1) % FRAME_MAX);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:346
+#, no-wrap
+msgid ""
+"#ifdef SIGNAL_STOP\n"
+"\tif (some_condition_requiring_stopping) {\n"
+"\t\tcapframe.command=METEOR_CAP_STOP_FRAMES;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:354
+#, no-wrap
+msgid ""
+"\t\tif (ioctl(i, METEORCAPFRM, &capframe) E<lt> 0) {\n"
+"\t\t\tprintf(\"METEORCAPFRM failed %d\\en\", errno);\n"
+"\t\t\texit(1);\n"
+"\t\t}\n"
+"\t}\n"
+"#endif\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:360
+#, no-wrap
+msgid ""
+"main()\n"
+"{\n"
+"\tstruct meteor_geomet geo;\n"
+"\tint height, width, depth, frames, size;\n"
+"\tstruct meteor_capframe capframe;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:366
+#, no-wrap
+msgid ""
+"\tif ((i = open(\"/dev/meteor0\", O_RDONLY)) E<lt> 0) {\n"
+"\t\tprintf(\"open failed\\en\");\n"
+"\t\texit(1);\n"
+"\t}\n"
+"\tprintf(\"test %d %d\\en\", errno, i);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:371
+#, no-wrap
+msgid ""
+"        height = geo.rows = 120;\n"
+"        width= geo.columns = 320;\n"
+"        frames = geo.frames = FRAME_MAX;\n"
+"\tdepth = 2;\t/* 2 bytes per pixel for RGB*/\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:374
+#, no-wrap
+msgid "        geo.oformat = METEOR_GEO_RGB16;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:379
+#, no-wrap
+msgid ""
+"        if (ioctl(i, METEORSETGEO, &geo) E<lt> 0) {\n"
+"\t\tprintf(\"METEORSETGEO failed %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:398
+#, no-wrap
+msgid ""
+"\tsize = ((width*height*depth*frames+4095)/4096)*4096;\n"
+"\t/* add one page after data for meteor_mem */\n"
+"\tdata_frames = mmap((caddr_t)0, size + 4096, PROT_READ | PROT_WRITE,\n"
+"\t\t\t\t\t\tMAP_SHARED, i, (off_t)0);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:400
+#, no-wrap
+msgid "\tif (data_frames == (caddr_t) MAP_FAILED) return (0);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:403
+#, no-wrap
+msgid ""
+"\t/* common_mem is located at page following data */\n"
+"\tcommon_mem = (struct meteor_mem *) (y + size);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:405
+#, no-wrap
+msgid "\tsignal(SIGUSR2, usr2_catcher);\t/* catch new frame message */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:410
+#, no-wrap
+msgid ""
+"\tcapframe.command=METEOR_CAP_N_FRAMES;\n"
+"\tcapframe.signal=SIGUSR2;\n"
+"\tcapframe.lowat=12;\t\t/* must be E<lt> hiwat */\n"
+"\tcapframe.hiwat=14;\t\t/* must be E<lt> FRAME_MAX */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:416
+#, no-wrap
+msgid ""
+"\t\t\t\t\t/* start the sync capture */\n"
+"        if (ioctl(i, METEORCAPFRM, &capframe) E<lt> 0) {\n"
+"\t\tprintf(\"METEORCAPFRM failed %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:418
+#, no-wrap
+msgid "\t/* this is the background working area, or you can sleep */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:422
+#, no-wrap
+msgid ""
+"\t/* to stop capture */\n"
+"\tcapframe.command=METEOR_CAP_STOP_FRAMES;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:428
+#, no-wrap
+msgid ""
+"        if (ioctl(i, METEORCAPFRM, &capframe) E<lt> 0) {\n"
+"\t\tprintf(\"METEORCAPFRM failed %d\\en\", errno);\n"
+"\t\texit(1);\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/meteor.4:430
+#, no-wrap
+msgid "Meteor IOCTL Call and Parameters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:438
+msgid ""
+"The E<.Nm> capture driver has E<.Xr ioctl 2> requests for capturing, reading "
+"card status, for setting and reading the geometry, and for setting and "
+"reading the attributes."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:451
+msgid ""
+"E<.Bf -symbolic> IT IS VERY IMPORTANT TO CHECK FOR ERRORS ON THESE RETURNING "
+"IOCTLs.  E<.Ef> Errors indicate that something is very wrong with the E<.Xr "
+"ioctl 2> and the application should not attempt to proceed further with "
+"capturing.  The E<.Nm> capture driver still makes attempts to stop the next "
+"capture step if an error occurred in a previous step but was ignored by the "
+"application programmer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:458
+msgid "E<.Xr ioctl 2> requests E<.Dv METEORSETGEO> and E<.Dv METEORGETGEO>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:464
+msgid ""
+"E<.Dv METEORSETGEO> and E<.Dv METEORGETGEO> are used to set and read the "
+"input size, input device, and output format for frame capture."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:471
+msgid ""
+"These E<.Xr ioctl 2> routines use the E<.Va meteor_geomet> structure that "
+"has the following entries:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:472
+#, no-wrap
+msgid "Va rows"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:474
+msgid "number of rows (lines high) in output image"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:474
+#, no-wrap
+msgid "Va columns"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:476
+msgid "number of pixels in a row (width) in output image"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:476
+#, no-wrap
+msgid "Va frames"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:482
+msgid ""
+"number of frames in buffer.  Should be 1, unless using the multi-framed "
+"synchronous capture mode E<.Pq Dv METEORCAPFRM> which REQUIRES frames to be "
+"larger than 1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:491
+msgid ""
+"Note: if E<.Va rows , columns> or E<.Va frames> is not changed, then the "
+"existing values are used.  The system defaults is 640x480x1."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:491
+#, no-wrap
+msgid "Va oformat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:493
+msgid "you may choose one of the following output format:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:494
+#, no-wrap
+msgid "Dv METEOR_GEO_RGB16"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:496
+msgid "(RGB 16 bits xrrrrrgg gggbbbbb default)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:496
+#, no-wrap
+msgid "Dv METEOR_GEO_RGB24"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:499
+msgid "(RGB 24 bits packed in 32 bits: 00000000 rrrrrrrr gggggggg bbbbbbbb)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:499
+#, no-wrap
+msgid "Dv METEOR_GEO_YUV_PACKED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:502
+msgid "(4-2-2 YUV 16 bits packed byte format: u0 y0 v0 y1 u1 y2 v1 y3 ...)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:502
+#, no-wrap
+msgid "Dv METEOR_GEO_YUV_PLANER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:509
+msgid ""
+"(4-2-2 YUV 16 bits planer format: rows * columns bytes of y rows * column / "
+"4 bytes of even u rows * column / 4 bytes of even v rows * column / 4 bytes "
+"of odd u rows * column / 4 bytes of odd v)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:522
+msgid ""
+"The E<.Dv METEORSETGEO> E<.Xr ioctl 2> will fail if more than one entry from "
+"a category is selected.  It is highly recommended that a E<.Dv METEORSETGEO> "
+"is done before capturing data because you cannot guarantee the initial mode "
+"the card."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:530
+msgid ""
+"The E<.Dv METEORSETGEO> will also attempt to reallocate a new contiguous "
+"kernel buffer if the new geometry exceeds the old geometry.  On the other "
+"hand, if the new geometry will fit in the existing buffer, the existing "
+"buffer is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:539
+msgid ""
+"If E<.Dv METEORSETGEO> fails the E<.Xr ioctl 2> will return a value of -1 "
+"and the external variable E<.Va errno> will be set to:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:540 /usr/src/share/man/man4/meteor.4:684 /usr/src/share/man/man4/meteor.4:756 /usr/src/share/man/man4/meteor.4:790 /usr/src/share/man/man4/meteor.4:819 /usr/src/share/man/man4/meteor.4:863
+#, no-wrap
+msgid "Bq Er EINVAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:546
+msgid ""
+"invalid E<.Va meteor_geomet> structure pointer, E<.Va rows , columns , "
+"frames> were invalid."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:546
+#, no-wrap
+msgid "Bq Er ENOMEM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:548
+msgid "could not allocate the contiguous block."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:555
+msgid "E<.Xr ioctl 2> requests E<.Dv METEORSFMT> and E<.Dv METEORGFMT>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:561
+msgid ""
+"E<.Dv METEORSFMT> and E<.Dv METEORGFMT> are used to set and read the camera "
+"input standard format."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:563 /usr/src/share/man/man4/meteor.4:593
+msgid "Possible formats are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:565
+#, no-wrap
+msgid "Dv METEOR_FMT_NTSC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:567
+msgid "NTSC (default mode)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:567
+#, no-wrap
+msgid "Dv METEOR_FMT_PAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:569
+msgid "PAL"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:569
+#, no-wrap
+msgid "Dv METEOR_FMT_SECAM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:571
+msgid "SECAM"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:571
+#, no-wrap
+msgid "Dv METEOR_FMT_AUTOMODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:573
+msgid "Autodetect."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:580
+msgid "E<.Xr ioctl 2> requests E<.Dv METEORSINPUT> and E<.Dv METEORGINPUT>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:591
+msgid ""
+"E<.Dv METEORSINPUT> and E<.Dv METEORGINPUT> are used to set and read the "
+"camera input device.  Using the DB9 connector on the E<.Tn Meteor> card, 4 "
+"input devices can be connected and an input camera can be selected with this "
+"E<.Xr ioctl 2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:595
+#, no-wrap
+msgid "Dv METEOR_INPUT_DEV0"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:597
+msgid "(default if none specified)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:597
+#, no-wrap
+msgid "Dv METEOR_INPUT_DEV_RCA"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:599
+msgid "(same as METEOR_INPUT_DEV0)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:599
+#, no-wrap
+msgid "Dv METEOR_INPUT_DEV1"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:600
+#, no-wrap
+msgid "Dv METEOR_INPUT_DEV2"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:601
+#, no-wrap
+msgid "Dv METEOR_INPUT_DEV_SVIDEO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:603
+msgid "(same as METEOR_INPUT_DEV2)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:608
+msgid "E<.Xr ioctl 2> request E<.Dv METEORSTATUS>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:614
+msgid ""
+"E<.Dv METEORSTATUS> is used to read the status of the E<.Tn Meteor> capture "
+"card and returns the following information:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:615
+#, no-wrap
+msgid "Dv METEOR_STATUS_ID_MASK \"\t4 bit ID of the SAA7196 scaler chip.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:617
+#, no-wrap
+msgid "Dv METEOR_STATUS_DIR \"\t0 =\tscaler uses internal source.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:618
+#, no-wrap
+msgid "\t1 =\tscaler uses external data of expansion bus."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:620
+#, no-wrap
+msgid "Dv METEOR_STATUS_OEF \"\t0 =\teven field detected.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:621
+#, no-wrap
+msgid "\t1 =\todd field detected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:623
+#, no-wrap
+msgid "Dv METEOR_STATUS_SVP \"\tVRAM Port state:\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:624
+#, no-wrap
+msgid "\t0 =\tinputs HFL and INCADDR inactive."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:625
+#, no-wrap
+msgid "\t1 =\tinputs HFL and INCADDR active."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:627
+#, no-wrap
+msgid "Dv METEOR_STATUS_STTC \"\t0 =\tTV horizontal time constant (slow).\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:628
+#, no-wrap
+msgid "\t1 =\tVCR horizontal time constant (fast)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:630
+#, no-wrap
+msgid "Dv METEOR_STATUS_HCLK \"\t0 =\tHorizontal Phase Lock Loop locked.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:631
+#, no-wrap
+msgid "\t1 =\tHorizontal Phase Lock Loop unlocked."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:633
+#, no-wrap
+msgid "Dv METEOR_STATUS_FIDT \"\t0 =\t50 Hz Field detected.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:634
+#, no-wrap
+msgid "\t1 =\t60 Hz Field detected."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:636
+#, no-wrap
+msgid "Dv METEOR_STATUS_ALTD \"\t0 =\tno line alternating color burst detected.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:637
+#, no-wrap
+msgid "\t1 =\tline alternating color burst detected (PAL/SECAM)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:639
+#, no-wrap
+msgid "Dv METEOR_STATUS_CODE \"\t0 =\tno color information detected.\""
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:640
+#, no-wrap
+msgid "\t1 =\tcolor information detected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:646
+msgid "E<.Xr ioctl 2> request E<.Dv METEORCAPTUR>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:650
+msgid ""
+"E<.Dv METEORCAPTUR> is used to single frame capture or unsynchronized "
+"continuous capture."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:655
+msgid ""
+"The single frame capture E<.Xr ioctl 2> request will return only after a "
+"frame has been captured and transferred to the frame buffer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:660
+msgid ""
+"The unsynchronized continuous capture will return immediately and data is "
+"directly deposited into the buffer when it is available.  Since this is "
+"unsynchronized, it is possible the data is being written by the kernel while "
+"being read by the application."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:664
+msgid "These E<.Xr ioctl 2> routines use the following settings:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:666
+#, no-wrap
+msgid "Dv METEOR_CAP_SINGLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:668
+msgid "capture one frame"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:668
+#, no-wrap
+msgid "Dv METEOR_CAP_CONTINOUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:670
+msgid "unsynchronized continuous capture"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:670
+#, no-wrap
+msgid "Dv METEOR_CAP_STOP_CONT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:673
+msgid "stop the unsynchronized continuous capture"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:683
+msgid ""
+"If E<.Dv METEORCAPTUR> fails the E<.Xr ioctl 2> will return a value of -1 "
+"and the external variable E<.Va errno> will be set to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:686
+msgid "invalid capture command value"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:686 /usr/src/share/man/man4/meteor.4:758
+#, no-wrap
+msgid "Bq Er ENXIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:691 /usr/src/share/man/man4/meteor.4:763
+msgid ""
+"there is not internal buffer to hold the frame.  This indicates the previous "
+"set geometry E<.Xr ioctl 2> failed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:691 /usr/src/share/man/man4/meteor.4:763
+#, no-wrap
+msgid "Bq Er EIO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:693 /usr/src/share/man/man4/meteor.4:765
+msgid "card is already capturing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:698
+msgid "E<.Xr ioctl 2> request E<.Dv METEORCAPFRM>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:701
+msgid "E<.Dv METEORCAPFRM> is used for synchronous capture of multiple frames."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:708
+msgid ""
+"This E<.Xr ioctl 2> routine uses the E<.Va meteor_capture> structure that "
+"has the following entries:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:709
+#, no-wrap
+msgid "Va command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:713
+msgid "possible values for E<.Va command> are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:714
+#, no-wrap
+msgid "Dv METEOR_CAP_STOP_FRAMES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:717
+msgid "stop the capture; does not use the other variable in structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:717
+#, no-wrap
+msgid "Dv METEOR_CAP_N_FRAMES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:720
+msgid "start the capture using the other variables in the structure as inputs"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:721
+#, no-wrap
+msgid "Va signal"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:726
+msgid ""
+"signal to send to application when a new frame has been captured.  This "
+"signal will only be raised if the captured frame is saved."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:726
+#, no-wrap
+msgid "Va lowat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:728 /usr/src/share/man/man4/meteor.4:730
+msgid "see below"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:728
+#, no-wrap
+msgid "Va hiwat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:746
+msgid ""
+"When a new frame is completed, the driver checks the current unread frame "
+"count stored in shared variable (the shared variable is stored in the E<.Va "
+"meteor_mem> structure)  E<.Va num_active_buf>; if the count is larger than "
+"E<.Va hiwat>, the driver will not store any new frames and will not send "
+"capture signal to the user application until the E<.Va num_active_buf> is "
+"lower than E<.Va lowat>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:755
+msgid ""
+"If E<.Dv METEORCAPFRM> fails the E<.Xr ioctl 2> will return a value of -1 "
+"and the external variable E<.Va errno> will be set to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:758
+msgid "invalid meteor_geomet structure pointer or bad command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:772
+msgid "E<.Xr ioctl 2> requests E<.Dv METEORSCHCV> and E<.Dv METEORGCHCV>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:778
+msgid ""
+"E<.Dv METEORSCHCV> and E<.Dv METEORGCHCV> are used to set and get the "
+"chrominance gain control and effects the UV output amplitude."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:789
+msgid ""
+"If E<.Dv METEORSCHCV> or E<.Dv METEORGCHCV> fails the E<.Xr ioctl 2> will "
+"return a value of -1 and the external variable E<.Va errno> will be set to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:792
+msgid "invalid unsigned char pointer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:799
+msgid "E<.Xr ioctl 2> requests E<.Dv METEORGHUE> and E<.Dv METEORSHUE>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:807
+msgid ""
+"E<.Dv METEORGHUE> and E<.Dv METEORSHUE> are used to get and set the hue.  "
+"The signed character has legal values are from +127 which represent +178.6 "
+"degrees to -128 which represents -180 degrees."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:818
+msgid ""
+"If E<.Dv METEORGHUE> or E<.Dv METEORSHUE> fails the E<.Xr ioctl 2> will "
+"return a value of -1 and the external variable E<.Va errno> will be set to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:821
+msgid "invalid signed char pointer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:828
+msgid "E<.Xr ioctl 2> requests E<.Dv METEORSCOUNT> and E<.Dv METEORGCOUNT>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:836
+msgid ""
+"E<.Dv METEORGCOUNT> is used to get the count of frame errors, DMA errors and "
+"count of the number of frames captured that have occurred since the device "
+"was opened.  E<.Dv METEORSCOUNT> can be used to reinitialize the counters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:843
+msgid ""
+"This E<.Xr ioctl 2> routines use the E<.Va meteor_counts> structure that has "
+"the following entries:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:844
+#, no-wrap
+msgid "Va fifo_errors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:846
+msgid "number of FIFO errors since device was opened."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:846
+#, no-wrap
+msgid "Va dma_errors"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:848
+msgid "number of DMA errors since device was opened."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/meteor.4:848
+#, no-wrap
+msgid "Va frame_count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:850
+msgid "number of frames captured since device was opened."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:862
+msgid ""
+"If E<.Dv METEORSCOUNT> or E<.Dv METEORGCOUNT> fails the E<.Xr ioctl 2> will "
+"return a value of -1 and the external variable E<.Va errno> will be set to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:865
+msgid "invalid meteor_counts structure pointer."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/meteor.4:867
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:870
+msgid ""
+"E<.An Jim Lowe Aq Mt james@miller.cs.uwm.edu> E<.An Mark Tinguely Aq Mt "
+"tinguely@plains.nodak.edu>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/meteor.4:870
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/meteor.4:873
+msgid "The E<.Nm> driver no longer works at all."
+msgstr ""

@@ -1,0 +1,468 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/sk.4:33
+#, no-wrap
+msgid "August 29, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/sk.4:34
+#, no-wrap
+msgid "SK 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:36
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:38
+msgid "E<.Nm sk>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/sk.4:38
+#, no-wrap
+msgid "SysKonnect SK-984x and SK-982x PCI Gigabit Ethernet adapter driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:39
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:43
+msgid ""
+"To compile this driver into the kernel, place the following lines in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:46
+#, no-wrap
+msgid ""
+"E<.Cd \"device miibus\">\n"
+"E<.Cd \"device sk\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:51
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:53
+#, no-wrap
+msgid "if_sk_load=\"YES\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:59
+msgid ""
+"The E<.Nm> driver provides support for the SysKonnect SK-984x and SK-982x "
+"series PCI Gigabit Ethernet adapters."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:68
+msgid ""
+"The SysKonnect adapters consist of two main components: the XaQti Corp.  "
+"XMAC II gigabit MAC and the SysKonnect GEnesis controller ASIC.  The XMAC "
+"provides the gigabit MAC and PHY support while the GEnesis provides an "
+"interface to the PCI bus, DMA support, packet buffering and arbitration.  "
+"The GEnesis can control up to two XMACs simultaneously, allowing dual-port "
+"NIC configurations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:72
+msgid ""
+"The SK-982x 1000baseT adapters also include a Broadcom BCM5400 1000baseTX "
+"PHY which is used in place of the XMAC's internal PHY.  The Broadcom PHY is "
+"connected to the XMAC via its GMII port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:84
+msgid ""
+"The E<.Nm> driver configures dual port SysKonnect adapters such that each "
+"XMAC is treated as a separate logical network interface.  Both ports can "
+"operate independently of each other and can be connected to separate "
+"networks.  The SysKonnect driver software currently only uses the second "
+"port on dual port adapters for failover purposes: if the link on the primary "
+"port fails, the SysKonnect driver will automatically switch traffic onto the "
+"second port."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:86
+msgid "Also supported is the Marvell Semiconductor 88E100* gigabit PHY."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:96
+msgid ""
+"The XaQti XMAC II supports full and half duplex operation with "
+"autonegotiation.  The XMAC also supports unlimited frame sizes.  Support for "
+"jumbo frames is provided via the interface MTU setting.  Selecting an MTU "
+"larger than 1500 bytes with the E<.Xr ifconfig 8> utility configures the "
+"adapter to receive and transmit jumbo frames.  Using jumbo frames can "
+"greatly improve performance for certain tasks, such as file transfers and "
+"data streaming."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:100
+msgid "The E<.Nm> driver supports the following media types:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:101
+#, no-wrap
+msgid "autoselect"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:107
+msgid ""
+"Enable autoselection of the media type and options.  The user can manually "
+"override the autoselected mode by adding media options to the E<.Pa "
+"/etc/rc.conf> file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:107
+#, no-wrap
+msgid "1000baseTX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:116
+msgid ""
+"Set 1000baseTX operation over twisted pair.  This is only available for "
+"SK-982x series adapters with 1000baseT ports.  Both E<.Ar full-duplex> and "
+"E<.Ar half-duplex> modes are supported."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:116
+#, no-wrap
+msgid "1000baseSX"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:123
+msgid ""
+"Set 1000Mbps (Gigabit Ethernet) operation.  Both E<.Ar full-duplex> and "
+"E<.Ar half-duplex> modes are supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:128
+msgid "The E<.Nm> driver supports the following media options:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:129
+#, no-wrap
+msgid "full-duplex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:131
+msgid "Force full duplex operation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:131
+#, no-wrap
+msgid "half-duplex"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:133
+msgid "Force half duplex operation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:137
+msgid "For more information on configuring this device, see E<.Xr ifconfig 8>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:137
+#, no-wrap
+msgid "HARDWARE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:141
+msgid "Adapters supported by the E<.Nm> driver include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:145
+msgid "3Com 3C940 single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:147
+msgid "3Com 3C2000-T single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:149
+msgid "Belkin F5D5005 single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:151
+msgid "D-Link DGE-530T single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:153
+msgid "Linksys (revision 2) single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:155
+msgid "SK-9521 SK-NET GE-T single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:157
+msgid "SK-9821 SK-NET GE-T single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:159
+msgid "SK-9822 SK-NET GE-T dual port, 1000baseT adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:161
+msgid "SK-9841 SK-NET GE-LX single port, single mode fiber adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:163
+msgid "SK-9842 SK-NET GE-LX dual port, single mode fiber adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:165
+msgid "SK-9843 SK-NET GE-SX single port, multimode fiber adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:167
+msgid "SK-9844 SK-NET GE-SX dual port, multimode fiber adapter"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:169
+msgid "SMC 9452TX single port, 1000baseT adapter"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:170
+#, no-wrap
+msgid "LOADER TUNABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:175
+msgid ""
+"Tunables can be set at the E<.Xr loader 8> prompt before booting the kernel "
+"or stored in E<.Xr loader.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:176
+#, no-wrap
+msgid "Va hw.skc.jumbo_disable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:180
+msgid ""
+"Disable jumbo frame support.  Systems with less memory can set it to a "
+"non-zero value to save memory.  The default value is 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:181
+#, no-wrap
+msgid "SYSCTL VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:187
+msgid ""
+"The following variable is available as both E<.Xr sysctl 8> variable and "
+"E<.Xr loader 8> tunable:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:188
+#, no-wrap
+msgid "Va dev.skc.%d.int_mod"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:193
+msgid ""
+"This variable controls interrupt moderation.  The accepted range is 10 to "
+"10000.  The default value is 100 microseconds.  The interface has to be "
+"brought down and up again before a change takes effect."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:194
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:196
+#, no-wrap
+msgid "sk%d: couldn't map memory"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:198 /usr/src/share/man/man4/sk.4:200 /usr/src/share/man/man4/sk.4:202
+msgid "A fatal initialization error has occurred."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:198
+#, no-wrap
+msgid "sk%d: couldn't map ports"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:200
+#, no-wrap
+msgid "sk%d: couldn't map interrupt"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:202
+#, no-wrap
+msgid "sk%d: no memory for softc struct!"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:205
+msgid ""
+"The driver failed to allocate memory for per-device instance information "
+"during initialization."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:205
+#, no-wrap
+msgid "sk%d: failed to enable memory mapping!"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:209
+msgid ""
+"The driver failed to initialize PCI shared memory mapping.  This might "
+"happen if the card is not in a bus-master slot."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:209
+#, no-wrap
+msgid "sk%d: no memory for jumbo buffers!"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:212
+msgid "The driver failed to allocate memory for jumbo frames during initialization."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/sk.4:212
+#, no-wrap
+msgid "sk%d: watchdog timeout"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:215
+msgid ""
+"The device has stopped responding to the network, or there is a problem with "
+"the network connection (cable)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:216
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:232
+msgid ""
+"E<.Xr altq 4>, E<.Xr arp 4>, E<.Xr miibus 4>, E<.Xr netintro 4>, E<.Xr "
+"ng_ether 4>, E<.Xr vlan 4>, E<.Xr ifconfig 8> E<.Rs> E<.%T XaQti XMAC II "
+"datasheet> E<.%U "
+"http://people.freebsd.org/~wpaul/SysKonnect/xmacii_datasheet_rev_c_9-29.pdf> "
+"E<.Re> E<.Rs> E<.%T SysKonnect GEnesis programming manual> E<.%U "
+"http://www.syskonnect.com> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:232
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:237
+msgid "The E<.Nm> device driver first appeared in E<.Fx 3.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/sk.4:237
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/sk.4:241
+msgid ""
+"The E<.Nm> driver was written by E<.An Bill Paul Aq Mt "
+"wpaul@ctr.columbia.edu>."
+msgstr ""

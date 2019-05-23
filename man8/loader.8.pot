@@ -1,0 +1,2139 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/stand/man/loader.8:27
+#, no-wrap
+msgid "August 15, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/stand/man/loader.8:28
+#, no-wrap
+msgid "LOADER 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:32
+msgid "E<.Nm loader>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/stand/man/loader.8:32
+#, no-wrap
+msgid "kernel bootstrapping final stage"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:33
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:46
+msgid ""
+"The program called E<.Nm> is the final stage of E<.Fx Ns 's> kernel "
+"bootstrapping process.  On IA32 (i386) architectures, it is a E<.Pa BTX> "
+"client.  It is linked statically to E<.Xr libstand 3> and usually located in "
+"the directory E<.Pa /boot>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:60
+msgid ""
+"It provides a scripting language that can be used to automate tasks, do "
+"pre-configuration or assist in recovery procedures.  This scripting language "
+"is roughly divided in two main components.  The smaller one is a set of "
+"commands designed for direct use by the casual user, called \"builtin "
+"commands\" for historical reasons.  The main drive behind these commands is "
+"user-friendliness.  The bigger component is an E<.Tn ANS> Forth compatible "
+"Forth interpreter based on FICL, by E<.An John Sadler>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:98
+msgid ""
+"During initialization, E<.Nm> will probe for a console and set the E<.Va "
+"console> variable, or set it to serial console E<.Pq Dq Li comconsole> if "
+"the previous boot stage used that.  If multiple consoles are selected, they "
+"will be listed separated by spaces.  Then, devices are probed, E<.Va "
+"currdev> and E<.Va loaddev> are set, and E<.Va LINES> is set to 24.  Next, "
+"E<.Tn FICL> is initialized, the builtin words are added to its vocabulary, "
+"and E<.Pa /boot/boot.4th> is processed if it exists.  No disk switching is "
+"possible while that file is being read.  The inner interpreter E<.Nm> will "
+"use with E<.Tn FICL> is then set to E<.Ic interpret>, which is E<.Tn FICL Ns "
+"'s> default.  After that, E<.Pa /boot/loader.rc> is processed if available.  "
+"These files are processed through the E<.Ic include> command, which reads "
+"all of them into memory before processing them, making disk changes "
+"possible."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:129
+msgid ""
+"At this point, if an E<.Ic autoboot> has not been tried, and if E<.Va "
+"autoboot_delay> is not set to E<.Dq Li NO> (not case sensitive), then an "
+"E<.Ic autoboot> will be tried.  If the system gets past this point, E<.Va "
+"prompt> will be set and E<.Nm> will engage interactive mode.  Please note "
+"that historically even when E<.Va autoboot_delay> is set to E<.Dq Li 0> user "
+"will be able to interrupt autoboot process by pressing some key on the "
+"console while kernel and modules are being loaded.  In some cases such "
+"behaviour may be undesirable, to prevent it set E<.Va autoboot_delay> to "
+"E<.Dq Li -1>, in this case E<.Nm> will engage interactive mode only if E<.Ic "
+"autoboot> has failed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:129
+#, no-wrap
+msgid "BUILTIN COMMANDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:145
+msgid ""
+"In E<.Nm>, builtin commands take parameters from the command line.  "
+"Presently, the only way to call them from a script is by using E<.Pa "
+"evaluate> on a string.  If an error condition occurs, an exception will be "
+"generated, which can be intercepted using E<.Tn ANS> Forth exception "
+"handling words.  If not intercepted, an error message will be displayed and "
+"the interpreter's state will be reset, emptying the stack and restoring "
+"interpreting mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:147
+msgid "The builtin commands available are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:149
+#, no-wrap
+msgid "Ic autoboot Op Ar seconds Op Ar prompt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:157
+msgid ""
+"Proceeds to bootstrap the system after a number of seconds, if not "
+"interrupted by the user.  Displays a countdown prompt warning the user the "
+"system is about to be booted, unless interrupted by a key press.  The kernel "
+"will be loaded first if necessary.  Defaults to 10 seconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:158
+#, no-wrap
+msgid "Ic bcachestat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:161
+msgid "Displays statistics about disk cache usage.  For debugging only."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:162
+#, no-wrap
+msgid "Ic boot"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:163
+#, no-wrap
+msgid "Ic boot Ar kernelname Op Cm ..."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:164
+#, no-wrap
+msgid "Ic boot Fl flag Cm ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:169
+msgid ""
+"Immediately proceeds to bootstrap the system, loading the kernel if "
+"necessary.  Any flags or arguments are passed to the kernel, but they must "
+"precede the kernel name, if a kernel name is provided."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:174
+msgid ""
+"E<.Em WARNING>: The behavior of this builtin is changed if E<.Xr loader.4th "
+"8> is loaded."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:175
+#, no-wrap
+msgid "Ic echo Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:183
+msgid ""
+"E<.Op Fl n> E<.Op Aq message> E<.Xc> Displays text on the screen.  A new "
+"line will be printed unless E<.Fl n> is specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:184
+#, no-wrap
+msgid "Ic heap"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:187
+msgid "Displays memory usage statistics.  For debugging purposes only."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:188
+#, no-wrap
+msgid "Ic help Op topic Op subtopic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:194
+msgid ""
+"Shows help messages read from E<.Pa /boot/loader.help>.  The special topic "
+"E<.Em index> will list the topics available."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:195
+#, no-wrap
+msgid "Ic include Ar file Op Ar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:203
+msgid ""
+"Process script files.  Each file, in turn, is completely read into memory, "
+"and then each of its lines is passed to the command line interpreter.  If "
+"any error is returned by the interpreter, the include command aborts "
+"immediately, without reading any other files, and returns an error itself "
+"(see E<.Sx ERRORS>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:204
+#, no-wrap
+msgid "Ic load Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:221
+msgid ""
+"E<.Op Fl t Ar type> E<.Ar file Cm ...> E<.Xc> Loads a kernel, kernel "
+"loadable module (kld), disk image, or file of opaque contents tagged as "
+"being of the type E<.Ar type>.  Kernel and modules can be either in a.out or "
+"ELF format.  Any arguments passed after the name of the file to be loaded "
+"will be passed as arguments to that file.  Use the E<.Li md_image> type to "
+"make the kernel create a file-backed E<.Xr md 4> disk.  This is useful for "
+"booting from a temporary rootfs.  Currently, argument passing does not work "
+"for the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:222
+#, no-wrap
+msgid "Ic load_geli Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:232
+msgid ""
+"E<.Op Fl n Ar keyno> E<.Ar prov Ar file> E<.Xc> Loads a E<.Xr geli 8> "
+"encryption keyfile for the given provider name.  The key index can be "
+"specified via E<.Ar keyno> or will default to zero."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:233
+#, no-wrap
+msgid "Ic ls Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:245
+msgid ""
+"E<.Op Fl l> E<.Op Ar path> E<.Xc> Displays a listing of files in the "
+"directory E<.Ar path>, or the root directory if E<.Ar path> is not "
+"specified.  If E<.Fl l> is specified, file sizes will be shown too."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:246
+#, no-wrap
+msgid "Ic lsdev Op Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:255
+msgid ""
+"Lists all of the devices from which it may be possible to load modules, as "
+"well as ZFS pools.  If E<.Fl v> is specified, more details are printed, "
+"including ZFS pool information in a format that resembles E<.Nm zpool Cm "
+"status> output."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:256
+#, no-wrap
+msgid "Ic lsmod Op Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:261
+msgid "Displays loaded modules.  If E<.Fl v> is specified, more details are shown."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:262
+#, no-wrap
+msgid "Ic lszfs Ar filesystem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:269
+msgid ""
+"A ZFS extended command that can be used to explore the ZFS filesystem "
+"hierarchy in a pool.  Lists the immediate children of the E<.Ar "
+"filesystem>.  The filesystem hierarchy is rooted at a filesystem with the "
+"same name as the pool."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:270
+#, no-wrap
+msgid "Ic more Ar file Op Ar"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:274
+msgid "Display the files specified, with a pause at each E<.Va LINES> displayed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:275
+#, no-wrap
+msgid "Ic pnpscan Op Fl v"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:278
+msgid "Scans for Plug-and-Play devices.  This is not functional at present."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:279
+#, no-wrap
+msgid "Ic read Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:293
+msgid ""
+"E<.Op Fl t Ar seconds> E<.Op Fl p Ar prompt> E<.Op Va variable> E<.Xc> Reads "
+"a line of input from the terminal, storing it in E<.Va variable> if "
+"specified.  A timeout can be specified with E<.Fl t>, though it will be "
+"canceled at the first key pressed.  A prompt may also be displayed through "
+"the E<.Fl p> flag."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:294
+#, no-wrap
+msgid "Ic reboot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:296
+msgid "Immediately reboots the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:297
+#, no-wrap
+msgid "Ic set Ar variable"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:298
+#, no-wrap
+msgid "Ic set Ar variable Ns = Ns Ar value"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:300
+msgid "Set loader's environment variables."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:301
+#, no-wrap
+msgid "Ic show Op Va variable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:306
+msgid ""
+"Displays the specified variable's value, or all variables and their values "
+"if E<.Va variable> is not specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:307
+#, no-wrap
+msgid "Ic unload"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:309
+msgid "Remove all modules from memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:310
+#, no-wrap
+msgid "Ic unset Va variable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:314
+msgid "Removes E<.Va variable> from the environment."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:315
+#, no-wrap
+msgid "Ic \\&?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:317
+msgid "Lists available commands."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:318
+#, no-wrap
+msgid "BUILTIN ENVIRONMENT VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:329
+msgid ""
+"The E<.Nm> has actually two different kinds of E<.Sq environment> "
+"variables.  There are ANS Forth's E<.Em environmental queries>, and a "
+"separate space of environment variables used by builtins, which are not "
+"directly available to Forth words.  It is the latter type that this section "
+"covers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:340
+msgid ""
+"Environment variables can be set and unset through the E<.Ic set> and E<.Ic "
+"unset> builtins, and can have their values interactively examined through "
+"the use of the E<.Ic show> builtin.  Their values can also be accessed as "
+"described in E<.Sx BUILTIN PARSER>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:343
+msgid ""
+"Notice that these environment variables are not inherited by any shell after "
+"the system has been booted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:352
+msgid ""
+"A few variables are set automatically by E<.Nm>.  Others can affect the "
+"behavior of either E<.Nm> or the kernel at boot.  Some options may require a "
+"value, while others define behavior just by being set.  Both types of "
+"builtin variables are described below."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:353
+#, no-wrap
+msgid "Va autoboot_delay"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:360
+msgid ""
+"Number of seconds E<.Ic autoboot> will wait before booting.  If this "
+"variable is not defined, E<.Ic autoboot> will default to 10 seconds."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:370
+msgid ""
+"If set to E<.Dq Li NO>, no E<.Ic autoboot> will be automatically attempted "
+"after processing E<.Pa /boot/loader.rc>, though explicit E<.Ic autoboot Ns "
+"'s> will be processed normally, defaulting to 10 seconds delay."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:378
+msgid ""
+"If set to E<.Dq Li 0>, no delay will be inserted, but user still will be "
+"able to interrupt E<.Ic autoboot> process and escape into the interactive "
+"mode by pressing some key on the console while kernel and modules are being "
+"loaded."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:386
+msgid ""
+"If set to E<.Dq Li -1>, no delay will be inserted and E<.Nm> will engage "
+"interactive mode only if E<.Ic autoboot> has failed for some reason."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:386
+#, no-wrap
+msgid "Va boot_askname"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:389
+msgid ""
+"Instructs the kernel to prompt the user for the name of the root device when "
+"the kernel is booted."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:389
+#, no-wrap
+msgid "Va boot_cdrom"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:391
+msgid "Instructs the kernel to try to mount the root file system from CD-ROM."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:391
+#, no-wrap
+msgid "Va boot_ddb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:394
+msgid ""
+"Instructs the kernel to start in the DDB debugger, rather than proceeding to "
+"initialize when booted."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:394
+#, no-wrap
+msgid "Va boot_dfltroot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:396
+msgid "Instructs the kernel to mount the statically compiled-in root file system."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:396
+#, no-wrap
+msgid "Va boot_gdb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:398
+msgid "Selects gdb-remote mode for the kernel debugger by default."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:398
+#, no-wrap
+msgid "Va boot_multicons"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:404
+msgid ""
+"Enables multiple console support in the kernel early on boot.  In a running "
+"system, console configuration can be manipulated by the E<.Xr conscontrol 8> "
+"utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:404
+#, no-wrap
+msgid "Va boot_mute"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:409
+msgid ""
+"All kernel console output is suppressed when console is muted.  In a running "
+"system, the state of console muting can be manipulated by the E<.Xr "
+"conscontrol 8> utility."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:409
+#, no-wrap
+msgid "Va boot_pause"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:411
+msgid "During the device probe, pause after each line is printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:411
+#, no-wrap
+msgid "Va boot_serial"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:414
+msgid "Force the use of a serial console even when an internal console is present."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:414
+#, no-wrap
+msgid "Va boot_single"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:418
+msgid ""
+"Prevents the kernel from initiating a multi-user startup; instead, a "
+"single-user mode will be entered when the kernel has finished device "
+"probing."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:418
+#, no-wrap
+msgid "Va boot_verbose"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:421
+msgid ""
+"Setting this variable causes extra debugging information to be printed by "
+"the kernel during the boot phase."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:421
+#, no-wrap
+msgid "Va bootfile"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:425
+msgid ""
+"List of semicolon-separated search path for bootable kernels.  The default "
+"is E<.Dq Li kernel>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:425
+#, no-wrap
+msgid "Va comconsole_speed"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:438
+msgid ""
+"Defines the speed of the serial console (i386 and amd64 only).  If the "
+"previous boot stage indicated that a serial console is in use then this "
+"variable is initialized to the current speed of the console serial port.  "
+"Otherwise it is set to 9600 unless this was overridden using the E<.Va "
+"BOOT_COMCONSOLE_SPEED> variable when E<.Nm> was compiled.  Changes to the "
+"E<.Va comconsole_speed> variable take effect immediately."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:438
+#, no-wrap
+msgid "Va comconsole_port"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:454
+msgid ""
+"Defines the base i/o port used to access console UART (i386 and amd64 "
+"only).  If the variable is not set, its assumed value is 0x3F8, which "
+"corresponds to PC port COM1, unless overridden by E<.Va "
+"BOOT_COMCONSOLE_PORT> variable during the compilation of E<.Nm>.  Setting "
+"the E<.Va comconsole_port> variable automatically set E<.Va hw.uart.console> "
+"environment variable to provide a hint to kernel for location of the "
+"console.  Loader console is changed immediately after variable E<.Va "
+"comconsole_port> is set."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:454
+#, no-wrap
+msgid "Va comconsole_pcidev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:475
+msgid ""
+"Defines the location of a PCI device of the 'simple communication' class to "
+"be used as the serial console UART (i386 and amd64 only).  The syntax of the "
+"variable is E<.Li 'bus:device:function[:bar]'>, where all members must be "
+"numeric, with possible E<.Li 0x> prefix to indicate a hexadecimal value.  "
+"The E<.Va bar> member is optional and assumed to be 0x10 if omitted.  The "
+"bar must decode i/o space.  Setting the variable E<.Va comconsole_pcidev> "
+"automatically sets the variable E<.Va comconsole_port> to the base of the "
+"selected bar, and hint E<.Va hw.uart.console>.  Loader console is changed "
+"immediately after variable E<.Va comconsole_pcidev> is set."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:475
+#, no-wrap
+msgid "Va console"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:481
+msgid ""
+"Defines the current console or consoles.  Multiple consoles may be "
+"specified.  In that case, the first listed console will become the default "
+"console for userland output (e.g.\\& from E<.Xr init 8>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:481
+#, no-wrap
+msgid "Va currdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:484
+msgid "Selects the default device.  Syntax for devices is odd."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:484
+#, no-wrap
+msgid "Va dumpdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:492
+msgid ""
+"Sets the device for kernel dumps.  This can be used to ensure that a device "
+"is configured before the corresponding E<.Va dumpdev> directive from E<.Xr "
+"rc.conf 5> has been processed, allowing kernel panics that happen during the "
+"early stages of boot to be captured."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:492
+#, no-wrap
+msgid "Va init_chroot"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:495 /usr/src/stand/man/loader.8:498 /usr/src/stand/man/loader.8:507 /usr/src/stand/man/loader.8:510
+msgid "See E<.Xr init 8>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:495
+#, no-wrap
+msgid "Va init_exec"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:498
+#, no-wrap
+msgid "Va init_path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:504
+msgid ""
+"Sets the list of binaries which the kernel will try to run as the initial "
+"process.  The first matching binary is used.  The default list is E<.Dq Li "
+"/sbin/init:/sbin/oinit:/sbin/init.bak:\\:/rescue/init>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:504
+#, no-wrap
+msgid "Va init_script"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:507
+#, no-wrap
+msgid "Va init_shell"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:510
+#, no-wrap
+msgid "Va interpret"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:514
+msgid "Has the value E<.Dq Li OK> if the Forth's current state is interpreting."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:514
+#, no-wrap
+msgid "Va LINES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:516
+msgid "Define the number of lines on the screen, to be used by the pager."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:516
+#, no-wrap
+msgid "Va module_path"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:521
+msgid ""
+"Sets the list of directories which will be searched for modules named in a "
+"load command or implicitly required by a dependency.  The default value for "
+"this variable is E<.Dq Li /boot/kernel;/boot/modules>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:521
+#, no-wrap
+msgid "Va num_ide_disks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:526
+msgid ""
+"Sets the number of IDE disks as a workaround for some problems in finding "
+"the root disk at boot.  This has been deprecated in favor of E<.Va "
+"root_disk_unit>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:526
+#, no-wrap
+msgid "Va prompt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:536
+msgid ""
+"Value of E<.Nm Ns 's> prompt.  Defaults to E<.Dq Li \"${interpret}\">.  If "
+"variable E<.Va prompt> is unset, the default prompt is E<.Ql E<gt>>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:536
+#, no-wrap
+msgid "Va root_disk_unit"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:541
+msgid ""
+"If the code which detects the disk unit number for the root disk is "
+"confused, e.g.\\& by a mix of SCSI and IDE disks, or IDE disks with gaps in "
+"the sequence (e.g.\\& no primary slave), the unit number can be forced by "
+"setting this variable."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:541
+#, no-wrap
+msgid "Va rootdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:549
+msgid ""
+"By default the value of E<.Va currdev> is used to set the root file system "
+"when the kernel is booted.  This can be overridden by setting E<.Va rootdev> "
+"explicitly."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:553
+msgid ""
+"Other variables are used to override kernel tunable parameters.  The "
+"following tunables are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:554
+#, no-wrap
+msgid "Va efi.rt.disabled"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:558
+msgid ""
+"Disable UEFI runtime services in the kernel, if applicable.  Runtime "
+"services are only available and used if the kernel is booted in a UEFI "
+"environment."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:558
+#, no-wrap
+msgid "Va hw.physmem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:569
+msgid ""
+"Limit the amount of physical memory the system will use.  By default the "
+"size is in bytes, but the E<.Cm k , K , m , M , g> and E<.Cm G> suffixes are "
+"also accepted and indicate kilobytes, megabytes and gigabytes respectively.  "
+"An invalid suffix will result in the variable being ignored by the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:569
+#, no-wrap
+msgid "Va hw.pci.host_start_mem , hw.acpi.host_start_mem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:578
+msgid ""
+"When not otherwise constrained, this limits the memory start address.  The "
+"default is 0x80000000 and should be set to at least size of the memory and "
+"not conflict with other resources.  Typically, only systems without PCI "
+"bridges need to set this variable since PCI bridges typically constrain the "
+"memory starting address (and the variable is only used when bridges do not "
+"constrain this address)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:578
+#, no-wrap
+msgid "Va hw.pci.enable_io_modes"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:583
+msgid ""
+"Enable PCI resources which are left off by some BIOSes or are not enabled "
+"correctly by the device driver.  Tunable value set to ON (1) by default, but "
+"this may cause problems with some peripherals."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:583
+#, no-wrap
+msgid "Va kern.maxusers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:590
+msgid ""
+"Set the size of a number of statically allocated system tables; see E<.Xr "
+"tuning 7> for a description of how to select an appropriate value for this "
+"tunable.  When set, this tunable replaces the value declared in the kernel "
+"compile-time configuration file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:590
+#, no-wrap
+msgid "Va kern.ipc.nmbclusters"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:594
+msgid ""
+"Set the number of mbuf clusters to be allocated.  The value cannot be set "
+"below the default determined when the kernel was compiled."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:594
+#, no-wrap
+msgid "Va kern.ipc.nsfbufs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:603
+msgid ""
+"Set the number of E<.Xr sendfile 2> buffers to be allocated.  Overrides "
+"E<.Dv NSFBUFS>.  Not all architectures use such buffers; see E<.Xr sendfile "
+"2> for details."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:603
+#, no-wrap
+msgid "Va kern.maxswzone"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:614
+msgid ""
+"Limits the amount of KVM to be used to hold swap metadata, which directly "
+"governs the maximum amount of swap the system can support, at the rate of "
+"approximately 200 MB of swap space per 1 MB of metadata.  This value is "
+"specified in bytes of KVA space.  If no value is provided, the system "
+"allocates enough memory to handle an amount of swap that corresponds to "
+"eight times the amount of physical memory present in the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:621
+msgid ""
+"Note that swap metadata can be fragmented, which means that the system can "
+"run out of space before it reaches the theoretical limit.  Therefore, care "
+"should be taken to not configure more swap than approximately half of the "
+"theoretical maximum."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:631
+msgid ""
+"Running out of space for swap metadata can leave the system in an "
+"unrecoverable state.  Therefore, you should only change this parameter if "
+"you need to greatly extend the KVM reservation for other resources such as "
+"the buffer cache or E<.Va kern.ipc.nmbclusters>.  Modifies kernel option "
+"E<.Dv VM_SWZONE_SIZE_MAX>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:631
+#, no-wrap
+msgid "Va kern.maxbcache"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:647
+msgid ""
+"Limits the amount of KVM reserved for use by the buffer cache, specified in "
+"bytes.  The default maximum is 200MB on i386, and 400MB on amd64 and "
+"sparc64.  This parameter is used to prevent the buffer cache from eating too "
+"much KVM in large-memory machine configurations.  Only mess around with this "
+"parameter if you need to greatly extend the KVM reservation for other "
+"resources such as the swap zone or E<.Va kern.ipc.nmbclusters>.  Note that "
+"the NBUF parameter will override this limit.  Modifies E<.Dv "
+"VM_BCACHE_SIZE_MAX>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:647
+#, no-wrap
+msgid "Va kern.msgbufsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:655
+msgid ""
+"Sets the size of the kernel message buffer.  The default limit of 64KB is "
+"usually sufficient unless large amounts of trace data need to be collected "
+"between opportunities to examine the buffer or dump it to a file.  Overrides "
+"kernel option E<.Dv MSGBUF_SIZE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:655
+#, no-wrap
+msgid "Va machdep.disable_mtrrs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:657
+msgid "Disable the use of i686 MTRRs (x86 only)."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:657
+#, no-wrap
+msgid "Va net.inet.tcp.tcbhashsize"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:662
+msgid ""
+"Overrides the compile-time set value of E<.Dv TCBHASHSIZE> or the preset "
+"default of 512.  Must be a power of 2."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:662
+#, no-wrap
+msgid "Va twiddle_divisor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:669
+msgid ""
+"Throttles the output of the E<.Sq twiddle> I/O progress indicator displayed "
+"while loading the kernel and modules.  This is useful on slow serial "
+"consoles where the time spent waiting for these characters to be written can "
+"add up to many seconds.  The default is 1 (full speed); a value of 2 spins "
+"half as fast, and so on."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:669
+#, no-wrap
+msgid "Va vm.kmem_size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:674
+msgid ""
+"Sets the size of kernel memory (bytes).  This overrides the value determined "
+"when the kernel was compiled.  Modifies E<.Dv VM_KMEM_SIZE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:674
+#, no-wrap
+msgid "Va vm.kmem_size_min"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:675
+#, no-wrap
+msgid "Va vm.kmem_size_max"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:683
+msgid ""
+"Sets the minimum and maximum (respectively) amount of kernel memory that "
+"will be automatically allocated by the kernel.  These override the values "
+"determined when the kernel was compiled.  Modifies E<.Dv VM_KMEM_SIZE_MIN> "
+"and E<.Dv VM_KMEM_SIZE_MAX>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:684
+#, no-wrap
+msgid "ZFS FEATURES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:690
+msgid ""
+"E<.Nm> supports the following format for specifying ZFS filesystems which "
+"can be used wherever E<.Xr loader 8> refers to a device specification:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:692
+msgid "E<.Ar zfs:pool/filesystem:>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:697
+msgid ""
+"where E<.Pa pool/filesystem> is a ZFS filesystem name as described in E<.Xr "
+"zfs 8>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:707
+msgid ""
+"If E<.Pa /etc/fstab> does not have an entry for the root filesystem and "
+"E<.Va vfs.root.mountfrom> is not set, but E<.Va currdev> refers to a ZFS "
+"filesystem, then E<.Nm> will instruct kernel to use that filesystem as the "
+"root filesystem."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:707
+#, no-wrap
+msgid "BUILTIN PARSER"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:711
+msgid ""
+"When a builtin command is executed, the rest of the line is taken by it as "
+"arguments, and it is processed by a special parser which is not used for "
+"regular Forth commands."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:713
+msgid "This special parser applies the following rules to the parsed text:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:716
+msgid "All backslash characters are preprocessed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:719
+msgid "\\eb , \\ef , \\er , \\en and \\et are processed as in C."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:721
+msgid "\\es is converted to a space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:725
+msgid "\\ev is converted to E<.Tn ASCII> 11."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:729
+msgid "\\ez is just skipped.  Useful for things like E<.Dq \\e0xf\\ez\\e0xf>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:731
+msgid "\\e0xN and \\e0xNN are replaced by the hex N or NN."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:735
+msgid "\\eNNN is replaced by the octal NNN E<.Tn ASCII> character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:738
+msgid ""
+"\\e\" , \\e' and \\e$ will escape these characters, preventing them from "
+"receiving special treatment in Step 2, described below."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:740
+msgid "\\e\\e will be replaced with a single \\e ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:742
+msgid "In any other occurrence, backslash will just be removed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:746
+msgid ""
+"Every string between non-escaped quotes or double-quotes will be treated as "
+"a single word for the purposes of the remaining steps."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:753
+msgid ""
+"Replace any E<.Li $VARIABLE> or E<.Li ${VARIABLE}> with the value of the "
+"environment variable E<.Va VARIABLE>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:756
+msgid ""
+"Space-delimited arguments are passed to the called builtin command.  Spaces "
+"can also be escaped through the use of \\e\\e ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:760
+msgid ""
+"An exception to this parsing rule exists, and is described in E<.Sx BUILTINS "
+"AND FORTH>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:760
+#, no-wrap
+msgid "BUILTINS AND FORTH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:765
+msgid ""
+"All builtin words are state-smart, immediate words.  If interpreted, they "
+"behave exactly as described previously.  If they are compiled, though, they "
+"extract their arguments from the stack instead of the command line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:768
+msgid ""
+"If compiled, the builtin words expect to find, at execution time, the "
+"following parameters on the stack:"
+msgstr ""
+
+#. type: D1
+#: /usr/src/stand/man/loader.8:768
+#, no-wrap
+msgid "Ar addrN lenN ... addr2 len2 addr1 len1 N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:775
+msgid ""
+"where E<.Ar addrX lenX> are strings which will compose the command line that "
+"will be parsed into the builtin's arguments.  Internally, these strings are "
+"concatenated in from 1 to N, with a space put between each one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:779
+msgid ""
+"If no arguments are passed, a 0 E<.Em must> be passed, even if the builtin "
+"accepts no arguments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:801
+msgid ""
+"While this behavior has benefits, it has its trade-offs.  If the execution "
+"token of a builtin is acquired (through E<.Ic '> or E<.Ic [']>), and then "
+"passed to E<.Ic catch> or E<.Ic execute>, the builtin behavior will depend "
+"on the system state E<.Bf Em> at the time E<.Ic catch> or E<.Ic execute> is "
+"processed! E<.Ef> This is particularly annoying for programs that want or "
+"need to handle exceptions.  In this case, the use of a proxy is "
+"recommended.  For example:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/stand/man/loader.8:801
+#, no-wrap
+msgid ": (boot) boot ;"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:802
+#, no-wrap
+msgid "FICL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:807
+msgid ""
+"E<.Tn FICL> is a Forth interpreter written in C, in the form of a forth "
+"virtual machine library that can be called by C functions and vice versa."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:820
+msgid ""
+"In E<.Nm>, each line read interactively is then fed to E<.Tn FICL>, which "
+"may call E<.Nm> back to execute the builtin words.  The builtin E<.Ic "
+"include> will also feed E<.Tn FICL>, one line at a time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:839
+msgid ""
+"The words available to E<.Tn FICL> can be classified into four groups.  The "
+"E<.Tn ANS> Forth standard words, extra E<.Tn FICL> words, extra E<.Fx> "
+"words, and the builtin commands; the latter were already described.  The "
+"E<.Tn ANS> Forth standard words are listed in the E<.Sx STANDARDS> section.  "
+"The words falling in the two other groups are described in the following "
+"subsections."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:839
+#, no-wrap
+msgid "FICL EXTRA WORDS"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:841
+#, no-wrap
+msgid "Ic .env"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:842
+#, no-wrap
+msgid "Ic .ver"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:843
+#, no-wrap
+msgid "Ic -roll"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:844
+#, no-wrap
+msgid "Ic 2constant"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:845
+#, no-wrap
+msgid "Ic E<gt>name"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:846
+#, no-wrap
+msgid "Ic bodyE<gt>"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:847
+#, no-wrap
+msgid "Ic compare"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:850
+msgid "This is the STRING word set's E<.Ic compare>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:850
+#, no-wrap
+msgid "Ic compile-only"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:851
+#, no-wrap
+msgid "Ic endif"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:852
+#, no-wrap
+msgid "Ic forget-wid"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:853
+#, no-wrap
+msgid "Ic parse-word"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:854
+#, no-wrap
+msgid "Ic sliteral"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:857
+msgid "This is the STRING word set's E<.Ic sliteral>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:857
+#, no-wrap
+msgid "Ic wid-set-super"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:858
+#, no-wrap
+msgid "Ic w@"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:859
+#, no-wrap
+msgid "Ic w!"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:860
+#, no-wrap
+msgid "Ic x."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:861
+#, no-wrap
+msgid "Ic empty"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:862
+#, no-wrap
+msgid "Ic cell-"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:863
+#, no-wrap
+msgid "Ic -rot"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:865
+#, no-wrap
+msgid "FREEBSD EXTRA WORDS"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:867
+#, no-wrap
+msgid "Ic \\&$ Pq --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:869
+msgid "Evaluates the remainder of the input buffer, after having printed it first."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:869
+#, no-wrap
+msgid "Ic \\&% Pq --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:873
+msgid ""
+"Evaluates the remainder of the input buffer under a E<.Ic catch> exception "
+"guard."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:873
+#, no-wrap
+msgid "Ic .#"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:877
+msgid "Works like E<.Ic \".\"> but without outputting a trailing space."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:877
+#, no-wrap
+msgid "Ic fclose Pq Ar fd --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:879
+msgid "Closes a file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:879
+#, no-wrap
+msgid "Ic fkey Pq Ar fd -- char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:881
+msgid "Reads a single character from a file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:881
+#, no-wrap
+msgid "Ic fload Pq Ar fd --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:884
+msgid "Processes a file E<.Em fd>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:884
+#, no-wrap
+msgid "Ic fopen Pq Ar addr len mode Li -- Ar fd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:898
+msgid ""
+"Opens a file.  Returns a file descriptor, or \\-1 in case of failure.  The "
+"E<.Ar mode> parameter selects whether the file is to be opened for read "
+"access, write access, or both.  The constants E<.Dv O_RDONLY , O_WRONLY>, "
+"and E<.Dv O_RDWR> are defined in E<.Pa /boot/support.4th>, indicating read "
+"only, write only, and read-write access, respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:898
+#, no-wrap
+msgid "Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:910
+msgid ""
+"E<.Ic fread> E<.Pq Ar fd addr len -- len'> E<.Xc> Tries to read E<.Em len> "
+"bytes from file E<.Em fd> into buffer E<.Em addr>.  Returns the actual "
+"number of bytes read, or -1 in case of error or end of file."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:910
+#, no-wrap
+msgid "Ic heap? Pq -- Ar cells"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:913
+msgid ""
+"Return the space remaining in the dictionary heap, in cells.  This is not "
+"related to the heap used by dynamic memory allocation words."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:913
+#, no-wrap
+msgid "Ic inb Pq Ar port -- char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:915
+msgid "Reads a byte from a port."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:915
+#, no-wrap
+msgid "Ic key Pq -- Ar char"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:917
+msgid "Reads a single character from the console."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:917
+#, no-wrap
+msgid "Ic key? Pq -- Ar flag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:921
+msgid ""
+"Returns E<.Ic true> if there is a character available to be read from the "
+"console."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:921
+#, no-wrap
+msgid "Ic ms Pq Ar u --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:925
+msgid "Waits E<.Em u> microseconds."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:925
+#, no-wrap
+msgid "Ic outb Pq Ar port char --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:927
+msgid "Writes a byte to a port."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:927
+#, no-wrap
+msgid "Ic seconds Pq -- Ar u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:929
+msgid "Returns the number of seconds since midnight."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:929
+#, no-wrap
+msgid "Ic tibE<gt> Pq -- Ar addr len"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:931
+msgid "Returns the remainder of the input buffer as a string on the stack."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:931
+#, no-wrap
+msgid "Ic trace! Pq Ar flag --"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:935
+msgid "Activates or deactivates tracing.  Does not work with E<.Ic catch>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/stand/man/loader.8:936
+#, no-wrap
+msgid "FREEBSD DEFINED ENVIRONMENTAL QUERIES"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:938
+#, no-wrap
+msgid "arch-i386"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:941
+msgid "E<.Ic TRUE> if the architecture is IA32."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:941
+#, no-wrap
+msgid "FreeBSD_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:944
+msgid "E<.Fx> version at compile time."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:944
+#, no-wrap
+msgid "loader_version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:947
+msgid "E<.Nm> version."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:948
+#, no-wrap
+msgid "SECURITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:953
+msgid ""
+"Access to the E<.Nm> command line provides several ways of compromising "
+"system security, including, but not limited to:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:961
+msgid ""
+"Booting from removable storage, by setting the E<.Va currdev> or E<.Va "
+"loaddev> variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:967
+msgid ""
+"Executing binary of choice, by setting the E<.Va init_path> or E<.Va "
+"init_script> variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:969
+msgid "Overriding ACPI DSDT to inject arbitrary code into the ACPI subsystem"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:984
+msgid ""
+"One can prevent unauthorized access to the E<.Nm> command line by setting "
+"the E<.Va password>, or setting E<.Va autoboot_delay> to -1.  See E<.Xr "
+"loader.conf 5> for details.  In order for this to be effective, one should "
+"also configure the firmware (BIOS or UEFI) to prevent booting from "
+"unauthorized devices."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:984
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:986
+#, no-wrap
+msgid "Pa /boot/loader"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:989
+msgid "E<.Nm> itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:989
+#, no-wrap
+msgid "Pa /boot/boot.4th"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:993
+msgid "Additional E<.Tn FICL> initialization."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:993
+#, no-wrap
+msgid "Pa /boot/defaults/loader.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:994
+#, no-wrap
+msgid "Pa /boot/loader.4th"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:996
+msgid "Extra builtin-like words."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:996
+#, no-wrap
+msgid "Pa /boot/loader.conf"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:997
+#, no-wrap
+msgid "Pa /boot/loader.conf.local"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1001
+msgid "E<.Nm> configuration files, as described in E<.Xr loader.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1001
+#, no-wrap
+msgid "Pa /boot/loader.rc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1004
+msgid "E<.Nm> bootstrapping script."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1004
+#, no-wrap
+msgid "Pa /boot/loader.help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1008
+msgid "Loaded by E<.Ic help>.  Contains the help messages."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1008
+#, no-wrap
+msgid "Pa /boot/support.4th"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1011
+msgid "E<.Pa loader.conf> processing words."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1011
+#, no-wrap
+msgid "Pa /usr/share/examples/bootforth/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1013
+msgid "Assorted examples."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1014
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1016
+msgid "Boot in single user mode:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/stand/man/loader.8:1017
+#, no-wrap
+msgid "boot -s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1023
+msgid ""
+"Load the kernel, a splash screen, and then autoboot in five seconds.  Notice "
+"that a kernel must be loaded before any other E<.Ic load> command is "
+"attempted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1028
+#, no-wrap
+msgid ""
+"load kernel\n"
+"load splash_bmp\n"
+"load -t splash_image_data /boot/chuckrulez.bmp\n"
+"autoboot 5\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1033
+msgid ""
+"Set the disk unit of the root device to 2, and then boot.  This would be "
+"needed in a system with two IDE disks, with the second IDE disk hardwired to "
+"ada2 instead of ada1."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1036
+#, no-wrap
+msgid ""
+"set root_disk_unit=2\n"
+"boot /boot/kernel/kernel\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1039
+msgid "Set the default device used for loading a kernel from a ZFS filesystem:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1041
+#, no-wrap
+msgid "set currdev=zfs:tank/ROOT/knowngood:\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1043
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1046
+msgid "The following values are thrown by E<.Nm>:"
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1047
+#, no-wrap
+msgid "100"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1049
+msgid "Any type of error in the processing of a builtin."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1049
+#, no-wrap
+msgid "-1"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1052
+msgid "E<.Ic Abort> executed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1052
+#, no-wrap
+msgid "-2"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1055
+msgid "E<.Ic Abort\"> executed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1055
+#, no-wrap
+msgid "-56"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1058
+msgid "E<.Ic Quit> executed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1058
+#, no-wrap
+msgid "-256"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1060
+msgid "Out of interpreting text."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1060
+#, no-wrap
+msgid "-257"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1062
+msgid "Need more text to succeed -- will finish on next run."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1062
+#, no-wrap
+msgid "-258"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1065
+msgid "E<.Ic Bye> executed."
+msgstr ""
+
+#. type: It
+#: /usr/src/stand/man/loader.8:1065
+#, no-wrap
+msgid "-259"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1067
+msgid "Unspecified error."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1068
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1074
+msgid ""
+"E<.Xr libstand 3>, E<.Xr loader.conf 5>, E<.Xr tuning 7>, E<.Xr boot 8>, "
+"E<.Xr btxld 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1074
+#, no-wrap
+msgid "STANDARDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1107
+msgid ""
+"For the purposes of ANS Forth compliance, loader is an E<.Bf Em> ANS Forth "
+"System with Environmental Restrictions, Providing E<.Ef> E<.Bf Li> E<.No "
+".(>, E<.No :noname>, E<.No ?do>, parse, pick, roll, refill, to, value, \\e, "
+"false, true, E<.No E<lt>E<gt>>, E<.No 0E<lt>E<gt>>, compile\\&, , erase, "
+"nip, tuck E<.Ef> E<.Em and> E<.Li marker> E<.Bf Em> from the Core Extensions "
+"word set, Providing the Exception Extensions word set, Providing the Locals "
+"Extensions word set, Providing the Memory-Allocation Extensions word set, "
+"Providing E<.Ef> E<.Bf Li> \\&.s, bye, forget, see, words, \\&[if], "
+"\\&[else] E<.Ef> E<.Em and> E<.Li [then]> E<.Bf Em> from the "
+"Programming-Tools extension word set, Providing the Search-Order extensions "
+"word set.  E<.Ef>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1107
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1112
+msgid "The E<.Nm> first appeared in E<.Fx 3.1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1112
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1118
+msgid ""
+"E<.An -nosplit> The E<.Nm> was written by E<.An Michael Smith Aq "
+"msmith@FreeBSD.org>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1122
+msgid "E<.Tn FICL> was written by E<.An John Sadler Aq john_sadler@alum.mit.edu>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/stand/man/loader.8:1122
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/stand/man/loader.8:1128
+msgid ""
+"The E<.Ic expect> and E<.Ic accept> words will read from the input buffer "
+"instead of the console.  The latter will be fixed, but the former will not."
+msgstr ""

@@ -1,0 +1,321 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man8/crash.8:35
+#, no-wrap
+msgid "July 23, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man8/crash.8:36
+#, no-wrap
+msgid "CRASH 8"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/crash.8:38
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:40
+msgid "E<.Nm crash>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man8/crash.8:40
+#, no-wrap
+msgid "FreeBSD system failures"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/crash.8:41
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:44
+msgid ""
+"This section explains a bit about system crashes and (very briefly) how to "
+"analyze crash dumps."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:46
+msgid "When the system crashes voluntarily it prints a message of the form"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:47
+#, no-wrap
+msgid "panic: why i gave up the ghost"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:59
+msgid ""
+"on the console, and if dumps have been enabled (see E<.Xr dumpon 8>), takes "
+"a dump on a mass storage peripheral, and then invokes an automatic reboot "
+"procedure as described in E<.Xr reboot 8>.  Unless some unexpected "
+"inconsistency is encountered in the state of the file systems due to "
+"hardware or software failure, the system will then resume multi-user "
+"operations."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:67
+msgid ""
+"The system has a large number of internal consistency checks; if one of "
+"these fails, then it will panic with a very short message indicating which "
+"one failed.  In many instances, this will be the name of the routine which "
+"detected the error, or a two-word description of the inconsistency.  A full "
+"understanding of most panic messages requires perusal of the source code for "
+"the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:74
+msgid ""
+"The most common cause of system failures is hardware failure, which can "
+"reflect itself in different ways.  Here are the messages which are most "
+"likely, with some hints as to causes.  Left unstated in all cases is the "
+"possibility that hardware or software error produced the message in some "
+"unexpected way."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:76
+#, no-wrap
+msgid "cannot mount root"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:88
+msgid ""
+"This panic message results from a failure to mount the root file system "
+"during the bootstrap process.  Either the root file system has been "
+"corrupted, or the system is attempting to use the wrong device as root file "
+"system.  Usually, an alternate copy of the system binary or an alternate "
+"root file system can be used to bring up the system to investigate.  Most "
+"often this is done by the use of the boot floppy you used to install the "
+"system, and then using the E<.Dq fixit> floppy."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:89
+#, no-wrap
+msgid "init: not found"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:98
+msgid ""
+"This is not a panic message, as reboots are likely to be futile.  Late in "
+"the bootstrap procedure, the system was unable to locate and execute the "
+"initialization process, E<.Xr init 8>.  The root file system is incorrect or "
+"has been corrupted, or the mode or type of E<.Pa /sbin/init> forbids "
+"execution or is totally missing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:99
+#, no-wrap
+msgid "ffs_realloccg: bad optim"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:100
+#, no-wrap
+msgid "ffs_valloc: dup alloc"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:101
+#, no-wrap
+msgid "ffs_alloccgblk: cyl groups corrupted"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:102
+#, no-wrap
+msgid "ffs_alloccg: map corrupted"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:103
+#, no-wrap
+msgid "blkfree: freeing free block"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:104
+#, no-wrap
+msgid "blkfree: freeing free frag"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:105
+#, no-wrap
+msgid "ifree: freeing free inode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:112
+msgid ""
+"These panic messages are among those that may be produced when file system "
+"inconsistencies are detected.  The problem generally results from a failure "
+"to repair damaged file systems after a crash, hardware failures, or other "
+"condition that should not normally occur.  A file system check will normally "
+"correct the problem."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man8/crash.8:113
+#, no-wrap
+msgid "timeout table full"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:117
+msgid ""
+"This really should not be a panic, but until the data structure involved is "
+"made to be extensible, running out of entries causes a crash.  If this "
+"happens, make the timeout table bigger."
+msgstr ""
+
+#.  .It "trap type %d, code = %x, v = %x"
+#.  An unexpected trap has occurred within the system; the trap types are:
+#.  .Bl -column xxxx -offset indent
+#.  0	bus error
+#.  1	address error
+#.  2	illegal instruction
+#.  3	divide by zero
+#.  .No 4\t Em chk No instruction
+#.  .No 5\t Em trapv No instruction
+#.  6	privileged instruction
+#.  7	trace trap
+#.  8	MMU fault
+#.  9	simulated software interrupt
+#.  10	format error
+#.  11	FP coprocessor fault
+#.  12	coprocessor fault
+#.  13	simulated AST
+#.  .El
+#.  .Pp
+#.  The favorite trap type in system crashes is trap type 8,
+#.  indicating a wild reference.
+#.  ``code'' (hex) is the concatenation of the
+#.  MMU
+#.  status register
+#.  (see <hp300/cpu.h>)
+#.  in the high 16 bits and the 68020 special status word
+#.  (see the 68020 manual, page 6-17)
+#.  in the low 16.
+#.  ``v'' (hex) is the virtual address which caused the fault.
+#.  Additionally, the kernel will dump about a screenful of semi-useful
+#.  information.
+#.  ``pid'' (decimal) is the process id of the process running at the
+#.  time of the exception.
+#.  Note that if we panic in an interrupt routine,
+#.  this process may not be related to the panic.
+#.  ``ps'' (hex) is the 68020 processor status register ``ps''.
+#.  ``pc'' (hex) is the value of the program counter saved
+#.  on the hardware exception frame.
+#.  It may
+#.  .Em not
+#.  be the PC of the instruction causing the fault.
+#.  ``sfc'' and ``dfc'' (hex) are the 68020 source/destination function codes.
+#.  They should always be one.
+#.  ``p0'' and ``p1'' are the
+#.  VAX-like
+#.  region registers.
+#.  They are of the form:
+#.  .Pp
+#.  .Bd -ragged -offset indent
+#.  <length> '@' <kernel VA>
+#.  .Ed
+#.  .Pp
+#.  where both are in hex.
+#.  Following these values are a dump of the processor registers (hex).
+#.  Finally, is a dump of the stack (user/kernel) at the time of the offense.
+#.  .Pp
+#. type: It
+#: /usr/src/share/man/man8/crash.8:174
+#, no-wrap
+msgid "init died (signal #, exit #)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:180
+msgid ""
+"The system initialization process has exited with the specified signal "
+"number and exit code.  This is bad news, as no new users will then be able "
+"to log in.  Rebooting is the only fix, so the system just does it right "
+"away."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:183
+msgid "That completes the list of panic types you are likely to see."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:197
+msgid ""
+"If the system has been configured to take crash dumps (see E<.Xr dumpon 8>), "
+"then when it crashes it will write (or at least attempt to write)  an image "
+"of memory into the back end of the dump device, usually the same as the "
+"primary swap area.  After the system is rebooted, the program E<.Xr savecore "
+"8> runs and preserves a copy of this core image and the current system in a "
+"specified directory for later perusal.  See E<.Xr savecore 8> for details."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:207
+msgid ""
+"To analyze a dump you should begin by running E<.Xr kgdb 1> on the system "
+"load image and core dump.  If the core image is the result of a panic, the "
+"panic message is printed.  For more details consult the chapter on kernel "
+"debugging in the E<.%B \"FreeBSD Developers' Handbook\"> E<.Pq Pa "
+"https://www.freebsd.org/doc/en/books/developers-handbook/>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/crash.8:207
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:212
+msgid "E<.Xr kgdb 1>, E<.Xr dumpon 8>, E<.Xr reboot 8>, E<.Xr savecore 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man8/crash.8:212
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man8/crash.8:216
+msgid "The E<.Nm> manual page first appeared in E<.Fx 2.2>."
+msgstr ""

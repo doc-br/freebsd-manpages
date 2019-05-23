@@ -1,0 +1,284 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/dpcpu.9:28
+#, no-wrap
+msgid "July 5, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/dpcpu.9:29
+#, no-wrap
+msgid "DPCPU 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dpcpu.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:33
+msgid "E<.Nm dpcpu>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/dpcpu.9:33
+#, no-wrap
+msgid "Kernel Dynamic Per-CPU Memory Allocator"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dpcpu.9:34
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/dpcpu.9:35
+#, no-wrap
+msgid "sys/pcpu.h"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/dpcpu.9:36
+#, no-wrap
+msgid "Per-CPU Variable Definition and Declaration"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:40
+msgid ""
+"E<.Fn DPCPU_DEFINE \"type\" \"name\"> E<.Fn DPCPU_DEFINE_STATIC \"type\" "
+"\"name\"> E<.Fn DPCPU_DECLARE \"type\" \"name\">"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/dpcpu.9:40
+#, no-wrap
+msgid "Current CPU Accessor Functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:44
+msgid ""
+"E<.Fn DPCPU_PTR \"name\"> E<.Fn DPCPU_GET \"name\"> E<.Fn DPCPU_SET \"name\" "
+"\"value\">"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/dpcpu.9:44
+#, no-wrap
+msgid "Named CPU Accessor Functions"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:48
+msgid ""
+"E<.Fn DPCPU_ID_PTR \"cpu\" \"name\"> E<.Fn DPCPU_ID_GET \"cpu\" \"name\"> "
+"E<.Fn DPCPU_ID_SET \"cpu\" \"name\" \"value\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dpcpu.9:48
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:60
+msgid ""
+"E<.Nm> instantiates one instance of a global variable with each CPU in the "
+"system.  Dynamically allocated per-CPU variables are defined using E<.Fn "
+"DPCPU_DEFINE>, which defines a variable of name E<.Ar name> and type E<.Ar "
+"type>.  Arbitrary C types may be used, including structures and arrays.  If "
+"no initialization is provided, then each per-CPU instance of the variable "
+"will be zero-filled (i.e., as though allocated in BSS):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:62
+#, no-wrap
+msgid "DPCPU_DEFINE(int, foo_int);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:66
+msgid ""
+"Values may also be initialized statically with the definition, causing each "
+"per-CPU instance to be initialized with the value:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:68
+#, no-wrap
+msgid "DPCPU_DEFINE(int, foo_int) = 1;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:74
+msgid ""
+"Values that can be defined as E<.Dv static> must use E<.Fn "
+"DPCPU_DEFINE_STATIC>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:76
+#, no-wrap
+msgid "DPCPU_DEFINE_STATIC(int, foo_int);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:81
+msgid ""
+"E<.Fn DPCPU_DECLARE> produces a declaration of the per-CPU variable suitable "
+"for use in header files."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:90
+msgid ""
+"The current CPU's variable instance can be accessed via E<.Nm DPCPU_PTR> "
+"(which returns a pointer to the per-CPU instance), E<.Nm DPCPU_GET> (which "
+"retrieves the value of the per-CPU instance), and E<.Nm DPCPU_SET> (which "
+"sets the value of the per-CPU instance)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:98
+msgid ""
+"Instances of variables associated with specific CPUs can be accessed via the "
+"E<.Nm DPCPU_ID_PTR>, E<.Nm DPCPU_ID_GET>, and E<.Nm DPGPU_ID_SET> accessor "
+"functions, which accept an additional CPU ID argument, E<.Ar cpu>."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man9/dpcpu.9:98
+#, no-wrap
+msgid "Synchronization"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:108
+msgid ""
+"In addition to the ordinary synchronization concerns associated with global "
+"variables, which may imply the use of E<.Xr atomic 9>, E<.Xr mutex 9>, or "
+"other kernel synchronization primitives, it is further the case that thread "
+"migration could dynamically change the instance of a variable being accessed "
+"by a thread between operations.  This requires additional care when "
+"reasoning about and protecting per-CPU variables."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:115
+msgid ""
+"For example, it may be desirable to protect access using E<.Xr "
+"critical_section 9> to prevent both preemption and migration during use.  "
+"Alternatively, it may be desirable to cache the CPU ID at the start of a "
+"sequence of accesses, using suitable synchronization to make non-atomic "
+"sequences safe in the presence of migration."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:118
+#, no-wrap
+msgid ""
+"DPCPU_DEFINE_STATIC(int, foo_int);\n"
+"DPCPU_DEFINE_STATIC(struct mutex, foo_lock);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:123
+#, no-wrap
+msgid ""
+"void\n"
+"foo_int_increment(void)\n"
+"{\n"
+"    int cpu, value;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:126
+#, no-wrap
+msgid ""
+"    /* Safe as atomic access. */\n"
+"    atomic_add_int(DPCPU_PTR(foo_int), 1);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:138
+#, no-wrap
+msgid ""
+"    /*\n"
+"     * Protect with a critical section, which prevents preemption\n"
+"     * and migration.  However, access to instances from remote CPUs\n"
+"     * is not safe, as critical sections prevent concurrent access\n"
+"     * only from the current CPU.\n"
+"     */\n"
+"    critical_enter();\n"
+"    value = DPCPU_GET(foo_int);\n"
+"    value++;\n"
+"    DPCPU_SET(foo_int, value);\n"
+"    critical_exit();\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:153
+#, no-wrap
+msgid ""
+"    /*\n"
+"     * Protect with a per-CPU mutex, tolerating migration, but\n"
+"     * potentially accessing the variable from multiple CPUs if\n"
+"     * migration occurs after reading curcpu.  Remote access to a\n"
+"     * per-CPU variable is safe as long as the correct mutex is\n"
+"     * acquired.\n"
+"     */\n"
+"    cpu = curcpu;\n"
+"    mtx_lock(DPCPU_ID_PTR(cpu, foo_lock));\n"
+"    value = DPCPU_ID_GET(cpu, foo_int);\n"
+"    value++;\n"
+"    DPCPU_ID_SET(cpu, foo_int);\n"
+"    mtx_unlock(DPCPU_ID_PTR(cpu, foo_lock));\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dpcpu.9:154
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:158
+msgid "E<.Xr atomic 9>, E<.Xr critical_enter 9>, E<.Xr mutex 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/dpcpu.9:158
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/dpcpu.9:165
+msgid ""
+"E<.Nm> was first introduced by E<.An Jeff Roberson> in E<.Fx 8.0>.  This "
+"manual page was written by E<.An Robert N. M. Watson.>"
+msgstr ""

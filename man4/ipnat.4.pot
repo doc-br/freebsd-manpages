@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:32-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:2
+#, no-wrap
+msgid "IPNAT"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:3
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:5
+msgid "ipnat - Network Address Translation kernel interface"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:5
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:7
+msgid "#include E<lt>netinet/ip_compat.hE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:9
+msgid "#include E<lt>netinet/ip_fil.hE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:11
+msgid "#include E<lt>netinet/ip_proxy.hE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:13
+msgid "#include E<lt>netinet/ip_nat.hE<gt>"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:13
+#, no-wrap
+msgid "IOCTLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:17
+msgid ""
+"To add and delete rules to the NAT list, two 'basic' ioctls are provided for "
+"use.  The ioctl's are called as:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:23
+#, no-wrap
+msgid ""
+"\tioctl(fd, SIOCADNAT, struct ipnat **)\n"
+"\tioctl(fd, SIOCRMNAT, struct ipnat **)\n"
+"\tioctl(fd, SIOCGNATS, struct natstat **)\n"
+"\tioctl(fd, SIOCGNATL, struct natlookup **)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:28
+msgid ""
+"Unlike B<ipf(4)>, there is only a single list supported by the kernel NAT "
+"interface.  An inactive list which can be swapped to is not currently "
+"supported."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:33
+msgid ""
+"These ioctl's are implemented as being routing ioctls and thus the same "
+"rules for the various routing ioctls and the file descriptor are employed, "
+"mainly being that the fd must be that of the device associated with the "
+"module (i.e., /dev/ipl)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:35
+msgid "The structure used with the NAT interface is described below:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:50
+#, no-wrap
+msgid ""
+"typedef struct  ipnat   {\n"
+"        struct  ipnat   *in_next;\n"
+"        void    *in_ifp;\n"
+"        u_short in_flags;\n"
+"        u_short in_pnext;\n"
+"        u_short in_port[2];\n"
+"        struct  in_addr in_in[2];\n"
+"        struct  in_addr in_out[2];\n"
+"        struct  in_addr in_nextip;\n"
+"        int     in_space;\n"
+"        int     in_redir; /* 0 if it's a mapping, 1 if it's a hard redir "
+"*/\n"
+"        char    in_ifname[IFNAMSIZ];\n"
+"} ipnat_t;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:58
+#, no-wrap
+msgid ""
+"#define in_pmin         in_port[0]      /* Also holds static redir port */\n"
+"#define in_pmax         in_port[1]\n"
+"#define in_nip          in_nextip.s_addr\n"
+"#define in_inip         in_in[0].s_addr\n"
+"#define in_inmsk        in_in[1].s_addr\n"
+"#define in_outip        in_out[0].s_addr\n"
+"#define in_outmsk       in_out[1].s_addr\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:62
+msgid "Recognised values for in_redir:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:66
+#, no-wrap
+msgid ""
+"#define NAT_MAP         0\n"
+"#define NAT_REDIRECT    1\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:72
+msgid ""
+"B<NAT statistics> Statistics on the number of packets mapped, going in and "
+"out are kept, the number of times a new entry is added and deleted (through "
+"expiration) to the NAT table and the current usage level of the NAT table."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:76
+msgid ""
+"Pointers to the NAT table inside the kernel, as well as to the top of the "
+"internal NAT lists constructed with the B<SIOCADNAT> ioctls.  The table "
+"itself is a hash table of size NAT_SIZE (default size is 367)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:79
+msgid ""
+"To retrieve the statistics, the B<SIOCGNATS> ioctl must be used, with the "
+"appropriate structure passed by reference, as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:81
+#, no-wrap
+msgid "\tioctl(fd, SIOCGNATS, struct natstat *)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:90
+#, no-wrap
+msgid ""
+"typedef struct  natstat {\n"
+"        u_long  ns_mapped[2];\n"
+"        u_long  ns_added;\n"
+"        u_long  ns_expire;\n"
+"        u_long  ns_inuse;\n"
+"        nat_t   ***ns_table;\n"
+"        ipnat_t *ns_list;\n"
+"} natstat_t;\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:91
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:94
+msgid ""
+"It would be nice if there were more flexibility when adding and deleting "
+"filter rules."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:94
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:96
+msgid "/dev/ipnat"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/ipfilter/man/ipnat.4:96
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/ipfilter/man/ipnat.4:97
+msgid "ipf(4), ipnat(5), ipf(8), ipnat(8), ipfstat(8)"
+msgstr ""

@@ -1,0 +1,639 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/proto.4:28
+#, no-wrap
+msgid "August 7, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/proto.4:29
+#, no-wrap
+msgid "PROTO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:34
+msgid "E<.Nm proto>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/proto.4:34
+#, no-wrap
+msgid "Generic prototyping and diagnostics driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:40
+msgid ""
+"To compile this driver into the kernel, place the following line in your "
+"kernel configuration file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:42
+#, no-wrap
+msgid "E<.Cd \"device proto\">\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:47
+msgid ""
+"Alternatively, to load the driver as a module at boot time, place the "
+"following line in E<.Xr loader.conf 5>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:49
+#, no-wrap
+msgid "proto_load=\"YES\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:53
+msgid ""
+"To have the driver attach to a device instead of its regular driver, mention "
+"it in the list of devices assigned to the following loader variable:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:55
+#, no-wrap
+msgid "hw.proto.attach=\"desc[,desc]\"\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:57
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:70
+msgid ""
+"The E<.Nm> device driver attaches to PCI or ISA devices when no other device "
+"drivers are present for those devices and it creates device special files "
+"for all resources associated with the device.  The driver itself has no "
+"knowledge of the device it attaches to.  Programs can open these device "
+"special files and perform register-level reads and writes.  As such, the "
+"E<.Nm> device driver is nothing but a conduit or gateway between user space "
+"programs and the hardware device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:77
+msgid ""
+"Examples for why this is useful include hardware diagnostics and "
+"prototyping.  In both these use cases, it is far more convenient to develop "
+"and run the logic in user space.  Especially hardware diagnostics requires a "
+"somewhat user-friendly interface and adequate reporting.  Neither is done "
+"easily as kernel code."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/proto.4:77
+#, no-wrap
+msgid "I/O port resources"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:113
+msgid ""
+"Device special files created for I/O port resources allow E<.Xr lseek 2>, "
+"E<.Xr read 2>, E<.Xr write 2> and E<.Xr ioctl 2> operations to be performed "
+"on them.  The E<.Xr read 2> and E<.Xr write 2> system calls are used to "
+"perform input and output (resp.) on the port.  The amount of data that can "
+"be read or written at any single time is either 1, 2 or 4 bytes.  While the "
+"E<.Nm> driver does not prevent reading or writing 8 bytes at a time for some "
+"architectures, it should not be assumed that such actually produces correct "
+"results.  The E<.Xr lseek 2> system call is used to select the port number, "
+"relative to the I/O port region being represented by the device special "
+"file.  If, for example, the device special file corresponds to an I/O port "
+"region from 0x3f8 to 0x3ff inclusive, then an offset of 4 given to lseek "
+"with a whence value of SEEK_SET will target port 0x3fc on the next read or "
+"write operation.  The E<.Xr ioctl 2> system call can be used for the E<.Dv "
+"PROTO_IOC_REGION> request.  This ioctl request returns the extend of the "
+"resource covered by this device special file.  The extend is returned in the "
+"following structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:118
+#, no-wrap
+msgid ""
+"struct proto_ioc_region {\n"
+"        unsigned long   address;\n"
+"        unsigned long   size;\n"
+"};\n"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/proto.4:119
+#, no-wrap
+msgid "Memory mapped I/O resources"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:137
+msgid ""
+"The device special files created for memory mapped I/O resources behave in "
+"the same way as those created for I/O port resources.  Additionally, device "
+"special files for memory mapped I/O resources allow the memory to be mapped "
+"into the process' address space using E<.Xr mmap 2>.  Reads and writes to "
+"the memory address returned by E<.Xr mmap 2> go directly to the hardware.  "
+"As such the use of E<.Xr read 2> and E<.Xr write 2> can be avoided, reducing "
+"the access overhead significantly.  Alignment and access width constraints "
+"put forth by the underlying device apply.  Also, make sure the compiler does "
+"not optimize memory accesses away or has them coalesced into bigger "
+"accesses."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/proto.4:137
+#, no-wrap
+msgid "DMA pseudo resource"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:154
+msgid ""
+"A device special file named E<.Pa busdma> is created for the purpose of "
+"doing DMA.  It only supports E<.Xr ioctl 2> and only for the E<.Dv "
+"PROTO_IOC_BUSDMA> request.  This device special file does not support E<.Xr "
+"read 2> nor E<.Xr write 2>.  The E<.Dv PROTO_IOC_BUSDMA> request has an "
+"argument that is both in and out and is defined as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:187
+#, no-wrap
+msgid ""
+"struct proto_ioc_busdma {\n"
+"        unsigned int    request;\n"
+"        unsigned long   key;\n"
+"        union {\n"
+"                struct {\n"
+"                        unsigned long   align;\n"
+"                        unsigned long   bndry;\n"
+"                        unsigned long   maxaddr;\n"
+"                        unsigned long   maxsz;\n"
+"                        unsigned long   maxsegsz;\n"
+"                        unsigned int    nsegs;\n"
+"                        unsigned int    datarate;\n"
+"                        unsigned int    flags;\n"
+"                } tag;\n"
+"                struct {\n"
+"                        unsigned long   tag;\n"
+"                        unsigned int    flags;\n"
+"                        unsigned long   virt_addr;\n"
+"                        unsigned long   virt_size;\n"
+"                        unsigned int    phys_nsegs;\n"
+"                        unsigned long   phys_addr;\n"
+"                        unsigned long   bus_addr;\n"
+"                        unsigned int    bus_nsegs;\n"
+"                } md;\n"
+"                struct {\n"
+"                        unsigned int    op;\n"
+"                        unsigned long   base;\n"
+"                        unsigned long   size;\n"
+"                } sync;\n"
+"        } u;\n"
+"        unsigned long   result;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:196
+msgid ""
+"The E<.Va request> field is used to specify which DMA operation is to be "
+"performed.  The E<.Va key> field is used to specify which object the "
+"operation applies to.  An object is either a tag or a memory descriptor "
+"(md).  The following DMA operations are defined:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:197
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_TAG_CREATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:208
+msgid ""
+"Create a root tag.  The E<.Va result> field is set on output with the key of "
+"the DMA tag.  The tag is created with the constraints given by the E<.Va "
+"tag> sub-structure.  These constraints correspond roughly to those that can "
+"be given to the E<.Xr bus_dma_tag_create 9> function."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:208
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_TAG_DERIVE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:223
+msgid ""
+"Create a derived tag.  The E<.Va key> field is used to identify the parent "
+"tag from which to derive the new tag.  The key of the derived tag is "
+"returned in the E<.Va result> field.  The derived tag combines the "
+"constraints of the parent tag with those given by the E<.Va tag> "
+"sub-structure.  The combined constraints are written back to the E<.Va tag> "
+"sub-structure on return."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:223
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_TAG_DESTROY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:231
+msgid ""
+"Destroy a root or derived tag previously created.  The E<.Va key> field "
+"specifies the tag to destroy.  A tag can only be destroyed when not "
+"referenced anymore.  This means that derived tags that have this tag as a "
+"parent and memory descriptors created from this tag must be destroyed first."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:231
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_MEM_ALLOC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:269
+msgid ""
+"Allocate memory that satisfies the constraints put forth by the tag given in "
+"the E<.Va tag> field of the E<.Va md> sub-structure.  The key of the memory "
+"descriptor for this memory is returned in the E<.Va result> field.  The "
+"E<.Va md> sub-structure is filled on return with details of the allocation.  "
+"The kernel virtual address and the size of the allocated memory are returned "
+"in the E<.Va virt_addr> and E<.Va virt_size> fields.  The number of "
+"contigous physical memory segments and the address of the first segment are "
+"returned in the E<.Va phys_nsegs> and E<.Va phys_addr> fields.  Allocated "
+"memory is automatically loaded and thus mapped into bus space.  The number "
+"of bus segments and the address of the first segment are returned in the "
+"E<.Va bus_nsegs> and E<.Va bus_addr> fields.  The behaviour of this "
+"operation banks heavily on how E<.Xr bus_dmamem_alloc 9> is implemented, "
+"which means that memory is currently always allocated as a single contigous "
+"region of physical memory.  In practice this also tends to give a single "
+"contigous region in bus space.  This may change over time."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:269
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_MEM_FREE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:283
+msgid ""
+"Free previously allocated memory and destroy the memory desciptor.  The "
+"E<.Nm> driver is not in a position to track whether the memory has been "
+"mapped in the process' address space, so the application is responsible for "
+"unmapping the memory before it is freed.  The E<.Nm> driver also cannot "
+"protect against the hardware writing to or reading from the memory, even "
+"after it has been freed.  When the memory is reused for other purposes it "
+"can be corrupted or cause the hardware to behave in unpredictable ways when "
+"DMA has not stopped completely before freeing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:283
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_MD_CREATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:292
+msgid ""
+"Create an empty memory descriptor with the tag specified in the E<.Va tag> "
+"field of the E<.Va md> sub-structure.  The key of the memory descriptor is "
+"returned in the E<.Va result> field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:292
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_MD_DESTROY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:297
+msgid ""
+"Destroy the previously created memory descriptor specified by the E<.Va key> "
+"field.  When the memory descriptor is still loaded, it is unloaded first."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:297
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_MD_LOAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:322
+msgid ""
+"Load a contigous region of memory in the memory descriptor specified by the "
+"E<.Va key> field.  The size and address in the process' virtual address "
+"space are specified by the E<.Va virt_size> and E<.Va virt_addr> fields.  On "
+"return, the E<.Va md> sub-structure contains the result of the operation.  "
+"The number of physical segments and the address of the first segment is "
+"returned in the E<.Va phys_nsegs> and E<.Va phys_addr> fields.  The number "
+"of bus space segments and the address of the first segment in bus space is "
+"returned in the E<.Va bus_nsegs> and E<.Va bus_addr> fields."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:322
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_MD_UNLOAD"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:326
+msgid "Unload the memory descriptor specified by the E<.Va key> field."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:326
+#, no-wrap
+msgid "PROTO_IOC_BUSDMA_SYNC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:346
+msgid ""
+"Guarantee that all hardware components have a coherent view of the memory "
+"tracked by the memory descriptor, specified by the E<.Va key> field.  A "
+"sub-section of the memory can be targeted by specifying the relative offset "
+"and size of the memory to make coherent.  The offset and size are given by "
+"the E<.Va base> and E<.Va size> fields of the E<.Va sync> sub-structure.  "
+"The E<.Va op> field holds the sync operation to be performed.  This is "
+"similar to the E<.Xr bus_dmamap_sync 9> function."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/proto.4:347
+#, no-wrap
+msgid "PCI configuration space"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:357
+msgid ""
+"Access to PCI configuration space is possible through the E<.Pa pcicfg> "
+"device special file.  The device special file supports E<.Xr lseek 2>, E<.Xr "
+"read 2> and E<.Xr write 2>.  Usage is the asme as for I/O port resources."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:357
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:364
+msgid ""
+"All device special files corresponding to a PCI device are located under "
+"E<.Pa /dev/proto/pciE<lt>dE<gt>:E<lt>bE<gt>:E<lt>sE<gt>:E<lt>fE<gt>> with "
+"E<.Pa pciE<lt>dE<gt>:E<lt>bE<gt>:E<lt>sE<gt>:E<lt>fE<gt>> representing the "
+"location of the PCI device in the PCI hierarchy.  A PCI location includes:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:366
+#, no-wrap
+msgid "E<lt>dE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:368
+msgid "The PCI domain number"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:368
+#, no-wrap
+msgid "E<lt>bE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:370
+msgid "The PCI bus number"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:370
+#, no-wrap
+msgid "E<lt>sE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:372
+msgid "The PCI slot or device number"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:372
+#, no-wrap
+msgid "E<lt>fE<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:374
+msgid "The PCI function number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:390
+msgid ""
+"Every PCI device has a device special file called E<.Pa pcicfg>.  This "
+"device special file gives access to the PCI configuration space.  A device "
+"special file called E<.Pa busdma> is also created.  This device special file "
+"provides the interfaces needed for doing DMA.  For each valid base address "
+"register (BAR), a device special file is created that contains the BAR "
+"offset and the resource type.  A resource type can be either E<.Pa io> or "
+"E<.Pa mem> representing I/O port or memory mapped I/O space (resp.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:413
+msgid ""
+"ISA devices do not have a location.  Instead, they are identified by the "
+"first I/O port address or first memory mapped I/O address.  Consequently, "
+"all device special files corresponding to an ISA device are located under "
+"E<.Pa /dev/proto/isa:E<lt>addrE<gt>> with E<.Pa addr> the address in "
+"hexadecimal notation.  For each I/O port or memory mapped I/O address, a "
+"device special file is created that contains the resource identification "
+"used by the kernel and the resource type.  The resource type can be either "
+"E<.Pa io> or E<.Pa mem> representing I/O port or memory mapped I/O space "
+"(resp.)  When the device has a DMA channel assigned to it, a device special "
+"file with the name E<.Pa busdma> is created as well.  This device special "
+"file provides the interfaces needed for doing DMA."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:418
+msgid ""
+"If the ISA device is not a Plug-and-Play device nor present in the ACPI "
+"device tree, it must have the appropriate hints so that the kernel can "
+"reserve the resources for it."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:418
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:421
+msgid ""
+"A single function PCI device in domain 0, on bus 1, in slot 2 and having a "
+"single memory mapped I/O region will have the following device special "
+"files:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:423
+#, no-wrap
+msgid "Pa /dev/proto/pci0:1:2:0/10.mem"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:424
+#, no-wrap
+msgid "Pa /dev/proto/pci0:1:2:0/pcicfg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:428
+msgid "A legacy floppy controller will have the following device files:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:430
+#, no-wrap
+msgid "Pa /dev/proto/isa:0x3f0/00.io"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:431
+#, no-wrap
+msgid "Pa /dev/proto/isa:0x3f0/01.io"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/proto.4:432
+#, no-wrap
+msgid "Pa /dev/proto/isa:0x3f0/busdma"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:435
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:445
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr lseek 2>, E<.Xr mmap 2>, E<.Xr read 2>, E<.Xr write "
+"2>, E<.Xr bus_dma_tag_create 9>, E<.Xr bus_dmamap_sync 9>, E<.Xr "
+"bus_dmamem_alloc 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:445
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:450
+msgid ""
+"The E<.Nm> device driver and this manual page were written by E<.An Marcel "
+"Moolenaar Aq Mt marcel@xcllnt.net>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:450
+#, no-wrap
+msgid "SECURITY CONSIDERATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:456
+msgid ""
+"Because programs have direct access to the hardware, the E<.Nm> driver is "
+"inherently insecure.  It is not advisable to use this driver on a production "
+"machine."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/proto.4:456
+#, no-wrap
+msgid "MISSING FUNCTIONALITY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:463
+msgid ""
+"The E<.Nm> driver does not fully support memory descriptors that need "
+"multiple physical memory segments or multiple bus space segments.  At the "
+"very least, an operation is needed on the DMA pseudo resource for the "
+"application to obtain all segments."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:472
+msgid ""
+"The E<.Nm> driver does not yet support interrupts.  Since interrupts cannot "
+"be handled by the driver itself, they must be converted into signals and "
+"delivered to the program that has registered for interrupts.  A satisfactory "
+"mechanism for keeping the interrupt masked during the signal handling is "
+"still being worked out."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/proto.4:475
+msgid ""
+"DMA support for devices other than busmaster devices is not present yet.  "
+"The details of how a program is to interact with the DMA controller still "
+"need to be fleshed out."
+msgstr ""

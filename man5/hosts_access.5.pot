@@ -1,0 +1,979 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: TH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:1
+#, no-wrap
+msgid "HOSTS_ACCESS"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:2
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:4
+msgid "hosts_access - format of host access control files"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:4
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:10
+msgid ""
+"This manual page describes a simple access control language that is based on "
+"client (host name/address, user name), and server (process name, host "
+"name/address) patterns.  Examples are given at the end. The impatient reader "
+"is encouraged to skip to the EXAMPLES section for a quick introduction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:14
+msgid ""
+"An extended version of the access control language is described in the "
+"I<hosts_options>(5) document. The extensions are turned on at program build "
+"time by building with -DPROCESS_OPTIONS."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:19
+msgid ""
+"In the following text, I<daemon> is the the process name of a network daemon "
+"process, and I<client> is the name and/or address of a host requesting "
+"service. Network daemon process names are specified in the inetd "
+"configuration file."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:19
+#, no-wrap
+msgid "ACCESS CONTROL FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:22
+msgid ""
+"The access control software consults two files. The search stops at the "
+"first match:"
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:22 /usr/src/contrib/tcp_wrappers/hosts_access.5:25 /usr/src/contrib/tcp_wrappers/hosts_access.5:28 /usr/src/contrib/tcp_wrappers/hosts_access.5:38 /usr/src/contrib/tcp_wrappers/hosts_access.5:42 /usr/src/contrib/tcp_wrappers/hosts_access.5:46 /usr/src/contrib/tcp_wrappers/hosts_access.5:71 /usr/src/contrib/tcp_wrappers/hosts_access.5:76 /usr/src/contrib/tcp_wrappers/hosts_access.5:81 /usr/src/contrib/tcp_wrappers/hosts_access.5:86 /usr/src/contrib/tcp_wrappers/hosts_access.5:92 /usr/src/contrib/tcp_wrappers/hosts_access.5:99 /usr/src/contrib/tcp_wrappers/hosts_access.5:218 /usr/src/contrib/tcp_wrappers/hosts_access.5:222 /usr/src/contrib/tcp_wrappers/hosts_access.5:226 /usr/src/contrib/tcp_wrappers/hosts_access.5:230
+#, no-wrap
+msgid "\\(bu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:25
+msgid ""
+"Access will be granted when a (daemon,client) pair matches an entry in the "
+"I</etc/hosts.allow> file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:28
+msgid ""
+"Otherwise, access will be denied when a (daemon,client) pair matches an "
+"entry in the I</etc/hosts.deny> file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:30
+msgid "Otherwise, access will be granted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:34
+msgid ""
+"A non-existing access control file is treated as if it were an empty "
+"file. Thus, access control can be turned off by providing no access control "
+"files."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:34
+#, no-wrap
+msgid "ACCESS CONTROL RULES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:38
+msgid ""
+"Each access control file consists of zero or more lines of text.  These "
+"lines are processed in order of appearance. The search terminates when a "
+"match is found."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:42
+msgid ""
+"A newline character is ignored when it is preceded by a backslash "
+"character. This permits you to break up long lines so that they are easier "
+"to edit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:46
+msgid ""
+"Blank lines or lines that begin with a `#\\' character are ignored.  This "
+"permits you to insert comments and whitespace so that the tables are easier "
+"to read."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:49
+msgid ""
+"All other lines should satisfy the following format, things between [] being "
+"optional:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:52
+msgid "daemon_list : client_list [ : shell_command ]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:55
+msgid ""
+"I<daemon_list> is a list of one or more daemon process names (argv[0] "
+"values) or wildcards (see below)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:59
+msgid ""
+"I<client_list> is a list of one or more host names, host addresses, patterns "
+"or wildcards (see below) that will be matched against the client host name "
+"or address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:63
+msgid ""
+"The more complex forms I<daemon@host> and I<user@host> are explained in the "
+"sections on server endpoint patterns and on client username lookups, "
+"respectively."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:65
+msgid "List elements should be separated by blanks and/or commas."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:68
+msgid ""
+"With the exception of NIS (YP) netgroup lookups, all access control checks "
+"are case insensitive."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:69
+#, no-wrap
+msgid "PATTERNS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:71
+msgid "The access control language implements the following patterns:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:76
+msgid ""
+"A string that begins with a `.\\' character. A host name is matched if the "
+"last components of its name match the specified pattern.  For example, the "
+"pattern `.tue.nl\\' matches the host name `wzv.win.tue.nl\\'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:81
+msgid ""
+"A string that ends with a `.\\' character. A host address is matched if its "
+"first numeric fields match the given string.  For example, the pattern "
+"`131.155.\\' matches the address of (almost) every host on the Eind\\%hoven "
+"University network (131.155.x.x)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:86
+msgid ""
+"A string that begins with an `@\\' character is treated as an NIS (formerly "
+"YP) netgroup name. A host name is matched if it is a host member of the "
+"specified netgroup. Netgroup matches are not supported for daemon process "
+"names or for client user names."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:92
+msgid ""
+"An expression of the form `n.n.n.n/m.m.m.m\\' is interpreted as a "
+"`net/mask\\' pair. A host address is matched if `net\\' is equal to the "
+"bitwise AND of the address and the `mask\\'. For example, the net/mask "
+"pattern `131.155.72.0/255.255.254.0\\' matches every address in the range "
+"`131.155.72.0\\' through `131.155.73.255\\'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:99
+msgid ""
+"An expression of the form `[n:n:n:n:n:n:n:n]/m\\' is interpreted as a "
+"`[net]/prefixlen\\' pair. A IPv6 host address is matched if `prefixlen\\' "
+"bits of `net\\' is equal to the `prefixlen\\' bits of the address. For "
+"example, the [net]/prefixlen pattern `[3ffe:505:2:1::]/64\\' matches every "
+"address in the range `3ffe:505:2:1::\\' through "
+"`3ffe:505:2:1:ffff:ffff:ffff:ffff\\'."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:106
+msgid ""
+"A string that begins with a `/\\' character is treated as a file name. A "
+"host name or address is matched if it matches any host name or address "
+"pattern listed in the named file. The file format is zero or more lines with "
+"zero or more host name or address patterns separated by whitespace.  A file "
+"name pattern can be used anywhere a host name or address pattern can be "
+"used."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:106
+#, no-wrap
+msgid "WILDCARDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:108
+msgid "The access control language supports explicit wildcards:"
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:108
+#, no-wrap
+msgid "ALL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:110
+msgid "The universal wildcard, always matches."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:110
+#, no-wrap
+msgid "LOCAL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:112
+msgid "Matches any host whose name does not contain a dot character."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:112
+#, no-wrap
+msgid "UNKNOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:118
+msgid ""
+"Matches any user whose name is unknown, and matches any host whose name "
+"I<or> address are unknown.  This pattern should be used with care: host "
+"names may be unavailable due to temporary name server problems. A network "
+"address will be unavailable when the software cannot figure out what type of "
+"network it is talking to."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:118
+#, no-wrap
+msgid "KNOWN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:124
+msgid ""
+"Matches any user whose name is known, and matches any host whose name I<and> "
+"address are known. This pattern should be used with care: host names may be "
+"unavailable due to temporary name server problems.  A network address will "
+"be unavailable when the software cannot figure out what type of network it "
+"is talking to."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:124
+#, no-wrap
+msgid "PARANOID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:129
+msgid ""
+"Matches any host whose name does not match its address.  When tcpd is built "
+"with -DPARANOID (default mode), it drops requests from such clients even "
+"before looking at the access control tables.  Build without -DPARANOID when "
+"you want more control over such requests."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:130
+#, no-wrap
+msgid "OPERATORS"
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:131
+#, no-wrap
+msgid "EXCEPT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:138
+msgid ""
+"Intended use is of the form: `list_1 EXCEPT list_2\\'; this construct "
+"matches anything that matches I<list_1> unless it matches I<list_2>.  The "
+"EXCEPT operator can be used in daemon_lists and in client_lists. The EXCEPT "
+"operator can be nested: if the control language would permit the use of "
+"parentheses, `a EXCEPT b EXCEPT c\\' would parse as `(a EXCEPT (b EXCEPT "
+"c))\\'."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:140
+#, no-wrap
+msgid "SHELL COMMANDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:147
+msgid ""
+"If the first-matched access control rule contains a shell command, that "
+"command is subjected to %E<lt>letterE<gt> substitutions (see next section).  "
+"The result is executed by a I</bin/sh> child process with standard input, "
+"output and error connected to I</dev/null>.  Specify an `&\\' at the end of "
+"the command if you do not want to wait until it has completed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:151
+msgid ""
+"Shell commands should not rely on the PATH setting of the inetd.  Instead, "
+"they should use absolute path names, or they should begin with an explicit "
+"PATH=whatever statement."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:154
+msgid ""
+"The I<hosts_options>(5) document describes an alternative language that uses "
+"the shell command field in a different and incompatible way."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:154
+#, no-wrap
+msgid "% EXPANSIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:156
+msgid "The following expansions are available within shell commands:"
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:156
+#, no-wrap
+msgid "%a (%A)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:158
+msgid "The client (server) host address."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:158
+#, no-wrap
+msgid "%c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:161
+msgid ""
+"Client information: user@host, user@address, a host name, or just an "
+"address, depending on how much information is available."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:161
+#, no-wrap
+msgid "%d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:163
+msgid "The daemon process name (argv[0] value)."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:163
+#, no-wrap
+msgid "%h (%H)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:166
+msgid "The client (server) host name or address, if the host name is unavailable."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:166
+#, no-wrap
+msgid "%n (%N)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:168
+msgid "The client (server) host name (or \"unknown\" or \"paranoid\")."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:168
+#, no-wrap
+msgid "%p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:170
+msgid "The daemon process id."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:170
+#, no-wrap
+msgid "%s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:173
+msgid ""
+"Server information: daemon@host, daemon@address, or just a daemon name, "
+"depending on how much information is available."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:173
+#, no-wrap
+msgid "%u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:175
+msgid "The client user name (or \"unknown\")."
+msgstr ""
+
+#. type: IP
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:175
+#, no-wrap
+msgid "%%"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:177
+msgid "Expands to a single `%\\' character."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:180
+msgid ""
+"Characters in % expansions that may confuse the shell are replaced by "
+"underscores."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:180
+#, no-wrap
+msgid "SERVER ENDPOINT PATTERNS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:183
+msgid ""
+"In order to distinguish clients by the network address that they connect to, "
+"use patterns of the form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:186
+msgid "process_name@host_pattern : client_list ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:195
+msgid ""
+"Patterns like these can be used when the machine has different internet "
+"addresses with different internet hostnames.  Service providers can use this "
+"facility to offer FTP, GOPHER or WWW archives with internet names that may "
+"even belong to different organizations. See also the `twist' option in the "
+"hosts_options(5) document. Some systems (Solaris, FreeBSD) can have more "
+"than one internet address on one physical interface; with other systems you "
+"may have to resort to SLIP or PPP pseudo interfaces that live in a dedicated "
+"network address space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:199
+msgid ""
+"The host_pattern obeys the same syntax rules as host names and addresses in "
+"client_list context. Usually, server endpoint information is available only "
+"with connection-oriented services."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:199
+#, no-wrap
+msgid "CLIENT USERNAME LOOKUP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:205
+msgid ""
+"When the client host supports the RFC 931 protocol or one of its descendants "
+"(TAP, IDENT, RFC 1413) the wrapper programs can retrieve additional "
+"information about the owner of a connection. Client username information, "
+"when available, is logged together with the client host name, and can be "
+"used to match patterns like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:208
+msgid "daemon_list : ... user_pattern@host_pattern ..."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:214
+msgid ""
+"The daemon wrappers can be configured at compile time to perform rule-driven "
+"username lookups (default) or to always interrogate the client host.  In the "
+"case of rule-driven username lookups, the above rule would cause username "
+"lookup only when both the I<daemon_list> and the I<host_pattern> match."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:218
+msgid ""
+"A user pattern has the same syntax as a daemon process pattern, so the same "
+"wildcards apply (netgroup membership is not supported).  One should not get "
+"carried away with username lookups, though."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:222
+msgid ""
+"The client username information cannot be trusted when it is needed most, "
+"i.e. when the client system has been compromised.  In general, ALL and "
+"(UN)KNOWN are the only user name patterns that make sense."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:226
+msgid ""
+"Username lookups are possible only with TCP-based services, and only when "
+"the client host runs a suitable daemon; in all other cases the result is "
+"\"unknown\"."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:230
+msgid ""
+"A well-known UNIX kernel bug may cause loss of service when username lookups "
+"are blocked by a firewall. The wrapper README document describes a procedure "
+"to find out if your kernel has this bug."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:234
+msgid ""
+"Username lookups may cause noticeable delays for non-UNIX users.  The "
+"default timeout for username lookups is 10 seconds: too short to cope with "
+"slow networks, but long enough to irritate PC users."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:237
+msgid ""
+"Selective username lookups can alleviate the last problem. For example, a "
+"rule like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:240
+msgid "daemon_list : @pcnetgroup ALL@ALL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:243
+msgid ""
+"would match members of the pc netgroup without doing username lookups, but "
+"would perform username lookups with all other systems."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:243
+#, no-wrap
+msgid "DETECTING ADDRESS SPOOFING ATTACKS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:249
+msgid ""
+"A flaw in the sequence number generator of many TCP/IP implementations "
+"allows intruders to easily impersonate trusted hosts and to break in via, "
+"for example, the remote shell service.  The IDENT (RFC931 etc.)  service can "
+"be used to detect such and other host address spoofing attacks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:255
+msgid ""
+"Before accepting a client request, the wrappers can use the IDENT service to "
+"find out that the client did not send the request at all.  When the client "
+"host provides IDENT service, a negative IDENT lookup result (the client "
+"matches `UNKNOWN@host') is strong evidence of a host spoofing attack."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:261
+msgid ""
+"A positive IDENT lookup result (the client matches `KNOWN@host') is less "
+"trustworthy. It is possible for an intruder to spoof both the client "
+"connection and the IDENT lookup, although doing so is much harder than "
+"spoofing just a client connection. It may also be that the client\\'s IDENT "
+"server is lying."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:263
+msgid "Note: IDENT lookups don\\'t work with UDP services."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:263
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:268
+msgid ""
+"The language is flexible enough that different types of access control "
+"policy can be expressed with a minimum of fuss. Although the language uses "
+"two access control tables, the most common policies can be implemented with "
+"one of the tables being trivial or even empty."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:273
+msgid ""
+"When reading the examples below it is important to realize that the allow "
+"table is scanned before the deny table, that the search terminates when a "
+"match is found, and that access is granted when no match is found at all."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:277
+msgid ""
+"The examples use host and domain names. They can be improved by including "
+"address and/or network/netmask information, to reduce the impact of "
+"temporary name server lookup failures."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:277
+#, no-wrap
+msgid "MOSTLY CLOSED"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:280
+msgid ""
+"In this case, access is denied by default. Only explicitly authorized hosts "
+"are permitted access."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:283
+msgid "The default policy (no access) is implemented with a trivial deny file:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:286 /usr/src/contrib/tcp_wrappers/hosts_access.5:316
+msgid "/etc/hosts.deny:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:288
+msgid "ALL: ALL"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:291
+msgid ""
+"This denies all service to all hosts, unless they are permitted access by "
+"entries in the allow file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:294
+msgid "The explicitly authorized hosts are listed in the allow file.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:297 /usr/src/contrib/tcp_wrappers/hosts_access.5:331
+msgid "/etc/hosts.allow:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:299
+msgid "ALL: LOCAL @some_netgroup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:301
+msgid "ALL: .foobar.edu EXCEPT terminalserver.foobar.edu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:307
+msgid ""
+"The first rule permits access from hosts in the local domain (no `.\\' in "
+"the host name) and from members of the I<some_netgroup> netgroup.  The "
+"second rule permits access from all hosts in the I<foobar.edu> domain "
+"(notice the leading dot), with the exception of "
+"I<terminalserver.foobar.edu>."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:307
+#, no-wrap
+msgid "MOSTLY OPEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:310
+msgid ""
+"Here, access is granted by default; only explicitly specified hosts are "
+"refused service."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:314
+msgid ""
+"The default policy (access granted) makes the allow file redundant so that "
+"it can be omitted.  The explicitly non-authorized hosts are listed in the "
+"deny file. For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:318
+msgid "ALL: some.host.name, .some.domain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:320
+msgid "ALL EXCEPT in.fingerd: other.host.name, .other.domain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:323
+msgid ""
+"The first rule denies some hosts and domains all services; the second rule "
+"still permits finger requests from other hosts and domains."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:323
+#, no-wrap
+msgid "BOOBY TRAPS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:328
+msgid ""
+"The next example permits tftp requests from hosts in the local domain "
+"(notice the leading dot).  Requests from any other hosts are denied.  "
+"Instead of the requested file, a finger probe is sent to the offending "
+"host. The result is mailed to the superuser."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:334
+#, no-wrap
+msgid "in.tftpd: LOCAL, .my.domain\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:337
+#, no-wrap
+msgid "/etc/hosts.deny:\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:341
+#, no-wrap
+msgid ""
+"in.tftpd: ALL: (/some/where/safe_finger -l @%h | \\e\n"
+"\t/usr/ucb/mail -s %d-%h root) &\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:347
+msgid ""
+"The safe_finger command is intended for use in back-fingering and should be "
+"installed in a suitable place. It limits possible damage from data sent by "
+"the remote finger server.  It gives better protection than the standard "
+"finger command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:350
+msgid ""
+"The expansion of the %h (client host) and %d (service name) sequences is "
+"described in the section on shell commands."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:353
+msgid ""
+"Warning: do not booby-trap your finger daemon, unless you are prepared for "
+"infinite finger loops."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:358
+msgid ""
+"On network firewall systems this trick can be carried even further.  The "
+"typical network firewall only provides a limited set of services to the "
+"outer world. All other services can be \"bugged\" just like the above tftp "
+"example. The result is an excellent early-warning system."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:360
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:367
+msgid ""
+"An error is reported when a syntax error is found in a host access control "
+"rule; when the length of an access control rule exceeds the capacity of an "
+"internal buffer; when an access control rule is not terminated by a newline "
+"character; when the result of %E<lt>letterE<gt> expansion would overflow an "
+"internal buffer; when a system call fails that shouldn\\'t.  All problems "
+"are reported via the syslog daemon."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:367
+#, no-wrap
+msgid "IMPLEMENTATION NOTES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:373
+msgid ""
+"Some operating systems are distributed with TCP Wrappers as part of the base "
+"system. It is common for such systems to build wrapping functionality into "
+"networking utilities. Notably, some systems offer an I<inetd>(8)  which does "
+"not require the use of the I<tcpd>(8). Check your system's documentation for "
+"details."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:373
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:378
+#, no-wrap
+msgid ""
+"/etc/hosts.allow, (daemon,client) pairs that are granted access.\n"
+"/etc/hosts.deny, (daemon,client) pairs that are denied access.\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:380
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:384
+#, no-wrap
+msgid ""
+"tcpd(8) tcp/ip daemon wrapper program.\n"
+"tcpdchk(8), tcpdmatch(8), test programs.\n"
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:384
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:387
+msgid ""
+"If a name server lookup times out, the host name will not be available to "
+"the access control software, even though the host is registered."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:390
+msgid ""
+"Domain name server lookups are case insensitive; NIS (formerly YP)  netgroup "
+"lookups are case sensitive."
+msgstr ""
+
+#. type: SH
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:390
+#, no-wrap
+msgid "AUTHOR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/contrib/tcp_wrappers/hosts_access.5:398
+#, no-wrap
+msgid ""
+"Wietse Venema (wietse@wzv.win.tue.nl)\n"
+"Department of Mathematics and Computing Science\n"
+"Eindhoven University of Technology\n"
+"Den Dolech 2, P.O. Box 513, \n"
+"5600 MB Eindhoven, The Netherlands\n"
+msgstr ""

@@ -1,0 +1,1426 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/bin/ed/ed.1:2
+#, no-wrap
+msgid "November 3, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/bin/ed/ed.1:3
+#, no-wrap
+msgid "ED 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:5
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:8
+msgid "E<.Nm ed>, E<.Nm red>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/bin/ed/ed.1:8
+#, no-wrap
+msgid "text editor"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:9
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:20
+msgid ""
+"E<.Nm> E<.Op Fl> E<.Op Fl s> E<.Op Fl p Ar string> E<.Op Ar file> E<.Nm red> "
+"E<.Op Fl> E<.Op Fl s> E<.Op Fl p Ar string> E<.Op Ar file>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:20
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:44
+msgid ""
+"The E<.Nm> utility is a line-oriented text editor.  It is used to create, "
+"display, modify and otherwise manipulate text files.  When invoked as E<.Nm "
+"red>, the editor runs in E<.Qq restricted> mode, in which the only "
+"difference is that the editor restricts the use of filenames which start "
+"with E<.Ql \\&!> (interpreted as shell commands by E<.Nm>)  or contain a "
+"E<.Ql \\&/>.  Note that editing outside of the current directory is only "
+"prohibited if the user does not have write access to the current directory.  "
+"If a user has write access to the current directory, then symbolic links can "
+"be created in the current directory, in which case E<.Nm red> will not stop "
+"the user from editing the file that the symbolic link points to."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:58
+msgid ""
+"If invoked with a E<.Ar file> argument, then a copy of E<.Ar file> is read "
+"into the editor's buffer.  Changes are made to this copy and not directly to "
+"E<.Ar file> itself.  Upon quitting E<.Nm>, any changes not explicitly saved "
+"with a E<.Em w> command are lost."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:69
+msgid ""
+"Editing is done in two distinct modes: E<.Em command> and E<.Em input>.  "
+"When first invoked, E<.Nm> is in command mode.  In this mode commands are "
+"read from the standard input and executed to manipulate the contents of the "
+"editor buffer.  A typical command might look like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:76
+msgid ""
+"E<.Sm off> E<.Cm ,s No / Em old Xo> E<.No / Em new> E<.No / Cm g> E<.Xc> "
+"E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:81
+msgid "which replaces all occurrences of the string E<.Em old> with E<.Em new>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:104
+msgid ""
+"When an input command, such as E<.Em a> (append), E<.Em i> (insert) or E<.Em "
+"c> (change), is given, E<.Nm> enters input mode.  This is the primary means "
+"of adding text to a file.  In this mode, no commands are available; instead, "
+"the standard input is written directly to the editor buffer.  Lines consist "
+"of text up to and including a E<.Em newline> character.  Input mode is "
+"terminated by entering a single period E<.Pq Em .\\&> on a line."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:118
+msgid ""
+"All E<.Nm> commands operate on whole lines or ranges of lines; e.g., the "
+"E<.Em d> command deletes lines; the E<.Em m> command moves lines, and so "
+"on.  It is possible to modify only a portion of a line by means of "
+"replacement, as in the example above.  However even here, the E<.Em s> "
+"command is applied to whole lines at a time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:124
+msgid ""
+"In general, E<.Nm> commands consist of zero or more line addresses, followed "
+"by a single character command and possibly additional parameters; i.e., "
+"commands have the structure:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:131
+msgid ""
+"E<.Sm off> E<.Xo> E<.Op Ar address Op , Ar address> E<.Ar command Op Ar "
+"parameters> E<.Xc> E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:136
+msgid ""
+"The address(es) indicate the line or range of lines to be affected by the "
+"command.  If fewer addresses are given than the command accepts, then "
+"default addresses are supplied."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:136
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:138
+msgid "The following options are available:"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:139
+#, no-wrap
+msgid "Fl s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:144
+msgid ""
+"Suppress diagnostics.  This should be used if E<.Nm Ns 's> standard input is "
+"from a script."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:144
+#, no-wrap
+msgid "Fl p Ar string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:149
+msgid ""
+"Specify a command prompt.  This may be toggled on and off with the E<.Em P> "
+"command."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:149
+#, no-wrap
+msgid "Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:166
+msgid ""
+"Specify the name of a file to read.  If E<.Ar file> is prefixed with a bang "
+"(!), then it is interpreted as a shell command.  In this case, what is read "
+"is the standard output of E<.Ar file> executed via E<.Xr sh 1>.  To read a "
+"file whose name begins with a bang, prefix the name with a backslash (\\e).  "
+"The default filename is set to E<.Ar file> only if it is not prefixed with a "
+"bang."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:167
+#, no-wrap
+msgid "LINE ADDRESSING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:179
+msgid ""
+"An address represents the number of a line in the buffer.  The E<.Nm> "
+"utility maintains a E<.Em current address> which is typically supplied to "
+"commands as the default address when none is specified.  When a file is "
+"first read, the current address is set to the last line of the file.  In "
+"general, the current address is set to the last line affected by a command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:192
+msgid ""
+"A line address is constructed from one of the bases in the list below, "
+"optionally followed by a numeric offset.  The offset may include any "
+"combination of digits, operators (i.e., E<.Em +>, E<.Em -> and E<.Em ^>)  "
+"and whitespace.  Addresses are read from left to right, and their values are "
+"computed relative to the current address."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:199
+msgid ""
+"One exception to the rule that addresses represent line numbers is the "
+"address E<.Em 0> (zero).  This means \"before the first line,\" and is legal "
+"wherever it makes sense."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:214
+msgid ""
+"An address range is two addresses separated either by a comma or "
+"semi-colon.  The value of the first address in a range cannot exceed the "
+"value of the second.  If only one address is given in a range, then the "
+"second address is set to the given address.  If an E<.Em n Ns -tuple> of "
+"addresses is given where E<.Em \"n\\ E<gt>\\ 2\">, then the corresponding "
+"range is determined by the last two addresses in the E<.Em n Ns -tuple>.  If "
+"only one address is expected, then the last address is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:220
+msgid ""
+"Each address in a comma-delimited range is interpreted relative to the "
+"current address.  In a semi-colon-delimited range, the first address is used "
+"to set the current address, and the second address is interpreted relative "
+"to the first."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:222
+msgid "The following address symbols are recognized:"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:223 /usr/src/bin/ed/ed.1:340
+#, no-wrap
+msgid "."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:225
+msgid "The current line (address) in the buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:225 /usr/src/bin/ed/ed.1:411
+#, no-wrap
+msgid "$"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:227
+msgid "The last line in the buffer."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:227
+#, no-wrap
+msgid "n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:235
+msgid ""
+"The E<.Em n Ns th> line in the buffer where E<.Em n> is a number in the "
+"range E<.Em [0,$]>."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:235
+#, no-wrap
+msgid "- or ^"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:240
+msgid ""
+"The previous line.  This is equivalent to E<.Em -1> and may be repeated with "
+"cumulative effect."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:240
+#, no-wrap
+msgid "-n or ^n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:246
+msgid "The E<.Em n Ns th> previous line, where E<.Em n> is a non-negative number."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:246
+#, no-wrap
+msgid "+"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:251
+msgid ""
+"The next line.  This is equivalent to E<.Em +1> and may be repeated with "
+"cumulative effect."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:251
+#, no-wrap
+msgid "+n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:257
+msgid "The E<.Em n Ns th> next line, where E<.Em n> is a non-negative number."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:257
+#, no-wrap
+msgid ", or %"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:262
+msgid ""
+"The first through last lines in the buffer.  This is equivalent to the "
+"address range E<.Em 1,$>."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:262
+#, no-wrap
+msgid ";"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:267
+msgid ""
+"The current through last lines in the buffer.  This is equivalent to the "
+"address range E<.Em .,$>."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:267
+#, no-wrap
+msgid "/re/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:273
+msgid ""
+"The next line containing the regular expression E<.Em re>.  The search wraps "
+"to the beginning of the buffer and continues down to the current line, if "
+"necessary.  // repeats the last search."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:273
+#, no-wrap
+msgid "?re?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:280
+msgid ""
+"The previous line containing the regular expression E<.Em re>.  The search "
+"wraps to the end of the buffer and continues up to the current line, if "
+"necessary.  ?? repeats the last search."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:280
+#, no-wrap
+msgid "'lc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:287
+msgid ""
+"The line previously marked by a E<.Em k> (mark) command, where E<.Em lc> is "
+"a lower case letter."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:288
+#, no-wrap
+msgid "REGULAR EXPRESSIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:291
+msgid ""
+"Regular expressions are patterns used in selecting text.  For example, the "
+"command:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:297
+msgid "E<.Sm off> E<.Cm g No / Em string Xo> E<.No /> E<.Xc> E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:304
+msgid ""
+"prints all lines containing E<.Em string>.  Regular expressions are also "
+"used by the E<.Em s> command for selecting old text to be replaced with new."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:313
+msgid ""
+"In addition to a specifying string literals, regular expressions can "
+"represent classes of strings.  Strings thus represented are said to be "
+"matched by the corresponding regular expression.  If it is possible for a "
+"regular expression to match several strings in a line, then the left-most "
+"longest match is the one selected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:315
+msgid "The following symbols are used in constructing regular expressions:"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:316
+#, no-wrap
+msgid "c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:328
+msgid ""
+"Any character E<.Em c> not listed below, including E<.Ql \\&{>, E<.Ql \\&}>, "
+"E<.Ql \\&(>, E<.Ql \\&)>, E<.Ql E<lt>> and E<.Ql E<gt>>, matches itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:328
+#, no-wrap
+msgid "Pf \\e c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:340
+msgid ""
+"Any backslash-escaped character E<.Em c>, except for E<.Ql \\&{>, E<.Ql "
+"\\&}>, E<.Ql \\&(>, E<.Ql \\&)>, E<.Ql E<lt>> and E<.Ql E<gt>>, matches "
+"itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:342
+msgid "Match any single character."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:342
+#, no-wrap
+msgid "Op char-class"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:359
+msgid ""
+"Match any single character in E<.Em char-class>.  To include a E<.Ql \\&]> "
+"in E<.Em char-class>, it must be the first character.  A range of characters "
+"may be specified by separating the end characters of the range with a E<.Ql "
+"->, e.g., E<.Ql a-z> specifies the lower case characters.  The following "
+"literal expressions can also be used in E<.Em char-class> to specify sets of "
+"characters:"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:361
+#, no-wrap
+msgid "[:alnum:] Ta [:cntrl:] Ta [:lower:] Ta [:space:]"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:362
+#, no-wrap
+msgid "[:alpha:] Ta [:digit:] Ta [:print:] Ta [:upper:]"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:363
+#, no-wrap
+msgid "[:blank:] Ta [:graph:] Ta [:punct:] Ta [:xdigit:]"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:375
+msgid ""
+"If E<.Ql -> appears as the first or last character of E<.Em char-class>, "
+"then it matches itself.  All other characters in E<.Em char-class> match "
+"themselves."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:379
+msgid "Patterns in E<.Em char-class> of the form:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:384
+msgid "E<.Op \\&. Ns Ar col-elm Ns .\\&> or,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:386
+msgid "E<.Op = Ns Ar col-elm Ns =>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:399
+msgid ""
+"where E<.Ar col-elm> is a E<.Em collating element> are interpreted according "
+"to the current locale settings (not currently supported).  See E<.Xr regex "
+"3> and E<.Xr re_format 7> for an explanation of these constructs."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:399
+#, no-wrap
+msgid "Op ^char-class"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:405
+msgid ""
+"Match any single character, other than newline, not in E<.Em char-class>.  "
+"E<.Em Char-class> is defined as above."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:405
+#, no-wrap
+msgid "^"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:411
+msgid ""
+"If E<.Em ^> is the first character of a regular expression, then it anchors "
+"the regular expression to the beginning of a line.  Otherwise, it matches "
+"itself."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:417
+msgid ""
+"If E<.Em $> is the last character of a regular expression, it anchors the "
+"regular expression to the end of a line.  Otherwise, it matches itself."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:417
+#, no-wrap
+msgid "Pf \\e E<lt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:421
+msgid ""
+"Anchor the single character regular expression or subexpression immediately "
+"following it to the beginning of a word.  (This may not be available)"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:421
+#, no-wrap
+msgid "Pf \\e E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:425
+msgid ""
+"Anchor the single character regular expression or subexpression immediately "
+"following it to the end of a word.  (This may not be available)"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:425
+#, no-wrap
+msgid "Pf \\e (re\\e)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:442
+msgid ""
+"Define a subexpression E<.Em re>.  Subexpressions may be nested.  A "
+"subsequent backreference of the form E<.Pf \\e Em n>, where E<.Em n> is a "
+"number in the range [1,9], expands to the text matched by the E<.Em n Ns th> "
+"subexpression.  For example, the regular expression E<.Ql \\e(.*\\e)\\e1> "
+"matches any string consisting of identical adjacent substrings.  "
+"Subexpressions are ordered relative to their left delimiter."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:442
+#, no-wrap
+msgid "*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:462
+msgid ""
+"Match the single character regular expression or subexpression immediately "
+"preceding it zero or more times.  If E<.Em *> is the first character of a "
+"regular expression or subexpression, then it matches itself.  The E<.Em *> "
+"operator sometimes yields unexpected results.  For example, the regular "
+"expression E<.Ql b*> matches the beginning of the string E<.Ql abbb> (as "
+"opposed to the substring E<.Ql bbb>), since a null match is the only "
+"left-most match."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:462
+#, no-wrap
+msgid "\\e{n,m\\e} or \\e{n,\\e} or \\e{n\\e}"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:477
+msgid ""
+"Match the single character regular expression or subexpression immediately "
+"preceding it at least E<.Em n> and at most E<.Em m> times.  If E<.Em m> is "
+"omitted, then it matches at least E<.Em n> times.  If the comma is also "
+"omitted, then it matches exactly E<.Em n> times."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:483
+msgid ""
+"Additional regular expression operators may be defined depending on the "
+"particular E<.Xr regex 3> implementation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:483
+#, no-wrap
+msgid "COMMANDS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:490
+msgid ""
+"All E<.Nm> commands are single characters, though some require additional "
+"parameters.  If a command's parameters extend over several lines, then each "
+"line except for the last must be terminated with a backslash (\\e)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:501
+msgid ""
+"In general, at most one command is allowed per line.  However, most commands "
+"accept a print suffix, which is any of E<.Em p> (print), E<.Em l> (list), or "
+"E<.Em n> (enumerate), to print the last line affected by the command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:504
+msgid ""
+"An interrupt (typically ^C) has the effect of aborting the current command "
+"and returning the editor to command mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:512
+msgid ""
+"The E<.Nm> utility recognizes the following commands.  The commands are "
+"shown together with the default address or address range supplied if none is "
+"specified (in parenthesis)."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:513
+#, no-wrap
+msgid "(.)a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:517
+msgid ""
+"Append text to the buffer after the addressed line.  Text is entered in "
+"input mode.  The current address is set to last line entered."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:517
+#, no-wrap
+msgid "(.,.)c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:523
+msgid ""
+"Change lines in the buffer.  The addressed lines are deleted from the "
+"buffer, and text is appended in their place.  Text is entered in input "
+"mode.  The current address is set to last line entered."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:523
+#, no-wrap
+msgid "(.,.)d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:529
+msgid ""
+"Delete the addressed lines from the buffer.  If there is a line after the "
+"deleted range, then the current address is set to this line.  Otherwise the "
+"current address is set to the line before the deleted range."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:529
+#, no-wrap
+msgid "e Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:539
+msgid ""
+"Edit E<.Ar file>, and sets the default filename.  If E<.Ar file> is not "
+"specified, then the default filename is used.  Any lines in the buffer are "
+"deleted before the new file is read.  The current address is set to the last "
+"line read."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:539
+#, no-wrap
+msgid "e Ar !command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:550
+msgid ""
+"Edit the standard output of E<.Ar !command>, (see E<.Ar !command> below).  "
+"The default filename is unchanged.  Any lines in the buffer are deleted "
+"before the output of E<.Ar command> is read.  The current address is set to "
+"the last line read."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:550
+#, no-wrap
+msgid "E Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:559
+msgid ""
+"Edit E<.Ar file> unconditionally.  This is similar to the E<.Em e> command, "
+"except that unwritten changes are discarded without warning.  The current "
+"address is set to the last line read."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:559
+#, no-wrap
+msgid "f Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:565
+msgid ""
+"Set the default filename to E<.Ar file>.  If E<.Ar file> is not specified, "
+"then the default unescaped filename is printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:565
+#, no-wrap
+msgid "(1,$)g/re/command-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:578
+msgid ""
+"Apply E<.Ar command-list> to each of the addressed lines matching a regular "
+"expression E<.Ar re>.  The current address is set to the line currently "
+"matched before E<.Ar command-list> is executed.  At the end of the E<.Em g> "
+"command, the current address is set to the last line affected by E<.Ar "
+"command-list>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:595
+msgid ""
+"Each command in E<.Ar command-list> must be on a separate line, and every "
+"line except for the last must be terminated by a backslash (\\e).  Any "
+"commands are allowed, except for E<.Em g>, E<.Em G>, E<.Em v>, and E<.Em "
+"V>.  A newline alone in E<.Ar command-list> is equivalent to a E<.Em p> "
+"command."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:595
+#, no-wrap
+msgid "(1,$)G/re/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:608
+msgid ""
+"Interactively edit the addressed lines matching a regular expression E<.Ar "
+"re>.  For each matching line, the line is printed, the current address is "
+"set, and the user is prompted to enter a E<.Ar command-list>.  At the end of "
+"the E<.Em G> command, the current address is set to the last line affected "
+"by (the last)  E<.Ar command-list>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:618
+msgid ""
+"The format of E<.Ar command-list> is the same as that of the E<.Em g> "
+"command.  A newline alone acts as a null command list.  A single E<.Ql &> "
+"repeats the last non-null command list."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:618
+#, no-wrap
+msgid "H"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:623
+msgid ""
+"Toggle the printing of error explanations.  By default, explanations are not "
+"printed.  It is recommended that ed scripts begin with this command to aid "
+"in debugging."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:623
+#, no-wrap
+msgid "h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:625
+msgid "Print an explanation of the last error."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:625
+#, no-wrap
+msgid "(.)i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:629
+msgid ""
+"Insert text in the buffer before the current line.  Text is entered in input "
+"mode.  The current address is set to the last line entered."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:629
+#, no-wrap
+msgid "(.,.+1)j"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:635
+msgid ""
+"Join the addressed lines.  The addressed lines are deleted from the buffer "
+"and replaced by a single line containing their joined text.  The current "
+"address is set to the resultant line."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:635
+#, no-wrap
+msgid "(.)klc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:645
+msgid ""
+"Mark a line with a lower case letter E<.Em lc>.  The line can then be "
+"addressed as E<.Em 'lc> (i.e., a single quote followed by E<.Em lc>)  in "
+"subsequent commands.  The mark is not cleared until the line is deleted or "
+"otherwise modified."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:645
+#, no-wrap
+msgid "(.,.)l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:657
+msgid ""
+"Print the addressed lines unambiguously.  If a single line fills more than "
+"one screen (as might be the case when viewing a binary file, for instance), "
+"a E<.Dq Li --More--> prompt is printed on the last line.  The E<.Nm> utility "
+"waits until the RETURN key is pressed before displaying the next screen.  "
+"The current address is set to the last line printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:657
+#, no-wrap
+msgid "(.,.)m(.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:665
+msgid ""
+"Move lines in the buffer.  The addressed lines are moved to after the "
+"right-hand destination address, which may be the address E<.Em 0> (zero).  "
+"The current address is set to the last line moved."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:665
+#, no-wrap
+msgid "(.,.)n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:670
+msgid ""
+"Print the addressed lines along with their line numbers.  The current "
+"address is set to the last line printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:670
+#, no-wrap
+msgid "(.,.)p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:674
+msgid ""
+"Print the addressed lines.  The current address is set to the last line "
+"printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:674
+#, no-wrap
+msgid "P"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:679
+msgid ""
+"Toggle the command prompt on and off.  Unless a prompt was specified by with "
+"command-line option E<.Fl p Ar string>, the command prompt is by default "
+"turned off."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:679
+#, no-wrap
+msgid "q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:682
+msgid "Quit E<.Nm>."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:682
+#, no-wrap
+msgid "Q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:690
+msgid ""
+"Quit E<.Nm> unconditionally.  This is similar to the E<.Em q> command, "
+"except that unwritten changes are discarded without warning."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:690
+#, no-wrap
+msgid "($)r Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:703
+msgid ""
+"Read E<.Ar file> to after the addressed line.  If E<.Ar file> is not "
+"specified, then the default filename is used.  If there was no default "
+"filename prior to the command, then the default filename is set to E<.Ar "
+"file>.  Otherwise, the default filename is unchanged.  The current address "
+"is set to the last line read."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:703
+#, no-wrap
+msgid "($)r Ar !command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:713
+msgid ""
+"Read to after the addressed line the standard output of E<.Ar !command>, "
+"(see the E<.Ar !command> below).  The default filename is unchanged.  The "
+"current address is set to the last line read."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:713
+#, no-wrap
+msgid "(.,.)s/re/replacement/"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:714
+#, no-wrap
+msgid "(.,.)s/re/replacement/g"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:715
+#, no-wrap
+msgid "(.,.)s/re/replacement/n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:735
+msgid ""
+"Replace text in the addressed lines matching a regular expression E<.Ar re> "
+"with E<.Ar replacement>.  By default, only the first match in each line is "
+"replaced.  If the E<.Em g> (global) suffix is given, then every match to be "
+"replaced.  The E<.Em n> suffix, where E<.Em n> is a positive number, causes "
+"only the E<.Em n Ns th> match to be replaced.  It is an error if no "
+"substitutions are performed on any of the addressed lines.  The current "
+"address is set the last line affected."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:747
+msgid ""
+"E<.Ar \\&Re> and E<.Ar replacement> may be delimited by any character other "
+"than space and newline (see the E<.Em s> command below).  If one or two of "
+"the last delimiters is omitted, then the last line affected is printed as "
+"though the print suffix E<.Em p> were specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:770
+msgid ""
+"An unescaped E<.Ql &> in E<.Ar replacement> is replaced by the currently "
+"matched text.  The character sequence E<.Em \\em>, where E<.Em m> is a "
+"number in the range [1,9], is replaced by the E<.Em m th> backreference "
+"expression of the matched text.  If E<.Ar replacement> consists of a single "
+"E<.Ql %>, then E<.Ar replacement> from the last substitution is used.  "
+"Newlines may be embedded in E<.Ar replacement> if they are escaped with a "
+"backslash (\\e)."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:770
+#, no-wrap
+msgid "(.,.)s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:798
+msgid ""
+"Repeat the last substitution.  This form of the E<.Em s> command accepts a "
+"count suffix E<.Em n>, or any combination of the characters E<.Em r>, E<.Em "
+"g>, and E<.Em p>.  If a count suffix E<.Em n> is given, then only the E<.Em "
+"n Ns th> match is replaced.  The E<.Em r> suffix causes the regular "
+"expression of the last search to be used instead of the that of the last "
+"substitution.  The E<.Em g> suffix toggles the global suffix of the last "
+"substitution.  The E<.Em p> suffix toggles the print suffix of the last "
+"substitution The current address is set to the last line affected."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:798
+#, no-wrap
+msgid "(.,.)t(.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:805
+msgid ""
+"Copy (i.e., transfer) the addressed lines to after the right-hand "
+"destination address, which may be the address E<.Em 0> (zero).  The current "
+"address is set to the last line copied."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:805
+#, no-wrap
+msgid "u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:817
+msgid ""
+"Undo the last command and restores the current address to what it was before "
+"the command.  The global commands E<.Em g>, E<.Em G>, E<.Em v>, and E<.Em "
+"V>.  are treated as a single command by undo.  E<.Em u> is its own inverse."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:817
+#, no-wrap
+msgid "(1,$)v/re/command-list"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:825
+msgid ""
+"Apply E<.Ar command-list> to each of the addressed lines not matching a "
+"regular expression E<.Ar re>.  This is similar to the E<.Em g> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:825
+#, no-wrap
+msgid "(1,$)V/re/"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:831
+msgid ""
+"Interactively edit the addressed lines not matching a regular expression "
+"E<.Ar re>.  This is similar to the E<.Em G> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:831
+#, no-wrap
+msgid "(1,$)w Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:843
+msgid ""
+"Write the addressed lines to E<.Ar file>.  Any previous contents of E<.Ar "
+"file> is lost without warning.  If there is no default filename, then the "
+"default filename is set to E<.Ar file>, otherwise it is unchanged.  If no "
+"filename is specified, then the default filename is used.  The current "
+"address is unchanged."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:843
+#, no-wrap
+msgid "(1,$)wq Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:849
+msgid ""
+"Write the addressed lines to E<.Ar file>, and then executes a E<.Em q> "
+"command."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:849
+#, no-wrap
+msgid "(1,$)w Ar !command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:856
+msgid ""
+"Write the addressed lines to the standard input of E<.Ar !command>, (see the "
+"E<.Em !command> below).  The default filename and current address are "
+"unchanged."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:856
+#, no-wrap
+msgid "(1,$)W Ar file"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:863
+msgid ""
+"Append the addressed lines to the end of E<.Ar file>.  This is similar to "
+"the E<.Em w> command, expect that the previous contents of file is not "
+"clobbered.  The current address is unchanged."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:863
+#, no-wrap
+msgid "Pf (.+1)z n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:871
+msgid ""
+"Scroll E<.Ar n> lines at a time starting at addressed line.  If E<.Ar n> is "
+"not specified, then the current window size is used.  The current address is "
+"set to the last line printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:871
+#, no-wrap
+msgid "!command"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:895
+msgid ""
+"Execute E<.Ar command> via E<.Xr sh 1>.  If the first character of E<.Ar "
+"command> is E<.Ql \\&!>, then it is replaced by text of the previous E<.Ar "
+"!command>.  The E<.Nm> utility does not process E<.Ar command> for backslash "
+"(\\e) escapes.  However, an unescaped E<.Em %> is replaced by the default "
+"filename.  When the shell returns from execution, a E<.Ql \\&!> is printed "
+"to the standard output.  The current line is unchanged."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:895
+#, no-wrap
+msgid "($)="
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:897
+msgid "Print the line number of the addressed line."
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:897
+#, no-wrap
+msgid "(.+1)newline"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:900
+msgid "Print the addressed line, and sets the current address to that line."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:901
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:903
+#, no-wrap
+msgid "Pa /tmp/ed.*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:905
+msgid "buffer file"
+msgstr ""
+
+#. type: It
+#: /usr/src/bin/ed/ed.1:905
+#, no-wrap
+msgid "Pa ed.hup"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:909
+msgid ""
+"the file to which E<.Nm> attempts to write the buffer if the terminal hangs "
+"up"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:910
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:921
+msgid ""
+"When an error occurs, E<.Nm> prints a E<.Ql \\&?> and either returns to "
+"command mode or exits if its input is from a script.  An explanation of the "
+"last error can be printed with the E<.Em h> (help) command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:926
+msgid ""
+"Since the E<.Em g> (global) command masks any errors from failed searches "
+"and substitutions, it can be used to perform conditional operations in "
+"scripts; e.g.,"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:934
+msgid ""
+"E<.Sm off> E<.Cm g No / Em old Xo> E<.No / Cm s> E<.No // Em new> E<.No /> "
+"E<.Xc> E<.Sm on>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:943
+msgid ""
+"replaces any occurrences of E<.Em old> with E<.Em new>.  If the E<.Em u> "
+"(undo) command occurs in a global command list, then the command list is "
+"executed only once."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:950
+msgid ""
+"If diagnostics are not disabled, attempting to quit E<.Nm> or edit another "
+"file before writing a modified buffer results in an error.  If the command "
+"is entered a second time, it succeeds, but any changes to the buffer are "
+"lost."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:950
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:955
+msgid "E<.Xr sed 1>, E<.Xr sh 1>, E<.Xr vi 1>, E<.Xr regex 3>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:964
+msgid ""
+"USD:12-13 E<.Rs> E<.%A B. W. Kernighan> E<.%A P. J. Plauger> E<.%B Software "
+"Tools in Pascal> E<.%O Addison-Wesley> E<.%D 1981> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:964
+#, no-wrap
+msgid "LIMITATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:972
+msgid ""
+"The E<.Nm> utility processes E<.Ar file> arguments for backslash escapes, "
+"i.e., in a filename, any characters preceded by a backslash (\\e) are "
+"interpreted literally."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:980
+msgid ""
+"If a text (non-binary) file is not terminated by a newline character, then "
+"E<.Nm> appends one on reading/writing it.  In the case of a binary file, "
+"E<.Nm> does not append a newline on reading/writing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:982
+msgid "per line overhead: 4 ints"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:982
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:987
+msgid "An E<.Nm> command appeared in E<.At v1>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/bin/ed/ed.1:987
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/bin/ed/ed.1:990
+msgid "The E<.Nm> utility does not recognize multibyte characters."
+msgstr ""

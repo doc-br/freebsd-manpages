@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/psignal.9:31
+#, no-wrap
+msgid "October 8, 2011"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/psignal.9:32
+#, no-wrap
+msgid "PSIGNAL 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/psignal.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:40
+msgid ""
+"E<.Nm psignal>, E<.Nm kern_psignal>, E<.Nm pgsignal>, E<.Nm gsignal>, E<.Nm "
+"tdsignal>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/psignal.9:40
+#, no-wrap
+msgid "post signal to a thread, process, or process group"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/psignal.9:41
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/psignal.9:42
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/psignal.9:43
+#, no-wrap
+msgid "sys/signalvar.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:52
+msgid ""
+"E<.Ft void> E<.Fn kern_psignal \"struct proc *p\" \"int signum\"> E<.Ft "
+"void> E<.Fn pgsignal \"struct pgrp *pgrp\" \"int signum\" \"int checkctty\"> "
+"E<.Ft void> E<.Fn gsignal \"int pgid\" \"int signum\"> E<.Ft void> E<.Fn "
+"tdsignal \"struct thread *td\" \"int signum\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/psignal.9:52
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:58
+msgid ""
+"These functions post a signal to a thread or one or more processes.  The "
+"argument E<.Fa signum> common to all three functions should be in the range "
+"E<.Bq 1- Ns Dv NSIG>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:77
+msgid ""
+"The E<.Fn kern_psignal> function posts signal number E<.Fa signum> to the "
+"process represented by the process structure E<.Fa p>.  The E<.Fn "
+"kern_psignal> function used to be called E<.Fn psignal> but was renamed in "
+"order to eliminate a name collision with the libc function of that name and "
+"facilitate code reuse.  With a few exceptions noted below, the target "
+"process signal disposition is updated and is marked as runnable, so further "
+"handling of the signal is done in the context of the target process after a "
+"context switch.  Note that E<.Fn kern_psignal> does not by itself cause a "
+"context switch to happen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:79
+msgid "The target process is not marked as runnable in the following cases:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:84
+msgid ""
+"The target process is sleeping uninterruptibly.  The signal will be noticed "
+"when the process returns from the system call or trap."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:86
+msgid "The target process is currently ignoring the signal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:92
+msgid ""
+"If a stop signal is sent to a sleeping process that takes the default action "
+"(see E<.Xr sigaction 2>), the process is stopped without awakening it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:98
+msgid ""
+"E<.Dv SIGCONT> restarts a stopped process (or puts them back to sleep)  "
+"regardless of the signal action (e.g., blocked or ignored)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:105
+msgid ""
+"If the target process is being traced E<.Fn kern_psignal> behaves as if the "
+"target process were taking the default action for E<.Fa signum>.  This "
+"allows the tracing process to be notified of the signal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:130
+msgid ""
+"The E<.Fn pgsignal> function posts signal number E<.Fa signum> to each "
+"member of the process group described by E<.Fa pgrp>.  If E<.Fa checkctty> "
+"is non-zero, the signal will be posted only to processes that have a "
+"controlling terminal.  E<.Fn pgsignal> is implemented by walking along the "
+"process list headed by the field E<.Li pg_members> of the process group "
+"structure pointed at by E<.Fa pgrp> and calling E<.Fn kern_psignal> as "
+"appropriate.  If E<.Fa pgrp> is E<.Dv NULL> no action is taken."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:148
+msgid ""
+"The E<.Fn gsignal> function posts signal number E<.Fa signum> to each member "
+"of the process group identified by the group id E<.Fa pgid>.  E<.Fn gsignal> "
+"first finds the group structure associated with E<.Fa pgid>, then invokes "
+"E<.Fn pgsignal> with the argument E<.Fa checkctty> set to zero.  If E<.Fa "
+"pgid> is zero no action is taken."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:155
+msgid ""
+"The E<.Fn tdsignal> function posts signal number E<.Fa signum> to the thread "
+"represented by the thread structure E<.Fa td>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/psignal.9:155
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:159
+msgid "E<.Xr sigaction 2>, E<.Xr signal 9>, E<.Xr tsleep 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/psignal.9:159
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/psignal.9:165
+msgid ""
+"The E<.Fn psignal> function was renamed to E<.Fn kern_psignal> in E<.Fx "
+"9.0>."
+msgstr ""

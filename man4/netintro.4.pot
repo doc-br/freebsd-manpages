@@ -1,0 +1,642 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/netintro.4:31
+#, no-wrap
+msgid "January 26, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/netintro.4:32
+#, no-wrap
+msgid "NETINTRO 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:36
+msgid "E<.Nm networking>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/netintro.4:36
+#, no-wrap
+msgid "introduction to networking facilities"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netintro.4:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netintro.4:39
+#, no-wrap
+msgid "sys/time.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netintro.4:40
+#, no-wrap
+msgid "sys/socket.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netintro.4:41
+#, no-wrap
+msgid "net/if.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/netintro.4:42
+#, no-wrap
+msgid "net/route.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:53
+msgid ""
+"This section is a general introduction to the networking facilities "
+"available in the system.  Documentation in this part of section 4 is broken "
+"up into three areas: E<.Em protocol families> (domains), E<.Em protocols>, "
+"and E<.Em network interfaces>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:71
+msgid ""
+"All network protocols are associated with a specific E<.Em protocol "
+"family>.  A protocol family provides basic services to the protocol "
+"implementation to allow it to function within a specific network "
+"environment.  These services may include packet fragmentation and "
+"reassembly, routing, addressing, and basic transport.  A protocol family may "
+"support multiple methods of addressing, though the current protocol "
+"implementations do not.  A protocol family is normally comprised of a number "
+"of protocols, one per E<.Xr socket 2> type.  It is not required that a "
+"protocol family support all socket types.  A protocol family may contain "
+"multiple protocols supporting the same socket abstraction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:90
+msgid ""
+"A protocol supports one of the socket abstractions detailed in E<.Xr socket "
+"2>.  A specific protocol may be accessed either by creating a socket of the "
+"appropriate type and protocol family, or by requesting the protocol "
+"explicitly when creating a socket.  Protocols normally accept only one type "
+"of address format, usually determined by the addressing structure inherent "
+"in the design of the protocol family/network architecture.  Certain "
+"semantics of the basic socket abstractions are protocol specific.  All "
+"protocols are expected to support the basic model for their particular "
+"socket type, but may, in addition, provide non-standard facilities or "
+"extensions to a mechanism.  For example, a protocol supporting the E<.Dv "
+"SOCK_STREAM> abstraction may allow more than one byte of out-of-band data to "
+"be transmitted per out-of-band message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:108
+msgid ""
+"A network interface is similar to a device interface.  Network interfaces "
+"comprise the lowest layer of the networking subsystem, interacting with the "
+"actual transport hardware.  An interface may support one or more protocol "
+"families and/or address formats.  The SYNOPSIS section of each network "
+"interface entry gives a sample specification of the related drivers for use "
+"in providing a system description to the E<.Xr config 8> program.  The "
+"DIAGNOSTICS section lists messages which may appear on the console and/or in "
+"the system error log, E<.Pa /var/log/messages> (see E<.Xr syslogd 8>), due "
+"to errors in device operation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:108
+#, no-wrap
+msgid "PROTOCOLS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:125
+msgid ""
+"The system currently supports the Internet protocols, the Xerox Network "
+"Systems(tm) protocols, and some of the E<.Tn ISO OSI> protocols.  Raw socket "
+"interfaces are provided to the E<.Tn IP> protocol layer of the Internet, and "
+"to the E<.Tn IDP> protocol of Xerox E<.Tn NS>.  Consult the appropriate "
+"manual pages in this section for more information regarding the support for "
+"each protocol family."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:125
+#, no-wrap
+msgid "ADDRESSING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:134
+msgid ""
+"Associated with each protocol family is an address format.  All network "
+"addresses adhere to a general structure, called a sockaddr, described "
+"below.  However, each protocol imposes finer and more specific structure, "
+"generally renaming the variant, which is discussed in the protocol family "
+"manual page alluded to above."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:140
+#, no-wrap
+msgid ""
+"struct sockaddr {\n"
+"    u_char\tsa_len;\n"
+"    u_char\tsa_family;\n"
+"    char\tsa_data[14];\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:150
+msgid ""
+"The field E<.Va sa_len> contains the total length of the structure, which "
+"may exceed 16 bytes.  The following address values for E<.Va sa_family> are "
+"known to the system (and additional formats are defined for possible future "
+"implementation):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:157
+#, no-wrap
+msgid ""
+"#define    AF_UNIX      1    /* local to host (pipes, portals) */\n"
+"#define    AF_INET      2    /* internetwork: UDP, TCP, etc. */\n"
+"#define    AF_NS        6    /* Xerox NS protocols */\n"
+"#define    AF_CCITT     10   /* CCITT protocols, X.25 etc */\n"
+"#define    AF_HYLINK    15   /* NSC Hyperchannel */\n"
+"#define    AF_ISO       18   /* ISO protocols */\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:158
+#, no-wrap
+msgid "ROUTING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:164
+msgid ""
+"E<.Fx> provides some packet routing facilities.  The kernel maintains a "
+"routing information database, which is used in selecting the appropriate "
+"network interface when transmitting packets."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:171
+msgid ""
+"A user process (or possibly multiple co-operating processes)  maintains this "
+"database by sending messages over a special kind of socket.  This supplants "
+"fixed size E<.Xr ioctl 2> used in earlier releases."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:174
+msgid "This facility is described in E<.Xr route 4>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:174
+#, no-wrap
+msgid "INTERFACES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:181
+msgid ""
+"Each network interface in a system corresponds to a path through which "
+"messages may be sent and received.  A network interface usually has a "
+"hardware device associated with it, though certain interfaces such as the "
+"loopback interface, E<.Xr lo 4>, do not."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:195
+msgid ""
+"The following E<.Xr ioctl 2> calls may be used to manipulate network "
+"interfaces.  The E<.Fn ioctl> is made on a socket (typically of type E<.Dv "
+"SOCK_DGRAM>)  in the desired domain.  Most of the requests supported in "
+"earlier releases take an E<.Vt ifreq> structure as its parameter.  This "
+"structure has the form"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:228
+#, no-wrap
+msgid ""
+"struct\tifreq {\n"
+"#define    IFNAMSIZ    16\n"
+"    char    ifr_name[IFNAMSIZ];        /* if name, e.g. \"en0\" */\n"
+"    union {\n"
+"        struct    sockaddr ifru_addr;\n"
+"        struct    sockaddr ifru_dstaddr;\n"
+"        struct    sockaddr ifru_broadaddr;\n"
+"        struct    ifreq_buffer ifru_buffer;\n"
+"        short     ifru_flags[2];\n"
+"        short     ifru_index;\n"
+"        int       ifru_metric;\n"
+"        int       ifru_mtu;\n"
+"        int       ifru_phys;\n"
+"        int       ifru_media;\n"
+"        caddr_t   ifru_data;\n"
+"        int       ifru_cap[2];\n"
+"    } ifr_ifru;\n"
+"#define ifr_addr      ifr_ifru.ifru_addr      /* address */\n"
+"#define ifr_dstaddr   ifr_ifru.ifru_dstaddr   /* other end of p-to-p link "
+"*/\n"
+"#define ifr_broadaddr ifr_ifru.ifru_broadaddr /* broadcast address */\n"
+"#define ifr_buffer    ifr_ifru.ifru_buffer    /* user supplied buffer with "
+"its length */\n"
+"#define ifr_flags     ifr_ifru.ifru_flags[0]  /* flags (low 16 bits) */\n"
+"#define ifr_flagshigh ifr_ifru.ifru_flags[1]  /* flags (high 16 bits) */\n"
+"#define ifr_metric    ifr_ifru.ifru_metric    /* metric */\n"
+"#define ifr_mtu       ifr_ifru.ifru_mtu       /* mtu */\n"
+"#define ifr_phys      ifr_ifru.ifru_phys      /* physical wire */\n"
+"#define ifr_media     ifr_ifru.ifru_media     /* physical media */\n"
+"#define ifr_data      ifr_ifru.ifru_data      /* for use by interface */\n"
+"#define ifr_reqcap    ifr_ifru.ifru_cap[0]    /* requested capabilities */\n"
+"#define ifr_curcap    ifr_ifru.ifru_cap[1]    /* current capabilities */\n"
+"#define ifr_index     ifr_ifru.ifru_index     /* interface index */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:236
+msgid ""
+"E<.Fn Ioctl> requests to obtain addresses and requests both to set and "
+"retrieve other data are still fully supported and use the E<.Vt ifreq> "
+"structure:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:237
+#, no-wrap
+msgid "Dv SIOCGIFADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:239
+msgid "Get interface address for protocol family."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:239
+#, no-wrap
+msgid "Dv SIOCGIFDSTADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:241
+msgid "Get point to point address for protocol family and interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:241
+#, no-wrap
+msgid "Dv SIOCGIFBRDADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:243
+msgid "Get broadcast address for protocol family and interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:243
+#, no-wrap
+msgid "Dv SIOCSIFCAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:256
+msgid ""
+"Attempt to set the enabled capabilities field for the interface to the value "
+"of the E<.Va ifr_reqcap> field of the E<.Vt ifreq> structure.  Note that, "
+"depending on the particular interface features, some capabilities may appear "
+"hard-coded to enabled, or toggling a capability may affect the status of "
+"other ones.  The supported capabilities field is read-only, and the E<.Va "
+"ifr_curcap> field is unused by this call."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:256
+#, no-wrap
+msgid "Dv SIOCGIFCAP"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:265
+msgid ""
+"Get the interface capabilities fields.  The values for supported and enabled "
+"capabilities will be returned in the E<.Va ifr_reqcap> and E<.Va ifr_curcap> "
+"fields of the E<.Vt ifreq> structure, respectively."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:265
+#, no-wrap
+msgid "Dv SIOCGIFDESCR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:287
+msgid ""
+"Get the interface description, returned in the E<.Va buffer> field of E<.Va "
+"ifru_buffer> struct.  The user supplied buffer length should be defined in "
+"the E<.Va length> field of E<.Va ifru_buffer> struct passed in as parameter, "
+"and the length would include the terminating nul character.  If there is not "
+"enough space to hold the interface length, no copy would be done and the "
+"E<.Va buffer> field of E<.Va ifru_buffer> would be set to NULL.  The kernel "
+"will store the buffer length in the E<.Va length> field upon return, "
+"regardless whether the buffer itself is sufficient to hold the data."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:287
+#, no-wrap
+msgid "Dv SIOCSIFDESCR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:295
+msgid ""
+"Set the interface description to the value of the E<.Va buffer> field of "
+"E<.Va ifru_buffer> struct, with E<.Va length> field specifying its length "
+"(counting the terminating nul)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:295
+#, no-wrap
+msgid "Dv SIOCSIFFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:302
+msgid ""
+"Set interface flags field.  If the interface is marked down, any processes "
+"currently routing packets through the interface are notified; some "
+"interfaces may be reset so that incoming packets are no longer received.  "
+"When marked up again, the interface is reinitialized."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:302
+#, no-wrap
+msgid "Dv SIOCGIFFLAGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:304
+msgid "Get interface flags."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:304
+#, no-wrap
+msgid "Dv SIOCSIFMETRIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:307
+msgid ""
+"Set interface routing metric.  The metric is used only by user-level "
+"routers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:307
+#, no-wrap
+msgid "Dv SIOCGIFMETRIC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:309
+msgid "Get interface metric."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:309
+#, no-wrap
+msgid "Dv SIOCIFCREATE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:316
+msgid ""
+"Attempt to create the specified interface.  If the interface name is given "
+"without a unit number the system will attempt to create a new interface with "
+"an arbitrary unit number.  On successful return the E<.Va ifr_name> field "
+"will contain the new interface name."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:316
+#, no-wrap
+msgid "Dv SIOCIFDESTROY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:318
+msgid "Attempt to destroy the specified interface."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:321
+msgid "There are two requests that make use of a new structure:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:322
+#, no-wrap
+msgid "Dv SIOCAIFADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:342
+msgid ""
+"An interface may have more than one address associated with it in some "
+"protocols.  This request provides a means to add additional addresses (or "
+"modify characteristics of the primary address if the default address for the "
+"address family is specified).  Rather than making separate calls to set "
+"destination or broadcast addresses, or network masks (now an integral "
+"feature of multiple protocols)  a separate structure is used to specify all "
+"three facets simultaneously (see below).  One would use a slightly tailored "
+"version of this struct specific to each family (replacing each sockaddr by "
+"one of the family-specific type).  Where the sockaddr itself is larger than "
+"the default size, one needs to modify the E<.Fn ioctl> identifier itself to "
+"include the total size, as described in E<.Fn ioctl>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:342
+#, no-wrap
+msgid "Dv SIOCDIFADDR"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:352
+msgid ""
+"This requests deletes the specified address from the list associated with an "
+"interface.  It also uses the E<.Vt ifaliasreq> structure to allow for the "
+"possibility of protocols allowing multiple masks or destination addresses, "
+"and also adopts the convention that specification of the default address "
+"means to delete the first address for the interface belonging to the address "
+"family in which the original socket was opened."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:352
+#, no-wrap
+msgid "Dv SIOCGIFCONF"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:364
+msgid ""
+"Get interface configuration list.  This request takes an E<.Vt ifconf> "
+"structure (see below) as a value-result parameter.  The E<.Va ifc_len> field "
+"should be initially set to the size of the buffer pointed to by E<.Va "
+"ifc_buf>.  On return it will contain the length, in bytes, of the "
+"configuration list."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/netintro.4:364
+#, no-wrap
+msgid "Dv SIOCIFGCLONERS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:383
+msgid ""
+"Get list of clonable interfaces.  This request takes an E<.Vt if_clonereq> "
+"structure (see below) as a value-result parameter.  The E<.Va ifcr_count> "
+"field should be set to the number of E<.Dv IFNAMSIZ> sized strings that can "
+"be fit in the buffer pointed to by E<.Va ifcr_buffer>.  On return, E<.Va "
+"ifcr_total> will be set to the number of clonable interfaces and the buffer "
+"pointed to by E<.Va ifcr_buffer> will be filled with the names of clonable "
+"interfaces aligned on E<.Dv IFNAMSIZ> boundaries."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:394
+#, no-wrap
+msgid ""
+"/*\n"
+"* Structure used in SIOCAIFADDR request.\n"
+"*/\n"
+"struct ifaliasreq {\n"
+"        char    ifra_name[IFNAMSIZ];   /* if name, e.g. \"en0\" */\n"
+"        struct  sockaddr        ifra_addr;\n"
+"        struct  sockaddr        ifra_broadaddr;\n"
+"        struct  sockaddr        ifra_mask;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:411
+#, no-wrap
+msgid ""
+"/*\n"
+"* Structure used in SIOCGIFCONF request.\n"
+"* Used to retrieve interface configuration\n"
+"* for machine (useful for programs which\n"
+"* must know all networks accessible).\n"
+"*/\n"
+"struct ifconf {\n"
+"    int   ifc_len;\t\t/* size of associated buffer */\n"
+"    union {\n"
+"        caddr_t    ifcu_buf;\n"
+"        struct     ifreq *ifcu_req;\n"
+"    } ifc_ifcu;\n"
+"#define ifc_buf ifc_ifcu.ifcu_buf /* buffer address */\n"
+"#define ifc_req ifc_ifcu.ifcu_req /* array of structures returned */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:419
+#, no-wrap
+msgid ""
+"/* Structure used in SIOCIFGCLONERS request. */\n"
+"struct if_clonereq {\n"
+"        int     ifcr_total;     /* total cloners (out) */\n"
+"        int     ifcr_count;     /* room for this many in user buffer */\n"
+"        char    *ifcr_buffer;   /* buffer for cloner names */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:426
+#, no-wrap
+msgid ""
+"/* Structure used in SIOCGIFDESCR and SIOCSIFDESCR requests */\n"
+"struct ifreq_buffer {\n"
+"        size_t  length;         /* length of the buffer */\n"
+"        void   *buffer;         /* pointer to userland space buffer */\n"
+"};\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:427
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:434
+msgid ""
+"E<.Xr ioctl 2>, E<.Xr socket 2>, E<.Xr intro 4>, E<.Xr config 8>, E<.Xr "
+"routed 8>, E<.Xr ifnet 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/netintro.4:434
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/netintro.4:438
+msgid "The E<.Nm netintro> manual appeared in E<.Bx 4.3 tahoe>."
+msgstr ""

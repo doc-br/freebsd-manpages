@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:33-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.bin/getopt/getopt.1:3
+#, no-wrap
+msgid "August 1, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.bin/getopt/getopt.1:4
+#, no-wrap
+msgid "GETOPT 1"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:6
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:8
+msgid "E<.Nm getopt>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.bin/getopt/getopt.1:8
+#, no-wrap
+msgid "parse command options"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:9
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:12
+msgid "E<.Nm args=\\`getopt Ar optstring $*\\`> ; errcode=$?; set \\-\\- $args"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:12
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:38
+msgid ""
+"The E<.Nm> utility is used to break up options in command lines for easy "
+"parsing by shell procedures, and to check for legal options.  E<.Ar "
+"Optstring> is a string of recognized option letters (see E<.Xr getopt 3>); "
+"if a letter is followed by a colon, the option is expected to have an "
+"argument which may or may not be separated from it by white space.  The "
+"special option E<.Ql \\-\\-> is used to delimit the end of the options.  The "
+"E<.Nm> utility will place E<.Ql \\-\\-> in the arguments at the end of the "
+"options, or recognize it if used explicitly.  The shell arguments (B<$1 $2> "
+"...) are reset so that each option is preceded by a E<.Ql \\-> and in its "
+"own shell argument; each option argument is also in its own shell argument."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:38
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:44
+msgid ""
+"The E<.Nm> utility prints an error message on the standard error output and "
+"exits with status E<gt> 0 when it encounters an option letter not included "
+"in E<.Ar optstring>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:44
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:53
+msgid ""
+"The following code fragment shows how one might process the arguments for a "
+"command that can take the options E<.Fl a> and E<.Fl b>, and the option "
+"E<.Fl o>, which requires an argument."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:82
+#, no-wrap
+msgid ""
+"args=\\`getopt abo: $*\\`\n"
+"# you should not use \\`getopt abo: \"$@\"\\` since that would parse\n"
+"# the arguments differently from what the set command below does.\n"
+"if [ $? -ne 0 ]; then\n"
+"\techo 'Usage: ...'\n"
+"\texit 2\n"
+"fi\n"
+"set \\-\\- $args\n"
+"# You cannot use the set command with a backquoted getopt directly,\n"
+"# since the exit code from getopt would be shadowed by those of set,\n"
+"# which is zero by definition.\n"
+"while :; do\n"
+"\tcase \"$1\" in\n"
+"\t\\-a|\\-b)\n"
+"\t\techo \"flag $1 set\"; sflags=\"${1#-}$sflags\"\n"
+"\t\tshift\n"
+"\t\t;;\n"
+"\t\\-o)\n"
+"\t\techo \"oarg is '$2'\"; oarg=\"$2\"\n"
+"\t\tshift; shift\n"
+"\t\t;;\n"
+"\t\\-\\-)\n"
+"\t\tshift; break\n"
+"\t\t;;\n"
+"\tesac\n"
+"done\n"
+"echo \"single-char flags: '$sflags'\"\n"
+"echo \"oarg is '$oarg'\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:85
+msgid "This code will accept any of the following as equivalent:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:90
+#, no-wrap
+msgid ""
+"cmd \\-aoarg file1 file2\n"
+"cmd \\-a \\-o arg file1 file2\n"
+"cmd \\-oarg -a file1 file2\n"
+"cmd \\-a \\-oarg \\-\\- file1 file2\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:91
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:95
+msgid "E<.Xr getopts 1>, E<.Xr sh 1>, E<.Xr getopt 3>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:95
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:103
+msgid ""
+"Written by E<.An Henry Spencer>, working from a Bell Labs manual page.  "
+"Behavior believed identical to the Bell version.  Example changed in E<.Fx> "
+"version 3.2 and 4.0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.bin/getopt/getopt.1:103
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:107
+msgid "Whatever E<.Xr getopt 3> has."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:116
+msgid ""
+"Arguments containing white space or embedded shell metacharacters generally "
+"will not survive intact; this looks easy to fix but is not.  People trying "
+"to fix E<.Nm> or the example in this manpage should check the history of "
+"this file in E<.Fx>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:124
+msgid ""
+"The error message for an invalid option is identified as coming from E<.Nm> "
+"rather than from the shell procedure containing the invocation of E<.Nm>; "
+"this again is hard to fix."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:129
+msgid ""
+"The precise best way to use the E<.Nm set> command to set the arguments "
+"without disrupting the value(s) of shell options varies from one shell "
+"version to another."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.bin/getopt/getopt.1:134
+msgid ""
+"Each shellscript has to carry complex code to parse arguments halfway "
+"correctly (like the example presented here).  A better getopt-like tool "
+"would move much of the complexity into the tool and keep the client shell "
+"scripts simpler."
+msgstr ""

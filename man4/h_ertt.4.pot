@@ -1,0 +1,278 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/h_ertt.4:32
+#, no-wrap
+msgid "January 18, 2012"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/h_ertt.4:33
+#, no-wrap
+msgid "H_ERTT 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:35
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:37
+msgid "E<.Nm h_ertt>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/h_ertt.4:37
+#, no-wrap
+msgid "Enhanced Round Trip Time Khelp module"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/h_ertt.4:39
+#, no-wrap
+msgid "netinet/khelp/h_ertt.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:50
+msgid ""
+"The E<.Nm> Khelp module works within the E<.Xr khelp 9> framework to provide "
+"TCP with a per-connection, low noise estimate of the instantaneous RTT.  The "
+"implementation attempts to be robust in the face of delayed "
+"acknowledgements, TCP Segmentation Offload (TSO), receivers who manipulate "
+"TCP timestamps and lack of the TCP timestamp option altogether."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:60
+msgid ""
+"TCP receivers using delayed acknowledgements either acknowledge every second "
+"packet (reflecting the time stamp of the first) or use a timeout to trigger "
+"the acknowledgement if no second packet arrives.  If the heuristic used by "
+"E<.Nm> determines that the receiver is using delayed acknowledgements, it "
+"measures the RTT using the second packet (the one that triggers the "
+"acknowledgement).  It does not measure the RTT if the acknowledgement is for "
+"the first packet, since it cannot be accurately determined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:66
+msgid ""
+"When TSO is in use, E<.Nm> will momentarily disable TSO whilst marking a "
+"packet to use for a new measurement.  The process has negligible impact on "
+"the connection."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:69
+msgid ""
+"E<.Nm> associates the following struct with each connection's TCP control "
+"block:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:83
+#, no-wrap
+msgid ""
+"struct ertt {\n"
+"\tTAILQ_HEAD(txseginfo_head, txseginfo) txsegi_q;\t/* Private. */\n"
+"\tlong\t\tbytes_tx_in_rtt;\t\t/* Private. */\n"
+"\tlong\t\tbytes_tx_in_marked_rtt;\n"
+"\tunsigned long\tmarked_snd_cwnd;\n"
+"\tint\t\trtt;\n"
+"\tint\t\tmaxrtt;\n"
+"\tint\t\tminrtt;\n"
+"\tint\t\tdlyack_rx;\t\t\t/* Private. */\n"
+"\tint\t\ttimestamp_errors;\t\t/* Private. */\n"
+"\tint\t\tmarkedpkt_rtt;\t\t\t/* Private. */\n"
+"\tuint32_t\tflags;\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:90
+msgid ""
+"The fields marked as private should not be manipulated by any code outside "
+"of the E<.Nm> implementation.  The non-private fields provide the following "
+"data:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/h_ertt.4:91
+#, no-wrap
+msgid "Va bytes_tx_in_marked_rtt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:94
+msgid "The number of bytes transmitted in the E<.Va markedpkt_rtt>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/h_ertt.4:94
+#, no-wrap
+msgid "Va marked_snd_cwnd"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:96
+msgid "The value of cwnd for the marked rtt measurement."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/h_ertt.4:96
+#, no-wrap
+msgid "Va rtt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:98
+msgid "The most recent RTT measurement."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/h_ertt.4:98
+#, no-wrap
+msgid "Va maxrtt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:100
+msgid "The longest RTT measurement that has been taken."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/h_ertt.4:100
+#, no-wrap
+msgid "Va minrtt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:102
+msgid "The shortest RTT measurement that has been taken."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/h_ertt.4:102
+#, no-wrap
+msgid "Va flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:109
+msgid ""
+"The ERTT_NEW_MEASUREMENT flag will be set by the implementation when a new "
+"measurement is available.  It is the responsibility of E<.Nm> consumers to "
+"unset the flag if they wish to use it as a notification method for new "
+"measurements."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:110
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:117
+msgid ""
+"E<.Xr cc_chd 4>, E<.Xr cc_hd 4>, E<.Xr cc_vegas 4>, E<.Xr mod_cc 4>, E<.Xr "
+"hhook 9>, E<.Xr khelp 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:117
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:121
+msgid ""
+"Development and testing of this software were made possible in part by "
+"grants from the FreeBSD Foundation and Cisco University Research Program "
+"Fund at Community Foundation Silicon Valley."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:121
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:126
+msgid "The E<.Nm> module first appeared in E<.Fx 9.0>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:131
+msgid ""
+"The module was first released in 2010 by David Hayes whilst working on the "
+"NewTCP research project at Swinburne University of Technology's Centre for "
+"Advanced Internet Architectures, Melbourne, Australia.  More details are "
+"available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:133
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:133
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:139
+msgid ""
+"E<.An -nosplit> The E<.Nm> Khelp module and this manual page were written by "
+"E<.An David Hayes Aq Mt david.hayes@ieee.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/h_ertt.4:139
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/h_ertt.4:143
+msgid ""
+"The module maintains enhanced RTT estimates for all new TCP connections "
+"created after the time at which the module was loaded.  It might be "
+"beneficial to see if it is possible to have the module only affect "
+"connections which actually care about ERTT estimates."
+msgstr ""

@@ -1,0 +1,3007 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/ddb.4:63
+#, no-wrap
+msgid "November 30, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/ddb.4:64
+#, no-wrap
+msgid "DDB 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:66
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:68
+msgid "E<.Nm ddb>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/ddb.4:68
+#, no-wrap
+msgid "interactive kernel debugger"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:69
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:71
+msgid "In order to enable kernel debugging facilities include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:74
+#, no-wrap
+msgid ""
+"E<.Cd options KDB>\n"
+"E<.Cd options DDB>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:78
+msgid "To prevent activation of the debugger on kernel E<.Xr panic 9>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:80
+#, no-wrap
+msgid "E<.Cd options KDB_UNATTENDED>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:84
+msgid ""
+"In order to print a stack trace of the current thread on the console for a "
+"panic:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:86
+#, no-wrap
+msgid "E<.Cd options KDB_TRACE>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:90
+msgid ""
+"To print the numerical value of symbols in addition to the symbolic "
+"representation, define:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:92
+#, no-wrap
+msgid "E<.Cd options DDB_NUMSYM>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:99
+msgid ""
+"To enable the E<.Xr gdb 1> backend, so that remote debugging with E<.Xr kgdb "
+"1> is possible, include:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:101
+#, no-wrap
+msgid "E<.Cd options GDB>\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:102
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:124
+msgid ""
+"The E<.Nm> kernel debugger is an interactive debugger with a syntax inspired "
+"by E<.Xr gdb 1>.  If linked into the running kernel, it can be invoked "
+"locally with the E<.Ql debug> E<.Xr keymap 5> action, usually mapped to "
+"Ctrl+Alt+Esc, or by setting the E<.Va debug.kdb.enter> sysctl to 1.  The "
+"debugger is also invoked on kernel E<.Xr panic 9> if the E<.Va "
+"debug.debugger_on_panic> E<.Xr sysctl 8> MIB variable is set non-zero, which "
+"is the default unless the E<.Dv KDB_UNATTENDED> option is specified."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:148
+msgid ""
+"The current location is called E<.Va dot>.  The E<.Va dot> is displayed with "
+"a hexadecimal format at a prompt.  The commands E<.Ic examine> and E<.Ic "
+"write> update E<.Va dot> to the address of the last line examined or the "
+"last location modified, and set E<.Va next> to the address of the next "
+"location to be examined or changed.  Other commands do not change E<.Va "
+"dot>, and set E<.Va next> to be the same as E<.Va dot>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:152
+msgid ""
+"The general command syntax is: E<.Ar command Ns Op Li / Ns Ar modifier> "
+"E<.Oo Ar addr Oc Ns Op , Ns Ar count>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:177
+msgid ""
+"A blank line repeats the previous command from the address E<.Va next> with "
+"count 1 and no modifiers.  Specifying E<.Ar addr> sets E<.Va dot> to the "
+"address.  Omitting E<.Ar addr> uses E<.Va dot>.  A missing E<.Ar count> is "
+"taken to be 1 for printing commands or infinity for stack traces.  A E<.Ar "
+"count> of -1 is equivalent to a missing E<.Ar count>.  Options that are "
+"supplied but not supported by the given E<.Ar command> are usually ignored."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:190
+msgid ""
+"The E<.Nm> debugger has a pager feature (like the E<.Xr more 1> command)  "
+"for the output.  If an output line exceeds the number set in the E<.Va "
+"lines> variable, it displays E<.Dq Li --More--> and waits for a response.  "
+"The valid responses for it are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:192
+#, no-wrap
+msgid "Li SPC"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:194
+msgid "one more page"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:194
+#, no-wrap
+msgid "Li RET"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:196
+msgid "one more line"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:196
+#, no-wrap
+msgid "Li q"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:198
+msgid "abort the current command, and return to the command input mode"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:214
+msgid ""
+"Finally, E<.Nm> provides a small (currently 10 items) command history, and "
+"offers simple E<.Nm emacs Ns -style> command line editing capabilities.  In "
+"addition to the E<.Nm emacs> control keys, the usual E<.Tn ANSI> arrow keys "
+"may be used to browse through the history buffer, and move the cursor within "
+"the current line."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:214
+#, no-wrap
+msgid "COMMANDS"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:216 /usr/src/share/man/man4/ddb.4:220 /usr/src/share/man/man4/ddb.4:316 /usr/src/share/man/man4/ddb.4:320 /usr/src/share/man/man4/ddb.4:480 /usr/src/share/man/man4/ddb.4:485 /usr/src/share/man/man4/ddb.4:490 /usr/src/share/man/man4/ddb.4:495 /usr/src/share/man/man4/ddb.4:518 /usr/src/share/man/man4/ddb.4:532
+#, no-wrap
+msgid "Xo"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:220
+msgid ""
+"E<.Ic examine Ns Op Li / Ns Cm AISabcdghilmorsuxz ...> E<.Oo Ar addr Oc Ns "
+"Op , Ns Ar count> E<.Xc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:228
+msgid ""
+"E<.Ic x Ns Op Li / Ns Cm AISabcdghilmorsuxz ...> E<.Oo Ar addr Oc Ns Op , Ns "
+"Ar count> E<.Xc> Display the addressed locations according to the formats in "
+"the modifier.  Multiple modifier formats display multiple locations.  If no "
+"format is specified, the last format specified for this command is used."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:230
+msgid "The format characters are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:231
+#, no-wrap
+msgid "Cm b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:233
+msgid "look at by bytes (8 bits)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:233
+#, no-wrap
+msgid "Cm h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:235
+msgid "look at by half words (16 bits)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:235
+#, no-wrap
+msgid "Cm l"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:237
+msgid "look at by long words (32 bits)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:237
+#, no-wrap
+msgid "Cm g"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:239
+msgid "look at by quad words (64 bits)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:239
+#, no-wrap
+msgid "Cm a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:241
+msgid "print the location being displayed"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:241
+#, no-wrap
+msgid "Cm A"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:243
+msgid "print the location with a line number if possible"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:243
+#, no-wrap
+msgid "Cm x"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:245
+msgid "display in unsigned hex"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:245
+#, no-wrap
+msgid "Cm z"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:247
+msgid "display in signed hex"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:247
+#, no-wrap
+msgid "Cm o"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:249
+msgid "display in unsigned octal"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:249
+#, no-wrap
+msgid "Cm d"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:251
+msgid "display in signed decimal"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:251
+#, no-wrap
+msgid "Cm u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:253
+msgid "display in unsigned decimal"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:253
+#, no-wrap
+msgid "Cm r"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:255
+msgid "display in current radix, signed"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:255
+#, no-wrap
+msgid "Cm c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:259
+msgid ""
+"display low 8 bits as a character.  Non-printing characters are displayed as "
+"an octal escape code (e.g., E<.Ql \\e000>)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:259
+#, no-wrap
+msgid "Cm s"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:262
+msgid ""
+"display the null-terminated string at the location.  Non-printing characters "
+"are displayed as octal escapes."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:262
+#, no-wrap
+msgid "Cm m"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:265
+msgid ""
+"display in unsigned hex with character dump at the end of each line.  The "
+"location is also displayed in hex at the beginning of each line."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:265
+#, no-wrap
+msgid "Cm i"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:267
+msgid "display as a disassembled instruction"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:267
+#, no-wrap
+msgid "Cm I"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:272
+msgid ""
+"display as an disassembled instruction with possible alternate formats "
+"depending on the machine.  On i386, this selects the alternate format for "
+"the instruction decoding (16 bits in a 32-bit code segment and vice versa)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:272
+#, no-wrap
+msgid "Cm S"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:274
+msgid "display a symbol name for the pointer stored at the address"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:276
+#, no-wrap
+msgid "Ic xf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:282
+msgid ""
+"Examine forward: execute an E<.Ic examine> command with the last specified "
+"parameters to it except that the next address displayed by it is used as the "
+"start address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:283
+#, no-wrap
+msgid "Ic xb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:290
+msgid ""
+"Examine backward: execute an E<.Ic examine> command with the last specified "
+"parameters to it except that the last start address subtracted by the size "
+"displayed by it is used as the start address."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:291
+#, no-wrap
+msgid "Ic print Ns Op Li / Ns Cm acdoruxz"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:292
+#, no-wrap
+msgid "Ic p Ns Op Li / Ns Cm acdoruxz"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:306
+msgid ""
+"Print E<.Ar addr Ns s> according to the modifier character (as described "
+"above for E<.Cm examine>).  Valid formats are: E<.Cm a , x , z , o , d , u , "
+"r>, and E<.Cm c>.  If no modifier is specified, the last one specified to it "
+"is used.  The argument E<.Ar addr> can be a string, in which case it is "
+"printed as it is.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:308
+#, no-wrap
+msgid "print/x \"eax = \" $eax \"\\enecx = \" $ecx \"\\en\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:311
+msgid "will print like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:314
+#, no-wrap
+msgid ""
+"eax = xxxxxx\n"
+"ecx = yyyyyy\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:320
+msgid "E<.Ic write Ns Op Li / Ns Cm bhl> E<.Ar addr expr1 Op Ar expr2 ...> E<.Xc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:337
+msgid ""
+"E<.Ic w Ns Op Li / Ns Cm bhl> E<.Ar addr expr1 Op Ar expr2 ...> E<.Xc> Write "
+"the expressions specified after E<.Ar addr> on the command line at "
+"succeeding locations starting with E<.Ar addr>.  The write unit size can be "
+"specified in the modifier with a letter E<.Cm b> (byte), E<.Cm h> (half "
+"word) or E<.Cm l> (long word) respectively.  If omitted, long word is "
+"assumed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:342
+msgid ""
+"E<.Sy Warning>: since there is no delimiter between expressions, strange "
+"things may happen.  It is best to enclose each expression in parentheses."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:343
+#, no-wrap
+msgid "Ic set Li $ Ns Ar variable Oo Li = Oc Ar expr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:347
+msgid ""
+"Set the named variable or register with the value of E<.Ar expr>.  Valid "
+"variable names are described below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:348
+#, no-wrap
+msgid "Ic break Ns Oo Li / Ns Cm u Oc Oo Ar addr Oc Ns Op , Ns Ar count"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:349
+#, no-wrap
+msgid "Ic b Ns Oo Li / Ns Cm u Oc Oo Ar addr Oc Ns Op , Ns Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:364
+msgid ""
+"Set a break point at E<.Ar addr>.  If E<.Ar count> is supplied, the E<.Ic "
+"continue> command will not stop at this break point on the first E<.Ar "
+"count> \\- 1 times that it is hit.  If the break point is set, a break point "
+"number is printed with E<.Ql #>.  This number can be used in deleting the "
+"break point or adding conditions to it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:375
+msgid ""
+"If the E<.Cm u> modifier is specified, this command sets a break point in "
+"user address space.  Without the E<.Cm u> option, the address is considered "
+"to be in the kernel space, and a wrong space address is rejected with an "
+"error message.  This modifier can be used only if it is supported by machine "
+"dependent routines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:381
+msgid ""
+"E<.Sy Warning>: If a user text is shadowed by a normal user space debugger, "
+"user space break points may not work correctly.  Setting a break point at "
+"the low-level code paths may also cause strange behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:382
+#, no-wrap
+msgid "Ic delete Op Ar addr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:383
+#, no-wrap
+msgid "Ic d Op Ar addr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:384
+#, no-wrap
+msgid "Ic delete Li # Ns Ar number"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:385
+#, no-wrap
+msgid "Ic d Li # Ns Ar number"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:398
+msgid ""
+"Delete the specified break point.  The break point can be specified by a "
+"break point number with E<.Ql #>, or by using the same E<.Ar addr> specified "
+"in the original E<.Ic break> command, or by omitting E<.Ar addr> to get the "
+"default address of E<.Va dot>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:399
+#, no-wrap
+msgid "Ic watch Oo Ar addr Oc Ns Op , Ns Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:407
+msgid ""
+"Set a watchpoint for a region.  Execution stops when an attempt to modify "
+"the region occurs.  The E<.Ar size> argument defaults to 4.  If you specify "
+"a wrong space address, the request is rejected with an error message."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:412
+msgid ""
+"E<.Sy Warning>: Attempts to watch wired kernel memory may cause "
+"unrecoverable error in some systems such as i386.  Watchpoints on user "
+"addresses work best."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:413
+#, no-wrap
+msgid "Ic hwatch Oo Ar addr Oc Ns Op , Ns Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:420
+msgid ""
+"Set a hardware watchpoint for a region if supported by the architecture.  "
+"Execution stops when an attempt to modify the region occurs.  The E<.Ar "
+"size> argument defaults to 4."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:428
+msgid ""
+"E<.Sy Warning>: The hardware debug facilities do not have a concept of "
+"separate address spaces like the watch command does.  Use E<.Ic hwatch> for "
+"setting watchpoints on kernel address locations only, and avoid its use on "
+"user mode address spaces."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:429
+#, no-wrap
+msgid "Ic dhwatch Oo Ar addr Oc Ns Op , Ns Ar size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:431
+msgid "Delete specified hardware watchpoint."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:432
+#, no-wrap
+msgid "Ic step Ns Oo Li / Ns Cm p Oc Ns Op , Ns Ar count"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:433
+#, no-wrap
+msgid "Ic s Ns Oo Li / Ns Cm p Oc Ns Op , Ns Ar count"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:441
+msgid ""
+"Single step E<.Ar count> times.  If the E<.Cm p> modifier is specified, "
+"print each instruction at each step.  Otherwise, only print the last "
+"instruction."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:448
+msgid ""
+"E<.Sy Warning>: depending on machine type, it may not be possible to "
+"single-step through some low-level code paths or user space code.  On "
+"machines with software-emulated single-stepping (e.g., pmax), stepping "
+"through code executed by interrupt handlers will probably do the wrong "
+"thing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:449
+#, no-wrap
+msgid "Ic continue Ns Op Li / Ns Cm c"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:450
+#, no-wrap
+msgid "Ic c Ns Op Li / Ns Cm c"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:456
+msgid ""
+"Continue execution until a breakpoint or watchpoint.  If the E<.Cm c> "
+"modifier is specified, count instructions while executing.  Some machines "
+"(e.g., pmax) also count loads and stores."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:461
+msgid ""
+"E<.Sy Warning>: when counting, the debugger is really silently "
+"single-stepping.  This means that single-stepping on low-level code may "
+"cause strange behavior."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:462
+#, no-wrap
+msgid "Ic until Ns Op Li / Ns Cm p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:470
+msgid ""
+"Stop at the next call or return instruction.  If the E<.Cm p> modifier is "
+"specified, print the call nesting depth and the cumulative instruction count "
+"at each call or return.  Otherwise, only print when the matching return is "
+"hit."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:471
+#, no-wrap
+msgid "Ic next Ns Op Li / Ns Cm p"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:472
+#, no-wrap
+msgid "Ic match Ns Op Li / Ns Cm p"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:479
+msgid ""
+"Stop at the matching return instruction.  If the E<.Cm p> modifier is "
+"specified, print the call nesting depth and the cumulative instruction count "
+"at each call or return.  Otherwise, only print when the matching return is "
+"hit."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:485
+msgid ""
+"E<.Ic trace Ns Op Li / Ns Cm u> E<.Op Ar pid | tid Ns> E<.Op , Ns Ar count> "
+"E<.Xc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:490
+msgid ""
+"E<.Ic t Ns Op Li / Ns Cm u> E<.Op Ar pid | tid Ns> E<.Op , Ns Ar count> "
+"E<.Xc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:495
+msgid ""
+"E<.Ic where Ns Op Li / Ns Cm u> E<.Op Ar pid | tid Ns> E<.Op , Ns Ar count> "
+"E<.Xc>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:513
+msgid ""
+"E<.Ic bt Ns Op Li / Ns Cm u> E<.Op Ar pid | tid Ns> E<.Op , Ns Ar count> "
+"E<.Xc> Stack trace.  The E<.Cm u> option traces user space; if omitted, "
+"E<.Ic trace> only traces kernel space.  The optional argument E<.Ar count> "
+"is the number of frames to be traced.  If E<.Ar count> is omitted, all "
+"frames are printed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:517
+msgid ""
+"E<.Sy Warning>: User space stack trace is valid only if the machine "
+"dependent code supports it."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:531
+msgid ""
+"E<.Ic search Ns Op Li / Ns Cm bhl> E<.Ar addr> E<.Ar value> E<.Op Ar mask "
+"Ns> E<.Op , Ns Ar count> E<.Xc> Search memory for E<.Ar value>.  The "
+"optional E<.Ar count> argument limits the search."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:541
+msgid ""
+"E<.Ic findstack> E<.Ar addr> E<.Xc> Prints the thread address for a thread "
+"kernel-mode stack of which contains the specified address.  If the thread is "
+"not found, search the thread stack cache and prints the cached stack "
+"address.  Otherwise, prints nothing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:542
+#, no-wrap
+msgid "Ic show Cm all procs Ns Op Li / Ns Cm a"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:543
+#, no-wrap
+msgid "Ic ps Ns Op Li / Ns Cm a"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:552
+msgid ""
+"Display all process information.  The process information may not be shown "
+"if it is not supported in the machine, or the bottom of the stack of the "
+"target process is not in the main memory at that time.  The E<.Cm a> "
+"modifier will print command line arguments for each process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:553
+#, no-wrap
+msgid "Ic show Cm all trace"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:554
+#, no-wrap
+msgid "Ic alltrace"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:556
+msgid "Show a stack trace for every thread in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:557
+#, no-wrap
+msgid "Ic show Cm all ttys"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:563
+msgid ""
+"Show all TTY's within the system.  Output is similar to E<.Xr pstat 8>, but "
+"also includes the address of the TTY structure."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:564
+#, no-wrap
+msgid "Ic show Cm all vnets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:568
+msgid ""
+"Show the same output as \"show vnet\" does, but lists all virtualized "
+"network stacks within the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:569
+#, no-wrap
+msgid "Ic show Cm allchains"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:573
+msgid ""
+"Show the same information like \"show lockchain\" does, but for every thread "
+"in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:574
+#, no-wrap
+msgid "Ic show Cm alllocks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:580
+msgid ""
+"Show all locks that are currently held.  This command is only available if "
+"E<.Xr witness 4> is included in the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:581
+#, no-wrap
+msgid "Ic show Cm allpcpu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:584
+msgid "The same as \"show pcpu\", but for every CPU present in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:585
+#, no-wrap
+msgid "Ic show Cm allrman"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:590
+msgid ""
+"Show information related with resource management, including interrupt "
+"request lines, DMA request lines, I/O ports, I/O memory addresses, and "
+"Resource IDs."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:591
+#, no-wrap
+msgid "Ic show Cm apic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:594
+msgid "Dump data about APIC IDT vector mappings."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:595
+#, no-wrap
+msgid "Ic show Cm breaks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:598
+msgid "Show breakpoints set with the \"break\" command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:599
+#, no-wrap
+msgid "Ic show Cm bio Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:610
+msgid ""
+"Show information about the bio structure E<.Vt struct bio> present at E<.Ar "
+"addr>.  See the E<.Pa sys/bio.h> header file and E<.Xr g_bio 9> for more "
+"details on the exact meaning of the structure fields."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:611
+#, no-wrap
+msgid "Ic show Cm buffer Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:620
+msgid ""
+"Show information about the buf structure E<.Vt struct buf> present at E<.Ar "
+"addr>.  See the E<.Pa sys/buf.h> header file for more details on the exact "
+"meaning of the structure fields."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:621
+#, no-wrap
+msgid "Ic show Cm callout Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:627
+msgid ""
+"Show information about the callout structure E<.Vt struct callout> present "
+"at E<.Ar addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:628
+#, no-wrap
+msgid "Ic show Cm cbstat"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:631
+msgid "Show brief information about the TTY subsystem."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:632
+#, no-wrap
+msgid "Ic show Cm cdev"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:637
+msgid ""
+"Without argument, show the list of all created cdev's, consisting of devfs "
+"node name and struct cdev address.  When address of cdev is supplied, show "
+"some internal devfs state of the cdev."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:638
+#, no-wrap
+msgid "Ic show Cm conifhk"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:642
+msgid ""
+"Lists hooks currently waiting for completion in "
+"run_interrupt_driven_config_hooks()."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:643
+#, no-wrap
+msgid "Ic show Cm cpusets"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:649
+msgid ""
+"Print numbered root and assigned CPU affinity sets.  See E<.Xr cpuset 2> for "
+"more details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:650
+#, no-wrap
+msgid "Ic show Cm cyrixreg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:653
+msgid "Show registers specific to the Cyrix processor."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:654
+#, no-wrap
+msgid "Ic show Cm devmap"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:660
+msgid ""
+"Prints the contents of the static device mapping table.  Currently only "
+"available on the ARM architecture."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:661
+#, no-wrap
+msgid "Ic show Cm domain Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:670
+msgid ""
+"Print protocol domain structure E<.Vt struct domain> at address E<.Ar "
+"addr>.  See the E<.Pa sys/domain.h> header file for more details on the "
+"exact meaning of the structure fields."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:671
+#, no-wrap
+msgid "Ic show Cm ffs Op Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:677
+msgid ""
+"Show brief information about ffs mount at the address E<.Ar addr>, if "
+"argument is given.  Otherwise, provides the summary about each ffs mount."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:678
+#, no-wrap
+msgid "Ic show Cm file Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:684
+msgid ""
+"Show information about the file structure E<.Vt struct file> present at "
+"address E<.Ar addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:685
+#, no-wrap
+msgid "Ic show Cm files"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:688
+msgid "Show information about every file structure in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:689
+#, no-wrap
+msgid "Ic show Cm freepages"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:692
+msgid "Show the number of physical pages in each of the free lists."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:693
+#, no-wrap
+msgid "Ic show Cm geom Op Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:702
+msgid ""
+"If the E<.Ar addr> argument is not given, displays the entire GEOM "
+"topology.  If E<.Ar addr> is given, displays details about the given GEOM "
+"object (class, geom, provider or consumer)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:703
+#, no-wrap
+msgid "Ic show Cm idt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:709
+msgid ""
+"Show IDT layout.  The first column specifies the IDT vector.  The second one "
+"is the name of the interrupt/trap handler.  Those functions are machine "
+"dependent."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:710
+#, no-wrap
+msgid "Ic show Cm igi_list Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:716
+msgid ""
+"Show information about the IGMP structure E<.Vt struct igmp_ifsoftc> present "
+"at E<.Ar addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:717
+#, no-wrap
+msgid "Ic show Cm inodedeps Op Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:724
+msgid ""
+"Show brief information about each inodedep structure.  If E<.Ar addr> is "
+"given, only inodedeps belonging to the fs located at the supplied address "
+"are shown."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:725
+#, no-wrap
+msgid "Ic show Cm inpcb Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:731
+msgid ""
+"Show information on IP Control Block E<.Vt struct in_pcb> present at E<.Ar "
+"addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:732
+#, no-wrap
+msgid "Ic show Cm intr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:735
+msgid "Dump information about interrupt handlers."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:736
+#, no-wrap
+msgid "Ic show Cm intrcnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:739
+msgid "Dump the interrupt statistics."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:740
+#, no-wrap
+msgid "Ic show Cm irqs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:743
+msgid "Show interrupt lines and their respective kernel threads."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:744
+#, no-wrap
+msgid "Ic show Cm jails"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:752
+msgid ""
+"Show the list of E<.Xr jail 8> instances.  In addition to what E<.Xr jls 8> "
+"shows, also list kernel internal details."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:753
+#, no-wrap
+msgid "Ic show Cm lapic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:756
+msgid "Show information from the local APIC registers for this CPU."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:757
+#, no-wrap
+msgid "Ic show Cm lock Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:760
+msgid "Show lock structure.  The output format is as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:761
+#, no-wrap
+msgid "Ic class:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:768
+msgid ""
+"Class of the lock.  Possible types include E<.Xr mutex 9>, E<.Xr rmlock 9>, "
+"E<.Xr rwlock 9>, E<.Xr sx 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:768
+#, no-wrap
+msgid "Ic name:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:770
+msgid "Name of the lock."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:770
+#, no-wrap
+msgid "Ic flags:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:774
+msgid ""
+"Flags passed to the lock initialization function.  E<.Em flags> values are "
+"lock class specific."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:774
+#, no-wrap
+msgid "Ic state:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:778
+msgid "Current state of a lock.  E<.Em state> values are lock class specific."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:778
+#, no-wrap
+msgid "Ic owner:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:780
+msgid "Lock owner."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:783
+#, no-wrap
+msgid "Ic show Cm lockchain Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:788
+msgid ""
+"Show all threads a particular thread at address E<.Ar addr> is waiting on "
+"based on non-spin locks."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:789
+#, no-wrap
+msgid "Ic show Cm lockedbufs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:794
+msgid ""
+"Show the same information as \"show buf\", but for every locked E<.Vt struct "
+"buf> object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:795
+#, no-wrap
+msgid "Ic show Cm lockedvnods"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:798
+msgid "List all locked vnodes in the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:799
+#, no-wrap
+msgid "Ic show Cm locks"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:805
+msgid ""
+"Prints all locks that are currently acquired.  This command is only "
+"available if E<.Xr witness 4> is included in the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:806
+#, no-wrap
+msgid "Ic show Cm locktree"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:809
+#, no-wrap
+msgid "Ic show Cm malloc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:814
+msgid ""
+"Prints E<.Xr malloc 9> memory allocator statistics.  The output format is as "
+"follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:816
+#, no-wrap
+msgid "Ic Type"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:821
+msgid ""
+"Specifies a type of memory.  It is the same as a description string used "
+"while defining the given memory type with E<.Xr MALLOC_DECLARE 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:821
+#, no-wrap
+msgid "Ic InUse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:825
+msgid ""
+"Number of memory allocations of the given type, for which E<.Xr free 9> has "
+"not been called yet."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:825
+#, no-wrap
+msgid "Ic MemUse"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:827
+msgid "Total memory consumed by the given allocation type."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:827
+#, no-wrap
+msgid "Ic Requests"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:830
+msgid "Number of memory allocation requests for the given memory type."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:835
+msgid ""
+"The same information can be gathered in userspace with E<.Dq Nm vmstat Fl "
+"m>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:836
+#, no-wrap
+msgid "Ic show Cm map Ns Oo Li / Ns Cm f Oc Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:844
+msgid ""
+"Prints the VM map at E<.Ar addr>.  If the E<.Cm f> modifier is specified the "
+"complete map is printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:845
+#, no-wrap
+msgid "Ic show Cm msgbuf"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:854
+msgid ""
+"Print the system's message buffer.  It is the same output as in the E<.Dq Nm "
+"dmesg> case.  It is useful if you got a kernel panic, attached a serial "
+"cable to the machine and want to get the boot messages from before the "
+"system hang."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:854
+#, no-wrap
+msgid "Ic show Cm mount"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:856
+msgid "Displays short info about all currently mounted file systems."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:857
+#, no-wrap
+msgid "Ic show Cm mount Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:860
+msgid "Displays details about the given mount point."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:861
+#, no-wrap
+msgid "Ic show Cm object Ns Oo Li / Ns Cm f Oc Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:869
+msgid ""
+"Prints the VM object at E<.Ar addr>.  If the E<.Cm f> option is specified "
+"the complete object is printed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:870
+#, no-wrap
+msgid "Ic show Cm panic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:873
+msgid "Print the panic message if set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:874
+#, no-wrap
+msgid "Ic show Cm page"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:877
+msgid "Show statistics on VM pages."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:878
+#, no-wrap
+msgid "Ic show Cm pageq"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:881
+msgid "Show statistics on VM page queues."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:882
+#, no-wrap
+msgid "Ic show Cm pciregs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:887
+msgid ""
+"Print PCI bus registers.  The same information can be gathered in userspace "
+"by running E<.Dq Nm pciconf Fl lv>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:888
+#, no-wrap
+msgid "Ic show Cm pcpu"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:891
+msgid "Print current processor state.  The output format is as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:893
+#, no-wrap
+msgid "Ic cpuid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:895
+msgid "Processor identifier."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:895
+#, no-wrap
+msgid "Ic curthread"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:897
+msgid "Thread pointer, process identifier and the name of the process."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:897
+#, no-wrap
+msgid "Ic curpcb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:899
+msgid "Control block pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:899
+#, no-wrap
+msgid "Ic fpcurthread"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:901
+msgid "FPU thread pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:901
+#, no-wrap
+msgid "Ic idlethread"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:903
+msgid "Idle thread pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:903
+#, no-wrap
+msgid "Ic APIC ID"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:905
+msgid "CPU identifier coming from APIC."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:905
+#, no-wrap
+msgid "Ic currentldt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:907
+msgid "LDT pointer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:907
+#, no-wrap
+msgid "Ic spin locks held"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:909
+msgid "Names of spin locks held."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:912
+#, no-wrap
+msgid "Ic show Cm pgrpdump"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:915
+msgid "Dump process groups present within the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:916
+#, no-wrap
+msgid "Ic show Cm proc Op Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:923
+msgid ""
+"If no E<.Op Ar addr> is specified, print information about the current "
+"process.  Otherwise, show information about the process at address E<.Ar "
+"addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:924
+#, no-wrap
+msgid "Ic show Cm procvm"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:927
+msgid "Show process virtual memory layout."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:928
+#, no-wrap
+msgid "Ic show Cm protosw Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:934
+msgid ""
+"Print protocol switch structure E<.Vt struct protosw> at address E<.Ar "
+"addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:935
+#, no-wrap
+msgid "Ic show Cm registers Ns Op Li / Ns Cm u"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:941
+msgid ""
+"Display the register set.  If the E<.Cm u> modifier is specified, it "
+"displays user registers instead of kernel registers or the currently saved "
+"one."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:948
+msgid ""
+"E<.Sy Warning>: The support of the E<.Cm u> modifier depends on the "
+"machine.  If not supported, incorrect information will be displayed."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:949
+#, no-wrap
+msgid "Ic show Cm rman Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:957
+msgid ""
+"Show resource manager object E<.Vt struct rman> at address E<.Ar addr>.  "
+"Addresses of particular pointers can be gathered with \"show allrman\" "
+"command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:958
+#, no-wrap
+msgid "Ic show Cm rtc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:962
+msgid "Show real time clock value.  Useful for long debugging sessions."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:963
+#, no-wrap
+msgid "Ic show Cm sleepchain"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:968
+msgid "Deprecated.  Now an alias for E<.Ic show Cm lockchain>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:969
+#, no-wrap
+msgid "Ic show Cm sleepq"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:970
+#, no-wrap
+msgid "Ic show Cm sleepqueue"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:986
+msgid ""
+"Both commands provide the same functionality.  They show sleepqueue E<.Vt "
+"struct sleepqueue> structure.  Sleepqueues are used within the E<.Fx> kernel "
+"to implement sleepable synchronization primitives (thread holding a lock "
+"might sleep or be context switched), which at the time of writing are: E<.Xr "
+"condvar 9>, E<.Xr sx 9> and standard E<.Xr msleep 9> interface."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:987
+#, no-wrap
+msgid "Ic show Cm sockbuf Ar addr"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:988
+#, no-wrap
+msgid "Ic show Cm socket Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1000
+msgid ""
+"Those commands print E<.Vt struct sockbuf> and E<.Vt struct socket> objects "
+"placed at E<.Ar addr>.  Output consists of all values present in structures "
+"mentioned.  For exact interpretation and more details, visit E<.Pa "
+"sys/socket.h> header file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1001
+#, no-wrap
+msgid "Ic show Cm sysregs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1007
+msgid ""
+"Show system registers (e.g., E<.Li cr0-4> on i386.)  Not present on some "
+"platforms."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1008
+#, no-wrap
+msgid "Ic show Cm tcpcb Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1017
+msgid ""
+"Print TCP control block E<.Vt struct tcpcb> lying at address E<.Ar addr>.  "
+"For exact interpretation of output, visit E<.Pa netinet/tcp.h> header file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1018
+#, no-wrap
+msgid "Ic show Cm thread Op Ar addr | tid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1030
+msgid ""
+"If no E<.Ar addr> or E<.Ar tid> is specified, show detailed information "
+"about current thread.  Otherwise, print information about the thread with ID "
+"E<.Ar tid> or kernel address E<.Ar addr>.  (If the argument is a decimal "
+"number, it is assumed to be a tid.)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1031
+#, no-wrap
+msgid "Ic show Cm threads"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1034
+msgid "Show all threads within the system.  Output format is as follows:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1036
+#, no-wrap
+msgid "Ic First column"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1038
+msgid "Thread identifier (TID)"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1038
+#, no-wrap
+msgid "Ic Second column"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1040
+msgid "Thread structure address"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1040
+#, no-wrap
+msgid "Ic Third column"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1042
+msgid "Backtrace."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1045
+#, no-wrap
+msgid "Ic show Cm tty Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1048
+msgid "Display the contents of a TTY structure in a readable form."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1049
+#, no-wrap
+msgid "Ic show Cm turnstile Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1064
+msgid ""
+"Show turnstile E<.Vt struct turnstile> structure at address E<.Ar addr>.  "
+"Turnstiles are structures used within the E<.Fx> kernel to implement "
+"synchronization primitives which, while holding a specific type of lock, "
+"cannot sleep or context switch to another thread.  Currently, those are: "
+"E<.Xr mutex 9>, E<.Xr rwlock 9>, E<.Xr rmlock 9>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1065
+#, no-wrap
+msgid "Ic show Cm uma"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1068
+msgid "Show UMA allocator statistics.  Output consists five columns:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1070
+#, no-wrap
+msgid "Cm Zone"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1075
+msgid ""
+"Name of the UMA zone.  The same string that was passed to E<.Xr uma_zcreate "
+"9> as a first argument."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1075
+#, no-wrap
+msgid "Cm Size"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1077
+msgid "Size of a given memory object (slab)."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1077
+#, no-wrap
+msgid "Cm Used"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1079
+msgid "Number of slabs being currently used."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1079
+#, no-wrap
+msgid "Cm Free"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1081
+msgid "Number of free slabs within the UMA zone."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1081
+#, no-wrap
+msgid "Cm Requests"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1083
+msgid "Number of allocations requests to the given zone."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1089
+msgid ""
+"The very same information might be gathered in the userspace with the help "
+"of E<.Dq Nm vmstat Fl z>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1090
+#, no-wrap
+msgid "Ic show Cm unpcb Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1096
+msgid ""
+"Shows UNIX domain socket private control block E<.Vt struct unpcb> present "
+"at the address E<.Ar addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1097
+#, no-wrap
+msgid "Ic show Cm vmochk"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1101
+msgid ""
+"Prints, whether the internal VM objects are in a map somewhere and none have "
+"zero ref counts."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1102
+#, no-wrap
+msgid "Ic show Cm vmopag"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1109
+msgid ""
+"This is supposed to show physical addresses consumed by a VM object.  "
+"Currently, it is not possible to use this command when E<.Xr witness 4> is "
+"compiled in the kernel."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1110
+#, no-wrap
+msgid "Ic show Cm vnet Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1116
+msgid ""
+"Prints virtualized network stack E<.Vt struct vnet> structure present at the "
+"address E<.Ar addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1117
+#, no-wrap
+msgid "Ic show Cm vnode Op Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1126
+msgid ""
+"Prints vnode E<.Vt struct vnode> structure lying at E<.Op Ar addr>.  For the "
+"exact interpretation of the output, look at the E<.Pa sys/vnode.h> header "
+"file."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1127
+#, no-wrap
+msgid "Ic show Cm vnodebufs Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1131
+msgid "Shows clean/dirty buffer lists of the vnode located at E<.Ar addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1132
+#, no-wrap
+msgid "Ic show Cm vpath Ar addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1136
+msgid ""
+"Walk the namecache to lookup the pathname of the vnode located at E<.Ar "
+"addr>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1137
+#, no-wrap
+msgid "Ic show Cm watches"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1141
+msgid "Displays all watchpoints.  Shows watchpoints set with \"watch\" command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1142
+#, no-wrap
+msgid "Ic show Cm witness"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1147
+msgid ""
+"Shows information about lock acquisition coming from the E<.Xr witness 4> "
+"subsystem."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1148
+#, no-wrap
+msgid "Ic gdb"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1157
+msgid ""
+"Toggles between remote GDB and DDB mode.  In remote GDB mode, another "
+"machine is required that runs E<.Xr gdb 1> using the remote debug feature, "
+"with a connection to the serial console port on the target machine.  "
+"Currently only available on the i386 architecture."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1158
+#, no-wrap
+msgid "Ic halt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1160
+msgid "Halt the system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1161
+#, no-wrap
+msgid "Ic kill Ar sig pid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1174
+msgid ""
+"Send signal E<.Ar sig> to process E<.Ar pid>.  The signal is acted on upon "
+"returning from the debugger.  This command can be used to kill a process "
+"causing resource contention in the case of a hung system.  See E<.Xr signal "
+"3> for a list of signals.  Note that the arguments are reversed relative to "
+"E<.Xr kill 2>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1175
+#, no-wrap
+msgid "Ic reboot Op Ar seconds"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1176
+#, no-wrap
+msgid "Ic reset Op Ar seconds"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1182
+msgid ""
+"Hard reset the system.  If the optional argument E<.Ar seconds> is given, "
+"the debugger will wait for this long, at most a week, before rebooting."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1183
+#, no-wrap
+msgid "Ic help"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1186
+msgid "Print a short summary of the available commands and command abbreviations."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1187
+#, no-wrap
+msgid "Ic capture on"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1188
+#, no-wrap
+msgid "Ic capture off"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1189
+#, no-wrap
+msgid "Ic capture reset"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1190
+#, no-wrap
+msgid "Ic capture status"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1204
+msgid ""
+"E<.Nm> supports a basic output capture facility, which can be used to "
+"retrieve the results of debugging commands from userspace using E<.Xr sysctl "
+"3>.  E<.Ic capture on> enables output capture; E<.Ic capture off> disables "
+"capture.  E<.Ic capture reset> will clear the capture buffer and disable "
+"capture.  E<.Ic capture status> will report current buffer use, buffer size, "
+"and disposition of output capture."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1209
+msgid ""
+"Userspace processes may inspect and manage E<.Nm> capture state using E<.Xr "
+"sysctl 8>:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1212
+msgid ""
+"E<.Va debug.ddb.capture.bufsize> may be used to query or set the current "
+"capture buffer size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1215
+msgid ""
+"E<.Va debug.ddb.capture.maxbufsize> may be used to query the compile-time "
+"limit on the capture buffer size."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1219
+msgid ""
+"E<.Va debug.ddb.capture.bytes> may be used to query the number of bytes of "
+"output currently in the capture buffer."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1223
+msgid ""
+"E<.Va debug.ddb.capture.data> returns the contents of the buffer as a string "
+"to an appropriately privileged process."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1231
+msgid ""
+"This facility is particularly useful in concert with the scripting and E<.Xr "
+"textdump 4> facilities, allowing scripted debugging output to be captured "
+"and committed to disk as part of a textdump for later analysis.  The "
+"contents of the capture buffer may also be inspected in a kernel core dump "
+"using E<.Xr kgdb 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1232
+#, no-wrap
+msgid "Ic run"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1233
+#, no-wrap
+msgid "Ic script"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1234
+#, no-wrap
+msgid "Ic scripts"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1235
+#, no-wrap
+msgid "Ic unscript"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1240
+msgid ""
+"Run, define, list, and delete scripts.  See the E<.Sx SCRIPTING> section for "
+"more information on the scripting facility."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1241
+#, no-wrap
+msgid "Ic textdump dump"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1242
+#, no-wrap
+msgid "Ic textdump set"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1243
+#, no-wrap
+msgid "Ic textdump status"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1244
+#, no-wrap
+msgid "Ic textdump unset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1258
+msgid ""
+"Use the E<.Ic textdump dump> command to immediately perform a textdump.  "
+"More information may be found in E<.Xr textdump 4>.  The E<.Ic textdump set> "
+"command may be used to force the next kernel core dump to be a textdump "
+"rather than a traditional memory dump or minidump.  E<.Ic textdump status> "
+"reports whether a textdump has been scheduled.  E<.Ic textdump unset> "
+"cancels a request to perform a textdump as the next kernel core dump."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1259
+#, no-wrap
+msgid "Ic thread Ar addr | tid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1265
+msgid ""
+"Switch the debugger to the thread with ID E<.Ar tid>, if the argument is a "
+"decimal number, or address E<.Ar addr>, otherwise."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1266
+#, no-wrap
+msgid "VARIABLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1278
+msgid ""
+"The debugger accesses registers and variables as E<.Li $ Ns Ar name>.  "
+"Register names are as in the E<.Dq Ic show Cm registers> command.  Some "
+"variables are suffixed with numbers, and may have some modifier following a "
+"colon immediately after the variable name.  For example, register variables "
+"can have a E<.Cm u> modifier to indicate user register (e.g., E<.Dq Li "
+"$eax:u>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1280
+msgid "Built-in variables currently supported are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1282
+#, no-wrap
+msgid "Va radix"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1284
+msgid "Input and output radix."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1284
+#, no-wrap
+msgid "Va maxoff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1291
+msgid ""
+"Addresses are printed as E<.Dq Ar symbol Ns Li + Ns Ar offset> unless E<.Ar "
+"offset> is greater than E<.Va maxoff>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1291
+#, no-wrap
+msgid "Va maxwidth"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1293
+msgid "The width of the displayed line."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1293
+#, no-wrap
+msgid "Va lines"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1297
+msgid ""
+"The number of lines.  It is used by the built-in pager.  Setting it to 0 "
+"disables paging."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1297
+#, no-wrap
+msgid "Va tabstops"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1299
+msgid "Tab stop width."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1299
+#, no-wrap
+msgid "Va work Ns Ar xx"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1303
+msgid "Work variable; E<.Ar xx> can take values from 0 to 31."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1304
+#, no-wrap
+msgid "EXPRESSIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1313
+msgid ""
+"Most expression operators in C are supported except E<.Ql ~>, E<.Ql ^>, and "
+"unary E<.Ql &>.  Special rules in E<.Nm> are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1314
+#, no-wrap
+msgid "Identifiers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1329
+msgid ""
+"The name of a symbol is translated to the value of the symbol, which is the "
+"address of the corresponding object.  E<.Ql \\&.> and E<.Ql \\&:> can be "
+"used in the identifier.  If supported by an object format dependent routine, "
+"E<.Sm off> E<.Oo Ar filename : Oc Ar func : lineno>, E<.Sm on> E<.Oo Ar "
+"filename : Oc Ns Ar variable>, and E<.Oo Ar filename : Oc Ns Ar lineno> can "
+"be accepted as a symbol."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1329
+#, no-wrap
+msgid "Numbers"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1337
+msgid ""
+"Radix is determined by the first two letters: E<.Ql 0x>: hex, E<.Ql 0o>: "
+"octal, E<.Ql 0t>: decimal; otherwise, follow current radix."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1337
+#, no-wrap
+msgid "Li \\&."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1339
+msgid "E<.Va dot>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1339
+#, no-wrap
+msgid "Li +"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1341
+msgid "E<.Va next>"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1341
+#, no-wrap
+msgid "Li .."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1352
+msgid ""
+"address of the start of the last line examined.  Unlike E<.Va dot> or E<.Va "
+"next>, this is only changed by E<.Ic examine> or E<.Ic write> command."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1352
+#, no-wrap
+msgid "Li '"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1354
+msgid "last address explicitly specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1354
+#, no-wrap
+msgid "Li $ Ns Ar variable"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1359
+msgid ""
+"Translated to the value of the specified variable.  It may be followed by a "
+"E<.Ql \\&:> and modifiers as described above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1359
+#, no-wrap
+msgid "Ar a Ns Li # Ns Ar b"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1362
+msgid ""
+"A binary operator which rounds up the left hand side to the next multiple of "
+"right hand side."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1362
+#, no-wrap
+msgid "Li * Ns Ar expr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1367
+msgid ""
+"Indirection.  It may be followed by a E<.Ql \\&:> and modifiers as described "
+"above."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1368
+#, no-wrap
+msgid "SCRIPTING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1378
+msgid ""
+"E<.Nm> supports a basic scripting facility to allow automating tasks or "
+"responses to specific events.  Each script consists of a list of DDB "
+"commands to be executed sequentially, and is assigned a unique name.  "
+"Certain script names have special meaning, and will be automatically run on "
+"various E<.Nm> events if scripts by those names have been defined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1388
+msgid ""
+"The E<.Ic script> command may be used to define a script by name.  Scripts "
+"consist of a series of E<.Nm> commands separated with the E<.Ql \\&;> "
+"character.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1391
+#, no-wrap
+msgid ""
+"script kdb.enter.panic=bt; show pcpu\n"
+"script lockinfo=show alllocks; show lockedvnods\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1396
+msgid "The E<.Ic scripts> command lists currently defined scripts."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1401
+msgid "The E<.Ic run> command execute a script by name.  For example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1403
+#, no-wrap
+msgid "run lockinfo\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1409
+msgid ""
+"The E<.Ic unscript> command may be used to delete a script by name.  For "
+"example:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1411
+#, no-wrap
+msgid "unscript kdb.enter.panic\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1416
+msgid ""
+"These functions may also be performed from userspace using the E<.Xr ddb 8> "
+"command."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1421
+msgid ""
+"Certain scripts are run automatically, if defined, for specific E<.Nm> "
+"events.  The follow scripts are run when various events occur:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1422
+#, no-wrap
+msgid "Va kdb.enter.acpi"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1426
+msgid "The kernel debugger was entered as a result of an E<.Xr acpi 4> event."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1426
+#, no-wrap
+msgid "Va kdb.enter.bootflags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1429
+msgid ""
+"The kernel debugger was entered at boot as a result of the debugger boot "
+"flag being set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1429
+#, no-wrap
+msgid "Va kdb.enter.break"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1431
+msgid "The kernel debugger was entered as a result of a serial or console break."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1431
+#, no-wrap
+msgid "Va kdb.enter.cam"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1435
+msgid "The kernel debugger was entered as a result of a E<.Xr CAM 4> event."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1435
+#, no-wrap
+msgid "Va kdb.enter.mac"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1440
+msgid ""
+"The kernel debugger was entered as a result of an assertion failure in the "
+"E<.Xr mac_test 4> module of the TrustedBSD MAC Framework."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1440
+#, no-wrap
+msgid "Va kdb.enter.ndis"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1444
+msgid ""
+"The kernel debugger was entered as a result of an E<.Xr ndis 4> breakpoint "
+"event."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1444
+#, no-wrap
+msgid "Va kdb.enter.netgraph"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1448
+msgid "The kernel debugger was entered as a result of a E<.Xr netgraph 4> event."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1448
+#, no-wrap
+msgid "Va kdb.enter.panic"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1451
+msgid "E<.Xr panic 9> was called."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1451
+#, no-wrap
+msgid "Va kdb.enter.powerfail"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1454
+msgid ""
+"The kernel debugger was entered as a result of a powerfail NMI on the "
+"sparc64 platform."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1454
+#, no-wrap
+msgid "Va kdb.enter.powerpc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1457
+msgid ""
+"The kernel debugger was entered as a result of an unimplemented interrupt "
+"type on the powerpc platform."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1457
+#, no-wrap
+msgid "Va kdb.enter.sysctl"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1461
+msgid ""
+"The kernel debugger was entered as a result of the E<.Va debug.kdb.enter> "
+"sysctl being set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1461
+#, no-wrap
+msgid "Va kdb.enter.trapsig"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1464
+msgid ""
+"The kernel debugger was entered as a result of a trapsig event on the "
+"sparc64 platform."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1464
+#, no-wrap
+msgid "Va kdb.enter.unionfs"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1467
+msgid ""
+"The kernel debugger was entered as a result of an assertion failure in the "
+"union file system."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1467
+#, no-wrap
+msgid "Va kdb.enter.unknown"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1469
+msgid "The kernel debugger was entered, but no reason has been set."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1469
+#, no-wrap
+msgid "Va kdb.enter.vfslock"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1471
+msgid "The kernel debugger was entered as a result of a VFS lock violation."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1471
+#, no-wrap
+msgid "Va kdb.enter.watchdog"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1473
+msgid "The kernel debugger was entered as a result of a watchdog firing."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1473
+#, no-wrap
+msgid "Va kdb.enter.witness"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1477
+msgid "The kernel debugger was entered as a result of a E<.Xr witness 4> violation."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1482
+msgid ""
+"In the event that none of these scripts is found, E<.Nm> will attempt to "
+"execute a default script:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/ddb.4:1483
+#, no-wrap
+msgid "Va kdb.enter.default"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1492
+msgid ""
+"The kernel debugger was entered, but a script exactly matching the reason "
+"for entering was not defined.  This can be used as a catch-all to handle "
+"cases not specifically of interest; for example, E<.Va kdb.enter.witness> "
+"might be defined to have special handling, and E<.Va kdb.enter.default> "
+"might be defined to simply panic and reboot."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1493
+#, no-wrap
+msgid "HINTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1517
+msgid ""
+"On machines with an ISA expansion bus, a simple NMI generation card can be "
+"constructed by connecting a push button between the A01 and B01 (CHCHK# and "
+"GND) card fingers.  Momentarily shorting these two fingers together may "
+"cause the bridge chipset to generate an NMI, which causes the kernel to pass "
+"control to E<.Nm>.  Some bridge chipsets do not generate a NMI on CHCHK#, so "
+"your mileage may vary.  The NMI allows one to break into the debugger on a "
+"wedged machine to diagnose problems.  Other bus' bridge chipsets may be able "
+"to generate NMI using bus specific methods.  There are many PCI and PCIe "
+"add-in cards which can generate NMI for debugging.  Modern server systems "
+"typically use IPMI to generate signals to enter the debugger.  The E<.Va "
+"devel/ipmitool> port can be used to send the E<.Cd chassis power diag> "
+"command which delivers an NMI to the processor.  Embedded systems often use "
+"JTAG for debugging, but rarely use it in combination with E<.Nm>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1536
+msgid ""
+"For serial consoles, you can enter the debugger by sending a BREAK condition "
+"on the serial line if E<.Cd options BREAK_TO_DEBUGGER> is specified in the "
+"kernel.  Most terminal emulation programs can send a break sequence with a "
+"special key sequence or via a menu item.  However, in some setups, sending "
+"the break can be difficult to arrange or happens spuriously, so if the "
+"kernel contains E<.Cd options ALT_BREAK_TO_DEBUGGER> then the sequence of CR "
+"TILDE CTRL-B enters the debugger; CR TILDE CTRL-P causes a panic instead of "
+"entering the debugger; and CR TILDE CTRL-R causes an immediate reboot.  In "
+"all the above sequences, CR is a Carriage Return and is usually sent by "
+"hitting the Enter or Return key.  TILDE is the ASCII tilde character (~).  "
+"CTRL-x is Control x created by hitting the control key and then x and then "
+"releasing both."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1551
+msgid ""
+"The break to enter the debugger behavior may be enabled at run-time by "
+"setting the E<.Xr sysctl 8> E<.Va debug.kdb.break_to_debugger> to 1.  The "
+"alternate sequence to enter the debugger behavior may be enabled at run-time "
+"by setting the E<.Xr sysctl 8> E<.Va debug.kdb.alt_break_to_debugger> to 1.  "
+"The debugger may be entered by setting the E<.Xr sysctl 8> E<.Va "
+"debug.kdb.enter> to 1."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1551
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1555
+msgid ""
+"Header files mentioned in this manual page can be found below E<.Pa "
+"/usr/include> directory."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1559
+msgid "E<.Pa sys/buf.h>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1561
+msgid "E<.Pa sys/domain.h>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1563
+msgid "E<.Pa netinet/in_pcb.h>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1565
+msgid "E<.Pa sys/socket.h>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1567
+msgid "E<.Pa sys/vnode.h>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1568
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1581
+msgid ""
+"E<.Xr gdb 1>, E<.Xr kgdb 1>, E<.Xr acpi 4>, E<.Xr CAM 4>, E<.Xr mac_test 4>, "
+"E<.Xr ndis 4>, E<.Xr netgraph 4>, E<.Xr textdump 4>, E<.Xr witness 4>, E<.Xr "
+"ddb 8>, E<.Xr sysctl 8>, E<.Xr panic 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/ddb.4:1581
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1590
+msgid ""
+"The E<.Nm> debugger was developed for Mach, and ported to E<.Bx 386 0.1>.  "
+"This manual page translated from E<.Xr man 7> macros by E<.An Garrett "
+"Wollman>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/ddb.4:1597
+msgid ""
+"E<.An Robert N. M. Watson> added support for E<.Nm> output capture, E<.Xr "
+"textdump 4> and scripting in E<.Fx 7.1>."
+msgstr ""

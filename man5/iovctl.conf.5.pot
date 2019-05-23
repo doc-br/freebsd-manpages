@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:31-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:28
+#, no-wrap
+msgid "July 8, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:29
+#, no-wrap
+msgid "IOVCTL.CONF 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:33
+msgid "E<.Nm iovctl.conf>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:33
+#, no-wrap
+msgid "IOVCTL configuration file"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:49
+msgid ""
+"The E<.Nm> file is the configuration file for the E<.Xr iovctl 8> program.  "
+"This file specifies configuration parameters for a single Physical Function "
+"E<.Pq PF> device.  To configure SR-IOV on multiple PF devices, use one "
+"configuration file for each PF.  The locations of all E<.Xr iovctl 9> "
+"configuration files are specified in E<.Xr rc.conf 5>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:55
+msgid ""
+"The E<.Nm> file uses UCL format.  UCL syntax is documented at the official "
+"UCL website: http://github.com/vstakhov/libucl."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:70
+msgid ""
+"There are three types of sections in the E<.Nm> file.  A section is a key at "
+"the top level of the file with a list as its value.  The list may contain "
+"the keys specified in the E<.Sx OPTIONS> section of this manual page.  "
+"Individual PF driver implementations may specify additional device-specific "
+"configuration keys that they will accept.  The order in which sections "
+"appear in E<.Nm> is ignored.  No two sections may have the same key.  For "
+"example, two sections for VF-1 must not be defined."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:75
+msgid ""
+"The first section type is the PF section.  This section always has the key "
+"\"PF\"; therefore, only one such section may be defined.  This section "
+"defines configuration parameters that apply to the PF as a whole."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:83
+msgid ""
+"The second section type is the VF section.  This section has the key \"VF-\" "
+"followed by a VF index.  VF indices start at 0 and always increment by 1.  "
+"Valid VF indices are in the range of 0 to E<.Pq num_vfs - 1>.  The VF index "
+"must be given as a decimal integer with no leading zeros.  This section "
+"defines configuration parameters that apply to a single VF."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:95
+msgid ""
+"The third section type is the default section.  This section always has the "
+"key \"DEFAULT\"; therefore, only one such section may be specified.  This "
+"section defines default configuration parameters that apply to all VFs.  All "
+"configuration keys that are valid to be applied to a VF are valid in this "
+"section.  An individual VF section may override a default specified in this "
+"section by providing a different value for the configuration parameter.  "
+"Note that the default section applies to ALL VFs.  The default section must "
+"appear before any VF sections.  The default section may appear before or "
+"after the PF section."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:97
+msgid "The following option types are supported:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:98
+#, no-wrap
+msgid "boolean"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:100
+msgid "Accepts a boolean value of true or false."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:100
+#, no-wrap
+msgid "mac-addr"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:103
+msgid ""
+"Accepts a unicast MAC address specified as a string of the form "
+"xx:xx:xx:xx:xx:xx, where xx is one or two hexadecimal digits."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:103
+#, no-wrap
+msgid "string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:105
+msgid "Accepts any string value."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:105
+#, no-wrap
+msgid "uint8_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:107
+msgid "Accepts any integer in the range 0 to 255, inclusive."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:107
+#, no-wrap
+msgid "uint16_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:109
+msgid "Accepts any integer in the range 0 to 65535, inclusive."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:109
+#, no-wrap
+msgid "uint32_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:113
+msgid "Accepts any integer in the range 0 to E<.Pq 2**32 - 1>, inclusive."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:113
+#, no-wrap
+msgid "uint64_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:117
+msgid "Accepts any integer in the range 0 to E<.Pq 2**64 - 1>, inclusive."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:118
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:120
+msgid "The following parameters are accepted by all PF drivers:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:121
+#, no-wrap
+msgid "device Pq string"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:124
+msgid ""
+"This parameter specifies the name of the PF device.  This parameter is "
+"required to be specified."
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:124
+#, no-wrap
+msgid "num_vfs Pq uint16_t"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:128
+msgid ""
+"This parameter specifies the number of VF children to create.  This "
+"parameter may not be zero.  The maximum value of this parameter is "
+"device-specific."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:131
+msgid "The following parameters are accepted by all VFs:"
+msgstr ""
+
+#. type: It
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:132
+#, no-wrap
+msgid "passthrough Pq boolean"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:139
+msgid ""
+"This parameter controls whether the VF is reserved for the use of the E<.Xr "
+"bhyve 8> hypervisor as a PCI passthrough device.  If this parameter is set "
+"to true, then the VF will be reserved as a PCI passthrough device and it "
+"will not be accessible from the host OS.  The default value of this "
+"parameter is false."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:143
+msgid ""
+"See the PF driver manual page for configuration parameters specific to "
+"particular hardware."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:143
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:151
+msgid ""
+"This sample file will create 3 VFs as children of the ix0 device.  VF-1 and "
+"VF-2 are set as E<.Xr bhyve 8> passthrough devices through the use of the "
+"default section.  VF-0 is not configured as a passthrough device as it "
+"explicitly overrides the default.  VF-0 also sets a device-specific "
+"parameter named mac-addr."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:156
+#, no-wrap
+msgid ""
+"PF {\n"
+"\tdevice : \"ix0\";\n"
+"\tnum_vfs : 3;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:160
+#, no-wrap
+msgid ""
+"DEFAULT {\n"
+"\tpassthrough : true;\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:165
+#, no-wrap
+msgid ""
+"VF-0 {\n"
+"\tmac-addr : \"02:56:48:7e:d9:f7\";\n"
+"\tpassthrough : false;\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:166
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:169
+msgid "E<.Xr rc.conf 5>, E<.Xr iovctl 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:169
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/usr.sbin/iovctl/iovctl.conf.5:171
+msgid "This manual page was written by E<.An Ryan Stone Aq Mt rstone@FreeBSD.org>."
+msgstr ""

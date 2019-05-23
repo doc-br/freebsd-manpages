@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man5/dir.5:31
+#, no-wrap
+msgid "November 14, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man5/dir.5:32
+#, no-wrap
+msgid "DIR 5"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/dir.5:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:37
+msgid "E<.Nm dir>, E<.Nm dirent>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man5/dir.5:37
+#, no-wrap
+msgid "directory file format"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/dir.5:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/dir.5:39
+#, no-wrap
+msgid "dirent.h"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/dir.5:40
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#.  An entry in this tree,
+#.  nested or not nested,
+#.  is a pathname.
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:57
+msgid ""
+"Directories provide a convenient hierarchical method of grouping files while "
+"obscuring the underlying details of the storage medium.  A directory file is "
+"differentiated from a plain file by a flag in its E<.Xr inode 5> entry.  It "
+"consists of records (directory entries) each of which contains information "
+"about a file and a pointer to the file itself.  Directory entries may "
+"contain other directories as well as plain files; such nested directories "
+"are referred to as subdirectories.  A hierarchy of directories and files is "
+"formed in this manner and is called a file system (or referred to as a file "
+"system tree)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:69
+msgid ""
+"Each directory file contains two special directory entries; one is a pointer "
+"to the directory itself called dot E<.Ql .\\&> and the other a pointer to "
+"its parent directory called dot-dot E<.Ql \\&..>.  Dot and dot-dot are valid "
+"pathnames, however, the system root directory E<.Ql />, has no parent and "
+"dot-dot points to itself like dot."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:77
+msgid ""
+"File system nodes are ordinary directory files on which has been grafted a "
+"file system object, such as a physical disk or a partitioned area of such a "
+"disk.  (See E<.Xr mount 2> and E<.Xr mount 8>.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:79
+msgid "The directory entry format is defined in the file"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man5/dir.5:79
+#, no-wrap
+msgid "sys/dirent.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:81
+msgid "(which should not be included directly by applications):"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:84
+#, no-wrap
+msgid ""
+"#ifndef\t_SYS_DIRENT_H_\n"
+"#define\t_SYS_DIRENT_H_\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:86
+#, no-wrap
+msgid "#include E<lt>machine/ansi.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:101
+#, no-wrap
+msgid ""
+"/*\n"
+" * The dirent structure defines the format of directory entries returned "
+"by\n"
+" * the getdirentries(2) system call.\n"
+" *\n"
+" * A directory entry has a struct dirent at the front of it, containing "
+"its\n"
+" * inode number, the length of the entry, and the length of the name\n"
+" * contained in the entry.  These are followed by the name padded to a 8\n"
+" * byte boundary with null bytes.  All names are guaranteed null "
+"terminated.\n"
+" * The maximum length of a name in a directory is MAXNAMLEN.\n"
+" * Explicit pad is added between the last member of the header and\n"
+" * d_name, to avoid having the ABI padding in the end of dirent on\n"
+" * LP64 arches.  There is code depending on d_name being last.  Also,\n"
+" * keeping this pad for ILP32 architectures simplifies compat32 layer.\n"
+" */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:116
+#, no-wrap
+msgid ""
+"struct dirent {\n"
+"\tino_t      d_fileno;\t\t/* file number of entry */\n"
+"\toff_t      d_off;\t\t/* directory offset of the next entry */\n"
+"\t__uint16_t d_reclen;\t\t/* length of this record */\n"
+"\t__uint8_t  d_type;\t\t/* file type, see below */\n"
+"\t__uint8_t  d_namlen;\t\t/* length of string in d_name */\n"
+"\t__uint32_t d_pad0;\n"
+"#if __BSD_VISIBLE\n"
+"#define\tMAXNAMLEN\t255\n"
+"\tchar\td_name[MAXNAMLEN + 1];\t/* name must be no longer than this */\n"
+"#else\n"
+"\tchar\td_name[255 + 1];\t/* name must be no longer than this */\n"
+"#endif\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:129
+#, no-wrap
+msgid ""
+"/*\n"
+" * File types\n"
+" */\n"
+"#define\tDT_UNKNOWN\t 0\n"
+"#define\tDT_FIFO\t\t 1\n"
+"#define\tDT_CHR\t\t 2\n"
+"#define\tDT_DIR\t\t 4\n"
+"#define\tDT_BLK\t\t 6\n"
+"#define\tDT_REG\t\t 8\n"
+"#define\tDT_LNK\t\t10\n"
+"#define\tDT_SOCK\t\t12\n"
+"#define\tDT_WHT\t\t14\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:135
+#, no-wrap
+msgid ""
+"/*\n"
+" * Convert between stat structure types and directory types.\n"
+" */\n"
+"#define\tIFTODT(mode)\t(((mode) & 0170000) E<gt>E<gt> 12)\n"
+"#define\tDTTOIF(dirtype)\t((dirtype) E<lt>E<lt> 12)\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:149
+#, no-wrap
+msgid ""
+"/*\n"
+" * The _GENERIC_DIRSIZ macro gives the minimum record length which will "
+"hold\n"
+" * the directory entry.  This returns the amount of space in struct direct\n"
+" * without the d_name field, plus enough space for the name with a "
+"terminating\n"
+" * null byte (dp-E<gt>d_namlen+1), rounded up to a 8 byte boundary.\n"
+" *\n"
+" * XXX although this macro is in the implementation namespace, it requires\n"
+" * a manifest constant that is not.\n"
+" */\n"
+"#define\t_GENERIC_DIRLEN(namlen)\t\t\t\t\t\t((__offsetof(struct dirent, "
+"d_name) + (namlen) + 1 + 7) & ~7)\n"
+"#define\t_GENERIC_DIRSIZ(dp)\t_GENERIC_DIRLEN((dp)-E<gt>d_namlen)\n"
+"#endif /* __BSD_VISIBLE */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:153
+#, no-wrap
+msgid ""
+"#ifdef _KERNEL\n"
+"#define\tGENERIC_DIRSIZ(dp)\t_GENERIC_DIRSIZ(dp)\n"
+"#endif\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:155
+#, no-wrap
+msgid "#endif /* !_SYS_DIRENT_H_ */\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/dir.5:156
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:159
+msgid "E<.Xr fs 5>, E<.Xr inode 5>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/dir.5:159
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:164
+msgid "A E<.Nm> file format appeared in E<.At v7>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man5/dir.5:164
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man5/dir.5:167
+msgid ""
+"The usage of the member d_type of struct dirent is unportable as it is E<.Fx "
+"Ns -specific>.  It also may fail on certain file systems, for example the "
+"cd9660 file system."
+msgstr ""

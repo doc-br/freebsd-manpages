@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/printf.9:29
+#, no-wrap
+msgid "November 18, 2015"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/printf.9:30
+#, no-wrap
+msgid "PRINTF 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/printf.9:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:37
+msgid "E<.Nm printf>, E<.Nm uprintf>, E<.Nm tprintf>, E<.Nm log>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/printf.9:37
+#, no-wrap
+msgid "formatted output conversion"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/printf.9:38
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/printf.9:39
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/printf.9:40
+#, no-wrap
+msgid "sys/systm.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:49
+msgid ""
+"E<.Ft int> E<.Fn printf \"const char *fmt\" ...> E<.Ft void> E<.Fn tprintf "
+"\"struct proc *p\" \"int pri\" \"const char *fmt\" ...> E<.Ft int> E<.Fn "
+"uprintf \"const char *fmt\" ...> E<.Ft int> E<.Fn vprintf \"const char "
+"*fmt\" \"va_list ap\">"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/printf.9:49
+#, no-wrap
+msgid "sys/syslog.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:54
+msgid ""
+"E<.Ft void> E<.Fn log \"int pri\" \"const char *fmt\" ...> E<.Ft void> E<.Fn "
+"vlog \"int pri\" \"const char *fmt\" \"va_list ap\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/printf.9:54
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:79
+msgid ""
+"The E<.Xr printf 9> family of functions are similar to the E<.Xr printf 3> "
+"family of functions.  The different functions each use a different output "
+"stream.  The E<.Fn uprintf> function outputs to the current process' "
+"controlling tty, while E<.Fn printf> writes to the console as well as to the "
+"logging facility.  The E<.Fn tprintf> function outputs to the tty associated "
+"with the process E<.Fa p> and the logging facility if E<.Fa pri> is not "
+"\\-1.  The E<.Fn log> function sends the message to the kernel logging "
+"facility, using the log level as indicated by E<.Fa pri>, and to the console "
+"if no process is yet reading the log."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:87
+msgid ""
+"Each of these related functions use the E<.Fa fmt> parameter in the same "
+"manner as E<.Xr printf 3>.  However, E<.Xr printf 9> adds two other "
+"conversion specifiers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:108
+msgid ""
+"The E<.Cm \\&%b> identifier expects two arguments: an E<.Vt int> and a E<.Vt "
+"\"char *\">.  These are used as a register value and a print mask for "
+"decoding bitmasks.  The print mask is made up of two parts: the base and the "
+"arguments.  The base value is the output base expressed as an integer value; "
+"for example, \\e10 gives octal and \\e20 gives hexadecimal.  The arguments "
+"are made up of a sequence of bit identifiers.  Each bit identifier begins "
+"with an integer value which is the number of the bit (starting from 1) this "
+"identifier describes.  The rest of the identifier is a string of characters "
+"containing the name of the bit.  The string is terminated by either the bit "
+"number at the start of the next bit identifier or E<.Dv NUL> for the last "
+"bit identifier."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:122
+msgid ""
+"The E<.Cm \\&%D> identifier is meant to assist in hexdumps.  It requires two "
+"arguments: a E<.Vt \"u_char *\"> pointer and a E<.Vt \"char *\"> string.  "
+"The memory pointed to by the pointer is output in hexadecimal one byte at a "
+"time.  The string is used as a delimiter between individual bytes.  If "
+"present, a width directive will specify the number of bytes to display.  By "
+"default, 16 bytes of data are output."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:144
+msgid ""
+"The E<.Fn log> function uses E<.Xr syslog 3> level values E<.Dv LOG_DEBUG> "
+"through E<.Dv LOG_EMERG> for its E<.Fa pri> parameter (mistakenly called "
+"E<.Sq priority> here).  Alternatively, if a E<.Fa pri> of \\-1 is given, the "
+"message will be appended to the last log message started by a previous call "
+"to E<.Fn log>.  As these messages are generated by the kernel itself, the "
+"facility will always be E<.Dv LOG_KERN>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/printf.9:144
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:150
+msgid ""
+"The E<.Fn printf> and the E<.Fn uprintf> functions return the number of "
+"characters displayed."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/printf.9:150
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:157
+msgid ""
+"This example demonstrates the use of the E<.Cm \\&%b> and E<.Cm \\&%D> "
+"conversion specifiers.  The function"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:161
+#, no-wrap
+msgid ""
+"void\n"
+"printf_test(void)\n"
+"{\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:165
+#, no-wrap
+msgid ""
+"\tprintf(\"reg=%b\\en\", 3, \"\\e10\\e2BITTWO\\e1BITONE\");\n"
+"\tprintf(\"out: %4D\\en\", \"AAAA\", \":\");\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:168
+msgid "will produce the following output:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:171
+#, no-wrap
+msgid ""
+"reg=3E<lt>BITTWO,BITONEE<gt>\n"
+"out: 41:41:41:41\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:174
+msgid "The call"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:176
+#, no-wrap
+msgid ""
+"log(LOG_DEBUG, \"%s%d: been there.\\en\", sc-E<gt>sc_name, "
+"sc-E<gt>sc_unit);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:181
+msgid ""
+"will add the appropriate debug message at priority E<.Dq Li kern.debug> to "
+"the system log."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/printf.9:181
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/printf.9:183
+msgid "E<.Xr printf 3>, E<.Xr syslog 3>"
+msgstr ""

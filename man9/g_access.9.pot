@@ -1,0 +1,285 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/g_access.9:27
+#, no-wrap
+msgid "January 16, 2004"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/g_access.9:28
+#, no-wrap
+msgid "G_ACCESS 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:32
+msgid "E<.Nm g_access>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/g_access.9:32
+#, no-wrap
+msgid "control access to GEOM consumers and their providers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/g_access.9:34
+#, no-wrap
+msgid "geom/geom.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:37
+msgid ""
+"E<.Ft int> E<.Fn g_access \"struct g_consumer *cp\" \"int dcr\" \"int dcw\" "
+"\"int dce\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:53
+msgid ""
+"The E<.Fn g_access> function allows to open, close, and generally change "
+"access to the provider which is attached to the given consumer E<.Fa cp>.  "
+"The arguments E<.Fa dcr>, E<.Fa dcw>, and E<.Fa dce> represent relative "
+"read, write, and exclusive access count changes.  Read and write access "
+"counts are self explanatory, and exclusive access counts deny write access "
+"to other interested parties.  A provider's access count is the sum of the "
+"access counts of all attached consumers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:59
+msgid ""
+"After attaching a consumer to a provider with E<.Xr g_attach 9>, the E<.Fn "
+"g_access> function has to be called on the consumer before starting I/O "
+"requests."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:59
+#, no-wrap
+msgid "RESTRICTIONS/CONDITIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:61
+msgid "The consumer has to be attached to a provider."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:63
+msgid "The intended change must not result in a negative access count."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:72
+msgid ""
+"No-operation is not permitted E<.Fa ( dcr> = E<.Fa dcw> = E<.Fa dce> = E<.Li "
+"0>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:75
+msgid ""
+"The provider's geom must have an access method defined (e.g., E<.Va "
+"gp-E<gt>access>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:77
+msgid "The topology lock has to be held."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:77
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:89
+msgid ""
+"The E<.Fn g_access> function returns 0 if successful; otherwise an error "
+"code is returned.  Note that E<.Fn g_access> cannot fail when the arguments "
+"E<.Fa dcr>, E<.Fa dcw>, and E<.Fa dce> are less than or equal to 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:89
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:92
+msgid ""
+"Create a consumer, attach it to a given provider, gain read access and read "
+"first sector."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:99
+#, no-wrap
+msgid ""
+"void\n"
+"some_function(struct g_geom *mygeom, struct g_provider *pp)\n"
+"{\n"
+"\tstruct g_consumer *cp;\n"
+"\tvoid *ptr;\n"
+"\tint error;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:101
+#, no-wrap
+msgid "\tg_topology_assert();\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:117
+#, no-wrap
+msgid ""
+"\t/* Create new consumer on 'mygeom' geom. */\n"
+"\tcp = g_new_consumer(mygeom);\n"
+"\t/* Attach newly created consumer to given provider. */\n"
+"\tif (g_attach(cp, pp) != 0) {\n"
+"\t\tg_destroy_consumer(cp);\n"
+"\t\treturn;\n"
+"\t}\n"
+"\t/* Open provider for reading through our consumer. */\n"
+"\terror = g_access(cp, 1, 0, 0);\n"
+"\tif (error != 0) {\n"
+"\t\tprintf(\"Cannot access provider: %s\\en\", error);\n"
+"\t\tg_detach(cp);\n"
+"\t\tg_destroy_consumer(cp);\n"
+"\t\treturn;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:129
+#, no-wrap
+msgid ""
+"\t/*\n"
+"\t * Don't hold topology lock while reading.\n"
+"\t */\n"
+"\tg_topology_unlock();\n"
+"\tptr = g_read_data(cp, 0, pp-E<gt>sectorsize, &error);\n"
+"\tif (ptr == NULL)\n"
+"\t\tprintf(\"Error while reading: %d\\en\", error);\n"
+"\t/*\n"
+"\t * Do something useful with data.\n"
+"\t */\n"
+"\tg_topology_lock();\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:137
+#, no-wrap
+msgid ""
+"\t/* Disconnect from provider (release access count). */\n"
+"\tg_access(cp, -1, 0, 0);\n"
+"\t/* Detach from provider. */\n"
+"\tg_detach(cp);\n"
+"\t/* Destroy consumer. */\n"
+"\tg_destroy_consumer(cp);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:138
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:140
+msgid "Possible errors:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/g_access.9:141 /usr/src/share/man/man9/g_access.9:144
+#, no-wrap
+msgid "Bq Er EPERM"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:144
+msgid ""
+"The function is trying to open a provider with an exclusive access count, "
+"but it is already open for writing."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:147
+msgid ""
+"The function is trying to open a provider for writing, but it is already "
+"exclusively open."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:150
+msgid "Any other error that can be returned by the provider's access method."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:150
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:162
+msgid ""
+"E<.Xr geom 4>, E<.Xr DECLARE_GEOM_CLASS 9>, E<.Xr g_attach 9>, E<.Xr g_bio "
+"9>, E<.Xr g_consumer 9>, E<.Xr g_data 9>, E<.Xr g_event 9>, E<.Xr g_geom 9>, "
+"E<.Xr g_provider 9>, E<.Xr g_provider_by_name 9>, E<.Xr g_wither_geom 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/g_access.9:162
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/g_access.9:165
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Pawel Jakub Dawidek Aq "
+"Mt pjd@FreeBSD.org>."
+msgstr ""

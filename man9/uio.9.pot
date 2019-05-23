@@ -1,0 +1,413 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/uio.9:28
+#, no-wrap
+msgid "March 11, 2017"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/uio.9:29
+#, no-wrap
+msgid "UIO 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:36
+msgid "E<.Nm uio>, E<.Nm uiomove>, E<.Nm uiomove_frombuf>, E<.Nm uiomove_nofault>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/uio.9:36
+#, no-wrap
+msgid "device driver I/O routines"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/uio.9:38
+#, no-wrap
+msgid "sys/types.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/uio.9:39
+#, no-wrap
+msgid "sys/uio.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:50
+#, no-wrap
+msgid ""
+"struct uio {\n"
+"\tstruct\tiovec *uio_iov;\t\t/* scatter/gather list */\n"
+"\tint\tuio_iovcnt;\t\t/* length of scatter/gather list */\n"
+"\toff_t\tuio_offset;\t\t/* offset in target object */\n"
+"\tssize_t\tuio_resid;\t\t/* remaining bytes to copy */\n"
+"\tenum\tuio_seg uio_segflg;\t/* address space */\n"
+"\tenum\tuio_rw uio_rw;\t\t/* operation */\n"
+"\tstruct\tthread *uio_td;\t\t/* owner */\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:57
+msgid ""
+"E<.Ft int> E<.Fn uiomove \"void *buf\" \"int howmuch\" \"struct uio *uiop\"> "
+"E<.Ft int> E<.Fn uiomove_frombuf \"void *buf\" \"int howmuch\" \"struct uio "
+"*uiop\"> E<.Ft int> E<.Fn uiomove_nofault \"void *buf\" \"int howmuch\" "
+"\"struct uio *uiop\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:57
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:65
+msgid ""
+"The functions E<.Fn uiomove>, E<.Fn uiomove_frombuf>, and E<.Fn "
+"uiomove_nofault> are used to transfer data between buffers and I/O vectors "
+"that might possibly cross the user/kernel space boundary."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:86
+msgid ""
+"As a result of any E<.Xr read 2>, E<.Xr write 2>, E<.Xr readv 2>, or E<.Xr "
+"writev 2> system call that is being passed to a character-device driver, the "
+"appropriate driver E<.Va d_read> or E<.Va d_write> entry will be called with "
+"a pointer to a E<.Vt \"struct uio\"> being passed.  The transfer request is "
+"encoded in this structure.  The driver itself should use E<.Fn uiomove> or "
+"E<.Fn uiomove_nofault> to get at the data in this structure."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:90
+msgid "The fields in the E<.Vt uio> structure are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:91
+#, no-wrap
+msgid "Va uio_iov"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:95
+msgid ""
+"The array of I/O vectors to be processed.  In the case of scatter/gather "
+"I/O, this will be more than one vector."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:95
+#, no-wrap
+msgid "Va uio_iovcnt"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:97
+msgid "The number of I/O vectors present."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:97
+#, no-wrap
+msgid "Va uio_offset"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:99
+msgid "The offset into the device."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:99
+#, no-wrap
+msgid "Va uio_resid"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:101
+msgid "The remaining number of bytes to process, updated after transfer."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:101
+#, no-wrap
+msgid "Va uio_segflg"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:103
+msgid "One of the following flags:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:104
+#, no-wrap
+msgid "Dv UIO_USERSPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:106
+msgid "The I/O vector points into a process's address space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:106
+#, no-wrap
+msgid "Dv UIO_SYSSPACE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:108
+msgid "The I/O vector points into the kernel address space."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:108
+#, no-wrap
+msgid "Dv UIO_NOCOPY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:110
+msgid "Do not copy, already in object."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:111
+#, no-wrap
+msgid "Va uio_rw"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:116
+msgid ""
+"The direction of the desired transfer, either E<.Dv UIO_READ> or E<.Dv "
+"UIO_WRITE>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:116
+#, no-wrap
+msgid "Va uio_td"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:123
+msgid ""
+"The pointer to a E<.Vt \"struct thread\"> for the associated thread; used if "
+"E<.Va uio_segflg> indicates that the transfer is to be made from/to a "
+"process's address space."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:136
+msgid ""
+"The function E<.Fn uiomove_nofault> requires that the buffer and I/O vectors "
+"be accessible without incurring a page fault.  The source and destination "
+"addresses must be physically mapped for read and write access, respectively, "
+"and neither the source nor destination addresses may be pageable.  Thus, the "
+"function E<.Fn uiomove_nofault> can be called from contexts where acquiring "
+"virtual memory system locks or sleeping are prohibited."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:153
+msgid ""
+"The E<.Fn uiomove_frombuf> function is a convenience wrapper around E<.Fn "
+"uiomove> for drivers that serve data which is wholly contained within an "
+"existing buffer in memory.  It validates the E<.Va uio_offset> and E<.Va "
+"uio_resid> values against the size of the existing buffer, handling short "
+"transfers when the request partially overlaps the buffer.  When E<.Va "
+"uio_offset> is greater than or equal to the buffer size, the result is "
+"success with no bytes transferred, effectively signaling EOF."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:153
+#, no-wrap
+msgid "RETURN VALUES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:160
+msgid ""
+"On success E<.Fn uiomove>, E<.Fn uiomove_frombuf>, and E<.Fn "
+"uiomove_nofault> will return 0; on error they will return an appropriate "
+"error code."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:160
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:169
+msgid ""
+"The idea is that the driver maintains a private buffer for its data, and "
+"processes the request in chunks of maximal the size of this buffer.  Note "
+"that the buffer handling below is very simplified and will not work (the "
+"buffer pointer is not being advanced in case of a partial read), it is just "
+"here to demonstrate the E<.Nm> handling."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:172
+#, no-wrap
+msgid ""
+"/* MIN() can be found there: */\n"
+"#include E<lt>sys/param.hE<gt>\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:175
+#, no-wrap
+msgid ""
+"#define BUFSIZE 512\n"
+"static char buffer[BUFSIZE];\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:177
+#, no-wrap
+msgid "static int data_available;\t/* amount of data that can be read */\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:182
+#, no-wrap
+msgid ""
+"static int\n"
+"fooread(struct cdev *dev, struct uio *uio, int flag)\n"
+"{\n"
+"\tint rv, amnt;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:199
+#, no-wrap
+msgid ""
+"\trv = 0;\n"
+"\twhile (uio-E<gt>uio_resid E<gt> 0) {\n"
+"\t\tif (data_available E<gt> 0) {\n"
+"\t\t\tamnt = MIN(uio-E<gt>uio_resid, data_available);\n"
+"\t\t\trv = uiomove(buffer, amnt, uio);\n"
+"\t\t\tif (rv != 0)\n"
+"\t\t\t\tbreak;\n"
+"\t\t\tdata_available -= amnt;\n"
+"\t\t} else\n"
+"\t\t\ttsleep(...);\t/* wait for a better time */\n"
+"\t}\n"
+"\tif (rv != 0) {\n"
+"\t\t/* do error cleanup here */\n"
+"\t}\n"
+"\treturn (rv);\n"
+"}\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:200
+#, no-wrap
+msgid "ERRORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:205
+msgid ""
+"E<.Fn uiomove> and E<.Fn uiomove_nofault> will fail and return the following "
+"error code if:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/uio.9:206 /usr/src/share/man/man9/uio.9:219
+#, no-wrap
+msgid "Bq Er EFAULT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:213
+msgid "The invoked E<.Xr copyin 9> or E<.Xr copyout 9> returned E<.Er EFAULT>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:218
+msgid ""
+"In addition, E<.Fn uiomove_nofault> will fail and return the following error "
+"code if:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:221
+msgid "A page fault occurs."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:222
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:230
+msgid ""
+"E<.Xr read 2>, E<.Xr readv 2>, E<.Xr write 2>, E<.Xr writev 2>, E<.Xr copyin "
+"9>, E<.Xr copyout 9>, E<.Xr sleep 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:230
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:235
+msgid "The E<.Nm> mechanism appeared in some early version of E<.Ux>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/uio.9:235
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/uio.9:237
+msgid "This manual page was written by E<.An J\\(:org Wunsch>."
+msgstr ""

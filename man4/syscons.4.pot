@@ -1,0 +1,1067 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/syscons.4:29
+#, no-wrap
+msgid "June 2, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/syscons.4:30
+#, no-wrap
+msgid "SYSCONS 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:32
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:35
+msgid "E<.Nm syscons>, E<.Nm sc>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/syscons.4:35
+#, no-wrap
+msgid "the console driver"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:36
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:65
+msgid ""
+"E<.Cd \"options MAXCONS=N\"> E<.Cd \"options SC_ALT_MOUSE_IMAGE\"> E<.Cd "
+"\"options SC_CUT_SEPCHARS=_characters_\"> E<.Cd \"options "
+"SC_CUT_SPACES2TABS\"> E<.Cd \"options SC_DFLT_TERM\"> E<.Cd \"options "
+"SC_DISABLE_KDBKEY\"> E<.Cd \"options SC_DISABLE_REBOOT\"> E<.Cd \"options "
+"SC_HISTORY_SIZE=N\"> E<.Cd \"options SC_MOUSE_CHAR=C\"> E<.Cd \"options "
+"SC_NO_CUTPASTE\"> E<.Cd \"options SC_NO_FONT_LOADING\"> E<.Cd \"options "
+"SC_NO_HISTORY\"> E<.Cd \"options SC_NO_PALETTE_LOADING\"> E<.Cd \"options "
+"SC_NO_SUSPEND_VTYSWITCH\"> E<.Cd \"options SC_NO_SYSMOUSE\"> E<.Cd \"options "
+"SC_NO_TERM_DUMB\"> E<.Cd \"options SC_NO_TERM_SC\"> E<.Cd \"options "
+"SC_NO_TERM_SCTEKEN\"> E<.Cd \"options SC_PIXEL_MODE\"> E<.Cd \"options "
+"SC_TWOBUTTON_MOUSE\"> E<.Cd \"options SC_NORM_ATTR=_attribute_\"> E<.Cd "
+"\"options SC_NORM_REV_ATTR=_attribute_\"> E<.Cd \"options "
+"SC_KERNEL_CONS_ATTR=_attribute_\"> E<.Cd \"options "
+"SC_KERNEL_CONS_ATTRS=_attributes_\"> E<.Cd \"options "
+"SC_KERNEL_CONS_REV_ATTR=_attribute_\"> E<.Cd \"options SC_DFLT_FONT\"> E<.Cd "
+"\"makeoptions SC_DFLT_FONT=_font_name_\"> E<.Cd \"device sc\">"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:70
+msgid ""
+"In E<.Pa /boot/device.hints>: E<.Cd hint.sc.0.at=\"isa\"> E<.Cd "
+"hint.sc.0.vesa_mode=0x103>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:74
+msgid "In E<.Pa /boot/loader.conf>: E<.Cd kern.vty=sc>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:74
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:79
+msgid ""
+"The E<.Nm> driver provides multiple virtual terminals.  It resembles the SCO "
+"color console driver."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:87
+msgid ""
+"The E<.Nm> driver is implemented on top of the keyboard driver E<.Pq Xr "
+"atkbd 4> and the video card driver E<.Pq Xr vga 4> and so requires both of "
+"them to be configured in the system."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:91
+msgid "There can be only one E<.Nm> device defined in the system."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:91
+#, no-wrap
+msgid "Virtual Terminals"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:99
+msgid ""
+"The E<.Nm> driver provides multiple virtual terminals which appear as if "
+"they were separate terminals.  One virtual terminal is considered current "
+"and exclusively occupies the screen and the keyboard; the other virtual "
+"terminals are placed in the background."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:110
+msgid ""
+"In order to use virtual terminals, they must be individually marked ``on'' "
+"in E<.Pa /etc/ttys> so that E<.Xr getty 8> will recognize them to be active "
+"and run E<.Xr login 1> to let the user log in to the system.  By default, "
+"only the first eight virtual terminals are activated in E<.Pa /etc/ttys>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:117
+msgid ""
+"You press the E<.Dv Alt> key and a switch key to switch between virtual "
+"terminals.  The following table summarizes the correspondence between the "
+"switch key and the virtual terminal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:124
+#, no-wrap
+msgid ""
+"Alt-F1   ttyv0      Alt-F7   ttyv6      Shift-Alt-F1   ttyva\n"
+"Alt-F2   ttyv1      Alt-F8   ttyv7      Shift-Alt-F2   ttyvb\n"
+"Alt-F3   ttyv2      Alt-F9   ttyv8      Shift-Alt-F3   ttyvc\n"
+"Alt-F4   ttyv3      Alt-F10  ttyv9      Shift-Alt-F4   ttyvd\n"
+"Alt-F5   ttyv4      Alt-F11  ttyva      Shift-Alt-F5   ttyve\n"
+"Alt-F6   ttyv5      Alt-F12  ttyvb      Shift-Alt-F6   ttyvf\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:129
+msgid ""
+"You can also use the ``nscr'' key (usually the E<.Dv PrintScreen> key on the "
+"AT Enhanced keyboard) to cycle available virtual terminals."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:134
+msgid ""
+"The default number of available virtual terminals is 16.  This can be "
+"changed with the kernel configuration option E<.Dv MAXCONS> (see below)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:139
+msgid ""
+"Note that the X server usually requires a virtual terminal for display "
+"purposes, so at least one terminal must be left unused by E<.Xr getty 8> so "
+"that it can be used by the X server."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:139
+#, no-wrap
+msgid "Key Definitions and Function Key Strings"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:153
+msgid ""
+"The E<.Nm> driver, in conjunction with the keyboard driver, allows the user "
+"to change key definitions and function key strings.  The E<.Xr kbdcontrol 1> "
+"command will load a key definition file (known as ``keymap'' file), dump the "
+"current keymap, and assign a string to a function key.  See E<.Xr keyboard "
+"4> and E<.Xr kbdmap 5> for the keymap file."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:160
+msgid ""
+"You may want to set the E<.Ar keymap> variable in E<.Pa /etc/rc.conf.local> "
+"to the desired keymap file so that it will be automatically loaded when the "
+"system starts up."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:160
+#, no-wrap
+msgid "Software Font"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:169
+msgid ""
+"For most modern video cards, e.g., VGA, the E<.Nm> driver and the video card "
+"driver allow the user to change the font used on the screen.  The E<.Xr "
+"vidcontrol 1> command can be used to load a font file from E<.Pa "
+"/usr/share/syscons/fonts>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:175
+msgid ""
+"The font comes in various sizes: 8x8, 8x14 and 8x16.  The 8x16 font is "
+"typically used for the VGA card in the 80-column-by-25-line mode.  Other "
+"video modes may require different font sizes.  It is better to always load "
+"all three sizes of the same font."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:185
+msgid ""
+"You may set E<.Ar font8x8>, E<.Ar font8x14> and E<.Ar font8x16> variables in "
+"E<.Pa /etc/rc.conf> to the desired font files so that they will be "
+"automatically loaded when the system starts up."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:190
+msgid ""
+"Optionally you can specify a particular font file as the default.  See the "
+"E<.Dv SC_DFLT_FONT> option below."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:190
+#, no-wrap
+msgid "Screen Map"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:196
+msgid ""
+"If your video card does not support software fonts, you may still be able to "
+"achieve a similar effect by re-mapping the font built into your video card.  "
+"Use E<.Xr vidcontrol 1> to load a screen map file which defines the mapping "
+"between character codes."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:196
+#, no-wrap
+msgid "Mouse Support and Copy-and-Paste"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:203
+msgid ""
+"You can use your mouse to copy text on the screen and paste it as if it was "
+"typed by hand.  You must be running the mouse daemon E<.Xr moused 8> and "
+"enable the mouse cursor in the virtual terminal via E<.Xr vidcontrol 1>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:213
+msgid ""
+"Pressing mouse button 1 (usually the left button) will start selection.  "
+"Releasing button 1 will end the selection process.  The selected text will "
+"be marked by inverting foreground and background colors.  You can press "
+"button 3 (usually the right button) to extend the selected region.  The "
+"selected text is placed in the copy buffer and can be pasted at the cursor "
+"position by pressing button 2 (usually the middle button) as many times as "
+"you like."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:222
+msgid ""
+"If your mouse has only two buttons, you may want to use the E<.Dv "
+"SC_TWOBUTTON_MOUSE> option below to make the right button to paste the "
+"text.  Alternatively you can make the mouse daemon emulate the middle "
+"button.  See the man page for E<.Xr moused 8> for more details."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:222
+#, no-wrap
+msgid "Back Scrolling"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:227
+msgid ""
+"The E<.Nm> driver allows the user to browse the output which has ``scrolled "
+"off'' the top of the screen."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:245
+msgid ""
+"Press the ``slock'' key (usually E<.Dv ScrllLock> / E<.Dv Scroll Lock> or "
+"E<.Dv Pause> on many keyboards) and the terminal is in the ``scrollback'' "
+"mode.  It is indicated by the E<.Dv Scroll Lock> LED.  Use the arrow keys, "
+"the E<.Dv Page Up/Down> keys and the E<.Dv Home/End> keys to scroll buffered "
+"terminal output.  Press the ``slock'' key again to get back to the normal "
+"terminal mode."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:249
+msgid ""
+"The size of the scrollback buffer can be set by the E<.Dv SC_HISTORY_SIZE> "
+"option described below."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:249
+#, no-wrap
+msgid "Screen Saver"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:260
+msgid ""
+"The E<.Nm> driver can be made to put up the screen saver if the current "
+"virtual terminal is idle, that is, the user is not typing on the keyboard "
+"nor moving the mouse.  See E<.Xr splash 4> and E<.Xr vidcontrol 1> for more "
+"details."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:260
+#, no-wrap
+msgid "DRIVER CONFIGURATION"
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:261
+#, no-wrap
+msgid "Kernel Configuration Options"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:265
+msgid "The following kernel configuration options control the E<.Nm> driver."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:266
+#, no-wrap
+msgid "Dv MAXCONS=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:270
+msgid ""
+"This option sets the number of virtual terminals to E<.Fa N>.  The default "
+"value is 16."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:270
+#, no-wrap
+msgid "Dv SC_ALT_MOUSE_IMAGE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:281
+msgid ""
+"This option selects the alternative way of displaying the mouse cursor in "
+"the virtual terminal.  It may be expensive for some video cards to draw the "
+"arrow-shaped cursor, and you may want to try this option.  However, the "
+"appearance of the alternative mouse cursor may not be very appealing.  Note "
+"that if you use the E<.Dv SC_NO_FONT_LOADING> option then you must also use "
+"this option if you wish to be able to use the mouse."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:281
+#, no-wrap
+msgid "Dv SC_CUT_SEPCHARS=_characters_"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:287
+msgid ""
+"This options specifies characters that will be looked for when the driver "
+"searches for words boundaries when doing cut operation.  By default, its "
+"value is E<.Qq Li \\ex20> \\(em a space character."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:287
+#, no-wrap
+msgid "Dv SC_CUT_SPACES2TABS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:292
+msgid ""
+"This options instructs the driver to convert leading spaces into tabs when "
+"copying data into cut buffer.  This might be useful to preserve indentation "
+"when copying tab-indented text."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:292
+#, no-wrap
+msgid "Dv SC_DFLT_TERM=_name_"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:294
+msgid "This option specifies the name of the preferred terminal emulator."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:294
+#, no-wrap
+msgid "Dv SC_DISABLE_KDBKEY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:308
+msgid ""
+"This option disables the ``debug'' key combination (by default, it is E<.Dv "
+"Alt-Esc>, or E<.Dv Ctl-PrintScreen>).  It will prevent users from entering "
+"the kernel debugger (KDB) by pressing the key combination.  KDB will still "
+"be invoked when the kernel panics or hits a break point if it is included in "
+"the kernel.  If this option is not defined, this behavior may be controlled "
+"at runtime by the E<.Xr sysctl 8> variable E<.Va hw.syscons.kbd_debug>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:308
+#, no-wrap
+msgid "Dv SC_DISABLE_REBOOT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:317
+msgid ""
+"This option disables the ``reboot'' key (by default, it is E<.Dv "
+"Ctl-Alt-Del>), so that the casual user may not accidentally reboot the "
+"system.  If this option is not defined, this behavior may be controlled at "
+"runtime by the E<.Xr sysctl 8> variable E<.Va hw.syscons.kbd_reboot>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:317
+#, no-wrap
+msgid "Dv SC_HISTORY_SIZE=N"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:322
+msgid ""
+"Sets the size of back scroll buffer to E<.Fa N> lines.  The default value is "
+"100."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:322
+#, no-wrap
+msgid "Dv SC_MOUSE_CHAR=C"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:334
+msgid ""
+"Unless the E<.Dv SC_ALT_MOUSE_IMAGE> option above is specified, the E<.Nm> "
+"driver reserves four consecutive character codes in order to display the "
+"mouse cursor in the virtual terminals in some systems.  This option "
+"specifies the first character code to E<.Fa C> to be used for this purpose.  "
+"The default value is 0xd0.  A good candidate is 0x03."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:334
+#, no-wrap
+msgid "Dv SC_PIXEL_MODE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:342
+msgid ""
+"Adds support for pixel (raster) mode console.  This mode is useful on some "
+"laptop computers, but less so on most other systems, and it adds substantial "
+"amount of code to syscons.  If this option is NOT defined, you can reduce "
+"the kernel size a lot.  See the E<.Dv VESAMODE> flag below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:342
+#, no-wrap
+msgid "Dv SC_TWOBUTTON_MOUSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:348
+msgid ""
+"If you have a two button mouse, you may want to add this option to use the "
+"right button of the mouse to paste text.  See E<.Sx Mouse Support and "
+"Copy-and-Paste> above."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:348
+#, no-wrap
+msgid "Dv SC_NORM_ATTR=_attribute_"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:349
+#, no-wrap
+msgid "Dv SC_NORM_REV_ATTR=_attribute_"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:350
+#, no-wrap
+msgid "Dv SC_KERNEL_CONS_ATTR=_attribute_"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:351
+#, no-wrap
+msgid "Dv SC_KERNEL_CONS_ATTRS=_attributes_"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:352
+#, no-wrap
+msgid "Dv SC_KERNEL_CONS_REV_ATTR=_attribute_"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:355
+msgid "These options will set the default colors.  Available colors are defined in"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man4/syscons.4:355
+#, no-wrap
+msgid "machine/pc/display.h ."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:364
+msgid ""
+"See E<.Sx EXAMPLES> below.  E<.Dv SC_KERNEL_CONS_ATTRS> is a character "
+"string giving a sequence of attributes in binary format.  The sequence will "
+"be repeated up to the number of CPUs.  Beware that the string must not be "
+"null, since the kernel divides by its length."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:364
+#, no-wrap
+msgid "Dv SC_DFLT_FONT"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:376
+msgid ""
+"This option will specify the default font.  Available fonts are: iso, iso2, "
+"koi8-r, koi8-u, cp437, cp850, cp865, cp866 and cp866u.  16-line, 14-line and "
+"8-line font data will be compiled in.  Without this option, the E<.Nm> "
+"driver will use whatever font is already loaded in the video card, unless "
+"you explicitly load a software font at startup.  See E<.Sx EXAMPLES> below."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:376
+#, no-wrap
+msgid "Dv SC_NO_SUSPEND_VTYSWITCH"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:387
+msgid ""
+"This option, which is also available as E<.Xr loader 8> tunable and E<.Xr "
+"sysctl 8> variable E<.Va hw.syscons.sc_no_suspend_vtswitch>, disables "
+"switching between virtual terminals (graphics E<lt>-E<gt> text) during "
+"suspend/resume (ACPI and APM).  Use this option if your system is freezing "
+"when you are running X and trying to suspend."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:392
+msgid ""
+"The following options will remove some features from the E<.Nm> driver and "
+"save kernel memory."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:393
+#, no-wrap
+msgid "Dv SC_NO_CUTPASTE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:396
+msgid "This option disables ``copy and paste'' operation in virtual terminals."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:396
+#, no-wrap
+msgid "Dv SC_NO_FONT_LOADING"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:405
+msgid ""
+"The E<.Nm> driver can load software fonts on some video cards.  This option "
+"removes this feature.  Note that if you still wish to use the mouse with "
+"this option then you must also use the E<.Dv SC_ALT_MOUSE_IMAGE> option."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:405
+#, no-wrap
+msgid "Dv SC_NO_HISTORY"
+msgstr ""
+
+#. .It Dv SC_NO_PALETTE_LOADING
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:408
+msgid "This option disables back-scrolling in virtual terminals."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:408
+#, no-wrap
+msgid "Dv SC_NO_SYSMOUSE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:418
+msgid ""
+"This option removes mouse support in the E<.Nm> driver.  The mouse daemon "
+"E<.Xr moused 8> will fail if this option is defined.  This option implies "
+"the E<.Dv SC_NO_CUTPASTE> option too."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:418
+#, no-wrap
+msgid "Dv SC_NO_TERM_DUMB"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:419
+#, no-wrap
+msgid "Dv SC_NO_TERM_SC"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:420
+#, no-wrap
+msgid "Dv SC_NO_TERM_SCTEKEN"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:427
+msgid ""
+"These options remove the E<.Qq dumb>, E<.Qq sc>, and E<.Qq scteken > "
+"terminal emulators, respectively."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:428
+#, no-wrap
+msgid "Driver Flags"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:438
+msgid ""
+"The following driver flags can be used to control the E<.Nm> driver.  Driver "
+"flags can be set with the E<.Cd hint.sc.0.flags> tunable, either in E<.Pa "
+"/boot/device.hints>, or else at the loader prompt (see E<.Xr loader 8>)."
+msgstr ""
+
+#. .It bit 0 (VISUAL_BELL)
+#. Uses the ``visual'' bell.
+#. The screen will blink instead of generating audible sound.
+#. .It bit 1,2 (CURSOR_TYPE)
+#. This option specifies the cursor appearance.
+#. Possible values are:
+#. .Bl -tag -width TYPE -compact
+#. .It Dv 0
+#. normal block cursor
+#. .It Dv 2
+#. blinking block cursor
+#. .It Dv 4
+#. underline cursor
+#. .It Dv 6
+#. blinking underline (aka destructive) cursor
+#. .El
+#. .It bit 6 (QUIET_BELL)
+#. This option suppresses the bell, whether audible or visual,
+#. if it is rung in a background virtual terminal.
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:458
+#, no-wrap
+msgid "0x0080 (VESAMODE)"
+msgstr ""
+
+#. Note also that the ``copy-and-paste'' function is not currently supported
+#. in this mode and the mouse pointer will not be displayed.
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:472
+msgid ""
+"This option puts the video card in the VESA mode specified by E<.Pa "
+"/boot/device.hints> variable E<.Va vesa_mode> during kernel initialization.  "
+"Note that in order for this flag to work, the kernel must be compiled with "
+"the E<.Dv SC_PIXEL_MODE> option explained above.  A list of the available "
+"mode can be obtained via E<.Xr vidcontrol 1>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:472
+#, no-wrap
+msgid "0x0100 (AUTODETECT_KBD)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:476
+msgid ""
+"This option instructs the syscons driver to periodically scan for a keyboard "
+"device if it is not currently attached to one.  Otherwise, the driver only "
+"probes for a keyboard once during bootup."
+msgstr ""
+
+#. type: Ss
+#: /usr/src/share/man/man4/syscons.4:477
+#, no-wrap
+msgid "Loader Tunables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:482
+msgid ""
+"These settings can be entered at the E<.Xr loader 8> prompt or in E<.Xr "
+"loader.conf 5>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:483
+#, no-wrap
+msgid "Va kern.vty"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:498
+msgid ""
+"When both E<.Nm> and E<.Xr vt 4> have been compiled into the kernel, the one "
+"to use for the system console can be selected by setting this variable to "
+"E<.Ql sc> or E<.Ql vt>.  The E<.Pa GENERIC> kernel uses E<.Xr vt 4> when "
+"this value is not set."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:499
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:501
+#, no-wrap
+msgid "Pa /dev/console"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:502
+#, no-wrap
+msgid "Pa /dev/consolectl"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:503
+#, no-wrap
+msgid "Pa /dev/ttyv?"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:505
+msgid "virtual terminals"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:505
+#, no-wrap
+msgid "Pa /etc/ttys"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:507
+msgid "terminal initialization information"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:507
+#, no-wrap
+msgid "Pa /usr/share/syscons/fonts/*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:509
+msgid "font files"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:509
+#, no-wrap
+msgid "Pa /usr/share/syscons/keymaps/*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:511
+msgid "key map files"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/syscons.4:511
+#, no-wrap
+msgid "Pa /usr/share/syscons/scrmaps/*"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:513
+msgid "screen map files"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:514
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:519
+msgid ""
+"As the E<.Nm> driver requires the keyboard driver and the video card driver, "
+"the kernel configuration file should contain the following lines."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:525
+#, no-wrap
+msgid ""
+"device atkbdc\n"
+"device atkbd\n"
+"device vga\n"
+"device sc\n"
+"device splash\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:530
+msgid ""
+"You also need the following lines in E<.Pa /boot/device.hints> for these "
+"drivers."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:537
+#, no-wrap
+msgid ""
+"hint.atkbdc.0.at=\"isa\"\n"
+"hint.atkbdc.0.port=\"0x060\"\n"
+"hint.atkbd.0.at=\"atkbdc\"\n"
+"hint.atkbd.0.irq=\"1\"\n"
+"hint.vga.0.at=\"isa\"\n"
+"hint.sc.0.at=\"isa\"\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:541
+msgid ""
+"If you do not intend to load the splash image or use the screen saver, the "
+"last line is not necessary, and can be omitted."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:546
+msgid ""
+"Note that the keyboard controller driver E<.Nm atkbdc> is required by the "
+"keyboard driver E<.Nm atkbd>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:553
+msgid ""
+"The following lines will set the default colors.  The normal text will be "
+"green on black background.  The reversed text will be yellow on green "
+"background.  Note that you cannot put any white space inside the quoted "
+"string, because of the current implementation of E<.Xr config 8>."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:554
+#, no-wrap
+msgid "options SC_NORM_ATTR=(FG_GREEN|BG_BLACK)"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:555
+#, no-wrap
+msgid "options SC_NORM_REV_ATTR=(FG_YELLOW|BG_GREEN)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:560
+msgid ""
+"The following lines will set the default colors of the kernel message.  The "
+"kernel message will be printed bright red on black background.  The reversed "
+"message will be black on red background."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:561
+#, no-wrap
+msgid "options SC_KERNEL_CONS_ATTR=(FG_LIGHTRED|BG_BLACK)"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:562
+#, no-wrap
+msgid "options SC_KERNEL_CONS_REV_ATTR=(FG_BLACK|BG_RED)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:569
+msgid ""
+"Provided E<.Dv SC_KERNEL_CONS_ATTR> is not set, or is set to its default of "
+"bright white on black, the following line will set 4 red-ish colors for "
+"printing kernel messages in colors depending on the CPU."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:570
+#, no-wrap
+msgid "options SC_KERNEL_CONS_ATTRS=\\e\"\\ex0c\\ex04\\ex40\\ex0e\\e\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:574
+msgid ""
+"The default scheme is probably better for up to 8 CPUs.  Use a long string "
+"to get unique colors for more than 8 CPUs."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:578
+msgid ""
+"To turn off all per-CPU coloring of kernel messages, set SC_KERNEL_CONS_ATTR "
+"to a non-default value, or use the default in a pattern of length 1."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:579
+#, no-wrap
+msgid "options SC_KERNEL_CONS_ATTRS=\\e\"\\ex0f\\e\""
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:587
+msgid ""
+"The following example adds the font files E<.Pa cp850-8x16.fnt>, E<.Pa "
+"cp850-8x14.font> and E<.Pa cp850-8x8.font> to the kernel."
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:588
+#, no-wrap
+msgid "options SC_DFLT_FONT"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:589
+#, no-wrap
+msgid "makeoptions SC_DFLT_FONT=cp850"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/syscons.4:590
+#, no-wrap
+msgid "device sc"
+msgstr ""
+
+#. .Sh DIAGNOSTICS
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:592
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:611
+msgid ""
+"E<.Xr kbdcontrol 1>, E<.Xr login 1>, E<.Xr vidcontrol 1>, E<.Xr atkbd 4>, "
+"E<.Xr atkbdc 4>, E<.Xr keyboard 4>, E<.Xr screen 4>, E<.Xr splash 4>, E<.Xr "
+"ukbd 4>, E<.Xr vga 4>, E<.Xr vt 4>, E<.Xr kbdmap 5>, E<.Xr rc.conf 5>, E<.Xr "
+"ttys 5>, E<.Xr config 8>, E<.Xr getty 8>, E<.Xr kldload 8>, E<.Xr moused 8>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:611
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:616
+msgid "The E<.Nm> driver first appeared in E<.Fx 1.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:616
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:624
+msgid ""
+"E<.An -nosplit> The E<.Nm> driver was written by E<.An S\\(/oren Schmidt Aq "
+"Mt sos@FreeBSD.org>.  This manual page was written by E<.An Kazutaka Yokota "
+"Aq Mt yokota@FreeBSD.org>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:624
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:632
+msgid ""
+"The amount of data that is possible to insert from the cut buffer is limited "
+"by the E<.Brq Dv MAX_INPUT>, a system limit on the number of bytes that may "
+"be stored in the terminal input queue - usually 1024 bytes (see E<.Xr "
+"termios 4>)."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/syscons.4:632
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/syscons.4:633
+msgid "This manual page is incomplete and urgently needs revision."
+msgstr ""

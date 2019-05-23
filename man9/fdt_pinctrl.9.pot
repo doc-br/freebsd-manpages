@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/fdt_pinctrl.9:31
+#, no-wrap
+msgid "June 23, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/fdt_pinctrl.9:32
+#, no-wrap
+msgid "fdt_pinctrl 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fdt_pinctrl.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:36
+msgid "E<.Nm fdt_pinctrl>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/fdt_pinctrl.9:36
+#, no-wrap
+msgid "helper functions for FDT pinmux controller drivers"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fdt_pinctrl.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/fdt_pinctrl.9:38
+#, no-wrap
+msgid "dev/fdt/fdt_pinctrl.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:47
+msgid ""
+"E<.Ft int> E<.Fn fdt_pinctrl_configure \"device_t client\" \"u_int index\"> "
+"E<.Ft int> E<.Fn fdt_pinctrl_configure_by_name \"device_t client\" \"const "
+"char * name\"> E<.Ft int> E<.Fn fdt_pinctrl_register \"device_t pinctrl\" "
+"\"const char *pinprop\"> E<.Ft int> E<.Fn fdt_pinctrl_configure_tree "
+"\"device_t pinctrl\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fdt_pinctrl.9:47
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:70
+msgid ""
+"E<.Xr fdt_pinctrl 4> provides an API for manipulating I/O pin configurations "
+"on pinmux controllers and pinmux clients.  On the controller side, the "
+"standard newbus probe and attach methods are implemented.  As part of "
+"handling attach, it calls the E<.Fn fdt_pinctrl_register> function to "
+"register itself as a pinmux controller.  Then E<.Fn "
+"fdt_pinctrl_configure_tree> is used to walk the device tree and configure "
+"pins specified by the pinctrl-0 property for all active devices.  The driver "
+"also implements the E<.Fn fdt_pinctrl_configure> method, which allows client "
+"devices to change their pin configurations after startup.  If a client "
+"device requires a pin configuration change at some point of its lifecycle, "
+"it uses the E<.Fn fdt_pinctrl_configure> or E<.Fn "
+"fdt_pinctrl_configure_by_name> functions."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:77
+msgid ""
+"E<.Fn fdt_pinctrl_configure> is used by client device E<.Fa client> to "
+"request a pin configuration described by the pinctrl-N property with index "
+"E<.Fa index>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:83
+msgid ""
+"E<.Fn fdt_pinctrl_configure_by_name> is used by client device E<.Fa client> "
+"to request the pin configuration with name E<.Fa name>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:102
+msgid ""
+"E<.Fn fdt_pinctrl_register> registers a pinctrl driver so that it can be "
+"used by other devices which call E<.Fn fdt_pinctrl_configure> or E<.Fn "
+"fdt_pinctrl_configure_by_name>.  It also registers each child node of the "
+"pinctrl driver's node which contains a property with the name given in E<.Fa "
+"pinprop>.  If E<.Fa pinprop> is E<.Dv NULL>, every descendant node is "
+"registered.  It is possible for the driver to register itself as a pinmux "
+"controller for more than one pin property type by calling E<.Fn "
+"fdt_pinctrl_register> multiple types."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:108
+msgid ""
+"E<.Fn fdt_pinctrl_configure_tree> walks through enabled devices in the "
+"device tree.  If the pinctrl-0 property contains references to child nodes "
+"of the specified pinctrl device, their pins are configured."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fdt_pinctrl.9:108
+#, no-wrap
+msgid "EXAMPLES"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:116
+#, no-wrap
+msgid ""
+"static int\n"
+"foo_configure_pins(device_t dev, phandle_t cfgxref)\n"
+"{\n"
+"\tphandle_t cfgnode;\n"
+"\tuint32_t *pins, *functions;\n"
+"\tint npins, nfunctions;\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:126
+#, no-wrap
+msgid ""
+"\tcfgnode = OF_node_from_xref(cfgxref);\n"
+"\tpins = NULL;\n"
+"\tnpins = OF_getencprop_alloc_multi(cfgnode, \"foo,pins\", sizeof(*pins),\n"
+"\t    (void **)&pins);\n"
+"\tfunctions = NULL;\n"
+"\tnfunctions = OF_getencprop_alloc_multi(cfgnode, \"foo,functions\",\n"
+"\t    sizeof(*functions), (void **)&functions);\n"
+"\t...\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:131
+#, no-wrap
+msgid ""
+"static int\n"
+"foo_attach(device_t dev)\n"
+"{\n"
+"\t...\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:138
+#, no-wrap
+msgid ""
+"\tfdt_pinctrl_register(dev, \"foo,pins\");\n"
+"\t/*\n"
+"\t * It is possible to register more than one pinprop handler\n"
+"\t */\n"
+"\tfdt_pinctrl_register(dev, \"bar,pins\");\n"
+"\tfdt_pinctrl_configure_tree(dev);\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:141
+#, no-wrap
+msgid ""
+"\treturn (0);\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:144
+#, no-wrap
+msgid ""
+"static device_method_t foo_methods[] = {\n"
+"\t...\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:147
+#, no-wrap
+msgid ""
+"\t/* fdt_pinctrl interface */\n"
+"\tDEVMETHOD(fdt_pinctrl_configure, foo_configure_pins),\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:151
+#, no-wrap
+msgid ""
+"\t/* Terminate method list */\n"
+"\tDEVMETHOD_END\n"
+"};\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:153
+#, no-wrap
+msgid "DRIVER_MODULE(foo, simplebus, foo_driver, foo_devclass, NULL, NULL);\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fdt_pinctrl.9:154
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:156
+msgid "E<.Xr fdt_pinctrl 4>,"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/fdt_pinctrl.9:156
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/fdt_pinctrl.9:158
+msgid "This manual page was written by E<.An Oleksandr Tymoshenko>."
+msgstr ""

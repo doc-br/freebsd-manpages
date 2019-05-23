@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/redzone.9:27
+#, no-wrap
+msgid "January 9, 2009"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/redzone.9:28
+#, no-wrap
+msgid "REDZONE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:30
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:32
+msgid "E<.Nm RedZone>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/redzone.9:32
+#, no-wrap
+msgid "buffer corruptions detector"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:33
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:37
+msgid ""
+"E<.Cd \"options KDB\"> E<.Cd \"options DDB\"> E<.Cd \"options "
+"DEBUG_REDZONE\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:58
+msgid ""
+"E<.Nm> detects buffer underflow and buffer overflow bugs at runtime.  "
+"Currently E<.Nm> only detects buffer corruptions for memory allocated with "
+"E<.Xr malloc 9>.  When such corruption is detected two backtraces are "
+"printed on the console.  The first one shows from where memory was "
+"allocated, the second one shows from where memory was freed.  By default the "
+"system will not panic when buffer corruption is detected.  This can be "
+"changed by setting the E<.Va vm.redzone.panic> E<.Xr sysctl 8> variable to "
+"1.  The amount of extra memory allocated for E<.Nm Ns 's> needs is stored in "
+"the E<.Va vm.redzone.extra_mem> E<.Xr sysctl 8> variable."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:58
+#, no-wrap
+msgid "EXAMPLE"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:61
+msgid ""
+"The example below shows the logs from the detection of a buffer underflow "
+"and a buffer overflow."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:84
+#, no-wrap
+msgid ""
+"REDZONE: Buffer underflow detected. 2 bytes corrupted before 0xc8688580 (16 "
+"bytes allocated).\n"
+"Allocation backtrace:\n"
+"#0 0xc0583e4e at redzone_setup+0x3c\n"
+"#1 0xc04a23fa at malloc+0x19e\n"
+"#2 0xcdeb69ca at redzone_modevent+0x60\n"
+"#3 0xc04a3f3c at module_register_init+0x82\n"
+"#4 0xc049d96a at linker_file_sysinit+0x8e\n"
+"#5 0xc049dc7c at linker_load_file+0xed\n"
+"#6 0xc04a041f at linker_load_module+0xc4\n"
+"#7 0xc049e883 at kldload+0x116\n"
+"#8 0xc05d9b3d at syscall+0x325\n"
+"#9 0xc05c944f at Xint0x80_syscall+0x1f\n"
+"Free backtrace:\n"
+"#0 0xc0583f92 at redzone_check+0xd4\n"
+"#1 0xc04a2422 at free+0x1c\n"
+"#2 0xcdeb69a6 at redzone_modevent+0x3c\n"
+"#3 0xc04a438d at module_unload+0x61\n"
+"#4 0xc049e0b3 at linker_file_unload+0x89\n"
+"#5 0xc049e979 at kern_kldunload+0x96\n"
+"#6 0xc049ea00 at kldunloadf+0x2c\n"
+"#7 0xc05d9b3d at syscall+0x325\n"
+"#8 0xc05c944f at Xint0x80_syscall+0x1f\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:107
+#, no-wrap
+msgid ""
+"REDZONE: Buffer overflow detected. 4 bytes corrupted after 0xc8688590 (16 "
+"bytes allocated).\n"
+"Allocation backtrace:\n"
+"#0 0xc0583e4e at redzone_setup+0x3c\n"
+"#1 0xc04a23fa at malloc+0x19e\n"
+"#2 0xcdeb69ca at redzone_modevent+0x60\n"
+"#3 0xc04a3f3c at module_register_init+0x82\n"
+"#4 0xc049d96a at linker_file_sysinit+0x8e\n"
+"#5 0xc049dc7c at linker_load_file+0xed\n"
+"#6 0xc04a041f at linker_load_module+0xc4\n"
+"#7 0xc049e883 at kldload+0x116\n"
+"#8 0xc05d9b3d at syscall+0x325\n"
+"#9 0xc05c944f at Xint0x80_syscall+0x1f\n"
+"Free backtrace:\n"
+"#0 0xc0584020 at redzone_check+0x162\n"
+"#1 0xc04a2422 at free+0x1c\n"
+"#2 0xcdeb69a6 at redzone_modevent+0x3c\n"
+"#3 0xc04a438d at module_unload+0x61\n"
+"#4 0xc049e0b3 at linker_file_unload+0x89\n"
+"#5 0xc049e979 at kern_kldunload+0x96\n"
+"#6 0xc049ea00 at kldunloadf+0x2c\n"
+"#7 0xc05d9b3d at syscall+0x325\n"
+"#8 0xc05c944f at Xint0x80_syscall+0x1f\n"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:108
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:112
+msgid "E<.Xr sysctl 8>, E<.Xr malloc 9>, E<.Xr memguard 9>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:112
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:116
+msgid "E<.Nm> first appeared in E<.Fx 7.0>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:116
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:118
+msgid "E<.An Pawel Jakub Dawidek Aq Mt pjd@FreeBSD.org>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/redzone.9:118
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/redzone.9:125
+msgid ""
+"Currently, E<.Nm> does not cooperate with E<.Xr memguard 9>.  Allocations "
+"from a memory type controlled by E<.Xr memguard 9> are simply skipped, so "
+"buffer corruptions will not be detected there."
+msgstr ""

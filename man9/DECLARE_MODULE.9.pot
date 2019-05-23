@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:31
+#, no-wrap
+msgid "February 13, 2018"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:32
+#, no-wrap
+msgid "DECLARE_MODULE 9"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:34
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:36
+msgid "E<.Nm DECLARE_MODULE>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:36
+#, no-wrap
+msgid "kernel module declaration macro"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:37
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:38
+#, no-wrap
+msgid "sys/param.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:39
+#, no-wrap
+msgid "sys/kernel.h"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:40
+#, no-wrap
+msgid "sys/module.h"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:43
+msgid ""
+"E<.Fn DECLARE_MODULE \"name\" \"moduledata_t data\" \"sub\" \"order\"> E<.Fn "
+"DECLARE_MODULE_TIED \"name\" \"moduledata_t data\" \"sub\" \"order\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:43
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:58
+msgid ""
+"The E<.Fn DECLARE_MODULE> macro declares a generic kernel module.  It is "
+"used to register the module with the system, using the E<.Fn SYSINIT> "
+"macro.  E<.Fn DECLARE_MODULE> is usually used within other macros, such as "
+"E<.Xr DRIVER_MODULE 9>, E<.Xr DEV_MODULE 9> and E<.Xr SYSCALL_MODULE 9>.  Of "
+"course, it can also be called directly, for example in order to implement "
+"dynamic sysctls."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:73
+msgid ""
+"A module declared with E<.Fn DECLARE_MODULE_TIED> will load only if the "
+"running kernel version (as specified by E<.Dv __FreeBSD_version>)  is "
+"identical to that on which it was built.  This declaration should be used by "
+"modules which depend on interfaces beyond the stable kernel KBI (such as ABI "
+"emulators or hypervisors that rely on internal kernel structures).  E<.Fn "
+"DECLARE_MODULE> will behave like E<.Fn DECLARE_MODULE_TIED> when compiled "
+"with modules built with the kernel. This allows locks and other "
+"synchronization primitives to be inlined safely."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:75
+msgid "The arguments are:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:76
+#, no-wrap
+msgid "Fa name"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:80
+msgid ""
+"The module name, which will be used in the E<.Fn SYSINIT> call to identify "
+"the module."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:80
+#, no-wrap
+msgid "Fa data"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:88
+msgid ""
+"A E<.Vt moduledata_t> structure, which contains two main items, the official "
+"name of the module name, which will be used in the E<.Vt module_t> structure "
+"and a pointer to the event handler function of type E<.Vt modeventhand_t>."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:88
+#, no-wrap
+msgid "Fa sub"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:96
+msgid ""
+"An argument directed to the E<.Fn SYSINIT> macro.  Valid values for this are "
+"contained in the E<.Vt sysinit_sub_id> enumeration (see"
+msgstr ""
+
+#. type: In
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:96
+#, no-wrap
+msgid "sys/kernel.h )"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:106
+msgid ""
+"and specify the type of system startup interfaces.  The E<.Xr DRIVER_MODULE "
+"9> macro uses a value of E<.Dv SI_SUB_DRIVERS> here for example, since these "
+"modules contain a driver for a device.  For kernel modules that are loaded "
+"at runtime, a value of E<.Dv SI_SUB_EXEC> is common."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:106
+#, no-wrap
+msgid "Fa order"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:114
+msgid ""
+"An argument for E<.Fn SYSINIT>.  It represents the KLDs order of "
+"initialization within the subsystem.  Valid values are defined in the E<.Vt "
+"sysinit_elem_order> enumeration E<.Pq In sys/kernel.h>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:115
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:120
+msgid ""
+"E<.Xr DEV_MODULE 9>, E<.Xr DRIVER_MODULE 9>, E<.Xr module 9>, E<.Xr "
+"SYSCALL_MODULE 9>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:123
+msgid "E<.Pa /usr/include/sys/kernel.h>, E<.Pa /usr/share/examples/kld>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:123
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man9/DECLARE_MODULE.9:128
+msgid ""
+"E<.An -nosplit> This manual page was written by E<.An Alexander Langer Aq Mt "
+"alex@FreeBSD.org>, inspired by the KLD Facility Programming Tutorial by "
+"E<.An Andrew Reiter Aq Mt arr@watson.org>."
+msgstr ""

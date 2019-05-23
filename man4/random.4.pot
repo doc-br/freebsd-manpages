@@ -1,0 +1,367 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/random.4:26
+#, no-wrap
+msgid "April 19, 2019"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/random.4:27
+#, no-wrap
+msgid "RANDOM 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:29
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:31
+msgid "E<.Nm random>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/random.4:31
+#, no-wrap
+msgid "the entropy device"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:32
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:37
+msgid ""
+"E<.Cd \"device random\"> E<.Cd \"options RANDOM_LOADABLE\"> E<.Cd \"options "
+"RANDOM_ENABLE_ETHER\"> E<.Cd \"options RANDOM_ENABLE_UMA\">"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:37
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:41
+msgid "The E<.Nm> device returns an endless supply of random bytes when read."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:45
+msgid ""
+"The generator will start in an E<.Em unseeded> state, and will block reads "
+"until it is seeded for the first time."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:55
+msgid ""
+"To provide prompt access to the random device at boot time, E<.Fx> "
+"automatically persists some entropy data in E<.Pa /boot/entropy> for the "
+"loader to provide to the kernel.  Additional entropy is regularly saved in "
+"E<.Pa /var/db/entropy>.  This saved entropy is sufficient to unblock the "
+"random device on devices with writeable media."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:62
+msgid ""
+"Embedded applications without writable media must determine their own scheme "
+"for re-seeding the random device on boot, or accept that the device will "
+"remain unseeded and block reads indefinitely.  See E<.Sx SECURITY "
+"CONSIDERATIONS> for more detail."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:72
+msgid ""
+"In addition to E<.Xr read 2>, the direct output of the abstract kernel "
+"entropy device can be read with E<.Xr getrandom 2>, E<.Xr getentropy 3>, or "
+"the E<.Xr sysctl 8> pseudo-variable E<.Va kern.arandom>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:76
+msgid ""
+"To see the current settings of the software E<.Nm> device, use the command "
+"line:"
+msgstr ""
+
+#. type: Dl
+#: /usr/src/share/man/man4/random.4:77
+#, no-wrap
+msgid "sysctl kern.random"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:80
+msgid "which results in something like:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:92
+#, no-wrap
+msgid ""
+"kern.random.block_seeded_status: 0\n"
+"kern.random.fortuna.minpoolsize: 64\n"
+"kern.random.harvest.mask_symbolic: "
+"ENABLEDSOURCE,[DISABLEDSOURCE],...,CACHED\n"
+"kern.random.harvest.mask_bin: 00000010000000111011111\n"
+"kern.random.harvest.mask: 66015\n"
+"kern.random.use_chacha20_cipher: 0\n"
+"kern.random.random_sources: 'Intel Secure Key RNG'\n"
+"kern.random.initial_seeding.bypass_before_seeding: 1\n"
+"kern.random.initial_seeding.read_random_bypassed_before_seeding: 0\n"
+"kern.random.initial_seeding.arc4random_bypassed_before_seeding: 0\n"
+"kern.random.initial_seeding.disable_bypass_warnings: 0\n"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:100
+msgid ""
+"Other than E<.Va kern.random.block_seeded_status>, E<.Va "
+"kern.random.fortuna.minpoolsize>, and E<.Va kern.random.harvest.mask>, all "
+"settings are read-only."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:110
+msgid ""
+"The E<.Pa kern.random.fortuna.minpoolsize> sysctl is used to set the seed "
+"threshold.  A smaller number gives a faster seed, but a less secure one.  In "
+"practice, values between 64 and 256 are acceptable."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:135
+msgid ""
+"The E<.Va kern.random.harvest.mask> bitmask is used to select the possible "
+"entropy sources.  A 0 (zero) value means the corresponding source is not "
+"considered as an entropy source.  Set the bit to 1 (one)  if you wish to use "
+"that source.  The E<.Va kern.random.harvest.mask_bin> and E<.Va "
+"kern.random.harvest.mask_symbolic> sysctls can be used to confirm settings "
+"in a human readable form.  Disabled items in the latter item are listed in "
+"square brackets.  See E<.Xr random_harvest 9> for more on the harvesting of "
+"entropy."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:135
+#, no-wrap
+msgid "FILES"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/random.4:137
+#, no-wrap
+msgid "Pa /dev/random"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/random.4:138
+#, no-wrap
+msgid "Pa /dev/urandom"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:140
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:144
+msgid "The following tunables are related to initial seeding of the E<.Nm> device:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/random.4:145
+#, no-wrap
+msgid "Va kern.random.initial_seeding.bypass_before_seeding"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:165
+msgid ""
+"Defaults to 1 (on).  When set, the system will bypass the E<.Nm> device "
+"prior to initial seeding.  On is E<.Em unsafe>, but provides availability on "
+"many systems that lack early sources of entropy, or cannot load E<.Pa "
+"/boot/entropy> sufficiently early in boot for E<.Nm> consumers.  When unset "
+"(0), the system will block E<.Xr read_random 9> and E<.Xr arc4random 9> "
+"requests if and until the E<.Nm> device is initially seeded."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/random.4:165
+#, no-wrap
+msgid "Va kern.random.initial_seeding.disable_bypass_warnings"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:170
+msgid ""
+"Defaults to 0 (off).  When set non-zero, disables warnings in dmesg when the "
+"E<.Nm> device is bypassed."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:183
+msgid ""
+"The following read-only E<.Xr sysctl 8> variables allow programmatic "
+"diagnostic of whether E<.Nm> device bypass occurred during boot.  If they "
+"are set (non-zero), the specific functional unit bypassed the strong E<.Nm> "
+"device output and either produced no output E<.Xr ( read_random 9>)  or "
+"seeded itself with minimal, non-cryptographic entropy E<.Xr ( arc4random "
+"9>)."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:186
+msgid "E<.Va kern.random.initial_seeding.read_random_bypassed_before_seeding>"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:188
+msgid "E<.Va kern.random.initial_seeding.arc4random_bypassed_before_seeding>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:189
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:204
+msgid ""
+"E<.Xr getrandom 2>, E<.Xr arc4random 3>, E<.Xr getentropy 3>, E<.Xr random "
+"3>, E<.Xr sysctl 8>, E<.Xr random 9> E<.Rs> E<.%A Ferguson> E<.%A Schneier> "
+"E<.%A Kohno> E<.%B Cryptography Engineering> E<.%I Wiley> E<.%O ISBN "
+"978-0-470-47424-2> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:204
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:218
+msgid ""
+"A E<.Nm> device appeared in E<.Fx 2.2>.  The implementation was changed to "
+"the E<.Em Yarrow algorithm in> E<.Fx 5.0>.  In E<.Fx 11.0>, the Fortuna "
+"algorithm was introduced as the default.  In E<.Fx 12.0>, Yarrow was removed "
+"entirely."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:218
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:225
+msgid ""
+"E<.An -nosplit> The current E<.Nm> code was authored by E<.An Mark R V "
+"Murray>, with significant contributions from many people."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:233
+msgid ""
+"The E<.Em Fortuna> algorithm was designed by E<.An Niels Ferguson>, E<.An "
+"Bruce Schneier>, and E<.An Tadayoshi Kohno>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:233
+#, no-wrap
+msgid "CAVEATS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:252
+msgid ""
+"When E<.Cd \"options RANDOM_LOADABLE\"> is enabled, the E<.Pa /dev/random> "
+"device is not created until an \"algorithm module\" is loaded.  The only "
+"module built by default is E<.Em random_fortuna>.  Loadable random modules "
+"are less efficient than their compiled-in equivalents.  This is because some "
+"functions must be locked against load and unload events, and also must be "
+"indirect calls to allow for removal."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:262
+msgid ""
+"When E<.Cd \"options RANDOM_ENABLE_UMA\"> is enabled, the E<.Pa /dev/random> "
+"device will obtain entropy from the zone allocator.  This is a very high "
+"rate source with significant performance impact.  Therefore, it is disabled "
+"by default."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:272
+msgid ""
+"When E<.Cd \"options RANDOM_ENABLE_ETHER\"> is enabled, the E<.Nm> device "
+"will obtain entropy from E<.Vt mbuf> structures passing through the network "
+"stack.  This source is both extremely expensive and a poor source of "
+"entropy, so it is disabled by default."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/random.4:272
+#, no-wrap
+msgid "SECURITY CONSIDERATIONS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:280
+msgid ""
+"The initial seeding of random number generators is a bootstrapping problem "
+"that needs very careful attention.  When writable media is available, the "
+"E<.Em Fortuna> paper describes a robust system for rapidly reseeding the "
+"device."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:286
+msgid ""
+"In some embedded cases, it may be difficult to find enough randomness to "
+"seed a random number generator until a system is fully operational.  In "
+"these cases, is the responsibility of the system architect to ensure that "
+"blocking is acceptable, or that the random device is seeded.  (This advice "
+"does not apply to typical consumer systems.)"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/random.4:291
+msgid ""
+"To emulate embedded systems, developers may set the E<.Va "
+"kern.random.block_seeded_status> tunable to 1 to verify boot does not "
+"require early availability of the E<.Nm> device."
+msgstr ""

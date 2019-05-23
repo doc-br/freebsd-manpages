@@ -1,0 +1,285 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-18 14:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Dd
+#: /usr/src/share/man/man4/cc_cdg.4:28
+#, no-wrap
+msgid "July 2, 2013"
+msgstr ""
+
+#. type: Dt
+#: /usr/src/share/man/man4/cc_cdg.4:29
+#, no-wrap
+msgid "CC_CDG 4"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:31
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:33
+msgid "E<.Nm cc_cdg>"
+msgstr ""
+
+#. type: Nd
+#: /usr/src/share/man/man4/cc_cdg.4:33
+#, no-wrap
+msgid "CDG Congestion Control Algorithm"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:34
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:42
+msgid ""
+"CAIA-Delay Gradient (CDG) is a hybrid congestion control algorithm which "
+"reacts to both packet loss and inferred queuing delay.  It attempts to "
+"operate as a delay-based algorithm where possible, but utilises heuristics "
+"to detect loss-based TCP cross traffic and will compete effectively as "
+"required.  CDG is therefore incrementally deployable and suitable for use on "
+"shared networks."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:49
+msgid ""
+"During delay-based operation, CDG uses a delay-gradient based probabilistic "
+"backoff mechanism, and will also try to infer non congestion related packet "
+"losses and avoid backing off when they occur.  During loss-based operation, "
+"CDG essentially reverts to E<.Xr cc_newreno 4 Ns - Ns like> behaviour."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:54
+msgid ""
+"CDG switches to loss-based operation when it detects that a configurable "
+"number of consecutive delay-based backoffs have had no measurable effect.  "
+"It periodically attempts to return to delay-based operation, but will keep "
+"switching back to loss-based operation as required."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:54
+#, no-wrap
+msgid "MIB Variables"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:60
+msgid ""
+"The algorithm exposes the following variables in the E<.Va "
+"net.inet.tcp.cc.cdg> branch of the E<.Xr sysctl 3> MIB:"
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:61
+#, no-wrap
+msgid "Va version"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:63
+msgid "Current algorithm/implementation version number."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:63
+#, no-wrap
+msgid "Va beta_delay"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:67
+msgid ""
+"Delay-based window decrease factor as a percentage (on delay-based backoff, "
+"w = w * beta_delay / 100).  Default is 70."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:67
+#, no-wrap
+msgid "Va beta_loss"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:71
+msgid ""
+"Loss-based window decrease factor as a percentage (on loss-based backoff, w "
+"= w * beta_loss / 100).  Default is 50."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:71
+#, no-wrap
+msgid "Va exp_backoff_scale"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:74
+msgid "Scaling parameter for the probabilistic exponential backoff.  Default is 2."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:74
+#, no-wrap
+msgid "Va smoothing_factor"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:77
+msgid ""
+"Number of samples used for moving average smoothing (0 means no smoothing).  "
+"Default is 8."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:77
+#, no-wrap
+msgid "Va loss_compete_consec_cong"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:81
+msgid ""
+"Number of consecutive delay-gradient based congestion episodes which will "
+"trigger loss-based CC compatibility.  Default is 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:81
+#, no-wrap
+msgid "Va loss_compete_hold_backoff"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:85
+msgid ""
+"Number of consecutive delay-gradient based congestion episodes to hold the "
+"window backoff for loss-based CC compatibility.  Default is 5."
+msgstr ""
+
+#. type: It
+#: /usr/src/share/man/man4/cc_cdg.4:85
+#, no-wrap
+msgid "Va alpha_inc"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:98
+msgid ""
+"If non-zero, this enables an experimental mode where CDG's window increase "
+"factor (alpha) is increased by 1 MSS every E<.Va alpha_inc> RTTs during "
+"congestion avoidance mode.  (Setting E<.Va alpha_inc> to 1 results in the "
+"most aggressive growth of the window increase factor over time.  Use higher "
+"E<.Va alpha_inc> values for slower growth.)  Default is 0."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:99
+#, no-wrap
+msgid "SEE ALSO"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:127
+msgid ""
+"E<.Xr cc_chd 4>, E<.Xr cc_cubic 4>, E<.Xr cc_hd 4>, E<.Xr cc_htcp 4>, E<.Xr "
+"cc_newreno 4>, E<.Xr cc_vegas 4>, E<.Xr h_ertt 4>, E<.Xr mod_cc 4>, E<.Xr "
+"tcp 4>, E<.Xr khelp 9>, E<.Xr mod_cc 9> E<.Rs> E<.%A \"D. A. Hayes\"> E<.%A "
+"\"G. Armitage\"> E<.%T \"Revisiting TCP Congestion Control using Delay "
+"Gradients\"> E<.%J \"Networking 2011 Proceedings, Part II\"> E<.%D \"May "
+"2011\"> E<.%P \"328-341\"> E<.Re> E<.Rs> E<.%A \"N. Khademi\"> E<.%A "
+"\"G. Armitage\"> E<.%T \"Minimising RTT across homogeneous 802.11 WLANs with "
+"CAIA Delay-Gradient TCP (v0.1)\"> E<.%R \"CAIA Technical Report 121113A\"> "
+"E<.%D \"November 2012\"> E<.%U "
+"\"http://caia.swin.edu.au/reports/121113A/CAIA-TR-121113A.pdf\"> E<.Re>"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:127
+#, no-wrap
+msgid "ACKNOWLEDGEMENTS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:131
+msgid ""
+"Development and testing of this software were made possible in part by "
+"grants from the FreeBSD Foundation and The Cisco University Research Program "
+"Fund, a corporate advised fund of Silicon Valley Community Foundation."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:131
+#, no-wrap
+msgid "HISTORY"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:136
+msgid "The E<.Nm> congestion control module first appeared in E<.Fx 9.2>."
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:141
+msgid ""
+"The module was first released in 2011 by David Hayes whilst working on the "
+"NewTCP research project at Swinburne University of Technology's Centre for "
+"Advanced Internet Architectures, Melbourne, Australia.  More details are "
+"available at:"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:143
+msgid "http://caia.swin.edu.au/urp/newtcp/"
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:143
+#, no-wrap
+msgid "AUTHORS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:153
+msgid ""
+"E<.An -nosplit> The E<.Nm> congestion control module was written by E<.An "
+"David Hayes Aq Mt david.hayes@ieee.org>.  This manual page was written by "
+"E<.An Lawrence Stewart Aq Mt lstewart@FreeBSD.org> and E<.An Grenville "
+"Armitage Aq Mt garmitage@swin.edu.au>."
+msgstr ""
+
+#. type: Sh
+#: /usr/src/share/man/man4/cc_cdg.4:153
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: /usr/src/share/man/man4/cc_cdg.4:155
+msgid ""
+"The underlying algorithm and parameter values are still a work in progress "
+"and may not be optimal for some network scenarios."
+msgstr ""
